@@ -9,3 +9,6 @@ scripts/official/
 *.npy
 *.tar.gz
 *.zip
+
+__pycache__/
+*.pyc
