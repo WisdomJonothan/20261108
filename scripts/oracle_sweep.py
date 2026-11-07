@@ -62,7 +62,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--domain", required=True, choices=["iota", "bitcoin"])
     ap.add_argument("--split", default="dev")
-    ap.add_argument("--root", default="D:/RETECO")
+    ap.add_argument("--root", default=os.environ.get("RETEco_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     ap.add_argument("--run-a", default=None, help="default: bm25_pyserini")
     ap.add_argument("--run-b", default=None, help="default: dense_bge")
     ap.add_argument("--k", type=int, nargs="+", default=[20, 50, 100, 200, 1000])

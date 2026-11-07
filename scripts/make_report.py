@@ -4,7 +4,8 @@ import glob
 import json
 import os
 
-R = "D:/RETECO/results"
+ROOT = os.environ.get("RETEco_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+R = os.path.join(ROOT, "results")
 PUBLISHED = {("iota", "dev"): 0.3309, ("iota", "train"): 0.1563,
              ("bitcoin", "dev"): 0.0370, ("bitcoin", "train"): 0.0856}
 

@@ -8,6 +8,7 @@ Answers three questions for one domain/split:
 import argparse
 import json
 import os
+ROOT = os.environ.get("RETEco_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import statistics
 import sys
 
@@ -37,9 +38,9 @@ def main():
     from transformers import AutoTokenizer
 
     tok = AutoTokenizer.from_pretrained(args.tokenizer)
-    ids, texts = load_corpus(f"D:/RETECO/data/track1_tempo/{args.domain}")
+    ids, texts = load_corpus(os.path.join(ROOT, "data", "track1_tempo", args.domain))
     corpus = dict(zip(ids, texts))
-    qrels = load_qrels(f"D:/RETECO/data/track1_tempo/{args.domain}", args.split)
+    qrels = load_qrels(os.path.join(ROOT, "data", "track1_tempo", args.domain), args.split)
     dense = read_trec_run(args.dense)
     rer = read_trec_run(args.rerank)
 

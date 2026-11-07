@@ -22,7 +22,7 @@ import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lib_reteco import load_corpus, write_trec_run  # noqa: E402
 
-ROOT = r"D:\RETECO"
+ROOT = os.environ.get("RETEco_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 INSTRUCTION = "Represent this sentence for searching relevant passages: "
 
 

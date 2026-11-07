@@ -31,8 +31,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lib_reteco import load_corpus, read_trec_run, write_trec_run  # noqa: E402
 
-ROOT = r"D:\RETECO"
-
+ROOT = os.environ.get("RETEco_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SYSTEM = ("You are RankGPT, an intelligent assistant that can rank passages based "
           "on their relevancy to the query.")
 INSTRUCTION = (

@@ -17,7 +17,7 @@ import sys
 import zipfile
 from datetime import datetime, timezone
 
-ROOT = r"D:\RETECO"
+ROOT = os.environ.get("RETEco_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DIST = os.path.join(ROOT, "dist")
 DOMAINS = ("iota", "bitcoin")
 SMALL_DATA = ("qrels_dev.txt", "qrels_train.txt", "qrels_steps_dev.txt",

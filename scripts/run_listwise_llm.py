@@ -24,8 +24,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lib_reteco import load_corpus, read_trec_run, write_trec_run  # noqa: E402
 
-ROOT = r"D:\RETECO"
-
+ROOT = os.environ.get("RETEco_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 PROMPT = """You are an expert search relevance annotator. Given a query and {n} candidate documents, rank them from most to least relevant to the query. Judge relevance by how well a document helps answer the query, not by word overlap.
 
 Query: {query}

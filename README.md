@@ -110,6 +110,15 @@ logs/*.log                    run logs
 
 `data/`, `models/`, `emb/`, `indexes/` are intentionally absent.
 
+All scripts resolve their project root from the `RETEco_ROOT` environment
+variable and fall back to the repository root, so a checkout works as long as
+the data/models trees are placed next to it:
+
+```bash
+export RETEco_ROOT=/path/to/RETECO        # optional; defaults to the repo root
+export RETEco_MODELS=$RETEco_ROOT/models  # optional; local weights directory
+```
+
 ## Reproduce
 
 Environment: Python 3.12, Java 21 (Temurin), `pyserini` 2.4.0, `pyjnius` 1.9.0,
@@ -121,13 +130,16 @@ Environment: Python 3.12, Java 21 (Temurin), `pyserini` 2.4.0, `pyjnius` 1.9.0,
 
 # 2. dense retrieval (encodes the corpus once, caches the matrix)
 python scripts/run_dense_bge.py --index-data data/track1_tempo/<domain> --split dev \
-    --model models/bge-base-en-v1.5 --work emb --out runs/dense_bge_<domain>_dev.trec
+    --model models/bge-base-en-v1.5 --work emb \
+    --out runs/dense_bge_<domain>_dev.trec \
+    --meta runs/dense_bge_<domain>_dev.meta.json
 
 # 3. cross-encoder rerank of the top-100
 python scripts/run_chunk_rerank.py --domain <domain> --split dev \
     --run runs/dense_bge_<domain>_dev.trec --k 100 --q-cap 256 --q-mode title \
     --win 250 --stride 250 --pool max --model models/bge-reranker-v2-m3 \
-    --out runs/rerank_v2m3_title_<domain>_dev.trec
+    --out runs/rerank_v2m3_title_<domain>_dev.trec \
+    --meta runs/rerank_v2m3_title_<domain>_dev.meta.json
 
 # 4. fuse + score
 python scripts/fuse_rrf.py --run-a runs/dense_bge_<domain>_dev.trec \
@@ -152,10 +164,30 @@ On Chinese Windows, `PYTHONUTF8=1` is required for the official `scorer.py`
 * The hidden test set is not used anywhere in this repository.
 * No document-ID heuristics are used (the organizers warned that ID patterns
   correlate with positive labels in train/dev).
+* The two-view fusion is positive in 10/12 domains but the **domain-clustered**
+  interval crosses zero ([−0.0097, +0.0581]), and LOOCV's honest gain is +0.0150.
+  Read it as "usually positive", not "safely transfers to new domains".
+* `law` and `workplace` degrade under CE: the cross-encoder is OOD on their
+  long/legal and procedural texts. A domain/confidence gate is future work.
+
+## Known gaps (in progress)
+
+1. **No comparison to strong published retrievers.** The TEMPO benchmark paper
+   reports E5 ≈ 0.304 and DiVeR ≈ 0.320 nDCG@10, but on a different corpus
+   setting; these numbers are not directly comparable to RETECO v1.1 dev. A
+   same-version E5 (and any feasible of DiVeR/ReasonIR) baseline is being added.
+2. **Temporal reasoning is not demonstrated.** The negative results above probe
+   *content-time* signals; they do not test whether a reranker can separate
+   "same topic, different time" documents, because no such hard negatives are
+   constructed yet. That experiment is planned.
+3. **History is squashed.** The published repository is a single curated commit;
+   it does not preserve development history. All raw artifacts (runs, scores,
+   logs) are included so the numbers remain checkable.
 
 ## Data & license
 
 Data and baselines are from the RETECO organizers
 (`DataScience-UIBK/RETECO-SemEval2027`, `castorini/prebuilt-indexes-reteco`).
-The starter-kit code is **not** vendored here; see
+`scripts/ir_metrics.py` is a vendored copy of the official starter-kit scorer
+(see its header); the rest of the starter kit is **not** vendored here — see
 <https://github.com/DataScienceUIBK/RETECO>.

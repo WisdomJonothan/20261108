@@ -2,7 +2,7 @@
 """Score a Track 1a run with the RETECO official metrics + Phase-0 diagnostics.
 
 Official metric: nDCG@10 via the organizers' ir_metrics.ndcg_at_k
-(starter_kit/ir_metrics.py, imported from scripts/official/).
+(vendored as scripts/ir_metrics.py from the official starter kit).
 
 Diagnostics added here (NOT official leaderboard metrics):
   * Recall@{10,100,1000}
@@ -23,7 +23,7 @@ import os
 import sys
 from math import log2
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "official"))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from ir_metrics import (ndcg_at_k, temporal_precision_at_k,  # noqa: E402
                         temporal_relevance_at_k)
 

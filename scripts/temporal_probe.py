@@ -31,7 +31,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lib_reteco import (load_corpus, load_examples, load_qrels,  # noqa: E402
                         read_trec_run)
 
-ROOT = r"D:\RETECO"
+ROOT = os.environ.get("RETEco_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 YEAR = re.compile(r"\b(19[5-9]\d|20[0-2]\d)\b")
 TOK = re.compile(r"[A-Za-z0-9]+")
 

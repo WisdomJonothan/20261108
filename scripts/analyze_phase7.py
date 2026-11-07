@@ -22,7 +22,7 @@ import sys
 sys.path.insert(0, r"D:\RETECO\scripts")
 from lib_reteco import load_qrels, read_trec_run  # noqa: E402
 
-ROOT = r"D:\RETECO"
+ROOT = os.environ.get("RETEco_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DOMAINS = ["bitcoin", "economics", "iota", "cardano", "genealogy", "history",
            "hsm", "law", "monero", "politics", "quant", "travel", "workplace"]
 

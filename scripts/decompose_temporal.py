@@ -17,9 +17,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-ROOT = r"D:\RETECO"
-
-
+ROOT = os.environ.get("RETEco_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 def clean(t):
     t = re.sub(r"<[^>]+>", " ", t or "")
     return re.sub(r"\s+", " ", t).strip()

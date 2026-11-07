@@ -3,6 +3,7 @@
 import hashlib
 import json
 import os
+ROOT = os.environ.get("RETEco_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import platform
 import subprocess
 import sys
@@ -11,12 +12,12 @@ from importlib import metadata
 PKGS = ["pyserini", "pyjnius", "gensim", "numpy", "scipy", "pandas", "torch",
         "transformers", "huggingface-hub", "sentence-transformers", "tqdm"]
 FILES = [
-    "D:/RETECO/data/track1_tempo/iota/documents.jsonl",
-    "D:/RETECO/data/track1_tempo/bitcoin/documents.jsonl",
-    "D:/RETECO/data/track1_tempo/iota/qrels_dev.txt",
-    "D:/RETECO/data/track1_tempo/bitcoin/qrels_dev.txt",
-    "D:/RETECO/data/track1_tempo/iota/examples_dev.jsonl",
-    "D:/RETECO/data/track1_tempo/bitcoin/examples_dev.jsonl",
+    os.path.join(ROOT, "data", "track1_tempo", "iota", "documents.jsonl",
+    os.path.join(ROOT, "data", "track1_tempo", "bitcoin", "documents.jsonl",
+    os.path.join(ROOT, "data", "track1_tempo", "iota", "qrels_dev.txt",
+    os.path.join(ROOT, "data", "track1_tempo", "bitcoin", "qrels_dev.txt",
+    os.path.join(ROOT, "data", "track1_tempo", "iota", "examples_dev.jsonl",
+    os.path.join(ROOT, "data", "track1_tempo", "bitcoin", "examples_dev.jsonl",
 ]
 
 
@@ -65,7 +66,7 @@ def main():
     for f in FILES:
         if os.path.isfile(f):
             out["data_sha256"][f] = sha256(f)
-    dest = sys.argv[1] if len(sys.argv) > 1 else "D:/RETECO/results/env.json"
+    dest = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "results", "env.json")
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     with open(dest, "w", encoding="utf-8") as fh:
         json.dump(out, fh, indent=2, ensure_ascii=False)

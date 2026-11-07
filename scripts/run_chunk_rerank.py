@@ -26,9 +26,7 @@ from transformers import AutoModelForSequenceClassification, AutoTokenizer
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lib_reteco import load_corpus, read_trec_run, write_trec_run  # noqa: E402
 
-ROOT = r"D:\RETECO"
-
-
+ROOT = os.environ.get("RETEco_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 def windows_of(tok, text, win, stride):
     ids = tok(text, add_special_tokens=False)["input_ids"]
     if len(ids) <= win:
@@ -84,7 +82,9 @@ def main():
     ap.add_argument("--win", type=int, default=384)
     ap.add_argument("--stride", type=int, default=192)
     ap.add_argument("--pool", choices=["max", "mean"], default="max")
-    ap.add_argument("--model", default=r"D:\RETECO\models\bge-reranker-base")
+    ap.add_argument("--model", default=os.environ.get("RETEco_MODELS")
+                    and os.path.join(os.environ["RETEco_MODELS"], "bge-reranker-base")
+                    or "BAAI/bge-reranker-base")
     ap.add_argument("--out", required=True)
     ap.add_argument("--meta", required=True)
     ap.add_argument("--batch", type=int, default=32)
