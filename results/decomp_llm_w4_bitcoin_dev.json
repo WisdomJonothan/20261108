@@ -1,0 +1,14 @@
+{
+  "domain": "bitcoin",
+  "split": "dev",
+  "mode": "llm",
+  "w0": 4.0,
+  "c": 60.0,
+  "topk": 1000,
+  "stats": {
+    "queries": 30,
+    "subqueries": 115,
+    "avg_sub": 3.8333333333333335
+  },
+  "run_file": "D:\\RETECO\\runs\\decomp_llm_w4_bitcoin_dev.trec"
+}

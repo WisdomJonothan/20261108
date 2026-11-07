@@ -1,0 +1,27 @@
+{
+  "domain": "politics",
+  "split": "dev",
+  "candidate_run": "dense_bge_politics_dev.trec",
+  "candidate_k": 100,
+  "model": "bge-reranker-v2-m3",
+  "dtype": "float16",
+  "q_mode": "title",
+  "q_cap": 256,
+  "window": 250,
+  "stride": 250,
+  "pool": "max",
+  "batch": 32,
+  "queries": 45,
+  "pairs_scored": 12403,
+  "windows": 12403,
+  "mean_windows_per_doc": 2.76,
+  "missing_docs": 0,
+  "seconds": 159.5,
+  "pairs_per_s": 77.8,
+  "latency_ms_per_query": {
+    "mean": 2475.2,
+    "p50": 2074.6,
+    "p95": 4377.3
+  },
+  "peak_gpu_mem_mb": 1292.5
+}

@@ -1,0 +1,13 @@
+[bm25-pyserini] bitcoin/dev: 30 queries, 76706 docs, mean latency 478.9 ms
+  126111_0 top3: ['bitcoin/f03e440a_15489.txt', 'bitcoin/112021_a0b9618528d2c118_9.txt', 'bitcoin/94e6afb0_17171.txt']
+  124603_8 top3: ['bitcoin/ce876e2d_1923.txt', 'bitcoin/112862_6c8b904fd136a5be_104.txt', 'bitcoin/113291_81e6588cd06dea65_129.txt']
+  124510_9 top3: ['bitcoin/8dc082b7_7451.txt', 'bitcoin/4f279e67_4751.txt', 'bitcoin/8ac52f23_7767.txt']
+# pyserini-bm25 bitcoin dev  (30 topics, split=dev)
+  nDCG@10        0.0300
+  Recall@10      0.0567
+  Recall@100     0.2848
+  Recall@1000    0.4907
+  oracle_nDCG@10 0.5429
+  TP@10          0.0143
+  TR@10          0.0167
+  TC@10          0.0926

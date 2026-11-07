@@ -1,0 +1,199 @@
+{
+  "domain": "bitcoin",
+  "split": "dev",
+  "candidates": 3000,
+  "tokens_mean": 308.2436666666667,
+  "tokens_p50": 169.5,
+  "tokens_p90": 625.0999999999999,
+  "tokens_p99": 1866.759999999982,
+  "tokens_max": 21737,
+  "pct_over_510_tokens": 14.033333333333333,
+  "gold_tokens_mean": 180.54,
+  "nongold_tokens_mean": 310.4081355932203,
+  "gold_count": 50,
+  "spearman_len_vs_rank_gain": -0.03567010174112241,
+  "rank_gain_long_gt510": -0.8028503562945368,
+  "rank_gain_short_le510": 0.13105854982551376,
+  "per_query": {
+    "126111_0": {
+      "n_cand": 100,
+      "n_truncated": 8,
+      "gold": 3,
+      "gold_in_cand": 3
+    },
+    "124603_8": {
+      "n_cand": 100,
+      "n_truncated": 5,
+      "gold": 3,
+      "gold_in_cand": 1
+    },
+    "124510_9": {
+      "n_cand": 100,
+      "n_truncated": 8,
+      "gold": 2,
+      "gold_in_cand": 1
+    },
+    "123461_13": {
+      "n_cand": 100,
+      "n_truncated": 16,
+      "gold": 4,
+      "gold_in_cand": 2
+    },
+    "123234_16": {
+      "n_cand": 100,
+      "n_truncated": 29,
+      "gold": 3,
+      "gold_in_cand": 0
+    },
+    "122143_23": {
+      "n_cand": 100,
+      "n_truncated": 14,
+      "gold": 2,
+      "gold_in_cand": 1
+    },
+    "122022_24": {
+      "n_cand": 100,
+      "n_truncated": 13,
+      "gold": 3,
+      "gold_in_cand": 1
+    },
+    "122013_25": {
+      "n_cand": 100,
+      "n_truncated": 4,
+      "gold": 4,
+      "gold_in_cand": 3
+    },
+    "121089_32": {
+      "n_cand": 100,
+      "n_truncated": 36,
+      "gold": 3,
+      "gold_in_cand": 1
+    },
+    "120273_40": {
+      "n_cand": 100,
+      "n_truncated": 8,
+      "gold": 5,
+      "gold_in_cand": 4
+    },
+    "120027_46": {
+      "n_cand": 100,
+      "n_truncated": 2,
+      "gold": 8,
+      "gold_in_cand": 4
+    },
+    "119507_50": {
+      "n_cand": 100,
+      "n_truncated": 5,
+      "gold": 3,
+      "gold_in_cand": 2
+    },
+    "119010_55": {
+      "n_cand": 100,
+      "n_truncated": 13,
+      "gold": 1,
+      "gold_in_cand": 1
+    },
+    "118421_57": {
+      "n_cand": 100,
+      "n_truncated": 13,
+      "gold": 5,
+      "gold_in_cand": 3
+    },
+    "118364_58": {
+      "n_cand": 100,
+      "n_truncated": 36,
+      "gold": 7,
+      "gold_in_cand": 5
+    },
+    "114601_60": {
+      "n_cand": 100,
+      "n_truncated": 16,
+      "gold": 1,
+      "gold_in_cand": 1
+    },
+    "113938_64": {
+      "n_cand": 100,
+      "n_truncated": 6,
+      "gold": 2,
+      "gold_in_cand": 1
+    },
+    "113500_66": {
+      "n_cand": 100,
+      "n_truncated": 9,
+      "gold": 2,
+      "gold_in_cand": 1
+    },
+    "112979_68": {
+      "n_cand": 100,
+      "n_truncated": 9,
+      "gold": 5,
+      "gold_in_cand": 0
+    },
+    "112929_69": {
+      "n_cand": 100,
+      "n_truncated": 3,
+      "gold": 2,
+      "gold_in_cand": 1
+    },
+    "112862_71": {
+      "n_cand": 100,
+      "n_truncated": 25,
+      "gold": 2,
+      "gold_in_cand": 2
+    },
+    "112359_73": {
+      "n_cand": 100,
+      "n_truncated": 3,
+      "gold": 1,
+      "gold_in_cand": 1
+    },
+    "112193_74": {
+      "n_cand": 100,
+      "n_truncated": 6,
+      "gold": 4,
+      "gold_in_cand": 3
+    },
+    "112021_76": {
+      "n_cand": 100,
+      "n_truncated": 17,
+      "gold": 5,
+      "gold_in_cand": 1
+    },
+    "110742_80": {
+      "n_cand": 100,
+      "n_truncated": 38,
+      "gold": 1,
+      "gold_in_cand": 1
+    },
+    "97236_86": {
+      "n_cand": 100,
+      "n_truncated": 15,
+      "gold": 1,
+      "gold_in_cand": 0
+    },
+    "97179_88": {
+      "n_cand": 100,
+      "n_truncated": 10,
+      "gold": 4,
+      "gold_in_cand": 1
+    },
+    "97135_89": {
+      "n_cand": 100,
+      "n_truncated": 12,
+      "gold": 3,
+      "gold_in_cand": 2
+    },
+    "93368_97": {
+      "n_cand": 100,
+      "n_truncated": 20,
+      "gold": 2,
+      "gold_in_cand": 1
+    },
+    "93150_99": {
+      "n_cand": 100,
+      "n_truncated": 22,
+      "gold": 3,
+      "gold_in_cand": 2
+    }
+  }
+}

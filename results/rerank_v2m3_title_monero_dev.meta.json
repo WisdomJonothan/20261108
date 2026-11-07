@@ -1,0 +1,27 @@
+{
+  "domain": "monero",
+  "split": "dev",
+  "candidate_run": "dense_bge_monero_dev.trec",
+  "candidate_k": 100,
+  "model": "bge-reranker-v2-m3",
+  "dtype": "float16",
+  "q_mode": "title",
+  "q_cap": 256,
+  "window": 250,
+  "stride": 250,
+  "pool": "max",
+  "batch": 32,
+  "queries": 19,
+  "pairs_scored": 3490,
+  "windows": 3490,
+  "mean_windows_per_doc": 1.84,
+  "missing_docs": 0,
+  "seconds": 51.6,
+  "pairs_per_s": 67.7,
+  "latency_ms_per_query": {
+    "mean": 1496.1,
+    "p50": 1356.2,
+    "p95": 2257.5
+  },
+  "peak_gpu_mem_mb": 1287.7
+}

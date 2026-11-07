@@ -1,0 +1,26 @@
+{
+  "system": "zero-shot dense bi-encoder D:/RETECO/models/bge-large (CLS pooling, cosine)",
+  "model": "D:/RETECO/models/bge-large",
+  "query_instruction": "Represent this sentence for searching relevant passages: ",
+  "query_instruction_source": "BGE v1.5 model card recommendation",
+  "max_length": 512,
+  "batch_size": 64,
+  "num_docs": 74692,
+  "num_queries": 58,
+  "split": "train",
+  "data": "D:\\RETECO\\data\\track1_tempo\\economics",
+  "device": "cuda",
+  "dtype": "float16",
+  "seconds_query_encode": 1.5124024999968242,
+  "search_latency_ms": {
+    "mean": 2.8468172401109517,
+    "median_of_means": 0.4084999964106828
+  },
+  "embedding_dim": 1024,
+  "doc_emb_file": "D:\\RETECO\\emb\\doc_emb_bge-large_74692.npy",
+  "torch_version": "2.7.0+cu126",
+  "transformers_version": "5.22.2",
+  "python": "3.12.7",
+  "run_file": "D:\\RETECO\\runs\\dense_bgelarge_economics_train.trec",
+  "peak_gpu_mem_mb": 1339.24609375
+}

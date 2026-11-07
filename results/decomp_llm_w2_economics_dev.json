@@ -1,0 +1,14 @@
+{
+  "domain": "economics",
+  "split": "dev",
+  "mode": "llm",
+  "w0": 2.0,
+  "c": 60.0,
+  "topk": 1000,
+  "stats": {
+    "queries": 25,
+    "subqueries": 98,
+    "avg_sub": 3.92
+  },
+  "run_file": "D:\\RETECO\\runs\\decomp_llm_w2_economics_dev.trec"
+}

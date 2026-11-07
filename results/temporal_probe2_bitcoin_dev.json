@@ -1,0 +1,40 @@
+{
+  "domain": "bitcoin",
+  "split": "dev",
+  "placebo": false,
+  "rows": 3000,
+  "positives": 50,
+  "queries": 30,
+  "auc_single": {
+    "dense(-rank)": 0.752813559322034,
+    "temporal_cos": 0.6120508474576272,
+    "lex_overlap": 0.5270372881355933,
+    "doc_len": 0.39818644067796605
+  },
+  "auc_logistic_cv": {
+    "dense_only": 0.7388203389830508,
+    "dense+temporal": 0.7388745762711865,
+    "delta": 5.4237288135694506e-05
+  },
+  "per_query_auc": {
+    "n": 27,
+    "dense_mean": 0.7604812590310834,
+    "temporal_mean": 0.693044076320635,
+    "temporal_median": 0.7878787878787878,
+    "combined_mean": 0.7542895259475316,
+    "delta_mean": -0.006191733083551875,
+    "delta_win_rate": 0.2962962962962963,
+    "delta_ci": [
+      -0.01359912106892436,
+      0.0011620327055266526
+    ],
+    "temporal_ci": [
+      0.5933332409321369,
+      0.7815031658215312
+    ]
+  },
+  "correlations": {
+    "temporal_vs_dense_rank": -0.22077312305627578,
+    "temporal_vs_lex_overlap": 0.08993180236664043
+  }
+}

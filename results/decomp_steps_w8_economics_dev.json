@@ -1,0 +1,14 @@
+{
+  "domain": "economics",
+  "split": "dev",
+  "mode": "steps",
+  "w0": 8.0,
+  "c": 60.0,
+  "topk": 1000,
+  "stats": {
+    "queries": 25,
+    "subqueries": 51,
+    "avg_sub": 2.04
+  },
+  "run_file": "D:\\RETECO\\runs\\decomp_steps_w8_economics_dev.trec"
+}

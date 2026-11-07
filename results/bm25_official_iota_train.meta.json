@@ -1,0 +1,18 @@
+{
+  "system": "RETECO official BM25 (starter_kit/official_baseline.py, verbatim)",
+  "k1": 0.9,
+  "b": 0.4,
+  "topk": 1000,
+  "num_docs": 9680,
+  "num_queries": 7,
+  "split": "train",
+  "data": "D:\\RETECO\\data\\track1_tempo\\iota",
+  "seconds_load": 0.32347060000756755,
+  "seconds_index": 24.668504499975825,
+  "seconds_search": 0.1321042000199668,
+  "gensim_version": "4.3.3",
+  "pyserini_version": "2.4.0",
+  "pyjnius_version": "1.9.0",
+  "python": "3.12.7",
+  "run_file": "D:\\RETECO\\runs\\bm25_official_iota_train.trec"
+}

@@ -1,0 +1,27 @@
+{
+  "domain": "economics",
+  "split": "dev",
+  "candidate_run": "dense_bge_economics_dev.trec",
+  "candidate_k": 100,
+  "model": "bge-reranker-v2-m3",
+  "dtype": "float16",
+  "q_mode": "title",
+  "q_cap": 256,
+  "window": 250,
+  "stride": 250,
+  "pool": "max",
+  "batch": 32,
+  "queries": 25,
+  "pairs_scored": 7013,
+  "windows": 7013,
+  "mean_windows_per_doc": 2.81,
+  "missing_docs": 0,
+  "seconds": 89.7,
+  "pairs_per_s": 78.2,
+  "latency_ms_per_query": {
+    "mean": 2341.0,
+    "p50": 2334.6,
+    "p95": 4374.0
+  },
+  "peak_gpu_mem_mb": 1288.2
+}

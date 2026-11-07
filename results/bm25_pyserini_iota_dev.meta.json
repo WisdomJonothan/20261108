@@ -1,0 +1,22 @@
+{
+  "system": "Pyserini LuceneSearcher BM25 over official prebuilt index",
+  "index_dir": "D:\\RETECO\\indexes\\iota\\lucene-inverted.reteco-v1.1-track1-iota.20261017.1.6.0",
+  "index_num_docs": 9680,
+  "k1": 0.9,
+  "b": 0.4,
+  "topk": 1000,
+  "split": "dev",
+  "data": "D:\\RETECO\\data\\track1_tempo\\iota",
+  "num_queries": 3,
+  "latency_ms": {
+    "mean": 591.670833324315,
+    "p50": 370.58689998229966,
+    "p95": 1101.2053999875207,
+    "max": 1101.2053999875207
+  },
+  "avg_hits": 1000.0,
+  "pyserini_version": "2.4.0",
+  "pyjnius_version": "1.9.0",
+  "python": "3.12.7",
+  "run_file": "D:\\RETECO\\runs\\bm25_pyserini_iota_dev.trec"
+}

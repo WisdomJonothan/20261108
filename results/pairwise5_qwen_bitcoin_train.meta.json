@@ -1,0 +1,17 @@
+{
+  "domain": "bitcoin",
+  "split": "train",
+  "candidate_run": "dense_bge_bitcoin_train.trec",
+  "candidate_k": 5,
+  "model": "qwen",
+  "queries": 70,
+  "llm_calls": 700,
+  "parse_failures": 0,
+  "seconds": 193.3,
+  "latency_ms_per_query": {
+    "mean": 2424.2,
+    "p50": 2317.0,
+    "max": 5976.3
+  },
+  "peak_gpu_mem_mb": 3043.6
+}

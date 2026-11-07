@@ -1,0 +1,10 @@
+{
+  "domain": "iota",
+  "split": "dev",
+  "q_mode": "summary",
+  "queries": 3,
+  "docs": 9680,
+  "topk": 1000,
+  "run_file": "D:\\RETECO\\runs\\dense_summary_iota_dev.trec",
+  "doc_emb_cache": "D:\\RETECO\\emb\\doc_emb_bge-base-en-v1.5_9680.npy"
+}

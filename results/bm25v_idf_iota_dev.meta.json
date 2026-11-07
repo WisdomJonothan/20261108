@@ -1,0 +1,10 @@
+{
+  "data": "D:\\RETECO\\data\\track1_tempo\\iota",
+  "split": "dev",
+  "query_weight": "idf",
+  "k1": 0.9,
+  "b": 0.4,
+  "num_docs": 9680,
+  "num_queries": 3,
+  "run_file": "D:\\RETECO\\runs\\bm25v_idf_iota_dev.trec"
+}

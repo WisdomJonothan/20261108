@@ -1,0 +1,51 @@
+{
+  "run_a": "D:\\RETECO\\runs\\bm25_pyserini_iota_dev.trec",
+  "run_b": "D:\\RETECO\\runs\\dense_bge_iota_dev.trec",
+  "data": "D:\\RETECO\\data\\track1_tempo\\iota",
+  "split": "dev",
+  "candidate_depth": 100,
+  "num_topics": 3,
+  "Recall@100_A": 0.5,
+  "Recall@100_B": 1.0,
+  "Recall@100_Union": 1.0,
+  "oracle_nDCG@10_A_cand100": 0.5455608129109439,
+  "oracle_nDCG@10_B_cand100": 1.0,
+  "oracle_nDCG@10_Union_cand100": 1.0,
+  "overlap@100": 0.16333333333333333,
+  "consistency_ok": true,
+  "per_query": {
+    "2714_798": {
+      "gold": 4,
+      "candidate_depth": 100,
+      "recA": 0.5,
+      "recB": 1.0,
+      "recU": 1.0,
+      "oracleA": 0.6366824387328317,
+      "oracleB": 1.0,
+      "oracleU": 1.0,
+      "overlap": 0.06
+    },
+    "2194_800": {
+      "gold": 3,
+      "candidate_depth": 100,
+      "recA": 1.0,
+      "recB": 1.0,
+      "recU": 1.0,
+      "oracleA": 1.0,
+      "oracleB": 1.0,
+      "oracleU": 1.0,
+      "overlap": 0.4
+    },
+    "314_806": {
+      "gold": 2,
+      "candidate_depth": 100,
+      "recA": 0.0,
+      "recB": 1.0,
+      "recU": 1.0,
+      "oracleA": 0.0,
+      "oracleB": 1.0,
+      "oracleU": 1.0,
+      "overlap": 0.03
+    }
+  }
+}

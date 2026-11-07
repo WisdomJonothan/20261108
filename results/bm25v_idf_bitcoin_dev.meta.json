@@ -1,0 +1,10 @@
+{
+  "data": "D:\\RETECO\\data\\track1_tempo\\bitcoin",
+  "split": "dev",
+  "query_weight": "idf",
+  "k1": 0.9,
+  "b": 0.4,
+  "num_docs": 76706,
+  "num_queries": 30,
+  "run_file": "D:\\RETECO\\runs\\bm25v_idf_bitcoin_dev.trec"
+}

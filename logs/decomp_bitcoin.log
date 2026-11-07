@@ -1,0 +1,33 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   4%|▍         | 14/338 [00:00<00:04, 75.60it/s]Loading weights:  10%|▉         | 33/338 [00:00<00:04, 72.40it/s]Loading weights:  13%|█▎        | 45/338 [00:00<00:04, 70.34it/s]Loading weights:  16%|█▌        | 53/338 [00:00<00:06, 47.28it/s]Loading weights:  20%|██        | 69/338 [00:01<00:04, 61.28it/s]Loading weights:  22%|██▏       | 76/338 [00:01<00:04, 62.11it/s]Loading weights:  25%|██▍       | 83/338 [00:01<00:05, 49.51it/s]Loading weights:  28%|██▊       | 95/338 [00:01<00:05, 44.69it/s]Loading weights:  31%|███▏      | 106/338 [00:01<00:04, 46.49it/s]Loading weights:  33%|███▎      | 112/338 [00:02<00:05, 44.97it/s]Loading weights:  35%|███▍      | 117/338 [00:02<00:05, 37.43it/s]Loading weights:  38%|███▊      | 127/338 [00:02<00:04, 46.56it/s]Loading weights:  39%|███▉      | 133/338 [00:02<00:04, 41.85it/s]Loading weights:  42%|████▏     | 143/338 [00:02<00:03, 48.77it/s]Loading weights:  44%|████▍     | 149/338 [00:02<00:03, 48.92it/s]Loading weights:  46%|████▌     | 155/338 [00:03<00:04, 38.03it/s]Loading weights:  49%|████▉     | 165/338 [00:03<00:04, 38.14it/s]Loading weights:  52%|█████▏    | 177/338 [00:03<00:03, 41.77it/s]Loading weights:  54%|█████▍    | 183/338 [00:03<00:03, 42.53it/s]Loading weights:  57%|█████▋    | 191/338 [00:04<00:03, 41.23it/s]Loading weights:  59%|█████▉    | 200/338 [00:04<00:03, 37.94it/s]Loading weights:  61%|██████    | 206/338 [00:04<00:03, 37.95it/s]Loading weights:  64%|██████▍   | 218/338 [00:04<00:02, 50.20it/s]Loading weights:  67%|██████▋   | 227/338 [00:04<00:02, 46.65it/s]Loading weights:  70%|███████   | 237/338 [00:05<00:02, 41.71it/s]Loading weights:  72%|███████▏  | 245/338 [00:05<00:02, 42.26it/s]Loading weights:  76%|███████▌  | 256/338 [00:05<00:01, 53.38it/s]Loading weights:  78%|███████▊  | 263/338 [00:05<00:01, 50.08it/s]Loading weights:  80%|███████▉  | 269/338 [00:05<00:01, 50.10it/s]Loading weights:  81%|████████▏ | 275/338 [00:05<00:01, 39.10it/s]Loading weights:  83%|████████▎ | 280/338 [00:06<00:01, 38.32it/s]Loading weights:  86%|████████▌ | 291/338 [00:06<00:00, 51.38it/s]Loading weights:  88%|████████▊ | 297/338 [00:06<00:00, 41.06it/s]Loading weights:  90%|█████████ | 305/338 [00:06<00:00, 47.33it/s]Loading weights:  92%|█████████▏| 311/338 [00:06<00:00, 45.48it/s]Loading weights:  95%|█████████▍| 321/338 [00:07<00:00, 39.87it/s]Loading weights: 100%|██████████| 338/338 [00:07<00:00, 47.84it/s]
+126111_0: 4 sub-questions
+124603_8: 4 sub-questions
+124510_9: 4 sub-questions
+123461_13: 4 sub-questions
+123234_16: 4 sub-questions
+122143_23: 4 sub-questions
+122022_24: 4 sub-questions
+122013_25: 4 sub-questions
+121089_32: 4 sub-questions
+120273_40: 4 sub-questions
+120027_46: 4 sub-questions
+119507_50: 4 sub-questions
+119010_55: 3 sub-questions
+118421_57: 3 sub-questions
+118364_58: 4 sub-questions
+114601_60: 4 sub-questions
+113938_64: 4 sub-questions
+113500_66: 3 sub-questions
+112979_68: 4 sub-questions
+112929_69: 3 sub-questions
+112862_71: 3 sub-questions
+112359_73: 4 sub-questions
+112193_74: 4 sub-questions
+112021_76: 4 sub-questions
+110742_80: 4 sub-questions
+97236_86: 4 sub-questions
+97179_88: 4 sub-questions
+97135_89: 4 sub-questions
+93368_97: 4 sub-questions
+93150_99: 4 sub-questions
+wrote results/decomp_llm_bitcoin_dev.json

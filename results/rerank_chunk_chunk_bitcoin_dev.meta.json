@@ -1,0 +1,26 @@
+{
+  "domain": "bitcoin",
+  "split": "dev",
+  "candidate_run": "dense_bge_bitcoin_dev.trec",
+  "candidate_k": 100,
+  "model": "bge-reranker-base",
+  "dtype": "float16",
+  "q_cap": 128,
+  "window": 380,
+  "stride": 190,
+  "pool": "max",
+  "batch": 32,
+  "queries": 30,
+  "pairs_scored": 5051,
+  "windows": 5051,
+  "mean_windows_per_doc": 1.68,
+  "missing_docs": 0,
+  "seconds": 58.5,
+  "pairs_per_s": 86.3,
+  "latency_ms_per_query": {
+    "mean": 998.9,
+    "p50": 903.1,
+    "p95": 1752.7
+  },
+  "peak_gpu_mem_mb": 818.4
+}

@@ -1,0 +1,10 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  13%|█▎        | 44/338 [00:00<00:01, 267.27it/s]Loading weights:  21%|██        | 71/338 [00:00<00:01, 139.02it/s]Loading weights:  26%|██▌       | 88/338 [00:00<00:02, 103.52it/s]Loading weights:  30%|██▉       | 100/338 [00:00<00:02, 82.50it/s]Loading weights:  33%|███▎      | 110/338 [00:01<00:03, 71.12it/s]Loading weights:  35%|███▍      | 118/338 [00:01<00:03, 64.57it/s]Loading weights:  37%|███▋      | 125/338 [00:01<00:03, 62.93it/s]Loading weights:  39%|███▉      | 132/338 [00:01<00:03, 55.16it/s]Loading weights:  41%|████▏     | 140/338 [00:01<00:03, 52.32it/s]Loading weights:  45%|████▍     | 152/338 [00:01<00:03, 61.82it/s]Loading weights:  49%|████▊     | 164/338 [00:02<00:02, 74.04it/s]Loading weights:  51%|█████     | 173/338 [00:02<00:03, 44.91it/s]Loading weights:  56%|█████▌    | 189/338 [00:02<00:02, 54.86it/s]Loading weights:  58%|█████▊    | 196/338 [00:02<00:02, 56.98it/s]Loading weights:  60%|██████    | 203/338 [00:02<00:02, 54.73it/s]Loading weights:  62%|██████▏   | 211/338 [00:03<00:02, 51.93it/s]Loading weights:  66%|██████▋   | 224/338 [00:03<00:02, 56.22it/s]Loading weights:  70%|███████   | 237/338 [00:03<00:01, 58.94it/s]Loading weights:  74%|███████▎  | 249/338 [00:03<00:01, 58.39it/s]Loading weights:  75%|███████▌  | 255/338 [00:03<00:01, 51.29it/s]Loading weights:  77%|███████▋  | 261/338 [00:04<00:01, 51.22it/s]Loading weights:  80%|███████▉  | 269/338 [00:04<00:01, 49.26it/s]Loading weights:  83%|████████▎ | 282/338 [00:04<00:01, 48.32it/s]Loading weights:  88%|████████▊ | 298/338 [00:04<00:00, 66.48it/s]Loading weights:  91%|█████████ | 306/338 [00:04<00:00, 56.77it/s]Loading weights:  93%|█████████▎| 313/338 [00:05<00:00, 44.36it/s]Loading weights:  95%|█████████▌| 322/338 [00:05<00:00, 38.24it/s]Loading weights: 100%|██████████| 338/338 [00:05<00:00, 62.07it/s]
+  5/30 queries
+  10/30 queries
+  15/30 queries
+  20/30 queries
+  25/30 queries
+  30/30 queries
+{"mean": 10933.7, "p50": 10891.5, "max": 13806.5}
+parse failures 0/30

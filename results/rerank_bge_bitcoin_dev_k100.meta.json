@@ -1,0 +1,29 @@
+{
+  "domain": "bitcoin",
+  "split": "dev",
+  "candidate_run": "dense_bge_bitcoin_dev.trec",
+  "candidate_k": 100,
+  "model": "D:\\RETECO\\models\\bge-reranker-base",
+  "model_sha": "ced967c45fd1902e",
+  "device": "cuda",
+  "dtype": "float16",
+  "batch": 32,
+  "max_length": 512,
+  "queries": 30,
+  "pairs_scored": 3000,
+  "missing_docs": 0,
+  "seconds": 43.01,
+  "pairs_per_s": 69.7,
+  "latency_ms_per_query": {
+    "mean": 666.27,
+    "p50": 615.28,
+    "p95": 770.01,
+    "max": 1733.9
+  },
+  "peak_gpu_mem_mb": 818.4,
+  "versions": {
+    "python": "3.12.7",
+    "torch": "2.7.0+cu126",
+    "transformers": "5.22.2"
+  }
+}

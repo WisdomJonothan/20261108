@@ -1,0 +1,170 @@
+=== bitcoin/dev
+[dense] device=cuda model=D:/RETECO/models/bge-large
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:   1%|          | 3/391 [00:00<00:13, 29.24it/s]Loading weights:   2%|▏         | 7/391 [00:00<00:12, 30.59it/s]Loading weights:   3%|▎         | 11/391 [00:00<00:18, 20.58it/s]Loading weights:   4%|▎         | 14/391 [00:00<00:17, 21.62it/s]Loading weights:   5%|▍         | 18/391 [00:00<00:16, 23.04it/s]Loading weights:   6%|▌         | 24/391 [00:00<00:11, 31.13it/s]Loading weights:  75%|███████▍  | 293/391 [00:00<00:00, 703.64it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 392.98it/s]
+  [docs] 64/76706 docs  31.9 doc/s
+  [docs] 1344/76706 docs  59.2 doc/s
+  [docs] 2624/76706 docs  58.0 doc/s
+  [docs] 3904/76706 docs  59.5 doc/s
+  [docs] 5184/76706 docs  60.0 doc/s
+  [docs] 6464/76706 docs  59.8 doc/s
+  [docs] 7744/76706 docs  59.8 doc/s
+  [docs] 9024/76706 docs  58.8 doc/s
+  [docs] 10304/76706 docs  59.2 doc/s
+  [docs] 11584/76706 docs  59.4 doc/s
+  [docs] 12864/76706 docs  59.2 doc/s
+  [docs] 14144/76706 docs  59.4 doc/s
+  [docs] 15424/76706 docs  59.4 doc/s
+  [docs] 16704/76706 docs  59.5 doc/s
+  [docs] 17984/76706 docs  59.6 doc/s
+  [docs] 19264/76706 docs  59.4 doc/s
+  [docs] 20544/76706 docs  59.6 doc/s
+  [docs] 21824/76706 docs  59.7 doc/s
+  [docs] 23104/76706 docs  59.8 doc/s
+  [docs] 24384/76706 docs  56.8 doc/s
+  [docs] 25664/76706 docs  56.9 doc/s
+  [docs] 26944/76706 docs  56.6 doc/s
+  [docs] 28224/76706 docs  56.5 doc/s
+  [docs] 29504/76706 docs  56.2 doc/s
+  [docs] 30784/76706 docs  56.4 doc/s
+  [docs] 32064/76706 docs  56.6 doc/s
+  [docs] 33344/76706 docs  56.8 doc/s
+  [docs] 34624/76706 docs  56.6 doc/s
+  [docs] 35904/76706 docs  56.7 doc/s
+  [docs] 37184/76706 docs  56.7 doc/s
+  [docs] 38464/76706 docs  56.8 doc/s
+  [docs] 39744/76706 docs  56.9 doc/s
+  [docs] 41024/76706 docs  56.9 doc/s
+  [docs] 42304/76706 docs  57.1 doc/s
+  [docs] 43584/76706 docs  57.1 doc/s
+  [docs] 44864/76706 docs  57.2 doc/s
+  [docs] 46144/76706 docs  57.3 doc/s
+  [docs] 47424/76706 docs  57.2 doc/s
+  [docs] 48704/76706 docs  57.3 doc/s
+  [docs] 49984/76706 docs  57.3 doc/s
+  [docs] 51264/76706 docs  57.4 doc/s
+  [docs] 52544/76706 docs  57.5 doc/s
+  [docs] 53824/76706 docs  57.5 doc/s
+  [docs] 55104/76706 docs  57.6 doc/s
+  [docs] 56384/76706 docs  57.6 doc/s
+  [docs] 57664/76706 docs  57.7 doc/s
+  [docs] 58944/76706 docs  57.7 doc/s
+  [docs] 60224/76706 docs  57.8 doc/s
+  [docs] 61504/76706 docs  57.8 doc/s
+  [docs] 62784/76706 docs  57.9 doc/s
+  [docs] 64064/76706 docs  57.9 doc/s
+  [docs] 65344/76706 docs  57.9 doc/s
+  [docs] 66624/76706 docs  57.9 doc/s
+  [docs] 67904/76706 docs  57.9 doc/s
+  [docs] 69184/76706 docs  57.9 doc/s
+  [docs] 70464/76706 docs  58.0 doc/s
+  [docs] 71744/76706 docs  58.0 doc/s
+  [docs] 73024/76706 docs  58.1 doc/s
+  [docs] 74304/76706 docs  58.1 doc/s
+  [docs] 75584/76706 docs  58.1 doc/s
+[dense] encoded 76706 docs in 1320.6s
+  [queries] 16/30 docs  62.7 doc/s
+[dense] 30 queries, latency mean 19.0 ms
+exit 0
+=== bitcoin/train
+[dense] device=cuda model=D:/RETECO/models/bge-large
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:   1%|          | 4/391 [00:00<00:19, 20.00it/s]Loading weights:   2%|▏         | 6/391 [00:00<00:20, 19.08it/s]Loading weights:   3%|▎         | 11/391 [00:00<00:15, 25.13it/s]Loading weights:   4%|▎         | 14/391 [00:00<00:23, 16.31it/s]Loading weights:   4%|▍         | 16/391 [00:00<00:22, 17.02it/s]Loading weights:   6%|▌         | 23/391 [00:01<00:13, 27.20it/s]Loading weights:   7%|▋         | 28/391 [00:01<00:11, 31.65it/s]Loading weights:   8%|▊         | 32/391 [00:01<00:11, 30.01it/s]Loading weights: 100%|██████████| 391/391 [00:01<00:00, 298.52it/s]
+[dense] reusing cached doc embeddings D:/RETECO/emb\doc_emb_bge-large_76706.npy
+  [queries] 16/70 docs  18.4 doc/s
+[dense] 70 queries, latency mean 2.5 ms
+exit 0
+=== economics/dev
+[dense] device=cuda model=D:/RETECO/models/bge-large
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:   2%|▏         | 6/391 [00:00<00:06, 55.09it/s]Loading weights:   3%|▎         | 12/391 [00:00<00:14, 26.77it/s]Loading weights:   4%|▍         | 16/391 [00:00<00:12, 30.21it/s]Loading weights:   5%|▌         | 20/391 [00:00<00:12, 28.65it/s]Loading weights:   6%|▌         | 24/391 [00:00<00:15, 23.30it/s]Loading weights:  76%|███████▌  | 296/391 [00:01<00:00, 598.32it/s]Loading weights: 100%|██████████| 391/391 [00:01<00:00, 385.42it/s]
+  [docs] 64/74692 docs  40.0 doc/s
+  [docs] 1344/74692 docs  59.7 doc/s
+  [docs] 2624/74692 docs  61.3 doc/s
+  [docs] 3904/74692 docs  58.1 doc/s
+  [docs] 5184/74692 docs  58.5 doc/s
+  [docs] 6464/74692 docs  58.8 doc/s
+  [docs] 7744/74692 docs  59.0 doc/s
+  [docs] 9024/74692 docs  59.1 doc/s
+  [docs] 10304/74692 docs  59.4 doc/s
+  [docs] 11584/74692 docs  59.4 doc/s
+  [docs] 12864/74692 docs  59.6 doc/s
+  [docs] 14144/74692 docs  59.6 doc/s
+  [docs] 15424/74692 docs  59.6 doc/s
+  [docs] 16704/74692 docs  59.6 doc/s
+  [docs] 17984/74692 docs  59.4 doc/s
+  [docs] 19264/74692 docs  59.5 doc/s
+  [docs] 20544/74692 docs  59.4 doc/s
+  [docs] 21824/74692 docs  59.4 doc/s
+  [docs] 23104/74692 docs  59.5 doc/s
+  [docs] 24384/74692 docs  59.5 doc/s
+  [docs] 25664/74692 docs  59.5 doc/s
+  [docs] 26944/74692 docs  59.5 doc/s
+  [docs] 28224/74692 docs  59.5 doc/s
+  [docs] 29504/74692 docs  59.6 doc/s
+  [docs] 30784/74692 docs  59.6 doc/s
+  [docs] 32064/74692 docs  59.6 doc/s
+  [docs] 33344/74692 docs  59.6 doc/s
+  [docs] 34624/74692 docs  59.6 doc/s
+  [docs] 35904/74692 docs  59.5 doc/s
+  [docs] 37184/74692 docs  59.5 doc/s
+  [docs] 38464/74692 docs  59.5 doc/s
+  [docs] 39744/74692 docs  59.2 doc/s
+  [docs] 41024/74692 docs  59.2 doc/s
+  [docs] 42304/74692 docs  59.0 doc/s
+  [docs] 43584/74692 docs  59.0 doc/s
+  [docs] 44864/74692 docs  59.0 doc/s
+  [docs] 46144/74692 docs  59.0 doc/s
+  [docs] 47424/74692 docs  59.0 doc/s
+  [docs] 48704/74692 docs  58.8 doc/s
+  [docs] 49984/74692 docs  58.8 doc/s
+  [docs] 51264/74692 docs  58.9 doc/s
+  [docs] 52544/74692 docs  58.9 doc/s
+  [docs] 53824/74692 docs  58.9 doc/s
+  [docs] 55104/74692 docs  58.7 doc/s
+  [docs] 56384/74692 docs  58.7 doc/s
+  [docs] 57664/74692 docs  58.7 doc/s
+  [docs] 58944/74692 docs  58.7 doc/s
+  [docs] 60224/74692 docs  58.8 doc/s
+  [docs] 61504/74692 docs  58.8 doc/s
+  [docs] 62784/74692 docs  58.7 doc/s
+  [docs] 64064/74692 docs  58.7 doc/s
+  [docs] 65344/74692 docs  58.8 doc/s
+  [docs] 66624/74692 docs  58.7 doc/s
+  [docs] 67904/74692 docs  58.7 doc/s
+  [docs] 69184/74692 docs  58.7 doc/s
+  [docs] 70464/74692 docs  58.7 doc/s
+  [docs] 71744/74692 docs  58.7 doc/s
+  [docs] 73024/74692 docs  58.7 doc/s
+  [docs] 74304/74692 docs  58.7 doc/s
+[dense] encoded 74692 docs in 1272.5s
+  [queries] 16/25 docs  63.4 doc/s
+[dense] 25 queries, latency mean 6.5 ms
+exit 0
+=== economics/train
+[dense] device=cuda model=D:/RETECO/models/bge-large
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:   1%|          | 3/391 [00:00<00:13, 27.74it/s]Loading weights:   2%|▏         | 6/391 [00:00<00:18, 20.98it/s]Loading weights:   2%|▏         | 9/391 [00:00<00:33, 11.51it/s]Loading weights:   3%|▎         | 11/391 [00:00<00:31, 11.99it/s]Loading weights:   4%|▍         | 15/391 [00:00<00:22, 16.65it/s]Loading weights:  26%|██▌       | 102/391 [00:01<00:01, 201.04it/s]Loading weights: 100%|██████████| 391/391 [00:01<00:00, 360.77it/s]
+[dense] reusing cached doc embeddings D:/RETECO/emb\doc_emb_bge-large_74692.npy
+  [queries] 16/58 docs  18.7 doc/s
+[dense] 58 queries, latency mean 2.8 ms
+exit 0
+=== iota/dev
+[dense] device=cuda model=D:/RETECO/models/bge-large
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:   1%|          | 4/391 [00:00<00:14, 26.09it/s]Loading weights:   3%|▎         | 10/391 [00:00<00:09, 39.78it/s]Loading weights:   4%|▍         | 15/391 [00:00<00:13, 28.46it/s]Loading weights:   5%|▍         | 19/391 [00:00<00:13, 28.44it/s]Loading weights:   7%|▋         | 26/391 [00:00<00:10, 36.19it/s]Loading weights:   8%|▊         | 30/391 [00:00<00:10, 34.96it/s]Loading weights:   9%|▉         | 37/391 [00:01<00:09, 35.89it/s]Loading weights:  10%|█         | 41/391 [00:01<00:11, 30.39it/s]Loading weights: 100%|██████████| 391/391 [00:01<00:00, 298.14it/s]
+  [docs] 64/9680 docs  38.9 doc/s
+  [docs] 1344/9680 docs  57.1 doc/s
+  [docs] 2624/9680 docs  58.2 doc/s
+  [docs] 3904/9680 docs  55.2 doc/s
+  [docs] 5184/9680 docs  54.9 doc/s
+  [docs] 6464/9680 docs  55.8 doc/s
+  [docs] 7744/9680 docs  56.2 doc/s
+  [docs] 9024/9680 docs  56.1 doc/s
+[dense] encoded 9680 docs in 171.6s
+  [queries] 3/3 docs  48.6 doc/s
+[dense] 3 queries, latency mean 50.6 ms
+exit 0
+=== iota/train
+[dense] device=cuda model=D:/RETECO/models/bge-large
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:   1%|          | 3/391 [00:00<00:12, 29.92it/s]Loading weights:   2%|▏         | 6/391 [00:00<00:25, 14.98it/s]Loading weights:   3%|▎         | 10/391 [00:00<00:19, 20.04it/s]Loading weights:   4%|▎         | 14/391 [00:00<00:18, 20.53it/s]Loading weights:   4%|▍         | 17/391 [00:01<00:25, 14.65it/s]Loading weights: 100%|██████████| 391/391 [00:01<00:00, 364.76it/s]
+[dense] reusing cached doc embeddings D:/RETECO/emb\doc_emb_bge-large_9680.npy
+  [queries] 7/7 docs  10.3 doc/s
+[dense] 7 queries, latency mean 19.2 ms
+exit 0
+ALLDONE

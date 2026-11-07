@@ -1,0 +1,434 @@
+{
+  "domain": "bitcoin",
+  "split": "dev",
+  "model": "qwen",
+  "pairs": 60,
+  "accuracy": 0.7166666666666667,
+  "always_pick_A_rate": 0.5166666666666667,
+  "accuracy_by_order": {
+    "gold_first": 0.7333333333333333,
+    "nongold_first": 0.7
+  },
+  "rows": [
+    {
+      "qid": "126111_0",
+      "order": "gold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": false
+    },
+    {
+      "qid": "126111_0",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "124603_8",
+      "order": "gold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": false
+    },
+    {
+      "qid": "124603_8",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "124510_9",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "124510_9",
+      "order": "nongold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": false
+    },
+    {
+      "qid": "123461_13",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "123461_13",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "123234_16",
+      "order": "gold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": false
+    },
+    {
+      "qid": "123234_16",
+      "order": "nongold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": false
+    },
+    {
+      "qid": "122143_23",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "122143_23",
+      "order": "nongold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": false
+    },
+    {
+      "qid": "122022_24",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "122022_24",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "122013_25",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "122013_25",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "121089_32",
+      "order": "gold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": false
+    },
+    {
+      "qid": "121089_32",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "120273_40",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "120273_40",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "120027_46",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "120027_46",
+      "order": "nongold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": false
+    },
+    {
+      "qid": "119507_50",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "119507_50",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "119010_55",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "119010_55",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "118421_57",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "118421_57",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "118364_58",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "118364_58",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "114601_60",
+      "order": "gold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": false
+    },
+    {
+      "qid": "114601_60",
+      "order": "nongold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": false
+    },
+    {
+      "qid": "113938_64",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "113938_64",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "113500_66",
+      "order": "gold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": false
+    },
+    {
+      "qid": "113500_66",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "112979_68",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "112979_68",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "112929_69",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "112929_69",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "112862_71",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "112862_71",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "112359_73",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "112359_73",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "112193_74",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "112193_74",
+      "order": "nongold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": false
+    },
+    {
+      "qid": "112021_76",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "112021_76",
+      "order": "nongold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": false
+    },
+    {
+      "qid": "110742_80",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "110742_80",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "97236_86",
+      "order": "gold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": false
+    },
+    {
+      "qid": "97236_86",
+      "order": "nongold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": false
+    },
+    {
+      "qid": "97179_88",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "97179_88",
+      "order": "nongold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": false
+    },
+    {
+      "qid": "97135_89",
+      "order": "gold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": false
+    },
+    {
+      "qid": "97135_89",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "93368_97",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "93368_97",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    },
+    {
+      "qid": "93150_99",
+      "order": "gold_first",
+      "answer": "A",
+      "pick": "A",
+      "correct": true
+    },
+    {
+      "qid": "93150_99",
+      "order": "nongold_first",
+      "answer": "B",
+      "pick": "B",
+      "correct": true
+    }
+  ]
+}

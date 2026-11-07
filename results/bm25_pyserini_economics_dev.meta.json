@@ -1,0 +1,22 @@
+{
+  "system": "Pyserini LuceneSearcher BM25 over official prebuilt index",
+  "index_dir": "D:\\RETECO\\indexes\\econ_lucene",
+  "index_num_docs": 74692,
+  "k1": 0.9,
+  "b": 0.4,
+  "topk": 1000,
+  "split": "dev",
+  "data": "D:\\RETECO\\data\\track1_tempo\\economics",
+  "num_queries": 25,
+  "latency_ms": {
+    "mean": 493.35092399967834,
+    "p50": 417.1751000103541,
+    "p95": 996.7421000183094,
+    "max": 1556.9284000084735
+  },
+  "avg_hits": 1000.0,
+  "pyserini_version": "2.4.0",
+  "pyjnius_version": "1.9.0",
+  "python": "3.12.7",
+  "run_file": "D:\\RETECO\\runs\\bm25_pyserini_economics_dev.trec"
+}

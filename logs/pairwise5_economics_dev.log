@@ -1,0 +1,28 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  12%|█▏        | 41/338 [00:00<00:01, 179.08it/s]Loading weights:  17%|█▋        | 59/338 [00:00<00:03, 88.46it/s] Loading weights:  21%|██        | 70/338 [00:00<00:02, 91.23it/s]Loading weights:  24%|██▍       | 81/338 [00:01<00:04, 58.02it/s]Loading weights:  28%|██▊       | 93/338 [00:01<00:04, 60.70it/s]Loading weights:  30%|██▉       | 101/338 [00:01<00:03, 61.16it/s]Loading weights:  32%|███▏      | 108/338 [00:01<00:04, 52.54it/s]Loading weights:  35%|███▍      | 117/338 [00:01<00:04, 45.38it/s]Loading weights:  39%|███▉      | 131/338 [00:02<00:04, 45.44it/s]Loading weights:  42%|████▏     | 141/338 [00:02<00:03, 50.91it/s]Loading weights:  43%|████▎     | 147/338 [00:02<00:03, 50.95it/s]Loading weights:  45%|████▌     | 153/338 [00:02<00:04, 44.94it/s]Loading weights:  49%|████▊     | 164/338 [00:02<00:03, 50.59it/s]Loading weights:  51%|█████     | 171/338 [00:02<00:03, 51.91it/s]Loading weights:  52%|█████▏    | 177/338 [00:03<00:04, 39.30it/s]Loading weights:  57%|█████▋    | 191/338 [00:03<00:03, 40.20it/s]Loading weights:  59%|█████▉    | 200/338 [00:03<00:03, 38.29it/s]Loading weights:  64%|██████▎   | 215/338 [00:04<00:02, 41.93it/s]Loading weights:  67%|██████▋   | 226/338 [00:04<00:02, 44.82it/s]Loading weights:  69%|██████▊   | 232/338 [00:04<00:02, 46.90it/s]Loading weights:  70%|███████   | 237/338 [00:04<00:02, 45.81it/s]Loading weights:  72%|███████▏  | 242/338 [00:04<00:02, 36.46it/s]Loading weights:  73%|███████▎  | 246/338 [00:04<00:02, 35.51it/s]Loading weights:  75%|███████▍  | 252/338 [00:05<00:02, 35.42it/s]Loading weights:  78%|███████▊  | 263/338 [00:05<00:01, 44.25it/s]Loading weights:  80%|███████▉  | 269/338 [00:05<00:01, 44.50it/s]Loading weights:  81%|████████  | 274/338 [00:05<00:01, 32.19it/s]Loading weights:  82%|████████▏ | 278/338 [00:05<00:02, 26.52it/s]Loading weights:  87%|████████▋ | 293/338 [00:06<00:01, 40.78it/s]Loading weights:  89%|████████▉ | 301/338 [00:06<00:00, 45.16it/s]Loading weights:  92%|█████████▏| 311/338 [00:06<00:00, 44.39it/s]Loading weights:  95%|█████████▌| 322/338 [00:06<00:00, 47.23it/s]Loading weights:  97%|█████████▋| 327/338 [00:06<00:00, 45.32it/s]Loading weights: 100%|██████████| 338/338 [00:06<00:00, 49.72it/s]
+  1/25 queries
+  2/25 queries
+  3/25 queries
+  4/25 queries
+  5/25 queries
+  6/25 queries
+  7/25 queries
+  8/25 queries
+  9/25 queries
+  10/25 queries
+  11/25 queries
+  12/25 queries
+  13/25 queries
+  14/25 queries
+  15/25 queries
+  16/25 queries
+  17/25 queries
+  18/25 queries
+  19/25 queries
+  20/25 queries
+  21/25 queries
+  22/25 queries
+  23/25 queries
+  24/25 queries
+  25/25 queries
+{"mean": 2668.4, "p50": 2399.2, "max": 6733.5}

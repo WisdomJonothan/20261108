@@ -1,0 +1,97 @@
+START 2026-11-08 00:32:43
+=== workplace dense 00:32:43
+[dense] device=cuda model=D:/RETECO/models/bge-base-en-v1.5
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2599.75it/s]
+[dense] reusing cached doc embeddings D:/RETECO/emb\doc_emb_bge-base-en-v1.5_43584.npy
+  [queries] 11/11 docs  7.0 doc/s
+[dense] 11 queries, latency mean 53.7 ms
+# dense  (11 topics, split=dev)
+  nDCG@10        0.3795
+  Recall@10      0.4303
+  Recall@100     0.7273
+  Recall@1000    0.8818
+  oracle_nDCG@10_cand100 0.7478
+  oracle_nDCG@10_cand_all 0.9048
+  TP@10          0.1729
+  TR@10          0.1182
+  TC@10          n/a
+=== workplace rerank 00:33:07
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  15%|█▌        | 59/393 [00:00<00:00, 578.06it/s]Loading weights:  30%|██▉       | 117/393 [00:00<00:00, 352.67it/s]Loading weights:  40%|████      | 158/393 [00:00<00:00, 344.56it/s]Loading weights:  50%|████▉     | 195/393 [00:00<00:00, 296.06it/s]Loading weights:  58%|█████▊    | 227/393 [00:00<00:00, 292.58it/s]Loading weights:  66%|██████▌   | 258/393 [00:00<00:00, 295.25it/s]Loading weights:  74%|███████▎  | 289/393 [00:00<00:00, 290.05it/s]Loading weights:  82%|████████▏ | 323/393 [00:01<00:00, 289.34it/s]Loading weights:  91%|█████████ | 356/393 [00:01<00:00, 286.57it/s]Loading weights:  98%|█████████▊| 386/393 [00:01<00:00, 285.09it/s]Loading weights: 100%|██████████| 393/393 [00:01<00:00, 309.76it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (48203 > 8192). Running this sequence through the model will result in indexing errors
+  10/11 queries
+{"mean": 1880.4, "p50": 1737.8, "p95": 2760.5}
+wrote D:/RETECO/runs/rerank_v2m3_title_workplace_dev.trec
+# ce  (11 topics, split=dev)
+  nDCG@10        0.2547
+  Recall@10      0.4030
+  Recall@100     0.7273
+  Recall@1000    0.7273
+  oracle_nDCG@10_cand100 0.7478
+  oracle_nDCG@10_cand_all 0.7478
+  TP@10          0.1189
+  TR@10          0.1091
+  TC@10          n/a
+=== workplace fuse 00:33:49
+fused 11 queries; intersection 1100
+# fused  (11 topics, split=dev)
+  nDCG@10        0.3719
+  Recall@10      0.4303
+  Recall@100     0.7273
+  Recall@1000    0.8818
+  oracle_nDCG@10_cand100 0.7478
+  oracle_nDCG@10_cand_all 0.9048
+  TP@10          0.1674
+  TR@10          0.1182
+  TC@10          n/a
+=== workplace DONE 00:33:50
+=== politics dense 00:33:50
+[dense] device=cuda model=D:/RETECO/models/bge-base-en-v1.5
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:   1%|          | 2/199 [00:00<00:17, 11.53it/s]Loading weights:   7%|▋         | 13/199 [00:00<00:03, 51.76it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 549.85it/s]
+[dense] reusing cached doc embeddings D:/RETECO/emb\doc_emb_bge-base-en-v1.5_135207.npy
+  [queries] 16/45 docs  20.6 doc/s
+[dense] 45 queries, latency mean 4.4 ms
+# dense  (45 topics, split=dev)
+  nDCG@10        0.3074
+  Recall@10      0.3622
+  Recall@100     0.6096
+  Recall@1000    0.7967
+  oracle_nDCG@10_cand100 0.6547
+  oracle_nDCG@10_cand_all 0.8345
+  TP@10          0.1223
+  TR@10          0.0867
+  TC@10          n/a
+=== politics rerank 00:34:34
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  11%|█▏        | 45/393 [00:00<00:00, 446.38it/s]Loading weights:  23%|██▎       | 90/393 [00:00<00:01, 233.85it/s]Loading weights:  30%|███       | 119/393 [00:00<00:01, 201.15it/s]Loading weights:  36%|███▌      | 142/393 [00:00<00:01, 195.31it/s]Loading weights:  42%|████▏     | 164/393 [00:00<00:01, 179.08it/s]Loading weights:  47%|████▋     | 183/393 [00:00<00:01, 173.75it/s]Loading weights:  52%|█████▏    | 204/393 [00:01<00:01, 182.35it/s]Loading weights:  57%|█████▋    | 224/393 [00:01<00:00, 179.52it/s]Loading weights:  62%|██████▏   | 243/393 [00:01<00:00, 169.85it/s]Loading weights:  67%|██████▋   | 265/393 [00:01<00:00, 176.01it/s]Loading weights:  72%|███████▏  | 283/393 [00:01<00:00, 172.19it/s]Loading weights:  77%|███████▋  | 304/393 [00:01<00:00, 173.00it/s]Loading weights:  82%|████████▏ | 322/393 [00:01<00:00, 163.16it/s]Loading weights:  87%|████████▋ | 343/393 [00:01<00:00, 172.91it/s]Loading weights:  92%|█████████▏| 361/393 [00:01<00:00, 170.89it/s]Loading weights:  96%|█████████▋| 379/393 [00:02<00:00, 172.40it/s]Loading weights: 100%|██████████| 393/393 [00:02<00:00, 184.47it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (46488 > 8192). Running this sequence through the model will result in indexing errors
+  10/45 queries
+  20/45 queries
+  30/45 queries
+  40/45 queries
+{"mean": 2475.2, "p50": 2074.6, "p95": 4377.3}
+wrote D:/RETECO/runs/rerank_v2m3_title_politics_dev.trec
+# ce  (45 topics, split=dev)
+  nDCG@10        0.4051
+  Recall@10      0.5304
+  Recall@100     0.6096
+  Recall@1000    0.6096
+  oracle_nDCG@10_cand100 0.6547
+  oracle_nDCG@10_cand_all 0.6547
+  TP@10          0.1600
+  TR@10          0.1289
+  TC@10          n/a
+=== politics fuse 00:37:40
+fused 45 queries; intersection 4500
+# fused  (45 topics, split=dev)
+  nDCG@10        0.3492
+  Recall@10      0.4196
+  Recall@100     0.6096
+  Recall@1000    0.7967
+  oracle_nDCG@10_cand100 0.6547
+  oracle_nDCG@10_cand_all 0.8345
+  TP@10          0.1397
+  TR@10          0.1022
+  TC@10          n/a
+=== politics DONE 00:37:41
+ALL DONE 2026-11-08 00:37:41

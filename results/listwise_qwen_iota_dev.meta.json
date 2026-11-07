@@ -1,0 +1,21 @@
+{
+  "domain": "iota",
+  "split": "dev",
+  "candidate_run": "dense_bge_iota_dev.trec",
+  "candidate_k": 20,
+  "window": 20,
+  "stride": 10,
+  "passage_chars": 200,
+  "model": "qwen",
+  "queries": 3,
+  "windows": 3,
+  "parse_failures": 0,
+  "parse_failure_rate": 0.0,
+  "seconds": 56.5,
+  "latency_ms_per_query": {
+    "mean": 12038.4,
+    "p50": 10852.5,
+    "max": 14595.5
+  },
+  "peak_gpu_mem_mb": 3188.4
+}

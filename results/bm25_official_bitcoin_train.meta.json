@@ -1,0 +1,18 @@
+{
+  "system": "RETECO official BM25 (starter_kit/official_baseline.py, verbatim)",
+  "k1": 0.9,
+  "b": 0.4,
+  "topk": 1000,
+  "num_docs": 76706,
+  "num_queries": 70,
+  "split": "train",
+  "data": "D:\\RETECO\\data\\track1_tempo\\bitcoin",
+  "seconds_load": 1.9779378000239376,
+  "seconds_index": 123.48796589998528,
+  "seconds_search": 8.701004800008377,
+  "gensim_version": "4.3.3",
+  "pyserini_version": "2.4.0",
+  "pyjnius_version": "1.9.0",
+  "python": "3.12.7",
+  "run_file": "D:\\RETECO\\runs\\bm25_official_bitcoin_train.trec"
+}

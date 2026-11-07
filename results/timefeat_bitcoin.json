@@ -1,0 +1,10 @@
+{
+  "domain": "bitcoin",
+  "topk": 100,
+  "runs": {
+    "dense_only": "D:\\RETECO\\runs\\timefeat_dense_only_bitcoin_dev.trec",
+    "dense_time": "D:\\RETECO\\runs\\timefeat_dense_time_bitcoin_dev.trec",
+    "dense_ctrl": "D:\\RETECO\\runs\\timefeat_dense_ctrl_bitcoin_dev.trec",
+    "dense_time_ctrl": "D:\\RETECO\\runs\\timefeat_dense_time_ctrl_bitcoin_dev.trec"
+  }
+}

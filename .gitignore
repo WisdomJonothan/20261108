@@ -1,0 +1,11 @@
+data/
+models/
+emb/
+indexes/
+env/
+tmp/
+dist/
+scripts/official/
+*.npy
+*.tar.gz
+*.zip

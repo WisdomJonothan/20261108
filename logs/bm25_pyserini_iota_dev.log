@@ -1,0 +1,13 @@
+[bm25-pyserini] iota/dev: 3 queries, 9680 docs, mean latency 591.7 ms
+  2714_798 top3: ['iota/c5cc10bf_0004.txt', 'iota/ed57451d_0202.txt', 'iota/d8e66ff0_0203.txt']
+  2194_800 top3: ['iota/9817a96c_0176.txt', 'iota/3395fae7_0175.txt', 'iota/fdb74119_0198.txt']
+  314_806 top3: ['iota/bb58992b_0181.txt', 'iota/c17fd0f3_0187.txt', 'iota/fdb74119_0198.txt']
+# pyserini-bm25 iota dev  (3 topics, split=dev)
+  nDCG@10        0.3852
+  Recall@10      0.3056
+  Recall@100     0.5000
+  Recall@1000    1.0000
+  oracle_nDCG@10 1.0000
+  TP@10          0.1930
+  TR@10          0.1000
+  TC@10          0.5000

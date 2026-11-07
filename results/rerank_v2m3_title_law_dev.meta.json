@@ -1,0 +1,27 @@
+{
+  "domain": "law",
+  "split": "dev",
+  "candidate_run": "dense_bge_law_dev.trec",
+  "candidate_k": 100,
+  "model": "bge-reranker-v2-m3",
+  "dtype": "float16",
+  "q_mode": "title",
+  "q_cap": 256,
+  "window": 250,
+  "stride": 250,
+  "pool": "max",
+  "batch": 32,
+  "queries": 11,
+  "pairs_scored": 2324,
+  "windows": 2324,
+  "mean_windows_per_doc": 2.11,
+  "missing_docs": 0,
+  "seconds": 40.9,
+  "pairs_per_s": 56.8,
+  "latency_ms_per_query": {
+    "mean": 1774.5,
+    "p50": 1455.9,
+    "p95": 3238.6
+  },
+  "peak_gpu_mem_mb": 1291.8
+}

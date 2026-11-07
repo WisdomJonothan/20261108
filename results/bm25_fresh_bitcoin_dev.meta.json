@@ -1,0 +1,22 @@
+{
+  "system": "Pyserini LuceneSearcher BM25 over official prebuilt index",
+  "index_dir": "D:\\RETECO\\indexes\\bitcoin_fresh",
+  "index_num_docs": 76706,
+  "k1": 0.9,
+  "b": 0.4,
+  "topk": 1000,
+  "split": "dev",
+  "data": "D:\\RETECO\\data\\track1_tempo\\bitcoin",
+  "num_queries": 30,
+  "latency_ms": {
+    "mean": 424.2977333332722,
+    "p50": 387.61070001055487,
+    "p95": 566.6507999994792,
+    "max": 1511.2624000175856
+  },
+  "avg_hits": 1000.0,
+  "pyserini_version": "2.4.0",
+  "pyjnius_version": "1.9.0",
+  "python": "3.12.7",
+  "run_file": "D:\\RETECO\\runs\\bm25_fresh_bitcoin_dev.trec"
+}

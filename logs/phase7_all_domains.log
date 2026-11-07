@@ -1,0 +1,1295 @@
+START 2026-11-07 20:52:04
+=== cardano download 20:52:04
+  documents.jsonl 89143788
+  examples_dev.jsonl 24657
+  qrels_dev.txt 1674
+  guidance_dev.jsonl 40627
+=== cardano dense 20:52:43
+[dense] device=cuda model=D:/RETECO/models/bge-base-en-v1.5
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:   2%|▏         | 3/199 [00:00<00:10, 18.11it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 951.32it/s]
+  [docs] 64/47509 docs  49.1 doc/s
+  [docs] 1344/47509 docs  147.2 doc/s
+  [docs] 2624/47509 docs  150.6 doc/s
+  [docs] 3904/47509 docs  153.1 doc/s
+  [docs] 5184/47509 docs  153.6 doc/s
+  [docs] 6464/47509 docs  151.8 doc/s
+  [docs] 7744/47509 docs  146.0 doc/s
+  [docs] 9024/47509 docs  147.6 doc/s
+  [docs] 10304/47509 docs  147.5 doc/s
+  [docs] 11584/47509 docs  149.1 doc/s
+  [docs] 12864/47509 docs  150.0 doc/s
+  [docs] 14144/47509 docs  150.9 doc/s
+  [docs] 15424/47509 docs  150.5 doc/s
+  [docs] 16704/47509 docs  151.3 doc/s
+  [docs] 17984/47509 docs  151.6 doc/s
+  [docs] 19264/47509 docs  151.8 doc/s
+  [docs] 20544/47509 docs  152.3 doc/s
+  [docs] 21824/47509 docs  151.5 doc/s
+  [docs] 23104/47509 docs  152.3 doc/s
+  [docs] 24384/47509 docs  151.5 doc/s
+  [docs] 25664/47509 docs  151.4 doc/s
+  [docs] 26944/47509 docs  151.8 doc/s
+  [docs] 28224/47509 docs  151.5 doc/s
+  [docs] 29504/47509 docs  151.8 doc/s
+  [docs] 30784/47509 docs  152.0 doc/s
+  [docs] 32064/47509 docs  152.2 doc/s
+  [docs] 33344/47509 docs  152.4 doc/s
+  [docs] 34624/47509 docs  152.5 doc/s
+  [docs] 35904/47509 docs  153.0 doc/s
+  [docs] 37184/47509 docs  153.2 doc/s
+  [docs] 38464/47509 docs  151.0 doc/s
+  [docs] 39744/47509 docs  149.1 doc/s
+  [docs] 41024/47509 docs  149.1 doc/s
+  [docs] 42304/47509 docs  144.4 doc/s
+  [docs] 43584/47509 docs  144.5 doc/s
+  [docs] 44864/47509 docs  144.7 doc/s
+  [docs] 46144/47509 docs  144.6 doc/s
+  [docs] 47424/47509 docs  144.2 doc/s
+[dense] encoded 47509 docs in 329.7s
+  [queries] 15/15 docs  178.0 doc/s
+[dense] 15 queries, latency mean 8.3 ms
+# dense  (15 topics, split=dev)
+  nDCG@10        0.1496
+  Recall@10      0.2467
+  Recall@100     0.7230
+  Recall@1000    0.9067
+  oracle_nDCG@10_cand100 0.7744
+  oracle_nDCG@10_cand_all 0.9148
+  TP@10          0.0636
+  TR@10          0.0533
+  TC@10          n/a
+=== cardano rerank 20:58:50
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  13%|█▎        | 52/393 [00:00<00:00, 398.56it/s]Loading weights:  23%|██▎       | 92/393 [00:00<00:02, 142.38it/s]Loading weights:  29%|██▉       | 114/393 [00:00<00:01, 147.14it/s]Loading weights:  34%|███▍      | 134/393 [00:00<00:02, 124.98it/s]Loading weights:  38%|███▊      | 150/393 [00:01<00:01, 123.59it/s]Loading weights:  42%|████▏     | 164/393 [00:01<00:01, 121.66it/s]Loading weights:  46%|████▌     | 181/393 [00:01<00:01, 122.67it/s]Loading weights:  50%|████▉     | 195/393 [00:01<00:01, 107.29it/s]Loading weights:  54%|█████▍    | 213/393 [00:01<00:01, 111.34it/s]Loading weights:  57%|█████▋    | 225/393 [00:01<00:01, 99.38it/s] Loading weights:  60%|██████    | 236/393 [00:01<00:01, 89.27it/s]Loading weights:  64%|██████▍   | 251/393 [00:02<00:01, 98.36it/s]Loading weights:  67%|██████▋   | 264/393 [00:02<00:01, 103.17it/s]Loading weights:  70%|███████   | 276/393 [00:02<00:01, 99.76it/s] Loading weights:  73%|███████▎  | 287/393 [00:02<00:01, 87.87it/s]Loading weights:  78%|███████▊  | 305/393 [00:02<00:00, 100.71it/s]Loading weights:  80%|████████  | 316/393 [00:02<00:00, 92.87it/s] Loading weights:  85%|████████▍ | 333/393 [00:02<00:00, 100.06it/s]Loading weights:  88%|████████▊ | 344/393 [00:03<00:00, 97.81it/s] Loading weights:  90%|█████████ | 354/393 [00:03<00:00, 88.32it/s]Loading weights:  94%|█████████▍| 371/393 [00:03<00:00, 99.51it/s]Loading weights:  98%|█████████▊| 386/393 [00:03<00:00, 97.44it/s]Loading weights: 100%|██████████| 393/393 [00:03<00:00, 112.02it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (9408 > 8192). Running this sequence through the model will result in indexing errors
+  10/15 queries
+{"mean": 2160.8, "p50": 2144.5, "p95": 2696.6}
+wrote D:/RETECO/runs/rerank_v2m3_title_cardano_dev.trec
+# ce  (15 topics, split=dev)
+  nDCG@10        0.1921
+  Recall@10      0.3074
+  Recall@100     0.7230
+  Recall@1000    0.7230
+  oracle_nDCG@10_cand100 0.7744
+  oracle_nDCG@10_cand_all 0.7744
+  TP@10          0.0716
+  TR@10          0.0667
+  TC@10          n/a
+=== cardano fuse 21:00:18
+fused 15 queries; intersection 1500
+# fused  (15 topics, split=dev)
+  nDCG@10        0.1363
+  Recall@10      0.2244
+  Recall@100     0.7230
+  Recall@1000    0.9067
+  oracle_nDCG@10_cand100 0.7744
+  oracle_nDCG@10_cand_all 0.9148
+  TP@10          0.0503
+  TR@10          0.0467
+  TC@10          n/a
+=== cardano DONE 21:00:19
+=== genealogy download 21:00:19
+  documents.jsonl 304675096
+  examples_dev.jsonl 120457
+  qrels_dev.txt 3942
+  guidance_dev.jsonl 130808
+=== genealogy dense 21:02:02
+[dense] device=cuda model=D:/RETECO/models/bge-base-en-v1.5
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:   3%|▎         | 6/199 [00:00<00:03, 59.83it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1355.07it/s]
+  [docs] 64/136101 docs  47.5 doc/s
+  [docs] 1344/136101 docs  128.6 doc/s
+  [docs] 2624/136101 docs  131.9 doc/s
+  [docs] 3904/136101 docs  124.8 doc/s
+  [docs] 5184/136101 docs  120.3 doc/s
+  [docs] 6464/136101 docs  115.2 doc/s
+  [docs] 7744/136101 docs  114.8 doc/s
+  [docs] 9024/136101 docs  113.8 doc/s
+  [docs] 10304/136101 docs  112.6 doc/s
+  [docs] 11584/136101 docs  110.8 doc/s
+  [docs] 12864/136101 docs  109.1 doc/s
+  [docs] 14144/136101 docs  108.2 doc/s
+  [docs] 15424/136101 docs  108.1 doc/s
+  [docs] 16704/136101 docs  105.8 doc/s
+  [docs] 17984/136101 docs  106.0 doc/s
+  [docs] 19264/136101 docs  102.2 doc/s
+  [docs] 20544/136101 docs  102.9 doc/s
+  [docs] 21824/136101 docs  103.2 doc/s
+  [docs] 23104/136101 docs  103.3 doc/s
+  [docs] 24384/136101 docs  103.8 doc/s
+  [docs] 25664/136101 docs  104.5 doc/s
+  [docs] 26944/136101 docs  103.7 doc/s
+  [docs] 28224/136101 docs  105.1 doc/s
+  [docs] 29504/136101 docs  106.4 doc/s
+  [docs] 30784/136101 docs  107.3 doc/s
+  [docs] 32064/136101 docs  108.3 doc/s
+  [docs] 33344/136101 docs  109.0 doc/s
+  [docs] 34624/136101 docs  110.1 doc/s
+  [docs] 35904/136101 docs  111.0 doc/s
+  [docs] 37184/136101 docs  112.2 doc/s
+  [docs] 38464/136101 docs  113.1 doc/s
+  [docs] 39744/136101 docs  113.8 doc/s
+  [docs] 41024/136101 docs  114.7 doc/s
+  [docs] 42304/136101 docs  115.5 doc/s
+  [docs] 43584/136101 docs  116.3 doc/s
+  [docs] 44864/136101 docs  117.1 doc/s
+  [docs] 46144/136101 docs  117.6 doc/s
+  [docs] 47424/136101 docs  118.2 doc/s
+  [docs] 48704/136101 docs  118.9 doc/s
+  [docs] 49984/136101 docs  119.4 doc/s
+  [docs] 51264/136101 docs  119.9 doc/s
+  [docs] 52544/136101 docs  120.4 doc/s
+  [docs] 53824/136101 docs  120.8 doc/s
+  [docs] 55104/136101 docs  121.3 doc/s
+  [docs] 56384/136101 docs  121.5 doc/s
+  [docs] 57664/136101 docs  122.1 doc/s
+  [docs] 58944/136101 docs  121.5 doc/s
+  [docs] 60224/136101 docs  120.7 doc/s
+  [docs] 61504/136101 docs  121.2 doc/s
+  [docs] 62784/136101 docs  121.4 doc/s
+  [docs] 64064/136101 docs  121.8 doc/s
+  [docs] 65344/136101 docs  121.5 doc/s
+  [docs] 66624/136101 docs  121.8 doc/s
+  [docs] 67904/136101 docs  122.3 doc/s
+  [docs] 69184/136101 docs  122.8 doc/s
+  [docs] 70464/136101 docs  123.3 doc/s
+  [docs] 71744/136101 docs  123.0 doc/s
+  [docs] 73024/136101 docs  123.3 doc/s
+  [docs] 74304/136101 docs  123.8 doc/s
+  [docs] 75584/136101 docs  124.3 doc/s
+  [docs] 76864/136101 docs  124.3 doc/s
+  [docs] 78144/136101 docs  124.7 doc/s
+  [docs] 79424/136101 docs  125.0 doc/s
+  [docs] 80704/136101 docs  125.1 doc/s
+  [docs] 81984/136101 docs  125.5 doc/s
+  [docs] 83264/136101 docs  125.3 doc/s
+  [docs] 84544/136101 docs  125.0 doc/s
+  [docs] 85824/136101 docs  124.7 doc/s
+  [docs] 87104/136101 docs  124.4 doc/s
+  [docs] 88384/136101 docs  124.0 doc/s
+  [docs] 89664/136101 docs  123.3 doc/s
+  [docs] 90944/136101 docs  123.1 doc/s
+  [docs] 92224/136101 docs  122.8 doc/s
+  [docs] 93504/136101 docs  122.6 doc/s
+  [docs] 94784/136101 docs  122.3 doc/s
+  [docs] 96064/136101 docs  122.1 doc/s
+  [docs] 97344/136101 docs  121.4 doc/s
+  [docs] 98624/136101 docs  121.2 doc/s
+  [docs] 99904/136101 docs  121.0 doc/s
+  [docs] 101184/136101 docs  120.8 doc/s
+  [docs] 102464/136101 docs  120.5 doc/s
+  [docs] 103744/136101 docs  120.4 doc/s
+  [docs] 105024/136101 docs  120.2 doc/s
+  [docs] 106304/136101 docs  119.5 doc/s
+  [docs] 107584/136101 docs  119.2 doc/s
+  [docs] 108864/136101 docs  119.1 doc/s
+  [docs] 110144/136101 docs  119.0 doc/s
+  [docs] 111424/136101 docs  118.9 doc/s
+  [docs] 112704/136101 docs  118.8 doc/s
+  [docs] 113984/136101 docs  118.7 doc/s
+  [docs] 115264/136101 docs  118.5 doc/s
+  [docs] 116544/136101 docs  117.9 doc/s
+  [docs] 117824/136101 docs  117.8 doc/s
+  [docs] 119104/136101 docs  117.9 doc/s
+  [docs] 120384/136101 docs  117.3 doc/s
+  [docs] 121664/136101 docs  117.3 doc/s
+  [docs] 122944/136101 docs  117.6 doc/s
+  [docs] 124224/136101 docs  117.7 doc/s
+  [docs] 125504/136101 docs  118.0 doc/s
+  [docs] 126784/136101 docs  118.2 doc/s
+  [docs] 128064/136101 docs  118.0 doc/s
+  [docs] 129344/136101 docs  117.7 doc/s
+  [docs] 130624/136101 docs  117.6 doc/s
+  [docs] 131904/136101 docs  117.4 doc/s
+  [docs] 133184/136101 docs  117.4 doc/s
+  [docs] 134464/136101 docs  117.3 doc/s
+  [docs] 135744/136101 docs  117.2 doc/s
+[dense] encoded 136101 docs in 1162.6s
+  [queries] 16/35 docs  73.0 doc/s
+[dense] 35 queries, latency mean 16.6 ms
+# dense  (35 topics, split=dev)
+  nDCG@10        0.2110
+  Recall@10      0.2162
+  Recall@100     0.5038
+  Recall@1000    0.7243
+  oracle_nDCG@10_cand100 0.5379
+  oracle_nDCG@10_cand_all 0.7596
+  TP@10          0.0936
+  TR@10          0.0600
+  TC@10          n/a
+=== genealogy rerank 21:22:21
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  11%|█         | 43/393 [00:00<00:01, 327.47it/s]Loading weights:  19%|█▉        | 76/393 [00:00<00:01, 187.80it/s]Loading weights:  25%|██▍       | 98/393 [00:00<00:02, 141.55it/s]Loading weights:  29%|██▉       | 114/393 [00:00<00:02, 138.26it/s]Loading weights:  33%|███▎      | 129/393 [00:00<00:02, 114.63it/s]Loading weights:  38%|███▊      | 148/393 [00:01<00:02, 120.60it/s]Loading weights:  41%|████      | 161/393 [00:01<00:02, 115.48it/s]Loading weights:  45%|████▍     | 175/393 [00:01<00:01, 115.79it/s]Loading weights:  48%|████▊     | 189/393 [00:01<00:01, 121.09it/s]Loading weights:  51%|█████▏    | 202/393 [00:01<00:01, 103.38it/s]Loading weights:  57%|█████▋    | 224/393 [00:01<00:01, 126.34it/s]Loading weights:  61%|██████    | 238/393 [00:01<00:01, 119.92it/s]Loading weights:  64%|██████▍   | 251/393 [00:01<00:01, 114.62it/s]Loading weights:  67%|██████▋   | 263/393 [00:02<00:01, 101.28it/s]Loading weights:  70%|███████   | 277/393 [00:02<00:01, 107.86it/s]Loading weights:  74%|███████▎  | 289/393 [00:02<00:01, 95.16it/s] Loading weights:  77%|███████▋  | 304/393 [00:02<00:00, 102.16it/s]Loading weights:  82%|████████▏ | 321/393 [00:02<00:00, 107.28it/s]Loading weights:  86%|████████▌ | 337/393 [00:02<00:00, 111.51it/s]Loading weights:  89%|████████▉ | 349/393 [00:02<00:00, 103.89it/s]Loading weights:  93%|█████████▎| 367/393 [00:03<00:00, 119.06it/s]Loading weights:  98%|█████████▊| 384/393 [00:03<00:00, 118.55it/s]Loading weights: 100%|██████████| 393/393 [00:03<00:00, 120.93it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (44370 > 8192). Running this sequence through the model will result in indexing errors
+  10/35 queries
+  20/35 queries
+  30/35 queries
+{"mean": 4066.0, "p50": 2934.0, "p95": 6744.7}
+wrote D:/RETECO/runs/rerank_v2m3_title_genealogy_dev.trec
+# ce  (35 topics, split=dev)
+  nDCG@10        0.2473
+  Recall@10      0.3029
+  Recall@100     0.5038
+  Recall@1000    0.5038
+  oracle_nDCG@10_cand100 0.5379
+  oracle_nDCG@10_cand_all 0.5379
+  TP@10          0.1044
+  TR@10          0.0771
+  TC@10          n/a
+=== genealogy fuse 21:26:10
+fused 35 queries; intersection 3500
+# fused  (35 topics, split=dev)
+  nDCG@10        0.2502
+  Recall@10      0.2686
+  Recall@100     0.5038
+  Recall@1000    0.7243
+  oracle_nDCG@10_cand100 0.5379
+  oracle_nDCG@10_cand_all 0.7596
+  TP@10          0.1070
+  TR@10          0.0714
+  TC@10          n/a
+=== genealogy DONE 21:26:11
+=== history download 21:26:12
+  documents.jsonl 777071252
+  examples_dev.jsonl 1468198
+  qrels_dev.txt 41156
+  guidance_dev.jsonl 925961
+=== history dense 21:30:11
+[dense] device=cuda model=D:/RETECO/models/bge-base-en-v1.5
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:   2%|▏         | 4/199 [00:00<00:05, 33.22it/s]Loading weights:   5%|▌         | 10/199 [00:00<00:05, 37.63it/s]Loading weights:  55%|█████▍    | 109/199 [00:00<00:00, 397.58it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 522.61it/s]
+  [docs] 64/200252 docs  36.1 doc/s
+  [docs] 1344/200252 docs  69.1 doc/s
+  [docs] 2624/200252 docs  79.1 doc/s
+  [docs] 3904/200252 docs  83.3 doc/s
+  [docs] 5184/200252 docs  86.9 doc/s
+  [docs] 6464/200252 docs  88.9 doc/s
+  [docs] 7744/200252 docs  80.1 doc/s
+  [docs] 9024/200252 docs  84.1 doc/s
+  [docs] 10304/200252 docs  87.2 doc/s
+  [docs] 11584/200252 docs  90.2 doc/s
+  [docs] 12864/200252 docs  92.5 doc/s
+  [docs] 14144/200252 docs  94.4 doc/s
+  [docs] 15424/200252 docs  88.4 doc/s
+  [docs] 16704/200252 docs  87.9 doc/s
+  [docs] 17984/200252 docs  88.1 doc/s
+  [docs] 19264/200252 docs  88.4 doc/s
+  [docs] 20544/200252 docs  88.2 doc/s
+  [docs] 21824/200252 docs  88.2 doc/s
+  [docs] 23104/200252 docs  88.1 doc/s
+  [docs] 24384/200252 docs  88.4 doc/s
+  [docs] 25664/200252 docs  83.0 doc/s
+  [docs] 26944/200252 docs  83.3 doc/s
+  [docs] 28224/200252 docs  83.3 doc/s
+  [docs] 29504/200252 docs  83.6 doc/s
+  [docs] 30784/200252 docs  83.8 doc/s
+  [docs] 32064/200252 docs  84.2 doc/s
+  [docs] 33344/200252 docs  82.9 doc/s
+  [docs] 34624/200252 docs  83.1 doc/s
+  [docs] 35904/200252 docs  83.5 doc/s
+  [docs] 37184/200252 docs  83.8 doc/s
+  [docs] 38464/200252 docs  84.2 doc/s
+  [docs] 39744/200252 docs  84.2 doc/s
+  [docs] 41024/200252 docs  84.5 doc/s
+  [docs] 42304/200252 docs  85.2 doc/s
+  [docs] 43584/200252 docs  85.9 doc/s
+  [docs] 44864/200252 docs  84.5 doc/s
+  [docs] 46144/200252 docs  85.0 doc/s
+  [docs] 47424/200252 docs  85.5 doc/s
+  [docs] 48704/200252 docs  86.2 doc/s
+  [docs] 49984/200252 docs  86.8 doc/s
+  [docs] 51264/200252 docs  87.4 doc/s
+  [docs] 52544/200252 docs  87.9 doc/s
+  [docs] 53824/200252 docs  88.4 doc/s
+  [docs] 55104/200252 docs  88.2 doc/s
+  [docs] 56384/200252 docs  88.7 doc/s
+  [docs] 57664/200252 docs  89.1 doc/s
+  [docs] 58944/200252 docs  89.5 doc/s
+  [docs] 60224/200252 docs  90.0 doc/s
+  [docs] 61504/200252 docs  90.5 doc/s
+  [docs] 62784/200252 docs  90.7 doc/s
+  [docs] 64064/200252 docs  91.1 doc/s
+  [docs] 65344/200252 docs  91.6 doc/s
+  [docs] 66624/200252 docs  92.0 doc/s
+  [docs] 67904/200252 docs  92.3 doc/s
+  [docs] 69184/200252 docs  92.6 doc/s
+  [docs] 70464/200252 docs  93.1 doc/s
+  [docs] 71744/200252 docs  93.5 doc/s
+  [docs] 73024/200252 docs  94.0 doc/s
+  [docs] 74304/200252 docs  94.5 doc/s
+  [docs] 75584/200252 docs  94.9 doc/s
+  [docs] 76864/200252 docs  95.2 doc/s
+  [docs] 78144/200252 docs  95.7 doc/s
+  [docs] 79424/200252 docs  95.9 doc/s
+  [docs] 80704/200252 docs  96.2 doc/s
+  [docs] 81984/200252 docs  96.6 doc/s
+  [docs] 83264/200252 docs  96.8 doc/s
+  [docs] 84544/200252 docs  97.2 doc/s
+  [docs] 85824/200252 docs  97.5 doc/s
+  [docs] 87104/200252 docs  97.7 doc/s
+  [docs] 88384/200252 docs  97.1 doc/s
+  [docs] 89664/200252 docs  97.4 doc/s
+  [docs] 90944/200252 docs  97.7 doc/s
+  [docs] 92224/200252 docs  97.9 doc/s
+  [docs] 93504/200252 docs  97.2 doc/s
+  [docs] 94784/200252 docs  97.0 doc/s
+  [docs] 96064/200252 docs  97.2 doc/s
+  [docs] 97344/200252 docs  97.4 doc/s
+  [docs] 98624/200252 docs  97.6 doc/s
+  [docs] 99904/200252 docs  97.8 doc/s
+  [docs] 101184/200252 docs  98.1 doc/s
+  [docs] 102464/200252 docs  98.4 doc/s
+  [docs] 103744/200252 docs  98.7 doc/s
+  [docs] 105024/200252 docs  98.8 doc/s
+  [docs] 106304/200252 docs  98.9 doc/s
+  [docs] 107584/200252 docs  99.1 doc/s
+  [docs] 108864/200252 docs  99.1 doc/s
+  [docs] 110144/200252 docs  98.6 doc/s
+  [docs] 111424/200252 docs  98.7 doc/s
+  [docs] 112704/200252 docs  98.8 doc/s
+  [docs] 113984/200252 docs  99.0 doc/s
+  [docs] 115264/200252 docs  99.2 doc/s
+  [docs] 116544/200252 docs  99.3 doc/s
+  [docs] 117824/200252 docs  99.5 doc/s
+  [docs] 119104/200252 docs  99.7 doc/s
+  [docs] 120384/200252 docs  99.9 doc/s
+  [docs] 121664/200252 docs  99.7 doc/s
+  [docs] 122944/200252 docs  99.9 doc/s
+  [docs] 124224/200252 docs  100.0 doc/s
+  [docs] 125504/200252 docs  100.2 doc/s
+  [docs] 126784/200252 docs  100.0 doc/s
+  [docs] 128064/200252 docs  100.2 doc/s
+  [docs] 129344/200252 docs  100.4 doc/s
+  [docs] 130624/200252 docs  100.6 doc/s
+  [docs] 131904/200252 docs  100.8 doc/s
+  [docs] 133184/200252 docs  100.9 doc/s
+  [docs] 134464/200252 docs  101.0 doc/s
+  [docs] 135744/200252 docs  101.2 doc/s
+  [docs] 137024/200252 docs  101.3 doc/s
+  [docs] 138304/200252 docs  101.4 doc/s
+  [docs] 139584/200252 docs  101.6 doc/s
+  [docs] 140864/200252 docs  101.4 doc/s
+  [docs] 142144/200252 docs  101.5 doc/s
+  [docs] 143424/200252 docs  101.5 doc/s
+  [docs] 144704/200252 docs  101.6 doc/s
+  [docs] 145984/200252 docs  101.6 doc/s
+  [docs] 147264/200252 docs  101.6 doc/s
+  [docs] 148544/200252 docs  101.6 doc/s
+  [docs] 149824/200252 docs  101.1 doc/s
+  [docs] 151104/200252 docs  101.2 doc/s
+  [docs] 152384/200252 docs  101.4 doc/s
+  [docs] 153664/200252 docs  101.5 doc/s
+  [docs] 154944/200252 docs  101.3 doc/s
+  [docs] 156224/200252 docs  101.4 doc/s
+  [docs] 157504/200252 docs  101.5 doc/s
+  [docs] 158784/200252 docs  101.0 doc/s
+  [docs] 160064/200252 docs  101.1 doc/s
+  [docs] 161344/200252 docs  101.2 doc/s
+  [docs] 162624/200252 docs  101.3 doc/s
+  [docs] 163904/200252 docs  101.5 doc/s
+  [docs] 165184/200252 docs  101.6 doc/s
+  [docs] 166464/200252 docs  101.7 doc/s
+  [docs] 167744/200252 docs  101.8 doc/s
+  [docs] 169024/200252 docs  101.8 doc/s
+  [docs] 170304/200252 docs  101.9 doc/s
+  [docs] 171584/200252 docs  102.0 doc/s
+  [docs] 172864/200252 docs  102.1 doc/s
+  [docs] 174144/200252 docs  102.2 doc/s
+  [docs] 175424/200252 docs  102.3 doc/s
+  [docs] 176704/200252 docs  102.3 doc/s
+  [docs] 177984/200252 docs  102.5 doc/s
+  [docs] 179264/200252 docs  102.6 doc/s
+  [docs] 180544/200252 docs  102.7 doc/s
+  [docs] 181824/200252 docs  102.9 doc/s
+  [docs] 183104/200252 docs  103.0 doc/s
+  [docs] 184384/200252 docs  102.8 doc/s
+  [docs] 185664/200252 docs  102.9 doc/s
+  [docs] 186944/200252 docs  103.0 doc/s
+  [docs] 188224/200252 docs  103.1 doc/s
+  [docs] 189504/200252 docs  103.2 doc/s
+  [docs] 190784/200252 docs  103.3 doc/s
+  [docs] 192064/200252 docs  103.5 doc/s
+  [docs] 193344/200252 docs  103.6 doc/s
+  [docs] 194624/200252 docs  103.5 doc/s
+  [docs] 195904/200252 docs  103.6 doc/s
+  [docs] 197184/200252 docs  103.6 doc/s
+  [docs] 198464/200252 docs  103.7 doc/s
+  [docs] 199744/200252 docs  103.8 doc/s
+[dense] encoded 200252 docs in 1929.8s
+  [queries] 16/240 docs  134.2 doc/s
+[dense] 240 queries, latency mean 3.2 ms
+# dense  (240 topics, split=dev)
+  nDCG@10        0.2772
+  Recall@10      0.3647
+  Recall@100     0.7029
+  Recall@1000    0.8978
+  oracle_nDCG@10_cand100 0.7633
+  oracle_nDCG@10_cand_all 0.9270
+  TP@10          0.1341
+  TR@10          0.1158
+  TC@10          n/a
+=== history rerank 22:03:34
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  15%|█▍        | 57/393 [00:00<00:00, 449.82it/s]Loading weights:  26%|██▌       | 102/393 [00:00<00:01, 224.96it/s]Loading weights:  33%|███▎      | 130/393 [00:00<00:01, 176.50it/s]Loading weights:  38%|███▊      | 151/393 [00:00<00:01, 181.71it/s]Loading weights:  44%|████▍     | 172/393 [00:00<00:01, 180.23it/s]Loading weights:  49%|████▉     | 192/393 [00:01<00:01, 167.53it/s]Loading weights:  53%|█████▎    | 210/393 [00:01<00:01, 166.43it/s]Loading weights:  58%|█████▊    | 228/393 [00:01<00:00, 168.53it/s]Loading weights:  63%|██████▎   | 246/393 [00:01<00:00, 157.62it/s]Loading weights:  67%|██████▋   | 263/393 [00:01<00:00, 152.91it/s]Loading weights:  71%|███████   | 279/393 [00:01<00:00, 146.70it/s]Loading weights:  75%|███████▍  | 294/393 [00:01<00:00, 144.73it/s]Loading weights:  79%|███████▊  | 309/393 [00:01<00:00, 138.45it/s]Loading weights:  82%|████████▏ | 323/393 [00:01<00:00, 133.81it/s]Loading weights:  86%|████████▋ | 339/393 [00:02<00:00, 130.95it/s]Loading weights:  90%|████████▉ | 353/393 [00:02<00:00, 126.18it/s]Loading weights:  95%|█████████▍| 372/393 [00:02<00:00, 132.11it/s]Loading weights:  98%|█████████▊| 386/393 [00:02<00:00, 126.08it/s]Loading weights: 100%|██████████| 393/393 [00:02<00:00, 159.60it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (49326 > 8192). Running this sequence through the model will result in indexing errors
+  10/240 queries
+  20/240 queries
+  30/240 queries
+  40/240 queries
+  50/240 queries
+  60/240 queries
+  70/240 queries
+  80/240 queries
+  90/240 queries
+  100/240 queries
+  110/240 queries
+  120/240 queries
+  130/240 queries
+  140/240 queries
+  150/240 queries
+  160/240 queries
+  170/240 queries
+  180/240 queries
+  190/240 queries
+  200/240 queries
+  210/240 queries
+  220/240 queries
+  230/240 queries
+  240/240 queries
+{"mean": 3733.7, "p50": 2786.2, "p95": 8691.4}
+wrote D:/RETECO/runs/rerank_v2m3_title_history_dev.trec
+# ce  (240 topics, split=dev)
+  nDCG@10        0.3153
+  Recall@10      0.3944
+  Recall@100     0.7029
+  Recall@1000    0.7029
+  oracle_nDCG@10_cand100 0.7633
+  oracle_nDCG@10_cand_all 0.7633
+  TP@10          0.1520
+  TR@10          0.1238
+  TC@10          n/a
+=== history fuse 22:22:55
+fused 240 queries; intersection 24000
+# fused  (240 topics, split=dev)
+  nDCG@10        0.3118
+  Recall@10      0.4168
+  Recall@100     0.7029
+  Recall@1000    0.8978
+  oracle_nDCG@10_cand100 0.7633
+  oracle_nDCG@10_cand_all 0.9270
+  TP@10          0.1498
+  TR@10          0.1317
+  TC@10          n/a
+=== history DONE 22:22:58
+=== hsm download 22:22:58
+  documents.jsonl 426062235
+  examples_dev.jsonl 169427
+  qrels_dev.txt 4151
+  guidance_dev.jsonl 155502
+=== hsm dense 22:25:27
+[dense] device=cuda model=D:/RETECO/models/bge-base-en-v1.5
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:   2%|▏         | 4/199 [00:00<00:07, 27.00it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1126.16it/s]
+  [docs] 64/169552 docs  39.5 doc/s
+  [docs] 1344/169552 docs  122.6 doc/s
+  [docs] 2624/169552 docs  134.4 doc/s
+  [docs] 3904/169552 docs  141.1 doc/s
+  [docs] 5184/169552 docs  142.9 doc/s
+  [docs] 6464/169552 docs  145.6 doc/s
+  [docs] 7744/169552 docs  145.7 doc/s
+  [docs] 9024/169552 docs  143.5 doc/s
+  [docs] 10304/169552 docs  144.7 doc/s
+  [docs] 11584/169552 docs  145.3 doc/s
+  [docs] 12864/169552 docs  144.3 doc/s
+  [docs] 14144/169552 docs  144.3 doc/s
+  [docs] 15424/169552 docs  144.8 doc/s
+  [docs] 16704/169552 docs  145.5 doc/s
+  [docs] 17984/169552 docs  146.4 doc/s
+  [docs] 19264/169552 docs  147.6 doc/s
+  [docs] 20544/169552 docs  148.5 doc/s
+  [docs] 21824/169552 docs  149.2 doc/s
+  [docs] 23104/169552 docs  149.6 doc/s
+  [docs] 24384/169552 docs  149.3 doc/s
+  [docs] 25664/169552 docs  148.6 doc/s
+  [docs] 26944/169552 docs  148.9 doc/s
+  [docs] 28224/169552 docs  149.3 doc/s
+  [docs] 29504/169552 docs  149.1 doc/s
+  [docs] 30784/169552 docs  148.2 doc/s
+  [docs] 32064/169552 docs  148.4 doc/s
+  [docs] 33344/169552 docs  148.2 doc/s
+  [docs] 34624/169552 docs  148.0 doc/s
+  [docs] 35904/169552 docs  147.9 doc/s
+  [docs] 37184/169552 docs  148.3 doc/s
+  [docs] 38464/169552 docs  148.4 doc/s
+  [docs] 39744/169552 docs  147.8 doc/s
+  [docs] 41024/169552 docs  145.5 doc/s
+  [docs] 42304/169552 docs  145.7 doc/s
+  [docs] 43584/169552 docs  145.9 doc/s
+  [docs] 44864/169552 docs  145.9 doc/s
+  [docs] 46144/169552 docs  146.3 doc/s
+  [docs] 47424/169552 docs  145.6 doc/s
+  [docs] 48704/169552 docs  146.0 doc/s
+  [docs] 49984/169552 docs  145.7 doc/s
+  [docs] 51264/169552 docs  145.8 doc/s
+  [docs] 52544/169552 docs  146.0 doc/s
+  [docs] 53824/169552 docs  146.2 doc/s
+  [docs] 55104/169552 docs  146.6 doc/s
+  [docs] 56384/169552 docs  146.9 doc/s
+  [docs] 57664/169552 docs  147.1 doc/s
+  [docs] 58944/169552 docs  147.2 doc/s
+  [docs] 60224/169552 docs  147.4 doc/s
+  [docs] 61504/169552 docs  147.5 doc/s
+  [docs] 62784/169552 docs  147.7 doc/s
+  [docs] 64064/169552 docs  146.8 doc/s
+  [docs] 65344/169552 docs  146.9 doc/s
+  [docs] 66624/169552 docs  146.9 doc/s
+  [docs] 67904/169552 docs  146.8 doc/s
+  [docs] 69184/169552 docs  146.6 doc/s
+  [docs] 70464/169552 docs  146.6 doc/s
+  [docs] 71744/169552 docs  146.9 doc/s
+  [docs] 73024/169552 docs  147.0 doc/s
+  [docs] 74304/169552 docs  147.1 doc/s
+  [docs] 75584/169552 docs  147.0 doc/s
+  [docs] 76864/169552 docs  146.9 doc/s
+  [docs] 78144/169552 docs  146.8 doc/s
+  [docs] 79424/169552 docs  146.8 doc/s
+  [docs] 80704/169552 docs  146.9 doc/s
+  [docs] 81984/169552 docs  147.1 doc/s
+  [docs] 83264/169552 docs  147.1 doc/s
+  [docs] 84544/169552 docs  147.2 doc/s
+  [docs] 85824/169552 docs  147.4 doc/s
+  [docs] 87104/169552 docs  147.7 doc/s
+  [docs] 88384/169552 docs  147.8 doc/s
+  [docs] 89664/169552 docs  147.7 doc/s
+  [docs] 90944/169552 docs  147.8 doc/s
+  [docs] 92224/169552 docs  148.0 doc/s
+  [docs] 93504/169552 docs  148.2 doc/s
+  [docs] 94784/169552 docs  148.2 doc/s
+  [docs] 96064/169552 docs  148.0 doc/s
+  [docs] 97344/169552 docs  148.0 doc/s
+  [docs] 98624/169552 docs  68.7 doc/s
+  [docs] 99904/169552 docs  69.1 doc/s
+  [docs] 101184/169552 docs  69.5 doc/s
+  [docs] 102464/169552 docs  69.9 doc/s
+  [docs] 103744/169552 docs  70.3 doc/s
+  [docs] 105024/169552 docs  70.7 doc/s
+  [docs] 106304/169552 docs  71.1 doc/s
+  [docs] 107584/169552 docs  71.5 doc/s
+  [docs] 108864/169552 docs  71.8 doc/s
+  [docs] 110144/169552 docs  72.1 doc/s
+  [docs] 111424/169552 docs  72.5 doc/s
+  [docs] 112704/169552 docs  72.8 doc/s
+  [docs] 113984/169552 docs  73.2 doc/s
+  [docs] 115264/169552 docs  73.6 doc/s
+  [docs] 116544/169552 docs  73.9 doc/s
+  [docs] 117824/169552 docs  74.3 doc/s
+  [docs] 119104/169552 docs  74.7 doc/s
+  [docs] 120384/169552 docs  75.0 doc/s
+  [docs] 121664/169552 docs  75.4 doc/s
+  [docs] 122944/169552 docs  75.8 doc/s
+  [docs] 124224/169552 docs  76.1 doc/s
+  [docs] 125504/169552 docs  76.4 doc/s
+  [docs] 126784/169552 docs  76.7 doc/s
+  [docs] 128064/169552 docs  77.0 doc/s
+  [docs] 129344/169552 docs  77.3 doc/s
+  [docs] 130624/169552 docs  77.5 doc/s
+  [docs] 131904/169552 docs  77.8 doc/s
+  [docs] 133184/169552 docs  78.2 doc/s
+  [docs] 134464/169552 docs  78.6 doc/s
+  [docs] 135744/169552 docs  78.9 doc/s
+  [docs] 137024/169552 docs  79.2 doc/s
+  [docs] 138304/169552 docs  79.5 doc/s
+  [docs] 139584/169552 docs  79.9 doc/s
+  [docs] 140864/169552 docs  80.2 doc/s
+  [docs] 142144/169552 docs  80.6 doc/s
+  [docs] 143424/169552 docs  80.9 doc/s
+  [docs] 144704/169552 docs  81.2 doc/s
+  [docs] 145984/169552 docs  81.5 doc/s
+  [docs] 147264/169552 docs  81.9 doc/s
+  [docs] 148544/169552 docs  82.2 doc/s
+  [docs] 149824/169552 docs  82.4 doc/s
+  [docs] 151104/169552 docs  82.7 doc/s
+  [docs] 152384/169552 docs  83.1 doc/s
+  [docs] 153664/169552 docs  83.4 doc/s
+  [docs] 154944/169552 docs  83.6 doc/s
+  [docs] 156224/169552 docs  83.9 doc/s
+  [docs] 157504/169552 docs  84.2 doc/s
+  [docs] 158784/169552 docs  84.5 doc/s
+  [docs] 160064/169552 docs  84.8 doc/s
+  [docs] 161344/169552 docs  85.1 doc/s
+  [docs] 162624/169552 docs  85.4 doc/s
+  [docs] 163904/169552 docs  85.7 doc/s
+  [docs] 165184/169552 docs  85.9 doc/s
+  [docs] 166464/169552 docs  86.2 doc/s
+  [docs] 167744/169552 docs  86.5 doc/s
+  [docs] 169024/169552 docs  86.7 doc/s
+[dense] encoded 169552 docs in 1955.7s
+  [queries] 16/45 docs  133.2 doc/s
+[dense] 45 queries, latency mean 14.2 ms
+# dense  (45 topics, split=dev)
+  nDCG@10        0.2926
+  Recall@10      0.3848
+  Recall@100     0.6626
+  Recall@1000    0.8237
+  oracle_nDCG@10_cand100 0.7024
+  oracle_nDCG@10_cand_all 0.8575
+  TP@10          0.1095
+  TR@10          0.0867
+  TC@10          n/a
+=== hsm rerank 22:59:04
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:   8%|▊         | 33/393 [00:00<00:01, 286.67it/s]Loading weights:  16%|█▌        | 62/393 [00:00<00:01, 191.21it/s]Loading weights:  21%|██        | 83/393 [00:00<00:02, 151.04it/s]Loading weights:  26%|██▌       | 103/393 [00:00<00:01, 161.79it/s]Loading weights:  31%|███       | 121/393 [00:00<00:01, 143.47it/s]Loading weights:  36%|███▌      | 142/393 [00:00<00:01, 146.92it/s]Loading weights:  41%|████      | 160/393 [00:01<00:01, 141.69it/s]Loading weights:  45%|████▍     | 175/393 [00:01<00:01, 129.94it/s]Loading weights:  48%|████▊     | 190/393 [00:01<00:01, 133.63it/s]Loading weights:  52%|█████▏    | 206/393 [00:01<00:01, 140.21it/s]Loading weights:  56%|█████▌    | 221/393 [00:01<00:01, 117.53it/s]Loading weights:  60%|██████    | 236/393 [00:01<00:01, 112.96it/s]Loading weights:  63%|██████▎   | 248/393 [00:01<00:01, 113.07it/s]Loading weights:  67%|██████▋   | 263/393 [00:01<00:01, 116.13it/s]Loading weights:  70%|██████▉   | 275/393 [00:02<00:01, 116.62it/s]Loading weights:  74%|███████▍  | 291/393 [00:02<00:00, 125.15it/s]Loading weights:  78%|███████▊  | 305/393 [00:02<00:00, 128.04it/s]Loading weights:  82%|████████▏ | 323/393 [00:02<00:00, 137.74it/s]Loading weights:  86%|████████▌ | 337/393 [00:02<00:00, 121.93it/s]Loading weights:  89%|████████▉ | 350/393 [00:02<00:00, 117.05it/s]Loading weights:  92%|█████████▏| 362/393 [00:02<00:00, 93.82it/s] Loading weights:  99%|█████████▊| 388/393 [00:02<00:00, 130.32it/s]Loading weights: 100%|██████████| 393/393 [00:02<00:00, 133.43it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (49320 > 8192). Running this sequence through the model will result in indexing errors
+  10/45 queries
+  20/45 queries
+  30/45 queries
+  40/45 queries
+{"mean": 2548.5, "p50": 2265.2, "p95": 4685.6}
+wrote D:/RETECO/runs/rerank_v2m3_title_hsm_dev.trec
+# ce  (45 topics, split=dev)
+  nDCG@10        0.3976
+  Recall@10      0.4756
+  Recall@100     0.6626
+  Recall@1000    0.6626
+  oracle_nDCG@10_cand100 0.7024
+  oracle_nDCG@10_cand_all 0.7024
+  TP@10          0.1589
+  TR@10          0.1133
+  TC@10          n/a
+=== hsm fuse 23:02:22
+fused 45 queries; intersection 4500
+# fused  (45 topics, split=dev)
+  nDCG@10        0.3517
+  Recall@10      0.4311
+  Recall@100     0.6626
+  Recall@1000    0.8237
+  oracle_nDCG@10_cand100 0.7024
+  oracle_nDCG@10_cand_all 0.8575
+  TP@10          0.1352
+  TR@10          0.1022
+  TC@10          n/a
+=== hsm DONE 23:02:23
+=== law download 23:02:23
+  documents.jsonl 83934018
+  examples_dev.jsonl 40170
+  qrels_dev.txt 1073
+  guidance_dev.jsonl 28234
+=== law dense 23:03:04
+[dense] device=cuda model=D:/RETECO/models/bge-base-en-v1.5
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  27%|██▋       | 53/199 [00:00<00:00, 525.17it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1794.11it/s]
+  [docs] 64/36110 docs  45.4 doc/s
+  [docs] 1344/36110 docs  107.3 doc/s
+  [docs] 2624/36110 docs  130.9 doc/s
+  [docs] 3904/36110 docs  137.3 doc/s
+  [docs] 5184/36110 docs  141.4 doc/s
+  [docs] 6464/36110 docs  145.7 doc/s
+  [docs] 7744/36110 docs  147.3 doc/s
+  [docs] 9024/36110 docs  149.4 doc/s
+  [docs] 10304/36110 docs  149.2 doc/s
+  [docs] 11584/36110 docs  148.0 doc/s
+  [docs] 12864/36110 docs  147.7 doc/s
+  [docs] 14144/36110 docs  145.2 doc/s
+  [docs] 15424/36110 docs  145.6 doc/s
+  [docs] 16704/36110 docs  145.7 doc/s
+  [docs] 17984/36110 docs  145.7 doc/s
+  [docs] 19264/36110 docs  146.4 doc/s
+  [docs] 20544/36110 docs  146.7 doc/s
+  [docs] 21824/36110 docs  143.2 doc/s
+  [docs] 23104/36110 docs  143.2 doc/s
+  [docs] 24384/36110 docs  144.0 doc/s
+  [docs] 25664/36110 docs  143.8 doc/s
+  [docs] 26944/36110 docs  144.5 doc/s
+  [docs] 28224/36110 docs  144.9 doc/s
+  [docs] 29504/36110 docs  145.2 doc/s
+  [docs] 30784/36110 docs  145.3 doc/s
+  [docs] 32064/36110 docs  144.7 doc/s
+  [docs] 33344/36110 docs  145.0 doc/s
+  [docs] 34624/36110 docs  145.5 doc/s
+  [docs] 35904/36110 docs  145.8 doc/s
+[dense] encoded 36110 docs in 247.7s
+  [queries] 11/11 docs  156.0 doc/s
+[dense] 11 queries, latency mean 11.1 ms
+# dense  (11 topics, split=dev)
+  nDCG@10        0.3013
+  Recall@10      0.4727
+  Recall@100     0.8091
+  Recall@1000    0.9591
+  oracle_nDCG@10_cand100 0.8389
+  oracle_nDCG@10_cand_all 0.9728
+  TP@10          0.1071
+  TR@10          0.1000
+  TC@10          n/a
+=== law rerank 23:07:46
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  12%|█▏        | 48/393 [00:00<00:00, 467.89it/s]Loading weights:  24%|██▍       | 95/393 [00:00<00:01, 240.60it/s]Loading weights:  32%|███▏      | 125/393 [00:00<00:01, 192.81it/s]Loading weights:  38%|███▊      | 148/393 [00:00<00:01, 198.29it/s]Loading weights:  44%|████▎     | 171/393 [00:00<00:01, 179.65it/s]Loading weights:  49%|████▊     | 191/393 [00:00<00:01, 175.50it/s]Loading weights:  53%|█████▎    | 210/393 [00:01<00:01, 177.09it/s]Loading weights:  58%|█████▊    | 229/393 [00:01<00:00, 164.68it/s]Loading weights:  63%|██████▎   | 246/393 [00:01<00:00, 161.77it/s]Loading weights:  68%|██████▊   | 266/393 [00:01<00:00, 165.16it/s]Loading weights:  73%|███████▎  | 285/393 [00:01<00:00, 168.29it/s]Loading weights:  77%|███████▋  | 302/393 [00:01<00:00, 142.53it/s]Loading weights:  83%|████████▎ | 325/393 [00:01<00:00, 158.06it/s]Loading weights:  87%|████████▋ | 343/393 [00:01<00:00, 147.57it/s]Loading weights:  94%|█████████▍| 370/393 [00:02<00:00, 168.69it/s]Loading weights:  99%|█████████▉| 389/393 [00:02<00:00, 163.66it/s]Loading weights: 100%|██████████| 393/393 [00:02<00:00, 177.15it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (12240 > 8192). Running this sequence through the model will result in indexing errors
+  10/11 queries
+{"mean": 1774.5, "p50": 1455.9, "p95": 3238.6}
+wrote D:/RETECO/runs/rerank_v2m3_title_law_dev.trec
+# ce  (11 topics, split=dev)
+  nDCG@10        0.2152
+  Recall@10      0.2636
+  Recall@100     0.8091
+  Recall@1000    0.8091
+  oracle_nDCG@10_cand100 0.8389
+  oracle_nDCG@10_cand_all 0.8389
+  TP@10          0.0886
+  TR@10          0.0727
+  TC@10          n/a
+=== law fuse 23:08:49
+fused 11 queries; intersection 1100
+# fused  (11 topics, split=dev)
+  nDCG@10        0.3264
+  Recall@10      0.5136
+  Recall@100     0.8091
+  Recall@1000    0.9591
+  oracle_nDCG@10_cand100 0.8389
+  oracle_nDCG@10_cand_all 0.9728
+  TP@10          0.1246
+  TR@10          0.1182
+  TC@10          n/a
+=== law DONE 23:08:50
+=== monero download 23:08:50
+  documents.jsonl 120657766
+  examples_dev.jsonl 32804
+  qrels_dev.txt 1819
+  guidance_dev.jsonl 41355
+=== monero dense 23:09:35
+[dense] device=cuda model=D:/RETECO/models/bge-base-en-v1.5
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 11820.46it/s]
+  [docs] 64/53955 docs  64.7 doc/s
+  [docs] 1344/53955 docs  147.7 doc/s
+  [docs] 2624/53955 docs  150.8 doc/s
+  [docs] 3904/53955 docs  152.8 doc/s
+  [docs] 5184/53955 docs  152.9 doc/s
+  [docs] 6464/53955 docs  150.7 doc/s
+  [docs] 7744/53955 docs  126.6 doc/s
+  [docs] 9024/53955 docs  130.1 doc/s
+  [docs] 10304/53955 docs  133.4 doc/s
+  [docs] 11584/53955 docs  134.5 doc/s
+  [docs] 12864/53955 docs  134.8 doc/s
+  [docs] 14144/53955 docs  136.6 doc/s
+  [docs] 15424/53955 docs  137.6 doc/s
+  [docs] 16704/53955 docs  139.1 doc/s
+  [docs] 17984/53955 docs  140.3 doc/s
+  [docs] 19264/53955 docs  140.2 doc/s
+  [docs] 20544/53955 docs  141.4 doc/s
+  [docs] 21824/53955 docs  142.0 doc/s
+  [docs] 23104/53955 docs  143.0 doc/s
+  [docs] 24384/53955 docs  141.2 doc/s
+  [docs] 25664/53955 docs  142.2 doc/s
+  [docs] 26944/53955 docs  143.0 doc/s
+  [docs] 28224/53955 docs  143.7 doc/s
+  [docs] 29504/53955 docs  144.5 doc/s
+  [docs] 30784/53955 docs  145.4 doc/s
+  [docs] 32064/53955 docs  145.2 doc/s
+  [docs] 33344/53955 docs  145.7 doc/s
+  [docs] 34624/53955 docs  144.9 doc/s
+  [docs] 35904/53955 docs  145.2 doc/s
+  [docs] 37184/53955 docs  145.9 doc/s
+  [docs] 38464/53955 docs  145.9 doc/s
+  [docs] 39744/53955 docs  146.4 doc/s
+  [docs] 41024/53955 docs  146.6 doc/s
+  [docs] 42304/53955 docs  147.1 doc/s
+  [docs] 43584/53955 docs  146.2 doc/s
+  [docs] 44864/53955 docs  146.4 doc/s
+  [docs] 46144/53955 docs  146.8 doc/s
+  [docs] 47424/53955 docs  147.2 doc/s
+  [docs] 48704/53955 docs  147.0 doc/s
+  [docs] 49984/53955 docs  147.3 doc/s
+  [docs] 51264/53955 docs  146.9 doc/s
+  [docs] 52544/53955 docs  145.6 doc/s
+  [docs] 53824/53955 docs  145.4 doc/s
+[dense] encoded 53955 docs in 371.3s
+  [queries] 16/19 docs  166.3 doc/s
+[dense] 19 queries, latency mean 6.5 ms
+# dense  (19 topics, split=dev)
+  nDCG@10        0.1328
+  Recall@10      0.1754
+  Recall@100     0.5614
+  Recall@1000    0.8158
+  oracle_nDCG@10_cand100 0.6219
+  oracle_nDCG@10_cand_all 0.8519
+  TP@10          0.0637
+  TR@10          0.0526
+  TC@10          n/a
+=== monero rerank 23:16:22
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  12%|█▏        | 46/393 [00:00<00:00, 446.55it/s]Loading weights:  23%|██▎       | 91/393 [00:00<00:01, 244.48it/s]Loading weights:  31%|███       | 121/393 [00:00<00:01, 188.57it/s]Loading weights:  36%|███▋      | 143/393 [00:00<00:01, 173.98it/s]Loading weights:  41%|████▏     | 163/393 [00:00<00:01, 170.01it/s]Loading weights:  46%|████▌     | 181/393 [00:00<00:01, 155.62it/s]Loading weights:  50%|█████     | 198/393 [00:01<00:01, 151.26it/s]Loading weights:  55%|█████▌    | 218/393 [00:01<00:01, 161.43it/s]Loading weights:  61%|██████    | 239/393 [00:01<00:00, 165.72it/s]Loading weights:  65%|██████▌   | 256/393 [00:01<00:00, 150.52it/s]Loading weights:  69%|██████▉   | 272/393 [00:01<00:00, 151.47it/s]Loading weights:  74%|███████▍  | 291/393 [00:01<00:00, 160.73it/s]Loading weights:  78%|███████▊  | 308/393 [00:01<00:00, 162.45it/s]Loading weights:  83%|████████▎ | 325/393 [00:01<00:00, 163.91it/s]Loading weights:  87%|████████▋ | 342/393 [00:02<00:00, 150.51it/s]Loading weights:  93%|█████████▎| 364/393 [00:02<00:00, 158.48it/s]Loading weights:  98%|█████████▊| 386/393 [00:02<00:00, 162.84it/s]Loading weights: 100%|██████████| 393/393 [00:02<00:00, 172.35it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (10258 > 8192). Running this sequence through the model will result in indexing errors
+  10/19 queries
+{"mean": 1496.1, "p50": 1356.2, "p95": 2257.5}
+wrote D:/RETECO/runs/rerank_v2m3_title_monero_dev.trec
+# ce  (19 topics, split=dev)
+  nDCG@10        0.1638
+  Recall@10      0.2675
+  Recall@100     0.5614
+  Recall@1000    0.5614
+  oracle_nDCG@10_cand100 0.6219
+  oracle_nDCG@10_cand_all 0.6219
+  TP@10          0.0695
+  TR@10          0.0632
+  TC@10          n/a
+=== monero fuse 23:17:35
+fused 19 queries; intersection 1900
+# fused  (19 topics, split=dev)
+  nDCG@10        0.1825
+  Recall@10      0.2719
+  Recall@100     0.5614
+  Recall@1000    0.8158
+  oracle_nDCG@10_cand100 0.6219
+  oracle_nDCG@10_cand_all 0.8519
+  TP@10          0.0821
+  TR@10          0.0684
+  TC@10          n/a
+=== monero DONE 23:17:36
+=== politics download 23:17:36
+  documents.jsonl 313596161
+  examples_dev.jsonl 7030
+  qrels_dev.txt 5240
+  guidance_dev.jsonl 0
+=== politics dense 23:19:53
+[dense] device=cuda model=D:/RETECO/models/bge-base-en-v1.5
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  28%|██▊       | 56/199 [00:00<00:00, 556.73it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1799.47it/s]
+  [docs] 64/135207 docs  64.3 doc/s
+  [docs] 1344/135207 docs  146.5 doc/s
+  [docs] 2624/135207 docs  154.7 doc/s
+  [docs] 3904/135207 docs  138.1 doc/s
+  [docs] 5184/135207 docs  143.5 doc/s
+  [docs] 6464/135207 docs  146.1 doc/s
+  [docs] 7744/135207 docs  145.8 doc/s
+  [docs] 9024/135207 docs  147.2 doc/s
+  [docs] 10304/135207 docs  148.9 doc/s
+  [docs] 11584/135207 docs  144.3 doc/s
+  [docs] 12864/135207 docs  145.5 doc/s
+  [docs] 14144/135207 docs  145.2 doc/s
+  [docs] 15424/135207 docs  146.4 doc/s
+  [docs] 16704/135207 docs  143.4 doc/s
+  [docs] 17984/135207 docs  144.2 doc/s
+  [docs] 19264/135207 docs  145.5 doc/s
+  [docs] 20544/135207 docs  146.4 doc/s
+  [docs] 21824/135207 docs  145.7 doc/s
+  [docs] 23104/135207 docs  146.5 doc/s
+  [docs] 24384/135207 docs  146.9 doc/s
+  [docs] 25664/135207 docs  147.4 doc/s
+  [docs] 26944/135207 docs  147.6 doc/s
+  [docs] 28224/135207 docs  147.9 doc/s
+  [docs] 29504/135207 docs  148.2 doc/s
+  [docs] 30784/135207 docs  148.4 doc/s
+  [docs] 32064/135207 docs  148.8 doc/s
+  [docs] 33344/135207 docs  149.3 doc/s
+  [docs] 34624/135207 docs  149.8 doc/s
+  [docs] 35904/135207 docs  150.0 doc/s
+  [docs] 37184/135207 docs  150.2 doc/s
+  [docs] 38464/135207 docs  150.6 doc/s
+  [docs] 39744/135207 docs  151.0 doc/s
+  [docs] 41024/135207 docs  151.2 doc/s
+  [docs] 42304/135207 docs  150.3 doc/s
+  [docs] 43584/135207 docs  150.1 doc/s
+  [docs] 44864/135207 docs  149.8 doc/s
+  [docs] 46144/135207 docs  150.2 doc/s
+  [docs] 47424/135207 docs  150.4 doc/s
+  [docs] 48704/135207 docs  149.8 doc/s
+  [docs] 49984/135207 docs  150.0 doc/s
+  [docs] 51264/135207 docs  150.1 doc/s
+  [docs] 52544/135207 docs  150.4 doc/s
+  [docs] 53824/135207 docs  150.5 doc/s
+  [docs] 55104/135207 docs  150.5 doc/s
+  [docs] 56384/135207 docs  150.5 doc/s
+  [docs] 57664/135207 docs  149.2 doc/s
+  [docs] 58944/135207 docs  149.4 doc/s
+  [docs] 60224/135207 docs  149.3 doc/s
+  [docs] 61504/135207 docs  149.4 doc/s
+  [docs] 62784/135207 docs  149.3 doc/s
+  [docs] 64064/135207 docs  149.6 doc/s
+  [docs] 65344/135207 docs  149.7 doc/s
+  [docs] 66624/135207 docs  149.4 doc/s
+  [docs] 67904/135207 docs  149.6 doc/s
+  [docs] 69184/135207 docs  149.4 doc/s
+  [docs] 70464/135207 docs  149.3 doc/s
+  [docs] 71744/135207 docs  149.2 doc/s
+  [docs] 73024/135207 docs  149.3 doc/s
+  [docs] 74304/135207 docs  149.1 doc/s
+  [docs] 75584/135207 docs  149.1 doc/s
+  [docs] 76864/135207 docs  149.2 doc/s
+  [docs] 78144/135207 docs  149.4 doc/s
+  [docs] 79424/135207 docs  149.4 doc/s
+  [docs] 80704/135207 docs  149.6 doc/s
+  [docs] 81984/135207 docs  149.7 doc/s
+  [docs] 83264/135207 docs  149.5 doc/s
+  [docs] 84544/135207 docs  149.4 doc/s
+  [docs] 85824/135207 docs  149.4 doc/s
+  [docs] 87104/135207 docs  149.4 doc/s
+  [docs] 88384/135207 docs  149.4 doc/s
+  [docs] 89664/135207 docs  148.7 doc/s
+  [docs] 90944/135207 docs  148.7 doc/s
+  [docs] 92224/135207 docs  148.6 doc/s
+  [docs] 93504/135207 docs  148.4 doc/s
+  [docs] 94784/135207 docs  148.5 doc/s
+  [docs] 96064/135207 docs  148.5 doc/s
+  [docs] 97344/135207 docs  148.5 doc/s
+  [docs] 98624/135207 docs  148.5 doc/s
+  [docs] 99904/135207 docs  148.7 doc/s
+  [docs] 101184/135207 docs  148.7 doc/s
+  [docs] 102464/135207 docs  148.5 doc/s
+  [docs] 103744/135207 docs  148.6 doc/s
+  [docs] 105024/135207 docs  148.7 doc/s
+  [docs] 106304/135207 docs  148.7 doc/s
+  [docs] 107584/135207 docs  148.8 doc/s
+  [docs] 108864/135207 docs  148.8 doc/s
+  [docs] 110144/135207 docs  149.0 doc/s
+  [docs] 111424/135207 docs  149.2 doc/s
+  [docs] 112704/135207 docs  149.1 doc/s
+  [docs] 113984/135207 docs  148.2 doc/s
+  [docs] 115264/135207 docs  148.2 doc/s
+  [docs] 116544/135207 docs  147.9 doc/s
+  [docs] 117824/135207 docs  148.1 doc/s
+  [docs] 119104/135207 docs  148.1 doc/s
+  [docs] 120384/135207 docs  148.3 doc/s
+  [docs] 121664/135207 docs  148.4 doc/s
+  [docs] 122944/135207 docs  148.6 doc/s
+  [docs] 124224/135207 docs  148.7 doc/s
+  [docs] 125504/135207 docs  148.4 doc/s
+  [docs] 126784/135207 docs  148.3 doc/s
+  [docs] 128064/135207 docs  148.3 doc/s
+  [docs] 129344/135207 docs  148.3 doc/s
+  [docs] 130624/135207 docs  148.4 doc/s
+  [docs] 131904/135207 docs  148.5 doc/s
+  [docs] 133184/135207 docs  148.5 doc/s
+  [docs] 134464/135207 docs  148.5 doc/s
+[dense] encoded 135207 docs in 910.9s
+Traceback (most recent call last):
+  File "D:\RETECO\scripts\run_dense_bge.py", line 136, in <module>
+    main()
+  File "D:\RETECO\scripts\run_dense_bge.py", line 83, in main
+    qids, queries = load_examples(args.index_data, args.split)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\RETECO\scripts\lib_reteco.py", line 29, in load_examples
+    recs = read_jsonl(os.path.join(domain_dir, f"examples_{split}.jsonl"))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\RETECO\scripts\lib_reteco.py", line 11, in read_jsonl
+    return [json.loads(ln) for ln in f if ln.strip()]
+            ^^^^^^^^^^^^^^
+  File "D:\anaconda\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+dense FAIL politics
+=== quant download 23:35:41
+  documents.jsonl 51346661
+  examples_dev.jsonl 41197
+  qrels_dev.txt 819
+  guidance_dev.jsonl 21042
+=== quant dense 23:36:09
+[dense] device=cuda model=D:/RETECO/models/bge-base-en-v1.5
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2485.78it/s]
+  [docs] 64/25040 docs  59.9 doc/s
+  [docs] 1344/25040 docs  149.7 doc/s
+  [docs] 2624/25040 docs  155.3 doc/s
+  [docs] 3904/25040 docs  156.9 doc/s
+  [docs] 5184/25040 docs  160.0 doc/s
+  [docs] 6464/25040 docs  158.2 doc/s
+  [docs] 7744/25040 docs  158.0 doc/s
+  [docs] 9024/25040 docs  157.9 doc/s
+  [docs] 10304/25040 docs  158.0 doc/s
+  [docs] 11584/25040 docs  159.4 doc/s
+  [docs] 12864/25040 docs  149.9 doc/s
+  [docs] 14144/25040 docs  150.0 doc/s
+  [docs] 15424/25040 docs  148.0 doc/s
+  [docs] 16704/25040 docs  148.8 doc/s
+  [docs] 17984/25040 docs  149.7 doc/s
+  [docs] 19264/25040 docs  150.5 doc/s
+  [docs] 20544/25040 docs  150.9 doc/s
+  [docs] 21824/25040 docs  150.7 doc/s
+  [docs] 23104/25040 docs  151.3 doc/s
+  [docs] 24384/25040 docs  151.8 doc/s
+[dense] encoded 25040 docs in 165.1s
+  [queries] 10/10 docs  157.0 doc/s
+[dense] 10 queries, latency mean 14.3 ms
+# dense  (10 topics, split=dev)
+  nDCG@10        0.0564
+  Recall@10      0.1000
+  Recall@100     0.3167
+  Recall@1000    0.9500
+  oracle_nDCG@10_cand100 0.3855
+  oracle_nDCG@10_cand_all 0.9613
+  TP@10          0.0202
+  TR@10          0.0200
+  TC@10          n/a
+=== quant rerank 23:39:29
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  15%|█▌        | 59/393 [00:00<00:00, 533.02it/s]Loading weights:  29%|██▉       | 113/393 [00:00<00:01, 233.69it/s]Loading weights:  37%|███▋      | 145/393 [00:00<00:01, 190.16it/s]Loading weights:  44%|████▎     | 171/393 [00:00<00:01, 201.51it/s]Loading weights:  50%|████▉     | 195/393 [00:00<00:01, 178.43it/s]Loading weights:  55%|█████▌    | 217/393 [00:01<00:01, 166.49it/s]Loading weights:  61%|██████    | 240/393 [00:01<00:00, 173.41it/s]Loading weights:  66%|██████▌   | 259/393 [00:01<00:00, 159.05it/s]Loading weights:  70%|███████   | 276/393 [00:01<00:00, 160.69it/s]Loading weights:  75%|███████▍  | 293/393 [00:01<00:00, 153.32it/s]Loading weights:  80%|███████▉  | 313/393 [00:01<00:00, 161.69it/s]Loading weights:  85%|████████▍ | 333/393 [00:01<00:00, 149.57it/s]Loading weights:  91%|█████████ | 356/393 [00:01<00:00, 165.13it/s]Loading weights:  95%|█████████▌| 374/393 [00:02<00:00, 168.15it/s]Loading weights: 100%|██████████| 393/393 [00:02<00:00, 179.73it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (19599 > 8192). Running this sequence through the model will result in indexing errors
+  10/10 queries
+{"mean": 2068.8, "p50": 2167.5, "p95": 2982.0}
+wrote D:/RETECO/runs/rerank_v2m3_title_quant_dev.trec
+# ce  (10 topics, split=dev)
+  nDCG@10        0.0727
+  Recall@10      0.1750
+  Recall@100     0.3167
+  Recall@1000    0.3167
+  oracle_nDCG@10_cand100 0.3855
+  oracle_nDCG@10_cand_all 0.3855
+  TP@10          0.0289
+  TR@10          0.0400
+  TC@10          n/a
+=== quant fuse 23:40:33
+fused 10 queries; intersection 1000
+# fused  (10 topics, split=dev)
+  nDCG@10        0.0702
+  Recall@10      0.1250
+  Recall@100     0.3167
+  Recall@1000    0.9500
+  oracle_nDCG@10_cand100 0.3855
+  oracle_nDCG@10_cand_all 0.9613
+  TP@10          0.0278
+  TR@10          0.0300
+  TC@10          n/a
+=== quant DONE 23:40:34
+=== travel download 23:40:34
+  documents.jsonl 257384470
+  examples_dev.jsonl 74613
+  qrels_dev.txt 3040
+  guidance_dev.jsonl 73971
+=== travel dense 23:41:57
+[dense] device=cuda model=D:/RETECO/models/bge-base-en-v1.5
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 13170.28it/s]
+  [docs] 64/158771 docs  66.1 doc/s
+  [docs] 1344/158771 docs  160.8 doc/s
+  [docs] 2624/158771 docs  163.8 doc/s
+  [docs] 3904/158771 docs  165.8 doc/s
+  [docs] 5184/158771 docs  167.3 doc/s
+  [docs] 6464/158771 docs  168.4 doc/s
+  [docs] 7744/158771 docs  167.6 doc/s
+  [docs] 9024/158771 docs  166.4 doc/s
+  [docs] 10304/158771 docs  164.8 doc/s
+  [docs] 11584/158771 docs  162.7 doc/s
+  [docs] 12864/158771 docs  163.5 doc/s
+  [docs] 14144/158771 docs  156.5 doc/s
+  [docs] 15424/158771 docs  157.3 doc/s
+  [docs] 16704/158771 docs  157.7 doc/s
+  [docs] 17984/158771 docs  158.5 doc/s
+  [docs] 19264/158771 docs  159.3 doc/s
+  [docs] 20544/158771 docs  159.9 doc/s
+  [docs] 21824/158771 docs  160.0 doc/s
+  [docs] 23104/158771 docs  160.5 doc/s
+  [docs] 24384/158771 docs  160.3 doc/s
+  [docs] 25664/158771 docs  157.9 doc/s
+  [docs] 26944/158771 docs  158.4 doc/s
+  [docs] 28224/158771 docs  158.8 doc/s
+  [docs] 29504/158771 docs  158.8 doc/s
+  [docs] 30784/158771 docs  159.1 doc/s
+  [docs] 32064/158771 docs  159.7 doc/s
+  [docs] 33344/158771 docs  160.1 doc/s
+  [docs] 34624/158771 docs  160.4 doc/s
+  [docs] 35904/158771 docs  160.8 doc/s
+  [docs] 37184/158771 docs  161.1 doc/s
+  [docs] 38464/158771 docs  161.3 doc/s
+  [docs] 39744/158771 docs  161.5 doc/s
+  [docs] 41024/158771 docs  161.8 doc/s
+  [docs] 42304/158771 docs  161.9 doc/s
+  [docs] 43584/158771 docs  162.0 doc/s
+  [docs] 44864/158771 docs  162.1 doc/s
+  [docs] 46144/158771 docs  162.1 doc/s
+  [docs] 47424/158771 docs  162.2 doc/s
+  [docs] 48704/158771 docs  162.3 doc/s
+  [docs] 49984/158771 docs  162.6 doc/s
+  [docs] 51264/158771 docs  162.4 doc/s
+  [docs] 52544/158771 docs  162.5 doc/s
+  [docs] 53824/158771 docs  162.6 doc/s
+  [docs] 55104/158771 docs  162.8 doc/s
+  [docs] 56384/158771 docs  162.8 doc/s
+  [docs] 57664/158771 docs  162.7 doc/s
+  [docs] 58944/158771 docs  162.7 doc/s
+  [docs] 60224/158771 docs  161.5 doc/s
+  [docs] 61504/158771 docs  161.4 doc/s
+  [docs] 62784/158771 docs  161.5 doc/s
+  [docs] 64064/158771 docs  161.5 doc/s
+  [docs] 65344/158771 docs  161.7 doc/s
+  [docs] 66624/158771 docs  161.8 doc/s
+  [docs] 67904/158771 docs  161.8 doc/s
+  [docs] 69184/158771 docs  162.0 doc/s
+  [docs] 70464/158771 docs  162.0 doc/s
+  [docs] 71744/158771 docs  162.1 doc/s
+  [docs] 73024/158771 docs  162.1 doc/s
+  [docs] 74304/158771 docs  162.3 doc/s
+  [docs] 75584/158771 docs  162.4 doc/s
+  [docs] 76864/158771 docs  162.4 doc/s
+  [docs] 78144/158771 docs  162.4 doc/s
+  [docs] 79424/158771 docs  162.5 doc/s
+  [docs] 80704/158771 docs  162.6 doc/s
+  [docs] 81984/158771 docs  162.8 doc/s
+  [docs] 83264/158771 docs  162.9 doc/s
+  [docs] 84544/158771 docs  162.9 doc/s
+  [docs] 85824/158771 docs  162.5 doc/s
+  [docs] 87104/158771 docs  162.6 doc/s
+  [docs] 88384/158771 docs  162.6 doc/s
+  [docs] 89664/158771 docs  162.7 doc/s
+  [docs] 90944/158771 docs  162.8 doc/s
+  [docs] 92224/158771 docs  162.7 doc/s
+  [docs] 93504/158771 docs  162.8 doc/s
+  [docs] 94784/158771 docs  162.8 doc/s
+  [docs] 96064/158771 docs  162.9 doc/s
+  [docs] 97344/158771 docs  162.9 doc/s
+  [docs] 98624/158771 docs  162.1 doc/s
+  [docs] 99904/158771 docs  162.1 doc/s
+  [docs] 101184/158771 docs  162.1 doc/s
+  [docs] 102464/158771 docs  162.1 doc/s
+  [docs] 103744/158771 docs  162.2 doc/s
+  [docs] 105024/158771 docs  162.2 doc/s
+  [docs] 106304/158771 docs  162.3 doc/s
+  [docs] 107584/158771 docs  162.4 doc/s
+  [docs] 108864/158771 docs  162.5 doc/s
+  [docs] 110144/158771 docs  162.6 doc/s
+  [docs] 111424/158771 docs  162.6 doc/s
+  [docs] 112704/158771 docs  162.7 doc/s
+  [docs] 113984/158771 docs  162.7 doc/s
+  [docs] 115264/158771 docs  162.8 doc/s
+  [docs] 116544/158771 docs  162.8 doc/s
+  [docs] 117824/158771 docs  162.8 doc/s
+  [docs] 119104/158771 docs  162.7 doc/s
+  [docs] 120384/158771 docs  162.6 doc/s
+  [docs] 121664/158771 docs  162.6 doc/s
+  [docs] 122944/158771 docs  162.6 doc/s
+  [docs] 124224/158771 docs  162.6 doc/s
+  [docs] 125504/158771 docs  162.6 doc/s
+  [docs] 126784/158771 docs  162.5 doc/s
+  [docs] 128064/158771 docs  162.2 doc/s
+  [docs] 129344/158771 docs  162.1 doc/s
+  [docs] 130624/158771 docs  162.0 doc/s
+  [docs] 131904/158771 docs  162.0 doc/s
+  [docs] 133184/158771 docs  162.0 doc/s
+  [docs] 134464/158771 docs  162.0 doc/s
+  [docs] 135744/158771 docs  161.9 doc/s
+  [docs] 137024/158771 docs  161.9 doc/s
+  [docs] 138304/158771 docs  161.8 doc/s
+  [docs] 139584/158771 docs  161.8 doc/s
+  [docs] 140864/158771 docs  161.7 doc/s
+  [docs] 142144/158771 docs  161.7 doc/s
+  [docs] 143424/158771 docs  161.3 doc/s
+  [docs] 144704/158771 docs  161.3 doc/s
+  [docs] 145984/158771 docs  161.1 doc/s
+  [docs] 147264/158771 docs  161.1 doc/s
+  [docs] 148544/158771 docs  161.1 doc/s
+  [docs] 149824/158771 docs  161.0 doc/s
+  [docs] 151104/158771 docs  161.0 doc/s
+  [docs] 152384/158771 docs  161.0 doc/s
+  [docs] 153664/158771 docs  160.9 doc/s
+  [docs] 154944/158771 docs  160.9 doc/s
+  [docs] 156224/158771 docs  160.9 doc/s
+  [docs] 157504/158771 docs  160.9 doc/s
+  [docs] 158771/158771 docs  160.8 doc/s
+[dense] encoded 158771 docs in 988.4s
+  [queries] 16/30 docs  140.5 doc/s
+[dense] 30 queries, latency mean 5.8 ms
+# dense  (30 topics, split=dev)
+  nDCG@10        0.2466
+  Recall@10      0.4167
+  Recall@100     0.7333
+  Recall@1000    0.8778
+  oracle_nDCG@10_cand100 0.7682
+  oracle_nDCG@10_cand_all 0.8919
+  TP@10          0.1066
+  TR@10          0.1100
+  TC@10          n/a
+=== travel rerank 23:59:04
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  11%|█         | 43/393 [00:00<00:00, 406.12it/s]Loading weights:  21%|██▏       | 84/393 [00:00<00:01, 190.73it/s]Loading weights:  28%|██▊       | 109/393 [00:00<00:01, 166.10it/s]Loading weights:  33%|███▎      | 129/393 [00:00<00:01, 168.75it/s]Loading weights:  38%|███▊      | 148/393 [00:00<00:01, 156.33it/s]Loading weights:  42%|████▏     | 165/393 [00:00<00:01, 153.52it/s]Loading weights:  46%|████▌     | 181/393 [00:01<00:01, 152.64it/s]Loading weights:  50%|█████     | 197/393 [00:01<00:01, 152.12it/s]Loading weights:  54%|█████▍    | 213/393 [00:01<00:01, 147.54it/s]Loading weights:  58%|█████▊    | 228/393 [00:01<00:01, 146.34it/s]Loading weights:  62%|██████▏   | 243/393 [00:01<00:01, 140.82it/s]Loading weights:  66%|██████▌   | 260/393 [00:01<00:00, 145.16it/s]Loading weights:  72%|███████▏  | 281/393 [00:01<00:00, 154.58it/s]Loading weights:  76%|███████▌  | 297/393 [00:01<00:00, 141.58it/s]Loading weights:  79%|███████▉  | 312/393 [00:02<00:00, 136.91it/s]Loading weights:  83%|████████▎ | 326/393 [00:02<00:00, 120.96it/s]Loading weights:  88%|████████▊ | 344/393 [00:02<00:00, 120.70it/s]Loading weights:  93%|█████████▎| 365/393 [00:02<00:00, 136.59it/s]Loading weights:  97%|█████████▋| 383/393 [00:02<00:00, 142.19it/s]Loading weights: 100%|██████████| 393/393 [00:02<00:00, 151.92it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (49102 > 8192). Running this sequence through the model will result in indexing errors
+  10/30 queries
+  20/30 queries
+  30/30 queries
+{"mean": 1640.4, "p50": 1335.1, "p95": 2711.2}
+wrote D:/RETECO/runs/rerank_v2m3_title_travel_dev.trec
+# ce  (30 topics, split=dev)
+  nDCG@10        0.2416
+  Recall@10      0.3556
+  Recall@100     0.7333
+  Recall@1000    0.7333
+  oracle_nDCG@10_cand100 0.7682
+  oracle_nDCG@10_cand_all 0.7682
+  TP@10          0.0987
+  TR@10          0.0867
+  TC@10          n/a
+=== travel fuse 00:00:55
+fused 30 queries; intersection 3000
+# fused  (30 topics, split=dev)
+  nDCG@10        0.2455
+  Recall@10      0.4000
+  Recall@100     0.7333
+  Recall@1000    0.8778
+  oracle_nDCG@10_cand100 0.7682
+  oracle_nDCG@10_cand_all 0.8919
+  TP@10          0.1065
+  TR@10          0.1033
+  TC@10          n/a
+=== travel DONE 00:00:56
+=== workplace download 00:00:56
+  documents.jsonl 81565694
+  examples_dev.jsonl 7030
+  qrels_dev.txt 1286
+  guidance_dev.jsonl 0
+=== workplace dense 00:03:42
+[dense] device=cuda model=D:/RETECO/models/bge-base-en-v1.5
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 11326.42it/s]
+  [docs] 64/43584 docs  60.9 doc/s
+  [docs] 1344/43584 docs  149.4 doc/s
+  [docs] 2624/43584 docs  149.8 doc/s
+  [docs] 3904/43584 docs  152.2 doc/s
+  [docs] 5184/43584 docs  155.7 doc/s
+  [docs] 6464/43584 docs  154.7 doc/s
+  [docs] 7744/43584 docs  146.4 doc/s
+  [docs] 9024/43584 docs  147.1 doc/s
+  [docs] 10304/43584 docs  148.3 doc/s
+  [docs] 11584/43584 docs  149.5 doc/s
+  [docs] 12864/43584 docs  150.7 doc/s
+  [docs] 14144/43584 docs  151.6 doc/s
+  [docs] 15424/43584 docs  151.6 doc/s
+  [docs] 16704/43584 docs  152.3 doc/s
+  [docs] 17984/43584 docs  152.6 doc/s
+  [docs] 19264/43584 docs  153.3 doc/s
+  [docs] 20544/43584 docs  153.6 doc/s
+  [docs] 21824/43584 docs  152.6 doc/s
+  [docs] 23104/43584 docs  153.3 doc/s
+  [docs] 24384/43584 docs  154.3 doc/s
+  [docs] 25664/43584 docs  154.9 doc/s
+  [docs] 26944/43584 docs  155.4 doc/s
+  [docs] 28224/43584 docs  153.7 doc/s
+  [docs] 29504/43584 docs  153.6 doc/s
+  [docs] 30784/43584 docs  153.4 doc/s
+  [docs] 32064/43584 docs  153.9 doc/s
+  [docs] 33344/43584 docs  154.3 doc/s
+  [docs] 34624/43584 docs  154.8 doc/s
+  [docs] 35904/43584 docs  155.2 doc/s
+  [docs] 37184/43584 docs  155.7 doc/s
+  [docs] 38464/43584 docs  154.1 doc/s
+  [docs] 39744/43584 docs  153.8 doc/s
+  [docs] 41024/43584 docs  154.1 doc/s
+  [docs] 42304/43584 docs  154.3 doc/s
+  [docs] 43584/43584 docs  154.4 doc/s
+[dense] encoded 43584 docs in 282.4s
+Traceback (most recent call last):
+  File "D:\RETECO\scripts\run_dense_bge.py", line 136, in <module>
+    main()
+  File "D:\RETECO\scripts\run_dense_bge.py", line 83, in main
+    qids, queries = load_examples(args.index_data, args.split)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\RETECO\scripts\lib_reteco.py", line 29, in load_examples
+    recs = read_jsonl(os.path.join(domain_dir, f"examples_{split}.jsonl"))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\RETECO\scripts\lib_reteco.py", line 11, in read_jsonl
+    return [json.loads(ln) for ln in f if ln.strip()]
+            ^^^^^^^^^^^^^^
+  File "D:\anaconda\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+dense FAIL workplace
+ALL DONE 2026-11-08 00:09:11

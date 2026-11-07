@@ -1,0 +1,10 @@
+{
+  "domain": "economics",
+  "split": "dev",
+  "q_mode": "full",
+  "queries": 25,
+  "docs": 74692,
+  "topk": 1000,
+  "run_file": "D:\\RETECO\\runs\\dense_full_economics_dev.trec",
+  "doc_emb_cache": "D:\\RETECO\\emb\\doc_emb_bge-base-en-v1.5_74692.npy"
+}

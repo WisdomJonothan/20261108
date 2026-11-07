@@ -1,0 +1,5 @@
+[dense] device=cuda model=D:/RETECO/models/bge-base-en-v1.5
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:   4%|▍         | 8/199 [00:00<00:03, 62.24it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1386.56it/s]
+[dense] reusing cached doc embeddings D:/RETECO/emb\doc_emb_bge-base-en-v1.5_9680.npy
+  [queries] 7/7 docs  11.0 doc/s
+[dense] 7 queries, latency mean 20.0 ms

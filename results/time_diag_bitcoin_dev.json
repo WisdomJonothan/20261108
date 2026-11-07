@@ -1,0 +1,541 @@
+{
+  "domain_dir": "D:\\RETECO\\data\\track1_tempo\\bitcoin",
+  "num_docs": 76706,
+  "doc_fields": [
+    "id",
+    "content"
+  ],
+  "pct_any_year": 23.88209527286001,
+  "pct_iso_date": 3.823690454462493,
+  "pct_month_name": 28.35762521836623,
+  "pct_relative": 5.996923317602274,
+  "year_distribution_top": [
+    [
+      "2017",
+      15425
+    ],
+    [
+      "2016",
+      10288
+    ],
+    [
+      "2018",
+      10118
+    ],
+    [
+      "2025",
+      9821
+    ],
+    [
+      "2021",
+      7445
+    ],
+    [
+      "2020",
+      7190
+    ],
+    [
+      "2019",
+      6704
+    ],
+    [
+      "2023",
+      6509
+    ],
+    [
+      "2024",
+      5841
+    ],
+    [
+      "2022",
+      5387
+    ],
+    [
+      "2014",
+      3564
+    ],
+    [
+      "2015",
+      3480
+    ],
+    [
+      "2013",
+      2871
+    ],
+    [
+      "2012",
+      2279
+    ],
+    [
+      "2010",
+      2233
+    ],
+    [
+      "2011",
+      2016
+    ],
+    [
+      "2009",
+      1968
+    ],
+    [
+      "2008",
+      1676
+    ],
+    [
+      "2006",
+      963
+    ],
+    [
+      "2007",
+      923
+    ]
+  ],
+  "split": "dev",
+  "num_queries": 30,
+  "num_queries_flagged_temporal": 26,
+  "mean_gold_with_year_frac": 0.12111111111111111,
+  "per_query": [
+    {
+      "qid": "126111_0",
+      "query": "Are Aqua Lightning Invoices and Liquid Addresses Valid for Long Term?\n<p>Using Aqua wallet on my android phone. As anyon",
+      "num_gold": 3,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "duration",
+      "key_time_anchors": [
+        "today",
+        "week",
+        "month"
+      ]
+    },
+    {
+      "qid": "124603_8",
+      "query": "Question about bitcoin mining difficulty adjustment formula in book mastering bitcoin 3rd edtion\n<p>In book &quot;Master",
+      "num_gold": 3,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "minutes",
+      "key_time_anchors": [
+        "20,160 minutes",
+        "Actual Time of Last 2015 Blocks"
+      ]
+    },
+    {
+      "qid": "124510_9",
+      "query": "Can I use Relative Locktime (BIP 68) to send funds to myself that can only be spent after a specific time in Bitcoin?\n<p",
+      "num_gold": 2,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "block count or relative time",
+      "key_time_anchors": [
+        "relative locktime duration",
+        "time or block count before UTXOs become spendable"
+      ]
+    },
+    {
+      "qid": "123461_13",
+      "query": "Implementing Conditional Fund Locking in Bitcoin Similar to Ethereum&#39;s Smart Contracts\n<p>I'm familiar with how Ethe",
+      "num_gold": 4,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "conceptual",
+      "key_time_anchors": [
+        "time-based conditions"
+      ]
+    },
+    {
+      "qid": "123234_16",
+      "query": "How feasible is a double spend attack?\n<p>Each source of information I look at that tackles this problem states that thi",
+      "num_gold": 3,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": false,
+      "granularity": "",
+      "key_time_anchors": []
+    },
+    {
+      "qid": "122143_23",
+      "query": "What was Bitcoin&#39;s Supply in the Pre-Alpha Release? (posted by Cryddit on Bitcointalk in 2013)\n<p>So I'm doing some ",
+      "num_gold": 2,
+      "gold_with_year": 2,
+      "gold_years": [
+        [
+          "2009",
+          2
+        ],
+        [
+          "2008",
+          1
+        ],
+        [
+          "2011",
+          1
+        ]
+      ],
+      "is_temporal_flag": true,
+      "granularity": "year",
+      "key_time_anchors": [
+        "Pre-Alpha Release",
+        "Bitcoin v0.01 release",
+        "2013"
+      ]
+    },
+    {
+      "qid": "122022_24",
+      "query": "Is there any way for a script to depend on blockchain info?\n<p>The <a href=\"https://en.bitcoin.it/wiki/Script#Locktime\" ",
+      "num_gold": 3,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": false,
+      "granularity": "",
+      "key_time_anchors": []
+    },
+    {
+      "qid": "122013_25",
+      "query": "What determines the block&#39;s timestamp?\n<p>As a miner, what happens if I propogate a block with a future timestamp, o",
+      "num_gold": 4,
+      "gold_with_year": 1,
+      "gold_years": [
+        [
+          "2009",
+          1
+        ]
+      ],
+      "is_temporal_flag": true,
+      "granularity": "seconds",
+      "key_time_anchors": [
+        "future timestamp",
+        "yesterday's timestamp",
+        "1-2 seconds"
+      ]
+    },
+    {
+      "qid": "121089_32",
+      "query": "Does hash_count field exists in getheaders/getblocks messages?\n<p><em>Ava Chow</em> said it does not exist (<a href=\"htt",
+      "num_gold": 3,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "date",
+      "key_time_anchors": [
+        "Bitcoin Core release notes",
+        "protocol change implementation date"
+      ]
+    },
+    {
+      "qid": "120273_40",
+      "query": "What is the logic (if there is) behind linking the nSequence and nLockTime?\n<p>The <code>nSequence</code> transaction fi",
+      "num_gold": 5,
+      "gold_with_year": 1,
+      "gold_years": [
+        [
+          "2016",
+          1
+        ]
+      ],
+      "is_temporal_flag": true,
+      "granularity": "year",
+      "key_time_anchors": [
+        "2009",
+        "introduction of relative time lock consensus rule",
+        "introduction of RBF policy rule"
+      ]
+    },
+    {
+      "qid": "120027_46",
+      "query": "What are the last common blocks of Bitcoin and its hard forks (Bitcoin Cash, Bitcoin SV etc.)?\n<p>What are the last comm",
+      "num_gold": 8,
+      "gold_with_year": 6,
+      "gold_years": [
+        [
+          "2017",
+          8
+        ],
+        [
+          "2020",
+          2
+        ],
+        [
+          "2018",
+          1
+        ]
+      ],
+      "is_temporal_flag": true,
+      "granularity": "block height and timestamp",
+      "key_time_anchors": [
+        "block heights of forks",
+        "timestamps of forks"
+      ]
+    },
+    {
+      "qid": "119507_50",
+      "query": "How did peer discovery work in Bitcoin v0.1?\n<p>Nowadays there are DNS seeds and hardcoded IP addresses, but back in the",
+      "num_gold": 3,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "year",
+      "key_time_anchors": [
+        "release of Bitcoin v0.1 (2009)"
+      ]
+    },
+    {
+      "qid": "119010_55",
+      "query": "At what height exactly can a relative time-locked output be spent?\n<p>Assume a UTXO created in block <code>n</code> with",
+      "num_gold": 1,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "block height",
+      "key_time_anchors": [
+        "block n",
+        "s blocks"
+      ]
+    },
+    {
+      "qid": "118421_57",
+      "query": "In the Lightning Network, what risks if any are associated with allowing a remote node to be offline for too long?\n<p>In",
+      "num_gold": 5,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "duration",
+      "key_time_anchors": [
+        "extended period of time"
+      ]
+    },
+    {
+      "qid": "118364_58",
+      "query": "Automatic force closure and on chain settlement of expired HTLC\n<p>After roughly a month of mostly smooth operation <a h",
+      "num_gold": 7,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "timestamp",
+      "key_time_anchors": [
+        "roughly a month of operation",
+        "two days later"
+      ]
+    },
+    {
+      "qid": "114601_60",
+      "query": "How throughput, latency, finality, waiting time are defined?\n<p>I am confused with the below terms. <strong>Could someon",
+      "num_gold": 1,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": false,
+      "granularity": "",
+      "key_time_anchors": []
+    },
+    {
+      "qid": "113938_64",
+      "query": "Question about Bitcoin&#39;s Median Time Past\n<p>I was currently reading the book Mastering Bitcoin written by Andreas a",
+      "num_gold": 2,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "block creation timestamps",
+      "key_time_anchors": [
+        "Median Time Past",
+        "past 11 blocks",
+        "time offset less than 2 hours"
+      ]
+    },
+    {
+      "qid": "113500_66",
+      "query": "How can I check the balance for a given date?\n<p>Are there block explorers for Bitcoin that would let me check the balan",
+      "num_gold": 2,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "date",
+      "key_time_anchors": [
+        "date",
+        "block height"
+      ]
+    },
+    {
+      "qid": "112979_68",
+      "query": "Can the mining reward ever go up?\n<p>Can the mining reward ever go up?</p>\n<p>I believe the answer is no, and the only w",
+      "num_gold": 5,
+      "gold_with_year": 1,
+      "gold_years": [
+        [
+          "2024",
+          1
+        ]
+      ],
+      "is_temporal_flag": false,
+      "granularity": "",
+      "key_time_anchors": []
+    },
+    {
+      "qid": "112929_69",
+      "query": "Is timestamping needed for anything except difficulty adjustment\n<p><a href=\"https://bitcoin.stackexchange.com/q/68653/1",
+      "num_gold": 2,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "year",
+      "key_time_anchors": [
+        "release of the bitcoin whitepaper (2008)"
+      ]
+    },
+    {
+      "qid": "112862_71",
+      "query": "alertnotify: how long is long?\n<pre><code>  -alertnotify=&lt;cmd&gt;\n       Execute command when a relevant alert is rec",
+      "num_gold": 2,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "duration",
+      "key_time_anchors": []
+    },
+    {
+      "qid": "112359_73",
+      "query": "Why were some BIPs marked as Rejected before expiry deadline defined in BIP-2?\n<p><a href=\"https://github.com/bitcoin/bi",
+      "num_gold": 1,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "date",
+      "key_time_anchors": [
+        "September 2017",
+        "June 2020",
+        "August 2018",
+        "three years"
+      ]
+    },
+    {
+      "qid": "112193_74",
+      "query": "Will a post-subsidy block with no transactions include a coinbase transaction?\n<p>If a block:</p>\n<ul>\n<li>Is after the ",
+      "num_gold": 4,
+      "gold_with_year": 2,
+      "gold_years": [
+        [
+          "2009",
+          1
+        ],
+        [
+          "2025",
+          1
+        ]
+      ],
+      "is_temporal_flag": true,
+      "granularity": "event",
+      "key_time_anchors": [
+        "last halving"
+      ]
+    },
+    {
+      "qid": "112021_76",
+      "query": "Is the Bitcoin Blockchain aware of time?\n<p>I recently learned about how the lightning network works, and one particular",
+      "num_gold": 5,
+      "gold_with_year": 2,
+      "gold_years": [
+        [
+          "2016",
+          1
+        ],
+        [
+          "2012",
+          1
+        ]
+      ],
+      "is_temporal_flag": true,
+      "granularity": "duration",
+      "key_time_anchors": [
+        "24 hours"
+      ]
+    },
+    {
+      "qid": "110742_80",
+      "query": "How to identify Taproot transaction using big query?\n<p>From <a href=\"https://bitcoinmagazine.com/technical/bitcoin-tapr",
+      "num_gold": 1,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "date",
+      "key_time_anchors": [
+        "November 14",
+        "Taproot/Schnorr activation date"
+      ]
+    },
+    {
+      "qid": "97236_86",
+      "query": "transaction (s) not going through due to low fees selected\n<p>I'm having a problem with a bitcoin transaction (not throu",
+      "num_gold": 1,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "hours",
+      "key_time_anchors": [
+        "20 hours ago",
+        "4/5 hours ago"
+      ]
+    },
+    {
+      "qid": "97179_88",
+      "query": "Is there a way to see the precise time of when a transaction was sent out?\n<p>I'm a developer. I'm not really knowledgea",
+      "num_gold": 4,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "timestamp",
+      "key_time_anchors": [
+        "precise time of transaction sending",
+        "12-30 hours after payment",
+        "time-window of 15-30-60 minutes"
+      ]
+    },
+    {
+      "qid": "97135_89",
+      "query": "How to know Block height when a transaction entered Mempool?\n<p>I'm hosting a Listening Bitcoin Node in Capital of Pakis",
+      "num_gold": 3,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "timestamp",
+      "key_time_anchors": [
+        "transaction entry time",
+        "Block height"
+      ]
+    },
+    {
+      "qid": "93368_97",
+      "query": "Problem caused by unconfirmed transaction chains\n<p>I want to build a service that requires sending many small bitcoin t",
+      "num_gold": 2,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "hours",
+      "key_time_anchors": [
+        "confirmation time",
+        "a few hours"
+      ]
+    },
+    {
+      "qid": "93150_99",
+      "query": "When will my Lightning channel be closed?\n<p>I have a force closed channel from lnbig.com and it has been pending in clo",
+      "num_gold": 3,
+      "gold_with_year": 1,
+      "gold_years": [
+        [
+          "2016",
+          1
+        ]
+      ],
+      "is_temporal_flag": true,
+      "granularity": "block height",
+      "key_time_anchors": [
+        "over 2 weeks",
+        "42600+ blocks"
+      ]
+    }
+  ]
+}

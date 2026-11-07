@@ -1,0 +1,13 @@
+[bm25-pyserini] bitcoin/train: 70 queries, 76706 docs, mean latency 433.1 ms
+  126019_1 top3: ['bitcoin/f4d334ac_17631.txt', 'bitcoin/124973_bc7931f320e70e54_0.txt', 'bitcoin/113291_81e6588cd06dea65_129.txt']
+  125905_2 top3: ['bitcoin/112862_6c8b904fd136a5be_170.txt', 'bitcoin/112862_6c8b904fd136a5be_167.txt', 'bitcoin/119677_4b99acefe400b9e5_2251.txt']
+  125174_3 top3: ['bitcoin/124973_bc7931f320e70e54_0.txt', 'bitcoin/95129_74bffec4294bd1e9_0.txt', 'bitcoin/113291_81e6588cd06dea65_129.txt']
+# pyserini-bm25 bitcoin train  (70 topics, split=train)
+  nDCG@10        0.0468
+  Recall@10      0.0667
+  Recall@100     0.1488
+  Recall@1000    0.4914
+  oracle_nDCG@10 0.5334
+  TP@10          0.0202
+  TR@10          0.0157
+  TC@10          0.1257

@@ -1,0 +1,27 @@
+{
+  "domain": "genealogy",
+  "split": "dev",
+  "candidate_run": "dense_bge_genealogy_dev.trec",
+  "candidate_k": 100,
+  "model": "bge-reranker-v2-m3",
+  "dtype": "float16",
+  "q_mode": "title",
+  "q_cap": 256,
+  "window": 250,
+  "stride": 250,
+  "pool": "max",
+  "batch": 32,
+  "queries": 35,
+  "pairs_scored": 11504,
+  "windows": 11504,
+  "mean_windows_per_doc": 3.29,
+  "missing_docs": 0,
+  "seconds": 196.5,
+  "pairs_per_s": 58.5,
+  "latency_ms_per_query": {
+    "mean": 4066.0,
+    "p50": 2934.0,
+    "p95": 6744.7
+  },
+  "peak_gpu_mem_mb": 1292.5
+}

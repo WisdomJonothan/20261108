@@ -1,0 +1,12 @@
+{
+  "domain": "bitcoin",
+  "split": "dev",
+  "alpha": 1.0,
+  "queries": 30,
+  "run_file": "D:\\RETECO\\runs\\hyde_a1.0_bitcoin_dev.trec",
+  "hyde_samples": [
+    "Aqua Lightning Invoices and Liquid Addresses are both valid for long-term use within the Aqua ecosystem. A Lightning Invoice can be used indefinitely until manually canceled or expired, similar to an on-chain address. Similarly, a Liquid Address does not have a fixed amount associated with it; once sent, you can use it multiple times without expiration. Both types of addresses remain active and usable over extended periods.",
+    "The formula for adjusting the Bitcoin mining difficulty in \"Mastering Bitcoin\" 3rd edition on page 278 states: New Target = Old Target * (Actual Time of Last 2015 Blocks / 20,160 minutes). This suggests that the actual time of the last 2015 blocks divided by 20,160 minutes is used to calculate the new target instead of the other way around.",
+    "Yes, you can use Relative Locktime (BIP 68) to send funds to yourself that will only become spendable after a specific period has passed in Bitcoin. Before the locktime expires, these UTXOs remain unspent and cannot be used directly. They must wait until the specified time or block count has elapsed before becoming available for spending."
+  ]
+}

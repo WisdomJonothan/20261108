@@ -1,0 +1,150 @@
+{
+  "60625_152": [
+    "What is the typical cycle of business cycles?",
+    "Could an expansion end without entering a recession?",
+    "Is there room for sustained growth between expansions?",
+    "Are all business cycles characterized by alternating highs and lows?"
+  ],
+  "60545_155": [
+    "How does societal culture influence educational norms historically?",
+    "What specific aspects of society affect educational norms?",
+    "Are there any notable historical examples of how societies shaped educational norms?",
+    "Could you recommend a scholarly article discussing this topic?"
+  ],
+  "59178_164": [
+    "What is the timeline for the leveling out of the economic consequences of aging populations?",
+    "Is there a specific year when the population pyramid is expected to stabilize?",
+    "How long does it take for economic growth to catch up with demographic changes?",
+    "Will the economic consequences stabilize once the population pyramid levels out?"
+  ],
+  "58503_167": [
+    "What is the current state of the delinquency rate for student loans in the US?",
+    "When did the payment pause end for most borrowers?",
+    "Is there any recent policy change affecting the delinquency rate?",
+    "How might the Federal Student Loan Debt Relief program impact the delinquency rate?"
+  ],
+  "57769_170": [
+    "What is the formula for the profits at time \\( t \\)?",
+    "How does the growth rate of profits relate to the growth rates of wages and ideas?",
+    "How is the discount rate applied to the profits?",
+    "How do you derive the present value of profits considering the growth rates and discounting?"
+  ],
+  "57699_171": [
+    "Ever had governments default on public domestic debt?",
+    "Ever had governments default on treasury bonds due to inflation?",
+    "Ever had governments default on treasury bonds due to political issues?",
+    "Did Lebanon default on its government bonds during bank withdrawals?"
+  ],
+  "57498_172": [
+    "What is the current state of the Federal Funds Rate?",
+    "How does lowering the inflation rate affect the Federal Funds Rate?",
+    "Will the Federal Funds Rate continue to rise after reaching the target level?",
+    "After achieving the targeted inflation rate, will the Federal Funds Rate remain unchanged?"
+  ],
+  "56372_176": [
+    "What was the historical context of wage stagnation during the early stages of capitalism?",
+    "How did the core-periphery dynamics affect labor conditions in capitalist societies?",
+    "Did socialist states perform better economically compared to capitalist ones?",
+    "Was the concept of constant accumulation of capital accurate according to world-systems theory?"
+  ],
+  "55201_179": [
+    "What is the current price level in 2018?",
+    "How do I calculate the inflation rate from 2015 to 2020?",
+    "Which years' expenditure values should be adjusted using the inflation rates?",
+    "How do I apply the inflation adjustments to the given expenditure amounts?"
+  ],
+  "52658_189": [
+    "What is a measure of social inequality?",
+    "Are there metrics for quantifying social inequality?",
+    "How can social inequality be compared across countries and over time?",
+    "Can you provide an example of how social inequality manifests differently based on race, gender, etc.?"
+  ],
+  "52071_193": [
+    "How does inflation occur when production remains constant?",
+    "What factors influence the relationship between money supply and economic growth?",
+    "Can inflation be predicted based on current monetary policies?",
+    "How long does it typically take for new money to affect price levels?"
+  ],
+  "51330_198": [
+    "Does anticipation affect the direction of DID estimates?",
+    "How does anticipation impact the size of DID estimates?",
+    "Can anticipation eliminate the need for control groups in DID analysis?",
+    "What role does anticipation play in increasing Type 1 error rates?"
+  ],
+  "50570_202": [
+    "What was the rationale behind freezing German and Japanese central bank assets during WWII?",
+    "Could freezing these assets have led to significant economic consequences for Germany and Japan?",
+    "Did the Allies consider the potential impact on global trade due to asset freezes?",
+    "Were there logistical challenges that prevented such actions during wartime?"
+  ],
+  "49965_204": [
+    "Why doesn't synthetic control address backdoor confounders?",
+    "How do comparative case studies complicate the use of synthetic control?",
+    "Can synthetic control effectively handle large numbers of pre-intervention periods?",
+    "What advantage does synthetic control have over traditional matching methods?"
+  ],
+  "48548_206": [
+    "What is the relationship between CPI and vehicle costs?",
+    "Why isn't the CPI directly related to the transaction price of vehicles?",
+    "How can I interpret the rate of change in CPI values?",
+    "Are there alternative indicators of automobile price changes?"
+  ],
+  "47763_212": [
+    "When is testing for auto-correlation necessary?",
+    "Should lag variables always be included in DDI models?",
+    "How does lagged response variable affect DDI analysis?",
+    "Why might lagged variables not be used in some studies?"
+  ],
+  "47636_213": [
+    "What does the coefficient $\\beta$ represent in a Difference-in-Differences model?",
+    "How can we interpret the change in the number of rich people per million between the treatment and control groups annually?",
+    "In what context would the interpretation of $\\beta$ be most relevant when analyzing yearly data on the number of rich people per million?"
+  ],
+  "47454_216": [
+    "Does violating the parallel trend assumption significantly affect the validity of Difference-in-Differences?",
+    "What does a p-value of 0.0979 indicate regarding the parallel trend violation?",
+    "Should I proceed with the Difference-in-Differences analysis despite a slightly violated parallel trend?",
+    "How might the small p-value (0.0979) impact the interpretation of the results in Difference-in-Differences?"
+  ],
+  "47148_218": [
+    "When does the return on capital reach its peak?",
+    "What causes the scarcity of capital leading to higher returns?",
+    "Why might the scarcity of capital lead to decreased marginal productivity?",
+    "How does increased scarcity affect the rate of return according to the text?"
+  ],
+  "45828_221": [
+    "What specific time frame does the \"last calendar year\" refer to?",
+    "Are all goods and services from the previous year considered part of GDP?",
+    "How does the definition affect the inclusion of current-year production in GDP calculations?",
+    "Is there any exception for current-year sales of goods produced in the same year?"
+  ],
+  "45773_222": [
+    "Were deregulation measures from 2007-2008 retracted?",
+    "Has the Gramm-Leach-Bliley Act been repealed since the 2007-2008 crisis?",
+    "Are there any current deregulatory policies in place to avoid future crises like the 2007-2008 one?"
+  ],
+  "45680_223": [
+    "How can we address discrepancies between the overall results and those from specific subgroups?",
+    "Should we disregard the subgroup results due to their inconsistency with the main findings?",
+    "Are there any standard methods to ensure consistency across different groups within our analysis?",
+    "Could adjusting for confounding variables help resolve the observed differences between subgroups and the whole population?"
+  ],
+  "43952_227": [
+    "What is the purpose of controlling for interaction between year and industry fixed effects?",
+    "How does including firm and year interactions affect model results?",
+    "Is it necessary to include region as well when considering industry-year interaction?",
+    "Why might researchers choose specific combinations of fixed effects (firm/year/industry/regional)?"
+  ],
+  "43853_228": [
+    "Why use 1990 or 2010 as benchmarks?",
+    "How does choosing multiples of ten years benefit certain regions like the US?",
+    "Are there any additional benefits to using specific decades as benchmarks?",
+    "What are potential drawbacks or concerns when using non-multiples of ten years?"
+  ],
+  "43579_231": [
+    "Can we use the cross-sectional data from 2016 and 2018 for differences-in-differences analysis?",
+    "Are there any specific reasons why the differences-in-differences method might be applicable given the available data?",
+    "How does the presence of both treatment and control groups affect the feasibility of using differences-in-differences estimation?",
+    "What additional considerations should be taken into account when applying differences-in-differences to this dataset?"
+  ]
+}

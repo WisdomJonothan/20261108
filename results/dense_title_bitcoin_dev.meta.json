@@ -1,0 +1,10 @@
+{
+  "domain": "bitcoin",
+  "split": "dev",
+  "q_mode": "title",
+  "queries": 30,
+  "docs": 76706,
+  "topk": 1000,
+  "run_file": "D:\\RETECO\\runs\\dense_title_bitcoin_dev.trec",
+  "doc_emb_cache": "D:\\RETECO\\emb\\doc_emb_bge-base-en-v1.5_76706.npy"
+}

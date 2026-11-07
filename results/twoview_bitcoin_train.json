@@ -1,0 +1,14 @@
+{
+  "run_a": "D:\\RETECO\\runs\\dense_bge_bitcoin_train.trec",
+  "run_b": "D:\\RETECO\\runs\\rerank_v2m3_qtitle_bitcoin_train.trec",
+  "wa": 2.0,
+  "wb": 1.0,
+  "c": 60.0,
+  "stats": {
+    "queries": 70,
+    "intersection": 7000,
+    "a_only": 63000,
+    "b_only": 0
+  },
+  "run_file": "D:\\RETECO\\runs\\twoview_bitcoin_train.trec"
+}

@@ -1,0 +1,26 @@
+{
+  "domain": "bitcoin",
+  "split": "dev",
+  "candidate_run": "dense_bge_bitcoin_dev.trec",
+  "candidate_k": 100,
+  "model": "ms-marco-MiniLM-L-6-v2",
+  "dtype": "float16",
+  "q_cap": 128,
+  "window": 380,
+  "stride": 190,
+  "pool": "max",
+  "batch": 32,
+  "queries": 30,
+  "pairs_scored": 4329,
+  "windows": 4329,
+  "mean_windows_per_doc": 1.44,
+  "missing_docs": 0,
+  "seconds": 36.3,
+  "pairs_per_s": 119.3,
+  "latency_ms_per_query": {
+    "mean": 471.8,
+    "p50": 427.5,
+    "p95": 754.8
+  },
+  "peak_gpu_mem_mb": 192.3
+}

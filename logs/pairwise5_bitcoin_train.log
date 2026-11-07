@@ -1,0 +1,73 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  14%|█▍        | 48/338 [00:00<00:01, 288.35it/s]Loading weights:  23%|██▎       | 77/338 [00:00<00:02, 93.28it/s] Loading weights:  28%|██▊       | 95/338 [00:00<00:02, 96.91it/s]Loading weights:  32%|███▏      | 109/338 [00:01<00:03, 66.78it/s]Loading weights:  35%|███▌      | 119/338 [00:01<00:03, 59.72it/s]Loading weights:  38%|███▊      | 129/338 [00:01<00:03, 55.58it/s]Loading weights:  42%|████▏     | 143/338 [00:02<00:03, 55.44it/s]Loading weights:  45%|████▍     | 152/338 [00:02<00:04, 44.67it/s]Loading weights:  47%|████▋     | 160/338 [00:02<00:04, 42.77it/s]Loading weights:  53%|█████▎    | 178/338 [00:02<00:02, 55.85it/s]Loading weights:  55%|█████▌    | 187/338 [00:02<00:02, 60.88it/s]Loading weights:  58%|█████▊    | 195/338 [00:03<00:03, 47.12it/s]Loading weights:  59%|█████▉    | 201/338 [00:03<00:02, 47.99it/s]Loading weights:  62%|██████▏   | 209/338 [00:03<00:02, 52.34it/s]Loading weights:  64%|██████▎   | 215/338 [00:03<00:02, 42.57it/s]Loading weights:  67%|██████▋   | 225/338 [00:03<00:02, 38.91it/s]Loading weights:  70%|███████   | 237/338 [00:04<00:02, 38.18it/s]Loading weights:  73%|███████▎  | 247/338 [00:04<00:01, 47.07it/s]Loading weights:  75%|███████▍  | 253/338 [00:04<00:01, 44.17it/s]Loading weights:  78%|███████▊  | 263/338 [00:04<00:01, 42.54it/s]Loading weights:  80%|████████  | 271/338 [00:05<00:01, 36.69it/s]Loading weights:  85%|████████▍ | 286/338 [00:05<00:01, 40.50it/s]Loading weights:  87%|████████▋ | 294/338 [00:05<00:00, 45.73it/s]Loading weights:  89%|████████▉ | 300/338 [00:05<00:00, 42.31it/s]Loading weights:  92%|█████████▏| 311/338 [00:05<00:00, 42.48it/s]Loading weights:  96%|█████████▌| 323/338 [00:06<00:00, 48.84it/s]Loading weights:  97%|█████████▋| 329/338 [00:06<00:00, 46.55it/s]Loading weights: 100%|██████████| 338/338 [00:06<00:00, 53.92it/s]
+  1/70 queries
+  2/70 queries
+  3/70 queries
+  4/70 queries
+  5/70 queries
+  6/70 queries
+  7/70 queries
+  8/70 queries
+  9/70 queries
+  10/70 queries
+  11/70 queries
+  12/70 queries
+  13/70 queries
+  14/70 queries
+  15/70 queries
+  16/70 queries
+  17/70 queries
+  18/70 queries
+  19/70 queries
+  20/70 queries
+  21/70 queries
+  22/70 queries
+  23/70 queries
+  24/70 queries
+  25/70 queries
+  26/70 queries
+  27/70 queries
+  28/70 queries
+  29/70 queries
+  30/70 queries
+  31/70 queries
+  32/70 queries
+  33/70 queries
+  34/70 queries
+  35/70 queries
+  36/70 queries
+  37/70 queries
+  38/70 queries
+  39/70 queries
+  40/70 queries
+  41/70 queries
+  42/70 queries
+  43/70 queries
+  44/70 queries
+  45/70 queries
+  46/70 queries
+  47/70 queries
+  48/70 queries
+  49/70 queries
+  50/70 queries
+  51/70 queries
+  52/70 queries
+  53/70 queries
+  54/70 queries
+  55/70 queries
+  56/70 queries
+  57/70 queries
+  58/70 queries
+  59/70 queries
+  60/70 queries
+  61/70 queries
+  62/70 queries
+  63/70 queries
+  64/70 queries
+  65/70 queries
+  66/70 queries
+  67/70 queries
+  68/70 queries
+  69/70 queries
+  70/70 queries
+{"mean": 2424.2, "p50": 2317.0, "max": 5976.3}

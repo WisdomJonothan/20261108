@@ -1,0 +1,12 @@
+{
+  "domain": "economics",
+  "split": "dev",
+  "alpha": 0.5,
+  "queries": 25,
+  "run_file": "D:\\RETECO\\runs\\hyde_a0.5_economics_dev.trec",
+  "hyde_samples": [
+    "The concept of \"business cycle\" refers to fluctuations in economic activity over time. An expansion typically involves increasing production and employment as demand outpaces supply, leading to higher GDP growth. However, it is possible for an expansion to slow down without necessarily resulting in a recession. This can happen when there's a temporary disruption in the market, such as a downturn in consumer confidence or a shift in global trade patterns. In these cases, the economy may experience a slowdown but still maintain its overall trend growth. The economy might stay at a lower level for some time before potentially expanding again. Economic activity doesn't",
+    "Education economics examines how societal factors influence educational norms and outcomes. Societies play a crucial role in shaping educational practices through cultural values, policies, and social structures. Understanding these dynamics helps explain why some countries have more progressive educational systems compared to others. For instance, cultures that value education highly tend to produce more innovative thinkers and adapt better to technological advancements. Research papers exploring specific historical contexts where societal changes led to significant shifts in educational norms could provide valuable insights.",
+    "The exact timing when the economic consequences of aging populations will level out is uncertain as it depends on various factors such as technological advancements, policy decisions, and global economic trends. However, it is generally believed that the issue may stabilize after several decades, allowing for gradual improvements in economic growth and addressing the challenges posed by demographic shifts. For instance, the UK's Old Age Support Ratio is projected to decrease by nearly a third between 2022 and 2037, highlighting the urgency of finding solutions to mitigate the growing financial burden on healthcare and pensions systems."
+  ]
+}

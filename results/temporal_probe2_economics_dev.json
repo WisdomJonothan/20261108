@@ -1,0 +1,40 @@
+{
+  "domain": "economics",
+  "split": "dev",
+  "placebo": false,
+  "rows": 2500,
+  "positives": 57,
+  "queries": 25,
+  "auc_single": {
+    "dense(-rank)": 0.7690285886636362,
+    "temporal_cos": 0.6477511831153815,
+    "lex_overlap": 0.713373692109931,
+    "doc_len": 0.6754816841530761
+  },
+  "auc_logistic_cv": {
+    "dense_only": 0.7534811240134721,
+    "dense+temporal": 0.7599945422294991,
+    "delta": 0.006513418216027023
+  },
+  "per_query_auc": {
+    "n": 21,
+    "dense_mean": 0.7434356776876289,
+    "temporal_mean": 0.6246702636025425,
+    "temporal_median": 0.595959595959596,
+    "combined_mean": 0.7442461067058973,
+    "delta_mean": 0.0008104290182682904,
+    "delta_win_rate": 0.47619047619047616,
+    "delta_ci": [
+      -0.011702639788802363,
+      0.013331323816762433
+    ],
+    "temporal_ci": [
+      0.5305761523207286,
+      0.7171357923668751
+    ]
+  },
+  "correlations": {
+    "temporal_vs_dense_rank": -0.2051223187855683,
+    "temporal_vs_lex_overlap": 0.15299699811901685
+  }
+}

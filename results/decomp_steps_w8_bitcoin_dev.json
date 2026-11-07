@@ -1,0 +1,14 @@
+{
+  "domain": "bitcoin",
+  "split": "dev",
+  "mode": "steps",
+  "w0": 8.0,
+  "c": 60.0,
+  "topk": 1000,
+  "stats": {
+    "queries": 30,
+    "subqueries": 56,
+    "avg_sub": 1.8666666666666667
+  },
+  "run_file": "D:\\RETECO\\runs\\decomp_steps_w8_bitcoin_dev.trec"
+}

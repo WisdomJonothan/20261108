@@ -1,0 +1,10 @@
+{
+  "domain": "economics",
+  "split": "train",
+  "q_mode": "full",
+  "queries": 58,
+  "docs": 74692,
+  "topk": 1000,
+  "run_file": "D:\\RETECO\\runs\\dense_full_economics_train.trec",
+  "doc_emb_cache": "D:\\RETECO\\emb\\doc_emb_bge-base-en-v1.5_74692.npy"
+}

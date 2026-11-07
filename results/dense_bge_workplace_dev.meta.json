@@ -1,0 +1,26 @@
+{
+  "system": "zero-shot dense bi-encoder D:/RETECO/models/bge-base-en-v1.5 (CLS pooling, cosine)",
+  "model": "D:/RETECO/models/bge-base-en-v1.5",
+  "query_instruction": "Represent this sentence for searching relevant passages: ",
+  "query_instruction_source": "BGE v1.5 model card recommendation",
+  "max_length": 512,
+  "batch_size": 64,
+  "num_docs": 43584,
+  "num_queries": 11,
+  "split": "dev",
+  "data": "D:\\RETECO\\data\\track1_tempo\\workplace",
+  "device": "cuda",
+  "dtype": "float16",
+  "seconds_query_encode": 1.5803588000126183,
+  "search_latency_ms": {
+    "mean": 53.737827275075354,
+    "median_of_means": 0.1534000039100647
+  },
+  "embedding_dim": 768,
+  "doc_emb_file": "D:\\RETECO\\emb\\doc_emb_bge-base-en-v1.5_43584.npy",
+  "torch_version": "2.7.0+cu126",
+  "transformers_version": "5.22.2",
+  "python": "3.12.7",
+  "run_file": "D:\\RETECO\\runs\\dense_bge_workplace_dev.trec",
+  "peak_gpu_mem_mb": 463.439453125
+}

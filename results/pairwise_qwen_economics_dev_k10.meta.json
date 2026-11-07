@@ -1,0 +1,17 @@
+{
+  "domain": "economics",
+  "split": "dev",
+  "candidate_run": "dense_bge_economics_dev.trec",
+  "candidate_k": 10,
+  "model": "qwen",
+  "queries": 25,
+  "llm_calls": 1125,
+  "parse_failures": 0,
+  "seconds": 303.8,
+  "latency_ms_per_query": {
+    "mean": 11239.1,
+    "p50": 11047.4,
+    "max": 14117.7
+  },
+  "peak_gpu_mem_mb": 3120.2
+}

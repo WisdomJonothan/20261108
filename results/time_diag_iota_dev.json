@@ -1,0 +1,161 @@
+{
+  "domain_dir": "D:\\RETECO\\data\\track1_tempo\\iota",
+  "num_docs": 9680,
+  "doc_fields": [
+    "id",
+    "content"
+  ],
+  "pct_any_year": 21.167355371900825,
+  "pct_iso_date": 0.5268595041322314,
+  "pct_month_name": 25.175619834710744,
+  "pct_relative": 7.520661157024794,
+  "year_distribution_top": [
+    [
+      "2020",
+      2930
+    ],
+    [
+      "2021",
+      2663
+    ],
+    [
+      "2024",
+      2261
+    ],
+    [
+      "2022",
+      2243
+    ],
+    [
+      "2023",
+      2192
+    ],
+    [
+      "2019",
+      1557
+    ],
+    [
+      "2018",
+      1479
+    ],
+    [
+      "2017",
+      1238
+    ],
+    [
+      "2025",
+      1210
+    ],
+    [
+      "2016",
+      888
+    ],
+    [
+      "2015",
+      672
+    ],
+    [
+      "2014",
+      627
+    ],
+    [
+      "2013",
+      527
+    ],
+    [
+      "2012",
+      505
+    ],
+    [
+      "2011",
+      492
+    ],
+    [
+      "2010",
+      456
+    ],
+    [
+      "2009",
+      162
+    ],
+    [
+      "2008",
+      154
+    ],
+    [
+      "2000",
+      144
+    ],
+    [
+      "2007",
+      105
+    ]
+  ],
+  "split": "dev",
+  "num_queries": 3,
+  "num_queries_flagged_temporal": 3,
+  "mean_gold_with_year_frac": 0.25,
+  "per_query": [
+    {
+      "qid": "2714_798",
+      "query": "Are there future plans for the legacy network?\n<p>From <a href=\"https://blog.iota.org/the-chrysalis-token-migration-star",
+      "num_gold": 4,
+      "gold_with_year": 3,
+      "gold_years": [
+        [
+          "2025",
+          1
+        ],
+        [
+          "2015",
+          1
+        ],
+        [
+          "2024",
+          1
+        ],
+        [
+          "2021",
+          1
+        ],
+        [
+          "2023",
+          1
+        ]
+      ],
+      "is_temporal_flag": true,
+      "granularity": "month",
+      "key_time_anchors": [
+        "April 28th"
+      ]
+    },
+    {
+      "qid": "2194_800",
+      "query": "physical clock or logical clock for timestamping\n<p>Timestamps in Tangle are already mandatory and must have a value in ",
+      "num_gold": 3,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "timestamp",
+      "key_time_anchors": [
+        "January 28, 2018 11:00:00 PM GMT",
+        "epoch 1517180400",
+        "2 hours in the future"
+      ]
+    },
+    {
+      "qid": "314_806",
+      "query": "When do nodes sync their subtangle with the neighbours?\n<p>Does this happen after every transaction? In discrete steps? ",
+      "num_gold": 2,
+      "gold_with_year": 0,
+      "gold_years": [],
+      "is_temporal_flag": true,
+      "granularity": "process timing",
+      "key_time_anchors": [
+        "after every transaction",
+        "in discrete steps",
+        "as long as the coordinator is up"
+      ]
+    }
+  ]
+}
