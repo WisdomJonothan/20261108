@@ -80,6 +80,12 @@ Leave-one-domain-out weight selection picks 1:4 in 10/12 folds and yields a
 mean held-out gain of **+0.0150** — i.e. the honest cross-domain effect size is
 smaller than the pooled number.
 
+> **Committed artifacts.** Dev TREC runs for every system are in `runs/`.
+> The 7-domain **train** runs (83 MB) are not committed; regenerate them with
+> `bash scripts/phase8_train_mxbai.sh` (dense + CE) and
+> `bash scripts/phase8_train_features.sh` (feature rows) before running
+> `scripts/temporal_gate_fit.py`.
+
 ## Phase 8 — stronger first stage (dev nDCG@10)
 
 Motivation: the first release had no comparison against retrievers stronger than
