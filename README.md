@@ -40,6 +40,10 @@ query ──► bge-base-en-v1.5 (full query) ──► dense top-1000
   first `<p>`), capped at 256 tokens;
 * Fusion: reciprocal rank fusion, `c = 60`.
 
+**Phase 8 update (recommended configuration).** Swapping only the first stage to
+`mixedbread-ai/mxbai-embed-large-v1` and fusing `w_dense : w_CE = 1:1` raises the
+12-domain macro from 0.2559 to **0.3246** (see the Phase 8 section below).
+
 ## Results (dev nDCG@10)
 
 | domain | n | dense | CE | RRF 1:4 |
@@ -73,6 +77,72 @@ Leave-one-domain-out weight selection picks 1:4 in 10/12 folds and yields a
 mean held-out gain of **+0.0150** — i.e. the honest cross-domain effect size is
 smaller than the pooled number.
 
+## Phase 8 — stronger first stage (dev nDCG@10)
+
+Motivation: the first release had no comparison against retrievers stronger than
+bge-base. TEMPO (arXiv:2601.09523v1) reports E5 30.4 / DiVeR-4B 32.0, but those
+are 7B/4B models on its own 1,730-query v1.0 corpus, so they cannot be quoted
+side by side here (only BM25 0.1147 is directly comparable). We instead ran
+zero-shot 8 GB-friendly encoders on the identical dev split.
+
+| domain | bge-base | e5-base | mxbai | mxbai+CE 1:1 |
+|---|---:|---:|---:|---:|
+| bitcoin | 0.2171 | 0.1224 | 0.1820 | 0.2044 |
+| economics | 0.1891 | 0.0525 | 0.1890 | 0.2099 |
+| politics | 0.3074 | 0.2264 | **0.3599** | 0.4023 |
+| genealogy | 0.2110 | 0.1436 | **0.3298** | 0.3372 |
+| hsm | 0.2926 | 0.1413 | **0.3125** | 0.3840 |
+| history | 0.2772 | 0.2413 | **0.3051** | 0.3441 |
+| law | 0.3013 | 0.0633 | **0.3689** | 0.3574 |
+| workplace | **0.3795** | 0.1046 | 0.3362 | 0.3244 |
+| cardano | 0.1496 | 0.1312 | **0.1832** | 0.1632 |
+| monero | 0.1328 | 0.1139 | **0.1826** | 0.2281 |
+| quant | 0.0564 | 0.0000 | **0.1954** | 0.1631 |
+| iota (3 q) | 0.4712 | 0.4183 | **0.6485** | 0.7771 |
+| **macro (12)** | 0.2488 | 0.1489 | **0.2995** | **0.3246** |
+
+* `intfloat/e5-base-v2`: macro **0.148** over all 13 domains — mean pooling over
+  these long HTML documents is simply weak (the scoring path was verified
+  against bge, which reproduces 0.3013 on `law`).
+* `mxbai-embed-large-v1`: macro **0.2995** over 12 domains (travel skipped, see
+  caveats); wins 9/12 domains, loses `bitcoin` (−0.035) and `workplace` (−0.043).
+* `Alibaba-NLP/gte-large-en-v1.5` could not be run: its custom RoPE/pack_qkv code
+  raises `AttributeError: 'NewModel' object has no attribute
+  'get_extended_attention_mask'` under transformers 5.22.
+
+Two-view pipeline on top of mxbai (same CE, same RRF):
+
+| fusion | macro | Δ vs dense | 95% CI (query) | domain-clustered CI |
+|---|---:|---:|---|---|
+| CE only | 0.2716 | +0.0110 | [−0.0111, +0.0318] | — |
+| RRF 2:1 | 0.3227 | +0.0272 | [+0.0160, +0.0381] | [−0.0017, +0.0531] |
+| **RRF 1:1** | **0.3246** | **+0.0333** | **[+0.0188, +0.0479]** | **[+0.0027, +0.0506]** |
+| RRF 1:2 | 0.3209 | +0.0360 | [+0.0185, +0.0534] | [−0.0163, +0.0584] |
+| RRF 1:4 | 0.3030 | +0.0311 | [+0.0114, +0.0500] | [−0.0395, +0.0443] |
+
+With the stronger first stage the fusion gain is significant even under the
+domain-clustered bootstrap (first time in this project); LOOCV honest gain is
++0.0160. Full tables, caveats and reproduction commands:
+`results/PHASE8_STRONGER_BASELINES.md`.
+
+## Temporal observability and ceiling (Phase 8)
+
+Document timestamps do not exist in RETECO; only 12–25 % of gold documents
+contain a year. Coverage is highly uneven: politics 84.7 %, economics 64.2 %,
+genealogy 56.4 %, hsm 52.2 %, history 37.5 % vs bitcoin 19.1 %, cardano 9.3 %,
+quant 14.3 %. Earlier temporal modules were therefore evaluated mostly where
+temporal consistency is nearly unobservable.
+
+Ceiling test (no qrels, reorder dense top-100 by query-year vs doc-year
+consistency, `scripts/temporal_ceiling.py`): demoting "year-mismatched" documents
+*decreases* nDCG@10 in most domains (politics 0.307→0.268, genealogy 0.211→0.184,
+hsm 0.293→0.271, history 0.277→0.269, bitcoin 0.217→0.197) and only helps
+economics (0.189→0.201). Among year-bearing candidates 53–100 % carry a year
+outside the query interval, and many of those are gold: **time mismatch is not
+irrelevance** on this benchmark. Hard-negative mining after relaxing all filters
+yields only ~0.4 pairs per anchored query — too few to train a discriminator.
+See `results/TEMPORAL_CEILING.md` and `results/TEMPORAL_OBSERVABILITY.md`.
+
 ## What we learned (short version)
 
 1. **The official BM25 baseline is not Lucene BM25.** The starter kit applies
@@ -81,10 +151,10 @@ smaller than the pooled number.
    numbers exactly (Bitcoin dev 0.0370, IOTA dev 0.3309, macro 0.1147), while a
    real Anserini index on the same corpus gives 0.0300 for Bitcoin. See
    `results/BASELINE_FORENSICS.md`.
-2. **Dense is worth ~2.4× the published BM25 macro** (0.2300 vs ≈0.0967 on the
-   same 12 domains).
-3. **CE-dominant fusion is a consistent but small win** (+0.026 macro, 10/12
-   domains). It fails on `law` and `workplace` (CE alone is worse than dense on
+2. **Dense is worth ~2.6–2.8× the published BM25 macro** (bge 0.2300, mxbai
+   0.2995, two-view 0.3246 vs ≈0.0967 on the same 12 domains).
+3. **CE-dominant fusion is a consistent but small win** (+0.026 macro with bge,
+   +0.033 with mxbai, 10/12 domains). It fails on `law` and `workplace` (CE alone is worse than dense on
    those), so a domain gate is needed before using it blindly.
 4. **Text-only temporal signals do not work on this benchmark.** Document
    timestamps do not exist; only 12–25 % of gold documents contain a year.
@@ -101,7 +171,7 @@ smaller than the pooled number.
 ```
 docs/RESEARCH_LOG.md          full research log (questions, rules, phase narratives)
 docs/PHASE0.md                environment, reproduction commands, caveats
-results/*.md                  per-phase reports (11 documents)
+results/*.md                  per-phase reports (14 documents)
 results/*.json                every run's score, sweep, meta and summary
 runs/*.trec                   TREC run files (dense / CE / fused / BM25)
 scripts/*.py, scripts/*.sh    all experiment code
@@ -152,6 +222,14 @@ PYTHONUTF8=1 python scripts/score_run.py --run runs/twoview_<domain>_dev.trec \
 PYTHONUTF8=1 python scripts/analyze_phase7.py --fusions "2,1;1,1;1,2;1,3;1,4"
 ```
 
+# 6. Phase 8: stronger first stage (mxbai) + CE fusion
+python scripts/run_dense_generic.py --index-data data/track1_tempo/<domain> --split dev     --model models/mxbai-embed-large-v1 --tag mxbai --pooling mean     --query-prefix "Represent this sentence for searching relevant passages: "     --work emb --out runs/dense_mxbai_<domain>_dev.trec     --meta runs/dense_mxbai_<domain>_dev.meta.json
+
+python scripts/run_chunk_rerank.py --domain <domain> --split dev     --run runs/dense_mxbai_<domain>_dev.trec --k 100 --model models/bge-reranker-v2-m3     --q-mode title --q-cap 256 --win 250 --pool max --batch 32     --out runs/rerank_mxbai_<domain>_dev.trec     --meta results/rerank_mxbai_<domain>_dev.meta.json
+
+# fusion 1:1 + scoring, then macro/bootstrap over 12 domains
+PYTHONUTF8=1 python scripts/analyze_mxbai.py
+
 On Chinese Windows, `PYTHONUTF8=1` is required for the official `scorer.py`
 (it decodes the `steps_*.jsonl` files as GBK otherwise).
 
@@ -172,14 +250,16 @@ On Chinese Windows, `PYTHONUTF8=1` is required for the official `scorer.py`
 
 ## Known gaps (in progress)
 
-1. **No comparison to strong published retrievers.** The TEMPO benchmark paper
-   reports E5 ≈ 0.304 and DiVeR ≈ 0.320 nDCG@10, but on a different corpus
-   setting; these numbers are not directly comparable to RETECO v1.1 dev. A
-   same-version E5 (and any feasible of DiVeR/ReasonIR) baseline is being added.
-2. **Temporal reasoning is not demonstrated.** The negative results above probe
-   *content-time* signals; they do not test whether a reranker can separate
-   "same topic, different time" documents, because no such hard negatives are
-   constructed yet. That experiment is planned.
+1. **Stronger retrievers: partially addressed.** e5-base (0.148 macro) and
+   mxbai (0.2995) are now measured on the same dev split, but the models behind
+   the TEMPO numbers (DiVeR-4B, ReasonIR-8B, e5-mistral-7B) do not fit in 8 GB,
+   and gte-large is incompatible with transformers 5.22 here. Those numbers
+   remain unverified on RETECO v1.1.
+2. **Temporal reasoning is not demonstrated, and the benchmark turns out to be
+   hostile to it.** Hard-negative mining yields ~0.4 pairs per anchored query;
+   demoting year-mismatched documents hurts nDCG in most domains because gold
+   documents are frequently "time-mismatched" by content-year heuristics. See
+   `results/TEMPORAL_CEILING.md`.
 3. **History is squashed.** The published repository is a single curated commit;
    it does not preserve development history. All raw artifacts (runs, scores,
    logs) are included so the numbers remain checkable.

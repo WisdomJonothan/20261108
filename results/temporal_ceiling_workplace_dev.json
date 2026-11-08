@@ -1,0 +1,90 @@
+{
+ "summary": {
+  "domain": "workplace",
+  "split": "dev",
+  "queries": 11,
+  "anchored": 1,
+  "dense_macro": 0.37954314596880717,
+  "perfect_macro": 0.33408860051426176,
+  "dense_macro_anchored": 0.5,
+  "perfect_macro_anchored": 0.0,
+  "demote_macro": 0.3805391454207358,
+  "demote_macro_anchored": 0.5109559939712153,
+  "mean_inc_rate": 0.5333333333333333,
+  "queries_with_inc": 1,
+  "mean_inc_per_query": 8.0
+ },
+ "queries": [
+  {
+   "qid": "200148_1194",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "194500_1197",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "191906_1200",
+   "anchored": 0,
+   "base": 0.6713860725233041,
+   "perfect": 0.6713860725233041
+  },
+  {
+   "qid": "190938_1203",
+   "anchored": 0,
+   "base": 0.5307212739772434,
+   "perfect": 0.5307212739772434
+  },
+  {
+   "qid": "183145_1209",
+   "anchored": 1,
+   "base": 0.5,
+   "perfect": 0.0,
+   "demote_only": 0.5109559939712153,
+   "n_cons": 7,
+   "n_inc": 8,
+   "n_unk": 85,
+   "inc_rate": 0.5333333333333333
+  },
+  {
+   "qid": "181803_1211",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "181712_1212",
+   "anchored": 0,
+   "base": 0.9197207891481876,
+   "perfect": 0.9197207891481876
+  },
+  {
+   "qid": "179162_1214",
+   "anchored": 0,
+   "base": 0.5531464700081437,
+   "perfect": 0.5531464700081437
+  },
+  {
+   "qid": "171543_1222",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "169903_1225",
+   "anchored": 0,
+   "base": 1.0,
+   "perfect": 1.0
+  },
+  {
+   "qid": "168198_1227",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  }
+ ]
+}

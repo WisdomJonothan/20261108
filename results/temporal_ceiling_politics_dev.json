@@ -1,0 +1,419 @@
+{
+ "summary": {
+  "domain": "politics",
+  "split": "dev",
+  "queries": 45,
+  "anchored": 26,
+  "dense_macro": 0.30738832945653727,
+  "perfect_macro": 0.2507472469891705,
+  "dense_macro_anchored": 0.37597409465186654,
+  "perfect_macro_anchored": 0.2779414519198855,
+  "demote_macro": 0.2677015182024434,
+  "demote_macro_anchored": 0.3072853828659348,
+  "mean_inc_rate": 0.6295136153649584,
+  "queries_with_inc": 25,
+  "mean_inc_per_query": 27.692307692307693
+ },
+ "queries": [
+  {
+   "qid": "93372_915",
+   "anchored": 1,
+   "base": 0.38685280723454163,
+   "perfect": 1.0,
+   "demote_only": 0.38685280723454163,
+   "n_cons": 18,
+   "n_inc": 17,
+   "n_unk": 65,
+   "inc_rate": 0.4857142857142857
+  },
+  {
+   "qid": "92743_919",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 10,
+   "n_inc": 47,
+   "n_unk": 43,
+   "inc_rate": 0.8245614035087719
+  },
+  {
+   "qid": "91586_923",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 7,
+   "n_inc": 22,
+   "n_unk": 71,
+   "inc_rate": 0.7586206896551724
+  },
+  {
+   "qid": "90821_929",
+   "anchored": 1,
+   "base": 0.7039180890341347,
+   "perfect": 0.7039180890341347,
+   "demote_only": 0.7039180890341347,
+   "n_cons": 39,
+   "n_inc": 0,
+   "n_unk": 61,
+   "inc_rate": 0.0
+  },
+  {
+   "qid": "90545_934",
+   "anchored": 1,
+   "base": 0.7653606369886217,
+   "perfect": 0.9217868789962071,
+   "demote_only": 0.7653606369886217,
+   "n_cons": 8,
+   "n_inc": 46,
+   "n_unk": 46,
+   "inc_rate": 0.8518518518518519
+  },
+  {
+   "qid": "89978_941",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 4,
+   "n_inc": 34,
+   "n_unk": 62,
+   "inc_rate": 0.8947368421052632
+  },
+  {
+   "qid": "89753_942",
+   "anchored": 0,
+   "base": 0.21398626473452756,
+   "perfect": 0.21398626473452756
+  },
+  {
+   "qid": "89697_946",
+   "anchored": 1,
+   "base": 0.18457569677956817,
+   "perfect": 0.0,
+   "demote_only": 0.18457569677956817,
+   "n_cons": 15,
+   "n_inc": 25,
+   "n_unk": 60,
+   "inc_rate": 0.625
+  },
+  {
+   "qid": "89482_949",
+   "anchored": 1,
+   "base": 0.6509209298071326,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 32,
+   "n_inc": 39,
+   "n_unk": 29,
+   "inc_rate": 0.5492957746478874
+  },
+  {
+   "qid": "88829_955",
+   "anchored": 0,
+   "base": 0.20210734650054757,
+   "perfect": 0.20210734650054757
+  },
+  {
+   "qid": "88683_957",
+   "anchored": 0,
+   "base": 0.2826335043946801,
+   "perfect": 0.2826335043946801
+  },
+  {
+   "qid": "88444_960",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 42,
+   "n_inc": 24,
+   "n_unk": 34,
+   "inc_rate": 0.36363636363636365
+  },
+  {
+   "qid": "88090_967",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "87918_970",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "87878_971",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "87624_975",
+   "anchored": 0,
+   "base": 0.38268031849431083,
+   "perfect": 0.38268031849431083
+  },
+  {
+   "qid": "87499_976",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "87402_977",
+   "anchored": 1,
+   "base": 1.0,
+   "perfect": 0.6131471927654584,
+   "demote_only": 1.0,
+   "n_cons": 9,
+   "n_inc": 30,
+   "n_unk": 61,
+   "inc_rate": 0.7692307692307693
+  },
+  {
+   "qid": "86904_981",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "86781_983",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 6,
+   "n_inc": 24,
+   "n_unk": 70,
+   "inc_rate": 0.8
+  },
+  {
+   "qid": "83771_988",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 17,
+   "n_inc": 34,
+   "n_unk": 49,
+   "inc_rate": 0.6666666666666666
+  },
+  {
+   "qid": "83672_990",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 2,
+   "n_inc": 23,
+   "n_unk": 75,
+   "inc_rate": 0.92
+  },
+  {
+   "qid": "83619_994",
+   "anchored": 1,
+   "base": 0.6131471927654584,
+   "perfect": 0.0,
+   "demote_only": 0.6131471927654584,
+   "n_cons": 1,
+   "n_inc": 49,
+   "n_unk": 50,
+   "inc_rate": 0.98
+  },
+  {
+   "qid": "83581_996",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "83279_999",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "82825_1003",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "82153_1005",
+   "anchored": 1,
+   "base": 0.10699313236726378,
+   "perfect": 0.21398626473452756,
+   "demote_only": 0.11305340175787204,
+   "n_cons": 9,
+   "n_inc": 29,
+   "n_unk": 62,
+   "inc_rate": 0.7631578947368421
+  },
+  {
+   "qid": "82063_1008",
+   "anchored": 0,
+   "base": 0.8318724637288826,
+   "perfect": 0.8318724637288826
+  },
+  {
+   "qid": "82039_1009",
+   "anchored": 0,
+   "base": 0.2960819109658652,
+   "perfect": 0.2960819109658652
+  },
+  {
+   "qid": "82010_1011",
+   "anchored": 0,
+   "base": 1.0,
+   "perfect": 1.0
+  },
+  {
+   "qid": "81967_1013",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "78217_1019",
+   "anchored": 1,
+   "base": 0.18154179253735267,
+   "perfect": 0.46927872602275644,
+   "demote_only": 0.23463936301137822,
+   "n_cons": 10,
+   "n_inc": 31,
+   "n_unk": 59,
+   "inc_rate": 0.7560975609756098
+  },
+  {
+   "qid": "78147_1020",
+   "anchored": 0,
+   "base": 0.6131471927654584,
+   "perfect": 0.6131471927654584
+  },
+  {
+   "qid": "77995_1024",
+   "anchored": 1,
+   "base": 0.5135312443624667,
+   "perfect": 0.3903800499921017,
+   "demote_only": 0.13905617951077562,
+   "n_cons": 28,
+   "n_inc": 22,
+   "n_unk": 50,
+   "inc_rate": 0.44
+  },
+  {
+   "qid": "77784_1029",
+   "anchored": 1,
+   "base": 0.13905617951077562,
+   "perfect": 0.0,
+   "demote_only": 0.25190132085971084,
+   "n_cons": 4,
+   "n_inc": 32,
+   "n_unk": 64,
+   "inc_rate": 0.8888888888888888
+  },
+  {
+   "qid": "77716_1030",
+   "anchored": 1,
+   "base": 0.6131471927654584,
+   "perfect": 0.21840743681816419,
+   "demote_only": 0.0,
+   "n_cons": 5,
+   "n_inc": 24,
+   "n_unk": 71,
+   "inc_rate": 0.8275862068965517
+  },
+  {
+   "qid": "77681_1031",
+   "anchored": 0,
+   "base": 0.23463936301137822,
+   "perfect": 0.23463936301137822
+  },
+  {
+   "qid": "77317_1034",
+   "anchored": 1,
+   "base": 1.0,
+   "perfect": 1.0,
+   "demote_only": 1.0,
+   "n_cons": 29,
+   "n_inc": 20,
+   "n_unk": 51,
+   "inc_rate": 0.40816326530612246
+  },
+  {
+   "qid": "75191_1040",
+   "anchored": 1,
+   "base": 0.38685280723454163,
+   "perfect": 0.6131471927654584,
+   "demote_only": 0.38685280723454163,
+   "n_cons": 48,
+   "n_inc": 9,
+   "n_unk": 43,
+   "inc_rate": 0.15789473684210525
+  },
+  {
+   "qid": "74930_1045",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "74876_1047",
+   "anchored": 1,
+   "base": 0.7653606369886217,
+   "perfect": 0.46927872602275644,
+   "demote_only": 0.7653606369886217,
+   "n_cons": 16,
+   "n_inc": 29,
+   "n_unk": 55,
+   "inc_rate": 0.6444444444444445
+  },
+  {
+   "qid": "74412_1051",
+   "anchored": 1,
+   "base": 0.6509209298071326,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 23,
+   "n_inc": 38,
+   "n_unk": 39,
+   "inc_rate": 0.6229508196721312
+  },
+  {
+   "qid": "74392_1052",
+   "anchored": 1,
+   "base": 0.8065735963827293,
+   "perfect": 0.6131471927654584,
+   "demote_only": 0.6131471927654584,
+   "n_cons": 12,
+   "n_inc": 29,
+   "n_unk": 59,
+   "inc_rate": 0.7073170731707317
+  },
+  {
+   "qid": "74259_1054",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 49,
+   "n_inc": 16,
+   "n_unk": 35,
+   "inc_rate": 0.24615384615384617
+  },
+  {
+   "qid": "74084_1057",
+   "anchored": 1,
+   "base": 0.3065735963827292,
+   "perfect": 0.0,
+   "demote_only": 0.8315546295836225,
+   "n_cons": 38,
+   "n_inc": 27,
+   "n_unk": 35,
+   "inc_rate": 0.4153846153846154
+  }
+ ]
+}

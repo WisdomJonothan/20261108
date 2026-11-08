@@ -1,0 +1,214 @@
+{
+ "summary": {
+  "domain": "economics",
+  "split": "dev",
+  "queries": 25,
+  "anchored": 9,
+  "dense_macro": 0.18910789953146134,
+  "perfect_macro": 0.21635778590228252,
+  "dense_macro_anchored": 0.11423227947183337,
+  "perfect_macro_anchored": 0.18992640827966992,
+  "demote_macro": 0.20128258946422128,
+  "demote_macro_anchored": 0.14805086261838865,
+  "mean_inc_rate": 0.5875501909610847,
+  "queries_with_inc": 9,
+  "mean_inc_per_query": 20.77777777777778
+ },
+ "queries": [
+  {
+   "qid": "60625_152",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "60545_155",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "59178_164",
+   "anchored": 1,
+   "base": 0.10086747116627115,
+   "perfect": 0.0,
+   "demote_only": 0.2214161691338287,
+   "n_cons": 18,
+   "n_inc": 21,
+   "n_unk": 61,
+   "inc_rate": 0.5384615384615384
+  },
+  {
+   "qid": "58503_167",
+   "anchored": 1,
+   "base": 0.42903378661381625,
+   "perfect": 0.7707802224715162,
+   "demote_only": 0.5709662133861837,
+   "n_cons": 39,
+   "n_inc": 26,
+   "n_unk": 35,
+   "inc_rate": 0.4
+  },
+  {
+   "qid": "57769_170",
+   "anchored": 0,
+   "base": 0.15642624200758548,
+   "perfect": 0.15642624200758548
+  },
+  {
+   "qid": "57699_171",
+   "anchored": 0,
+   "base": 0.9558295932317544,
+   "perfect": 0.9558295932317544
+  },
+  {
+   "qid": "57498_172",
+   "anchored": 0,
+   "base": 0.123151194370365,
+   "perfect": 0.123151194370365
+  },
+  {
+   "qid": "56372_176",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 0,
+   "n_inc": 24,
+   "n_unk": 76,
+   "inc_rate": 1.0
+  },
+  {
+   "qid": "55201_179",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 16,
+   "n_inc": 19,
+   "n_unk": 65,
+   "inc_rate": 0.5428571428571428
+  },
+  {
+   "qid": "52658_189",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "52071_193",
+   "anchored": 0,
+   "base": 0.24630238874073,
+   "perfect": 0.24630238874073
+  },
+  {
+   "qid": "51330_198",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "50570_202",
+   "anchored": 0,
+   "base": 0.27487633291429087,
+   "perfect": 0.27487633291429087
+  },
+  {
+   "qid": "49965_204",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 10,
+   "n_inc": 21,
+   "n_unk": 69,
+   "inc_rate": 0.6774193548387096
+  },
+  {
+   "qid": "48548_206",
+   "anchored": 0,
+   "base": 0.19519002499605084,
+   "perfect": 0.19519002499605084
+  },
+  {
+   "qid": "47763_212",
+   "anchored": 1,
+   "base": 0.1480409554829326,
+   "perfect": 0.0,
+   "demote_only": 0.18154179253735267,
+   "n_cons": 4,
+   "n_inc": 24,
+   "n_unk": 72,
+   "inc_rate": 0.8571428571428571
+  },
+  {
+   "qid": "47636_213",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "47454_216",
+   "anchored": 0,
+   "base": 0.3065735963827292,
+   "perfect": 0.3065735963827292
+  },
+  {
+   "qid": "47148_218",
+   "anchored": 0,
+   "base": 1.0,
+   "perfect": 1.0
+  },
+  {
+   "qid": "45828_221",
+   "anchored": 0,
+   "base": 0.4412576003965278,
+   "perfect": 0.4412576003965278
+  },
+  {
+   "qid": "45773_222",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 38,
+   "n_inc": 23,
+   "n_unk": 39,
+   "inc_rate": 0.3770491803278688
+  },
+  {
+   "qid": "45680_223",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "43952_227",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "43853_228",
+   "anchored": 1,
+   "base": 0.20210734650054757,
+   "perfect": 0.46927872602275644,
+   "demote_only": 0.20210734650054757,
+   "n_cons": 25,
+   "n_inc": 3,
+   "n_unk": 72,
+   "inc_rate": 0.10714285714285714
+  },
+  {
+   "qid": "43579_231",
+   "anchored": 1,
+   "base": 0.1480409554829326,
+   "perfect": 0.46927872602275644,
+   "demote_only": 0.15642624200758548,
+   "n_cons": 7,
+   "n_inc": 26,
+   "n_unk": 67,
+   "inc_rate": 0.7878787878787878
+  }
+ ]
+}

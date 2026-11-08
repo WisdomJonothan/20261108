@@ -1,0 +1,229 @@
+{
+ "summary": {
+  "domain": "bitcoin",
+  "split": "dev",
+  "queries": 30,
+  "anchored": 6,
+  "dense_macro": 0.21709656659090365,
+  "perfect_macro": 0.16507233606150878,
+  "dense_macro_anchored": 0.2771373851674597,
+  "perfect_macro_anchored": 0.017016232520485272,
+  "demote_macro": 0.19665832683205503,
+  "demote_macro_anchored": 0.17494618637321668,
+  "mean_inc_rate": 0.6962201805286913,
+  "queries_with_inc": 6,
+  "mean_inc_per_query": 18.5
+ },
+ "queries": [
+  {
+   "qid": "126111_0",
+   "anchored": 0,
+   "base": 0.35853358850813305,
+   "perfect": 0.35853358850813305
+  },
+  {
+   "qid": "124603_8",
+   "anchored": 1,
+   "base": 0.20210734650054757,
+   "perfect": 0.0,
+   "demote_only": 0.20210734650054757,
+   "n_cons": 23,
+   "n_inc": 7,
+   "n_unk": 70,
+   "inc_rate": 0.23333333333333334
+  },
+  {
+   "qid": "124510_9",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "123461_13",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "123234_16",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "122143_23",
+   "anchored": 1,
+   "base": 0.6131471927654584,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 11,
+   "n_inc": 36,
+   "n_unk": 53,
+   "inc_rate": 0.7659574468085106
+  },
+  {
+   "qid": "122022_24",
+   "anchored": 0,
+   "base": 0.46927872602275644,
+   "perfect": 0.46927872602275644
+  },
+  {
+   "qid": "122013_25",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "121089_32",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "120273_40",
+   "anchored": 1,
+   "base": 0.1208113026994942,
+   "perfect": 0.10209739512291163,
+   "demote_only": 0.1208113026994942,
+   "n_cons": 2,
+   "n_inc": 14,
+   "n_unk": 84,
+   "inc_rate": 0.875
+  },
+  {
+   "qid": "120027_46",
+   "anchored": 0,
+   "base": 0.2529427027676571,
+   "perfect": 0.2529427027676571
+  },
+  {
+   "qid": "119507_50",
+   "anchored": 1,
+   "base": 0.2960819109658652,
+   "perfect": 0.0,
+   "demote_only": 0.2960819109658652,
+   "n_cons": 23,
+   "n_inc": 10,
+   "n_unk": 67,
+   "inc_rate": 0.30303030303030304
+  },
+  {
+   "qid": "119010_55",
+   "anchored": 0,
+   "base": 0.31546487678572877,
+   "perfect": 0.31546487678572877
+  },
+  {
+   "qid": "118421_57",
+   "anchored": 0,
+   "base": 0.4599715079731103,
+   "perfect": 0.4599715079731103
+  },
+  {
+   "qid": "118364_58",
+   "anchored": 0,
+   "base": 0.17108252373753102,
+   "perfect": 0.17108252373753102
+  },
+  {
+   "qid": "114601_60",
+   "anchored": 0,
+   "base": 0.5,
+   "perfect": 0.5
+  },
+  {
+   "qid": "113938_64",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "113500_66",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "112979_68",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "112929_69",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 0,
+   "n_inc": 18,
+   "n_unk": 82,
+   "inc_rate": 1.0
+  },
+  {
+   "qid": "112862_71",
+   "anchored": 0,
+   "base": 0.448643819352159,
+   "perfect": 0.448643819352159
+  },
+  {
+   "qid": "112359_73",
+   "anchored": 1,
+   "base": 0.43067655807339306,
+   "perfect": 0.0,
+   "demote_only": 0.43067655807339306,
+   "n_cons": 0,
+   "n_inc": 26,
+   "n_unk": 74,
+   "inc_rate": 1.0
+  },
+  {
+   "qid": "112193_74",
+   "anchored": 0,
+   "base": 0.11751610475642714,
+   "perfect": 0.11751610475642714
+  },
+  {
+   "qid": "112021_76",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "110742_80",
+   "anchored": 0,
+   "base": 0.38685280723454163,
+   "perfect": 0.38685280723454163
+  },
+  {
+   "qid": "97236_86",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "97179_88",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "97135_89",
+   "anchored": 0,
+   "base": 0.6364391809889587,
+   "perfect": 0.6364391809889587
+  },
+  {
+   "qid": "93368_97",
+   "anchored": 0,
+   "base": 0.2640681225725909,
+   "perfect": 0.2640681225725909
+  },
+  {
+   "qid": "93150_99",
+   "anchored": 0,
+   "base": 0.46927872602275644,
+   "perfect": 0.46927872602275644
+  }
+ ]
+}

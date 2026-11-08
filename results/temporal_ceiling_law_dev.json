@@ -1,0 +1,95 @@
+{
+ "summary": {
+  "domain": "law",
+  "split": "dev",
+  "queries": 11,
+  "anchored": 2,
+  "dense_macro": 0.30126747233864676,
+  "perfect_macro": 0.2894536992896157,
+  "dense_macro_anchored": 0.27219071427559466,
+  "perfect_macro_anchored": 0.20721496250592375,
+  "demote_macro": 0.29106876600160303,
+  "demote_macro_anchored": 0.21609782942185418,
+  "mean_inc_rate": 1.0,
+  "queries_with_inc": 2,
+  "mean_inc_per_query": 29.0
+ },
+ "queries": [
+  {
+   "qid": "106562_822",
+   "anchored": 0,
+   "base": 0.7122630665145961,
+   "perfect": 0.7122630665145961
+  },
+  {
+   "qid": "106440_824",
+   "anchored": 1,
+   "base": 0.23719771276929622,
+   "perfect": 0.0,
+   "demote_only": 0.2640681225725909,
+   "n_cons": 0,
+   "n_inc": 20,
+   "n_unk": 80,
+   "inc_rate": 1.0
+  },
+  {
+   "qid": "104892_830",
+   "anchored": 0,
+   "base": 0.3562071871080222,
+   "perfect": 0.3562071871080222
+  },
+  {
+   "qid": "103790_832",
+   "anchored": 0,
+   "base": 1.0,
+   "perfect": 1.0
+  },
+  {
+   "qid": "103498_834",
+   "anchored": 0,
+   "base": 0.1208113026994942,
+   "perfect": 0.1208113026994942
+  },
+  {
+   "qid": "103373_837",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "103233_838",
+   "anchored": 0,
+   "base": 0.5802792108518124,
+   "perfect": 0.5802792108518124
+  },
+  {
+   "qid": "102997_839",
+   "anchored": 1,
+   "base": 0.3071837157818931,
+   "perfect": 0.4144299250118475,
+   "demote_only": 0.16812753627111746,
+   "n_cons": 0,
+   "n_inc": 38,
+   "n_unk": 62,
+   "inc_rate": 1.0
+  },
+  {
+   "qid": "102830_840",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "102419_841",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "101678_842",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  }
+ ]
+}

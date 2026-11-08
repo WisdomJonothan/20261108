@@ -320,4 +320,30 @@ JSONDecodeError。已按 DOCTYPE 校验重下并补跑（`scripts/phase7_catchup
 - `results/PIPELINE_AND_TOP5.md`：Phase 6 三项工程化
 - `results/TEMPORAL_DECOMPOSITION.md`：时间分解 + HyDE（负）
 - `results/PHASE7_CROSS_DOMAIN.md`：跨 13 领域两视图（最终）
+- `results/PHASE8_STRONGER_BASELINES.md`：强基座对比 + mxbai 两视图（Phase 8）
+- `results/TEMPORAL_OBSERVABILITY.md` / `TEMPORAL_CEILING.md`：时间可观测性与上限
 - `scripts/`：`run_bm25_pyserini.py`、`run_dense_bge.py`、`run_chunk_rerank.py`、`run_listwise.py`、`score_run.py`、`oracle_sweep.py`、`union_recall.py`、`make_report.py`、`package_results.py`、`phase7_all_domains.sh`、`phase7_catchup.sh`、`analyze_phase7.py`
+
+### 5g. Phase 8：强基座 + 时间可观测性（2026-11-08）
+
+外部审阅指出"没跟强模型比"，核对后：TEMPO 的 E5 30.4 是 e5-mistral-7b（7B）、
+DiVeR 32.0 是 4B 模型，且是 1,730 query / v1.0 语料；与我们的 519 dev / v1.1 不可
+并排。能跑的替代：e5-base-v2（13 域）、mxbai-embed-large-v1（12 域）、gte-large
+（transformers 5.22 不兼容，放弃）。
+
+结果（dev nDCG@10 宏平均）：e5-base 0.1489、bge-base 0.2488、**mxbai 0.2995**
+（12 域）。用 mxbai 作第一阶段，bge-reranker-v2-m3 标题窗口重排 + RRF 1:1 →
+**0.3246**；配对 bootstrap +0.0333 [+0.0188,+0.0479]，domain-clustered +0.0252
+[+0.0027,+0.0506]（首次 CI 不含 0），LOOCV +0.0160。
+
+时间侧（`RESULTS/TEMPORAL_CEILING.md`）：把 top-100 中"年份与查询区间不一致"的
+文档降权，即使是 oracle 排序，在 8 个域里有 5–6 个 nDCG 下降（politics 0.307→0.268、
+genealogy 0.211→0.184、hsm 0.293→0.271、history 0.277→0.269、bitcoin 0.217→0.197），
+只有 economics 上升（0.189→0.201）。原因：有年份的候选里 53–100% 年份不在查询区间，
+其中很多是 gold。→ "时间不一致 ≠ 不相关"，这是此前全部时间模块负结果的根因。
+
+文件：`results/PHASE8_STRONGER_BASELINES.md`、`results/TEMPORAL_OBSERVABILITY.md`、
+`results/TEMPORAL_CEILING.md`、`scripts/phase8_baselines.sh`、
+`scripts/phase8_mxbai_rerank.sh`、`scripts/analyze_mxbai.py`、
+`scripts/temporal_coverage.py`、`scripts/temporal_ceiling.py`、
+`scripts/hardneg_mine.py`。
