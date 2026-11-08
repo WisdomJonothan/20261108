@@ -1,0 +1,149 @@
+{
+ "split": "dev",
+ "files": [
+  {
+   "run": "runs\\fused_1_1_bitcoin_dev.trec",
+   "domain": "bitcoin",
+   "split": "dev",
+   "topics": 30,
+   "lines": 30000,
+   "topics_with_ties": 30,
+   "topics_with_tied_top10": 5,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "run": "runs\\fused_1_1_cardano_dev.trec",
+   "domain": "cardano",
+   "split": "dev",
+   "topics": 15,
+   "lines": 15000,
+   "topics_with_ties": 15,
+   "topics_with_tied_top10": 1,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "run": "runs\\fused_1_1_economics_dev.trec",
+   "domain": "economics",
+   "split": "dev",
+   "topics": 25,
+   "lines": 25000,
+   "topics_with_ties": 25,
+   "topics_with_tied_top10": 3,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "run": "runs\\fused_1_1_genealogy_dev.trec",
+   "domain": "genealogy",
+   "split": "dev",
+   "topics": 35,
+   "lines": 35000,
+   "topics_with_ties": 35,
+   "topics_with_tied_top10": 2,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "run": "runs\\fused_1_1_history_dev.trec",
+   "domain": "history",
+   "split": "dev",
+   "topics": 240,
+   "lines": 240000,
+   "topics_with_ties": 240,
+   "topics_with_tied_top10": 42,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "run": "runs\\fused_1_1_hsm_dev.trec",
+   "domain": "hsm",
+   "split": "dev",
+   "topics": 45,
+   "lines": 45000,
+   "topics_with_ties": 45,
+   "topics_with_tied_top10": 9,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "run": "runs\\fused_1_1_iota_dev.trec",
+   "domain": "iota",
+   "split": "dev",
+   "topics": 3,
+   "lines": 3000,
+   "topics_with_ties": 3,
+   "topics_with_tied_top10": 0,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "run": "runs\\fused_1_1_law_dev.trec",
+   "domain": "law",
+   "split": "dev",
+   "topics": 11,
+   "lines": 11000,
+   "topics_with_ties": 11,
+   "topics_with_tied_top10": 2,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "run": "runs\\fused_1_1_monero_dev.trec",
+   "domain": "monero",
+   "split": "dev",
+   "topics": 19,
+   "lines": 19000,
+   "topics_with_ties": 19,
+   "topics_with_tied_top10": 0,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "run": "runs\\fused_1_1_politics_dev.trec",
+   "domain": "politics",
+   "split": "dev",
+   "topics": 45,
+   "lines": 45000,
+   "topics_with_ties": 45,
+   "topics_with_tied_top10": 6,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "run": "runs\\fused_1_1_quant_dev.trec",
+   "domain": "quant",
+   "split": "dev",
+   "topics": 10,
+   "lines": 10000,
+   "topics_with_ties": 10,
+   "topics_with_tied_top10": 2,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "run": "runs\\fused_1_1_travel_dev.trec",
+   "domain": "travel",
+   "split": "dev",
+   "topics": 30,
+   "lines": 30000,
+   "topics_with_ties": 30,
+   "topics_with_tied_top10": 4,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "run": "runs\\fused_1_1_workplace_dev.trec",
+   "domain": "workplace",
+   "split": "dev",
+   "topics": 11,
+   "lines": 11000,
+   "topics_with_ties": 11,
+   "topics_with_tied_top10": 2,
+   "errors": [],
+   "warnings": []
+  }
+ ],
+ "total_errors": 0
+}

@@ -347,3 +347,108 @@ genealogy 0.211→0.184、hsm 0.293→0.271、history 0.277→0.269、bitcoin 0.
 `scripts/phase8_mxbai_rerank.sh`、`scripts/analyze_mxbai.py`、
 `scripts/temporal_coverage.py`、`scripts/temporal_ceiling.py`、
 `scripts/hardneg_mine.py`。
+
+## 5h. Phase 9：数据缺口修复 + V1 冻结 + 监督式交叉编码器（进行中）
+
+**A. 数据事故：所谓"只有 8 个领域有 train"是下载不完整**
+
+此前所有推理都基于"13 个领域里只有 8 个有 train 分片"，因此监督训练看起来只能
+覆盖 60% 的评测面。核对官方 data 页后：Track-1 为 **1,211 train / 519 dev**，
+按域 70/30 切分。本地缺的正是 cardano(36)、law(24)、quant(24)、travel(70)、
+workplace(25) 五个域的 `examples_train.jsonl` / `guidance_train.jsonl` /
+`qrels_train.txt` / `steps_*.jsonl`。用 `scripts/fetch_missing_train.py`
+（列目录 → 比对大小 → 下载 → 逐行 JSON/QRELS 解析校验）补齐 58 个文件后，
+本地计数为 1,211 / 519，与官方完全一致。
+
+同时确认语料已是 **v1.1**（13 域文档总数 1,167,159，与官方去重后总数逐位相同）。
+
+**B. V1 冻结与"两种宏平均"**
+
+`fuse_rrf.py` 融合出的 13 个 dev run 补齐后（`runs/sub_1_1_<domain>_dev.trec`），
+用官方 `format_checker.py`（带 `--qrels`/`--corpus`）逐文件校验：13/13 通过，
+0 error。为解决对称 RRF 造成的平分（519 个 topic 中 78 个 top-10 内有平分），
+写出时按 `score − 1e-9·rank` 去平分，排名顺序不变。
+
+| 聚合方式 | nDCG@10 |
+|---|---:|
+| topic-macro（官方，519 topics） | **0.3199** |
+| domain-macro（项目此前引用的口径） | 0.3166 |
+| topic-macro，n≥19 的 8 个域（469 q） | 0.3243 |
+
+教训：同一个 run 集给出两个不同数字，报告必须写明口径。官方是 topic-macro。
+另修复 `score_run.py`：此前对 run 中缺失的 topic 只对"存在的 topic"求均值，
+官方把缺失 topic 记 0；现默认按 0 计入（`--allow-missing` 可恢复旧行为）。
+
+**C. 融合方式：RRF vs z-norm 分数和**
+
+RRF 丢弃分数幅度、按名次合并；当一个是明显更强的检索器时会被"融合税"拖累。
+`scripts/fuse_scores.py` 在查询内对两路分数做 z 标准化后加权求和
+（候选集不变，recall 不变）：
+
+| 融合 | topic-macro | domain-macro | 配对 bootstrap（query） |
+|---|---:|---:|---|
+| RRF 1:1（V1） | 0.3199 | 0.3166 | — |
+| score-sum 1:2 | **0.3302** | 0.3193 | +0.0103 [+0.0021,+0.0184]，域整群 CI 跨 0 |
+| score-sum 1:1 | 0.3260 | 0.3249 | +0.0061 [−0.0020,+0.0145] |
+| score-sum 2:1 | 0.3202 | 0.3208 | — |
+| score-sum 1:4 | 0.3202 | 0.3017 | — |
+
+关键现象：**按 topic-macro 选，CE 该给更大权重（1:2）；按 domain-macro 选，
+最优是 1:1**。这正是"在 dev 上选权重"的风险，所以权重必须在 train 上拟合。
+（用 7 个有 train 分片的域做域内权重：dev 0.3082 < 固定 2:1 0.3179，方向为负，
+说明"按域调权重"不可行；但"全局一个 scalar 在 train 上拟合"尚未做。）
+
+**D. 新增工具**
+
+| 脚本 | 作用 |
+|---|---|
+| `scripts/fetch_missing_train.py` | 与镜像目录比对、补齐缺失分片、校验可解析性 |
+| `scripts/validate_submission.py` | 官方 checker + topic 集合相等 + 语料归属 + 连续名次 + 去平分 |
+| `scripts/aggregate_scores.py` | 同时给出 topic-macro / domain-macro / n≥19 子集 |
+| `scripts/bootstrap_compare.py` | 逐 query 与按域整群两种配对 bootstrap |
+| `scripts/fuse_scores.py` | z-norm 分数和融合（可指定权重与归一方式） |
+| `scripts/build_ce_train_groups.py` | 从 train 候选构造 listwise 训练组（正例全留 + 70% 难负例） |
+| `scripts/train_ce.py` | 交叉编码器微调（listwise、bf16、梯度检查点、train 留出校验、AUC） |
+
+**E. 监督微调（进行中）**
+
+诊断先行：冻结 top-100 候选池的 oracle nDCG@10 是 0.745，V1 只拿到 0.320——
+约 5% 的排序空间；而零样本交叉编码器的 within-query AUC 是 0.801，与它要重排的
+dense（0.806）几乎一样。**换后处理不会动这个量，只有改打分器本身才行**，这是
+此前十个"聪明干预"全部归零的统一解释。
+
+数据：13 域 train，1,071 个 query 组、2,876 个正例、18,544 个负例（70% 为难负例）。
+首个 pilot（bge-reranker-base，1 epoch）：train 留出 0.2240 → 0.2301（+0.006），
+说明训练回路有效但该模型太弱；正式实验换 bge-reranker-v2-m3（568M，bf16 + 梯度
+检查点，峰值 5.5 GB），零样本 train 留出基线 0.2535 / AUC 0.785。
+
+预注册的采纳门槛：dev topic-macro ≥ V1 + 0.015 且域整群 CI 排除 0；否则只作为
+消融，提交 V1。且 SFT 必须与"在 train 上重新拟合融合权重"一起评估——模拟显示
+CE 单独的提升只有约 19%（RRF 1:1）、26%（score-sum）、61%（RRF 1:4）能穿过融合。
+
+**F. V1.1：融合配置在 train 上拟合，dev 只读一次**
+
+为避免"在 dev 上挑权重"，把融合形式与权重放进一个网格
+（rrf / z-norm 分数和 × 4:1, 2:1, 1:1, 1:2, 1:4, 1:8），**全部在 train 的
+1,211 条 query 上**打分选优（`scripts/fit_fusion_weight.py`）：
+
+| 形式 | 权重 | train topic-macro | train domain-macro |
+|---|---|---:|---:|
+| **z** | **1:2** | **0.2893** | 0.2596 |
+| z | 1:1 | 0.2868 | 0.2612 |
+| rrf | 1:2 | 0.2799 | 0.2519 |
+| rrf | 1:1（旧 V1） | 0.2782 | 0.2485 |
+| rrf | 2:1 | 0.2758 | 0.2482 |
+
+train 上选出的最优 = **z-norm 分数和 1:2**，与 dev 上的最优一致（dev 上
+z 1:2 = 0.3302）——说明这个选择不是 dev 拟合出来的。把它应用到 dev，只读一次：
+
+| 系统 | dev topic-macro | dev domain-macro | 配对 bootstrap（query） | 域整群 |
+|---|---:|---:|---|---|
+| V1（RRF 1:1） | 0.3199 | 0.3166 | — | — |
+| **V1.1（z 1:2）** | **0.3302** | 0.3193 | **+0.0103 [+0.0021,+0.0184]** | [−0.0131,+0.0175] |
+
+n≥19 的 8 个域子集：V1 0.3243 → V1.1 **0.3365**。13 个 run 全部通过官方
+format_checker（带 --qrels/--corpus），并做去平分后冻结为
+`runs/sub_1_2_<domain>_dev.trec`。结论：V1.1 取代 V1 作为提交配置；但按域整群
+口径（13 个域重采样）仍未显著，这个限制必须与数字一起报告。

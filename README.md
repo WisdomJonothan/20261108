@@ -24,21 +24,41 @@ Official de-duplicated v1.1 release (`RETECO-SemEval2027`), Track-1a split:
 ## System
 
 ```
-query ──► bge-base-en-v1.5 (full query) ──► dense top-1000
+query ──► mixedbread-ai/mxbai-embed-large-v1 (full query) ──► dense top-100
                                               │
                         bge-reranker-v2-m3 (title query, 250-token windows)
                                               │
-                                     RRF (c=60, w_dense : w_CE = 1:4)
+                              RRF (c = 60, w_dense : w_CE = 1 : 1)
                                               ▼
                                         final ranking
 ```
 
-* Dense retriever: `BAAI/bge-base-en-v1.5`, CLS pooling, cosine, max length 512,
-  query instruction `Represent this sentence for searching relevant passages: `;
-* Cross-encoder: `BAAI/bge-reranker-v2-m3`, document windows of 250 tokens
-  (stride 250, max pooling), query reduced to the title part (text before the
-  first `<p>`), capped at 256 tokens;
-* Fusion: reciprocal rank fusion, `c = 60`.
+* Dense retriever: `mixedbread-ai/mxbai-embed-large-v1`, mean pooling, cosine,
+  max length 512, query instruction
+  `Represent this sentence for searching relevant passages: ` (fp16);
+* Cross-encoder: `BAAI/bge-reranker-v2-m3`, document windows of **250 tokens,
+  stride 192** (max pooling over windows), query reduced to the title part
+  (text before the first `<p>`), capped at 256 tokens. The earlier release
+  described stride 250; every run's `meta.json` says 192 and that is what the
+  committed runs used;
+* Fusion: reciprocal rank fusion, `c = 60`, `w_dense : w_CE = 1 : 1`
+  (`scripts/fuse_rrf.py --wa 1 --wb 1 --c 60`; the script defaults to 2:1, so
+  pass the weights explicitly).
+
+**Reporting convention.** RETECO averages nDCG@10 over **topics**. This
+repository used to quote a mean over **domains**, which weights `iota` (3 dev
+queries) the same as `history` (240). Both are computed by
+`scripts/aggregate_scores.py` and every table below states which one it uses.
+
+| frozen system (V1), dev | topics | nDCG@10 |
+|---|---:|---:|
+| **topic-macro (official aggregation)** | 519 | **0.3199** |
+| domain-macro | 519 | 0.3166 |
+| topic-macro, domains with n ≥ 19 | 469 | 0.3243 |
+
+Official Track-1a dev BM25 baseline is **0.1147**, i.e. this stack is ≈2.8× the
+official lexical baseline. TEMPO's best reported system (32.0) is on a different
+1,730-query split and is not directly comparable.
 
 **Phase 8 update (recommended configuration).** Swapping only the first stage to
 `mixedbread-ai/mxbai-embed-large-v1` and fusing `w_dense : w_CE = 1:1` lifts the
@@ -174,6 +194,53 @@ score; after the fix mining yields **1,857** topic-hard/time-hard pairs over
 statement is discriminative (s_temp AUC 0.61–0.88) but does not convert into
 ranking gains. See `results/TEMPORAL_CEILING.md`,
 `results/TEMPORAL_OBSERVABILITY.md` and `results/TEMPORAL_GATE.md`.
+
+## Phase 9 — supervised re-ranking, train split, and submission freeze
+
+**Data gap fixed.** The project had been built on a partial download: five
+domains (`cardano, law, quant, travel, workplace`) had no train files, so
+"only 8 of 13 domains have train" was wrong. The official release is
+**1,211 train / 519 dev** over all 13 domains (70/30 per domain); after
+`scripts/fetch_missing_train.py` the local counts match exactly. The corpus is
+v1.1 (13-domain total 1,167,159 documents, identical to the organizers' figure).
+
+**Diagnosis.** Inside the frozen top-100 pool the oracle nDCG@10 is **0.745**
+while the system scores 0.320 — about 5 % of the ranking headroom. The zero-shot
+cross-encoder's within-query AUC (0.801) is no better than the dense retriever's
+(0.806), and ten post-hoc interventions failed. The binding constraint is the
+scorer, not recall (a second dense retriever lifts Recall@100 0.699 → 0.737 and
+oracle@10 0.745 → 0.778, but a 5 %-capture ranker converts that into ≈+0.002).
+
+**Fusion form.** RRF discards score magnitude and taxes the stronger component.
+Fusing on within-query z-normalised scores instead, over the same candidates:
+
+| fusion (same candidates) | topic-macro | domain-macro | paired bootstrap (query) |
+|---|---:|---:|---|
+| RRF 1:1 (V1) | 0.3199 | 0.3166 | — |
+| score-sum 1:1 | 0.3260 | 0.3249 | +0.0061 [−0.0020,+0.0145] |
+| score-sum 1:2 | **0.3302** | 0.3193 | +0.0103 [+0.0021,+0.0184]; domain-clustered [−0.0131,+0.0175] |
+
+Note the aggregation trap: under topic-macro the CE wants *more* weight (1:2),
+under domain-macro 1:1 wins — the weight must therefore be fitted on train, not
+on dev. (`scripts/fuse_scores.py`, `scripts/bootstrap_compare.py`.)
+
+**Submission freeze.** The 13 fused dev runs are committed as
+`runs/sub_1_1_<domain>_dev.trec`, de-tied (score − 1e-9·rank) so a
+score-sorting scorer cannot permute tied top-10 slots, and validated by the
+official `format_checker.py` with `--qrels` **and** `--corpus` through
+`scripts/validate_submission.py`: 13/13 files, 0 errors. `score_run.py` no longer
+silently drops topics missing from a run (the leaderboard counts them as 0).
+
+**Supervised fine-tuning.** Everything above is zero-shot. With 1,211 labelled
+train queries the cross-encoder can now be trained on-domain
+(`scripts/build_ce_train_groups.py` → `scripts/train_ce.py`: listwise softmax,
+all in-candidate positives + 70 % hard negatives, bf16 + gradient checkpointing,
+5.5 GB peak on one 8 GB GPU, epoch selection on held-out **train** queries).
+Two facts gate how it is evaluated: a CE-only gain passes through fusion at
+≈19 % (RRF 1:1), 26 % (score-sum) or 61 % (RRF 1:4), so the fusion weight must be
+refit on train; and adoption requires dev topic-macro ≥ V1 + 0.015 with a
+domain-clustered CI that excludes 0, otherwise V1 is submitted and the fine-tune
+is reported as an ablation. See `results/PHASE9_PLAN.md`.
 
 ## What we learned (short version)
 
