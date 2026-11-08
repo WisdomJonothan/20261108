@@ -41,8 +41,11 @@ query ──► bge-base-en-v1.5 (full query) ──► dense top-1000
 * Fusion: reciprocal rank fusion, `c = 60`.
 
 **Phase 8 update (recommended configuration).** Swapping only the first stage to
-`mixedbread-ai/mxbai-embed-large-v1` and fusing `w_dense : w_CE = 1:1` raises the
-12-domain macro from 0.2559 to **0.3246** (see the Phase 8 section below).
+`mixedbread-ai/mxbai-embed-large-v1` and fusing `w_dense : w_CE = 1:1` lifts the
+dev macro over the **shared 11 domains** from 0.2556 to **0.2843**; over all
+13 domains the fused macro is **0.3166** (dense 0.2943). The two 12-domain
+macros quoted in the first release are not directly comparable — they swap
+`travel` for `iota`, and `iota` has only 3 dev queries (see Phase 8 below).
 
 ## Results (dev nDCG@10)
 
@@ -98,14 +101,15 @@ zero-shot 8 GB-friendly encoders on the identical dev split.
 | cardano | 0.1496 | 0.1312 | **0.1832** | 0.1632 |
 | monero | 0.1328 | 0.1139 | **0.1826** | 0.2281 |
 | quant | 0.0564 | 0.0000 | **0.1954** | 0.1631 |
+| travel | 0.2466 | 0.1653 | 0.2321 | 0.2205 |
 | iota (3 q) | 0.4712 | 0.4183 | **0.6485** | 0.7771 |
-| **macro (12)** | 0.2488 | 0.1489 | **0.2995** | **0.3246** |
+| **macro (13)** | 0.2486 | 0.1480 | **0.2942** | **0.3166** |
 
 * `intfloat/e5-base-v2`: macro **0.148** over all 13 domains — mean pooling over
   these long HTML documents is simply weak (the scoring path was verified
   against bge, which reproduces 0.3013 on `law`).
-* `mxbai-embed-large-v1`: macro **0.2995** over 12 domains (travel skipped, see
-  caveats); wins 9/12 domains, loses `bitcoin` (−0.035) and `workplace` (−0.043).
+* `mxbai-embed-large-v1`: macro **0.2942** over all 13 domains; wins 10/13
+  domains, loses `bitcoin` (−0.035), `workplace` (−0.043) and `travel` (−0.015).
 * `Alibaba-NLP/gte-large-en-v1.5` could not be run: its custom RoPE/pack_qkv code
   raises `AttributeError: 'NewModel' object has no attribute
   'get_extended_attention_mask'` under transformers 5.22.
@@ -114,15 +118,31 @@ Two-view pipeline on top of mxbai (same CE, same RRF):
 
 | fusion | macro | Δ vs dense | 95% CI (query) | domain-clustered CI |
 |---|---:|---:|---|---|
-| CE only | 0.2716 | +0.0110 | [−0.0111, +0.0318] | — |
-| RRF 2:1 | 0.3227 | +0.0272 | [+0.0160, +0.0381] | [−0.0017, +0.0531] |
-| **RRF 1:1** | **0.3246** | **+0.0333** | **[+0.0188, +0.0479]** | **[+0.0027, +0.0506]** |
-| RRF 1:2 | 0.3209 | +0.0360 | [+0.0185, +0.0534] | [−0.0163, +0.0584] |
-| RRF 1:4 | 0.3030 | +0.0311 | [+0.0114, +0.0500] | [−0.0395, +0.0443] |
+| CE only | 0.2680 | +0.0099 | [−0.0111, +0.0307] | — |
+| RRF 2:1 | **0.3176** | +0.0271 | [+0.0163, +0.0377] | [+0.0009, +0.0492] |
+| RRF 1:1 | 0.3166 | **+0.0307** | [+0.0166, +0.0449] | [+0.0012, +0.0471] |
+| RRF 1:2 | 0.3134 | +0.0334 | [+0.0164, +0.0503] | [−0.0162, +0.0541] |
+| RRF 1:4 | 0.2981 | +0.0297 | [+0.0103, +0.0486] | [−0.0364, +0.0416] |
 
-With the stronger first stage the fusion gain is significant even under the
-domain-clustered bootstrap (first time in this project); LOOCV honest gain is
-+0.0160. Full tables, caveats and reproduction commands:
+Macro over 13 domains; query-level bootstrap over 519 queries. LOOCV honest
+gain is only **+0.0087**, because per-domain optima differ (`law`, `quant`
+prefer CE; `workplace`, `iota` prefer dense).
+
+**Same 11 domains, both encoders** (`scripts/fair_11dom_compare.py`) — the only
+apples-to-apples comparison, 486 queries:
+
+| system | domain macro |
+|---|---:|
+| bge-base dense | 0.2285 |
+| bge-base + CE, RRF 1:4 | 0.2556 |
+| mxbai dense | 0.2677 |
+| mxbai + CE, RRF 1:1 | **0.2843** |
+
+Encoder upgrade +0.0287 (+12.6 %). Fusion gain on mxbai +0.0166, query CI
+[+0.0046, +0.0291], but **domain-clustered [−0.0026, +0.0345] — still crosses
+zero**, so the fusion gain is not established beyond dev.
+
+Full tables, caveats and reproduction commands:
 `results/PHASE8_STRONGER_BASELINES.md`.
 
 ## Temporal observability and ceiling (Phase 8)
@@ -139,9 +159,15 @@ consistency, `scripts/temporal_ceiling.py`): demoting "year-mismatched" document
 hsm 0.293→0.271, history 0.277→0.269, bitcoin 0.217→0.197) and only helps
 economics (0.189→0.201). Among year-bearing candidates 53–100 % carry a year
 outside the query interval, and many of those are gold: **time mismatch is not
-irrelevance** on this benchmark. Hard-negative mining after relaxing all filters
-yields only ~0.4 pairs per anchored query — too few to train a discriminator.
-See `results/TEMPORAL_CEILING.md` and `results/TEMPORAL_OBSERVABILITY.md`.
+irrelevance** on this benchmark. (An earlier "infeasible" claim about hard
+negatives rested on a parse bug that read the TREC rank column instead of the
+score; after the fix mining yields **1,857** topic-hard/time-hard pairs over
+12 domains.) A pre-registered temporal gate — logistic head fitted on train,
+λ chosen inside train, dev read once — reaches ΔnDCG@10 **+0.0039**
+(CI [−0.0023, +0.0103]), far below the +0.02 adoption bar: the temporal
+statement is discriminative (s_temp AUC 0.61–0.88) but does not convert into
+ranking gains. See `results/TEMPORAL_CEILING.md`,
+`results/TEMPORAL_OBSERVABILITY.md` and `results/TEMPORAL_GATE.md`.
 
 ## What we learned (short version)
 
@@ -151,11 +177,14 @@ See `results/TEMPORAL_CEILING.md` and `results/TEMPORAL_OBSERVABILITY.md`.
    numbers exactly (Bitcoin dev 0.0370, IOTA dev 0.3309, macro 0.1147), while a
    real Anserini index on the same corpus gives 0.0300 for Bitcoin. See
    `results/BASELINE_FORENSICS.md`.
-2. **Dense is worth ~2.6–2.8× the published BM25 macro** (bge 0.2300, mxbai
-   0.2995, two-view 0.3246 vs ≈0.0967 on the same 12 domains).
-3. **CE-dominant fusion is a consistent but small win** (+0.026 macro with bge,
-   +0.033 with mxbai, 10/12 domains). It fails on `law` and `workplace` (CE alone is worse than dense on
-   those), so a domain gate is needed before using it blindly.
+2. **Dense is worth ~2.5–3.3× the published BM25 macro** (bge 0.2486, mxbai
+   0.2942, two-view 0.3176 over 13 domains, vs ≈0.0967 for the official BM25
+   macro on the same 12 domains it covers).
+3. **CE-dominant fusion is a consistent but small win** (+0.031 query-level on
+   13 domains with mxbai, positive in 9/11 shared domains) but the domain-clustered
+   CI crosses zero, so it is not established beyond dev. It fails on `law` and
+   `workplace` (CE alone is worse than dense there), so a domain gate is needed
+   before using it blindly.
 4. **Text-only temporal signals do not work on this benchmark.** Document
    timestamps do not exist; only 12–25 % of gold documents contain a year.
    Content-time features, a semantic temporal-consistency score, query
@@ -214,7 +243,7 @@ python scripts/run_chunk_rerank.py --domain <domain> --split dev \
 # 4. fuse + score
 python scripts/fuse_rrf.py --run-a runs/dense_bge_<domain>_dev.trec \
     --run-b runs/rerank_v2m3_title_<domain>_dev.trec \
-    --out runs/twoview_<domain>_dev.trec --wa 1 --wb 4 --c 60
+    --out runs/twoview_<domain>_dev.trec --wa 1 --wb 4 --c 60     --json results/fuse_twoview_<domain>_dev.json
 PYTHONUTF8=1 python scripts/score_run.py --run runs/twoview_<domain>_dev.trec \
     --data data/track1_tempo/<domain> --split dev --json results/score_twoview_<domain>_dev.json
 

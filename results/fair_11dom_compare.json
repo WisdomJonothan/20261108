@@ -1,0 +1,81 @@
+{
+ "n_queries": 486,
+ "domains": [
+  "bitcoin",
+  "economics",
+  "politics",
+  "genealogy",
+  "hsm",
+  "history",
+  "law",
+  "workplace",
+  "cardano",
+  "monero",
+  "quant"
+ ],
+ "macro": {
+  "bge_dense": 0.2571,
+  "bge_rrf_1:4": 0.3053,
+  "mxbai_dense": 0.2904,
+  "mxbai_rrf_1:1": 0.3246
+ },
+ "delta_vs_bge_rrf": {
+  "bge_dense": {
+   "mean": -0.0481,
+   "ci": [
+    -0.0662,
+    -0.0298
+   ]
+  },
+  "bge_rrf_1:4": {
+   "mean": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ]
+  },
+  "mxbai_dense": {
+   "mean": -0.0148,
+   "ci": [
+    -0.0345,
+    0.005
+   ]
+  },
+  "mxbai_rrf_1:1": {
+   "mean": 0.0193,
+   "ci": [
+    0.0068,
+    0.0318
+   ]
+  }
+ },
+ "domain_macro": {
+  "bge_dense": 0.2285,
+  "bge_rrf_1:4": 0.2556,
+  "mxbai_dense": 0.2677,
+  "mxbai_rrf_1:1": 0.2843
+ },
+ "clustered": {
+  "mxbai_rrf_vs_bge_rrf": [
+   0.0287,
+   [
+    -0.003,
+    0.0613
+   ]
+  ],
+  "mxbai_rrf_vs_mxbai_dense": [
+   0.0166,
+   [
+    -0.0018,
+    0.036
+   ]
+  ],
+  "bge_rrf_vs_bge_dense": [
+   0.027,
+   [
+    -0.0119,
+    0.0615
+   ]
+  ]
+ }
+}

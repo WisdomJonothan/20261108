@@ -148,9 +148,10 @@ def main():
     with open(args.run, encoding="utf-8") as fh:
         for line in fh:
             p = line.split()
-            if len(p) < 4:
+            if len(p) < 6:
                 continue
-            q, d, s = p[0], p[2], float(p[3])
+            # TREC: qid Q0 docid rank score run_id  -> score is p[4], NOT p[3]
+            q, d, s = p[0], p[2], float(p[4])
             scores.setdefault(q, {})[d] = s
     ranked = load_run(args.run, args.k)
     docs_by_id = dict(zip(ids, docs))

@@ -1,22 +1,16 @@
-# Phase 8 — stronger zero-shot retrievers on the same dev split
+# Phase 8 — stronger retrievers: full 13-domain dev results
 
-Motivation: the public repo had no comparison against retrievers stronger than
-bge-base-en-v1.5, which was the single most damaging point in the external review.
-TEMPO (arXiv:2601.09523v1) reports E5 30.4 / DiVeR-4B 32.0 on its own 1,730-query
-v1.0 benchmark, but those numbers come from a 7B and a 4B model and a different
-corpus, so they cannot be quoted side by side with our 519-query v1.1 dev split.
-Only BM25 (0.1147) is directly comparable.
-
-What we ran instead: zero-shot encoders that fit in 8 GB, on the identical dev
-queries / corpora / k=10 nDCG, with the same two-view pipeline
-(dense top-1000 → bge-reranker-v2-m3 title-window rerank → RRF fusion).
+Two runnable encoders were evaluated on the same data (v1.1 Track-1a, dev split),
+and the two-view pipeline was rebuilt with the better one. All numbers are dev
+nDCG@10 computed by `scripts/score_run.py` (official `ir_metrics`), and the
+fusion tables are recomputed from the TREC runs by `scripts/analyze_mxbai.py`.
 
 ## Encoders
 
 | model | params | dim | status |
 |---|---:|---:|---|
 | intfloat/e5-base-v2 | 110M | 768 | all 13 domains |
-| mixedbread-ai/mxbai-embed-large-v1 | 335M | 1024 | 12 domains (travel skipped) |
+| mixedbread-ai/mxbai-embed-large-v1 | 335M | 1024 | all 13 domains |
 | Alibaba-NLP/gte-large-en-v1.5 | 434M | 1024 | **not runnable**: custom RoPE/pack_qkv code raises `AttributeError: 'NewModel' object has no attribute 'get_extended_attention_mask'` with transformers 5.22 |
 
 Pools/prefixes follow each model card: e5 `query: `/`passage: ` mean pooling;
@@ -38,14 +32,14 @@ with mean pooling; fp16, max_length 512, batch 64.
 | cardano | 0.1496 | 0.1312 | **0.1832** |
 | monero | 0.1328 | 0.1139 | **0.1826** |
 | quant | 0.0564 | 0.0000 | **0.1954** |
-| travel | 0.2466 | 0.1653 | — |
+| travel | 0.2466 | 0.1653 | 0.2321 |
 | iota (3 q) | 0.4712 | 0.4183 | **0.6485** |
-| **macro (12 shared)** | 0.2488 | 0.1489 | **0.2995** |
+| **macro (13 domains)** | 0.2486 | 0.1480 | **0.2942** |
 
-e5-base is consistently and substantially worse — the encoding path was
-verified against bge (same scorer reproduces bge 0.3013 on law exactly), so this
-is the model, not a bug. mxbai wins 9 of 12 domains; bge remains better on
-bitcoin and workplace.
+mxbai wins 10 of 13 domains (loses bitcoin, workplace, travel; economics is a
+tie). e5-base is consistently worse — the encoding path was verified against bge
+(the same scorer reproduces bge 0.3013 on law exactly), so this is the model, not
+a bug; its mean pooling is simply weak on these long HTML documents.
 
 ## Two-view pipeline with mxbai as first stage
 
@@ -65,46 +59,79 @@ window 250, max pooling) → RRF over the same candidate set.
 | cardano | 0.1832 | 0.1650 | 0.1443 | 0.1632 | 0.1628 | 0.1608 |
 | monero | 0.1826 | 0.1517 | 0.2038 | 0.2281 | 0.2143 | 0.1983 |
 | quant | 0.1954 | 0.0328 | 0.1535 | 0.1631 | 0.1244 | 0.0640 |
+| travel | 0.2321 | 0.2237 | 0.2561 | 0.2205 | 0.2228 | 0.2388 |
 | iota (3 q) | 0.6485 | 0.5575 | 0.8036 | 0.7771 | 0.8085 | 0.7309 |
 
-Macro over the 12 domains: dense **0.2995**, CE 0.2716, fused 2:1 0.3227,
-1:1 **0.3246**, 1:2 0.3209, 1:4 0.3030.
+Macro over the 13 domains: dense **0.2943**, CE 0.2680, fused 2:1 **0.3176**,
+1:1 0.3166, 1:2 0.3134, 1:4 0.2981.
 
-Paired query bootstrap vs dense (12 domains, 489 queries):
+Paired query bootstrap vs dense (13 domains, 519 queries):
 
 | fusion | Δ | 95% CI | P(Δ>0) |
 |---|---:|---|---:|
-| 2:1 | +0.0272 | [+0.0160, +0.0381] | 1.000 |
-| 1:1 | **+0.0333** | [+0.0188, +0.0479] | 1.000 |
-| 1:2 | +0.0360 | [+0.0185, +0.0534] | 1.000 |
-| 1:4 | +0.0311 | [+0.0114, +0.0500] | 0.998 |
+| 2:1 | +0.0271 | [+0.0163, +0.0377] | 1.000 |
+| 1:1 | **+0.0307** | [+0.0166, +0.0449] | 1.000 |
+| 1:2 | +0.0334 | [+0.0164, +0.0503] | 1.000 |
+| 1:4 | +0.0297 | [+0.0103, +0.0486] | 0.999 |
 
-Domain-clustered bootstrap: 2:1 +0.0233 [−0.0017, +0.0531]; **1:1 +0.0252
-[+0.0027, +0.0506]**; 1:2 +0.0215 [−0.0163, +0.0584]; 1:4 +0.0036
-[−0.0395, +0.0443]. Leave-one-domain-out weight selection: mean held-out gain
-+0.0160.
+Domain-clustered bootstrap (13 domains): 2:1 +0.0233 [+0.0009, +0.0492];
+1:1 +0.0223 [+0.0012, +0.0471]; 1:2 +0.0191 [−0.0162, +0.0541]; 1:4 +0.0038
+[−0.0364, +0.0416]. Leave-one-domain-out weight selection: mean held-out gain
+**+0.0087** — small, because per-domain optima differ (law and quant prefer CE,
+workplace and iota prefer dense).
 
-So with a stronger first stage the fusion gain becomes significant even under the
-domain-clustered bootstrap — something the bge-base pipeline never achieved
-(best clustered CI there was [−0.0097, +0.0581]).
+## Fair comparison: same 11 domains, both encoders
+
+The old pipeline covered `11 shared + travel`; the new one covers
+`11 shared + iota`. IOTA has 3 dev queries and a fused nDCG@10 of 0.7771, so a
+12-domain macro that swaps travel for iota is **not comparable** to the old one.
+Recomputed on the shared 11 domains / 486 queries
+(`scripts/fair_11dom_compare.py`, `results/fair_11dom_compare.json`):
+
+| system | domain macro nDCG@10 |
+|---|---:|
+| bge-base dense | 0.2285 |
+| bge-base + CE, RRF 1:4 | 0.2556 |
+| mxbai dense | 0.2677 |
+| mxbai + CE, RRF 1:1 | **0.2843** |
+
+* Encoder upgrade: +0.0287 absolute (+12.6 %) over the bge pipeline.
+* Fusion gain on mxbai: +0.0166, query bootstrap [+0.0046, +0.0291],
+  **domain-clustered [−0.0026, +0.0345] — still crosses zero**.
+
+So: the encoder improvement is solid; the fusion gain is positive in 9 of 11
+domains but is not established beyond dev under domain clustering.
+
+## Temporal gate (negative, pre-registered)
+
+A train-fitted temporal gate was evaluated on the separated protocol (fit on
+train, λ chosen inside train, dev read once). Result: pooled ΔnDCG@10
+**+0.0039** (CI [−0.0023, +0.0103]) — far below the pre-registered +0.02 bar.
+See `results/TEMPORAL_GATE.md`. The discriminative signal exists (s_temp AUC
+0.61–0.88) but does not convert into ranking gains on these corpora.
 
 ## Caveats
 
 1. Dev only; the hidden test set is untouched. The fusion weight is chosen on the
-   same dev split (LOOCV number above is the honest estimate).
-2. travel has no mxbai run (encoding collapsed to ~0.85 doc/s on that corpus;
-   killed rather than burning a day) and iota has 3 dev queries; law 11,
-   workplace 11, quant 10.
+   same dev split; the LOOCV number (+0.0087) is the honest estimate.
+2. iota has 3 dev queries, law 11, workplace 11, quant 10; travel's mxbai
+   encoding ran at ~46 doc/s on 158k docs (finished, but it is the most expensive
+   domain and the least stable single-domain estimate).
 3. The CE configuration (title query, window 250, max pooling) was fixed earlier
    on bge-base and reused unchanged for mxbai — no tuning against mxbai dev.
 4. gte-large could not be run; no claim is made about it.
-5. Absolute numbers remain far below the 30+ reported by TEMPO for 4B–7B
-   models on a different corpus; we do not compare across those splits.
+5. Absolute numbers remain far below the 30+ reported by TEMPO for 4B–7B models
+   on a different corpus (1,730 queries, v1.0, 1,654,055 docs); we do not compare
+   across those splits.
 
 Reproduce:
 
 ```bash
-bash scripts/phase8_baselines.sh        # e5-base (13 domains) + mxbai (3 domains)
-bash scripts/phase8_mxbai_rerank.sh     # CE on mxbai top-100 (12 domains)
-python scripts/analyze_mxbai.py         # tables above
+bash scripts/phase8_baselines.sh        # e5-base + mxbai dense
+bash scripts/phase8_mxbai_rerank.sh     # CE on mxbai top-100
+python scripts/analyze_mxbai.py         # 13-domain fusion tables
+python scripts/fair_11dom_compare.py    # shared-11 comparison
+bash scripts/phase8_train_mxbai.sh      # train dense + CE (gate experiment)
+bash scripts/phase8_train_features.sh
+python scripts/temporal_gate_fit.py --train ... --dev ... --out results/temporal_gate_dev.json
 ```
