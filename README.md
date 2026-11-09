@@ -217,16 +217,16 @@ domains (`cardano, law, quant, travel, workplace`) had no train files, so
 v1.1 (13-domain total 1,167,159 documents, identical to the organizers' figure).
 
 **Diagnosis.** Inside the frozen top-100 pool the oracle nDCG@10 is **0.7446**
-while the submitted system scores 0.3336 and dense alone 0.2943 — the reranker
-captures **8.7 %** of that headroom (per domain 0-63 %; 41 % of queries improve,
+while the frozen system scores 0.3581 and dense alone 0.2943 — the reranker
+captures **14.2 %** of that headroom (per domain 0-63 %; 41 % of queries improve,
 19 % worsen). The zero-shot cross-encoder's within-query AUC (0.801) is no better
 than the dense retriever's (0.806), and ten post-hoc interventions failed. The
 binding constraint is the scorer, not recall in the aggregate (a second dense
 retriever lifts Recall@100 0.699 -> 0.737 and oracle@10 0.7446 -> 0.7784, worth
-about +0.003 at 8.7 % capture) - but **27.7 % of dev queries score exactly zero,
-and 36 % of those have no gold document anywhere in the top-100**, so recall is
-the binding constraint for that third of the failures
-(`results/CAPTURE_CURVE.md`, `results/DEV_ERROR_ANALYSIS.md`).
+about +0.003 at 14 % capture) - but **26.6 % of dev queries score exactly zero
+under the frozen system, and 37.7 % of those have no gold document anywhere in
+the top-100**, so recall is the binding constraint for that quarter of the
+failures (`results/CAPTURE_CURVE.md`, `results/DEV_ERROR_ANALYSIS.md`).
 
 **Fusion form.** RRF discards score magnitude and taxes the stronger component.
 Fusing on within-query z-normalised scores instead, over the same candidates:
@@ -258,37 +258,56 @@ all in-candidate positives + 70 % hard negatives, bf16 + gradient checkpointing,
 A CE-only gain passes through fusion at ≈19 % (RRF 1:1), 26 % (score-sum) or
 61 % (RRF 1:4), so the fusion weight must be refit on train.
 
-Result under the official metric, at the train-selected weight 1:1:
+**Result under the official metric.** Two schedules were run; the longer one is
+the frozen system and the shorter one is the ablation:
 
 | dev (519 topics) | domain-macro | topic-macro |
 |---|---:|---:|
 | dense + zero-shot CE, z 1:1 | 0.3249 | 0.3260 |
-| dense + SFT CE, z 1:1 | **0.3336** | 0.3339 |
+| dense + SFT CE, z 1:1 (1 epoch, lr 1e-5) | 0.3336 | 0.3339 |
+| **dense + SFT CE, z 1:1 (2 epochs, lr 1.5e-5)** | **0.3581** | **0.3644** |
 
-SFT vs zero-shot at the fixed weight: **+0.0087**, query-bootstrap CI
-[+0.0025,+0.0151], domain-clustered [+0.0037,+0.0142] — the only single-factor
-effect whose domain-clustered CI excludes zero. The total over V1 is
-**+0.0170** [+0.0055,+0.0290], domain-clustered [+0.0052,+0.0287], but it
-bundles that +0.0087 with a fusion-form change worth +0.0083 whose own CI
-crosses zero, so the honest single claim is +0.0087 over the strongest
-zero-shot baseline.
+The 2-epoch arm vs zero-shot at the same frozen weight: **+0.0332**,
+query-bootstrap CI [+0.0161,+0.0523], domain-clustered [+0.0192,+0.0472],
+188 queries better / 78 worse / 253 tied, 11 of 13 domains up. The 1-epoch arm
+gives **+0.0087** [+0.0025,+0.0151] / domain-clustered [+0.0037,+0.0142]; it is
+the ablation that isolates "more training" from "any training". The total over
+V1 for the 1-epoch arm is **+0.0170** [+0.0055,+0.0290], domain-clustered
+[+0.0052,+0.0287], which bundles the CE swap with a fusion-form change worth
++0.0083 whose own CI crosses zero — the 2-epoch arm is therefore reported as a
+single-factor claim against the zero-shot fusion, not against V1.
 
-The pre-registered adoption bar (+0.015 on dev **topic-macro**) was **not** met:
-under the registered statistic SFT − V1 = 0.3339 − 0.3199 = +0.0141. The bar is
-not restated under the corrected metric; the significance claims above are made
-with the official domain-macro bootstrap instead. Frozen as
-`runs/sub_sft11_<domain>_dev.trec` (13/13 official-checked, de-tied).
-See `results/PHASE9_PLAN.md` and `docs/RESEARCH_LOG.md` §5i.
+The pre-registered adoption bar (+0.015 on dev **topic-macro**) was **not** met
+by the 1-epoch arm: under the registered statistic SFT − V1 = 0.3339 − 0.3199 =
++0.0141. The bar is not restated under the corrected metric; the significance
+claims above are made with the official domain-macro bootstrap instead. Frozen
+as `runs/sub_sft_e2bc_<domain>_dev.trec` (13/13 official-checked, de-tied).
+See `results/PHASE9_PLAN.md`, `docs/RESEARCH_LOG.md` §5i/§5l.
 
 **The SFT arm inherited a weight tuned on the zero-shot arm.** One global scalar
 was fitted once on the 1,211 train queries with the zero-shot CE (1:1), frozen,
-and never re-fitted; the SFT arm is therefore the *under-tuned* one, so its
-measured gain is conservative rather than inflated. To show that the claim does
+and never re-fitted; the SFT arms are therefore the *under-tuned* side, so their
+measured gains are conservative rather than inflated. To show that the claim does
 not hinge on that choice, `scripts/weight_sweep.py` re-fuses the stored
-per-query scores at nine weights for **both** arms on dev (diagnostic only —
-nothing is selected on dev):
+per-query scores at nine weights on dev, for each arm separately (diagnostic
+only — nothing is selected on dev). For the frozen 2-epoch arm:
 
-| w (CE) | zero-shot | SFT | delta | 95% domain-clustered CI | domains up |
+| w (CE) | zero-shot | SFT (2 epochs) | delta | 95% domain-clustered CI | domains up |
+|---:|---:|---:|---:|---|---:|
+| 0.5 | 0.3208 | 0.3297 | +0.0089 | [+0.0009,+0.0170] | 9/13 |
+| 0.7 | 0.3294 | 0.3472 | +0.0178 | [+0.0102,+0.0261] | 13/13 |
+| 0.85 | 0.3261 | 0.3518 | +0.0258 | [+0.0158,+0.0351] | 11/13 |
+| **1** | 0.3249 | **0.3581** | **+0.0332** | **[+0.0195,+0.0482]** | 11/13 |
+| 1.15 | 0.3271 | 0.3552 | +0.0280 | [+0.0168,+0.0393] | 11/13 |
+| 1.3 | 0.3278 | 0.3559 | +0.0281 | [+0.0174,+0.0387] | 11/13 |
+| 1.5 | 0.3253 | 0.3592 | +0.0339 | [+0.0230,+0.0451] | 13/13 |
+| 1.8 | 0.3192 | 0.3538 | +0.0346 | [+0.0194,+0.0535] | 13/13 |
+| 2 | 0.3193 | 0.3481 | +0.0287 | [+0.0118,+0.0498] | 11/13 |
+
+Every weight is positive, and at 0.7/1.5/1.8 all 13 domains improve, so the
+result is not a lucky weight. The 1-epoch arm's sweep is kept as the ablation:
+
+| w (CE) | zero-shot | SFT (1 epoch) | delta | 95% domain-clustered CI | domains up |
 |---:|---:|---:|---:|---|---:|
 | 0.5 | 0.3208 | 0.3211 | +0.0004 | [−0.0031,+0.0042] | 5/13 |
 | 0.7 | 0.3294 | 0.3287 | −0.0007 | [−0.0081,+0.0053] | 7/13 |
@@ -300,10 +319,10 @@ nothing is selected on dev):
 | 1.8 | 0.3192 | 0.3341 | +0.0149 | [+0.0055,+0.0293] | 12/13 |
 | 2.0 | 0.3193 | 0.3274 | +0.0080 | [+0.0041,+0.0122] | 11/13 |
 
-Both arms move by ~±0.008 across the sweep with no monotone trend, i.e. the
-fusion surface is flat to within sampling noise; the SFT arm is ahead at 7 of 9
-weights and at every weight ≥ 0.85. We report the frozen-weight number, not a
-dev-best one. (`results/WEIGHT_SWEEP.md`, `results/weight_sweep_dev.json`.)
+There the surface is flat to ~±0.008 with no monotone trend. We report the
+frozen-weight number in both cases, never a dev-best one.
+(`results/WEIGHT_SWEEP_E2.md`, `results/weight_sweep_e2_dev.json`,
+`results/WEIGHT_SWEEP.md`.)
 
 **Disclosure: the SFT validation split is not recoverable.** Training held out
 45 train queries (seed 17, 12 % per domain capped at 4) and selected nothing on

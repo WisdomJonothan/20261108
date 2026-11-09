@@ -8,7 +8,7 @@ Pipeline (the configuration this project settled on):
          official domain-macro statistic; see results/fusion_fit_train_dommacro.json)
 
 Pass --model-ce to score with the supervised checkpoint
-(results/ce_ft/v2m3_pool8_e1/best) instead of the zero-shot reranker.
+(results/ce_ft/v2m3_pool8_e2/best) instead of the zero-shot reranker.
 
 The script deliberately takes a *query file* rather than a split name, so the
 same code path is used for dev (sanity check) and for the hidden test queries

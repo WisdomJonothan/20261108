@@ -29,7 +29,7 @@ python scripts/official/format_checker.py submissions/iota.trec \
   1000 rows, official `format_checker.py` `errors: 0`, `score_run.py` nDCG@10
   0.8085. That run validated the plumbing, not the current weights.
 * The current pipeline is `--fusion z --wa 1 --wb 1` with either the zero-shot
-  reranker or `--model-ce results/ce_ft/v2m3_pool8_e1/best`. The CE cache file is
+  reranker or `--model-ce results/ce_ft/v2m3_pool8_e2/best`. The CE cache file is
   keyed by the checkpoint directory name (`ce_<domain>_<model>.trec`), so a
   zero-shot cache can never be silently reused for a fine-tuned model.
 * Dev-format runs of the frozen system live in `runs/sub_sft11_<domain>_dev.trec`
@@ -41,7 +41,7 @@ python scripts/official/format_checker.py submissions/iota.trec \
 
 1. Drop the released `examples_test.jsonl` into `data/track1_tempo/<domain>/`.
 2. Per domain:
-   `python scripts/make_submission.py --domain <d> --queries data/track1_tempo/<d>/examples_test.jsonl --index-data data/track1_tempo/<d> --out submissions/<d>.trec --fusion z --wa 1 --wb 1 --model-ce results/ce_ft/v2m3_pool8_e1/best`
+   `python scripts/make_submission.py --domain <d> --queries data/track1_tempo/<d>/examples_test.jsonl --index-data data/track1_tempo/<d> --out submissions/<d>.trec --fusion z --wa 1 --wb 1 --model-ce results/ce_ft/v2m3_pool8_e2/best`
 3. Validate every file with `scripts/validate_submission.py` against the test
    qrels if released (otherwise at least the topic-id set and the format checker
    without `--qrels`), then de-tie (`--detie`) — the de-tie is ordinal and
