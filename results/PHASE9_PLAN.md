@@ -133,6 +133,27 @@ The train-fitted optimum and the dev optimum coincide, so this is not a dev
 artefact; it remains unestablished under domain clustering, which is the honest
 limit. Frozen as `runs/sub_1_2_<domain>_dev.trec` (13/13 official-format valid).
 
+## 6c. First supervised numbers (1 epoch, 13 domains)
+
+Train-side gate (45 held-out train queries): AUC 0.7950 → 0.7990 (+0.0041, under the
++0.01 bar); held-out nDCG@10 0.2870 → 0.3008 (+0.0138).
+
+| system (dev, 519 topics) | topic-macro | domain-macro | Δ |
+|---|---:|---:|---:|
+| zero-shot CE alone | 0.2990 | 0.2680 | — |
+| **SFT CE alone** | **0.3096** | 0.2742 | +0.0106 |
+| V1.1 = dense + zero-shot CE, z 1:2 | 0.3302 | 0.3193 | — |
+| **SFT = dense + SFT CE, z 1:2** | **0.3418** | 0.3274 | +0.0116 |
+
+Paired bootstrap of SFT vs V1.1: query [+0.0069,+0.0165]; **domain-clustered
+[+0.0040,+0.0123] — the first improvement in this project whose domain-clustered
+CI excludes zero**. 125 topics better / 58 worse / 336 tied; 11 of 13 domains up.
+
+Two caveats: the fusion weight 1:2 is inherited from the zero-shot CE (refitting it
+for the SFT model costs ~2 h of train-side CE and is not done yet), and +0.0116 is
+below the pre-registered +0.015 adoption bar by 0.0034, so the submission decision
+is recorded separately rather than silently taken.
+
 ## 7. Execution log (this session)
 
 | step | status |

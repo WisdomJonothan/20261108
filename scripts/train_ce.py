@@ -137,6 +137,9 @@ def main():
     ap.add_argument("--max-steps", type=int, default=0, help="0 = full epoch")
     ap.add_argument("--limit-groups", type=int, default=0)
     ap.add_argument("--keep-last", type=int, default=1)
+    ap.add_argument("--max-windows", type=int, default=0,
+                    help="cap the number of document windows used per training step "
+                         "(0 = all windows; a random subset is drawn each epoch)")
     ap.add_argument("--pool-chunk", type=int, default=24,
                     help="windows scored per forward pass when window-mode=max")
     ap.add_argument("--freeze-layers", type=int, default=0,
@@ -344,6 +347,9 @@ def main():
                 flat, spans = [], []
                 for x in docs:
                     ws = doc_windows(d, x["id"])
+                    if args.max_windows and len(ws) > args.max_windows:
+                        idx = sorted(wrng.sample(range(len(ws)), args.max_windows))
+                        ws = [ws[i] for i in idx]
                     spans.append((len(flat), len(flat) + len(ws)))
                     flat.extend(ws)
                 parts = []
