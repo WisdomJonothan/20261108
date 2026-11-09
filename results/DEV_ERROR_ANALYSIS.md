@@ -1,3 +1,22 @@
+## 0. Update: the frozen 2-epoch arm (2026-11-09)
+
+The body of this note analyses the **1-epoch** arm (`runs/sub_sft11_*`). The
+frozen system is now the 2-epoch arm (`runs/sub_sft_e2bc_*`), and the same
+arithmetic on `results/score_sub_sft_e2bc_<domain>_dev.json` gives:
+
+- **138/519 queries (26.6%) score exactly zero** (was 144 for the 1-epoch arm);
+- of those, **52 (37.7%) have `Rec@100 = 0`** — no top-100 reranker can help
+  them — and 86 (62.3%) have gold inside the pool (reordering damage);
+- per domain zeros / zero-with-no-recall: bitcoin 13/4, cardano 4/1,
+  economics 9/4, genealogy 10/7, history 46/14, hsm 10/5, iota 0/0, law 3/1,
+  monero 8/3, politics 14/7, quant 5/2, travel 12/3, workplace 4/1;
+- against the zero-shot fused baseline the frozen arm wins 188, loses 78 and
+  ties 253 queries (`results/boot_dom_e2_vs_zs.json`).
+
+Reproduce: sum `nDCG@10 == 0` and `Rec@100 == 0` over the `per_query` maps of
+`results/score_sub_sft_e2bc_*_dev.json` (519 entries total). Capture of the
+dense-top-100 headroom rises from 8.7% to 14.2% (`results/CAPTURE_CURVE_E2.md`).
+
 # Dev error analysis: SFT reranker vs V1 RRF (n = 519 queries, 13 domains)
 
 Source: `results/score_sub_sft11_<domain>_dev.json` vs `results/score_sub_1_1_<domain>_dev.json` (per-query nDCG@10, Rec@100, num_gold), query text from `data/track1_tempo/<domain>/examples_dev.jsonl`, step counts from `steps_dev.jsonl` (484/519 queries). No model runs; arithmetic only. Domain-macro nDCG@10: SFT 0.33356, V1 0.31660. "Tie" below means |Δ| < 1e-12.
