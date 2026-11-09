@@ -156,12 +156,15 @@ Macro over 13 domains; query-level bootstrap over 519 queries. LOOCV honest
 gain is only **+0.0087**, because per-domain optima differ (`law`, `quant`
 prefer CE; `workplace`, `iota` prefer dense).
 
-**Choosing the weight on train** (`scripts/fusion_weight_train.py`): the train
-optimum is 1:2 (train macro 0.2519), and applying that weight unchanged to dev
-gives **0.3134** — +0.0191 over dense with zero dev-side tuning (dev-best 2:1 is
-0.3176). Per-domain weights chosen on each domain's own train split do **not**
-transfer (dev macro 0.2941 ≈ dense), so one global weight is the robust choice.
-With the train-selected weight the domain-clustered CI is [−0.0162, +0.0541]. 
+**Choosing the weight on train.** With z-normalised score fusion the train-side
+(1,211 queries) optimum under the official domain-macro statistic is **1:1**
+(train 0.2612 vs 0.2596 for 1:2); applied unchanged to dev it gives 0.3249, i.e.
++0.0083 over the RRF baseline with zero dev-side tuning. (The RRF table above
+and its "train optimum 1:2 / 0.2519" line were computed under **topic**-macro,
+where the CE wants more weight; that ordering was an artifact of the wrong
+statistic and is kept only as a record.) Per-domain weights chosen on each
+domain's own train split do **not** transfer (dev 0.2941 ≈ dense), so one global
+weight is the robust choice.
 
 **Same 11 domains, both encoders** (`scripts/fair_11dom_compare.py`) — the only
 apples-to-apples comparison, 486 queries:
@@ -271,6 +274,40 @@ not restated under the corrected metric; the significance claims above are made
 with the official domain-macro bootstrap instead. Frozen as
 `runs/sub_sft11_<domain>_dev.trec` (13/13 official-checked, de-tied).
 See `results/PHASE9_PLAN.md` and `docs/RESEARCH_LOG.md` §5i.
+
+**The SFT arm inherited a weight tuned on the zero-shot arm.** One global scalar
+was fitted once on the 1,211 train queries with the zero-shot CE (1:1), frozen,
+and never re-fitted; the SFT arm is therefore the *under-tuned* one, so its
+measured gain is conservative rather than inflated. To show that the claim does
+not hinge on that choice, `scripts/weight_sweep.py` re-fuses the stored
+per-query scores at nine weights for **both** arms on dev (diagnostic only —
+nothing is selected on dev):
+
+| w (CE) | zero-shot | SFT | delta | 95% domain-clustered CI | domains up |
+|---:|---:|---:|---:|---|---:|
+| 0.5 | 0.3208 | 0.3211 | +0.0004 | [−0.0031,+0.0042] | 5/13 |
+| 0.7 | 0.3294 | 0.3287 | −0.0007 | [−0.0081,+0.0053] | 7/13 |
+| 0.85 | 0.3261 | 0.3308 | +0.0047 | [+0.0001,+0.0098] | 8/13 |
+| **1 (frozen)** | 0.3249 | **0.3336** | **+0.0087** | **[+0.0038,+0.0142]** | 10/13 |
+| 1.15 | 0.3271 | 0.3319 | +0.0048 | [+0.0008,+0.0089] | 9/13 |
+| 1.3 | 0.3278 | 0.3334 | +0.0056 | [+0.0004,+0.0114] | 10/13 |
+| 1.5 | 0.3253 | 0.3298 | +0.0045 | [−0.0018,+0.0108] | 8/13 |
+| 1.8 | 0.3192 | 0.3341 | +0.0149 | [+0.0055,+0.0293] | 12/13 |
+| 2.0 | 0.3193 | 0.3274 | +0.0080 | [+0.0041,+0.0122] | 11/13 |
+
+Both arms move by ~±0.008 across the sweep with no monotone trend, i.e. the
+fusion surface is flat to within sampling noise; the SFT arm is ahead at 7 of 9
+weights and at every weight ≥ 0.85. We report the frozen-weight number, not a
+dev-best one. (`results/WEIGHT_SWEEP.md`, `results/weight_sweep_dev.json`.)
+
+**Disclosure: the SFT validation split is not recoverable.** Training held out
+45 train queries (seed 17, 12 % per domain capped at 4) and selected nothing on
+them (one epoch, fixed config). Replaying that split from the current code does
+not reproduce the logged per-domain `docs_loaded` counts — all 13 domains, seeds
+0–60 — so the exact 45 are unknown. They are train queries, they never entered
+the fusion weight or dev, and the epoch count was fixed in advance, so no
+selection used them; but the split cannot be published. `train_ce.py` now takes
+`--dump-val-qids/--val-qids` so any rerun records its split.
 
 ## What we learned (short version)
 

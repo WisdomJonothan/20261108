@@ -26,7 +26,7 @@ candidate recall — is the only lever that moved the number.
 | # | item | status |
 |---|---|---|
 | 1 | unify the metric on domain-macro | DONE — `score_run.py`, `aggregate_scores.py`, `bootstrap_compare.py --stat domain`, `fit_fusion_weight.py --select-metric`; refit picks z 1:1 |
-| 2 | refit the SFT fusion weight out-of-fold | BLOCKED AS PLANNED — the e1/e2 held-out split is not recoverable (replaying it from the current code does not reproduce the logged `docs_loaded` counts, all 13 domains, seeds 0–60). Fix: retrain 21 min with `--dump-val-qids` (`scripts/phase11_sft_oof.sh`), then fit the weight on that provable split |
+| 2 | refit the SFT fusion weight out-of-fold | CLOSED BY DECISION (C′) — the e1/e2 held-out split is not recoverable (replaying it from the current code does not reproduce the logged `docs_loaded` counts, all 13 domains, seeds 0–60), so a 45-query refit would be a 45-query guess (SE ≈ 0.02 ≈ 2× the effect). Instead: keep the inherited 1:1 (fitted on train with the **control** arm, which can only understate SFT), disclose it, and prove weight-robustness with a both-arms dev sweep — `scripts/weight_sweep.py`, `results/WEIGHT_SWEEP.md`. Retrain-with-dumped-split remains available as `scripts/phase11_sft_oof.sh` if a reviewer demands a provable fold |
 | 3 | `score_run.py` missing-topic zero-fill | DONE (on GitHub at 6be4e80) |
 | 4 | `validate_submission.py --detie` re-validates its output | DONE — old `-1e-9*rank` underflowed on the padding sentinel and left 900 ties/topic; replaced with an ordinal fix |
 | 5 | `test_mode_dryrun.sh` overwrite guard | DONE — refuses without FORCE=1 |
