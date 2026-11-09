@@ -75,7 +75,7 @@ are computed by `scripts/aggregate_scores.py`; every table states which it uses.
 > checkpoints. Full protocol, numbers and the wrong-base-model incident are in
 > [`results/PHASE11_VALIDATION.md`](results/PHASE11_VALIDATION.md).
 
-Official Track-1a dev BM25 baseline is **0.1147**, i.e. the frozen system is ≈3.1× the
+Official Track-1a dev BM25 baseline is **0.1147**, i.e. the reproducible system is ≈3.0× the
 official lexical baseline. TEMPO's best reported system (32.0) is on a different
 1,730-query split and is not directly comparable.
 

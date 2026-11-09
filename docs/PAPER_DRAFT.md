@@ -273,8 +273,13 @@ domain-clustered interval of [+0.0159,+0.0404], 181 wins / 82 losses / 256 ties,
 and 0.3123 vs 0.2832 on the 12-domain view
 <!-- results/REPLICATION.md; results/boot_dom_e2s29_vs_zs.json -->. Seed-to-seed
 spread of the arm (0.0054) is an order of magnitude below the delta over the
-baseline, so we report the effect as **+0.031 ± 0.003 over the strongest
-zero-shot baseline** and keep 0.3581 as the frozen submission number.
+baseline. On the reproducible arm the same checks hold: 0.2984 vs 0.2782
+(12 domains, iota dropped) and 0.3182 vs 0.2913 (the eight domains with at
+least 19 queries), so the gain is not carried by the three-query iota domain
+<!-- results/aggregate_sft_e2b_rrf_11_dev.json -->. The frozen 0.3581 runs remain
+the ones submitted in December; the paper's system number is the reproducible
+0.3431, and seed replication of that recipe (seeds 23 and 29) is running
+<!-- results/NEXT_STEPS.md -->.
 
 The pre-registered adoption bar — dev topic-macro at least V1 + 0.015 — was
 **not** met by the 1-epoch arm under the statistic registered at the time:

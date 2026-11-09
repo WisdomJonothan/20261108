@@ -1,6 +1,6 @@
 # Phase 11 validation — out-of-fold fusion weight for the SFT reranker
 
-Status: run in progress (protocol frozen before the dev number was read, 2026-11-09).
+Status: complete (protocol frozen before the dev number was read, 2026-11-09; both arms finished 23:25).
 
 ## Question
 
@@ -153,19 +153,31 @@ The previously reported 0.3336 for the SFT arm is retracted as a *system*
 number for the same reason (it is a dev-selected fusion form). The temporal gate
 (Phase 8) is unaffected.
 
-### Interim note: the z 1:1 arm is fragile
+### The z 1:1 arm is fragile; the arm-level gain is not
 
-The CE-only dev score of this checkpoint (0.2728) is within 0.0014 of the frozen
-1-epoch arm (`sft11`, CE 0.2742), yet the z 1:1 fused score differs by 0.022
-(0.3117 vs 0.3336). The candidates are identical, so the difference comes from
-the z-normalised fusion being sensitive to the CE score scale of each checkpoint
-rather than from reranker quality. This is consistent with the out-of-fold fit
-preferring a dense-heavy **RRF** weight over z-sums, and it means the frozen
-0.3336 / 0.3581 leaderboard rows should be read as "best form found on dev for
-that checkpoint", not as a stable property of the SFT arm. A second retrain with
-the frozen 2-epoch recipe (`phase11_sft_oof_e2.sh`, tag `v2m3_pool8_e2b`) is
-running to test whether that arm reproduces its advantage under a split-fitted
-weight.
+The e1b checkpoint's CE-only dev score (0.2728) is within 0.0014 of the frozen
+1-epoch arm (`sft11`, CE 0.2742), yet fused z 1:1 it scores 0.3117 against
+0.3336. The candidates are identical, so the gap comes from the z-normalised
+fusion reacting to the CE score scale rather than from reranker quality — which
+is also why both out-of-fold fits prefer dense-heavy RRF weights over z-sums.
+
+The frozen 2-epoch recipe was retrained under the same held-out split (tag
+`v2m3_pool8_e2b`): val 0.2601 → 0.2871 on the 45 held-out queries, OOF fit again
+choosing **RRF 1:4** (0.3265 on those queries), dev rerank over 13 domains.
+
+| arm (dev, domain-macro) | CE alone | RRF 1:4 (OOF) | RRF 1:1 | z 1:1 |
+|---|---:|---:|---:|---:|
+| zero-shot | 0.2680 | 0.2981 | 0.3166 | 0.3249 |
+| SFT 1 epoch (e1b) | 0.2728 | 0.3074 | 0.3172 | 0.3117 |
+| SFT 2 epochs (e2b, fresh) | 0.2753 | 0.3187 | **0.3431** | 0.3196 |
+
+Matched-weight, domain-clustered bootstraps of SFT e2b vs zero-shot: RRF 1:4
+**+0.0205 [+0.0010,+0.0404]** (P=0.980); RRF 1:1 **+0.0265 [+0.0052,+0.0473]**
+(P=0.991, 182/94/243 better/worse/tied); e1b at RRF 1:4 +0.0094
+[+0.0008,+0.0191]. The frozen 0.3336/0.3581 rows are therefore retracted as
+*system* numbers (they are dev-selected fusion forms of their checkpoints), and
+the reproducible system is **0.3431** at the V1-fixed RRF 1:1 form. The temporal
+gate (Phase 8) is unaffected.
 
 ## Files
 
@@ -176,3 +188,8 @@ weight.
 - `results/score_ce_sft_e1b_<domain>_dev.json`, `results/aggregate_ce_sft_e1b_dev.json` — CE alone
 - `results/boot_sft_vs_zs_rrf14.json` — matched-weight bootstrap
 - `results/aggregate_mxbai_rrf_{14,11}_dev.json` — zero-shot RRF reference arms
+- `results/fusion_fit_oof_e2b.json`, `runs/rerank_sft_e2b_<domain>_dev.trec`,
+  `results/aggregate_sft_e2b_rrf_{14,11}_dev.json`,
+  `results/aggregate_sub_sft_e2b_dev.json`,
+  `results/aggregate_ce_sft_e2b_dev.json`,
+  `results/boot_e2b_vs_zs_rrf{11,14}.json` — 2-epoch arm

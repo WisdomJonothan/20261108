@@ -56,23 +56,28 @@ doc in the top-100 at all** (`results/DEV_ERROR_ANALYSIS.md`).
    the 8.7%-capture law applies).
    Pass rule: adopt the OOF weight whatever it is; the SFT-vs-zero-shot delta
    must stay >= +0.005 at that same weight. Cost ~0.3 GPU-h.
-   *Status 2026-11-09 17:05 — superseded.* The 2-epoch arm (`v2m3_pool8_e2`,
-   0.3581, +0.0332) made the 45-query OOF weight a second-order question, and
-   the weight sweep over the 2-epoch arm is positive at all nine weights
-   (0.5–2.0), so "the weight is lucky" is not a live risk. The corrected
-   `v2m3_pool8_e1b` rerun was aborted for GPU budget; its retained artifacts
-   are the wrong-base ones in `results/_wrong_base_20261109/` and must not be
-   cited. If a reviewer still demands a provable fold, rerun
-   `scripts/phase11_sft_oof.sh` with the 2-epoch config (~1.5 h).
+   *Status 2026-11-09 23:40 — **done, and it changed the headline.***
+    `scripts/phase11_sft_oof.sh` retrained e1b with the correct base model and a
+    dumped 45-query split, then `phase11_sft_oof.sh`/`phase11_finish_eval.sh`
+    refit and re-scored. The out-of-fold fit chooses RRF 1:4 in both arms; the
+    2-epoch arm scores 0.3187 there (zero-shot 0.2981, +0.0205 [+0.0010,+0.0404])
+    and 0.3431 at the V1-fixed RRF 1:1 form (+0.0265 [+0.0052,+0.0473]). The
+    frozen 0.3581 does not reproduce on a fresh checkpoint (z 1:1 0.3196), so the
+    reproducible system number is now **0.3431** and 0.3336/0.3581 are recorded
+    as dev-selected fusion forms. Details: `results/PHASE11_VALIDATION.md`.
 2. *Seed replication of the only significant gain.* Seeds 23 and 29 for the
-   **2-epoch** config (`v2m3_pool8_e2`), otherwise identical + dev rerank each.
-   Keep SFT in the title iff the mean delta >= +0.005, at least 2/3 seeds
-   positive, and the pooled domain-clustered CI excludes 0. Cost ~2 h train +
-   ~2 h rerank. Status: seed 29 training detached at 17:03; seed 23 crashes
-   mid-epoch on this host (see RESEARCH_LOG §5l) and is pending a retry.
+   **reproducible 2-epoch recipe** (`v2m3_pool8_e2b`: 2 epochs, lr 1.5e-5,
+   8 frozen layers), each followed by a 13-domain dev rerank and the frozen
+   1:1 arm (`scripts/phase11_seed_repl.sh`, tags `v2m3_s23_e2` /
+   `v2m3_s29_e2`). Keep SFT in the title iff the mean delta >= +0.005, at least
+   2/3 seeds positive, and the pooled domain-clustered CI excludes 0.
+   Status 2026-11-10 00:10: training seed 23 (GPU-serial, ~55 min train +
+   ~70 min rerank per seed).
 3. *Synthetic test split replay.* Copy dev, rewrite ids, run dense -> CE ->
    fusion -> official `format_checker` end to end. Prevents a submission-day
    surprise; produces the exact command for January. Cost 0 GPU-h (~1 h).
+   Status 2026-11-10 00:05: running on CPU (`CUDA_VISIBLE_DEVICES=""`), law /
+   quant / iota; iota already passed the official checker.
 4. *Report the robust views as primary alongside the headline:* 12-domain
    (SFT 0.2918 vs V1 0.2782) and n>=19 (0.3043 vs 0.2913) — the headline leans
    on iota, which has 3 dev queries.
