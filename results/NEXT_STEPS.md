@@ -153,3 +153,12 @@ crosses zero), "SFT validated" (one seed).
   (zero in 9/13 domains): the CE scores deep candidates near the floor, so a
   larger pool buys nothing until the CE is trained on deeper negatives. The k=300
   full rerank is cancelled; the "headroom is ranking" claim holds.
+
+## 6. 工程守则（2026-11-09 血的教训）
+
+- **8 GB GPU 上任何加载模型的任务都不能与 CE 训练并行**；并行会 OOM 打死训练（已发生 3 次）。
+- 长训练用 `ops/launch_train29.ps1` 这类 `Start-Process -WindowStyle Hidden` 脱离宿主作业树启动，
+  监视只看 `train_log.jsonl`，**不要**用 `best/` 目录作为“训练结束”的信号（`best/` 在第 1 个
+  epoch 末尾就会出现）。
+- `scripts/phase11_*.sh` 已移到 `ops/_disabled_20261109/`：它会启动错误配置的 e1b 训练，
+  曾两次抢 GPU。不要再运行。
