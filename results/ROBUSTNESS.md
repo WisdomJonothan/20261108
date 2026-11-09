@@ -18,8 +18,8 @@ the committed per-domain score JSONs (`results/aggregate_*_dev.json`).
   (0.2918 vs 0.2832). Iota is a 3-query domain whose within-domain mean is
   noisy (0.83 vs 0.78), but it is not the source of the effect.
 * **"The gain is carried by the long history domain or by tiny domains."**
-  Restricting to domains with at least 19 queries (11 of 13 domains, the
-  conventional small-domain filter) keeps the ordering: SFT 0.3043 vs zero-shot
+  Restricting to the 8 domains with at least 19 queries (the conventional
+  small-domain filter; `domains_n_ge_19` in the aggregate JSONs) keeps the ordering: SFT 0.3043 vs zero-shot
   0.2985, +0.0058.
 * Direction is consistent across statistics: 13-domain, 12-domain and n>=19 all
   put the SFT system first, and the per-domain table at w=1 shows 10/13 domains

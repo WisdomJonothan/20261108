@@ -26,7 +26,8 @@ queries adds +0.0087 (query bootstrap CI [+0.0025,+0.0151]; domain-clustered
 domain-clustered interval excludes zero
 <!-- results/boot_dom_sft_vs_zs_11.json -->.
 We additionally report ten probes of explicit temporal modelling. Exactly one
-followed a frozen, pre-registered protocol; it gained +0.0039 against a +0.02 bar
+followed a frozen, pre-registered protocol; it gained +0.0039 (pooled over its
+152 anchored queries in 7 domains) against a +0.02 bar
 <!-- results/TEMPORAL_GATE.md -->. An annotation-free ceiling analysis explains
 the family of negative results: ordering the frozen candidates by year
 consistency, with an oracle that knows the query interval exactly, *lowers*
@@ -82,8 +83,8 @@ time: `scripts/score_run.py` inserts every qrels topic missing from a run with
 nDCG@10 = 0 and records `missing_counted_as_zero: true`, unless
 `--allow-missing` is passed <!-- scripts/score_run.py -->. This matters because
 27.7% of dev queries receive a system score of exactly zero
-<!-- results/DEV_ERROR_ANALYSIS.md -->: the metric is dominated by questions the
-system does not answer at all.
+<!-- results/DEV_ERROR_ANALYSIS.md -->, so a large share of the metric is lost to
+questions the system does not answer at all.
 
 Uncertainty uses a paired bootstrap over 10,000 resamples (seed 7), reported
 twice — resampling queries, and resampling domains as clusters — because with 13
@@ -149,7 +150,7 @@ max 1,017) and are out-of-distribution for MS-MARCO-style re-rankers
 split into 250-token windows with stride 192, at most 3 windows per document,
 and the document score is the maximum over windows. The query is reduced to its
 title form — text before the first `<p>` — capped at 256 tokens
-<!-- github_repo/README.md:33-39; scripts/reproduce_all.sh -->. Windowing keeps
+<!-- github_repo/README.md:39-46; scripts/reproduce_all.sh -->. Windowing keeps
 the document side from being silently truncated: the full pair in a 512-token
 encoder cut documents to roughly 250 tokens on average and scored 0.1577 on
 bitcoin dev, while the title query with a 250-token window scored 0.2121 against
@@ -201,11 +202,12 @@ GPU <!-- github_repo/README.md:253-258 -->.
 | dense + zero-shot CE, z 1:1 | 0.3249 <!-- results/aggregate_zs_z11_dev.json --> | 0.3260 <!-- results/aggregate_zs_z11_dev.json --> |
 | **dense + SFT CE, z 1:1 (frozen)** | **0.3336** <!-- results/aggregate_sub_sft11_dev.json --> | 0.3339 <!-- results/aggregate_sub_sft11_dev.json --> |
 
-*Table 2. Dev results. The BM25 row is the organisers' published baseline,
-quoted; we did not recompute it over all 13 domains (our reproduction covers a
-12-domain subset at ≈0.0967, `github_repo/README.md:325-327`), so that row is only
-loosely comparable to the others. Two repo tables print 0.2942 for the dense
-stage; the summary JSON holds 0.2942754, which we round to 0.2943.*
+*Table 2. Dev results. The BM25 row is the organisers' baseline measured with
+their code on the v1.1 dev split (0.1147; the TEMPO paper reports 0.108 on the
+full set, and the earlier 12-domain v1.0 macro is ≈0.0967
+<!-- scripts/official/BASELINE_RESULTS.md:3-16 -->), so it is a quoted reference
+rather than a system we tuned. The repo prints 0.2942 for the dense stage in
+three places; the summary JSON holds 0.2942754, which we round to 0.2943.*
 
 | contrast (paired bootstrap, 10k, seed 7) | Δ domain-macro | query CI | domain CI |
 |---|---:|---|---|
@@ -221,7 +223,7 @@ the fusion-form change as unestablished.*
 The frozen system wins 95 dev queries and loses 55 against the zero-shot fused
 baseline <!-- results/boot_dom_sft_vs_zs_11.json -->, with 10 of 13 domains moving
 up <!-- results/WEIGHT_SWEEP.md -->. Dropping iota (3 queries) leaves the
-comparison at 0.2918 vs 0.2832; restricting to the 11 domains with at least 19
+comparison at 0.2918 vs 0.2832; restricting to the 8 domains with at least 19
 queries gives 0.3043 vs 0.2985 <!-- results/ROBUSTNESS.md -->. The gain is not
 carried by the smallest domains, though it is uneven: cardano contributes
 +0.0336 and bitcoin −0.0080 <!-- results/WEIGHT_SWEEP.md -->.
@@ -270,7 +272,8 @@ in the top-100 <!-- results/DEV_ERROR_ANALYSIS.md -->.
 
 *Table 4. Diagnostic sweep of the fusion weight on dev; nothing is selected
 here. All cells from `results/WEIGHT_SWEEP.md` / `results/weight_sweep_dev.json`
-(domain-clustered bootstrap CIs).*
+(domain-clustered bootstrap CIs). The sweep uses 2,000 resamples, so the w = 1
+interval's last digit differs from the 10,000-resample interval in Table 3.*
 
 Two things are true at once, and we state both. The sweep shows the effect does
 not hinge on a lucky weight: the SFT arm is ahead at every w ≥ 0.85, and only
@@ -315,29 +318,31 @@ dev queries in 8 domains <!-- results/TEMPORAL_CEILING.md -->.
 
 **Protocol.** No test-set access. All probes run on dev only, after a design
 fixed in advance; where a parameter or threshold was fitted, it was fitted on
-train — except the oracle variants, which are deliberately fitted on dev and
-labelled as upper bounds. Every probe is reported whatever its outcome. In the
-strict sense used in our notes — frozen protocol, pre-registered adoption bar,
-dev read once — **exactly one probe was pre-registered** (row 9). Rows 1–2 fixed
-their designs and thresholds before running but were not registered; rows 3–8 and
-10 are exploratory <!-- results/NEXT_STEPS.md:84-90 -->. Earlier internal drafts
-described all ten as "pre-registered negatives"; that framing was wrong and is
-corrected here.
+train — except the dev-fitted oracle in row 3, labelled as such, and row 2's
+cross-validation, a feasibility check with no deployed model. Every probe is
+reported whatever its outcome. In the strict sense used in our notes — frozen
+protocol, pre-registered adoption bar, dev read once — **exactly one probe was
+pre-registered** (row 9). Rows 1–2 fixed their designs and thresholds before
+running but were not registered <!-- results/TIME_ABLATION.md;
+results/TEMPORAL_SEMANTIC_PROBE.md -->; rows 3–8 and 10 are exploratory, and
+only row 9 has a frozen protocol <!-- results/NEXT_STEPS.md:84-90 -->. Earlier
+internal drafts described all ten as "pre-registered negatives"; that framing
+was wrong and is corrected here.
 
 | # | probe | what was tested | protocol | dev result |
 |---:|---|---|---|---|
-| 1 | year/anchor feature ablation | LR over year, temporal anchors and guidance flags on the frozen dense top-100, vs length/lexical controls | fit on train, dev once | bitcoin −0.0230 [−0.0651,+0.0078]; economics +0.0232 [−0.0254,+0.0773]; controls hurt both <!-- results/TIME_ABLATION.md --> |
-| 2 | semantic time-consistency score | cosine between a time-statement built from guidance and each candidate | 5-fold query-grouped CV; placebo control; pre-set bar ΔAUC ≥ 0.05 | ΔAUC +0.00005 / +0.0065; pooled ΔAUC −0.0062 / +0.0008 <!-- results/TEMPORAL_SEMANTIC_PROBE.md --> |
-| 3 | oracle step rerank | guidance-derived temporal steps fused with dense | per-domain weight chosen on dev (oracle) | bitcoin 0.2393 at w0=4 (dense 0.2171); economics 0.1652 (dense 0.1891) <!-- results/TEMPORAL_DECOMPOSITION.md --> |
-| 4 | LLM step decomposition | Qwen2.5-1.5B rewrites the query into temporal steps | 35 calls/query; no dev tuning | 0.2012 / 0.1613, both below dense <!-- results/TEMPORAL_DECOMPOSITION.md --> |
+| 1 | year/anchor feature ablation | LR over year, temporal anchors and guidance flags on a bge-base dense top-100, vs length/lexical controls | fit on train, dev once | bitcoin −0.0230 [−0.0651,+0.0078]; economics +0.0232 [−0.0254,+0.0773]; controls hurt both <!-- results/TIME_ABLATION.md --> |
+| 2 | semantic time-consistency score | cosine between a time-statement built from guidance and each candidate | 5-fold query-grouped CV; placebo control; pre-set bar ΔAUC ≥ 0.05–0.08 | ΔAUC +0.00005 / +0.0065; pooled ΔAUC −0.0062 / +0.0008 <!-- results/TEMPORAL_SEMANTIC_PROBE.md --> |
+| 3 | oracle step rerank | guidance-derived temporal steps fused with dense | per-domain weight chosen on dev (oracle) | bitcoin 0.2393 at w0=4 (dense 0.2171); economics 0.1652 at w0=8 (dense 0.1891) <!-- results/TEMPORAL_DECOMPOSITION.md --> |
+| 4 | LLM step decomposition | Qwen2.5-1.5B rewrites the query into temporal steps | 35 calls/query; w0 = 4 reported | 0.2012 / 0.1613, both below dense <!-- results/TEMPORAL_DECOMPOSITION.md --> |
 | 5 | HyDE | 5 hypothetical documents per query, α = 1.0 | fixed α | 0.1819 / 0.1529, both below dense <!-- docs/RESEARCH_LOG.md §5f --> |
 | 6 | temporal hard-negative mining | year-inconsistent candidates as training negatives | mined candidates | 37–43 across five domains (≈0.4 per anchored query): too few to train <!-- results/TEMPORAL_CEILING.md --> |
 | 7 | naive TACR rerank | time-aware constraint reordering | no frozen protocol | ranking collapse; no metric retained <!-- results/TEMPORAL_CEILING.md --> |
 | 8 | year-consistency ceiling | perfect / demote reordering of the frozen top-100 | annotation-free; 169 anchored queries, 8 domains | macro 0.2498 / 0.2834 vs 0.2980; worse in 7/8 and 6/8 <!-- results/TEMPORAL_CEILING.md --> |
-| 9 | temporal gate | train-fitted gate over temporal features on the CE top-100 | **pre-registered**: fit on train, λ inside train, dev once, bar +0.02 | 0.3862 → 0.3901, Δ+0.0039, query CI [−0.0023,+0.0103], domain CI [−0.0006,+0.0142], P(Δ>0)=0.893 <!-- results/TEMPORAL_GATE.md --> |
+| 9 | temporal gate | train-fitted gate over temporal features on the dense top-100 (CE scores as features) | **pre-registered**: fit on train, λ inside train, dev once, bar +0.02 | pooled over 152 anchored queries in 7 domains: 0.3862 → 0.3901, Δ+0.0039, query CI [−0.0023,+0.0103], domain CI [−0.0006,+0.0142], P(Δ>0)=0.893 <!-- results/TEMPORAL_GATE.md --> |
 | 10 | temporal observability | share of documents/queries with an extractable year | diagnostic, no ranking | docs 20.4–50.6%; queries 6.7–57.8% <!-- results/TEMPORAL_OBSERVABILITY.md --> |
 
-*Table 5. Ten probes. Rows 3–5 are upper bounds of their families, not deployed
+*Table 5. Ten probes. Rows 3–5 are oracle or exploratory probes, not deployed
 systems; row 7 left no metric behind and is reported as a qualitative failure.*
 
 What this licenses: on RETECO Track 1a, with no timestamps and only text-derived
@@ -359,9 +364,9 @@ aggregation, is documented at ≈70 min for all 13 domains and ≈2 min for one
 domain on a single RTX 4060 <!-- scripts/reproduce_all.sh:1-11 -->. Document
 embeddings are cached per (model tag, corpus size) and reused, so the 70-minute
 figure assumes warm caches; a cold run must encode 1,167,159 documents, which at
-the measured ≈46 documents/s in the slowest domain (158,771 documents) is a
-multi-hour job
-<!-- scripts/run_dense_generic.py:95-106; results/PHASE8_STRONGER_BASELINES.md:140-145 -->.
+the measured ≈46 documents/s in travel, the most expensive domain (158,771
+documents), is a multi-hour job
+<!-- scripts/run_dense_generic.py:95-106; results/PHASE8_STRONGER_BASELINES.md:146-148 -->.
 
 **One-command reproduction.**
 
