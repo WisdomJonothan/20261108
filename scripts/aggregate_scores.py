@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Aggregate per-domain `score_run.py` JSONs into the two macros that matter.
 
-RETECO averages nDCG@10 **over topics** (the official aggregation). The project
-historically quoted a mean **over domains**, which weights iota (3 queries) the
-same as history (240). Both are reported here, plus per-domain rows, so a table
-can never silently switch between them.
+RETECO's official Track-1a aggregation is nDCG@10 **per query, averaged within
+each domain, then averaged over the 13 domains** (domain-macro). The topic-macro
+(flat mean over all 519 queries) is a diagnostic that over-weights history (240
+queries) and under-weights iota (3). Both are reported here, plus per-domain
+rows, so a table can never silently switch between them.
 
 Usage:
   python aggregate_scores.py --pattern "results/score_*_dev.json" --tag fused_1_1 \
@@ -48,6 +49,11 @@ def main():
     if not rows:
         raise SystemExit("no score files matched")
     rows.sort(key=lambda r: r["domain"])
+    # the official number silently changes if a per-domain score file is
+    # missing or duplicated, so make the 13-domain contract explicit
+    if len(rows) != 13:
+        raise SystemExit(f"expected 13 domains, matched {len(rows)}: "
+                         + ", ".join(r["domain"] for r in rows))
     n_tot = sum(r["n"] for r in rows)
     topic_macro = sum(r["ndcg10"] * r["n"] for r in rows) / n_tot
     domain_macro = sum(r["ndcg10"] for r in rows) / len(rows)
@@ -60,8 +66,8 @@ def main():
         print(f"{r['domain']:12s} {r['n']:>4d} {r['ndcg10']:>8.4f}")
     print("-" * 30)
     print(f"domains={len(rows)}  topics={n_tot}")
-    print(f"topic-macro  (official) = {topic_macro:.4f}")
-    print(f"domain-macro            = {domain_macro:.4f}")
+    print(f"topic-macro             = {topic_macro:.4f}")
+    print(f"domain-macro (official) = {domain_macro:.4f}")
     print(f"topic-macro  (n>=19, {len(big)} domains, {sum(r['n'] for r in big)} q) = {big_topic:.4f}")
     print(f"domain-macro (n>=19)    = {big_domain:.4f}")
 

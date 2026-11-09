@@ -134,6 +134,12 @@ def main():
     ap.add_argument("--val-queries", type=int, default=12)
     ap.add_argument("--val-depth", type=int, default=100)
     ap.add_argument("--seed", type=int, default=17)
+    ap.add_argument("--dump-val-qids", default=None,
+                    help="write the seed-determined train/val split here and exit "
+                         "(lets later seeds reuse the exact same held-out queries)")
+    ap.add_argument("--val-qids", default=None,
+                    help="reuse a split written by --dump-val-qids, so a seed "
+                         "replication differs only in initialisation/order")
     ap.add_argument("--max-steps", type=int, default=0, help="0 = full epoch")
     ap.add_argument("--limit-groups", type=int, default=0)
     ap.add_argument("--keep-last", type=int, default=1)
@@ -187,13 +193,20 @@ def main():
 
     # ---------------------------------------------------------------- data
     groups_by_domain, val_q = {}, {}
+    pinned = None
+    if args.val_qids:
+        with open(args.val_qids, encoding="utf-8") as f:
+            pinned = json.load(f)
     rng = random.Random(args.seed)
     for d in args.domains:
         path = os.path.join(ROOT, f"{args.groups_prefix}_{d}.jsonl")
         gs = read_jsonl(path)
         rng.shuffle(gs)
-        n_val = max(1, int(round(len(gs) * args.val_frac)))
-        val_q[d] = {g["qid"] for g in gs[:n_val]}
+        if pinned is not None:
+            val_q[d] = set(pinned["exclude"][d])
+        else:
+            n_val = max(1, int(round(len(gs) * args.val_frac)))
+            val_q[d] = {g["qid"] for g in gs[:n_val]}
         groups_by_domain[d] = [g for g in gs if g["qid"] not in val_q[d]]
     n_train_groups = sum(len(v) for v in groups_by_domain.values())
 
@@ -218,11 +231,26 @@ def main():
 
     t0 = time.time()
     corpus = {d: load_needed_docs(d, needed[d]) for d in args.domains}
-    # keep only validation queries that survived the cap
+    # keep only validation queries that survived the cap (or the pinned eval list)
     for d in args.domains:
-        qs = list(val_runs[d])
-        rng.shuffle(qs)
-        val_runs[d] = {q: val_runs[d][q] for q in qs[:args.val_queries]}
+        if pinned is not None:
+            keep = [q for q in pinned["eval"].get(d, []) if q in val_runs[d]]
+        else:
+            qs = list(val_runs[d])
+            rng.shuffle(qs)
+            keep = qs[:args.val_queries]
+        val_runs[d] = {q: val_runs[d][q] for q in keep}
+
+    if args.dump_val_qids:
+        out = {"exclude": {d: sorted(val_q[d]) for d in args.domains},
+               "eval": {d: list(val_runs[d]) for d in args.domains},
+               "seed": args.seed, "val_frac": args.val_frac,
+               "val_queries": args.val_queries}
+        with open(args.dump_val_qids, "w", encoding="utf-8") as f:
+            json.dump(out, f, indent=1)
+        print(json.dumps({"event": "dumped_val_qids", "path": args.dump_val_qids,
+                          "eval_queries": {d: len(val_runs[d]) for d in args.domains}}))
+        return
     log({"event": "data_loaded", "train_groups": n_train_groups,
          "val_queries": {d: len(val_runs[d]) for d in args.domains},
          "docs_loaded": {d: len(corpus[d]) for d in args.domains},

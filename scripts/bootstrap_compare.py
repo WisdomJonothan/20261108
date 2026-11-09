@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Paired bootstrap over per-query nDCG@10 for two systems on the same topics.
 
-Two resampling units are reported because the benchmark's macro is over topics,
+Two resampling units are reported because RETECO's official statistic is the
+domain-macro (per query, mean within domain, then mean over the 13 domains),
 while its domains differ wildly in size (iota 3 dev queries, history 240):
 
   * query bootstrap  — resample topics with replacement (what a leaderboard CI
@@ -78,11 +79,19 @@ def main():
 
     def stat(x, pick_domains=None):
         """domain-macro (official) or topic-macro over the selected units."""
-        if args.stat == "topic":
-            return x.mean()
         if pick_domains is None:
+            if args.stat == "topic":
+                return float(x.mean())
             return float(np.mean([x[ix].mean() for ix in dkeys]))
-        return float(np.mean([x[dkeys[j]].mean() for j in pick_domains]))
+        sel = [dkeys[j] for j in pick_domains]
+        if args.stat == "topic":
+            # topic-macro of the resampled domain set: all its topics, the
+            # official per-query weighting (a domain that got drawn twice
+            # contributes its topics twice, which is what a cluster bootstrap
+            # over domains means for a topic statistic)
+            vals = np.concatenate([x[ix] for ix in sel]) if sel else np.array([])
+            return float(vals.mean()) if vals.size else 0.0
+        return float(np.mean([x[ix].mean() for ix in sel]))
 
     for it in range(args.iters):
         if args.stat == "topic":
