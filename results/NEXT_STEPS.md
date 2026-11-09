@@ -86,3 +86,25 @@ nothing else moves -> limitations/reproducibility. Claims to cut or requalify:
 "ten pre-registered negatives" (only the gate has a frozen protocol), "temporal
 signals do not work" (only no gain under our protocol), "fusion is better" (CI
 crosses zero), "SFT validated" (one seed).
+
+## 5. Update 2026-11-09 ~14:40 (afternoon)
+
+- **A second SFT checkpoint (2 epochs, lr 1.5e-5, `v2m3_pool8_e2`) is better than
+  the frozen one.** Val was inconclusive (0.3029 vs 0.3008), but the first four
+  completed dev domains give e2 − e1 = +0.0058 bitcoin, +0.0211 cardano,
+  +0.0355 economics, +0.0222 genealogy (105 queries, 34 up / 14 down). Full
+  13-domain rerank is running (job bash-1236, tag `sft_e2bc`); if the aggregate
+  holds, e2 replaces e1 as the frozen submission arm — freeze with
+  `TAG=sft_e2bc bash scripts/freeze_sft_arm.sh` (fusion → de-tie+validate →
+  score → aggregate in one command).
+- **Depth analysis** (`results/DEPTH_ANALYSIS.md`): dense Recall@300 = 0.8183
+  (0.6995 at 100) and the pool's oracle nDCG@10 rises 0.7446 → 0.8513, i.e. 22.5 %
+  of gold docs sit at ranks 100–1000. A 62-query probe (`scripts/run_depth_probe.sh`)
+  decides whether the CE's 8.7 % capture survives at depth; the decision rule
+  (+0.01 on the probe, CI excluding 0) is fixed in the doc before the run.
+- **Paper draft** now at `docs/PAPER_DRAFT.md` (447 lines, every number carries
+  its source file in an HTML comment); a verification pass against the artifacts
+  is in flight.
+- Submission path is test-phase ready: `scripts/make_submission.py` passes
+  `--examples` to both stages, keys the CE cache by checkpoint, de-ties inside
+  the writer; runbook in `docs/SUBMISSION.md`.
