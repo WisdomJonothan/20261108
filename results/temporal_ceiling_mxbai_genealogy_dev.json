@@ -1,0 +1,316 @@
+{
+ "summary": {
+  "domain": "genealogy",
+  "split": "dev",
+  "run": "runs/dense_mxbai_genealogy_dev.trec",
+  "k": 100,
+  "queries": 35,
+  "anchored": 17,
+  "dense_macro": 0.32984916839424266,
+  "perfect_macro": 0.2540981268538613,
+  "dense_macro_anchored": 0.29522964768390453,
+  "perfect_macro_anchored": 0.13927162098311938,
+  "demote_macro": 0.3034674338532618,
+  "demote_macro_anchored": 0.2409143118642381,
+  "mean_inc_rate": 0.7747729555240329,
+  "queries_with_inc": 17,
+  "mean_inc_per_query": 23.647058823529413
+ },
+ "queries": [
+  {
+   "qid": "20587_234",
+   "anchored": 1,
+   "base": 0.2640681225725909,
+   "perfect": 0.0,
+   "demote_only": 0.2640681225725909,
+   "n_cons": 0,
+   "n_inc": 15,
+   "n_unk": 85,
+   "inc_rate": 1.0
+  },
+  {
+   "qid": "20551_235",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 1,
+   "n_inc": 33,
+   "n_unk": 66,
+   "inc_rate": 0.9705882352941176
+  },
+  {
+   "qid": "19348_236",
+   "anchored": 1,
+   "base": 0.6131471927654584,
+   "perfect": 0.0,
+   "demote_only": 0.6131471927654584,
+   "n_cons": 1,
+   "n_inc": 21,
+   "n_unk": 78,
+   "inc_rate": 0.9545454545454546
+  },
+  {
+   "qid": "18721_238",
+   "anchored": 1,
+   "base": 0.5772516831226072,
+   "perfect": 0.4935232796777481,
+   "demote_only": 0.5772516831226072,
+   "n_cons": 24,
+   "n_inc": 11,
+   "n_unk": 65,
+   "inc_rate": 0.3142857142857143
+  },
+  {
+   "qid": "18583_242",
+   "anchored": 1,
+   "base": 1.0,
+   "perfect": 0.6131471927654584,
+   "demote_only": 0.6131471927654584,
+   "n_cons": 34,
+   "n_inc": 25,
+   "n_unk": 41,
+   "inc_rate": 0.423728813559322
+  },
+  {
+   "qid": "15729_253",
+   "anchored": 1,
+   "base": 0.46927872602275644,
+   "perfect": 0.15642624200758548,
+   "demote_only": 0.0,
+   "n_cons": 6,
+   "n_inc": 32,
+   "n_unk": 62,
+   "inc_rate": 0.8421052631578947
+  },
+  {
+   "qid": "15307_257",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "15288_258",
+   "anchored": 1,
+   "base": 0.38685280723454163,
+   "perfect": 0.0,
+   "demote_only": 0.8175295903539445,
+   "n_cons": 0,
+   "n_inc": 13,
+   "n_unk": 87,
+   "inc_rate": 1.0
+  },
+  {
+   "qid": "14960_260",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "14620_261",
+   "anchored": 0,
+   "base": 1.0,
+   "perfect": 1.0
+  },
+  {
+   "qid": "13822_265",
+   "anchored": 1,
+   "base": 0.5307212739772434,
+   "perfect": 0.7653606369886217,
+   "demote_only": 0.0,
+   "n_cons": 0,
+   "n_inc": 27,
+   "n_unk": 73,
+   "inc_rate": 1.0
+  },
+  {
+   "qid": "13778_266",
+   "anchored": 0,
+   "base": 0.4415801103577823,
+   "perfect": 0.4415801103577823
+  },
+  {
+   "qid": "13596_269",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "13069_275",
+   "anchored": 0,
+   "base": 0.3903800499921017,
+   "perfect": 0.3903800499921017
+  },
+  {
+   "qid": "13056_276",
+   "anchored": 0,
+   "base": 0.3973220069685352,
+   "perfect": 0.3973220069685352
+  },
+  {
+   "qid": "12798_282",
+   "anchored": 0,
+   "base": 1.0,
+   "perfect": 1.0
+  },
+  {
+   "qid": "12774_283",
+   "anchored": 0,
+   "base": 0.7618870795651185,
+   "perfect": 0.7618870795651185
+  },
+  {
+   "qid": "12197_293",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "12001_296",
+   "anchored": 0,
+   "base": 0.44615333764087994,
+   "perfect": 0.44615333764087994
+  },
+  {
+   "qid": "11831_299",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 1,
+   "n_inc": 32,
+   "n_unk": 67,
+   "inc_rate": 0.9696969696969697
+  },
+  {
+   "qid": "11823_300",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 23,
+   "n_inc": 20,
+   "n_unk": 57,
+   "inc_rate": 0.46511627906976744
+  },
+  {
+   "qid": "11818_301",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 5,
+   "n_inc": 10,
+   "n_unk": 85,
+   "inc_rate": 0.6666666666666666
+  },
+  {
+   "qid": "11739_303",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "10634_305",
+   "anchored": 1,
+   "base": 0.36005461457723403,
+   "perfect": 0.3391602052736161,
+   "demote_only": 0.36005461457723403,
+   "n_cons": 41,
+   "n_inc": 25,
+   "n_unk": 34,
+   "inc_rate": 0.3787878787878788
+  },
+  {
+   "qid": "10385_309",
+   "anchored": 0,
+   "base": 0.13565197343244778,
+   "perfect": 0.13565197343244778
+  },
+  {
+   "qid": "10043_313",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 8,
+   "n_inc": 5,
+   "n_unk": 87,
+   "inc_rate": 0.38461538461538464
+  },
+  {
+   "qid": "3370_319",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "3238_323",
+   "anchored": 1,
+   "base": 0.6131471927654584,
+   "perfect": 0.0,
+   "demote_only": 0.6131471927654584,
+   "n_cons": 2,
+   "n_inc": 23,
+   "n_unk": 75,
+   "inc_rate": 0.92
+  },
+  {
+   "qid": "3224_325",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 3,
+   "n_inc": 28,
+   "n_unk": 69,
+   "inc_rate": 0.9032258064516129
+  },
+  {
+   "qid": "2975_328",
+   "anchored": 0,
+   "base": 0.39564672360221187,
+   "perfect": 0.39564672360221187
+  },
+  {
+   "qid": "2264_333",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 1,
+   "n_inc": 44,
+   "n_unk": 55,
+   "inc_rate": 0.9777777777777777
+  },
+  {
+   "qid": "2182_338",
+   "anchored": 0,
+   "base": 0.6131471927654584,
+   "perfect": 0.6131471927654584
+  },
+  {
+   "qid": "2061_339",
+   "anchored": 0,
+   "base": 0.7668091220635322,
+   "perfect": 0.7668091220635322
+  },
+  {
+   "qid": "1980_342",
+   "anchored": 0,
+   "base": 0.17723928678404774,
+   "perfect": 0.17723928678404774
+  },
+  {
+   "qid": "1711_346",
+   "anchored": 1,
+   "base": 0.20438239758848611,
+   "perfect": 0.0,
+   "demote_only": 0.23719771276929622,
+   "n_cons": 0,
+   "n_inc": 38,
+   "n_unk": 62,
+   "inc_rate": 1.0
+  }
+ ]
+}

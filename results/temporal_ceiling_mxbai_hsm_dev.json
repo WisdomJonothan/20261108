@@ -1,0 +1,341 @@
+{
+ "summary": {
+  "domain": "hsm",
+  "split": "dev",
+  "run": "runs/dense_mxbai_hsm_dev.trec",
+  "k": 100,
+  "queries": 45,
+  "anchored": 10,
+  "dense_macro": 0.31251689695727997,
+  "perfect_macro": 0.26282243377397424,
+  "dense_macro_anchored": 0.3048722389357569,
+  "perfect_macro_anchored": 0.08124715461088103,
+  "demote_macro": 0.3024348865842264,
+  "demote_macro_anchored": 0.2595031922570159,
+  "mean_inc_rate": 0.8176868686868687,
+  "queries_with_inc": 10,
+  "mean_inc_per_query": 17.4
+ },
+ "queries": [
+  {
+   "qid": "18796_657",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "18737_659",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "18672_660",
+   "anchored": 1,
+   "base": 1.0,
+   "perfect": 0.0,
+   "demote_only": 1.0,
+   "n_cons": 4,
+   "n_inc": 9,
+   "n_unk": 87,
+   "inc_rate": 0.6923076923076923
+  },
+  {
+   "qid": "18573_661",
+   "anchored": 1,
+   "base": 0.46927872602275644,
+   "perfect": 0.0,
+   "demote_only": 0.46927872602275644,
+   "n_cons": 0,
+   "n_inc": 11,
+   "n_unk": 89,
+   "inc_rate": 1.0
+  },
+  {
+   "qid": "18314_669",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "18235_671",
+   "anchored": 0,
+   "base": 0.8772153153380493,
+   "perfect": 0.8772153153380493
+  },
+  {
+   "qid": "18059_675",
+   "anchored": 1,
+   "base": 0.37708540574924465,
+   "perfect": 0.0,
+   "demote_only": 0.37708540574924465,
+   "n_cons": 15,
+   "n_inc": 29,
+   "n_unk": 56,
+   "inc_rate": 0.6590909090909091
+  },
+  {
+   "qid": "18057_676",
+   "anchored": 0,
+   "base": 0.8772153153380493,
+   "perfect": 0.8772153153380493
+  },
+  {
+   "qid": "17936_682",
+   "anchored": 0,
+   "base": 0.16716045496620227,
+   "perfect": 0.16716045496620227
+  },
+  {
+   "qid": "17828_685",
+   "anchored": 0,
+   "base": 0.5274486902992358,
+   "perfect": 0.5274486902992358
+  },
+  {
+   "qid": "17703_690",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "17698_691",
+   "anchored": 0,
+   "base": 0.15642624200758548,
+   "perfect": 0.15642624200758548
+  },
+  {
+   "qid": "17543_694",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "17457_695",
+   "anchored": 0,
+   "base": 0.9197207891481876,
+   "perfect": 0.9197207891481876
+  },
+  {
+   "qid": "14467_697",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "13846_707",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "13664_712",
+   "anchored": 0,
+   "base": 0.36331756126716835,
+   "perfect": 0.36331756126716835
+  },
+  {
+   "qid": "13594_714",
+   "anchored": 0,
+   "base": 0.2188505885308512,
+   "perfect": 0.2188505885308512
+  },
+  {
+   "qid": "13570_716",
+   "anchored": 0,
+   "base": 0.2960819109658652,
+   "perfect": 0.2960819109658652
+  },
+  {
+   "qid": "13520_718",
+   "anchored": 0,
+   "base": 1.0,
+   "perfect": 1.0
+  },
+  {
+   "qid": "13398_720",
+   "anchored": 0,
+   "base": 0.46927872602275644,
+   "perfect": 0.46927872602275644
+  },
+  {
+   "qid": "13367_721",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 5,
+   "n_inc": 21,
+   "n_unk": 74,
+   "inc_rate": 0.8076923076923077
+  },
+  {
+   "qid": "13304_724",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.18154179253735267,
+   "demote_only": 0.0,
+   "n_cons": 0,
+   "n_inc": 6,
+   "n_unk": 94,
+   "inc_rate": 1.0
+  },
+  {
+   "qid": "13118_729",
+   "anchored": 0,
+   "base": 0.19342640361727081,
+   "perfect": 0.19342640361727081
+  },
+  {
+   "qid": "13081_730",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 3,
+   "n_inc": 47,
+   "n_unk": 50,
+   "inc_rate": 0.94
+  },
+  {
+   "qid": "13022_735",
+   "anchored": 0,
+   "base": 0.17723928678404774,
+   "perfect": 0.17723928678404774
+  },
+  {
+   "qid": "12878_739",
+   "anchored": 0,
+   "base": 0.23719771276929622,
+   "perfect": 0.23719771276929622
+  },
+  {
+   "qid": "7366_742",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "7363_743",
+   "anchored": 0,
+   "base": 0.7977228895450266,
+   "perfect": 0.7977228895450266
+  },
+  {
+   "qid": "5709_750",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "5674_752",
+   "anchored": 0,
+   "base": 0.3152014104491349,
+   "perfect": 0.3152014104491349
+  },
+  {
+   "qid": "5627_754",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 1,
+   "n_inc": 4,
+   "n_unk": 95,
+   "inc_rate": 0.8
+  },
+  {
+   "qid": "5572_755",
+   "anchored": 1,
+   "base": 0.5714285040141098,
+   "perfect": 0.0,
+   "demote_only": 0.5714285040141098,
+   "n_cons": 0,
+   "n_inc": 15,
+   "n_unk": 85,
+   "inc_rate": 1.0
+  },
+  {
+   "qid": "5514_757",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "3323_760",
+   "anchored": 0,
+   "base": 0.8503449055347546,
+   "perfect": 0.8503449055347546
+  },
+  {
+   "qid": "3282_761",
+   "anchored": 0,
+   "base": 0.8065735963827293,
+   "perfect": 0.8065735963827293
+  },
+  {
+   "qid": "3215_766",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "3206_767",
+   "anchored": 0,
+   "base": 0.18154179253735267,
+   "perfect": 0.18154179253735267
+  },
+  {
+   "qid": "3184_770",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.17723928678404774,
+   "n_cons": 26,
+   "n_inc": 10,
+   "n_unk": 64,
+   "inc_rate": 0.2777777777777778
+  },
+  {
+   "qid": "3035_775",
+   "anchored": 1,
+   "base": 0.6309297535714575,
+   "perfect": 0.6309297535714575,
+   "demote_only": 0.0,
+   "n_cons": 0,
+   "n_inc": 22,
+   "n_unk": 78,
+   "inc_rate": 1.0
+  },
+  {
+   "qid": "3003_777",
+   "anchored": 0,
+   "base": 0.14126697285982898,
+   "perfect": 0.14126697285982898
+  },
+  {
+   "qid": "2976_779",
+   "anchored": 0,
+   "base": 0.17723928678404774,
+   "perfect": 0.17723928678404774
+  },
+  {
+   "qid": "2944_781",
+   "anchored": 0,
+   "base": 0.2640681225725909,
+   "perfect": 0.2640681225725909
+  },
+  {
+   "qid": "2057_790",
+   "anchored": 0,
+   "base": 1.0,
+   "perfect": 1.0
+  },
+  {
+   "qid": "276_797",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  }
+ ]
+}

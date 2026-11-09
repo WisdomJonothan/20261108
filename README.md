@@ -156,6 +156,13 @@ Macro over 13 domains; query-level bootstrap over 519 queries. LOOCV honest
 gain is only **+0.0087**, because per-domain optima differ (`law`, `quant`
 prefer CE; `workplace`, `iota` prefer dense).
 
+**Choosing the weight on train** (`scripts/fusion_weight_train.py`): the train
+optimum is 1:2 (train macro 0.2519), and applying that weight unchanged to dev
+gives **0.3134** — +0.0191 over dense with zero dev-side tuning (dev-best 2:1 is
+0.3176). Per-domain weights chosen on each domain's own train split do **not**
+transfer (dev macro 0.2941 ≈ dense), so one global weight is the robust choice.
+With the train-selected weight the domain-clustered CI is [−0.0162, +0.0541]. 
+
 **Same 11 domains, both encoders** (`scripts/fair_11dom_compare.py`) — the only
 apples-to-apples comparison, 486 queries:
 
@@ -251,9 +258,17 @@ Result under the official metric, at the train-selected weight 1:1:
 | dense + SFT CE, z 1:1 | **0.3336** | 0.3339 |
 
 SFT vs zero-shot at the fixed weight: **+0.0087**, query-bootstrap CI
-[+0.0025,+0.0151], domain-clustered [+0.0037,+0.0142]. Total over V1:
-**+0.0170** [+0.0055,+0.0290], domain-clustered [+0.0052,+0.0287] — i.e. it
-clears the pre-registered +0.015 bar. Frozen as
+[+0.0025,+0.0151], domain-clustered [+0.0037,+0.0142] — the only single-factor
+effect whose domain-clustered CI excludes zero. The total over V1 is
+**+0.0170** [+0.0055,+0.0290], domain-clustered [+0.0052,+0.0287], but it
+bundles that +0.0087 with a fusion-form change worth +0.0083 whose own CI
+crosses zero, so the honest single claim is +0.0087 over the strongest
+zero-shot baseline.
+
+The pre-registered adoption bar (+0.015 on dev **topic-macro**) was **not** met:
+under the registered statistic SFT − V1 = 0.3339 − 0.3199 = +0.0141. The bar is
+not restated under the corrected metric; the significance claims above are made
+with the official domain-macro bootstrap instead. Frozen as
 `runs/sub_sft11_<domain>_dev.trec` (13/13 official-checked, de-tied).
 See `results/PHASE9_PLAN.md` and `docs/RESEARCH_LOG.md` §5i.
 

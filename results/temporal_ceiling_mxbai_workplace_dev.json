@@ -1,0 +1,92 @@
+{
+ "summary": {
+  "domain": "workplace",
+  "split": "dev",
+  "run": "runs/dense_mxbai_workplace_dev.trec",
+  "k": 100,
+  "queries": 11,
+  "anchored": 1,
+  "dense_macro": 0.33624633902580964,
+  "perfect_macro": 0.2915964032837826,
+  "dense_macro_anchored": 0.4911492931622974,
+  "perfect_macro_anchored": 0.0,
+  "demote_macro": 0.3370509487383281,
+  "demote_macro_anchored": 0.5,
+  "mean_inc_rate": 0.7368421052631579,
+  "queries_with_inc": 1,
+  "mean_inc_per_query": 14.0
+ },
+ "queries": [
+  {
+   "qid": "200148_1194",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "194500_1197",
+   "anchored": 0,
+   "base": 0.2640681225725909,
+   "perfect": 0.2640681225725909
+  },
+  {
+   "qid": "191906_1200",
+   "anchored": 0,
+   "base": 0.6257049680303419,
+   "perfect": 0.6257049680303419
+  },
+  {
+   "qid": "190938_1203",
+   "anchored": 0,
+   "base": 0.6508205185601091,
+   "perfect": 0.6508205185601091
+  },
+  {
+   "qid": "183145_1209",
+   "anchored": 1,
+   "base": 0.4911492931622974,
+   "perfect": 0.0,
+   "demote_only": 0.5,
+   "n_cons": 5,
+   "n_inc": 14,
+   "n_unk": 81,
+   "inc_rate": 0.7368421052631579
+  },
+  {
+   "qid": "181803_1211",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "181712_1212",
+   "anchored": 0,
+   "base": 0.3065735963827292,
+   "perfect": 0.3065735963827292
+  },
+  {
+   "qid": "179162_1214",
+   "anchored": 0,
+   "base": 0.5531464700081437,
+   "perfect": 0.5531464700081437
+  },
+  {
+   "qid": "171543_1222",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "169903_1225",
+   "anchored": 0,
+   "base": 0.8072467605676945,
+   "perfect": 0.8072467605676945
+  },
+  {
+   "qid": "168198_1227",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  }
+ ]
+}

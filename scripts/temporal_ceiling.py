@@ -76,7 +76,7 @@ def main():
 
     anc = [r for r in rows if r["anchored"]]
     summary = {
-        "domain": args.domain, "split": args.split,
+        "domain": args.domain, "split": args.split, "run": args.run, "k": args.k,
         "queries": len(rows), "anchored": len(anc),
         "dense_macro": float(np.mean([r["base"] for r in rows])),
         "perfect_macro": float(np.mean([r["perfect"] for r in rows])),

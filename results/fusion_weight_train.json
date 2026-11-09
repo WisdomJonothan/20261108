@@ -1,0 +1,223 @@
+{
+ "train_domains": [
+  "bitcoin",
+  "economics",
+  "politics",
+  "genealogy",
+  "history",
+  "hsm",
+  "monero",
+  "law",
+  "workplace",
+  "cardano",
+  "quant",
+  "travel",
+  "iota"
+ ],
+ "train_macro": {
+  "1:0": 0.235,
+  "4:1": 0.2449,
+  "2:1": 0.2482,
+  "1:1": 0.2491,
+  "1:2": 0.2519,
+  "1:4": 0.2439,
+  "0:1": 0.2271
+ },
+ "selected_by_train": "1:2",
+ "dev_macro_at_each_weight": {
+  "1:0": 0.2943,
+  "4:1": 0.3064,
+  "2:1": 0.3176,
+  "1:1": 0.3167,
+  "1:2": 0.3134,
+  "1:4": 0.2981,
+  "0:1": 0.268
+ },
+ "dev_per_domain": {
+  "1:0": {
+   "bitcoin": 0.182,
+   "economics": 0.189,
+   "politics": 0.3599,
+   "genealogy": 0.3298,
+   "history": 0.3051,
+   "hsm": 0.3125,
+   "monero": 0.1826,
+   "law": 0.3689,
+   "workplace": 0.3362,
+   "cardano": 0.1832,
+   "quant": 0.1954,
+   "travel": 0.2321,
+   "iota": 0.6485
+  },
+  "4:1": {
+   "bitcoin": 0.1853,
+   "economics": 0.2046,
+   "politics": 0.3759,
+   "genealogy": 0.3492,
+   "history": 0.3262,
+   "hsm": 0.3436,
+   "monero": 0.2099,
+   "law": 0.3826,
+   "workplace": 0.3337,
+   "cardano": 0.17,
+   "quant": 0.1624,
+   "travel": 0.2461,
+   "iota": 0.6936
+  },
+  "2:1": {
+   "bitcoin": 0.2026,
+   "economics": 0.2157,
+   "politics": 0.3941,
+   "genealogy": 0.3272,
+   "history": 0.3392,
+   "hsm": 0.3641,
+   "monero": 0.2038,
+   "law": 0.3689,
+   "workplace": 0.3553,
+   "cardano": 0.1443,
+   "quant": 0.1535,
+   "travel": 0.2561,
+   "iota": 0.8036
+  },
+  "1:1": {
+   "bitcoin": 0.2044,
+   "economics": 0.2099,
+   "politics": 0.4031,
+   "genealogy": 0.3372,
+   "history": 0.3428,
+   "hsm": 0.3832,
+   "monero": 0.2281,
+   "law": 0.3574,
+   "workplace": 0.3244,
+   "cardano": 0.1632,
+   "quant": 0.1658,
+   "travel": 0.2205,
+   "iota": 0.7771
+  },
+  "1:2": {
+   "bitcoin": 0.2247,
+   "economics": 0.2151,
+   "politics": 0.4184,
+   "genealogy": 0.3383,
+   "history": 0.3459,
+   "hsm": 0.4039,
+   "monero": 0.2143,
+   "law": 0.2714,
+   "workplace": 0.3231,
+   "cardano": 0.1628,
+   "quant": 0.1244,
+   "travel": 0.2228,
+   "iota": 0.8085
+  },
+  "1:4": {
+   "bitcoin": 0.2269,
+   "economics": 0.1987,
+   "politics": 0.424,
+   "genealogy": 0.3327,
+   "history": 0.3395,
+   "hsm": 0.4334,
+   "monero": 0.1983,
+   "law": 0.2424,
+   "workplace": 0.2848,
+   "cardano": 0.1608,
+   "quant": 0.064,
+   "travel": 0.2388,
+   "iota": 0.7309
+  },
+  "0:1": {
+   "bitcoin": 0.2251,
+   "economics": 0.1642,
+   "politics": 0.4134,
+   "genealogy": 0.2917,
+   "history": 0.3188,
+   "hsm": 0.4289,
+   "monero": 0.1517,
+   "law": 0.2304,
+   "workplace": 0.2802,
+   "cardano": 0.165,
+   "quant": 0.0328,
+   "travel": 0.2237,
+   "iota": 0.5575
+  }
+ },
+ "domain_transfer": {
+  "bitcoin": {
+   "train_best": "4:1",
+   "dev_at_local": 0.1853,
+   "dev_at_global": 0.2247,
+   "dev_at_2:1": 0.2026
+  },
+  "economics": {
+   "train_best": "1:1",
+   "dev_at_local": 0.2099,
+   "dev_at_global": 0.2151,
+   "dev_at_2:1": 0.2157
+  },
+  "politics": {
+   "train_best": "2:1",
+   "dev_at_local": 0.3941,
+   "dev_at_global": 0.4184,
+   "dev_at_2:1": 0.3941
+  },
+  "genealogy": {
+   "train_best": "1:1",
+   "dev_at_local": 0.3372,
+   "dev_at_global": 0.3383,
+   "dev_at_2:1": 0.3272
+  },
+  "history": {
+   "train_best": "1:2",
+   "dev_at_local": 0.3459,
+   "dev_at_global": 0.3459,
+   "dev_at_2:1": 0.3392
+  },
+  "hsm": {
+   "train_best": "0:1",
+   "dev_at_local": 0.4289,
+   "dev_at_global": 0.4039,
+   "dev_at_2:1": 0.3641
+  },
+  "monero": {
+   "train_best": "1:0",
+   "dev_at_local": 0.1826,
+   "dev_at_global": 0.2143,
+   "dev_at_2:1": 0.2038
+  },
+  "law": {
+   "train_best": "1:4",
+   "dev_at_local": 0.2424,
+   "dev_at_global": 0.2714,
+   "dev_at_2:1": 0.3689
+  },
+  "workplace": {
+   "train_best": "1:2",
+   "dev_at_local": 0.3231,
+   "dev_at_global": 0.3231,
+   "dev_at_2:1": 0.3553
+  },
+  "cardano": {
+   "train_best": "2:1",
+   "dev_at_local": 0.1443,
+   "dev_at_global": 0.1628,
+   "dev_at_2:1": 0.1443
+  },
+  "quant": {
+   "train_best": "1:2",
+   "dev_at_local": 0.1244,
+   "dev_at_global": 0.1244,
+   "dev_at_2:1": 0.1535
+  },
+  "travel": {
+   "train_best": "2:1",
+   "dev_at_local": 0.2561,
+   "dev_at_global": 0.2228,
+   "dev_at_2:1": 0.2561
+  },
+  "iota": {
+   "train_best": "1:0",
+   "dev_at_local": 0.6485,
+   "dev_at_global": 0.8085,
+   "dev_at_2:1": 0.8036
+  }
+ }
+}

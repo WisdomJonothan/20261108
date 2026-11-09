@@ -80,6 +80,35 @@ Domain-clustered bootstrap (13 domains): 2:1 +0.0233 [+0.0009, +0.0492];
 **+0.0087** — small, because per-domain optima differ (law and quant prefer CE,
 workplace and iota prefer dense).
 
+## Fusion weight chosen on train (13 domains)
+
+The dev-best weight (2:1) was selected on dev — a reviewer objection. This
+experiment chooses the weight using **train only** and reads dev once
+(`scripts/fusion_weight_train.py`, `results/fusion_weight_train.json`).
+
+Train macro nDCG@10 over all 13 domains (RRF, dense:CE):
+
+| weight | 1:0 | 4:1 | 2:1 | 1:1 | **1:2** | 1:4 | 0:1 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| train macro | 0.2350 | 0.2449 | 0.2482 | 0.2491 | **0.2519** | 0.2439 | 0.2271 |
+
+Train picks **1:2** (dense : CE). Applying it unchanged to dev gives a 13-domain
+macro of **0.3134** (dense 0.2943; dev-best 2:1 is 0.3176), i.e. **+0.0191 over
+dense** with no dev-side tuning. The train curve is very flat around the optimum
+(1:1 is 0.0028 lower on train), so the exact weight matters little; what matters
+is that CE must carry the larger share.
+
+**Per-domain weights do not transfer.** Choosing a separate weight for each
+domain on its own train split and applying it to dev yields a macro of
+**0.2941** — indistinguishable from dense, because small train splits pick
+degenerate weights (`law` → 1:4, dev 0.2424 vs 0.3689 at 2:1; `hsm` → CE-only).
+A single global weight is the only robust choice.
+
+Caveat: with the train-selected weight the domain-clustered CI for the dev gain
+is [−0.0162, +0.0541]; the dev-selected 2:1 is the only configuration whose
+clustered CI excludes zero. So the honest statement is: the fusion gain is
+*positive and stable in point estimate* but not established beyond dev.
+
 ## Fair comparison: same 11 domains, both encoders
 
 The old pipeline covered `11 shared + travel`; the new one covers

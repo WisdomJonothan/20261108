@@ -1,0 +1,216 @@
+{
+ "summary": {
+  "domain": "economics",
+  "split": "dev",
+  "run": "runs/dense_mxbai_economics_dev.trec",
+  "k": 100,
+  "queries": 25,
+  "anchored": 9,
+  "dense_macro": 0.18903699248838302,
+  "perfect_macro": 0.1929594039711785,
+  "dense_macro_anchored": 0.11546219230110626,
+  "perfect_macro_anchored": 0.12635777975331594,
+  "demote_macro": 0.19821679436828943,
+  "demote_macro_anchored": 0.140961641967513,
+  "mean_inc_rate": 0.5739322883440809,
+  "queries_with_inc": 9,
+  "mean_inc_per_query": 18.88888888888889
+ },
+ "queries": [
+  {
+   "qid": "60625_152",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "60545_155",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "59178_164",
+   "anchored": 1,
+   "base": 0.10778915452451093,
+   "perfect": 0.0,
+   "demote_only": 0.2987100207034456,
+   "n_cons": 11,
+   "n_inc": 15,
+   "n_unk": 74,
+   "inc_rate": 0.5769230769230769
+  },
+  {
+   "qid": "58503_167",
+   "anchored": 1,
+   "base": 0.38181370493884453,
+   "perfect": 0.47702042557815233,
+   "demote_only": 0.40448290061716,
+   "n_cons": 42,
+   "n_inc": 18,
+   "n_unk": 40,
+   "inc_rate": 0.3
+  },
+  {
+   "qid": "57769_170",
+   "anchored": 0,
+   "base": 0.13565197343244778,
+   "perfect": 0.13565197343244778
+  },
+  {
+   "qid": "57699_171",
+   "anchored": 0,
+   "base": 0.8048099750039491,
+   "perfect": 0.8048099750039491
+  },
+  {
+   "qid": "57498_172",
+   "anchored": 0,
+   "base": 0.31834121936641585,
+   "perfect": 0.31834121936641585
+  },
+  {
+   "qid": "56372_176",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 1,
+   "n_inc": 21,
+   "n_unk": 78,
+   "inc_rate": 0.9545454545454546
+  },
+  {
+   "qid": "55201_179",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 20,
+   "n_inc": 23,
+   "n_unk": 57,
+   "inc_rate": 0.5348837209302325
+  },
+  {
+   "qid": "52658_189",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "52071_193",
+   "anchored": 0,
+   "base": 0.11751610475642714,
+   "perfect": 0.11751610475642714
+  },
+  {
+   "qid": "51330_198",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "50570_202",
+   "anchored": 0,
+   "base": 0.4483039899025303,
+   "perfect": 0.4483039899025303
+  },
+  {
+   "qid": "49965_204",
+   "anchored": 1,
+   "base": 0.123151194370365,
+   "perfect": 0.0,
+   "demote_only": 0.13905617951077562,
+   "n_cons": 7,
+   "n_inc": 14,
+   "n_unk": 79,
+   "inc_rate": 0.6666666666666666
+  },
+  {
+   "qid": "48548_206",
+   "anchored": 0,
+   "base": 0.11284514134893527,
+   "perfect": 0.11284514134893527
+  },
+  {
+   "qid": "47763_212",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 2,
+   "n_inc": 27,
+   "n_unk": 71,
+   "inc_rate": 0.9310344827586207
+  },
+  {
+   "qid": "47636_213",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "47454_216",
+   "anchored": 0,
+   "base": 0.2640681225725909,
+   "perfect": 0.2640681225725909
+  },
+  {
+   "qid": "47148_218",
+   "anchored": 0,
+   "base": 1.0,
+   "perfect": 1.0
+  },
+  {
+   "qid": "45828_221",
+   "anchored": 0,
+   "base": 0.48522855511632257,
+   "perfect": 0.48522855511632257
+  },
+  {
+   "qid": "45773_222",
+   "anchored": 1,
+   "base": 0.13032376591037062,
+   "perfect": 0.19092086617893467,
+   "demote_only": 0.13032376591037062,
+   "n_cons": 47,
+   "n_inc": 15,
+   "n_unk": 38,
+   "inc_rate": 0.24193548387096775
+  },
+  {
+   "qid": "45680_223",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "43952_227",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "43853_228",
+   "anchored": 1,
+   "base": 0.0,
+   "perfect": 0.0,
+   "demote_only": 0.0,
+   "n_cons": 31,
+   "n_inc": 5,
+   "n_unk": 64,
+   "inc_rate": 0.1388888888888889
+  },
+  {
+   "qid": "43579_231",
+   "anchored": 1,
+   "base": 0.2960819109658652,
+   "perfect": 0.46927872602275644,
+   "demote_only": 0.2960819109658652,
+   "n_cons": 7,
+   "n_inc": 32,
+   "n_unk": 61,
+   "inc_rate": 0.8205128205128205
+  }
+ ]
+}

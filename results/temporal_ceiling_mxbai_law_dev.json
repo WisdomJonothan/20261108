@@ -1,0 +1,97 @@
+{
+ "summary": {
+  "domain": "law",
+  "split": "dev",
+  "run": "runs/dense_mxbai_law_dev.trec",
+  "k": 100,
+  "queries": 11,
+  "anchored": 2,
+  "dense_macro": 0.3689333975800688,
+  "perfect_macro": 0.33371417977419665,
+  "dense_macro_anchored": 0.4729594910639069,
+  "perfect_macro_anchored": 0.2792537931316096,
+  "demote_macro": 0.35363161438072743,
+  "demote_macro_anchored": 0.3887996834675288,
+  "mean_inc_rate": 1.0,
+  "queries_with_inc": 2,
+  "mean_inc_per_query": 29.5
+ },
+ "queries": [
+  {
+   "qid": "106562_822",
+   "anchored": 0,
+   "base": 0.5307212739772434,
+   "perfect": 0.5307212739772434
+  },
+  {
+   "qid": "106440_824",
+   "anchored": 1,
+   "base": 0.23719771276929622,
+   "perfect": 0.0,
+   "demote_only": 0.2640681225725909,
+   "n_cons": 0,
+   "n_inc": 14,
+   "n_unk": 86,
+   "inc_rate": 1.0
+  },
+  {
+   "qid": "104892_830",
+   "anchored": 0,
+   "base": 0.5,
+   "perfect": 0.5
+  },
+  {
+   "qid": "103790_832",
+   "anchored": 0,
+   "base": 1.0,
+   "perfect": 1.0
+  },
+  {
+   "qid": "103498_834",
+   "anchored": 0,
+   "base": 0.21109268758922906,
+   "perfect": 0.21109268758922906
+  },
+  {
+   "qid": "103373_837",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "103233_838",
+   "anchored": 0,
+   "base": 0.6509209298071326,
+   "perfect": 0.6509209298071326
+  },
+  {
+   "qid": "102997_839",
+   "anchored": 1,
+   "base": 0.7087212693585175,
+   "perfect": 0.5585075862632192,
+   "demote_only": 0.5135312443624667,
+   "n_cons": 0,
+   "n_inc": 45,
+   "n_unk": 55,
+   "inc_rate": 1.0
+  },
+  {
+   "qid": "102830_840",
+   "anchored": 0,
+   "base": 0.10209739512291163,
+   "perfect": 0.10209739512291163
+  },
+  {
+   "qid": "102419_841",
+   "anchored": 0,
+   "base": 0.0,
+   "perfect": 0.0
+  },
+  {
+   "qid": "101678_842",
+   "anchored": 0,
+   "base": 0.11751610475642714,
+   "perfect": 0.11751610475642714
+  }
+ ]
+}
