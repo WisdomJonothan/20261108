@@ -53,16 +53,27 @@ queries score 0. `iota` (3 dev queries) therefore weighs as much as `history`
 (240). `topic-macro` (519-query mean) is reported as a diagnostic only. Both
 are computed by `scripts/aggregate_scores.py`; every table states which it uses.
 
-| frozen system (V1), dev | domain-macro (official) | topic-macro |
+| frozen system, dev (519 queries, 13 domains) | domain-macro (official) | topic-macro |
 |---|---:|---:|
-| **dense + zero-shot CE, RRF 1:1** | **0.3166** | 0.3199 |
-| domain count | 13 | 519 |
+| **dense mxbai + SFT CE (2 epochs), z 1:1** | **0.3581** | 0.3644 |
+| same arm, second seed (replication) | 0.3527 | 0.3624 |
+| dense + zero-shot CE, z 1:1 | 0.3249 | 0.3260 |
+| dense + zero-shot CE, RRF 1:1 (V1, first release) | 0.3166 | 0.3199 |
 
-Official Track-1a dev BM25 baseline is **0.1147**, i.e. this stack is ≈2.8× the
+Official Track-1a dev BM25 baseline is **0.1147**, i.e. the frozen system is ≈3.1× the
 official lexical baseline. TEMPO's best reported system (32.0) is on a different
 1,730-query split and is not directly comparable.
 
-**Phase 8 update (recommended configuration).** Swapping only the first stage to
+**Phase 9–14 update (current system).** The first stage stays
+`mxbai-embed-large-v1` top-100; the reranker is `bge-reranker-v2-m3` fine-tuned
+on the 1,211 train queries (2 epochs, peak lr 1.5e-5, 8 of 24 layers frozen) and
+fused with the dense scores after per-query z-normalisation at **1:1**, a weight
+fitted once on train. Dev: **0.3581** domain-macro vs 0.3249 for the zero-shot
+fused arm (**+0.0332**, domain-clustered [+0.0192,+0.0472]) and 0.2943 for dense
+alone; seed 29 replicates at 0.3527 (+0.0278). Sections below keep the Phase-8
+history and the older RRF configuration for the record.
+
+**Phase 8 update (historical).** Swapping only the first stage to
 `mixedbread-ai/mxbai-embed-large-v1` and fusing `w_dense : w_CE = 1:1` lifts the
 dev macro over the **shared 11 domains** from 0.2556 to **0.2843**; over all
 13 domains the fused macro is **0.3166** (dense 0.2943). The two 12-domain
@@ -266,6 +277,7 @@ the frozen system and the shorter one is the ablation:
 | dense + zero-shot CE, z 1:1 | 0.3249 | 0.3260 |
 | dense + SFT CE, z 1:1 (1 epoch, lr 1e-5) | 0.3336 | 0.3339 |
 | **dense + SFT CE, z 1:1 (2 epochs, lr 1.5e-5)** | **0.3581** | **0.3644** |
+| dense + SFT CE, z 1:1 (2 epochs, **seed 29**, replication) | 0.3527 | 0.3624 |
 
 The 2-epoch arm vs zero-shot at the same frozen weight: **+0.0332**,
 query-bootstrap CI [+0.0161,+0.0523], domain-clustered [+0.0192,+0.0472],
@@ -276,6 +288,15 @@ V1 for the 1-epoch arm is **+0.0170** [+0.0055,+0.0290], domain-clustered
 [+0.0052,+0.0287], which bundles the CE swap with a fusion-form change worth
 +0.0083 whose own CI crosses zero — the 2-epoch arm is therefore reported as a
 single-factor claim against the zero-shot fusion, not against V1.
+
+**Seed replication.** A second training seed (29, identical recipe and
+checkpoint-selection rule) reaches 0.3527: **+0.0278** over the same zero-shot
+baseline, query CI [+0.0118,+0.0455], domain-clustered [+0.0159,+0.0404],
+181/82/256, and 0.3123 vs 0.2832 on the 12-domain view. Both seeds are positive
+with domain CIs excluding zero, and the seed-to-seed spread (0.0054) is far below
+the delta, so the honest headline is **+0.031 ± 0.003 over the strongest
+zero-shot baseline**; 0.3581 stays the frozen submission number. Details:
+`results/REPLICATION.md`.
 
 The pre-registered adoption bar (+0.015 on dev **topic-macro**) was **not** met
 by the 1-epoch arm: under the registered statistic SFT − V1 = 0.33393 − 0.31987 =
