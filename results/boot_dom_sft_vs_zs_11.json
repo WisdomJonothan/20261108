@@ -1,0 +1,25 @@
+{
+ "label": "SFT CE vs zero-shot CE (z 1:1, official domain-macro)",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.3249073917275941,
+ "candidate_macro": 0.33356418813377975,
+ "delta": 0.008656796406185663,
+ "query_bootstrap": {
+  "mean": 0.008662429038875577,
+  "ci_lo": 0.002507166879549008,
+  "ci_hi": 0.015091351808975053,
+  "p_gt_0": 0.9964
+ },
+ "domain_bootstrap": {
+  "mean": 0.008637124123661107,
+  "ci_lo": 0.0036749186186963156,
+  "ci_hi": 0.014247213375457984,
+  "p_gt_0": 0.9999
+ },
+ "better": 95,
+ "worse": 55,
+ "iters": 10000,
+ "seed": 7
+}

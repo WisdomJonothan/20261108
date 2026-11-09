@@ -1,3 +1,12 @@
+> **2026-11-09 CORRECTION (supersedes the metric wording below).**
+> The official Track 1a aggregation is **domain-macro**: nDCG@10 per query,
+> averaged within each domain, then averaged over the 13 domains; missing
+> queries score 0.  `topic-macro` is a diagnostic.  The train-selected fusion
+> weight under the official metric is **z 1:1** (train domain-macro 0.2612 vs
+> 0.2596 for 1:2), not 1:2.  Corrected dev headline: **SFT CE + z 1:1 =
+> 0.3336 domain-macro** (0.3339 topic-macro), +0.0170 over V1 with the
+> domain-clustered 95% CI [+0.0052, +0.0287].  See RESEARCH_LOG section 5i.
+
 # Phase 9 — what to do next: decision record
 
 **Status**: decision taken and execution started (2026-11-08/09). This note is the
@@ -13,17 +22,20 @@ Frozen V1 = `mxbai-embed-large-v1` dense top-100 → `bge-reranker-v2-m3` CE
 
 | quantity | value | how |
 |---|---:|---|
-| topic-macro nDCG@10 (official aggregation) | **0.3199** | `scripts/aggregate_scores.py` over `results/score_sub_1_1_*_dev.json` |
+| topic-macro nDCG@10 (diagnostic only; NOT the official aggregation) | 0.3199 | | `scripts/aggregate_scores.py` over `results/score_sub_1_1_*_dev.json` |
 | domain-macro (how the project used to quote it) | 0.3166 | same |
-| topic-macro over the 8 domains with n ≥ 19 | 0.3243 | same |
+| topic-macro over the 8 domains with n >= 19 | 0.3243 | same |
 | official BM25 1a dev baseline (organizers) | 0.1147 | RETECO data page |
 | TEMPO best reported system (different split) | 0.320 | TEMPO paper |
 
 Two things this exposed:
 
 1. **The headline was under-specified.** 0.3166 (domain-macro) and 0.3199
-   (topic-macro) are different numbers for the same runs, and the leaderboard
-   uses topic-macro. All future tables must state the aggregation.
+   (topic-macro) are different numbers for the same runs.  **CORRECTED
+   2026-11-09**: the official leaderboard aggregation is DOMAIN-macro
+   ("nDCG@10 for each query, averaged over the queries of each domain, then
+   averaged over the 13 domains"), see the Evaluation Plan.  topic-macro is
+   reported as a diagnostic only.  All tables below keep both columns.
 2. **`score_run.py` used to drop topics missing from a run** (mean over present
    topics only). The leaderboard counts them as 0. Fixed: missing topics are now
    zero-filled unless `--allow-missing` is passed.
@@ -103,7 +115,7 @@ A SFT run that improves CE-alone by +0.05 but keeps RRF 2:1 would look like
 2. Two scorers are compared on dev, once each:
    * V1 = zero-shot CE + fixed RRF 1:1 (already frozen, 0.3199);
    * V2 = SFT CE + train-fitted fusion.
-3. Adopt V2 only if Δtopic-macro ≥ +0.015 **and** the domain-clustered paired
+3. Adopt V2 only if Δ(downloads official domain-macro) >= +0.015 **and** the domain-clustered paired
    bootstrap CI excludes 0. Between +0.010 and +0.015: report as a wash.
    Below +0.010: V2 is an ablation, V1 is submitted.
 4. Kill criterion for the training itself: if held-out-train within-query AUC

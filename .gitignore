@@ -12,3 +12,4 @@ scripts/official/
 
 __pycache__/
 *.pyc
+runs/*_train.trec

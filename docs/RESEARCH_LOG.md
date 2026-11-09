@@ -477,3 +477,60 @@ SFT 融合 vs V1.1 的配对 bootstrap：query [+0.0069,+0.0165]；**域整群 [
 
 产物：`runs/sub_sft12_<domain>_dev.trec`（13/13 官方格式校验通过，去平分），
 `results/aggregate_sub_sft12_dev.json`、`results/boot_sft_vs_v11.json`。
+
+## 5i. Phase 9d：官方口径更正（domain-macro）+ SFT 正式采纳 + 工程审计修复
+
+**触发**：外部审阅指出项目一直在用 topic-macro 报成绩，而官方聚合是 domain-macro。
+核对 Evaluation Plan（https://datascienceuibk.github.io/RETECO/evaluation.html）原文：
+"nDCG@10 is computed for each query, averaged over the queries of each domain,
+and then averaged over the 13 domains, so every domain counts equally"，
+且 "missing queries ... receive zero"。**结论：官方指标 = domain-macro，早先按
+topic-macro 选融合权重是错的。**
+
+### 影响一：融合权重必须按 domain-macro 选
+
+`fit_fusion_weight.py` 增加 `--select-metric`（默认 `domain_macro`）并在 train
+（1,211 条）上重拟合：**z 1:1 胜出**（train domain-macro 0.2612 vs 1:2 的 0.2596）。
+因此 1:2 的 "V1.1" 作废，官方口径下的零样本基线是 **z 1:1 = 0.3249**。
+
+### 影响二：SFT 增益在正确口径下更大，且通过预注册门槛
+
+| 系统（dev, 519 topics） | domain-macro（官方） | topic-macro |
+|---|---|---|
+| 官方 BM25 | 0.1147 | — |
+| dense mxbai（top-100） | 0.2943 | 0.2891 |
+| 零样本 CE 单用 | 0.2680 | 0.2990 |
+| SFT CE 单用 | 0.2742 | 0.3096 |
+| V1 = dense+zs CE, RRF 1:1 | 0.3166 | 0.3199 |
+| dense+zs CE, z 1:1 | 0.3249 | 0.3260 |
+| dense+zs CE, z 1:2（作废） | 0.3193 | 0.3302 |
+| dense+SFT CE, z 1:2 | 0.3274 | 0.3418 |
+| **dense+SFT CE, z 1:1（采用）** | **0.3336** | 0.3339 |
+
+配对 bootstrap（10k 次，seed 7，统计量=官方 domain-macro）：
+
+- SFT vs 零样本（固定 z 1:1，只换 CE）：+0.0087，按查询重采样 CI [+0.0025,+0.0151]，
+  按域整群重采样 CI [+0.0037,+0.0142]（两者都排除 0；95 好 / 55 坏 / 369 平）；
+- z 1:1 零样本 vs V1 RRF（只换融合形式）：+0.0083，CI 跨 0（弱证据）；
+- **SFT z 1:1 vs V1 RRF（总效果）：+0.0170**，查询 CI [+0.0055,+0.0290]，
+  域整群 CI [+0.0052,+0.0287]；169 好 / 106 坏 / 244 平；**通过预注册门槛
+  （≥ +0.015 且域整群 CI 排除 0）**。
+
+即：监督重排序的贡献是真实的，之前"差 0.0034 未达标"是 topic-macro + 1:2 权重的
+双重假象。冻结提交件 **`runs/sub_sft11_<domain>_dev.trec`**（13/13 官方格式校验
+0 错误，去平分后二次校验）。
+
+### 工程审计修复（对应外部审阅 P0）
+
+1. `score_run.py` 已改：缺失 query 记 0（原先静默丢弃），除非显式 `--allow-missing`；
+   已同步进仓库（此前 GitHub 上是旧版）。
+2. `validate_submission.py --detie` 现在**对去平分后的文件重新校验**（topic 集合、
+   严格递减、有限值）。同时修掉去平分公式的缺陷：旧式 `score - 1e-9*rank` 在
+   `-1e9` 填充哨兵上被浮点吞掉，导致 100 名之后仍并列；改为按数量级缩放的
+   序数去平分（只处理并列，保留原顺序）。
+3. `test_mode_dryrun.sh` 增加存在性保护：`examples_test.jsonl` 已存在则拒绝，
+   需 `FORCE=1` 才覆盖，避免删掉真实测试集。
+4. 新增 `requirements.txt`（锁定训练解释器版本）、`results/MODEL_MANIFEST.json`
+   （三个模型的 HF repo、参数量、`model.safetensors` sha256）、
+   `scripts/reproduce_all.sh`（一键：dense→CE→z 1:1→校验→打分→聚合）。
+5. 语料指纹 `results/corpus_manifest.json` 已在库中（13 域 / 65 文件 / 1,167,159 文档）。

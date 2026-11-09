@@ -28,6 +28,10 @@ echo "=== test-mode dry run $(date +%H:%M:%S)  domains: $DOMAINS"
 rc=0
 for d in $DOMAINS; do
   ex="data/track1_tempo/$d/examples_test.jsonl"
+  if [ -e "$ex" ] && [ "${FORCE:-0}" != "1" ]; then
+    echo "REFUSE $d: $ex already exists (real test split?). Set FORCE=1 to override."
+    rc=1; continue
+  fi
   echo "--- $d: fabricating examples_test from examples_dev"
   cp "data/track1_tempo/$d/examples_dev.jsonl" "$ex" || { echo "FAIL cp $d"; rc=1; continue; }
 
@@ -53,7 +57,7 @@ for d in $DOMAINS; do
   $PY scripts/validate_submission.py --runs "$OUT/sub_1_2_${d}_test.trec" \
     --split test --json "$OUT/validation_${d}_test.json" || { echo "FAIL validate $d"; rc=1; }
 
-  rm -f "$ex"
+  rm -f "$ex"   # the guard above guarantees this is our fabricated copy
 done
 echo "=== dry run done rc=$rc $(date +%H:%M:%S)"
 exit $rc

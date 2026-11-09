@@ -1,0 +1,13 @@
+# RETECO pipeline -- pinned to the interpreter that produced the frozen runs
+#   D:/anaconda/python.exe (Python 3.12), torch 2.7.0+cu126 wheel
+torch==2.7.0+cu126
+transformers==5.22.2
+tokenizers==0.23.3
+safetensors==0.8.0
+numpy==1.26.4
+scipy==1.13.1
+tqdm==4.66.5
+huggingface-hub==2.4.0
+sentencepiece==0.2.3
+# Not required: pytrec_eval (does not build on Windows); official ir_metrics.py
+# is equivalent at rel=1.

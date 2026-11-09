@@ -1,0 +1,43 @@
+{
+  "generated": "2026-11-09",
+  "python": "/d/anaconda/python.exe",
+  "note": "HF snapshot weights actually loaded by the frozen runs",
+  "models": {
+    "mxbai-embed-large-v1": {
+      "hf_repo": "mixedbread-ai/mxbai-embed-large-v1",
+      "local_dir": "models\\mxbai-embed-large-v1",
+      "role": "dense first stage (mean pooling, query prefix)",
+      "file": "model.safetensors",
+      "bytes": 670328392,
+      "sha256": "36bfa45da00eb762ef9feebe4cff315ec779efadd08da11846bef5ba5b59b8f8",
+      "architectures": [
+        "BertModel"
+      ],
+      "num_hidden_layers": 24
+    },
+    "bge-reranker-v2-m3": {
+      "hf_repo": "BAAI/bge-reranker-v2-m3",
+      "local_dir": "models\\bge-reranker-v2-m3",
+      "role": "cross-encoder: zero-shot + supervised base",
+      "file": "model.safetensors",
+      "bytes": 2271071852,
+      "sha256": "d9e3e081faff1eefb84019509b2f5558fd74c1a05a2c7db22f74174fcedb5286",
+      "architectures": [
+        "XLMRobertaForSequenceClassification"
+      ],
+      "num_hidden_layers": 24
+    },
+    "bge-reranker-base": {
+      "hf_repo": "BAAI/bge-reranker-base",
+      "local_dir": "models\\bge-reranker-base",
+      "role": "pilot only",
+      "file": "model.safetensors",
+      "bytes": 1112206140,
+      "sha256": "ced967c45fd1902eb92716c9ceeca7c95a936770ea9db611f5a841b926e33fbd",
+      "architectures": [
+        "XLMRobertaForSequenceClassification"
+      ],
+      "num_hidden_layers": 12
+    }
+  }
+}

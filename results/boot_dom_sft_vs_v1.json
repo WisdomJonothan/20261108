@@ -1,0 +1,25 @@
+{
+ "label": "SFT z1:1 vs V1 RRF (total, official domain-macro)",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.31660344205495583,
+ "candidate_macro": 0.33356418813377975,
+ "delta": 0.01696074607882392,
+ "query_bootstrap": {
+  "mean": 0.01702304188520251,
+  "ci_lo": 0.005518903079603472,
+  "ci_hi": 0.02895404697245768,
+  "p_gt_0": 0.9979
+ },
+ "domain_bootstrap": {
+  "mean": 0.01694038967314384,
+  "ci_lo": 0.005176511553985766,
+  "ci_hi": 0.02873082081060193,
+  "p_gt_0": 0.9977
+ },
+ "better": 169,
+ "worse": 106,
+ "iters": 10000,
+ "seed": 7
+}

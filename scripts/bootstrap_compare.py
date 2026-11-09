@@ -53,6 +53,9 @@ def main():
     ap.add_argument("--metric", default="nDCG@10")
     ap.add_argument("--iters", type=int, default=10000)
     ap.add_argument("--seed", type=int, default=7)
+    ap.add_argument("--stat", choices=["topic", "domain"], default="domain",
+                    help="official RETECO 1a statistic is 'domain' (mean within "
+                         "domain, then mean over the 13 domains)")
     ap.add_argument("--json", default=None)
     args = ap.parse_args()
 
@@ -71,16 +74,31 @@ def main():
     d_query = np.empty(args.iters)
     d_domain = np.empty(args.iters)
     dnames = list(domains)
+    dkeys = [np.asarray(domains[d]) for d in dnames]
+
+    def stat(x, pick_domains=None):
+        """domain-macro (official) or topic-macro over the selected units."""
+        if args.stat == "topic":
+            return x.mean()
+        if pick_domains is None:
+            return float(np.mean([x[ix].mean() for ix in dkeys]))
+        return float(np.mean([x[dkeys[j]].mean() for j in pick_domains]))
+
     for it in range(args.iters):
-        idx = rng.integers(0, n, n)
-        d_query[it] = b[idx].mean() - a[idx].mean()
+        if args.stat == "topic":
+            idx = rng.integers(0, n, n)
+            d_query[it] = b[idx].mean() - a[idx].mean()
+        else:
+            # query-level resampling *within* each domain, statistic stays domain-macro
+            da = np.empty(len(dnames))
+            db = np.empty(len(dnames))
+            for j, ix in enumerate(dkeys):
+                idx = rng.integers(0, len(ix), len(ix))
+                da[j] = a[ix][idx].mean()
+                db[j] = b[ix][idx].mean()
+            d_query[it] = db.mean() - da.mean()
         pick = rng.integers(0, len(dnames), len(dnames))
-        vals_a, vals_b = [], []
-        for j in pick:
-            ix = domains[dnames[j]]
-            vals_a.append(a[ix].mean())
-            vals_b.append(b[ix].mean())
-        d_domain[it] = np.mean(vals_b) - np.mean(vals_a)
+        d_domain[it] = stat(b, pick) - stat(a, pick)
 
     def rep(name, base, delta):
         lo, hi = np.percentile(delta, [2.5, 97.5])
@@ -90,10 +108,12 @@ def main():
                 "p_gt_0": float((delta > 0).mean())}
 
     print(f"{args.label}: {len(keys)} topics, {len(domains)} domains")
-    print(f"  base topic-macro = {a.mean():.4f}   candidate topic-macro = {b.mean():.4f}   "
-          f"observed Δ = {b.mean() - a.mean():+.4f}")
-    q = rep("query bootstrap", a.mean(), d_query)
-    d = rep("domain-clustered bootstrap", a.mean(), d_domain)
+    base = stat(a); cand = stat(b)
+    label = "domain-macro (official)" if args.stat == "domain" else "topic-macro"
+    print(f"  statistic = {label}")
+    print(f"  base {label} = {base:.4f}   candidate = {cand:.4f}   observed Δ = {cand - base:+.4f}")
+    q = rep("query bootstrap", base, d_query)
+    d = rep("domain-clustered bootstrap", base, d_domain)
     better = sum(1 for i in range(n) if b[i] > a[i] + 1e-12)
     worse = sum(1 for i in range(n) if b[i] < a[i] - 1e-12)
     print(f"  per-topic: better {better}, worse {worse}, tied {n - better - worse}")
@@ -103,8 +123,9 @@ def main():
         os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
         with open(out, "w", encoding="utf-8") as f:
             json.dump({"label": args.label, "topics": n, "domains": len(domains),
-                       "baseline_macro": float(a.mean()), "candidate_macro": float(b.mean()),
-                       "delta": float(b.mean() - a.mean()), "query_bootstrap": q,
+                       "statistic": label,
+                       "baseline_macro": float(base), "candidate_macro": float(cand),
+                       "delta": float(cand - base), "query_bootstrap": q,
                        "domain_bootstrap": d, "better": better, "worse": worse,
                        "iters": args.iters, "seed": args.seed}, f, indent=1)
         print(f"-> {out}")

@@ -1,0 +1,25 @@
+{
+ "label": "z1:1 zero-shot vs V1 RRF (official domain-macro)",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.31660344205495583,
+ "candidate_macro": 0.3249073917275941,
+ "delta": 0.008303949672638256,
+ "query_bootstrap": {
+  "mean": 0.008360612846326932,
+  "ci_lo": -0.0010183456249330176,
+  "ci_hi": 0.01788002242624367,
+  "p_gt_0": 0.9593
+ },
+ "domain_bootstrap": {
+  "mean": 0.008303265549482736,
+  "ci_lo": -0.0015408652716711782,
+  "ci_hi": 0.0187615272380149,
+  "p_gt_0": 0.9496
+ },
+ "better": 134,
+ "worse": 116,
+ "iters": 10000,
+ "seed": 7
+}

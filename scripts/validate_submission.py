@@ -134,11 +134,40 @@ def check_run(path, split, examples_pattern, detie):
 
     if detie and tie_topics:
         out = detie.format(domain=domain, split=run_split)
+        # ordinal de-tie: only break exact ties, keep the rank order the source run
+        # already has.  A fixed 1e-9*rank offset is invisible next to the -1e9
+        # padding sentinel, so the step must scale with the score magnitude.
+        fixed = {}
+        for qid, rows in topics.items():
+            prev = None
+            out_rows = []
+            for rank, score, docid in rows:
+                if prev is not None and score >= prev:
+                    score = prev - max(1e-9, abs(prev) * 1e-9)
+                prev = score
+                out_rows.append((rank, score, docid))
+            fixed[qid] = out_rows
         with open(out, "w", encoding="utf-8", newline="\n") as f:
-            for qid, rows in topics.items():
+            for qid, rows in fixed.items():
                 for rank, score, docid in rows:
-                    f.write(f"{qid}\tQ0\t{docid}\t{rank}\t{score - 1e-9 * rank:.9f}\trrf\n")
-        warnings.append(f"de-tied copy written to {out}")
+                    f.write(f"{qid}	Q0	{docid}	{rank}	{score:.9f}	rrf\n")
+        reparsed = {}
+        with open(out, encoding="utf-8") as f:
+            for ln in f:
+                qid, _q0, docid, rank, score, _tag = ln.split()
+                reparsed.setdefault(qid, []).append((int(rank), float(score), docid))
+        if set(reparsed) != set(topics):
+            errors.append("de-tied file: topic set differs from the source run")
+        for qid, rows2 in reparsed.items():
+            rows2.sort(key=lambda r: r[0])
+            sc = [r[1] for r in rows2]
+            if any(s != s for s in sc):
+                errors.append("de-tied " + qid + ": non-finite score")
+                break
+            if any(sc[i] <= sc[i + 1] for i in range(len(sc) - 1)):
+                errors.append("de-tied " + qid + ": scores not strictly decreasing")
+                break
+        warnings.append("de-tied copy written and re-validated: " + out)
 
     return {"run": os.path.relpath(path, ROOT), "domain": domain, "split": run_split,
             "topics": len(topics), "lines": sum(len(v) for v in topics.values()),

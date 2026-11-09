@@ -76,6 +76,10 @@ def main():
     ap.add_argument("--ce-pattern", default="runs/rerank_mxbai_{domain}_%s.trec")
     ap.add_argument("--k", type=int, default=100)
     ap.add_argument("--forms", nargs="+", default=["rrf", "z"])
+    ap.add_argument("--select-metric", choices=["domain_macro", "topic_macro"],
+                    default="domain_macro",
+                    help="official RETECO 1a aggregation is domain-macro "
+                         "(mean within domain, then mean over the 13 domains)")
     ap.add_argument("--out", default="results/fusion_fit_train.json")
     args = ap.parse_args()
 
@@ -122,7 +126,7 @@ def main():
                      "domain_macro": float(np.mean([np.mean(v) for v in per_dom.values()])),
                      "n": len(vals),
                      "per_domain": {k: float(np.mean(v)) for k, v in per_dom.items()}})
-    rows.sort(key=lambda r: -r["topic_macro"])
+    rows.sort(key=lambda r: -r[args.select_metric])
 
     print(f"train: {topics} topics, {len(doms)-len(skipped)} domains"
           + (f", skipped {skipped}" if skipped else ""))
@@ -136,6 +140,7 @@ def main():
     os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
     with open(out, "w", encoding="utf-8") as f:
         json.dump({"split": args.split, "topics": topics, "skipped_domains": skipped,
+                   "select_metric": args.select_metric,
                    "candidates": rows, "best": best}, f, indent=1)
     print(f"-> {out}")
 

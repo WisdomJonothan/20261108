@@ -76,6 +76,9 @@ def main():
     ap.add_argument("--split", default="dev")
     ap.add_argument("--json", required=True)
     ap.add_argument("--tag", default="")
+    ap.add_argument("--allow-missing", action="store_true",
+                    help="score only the topics present in the run (default: count "
+                         "missing topics as 0, which is what the leaderboard does)")
     args = ap.parse_args()
 
     qrels = load_qrels(args.data, args.split)
@@ -117,6 +120,17 @@ def main():
             row["TC@10"] = sum(1 for gs in pg if top & set(gs)) / len(pg)
         per_query[q] = row
 
+    if not args.allow_missing:
+        zero = {k: 0.0 for k in ("nDCG@10", "Rec@10", "Rec@100", "Rec@1000",
+                                "oracle@10_cand_all", "oracle@10_cand100",
+                                "TR@10", "TP@10", "TC@10")}
+        for q in missing:
+            row = dict(zero)
+            row["num_gold"] = len(qrels[q])
+            row["num_candidates"] = 0
+            row["missing_topic"] = True
+            per_query[q] = row
+
     def mean(key):
         vals = [r[key] for r in per_query.values() if r.get(key) is not None]
         return sum(vals) / len(vals) if vals else None
@@ -126,8 +140,10 @@ def main():
         "run_file": os.path.abspath(args.run),
         "data": os.path.abspath(args.data),
         "split": args.split,
-        "num_topics": len(qids),
-        "topics_missing_from_run": missing,
+        "num_topics": len(qrels),
+        "num_topics_in_run": len(qids),
+        "topics_missing_from_run": sorted(missing),
+        "missing_counted_as_zero": not args.allow_missing,
         "nDCG@10": mean("nDCG@10"),
         "Recall@10": mean("Rec@10"),
         "Recall@100": mean("Rec@100"),
