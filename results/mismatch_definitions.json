@@ -1,0 +1,104 @@
+{
+ "per_domain": {
+  "bitcoin": {
+   "gold": 16,
+   "with_year": 3,
+   "mismatch_def1": 3,
+   "mismatch_def2": 3,
+   "changed": 0
+  },
+  "cardano": {
+   "gold": 1,
+   "with_year": 0,
+   "mismatch_def1": 0,
+   "mismatch_def2": 0,
+   "changed": 0
+  },
+  "economics": {
+   "gold": 34,
+   "with_year": 16,
+   "mismatch_def1": 5,
+   "mismatch_def2": 4,
+   "changed": 1
+  },
+  "genealogy": {
+   "gold": 44,
+   "with_year": 16,
+   "mismatch_def1": 9,
+   "mismatch_def2": 5,
+   "changed": 4
+  },
+  "history": {
+   "gold": 401,
+   "with_year": 158,
+   "mismatch_def1": 82,
+   "mismatch_def2": 45,
+   "changed": 37
+  },
+  "hsm": {
+   "gold": 26,
+   "with_year": 4,
+   "mismatch_def1": 4,
+   "mismatch_def2": 4,
+   "changed": 0
+  },
+  "iota": {
+   "gold": 3,
+   "with_year": 0,
+   "mismatch_def1": 0,
+   "mismatch_def2": 0,
+   "changed": 0
+  },
+  "law": {
+   "gold": 6,
+   "with_year": 2,
+   "mismatch_def1": 2,
+   "mismatch_def2": 0,
+   "changed": 2
+  },
+  "monero": {
+   "gold": 8,
+   "with_year": 5,
+   "mismatch_def1": 0,
+   "mismatch_def2": 0,
+   "changed": 0
+  },
+  "politics": {
+   "gold": 65,
+   "with_year": 33,
+   "mismatch_def1": 12,
+   "mismatch_def2": 11,
+   "changed": 1
+  },
+  "quant": {
+   "gold": 7,
+   "with_year": 1,
+   "mismatch_def1": 0,
+   "mismatch_def2": 0,
+   "changed": 0
+  },
+  "travel": {
+   "gold": 19,
+   "with_year": 8,
+   "mismatch_def1": 3,
+   "mismatch_def2": 1,
+   "changed": 2
+  },
+  "workplace": {
+   "gold": 2,
+   "with_year": 0,
+   "mismatch_def1": 0,
+   "mismatch_def2": 0,
+   "changed": 0
+  }
+ },
+ "total": {
+  "gold": 632,
+  "with_year": 246,
+  "mismatch_def1": 120,
+  "mismatch_def2": 73,
+  "changed": 47,
+  "share_def1": 0.4878,
+  "share_def2": 0.2967
+ }
+}

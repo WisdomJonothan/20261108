@@ -85,8 +85,8 @@ def main():
 
     doms = args.domains or sorted(d for d in os.listdir(os.path.join(ROOT, "data", "track1_tempo"))
                                   if os.path.isdir(os.path.join(ROOT, "data", "track1_tempo", d)))
-    dense_pat = args.dense_pattern % args.split
-    ce_pat = args.ce_pattern % args.split
+    dense_pat = (args.dense_pattern % args.split) if "%s" in args.dense_pattern else args.dense_pattern
+    ce_pat = (args.ce_pattern % args.split) if "%s" in args.ce_pattern else args.ce_pattern
 
     # per-query nDCG@10 for every (form, weight)
     scores = {(f, w): {} for f in args.forms for w in WEIGHTS}

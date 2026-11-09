@@ -1,0 +1,57 @@
+{
+ "frame": {
+  "bitcoin": {
+   "mismatched_gold": 2,
+   "gold": 94
+  },
+  "cardano": {
+   "mismatched_gold": 0,
+   "gold": 43
+  },
+  "economics": {
+   "mismatched_gold": 4,
+   "gold": 95
+  },
+  "genealogy": {
+   "mismatched_gold": 9,
+   "gold": 94
+  },
+  "history": {
+   "mismatched_gold": 74,
+   "gold": 1010
+  },
+  "hsm": {
+   "mismatched_gold": 3,
+   "gold": 115
+  },
+  "iota": {
+   "mismatched_gold": 0,
+   "gold": 9
+  },
+  "law": {
+   "mismatched_gold": 2,
+   "gold": 29
+  },
+  "monero": {
+   "mismatched_gold": 0,
+   "gold": 47
+  },
+  "politics": {
+   "mismatched_gold": 10,
+   "gold": 124
+  },
+  "quant": {
+   "mismatched_gold": 0,
+   "gold": 21
+  },
+  "travel": {
+   "mismatched_gold": 3,
+   "gold": 73
+  },
+  "workplace": {
+   "mismatched_gold": 0,
+   "gold": 29
+  }
+ },
+ "items": 53
+}

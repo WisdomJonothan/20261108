@@ -1,0 +1,320 @@
+{
+ "742cb2e0cb15": {
+  "domain": "bitcoin",
+  "qid": "122143_23",
+  "docid": "bitcoin/3e43b34a_4546.txt",
+  "gap": 4
+ },
+ "d3fb447ba903": {
+  "domain": "bitcoin",
+  "qid": "120273_40",
+  "docid": "bitcoin/76ef704a_15147.txt",
+  "gap": 7
+ },
+ "72c23e365aad": {
+  "domain": "economics",
+  "qid": "45773_222",
+  "docid": "economics/bf3f7924_12572.txt",
+  "gap": 2
+ },
+ "213297b86f6f": {
+  "domain": "economics",
+  "qid": "45773_222",
+  "docid": "economics/5accfdd3_12568.txt",
+  "gap": 2
+ },
+ "b6d7a24ea0fa": {
+  "domain": "economics",
+  "qid": "49965_204",
+  "docid": "economics/243c0b6d_8773.txt",
+  "gap": 2
+ },
+ "29b1b645d035": {
+  "domain": "economics",
+  "qid": "45773_222",
+  "docid": "economics/a826ae85_12571.txt",
+  "gap": 7
+ },
+ "159a02fad6ae": {
+  "domain": "genealogy",
+  "qid": "18583_242",
+  "docid": "genealogy/cc1d1e3f_0723.txt",
+  "gap": 4
+ },
+ "32b22340c467": {
+  "domain": "genealogy",
+  "qid": "20587_234",
+  "docid": "genealogy/982d90f6_0001.txt",
+  "gap": 21
+ },
+ "38fd7d5e7271": {
+  "domain": "genealogy",
+  "qid": "13822_265",
+  "docid": "genealogy/5657b7c3_2787.txt",
+  "gap": 28
+ },
+ "eca73846d632": {
+  "domain": "genealogy",
+  "qid": "11831_299",
+  "docid": "genealogy/c29149c3_6835.txt",
+  "gap": 5
+ },
+ "ead9b3f3e39b": {
+  "domain": "genealogy",
+  "qid": "11831_299",
+  "docid": "genealogy/b64e2cb5_6833.txt",
+  "gap": 34
+ },
+ "aa4778f6a5a1": {
+  "domain": "genealogy",
+  "qid": "15729_253",
+  "docid": "genealogy/0fef204a_1907.txt",
+  "gap": 2
+ },
+ "9a16b1fc0752": {
+  "domain": "genealogy",
+  "qid": "13822_265",
+  "docid": "genealogy/bd7397a0_2788.txt",
+  "gap": 28
+ },
+ "6e2dd2570cd4": {
+  "domain": "genealogy",
+  "qid": "10634_305",
+  "docid": "genealogy/302edae0_7455.txt",
+  "gap": 3
+ },
+ "3f3dc7dc1dd1": {
+  "domain": "genealogy",
+  "qid": "3238_323",
+  "docid": "genealogy/6e7dd6e0_9336.txt",
+  "gap": 22
+ },
+ "eb9db27d140b": {
+  "domain": "history",
+  "qid": "68604_398",
+  "docid": "history/826a2e76_53713.txt",
+  "gap": 26
+ },
+ "38e69b11f18d": {
+  "domain": "history",
+  "qid": "57302_688",
+  "docid": "history/ebd2c1bd_97367.txt",
+  "gap": 87
+ },
+ "9909d600c1e0": {
+  "domain": "history",
+  "qid": "69544_344",
+  "docid": "history/85d45051_46990.txt",
+  "gap": 13
+ },
+ "fdb4a752628c": {
+  "domain": "history",
+  "qid": "76262_113",
+  "docid": "history/5072e1a0_15279.txt",
+  "gap": 118
+ },
+ "e5577cca42ac": {
+  "domain": "history",
+  "qid": "68211_423",
+  "docid": "history/6dcd4cd5_56371.txt",
+  "gap": 29
+ },
+ "8c849d9a01b4": {
+  "domain": "history",
+  "qid": "71222_231",
+  "docid": "history/5cbf0f8d_31977.txt",
+  "gap": 19
+ },
+ "159a7efaffc7": {
+  "domain": "history",
+  "qid": "70965_244",
+  "docid": "history/d3067e45_34118.txt",
+  "gap": 22
+ },
+ "0be1460344c5": {
+  "domain": "history",
+  "qid": "72186_175",
+  "docid": "history/7c067181_23913.txt",
+  "gap": 16
+ },
+ "9bdfdb0a0141": {
+  "domain": "history",
+  "qid": "78907_21",
+  "docid": "history/47cf047c_2042.txt",
+  "gap": 48
+ },
+ "8fd0d3723f3e": {
+  "domain": "history",
+  "qid": "76328_109",
+  "docid": "history/70a23ea5_14920.txt",
+  "gap": 112
+ },
+ "fa2287343043": {
+  "domain": "history",
+  "qid": "68604_398",
+  "docid": "history/f37f62f9_53715.txt",
+  "gap": 5
+ },
+ "91f1ac007444": {
+  "domain": "history",
+  "qid": "67980_431",
+  "docid": "history/47903425_58068.txt",
+  "gap": 2
+ },
+ "afa1fbf446fb": {
+  "domain": "history",
+  "qid": "76328_109",
+  "docid": "history/33c8203c_14919.txt",
+  "gap": 72
+ },
+ "bfc16b4281d9": {
+  "domain": "history",
+  "qid": "72552_154",
+  "docid": "history/1a51d06a_20682.txt",
+  "gap": 56
+ },
+ "63796c0082a4": {
+  "domain": "history",
+  "qid": "70544_278",
+  "docid": "history/4888178f_38671.txt",
+  "gap": 54
+ },
+ "93f573e0f2a9": {
+  "domain": "history",
+  "qid": "64604_517",
+  "docid": "history/fa55fcc6_71406.txt",
+  "gap": 5
+ },
+ "8ed8cbe98d6d": {
+  "domain": "history",
+  "qid": "68107_426",
+  "docid": "history/1f3d6092_57177.txt",
+  "gap": 58
+ },
+ "70383e8f612f": {
+  "domain": "history",
+  "qid": "56089_769",
+  "docid": "history/66e339cf_107865.txt",
+  "gap": 40
+ },
+ "1bed77e8386a": {
+  "domain": "history",
+  "qid": "64604_517",
+  "docid": "history/d356cd1c_71410.txt",
+  "gap": 5
+ },
+ "bfcee33f6eb4": {
+  "domain": "history",
+  "qid": "70131_301",
+  "docid": "history/378e7714_41432.txt",
+  "gap": 14
+ },
+ "121202499959": {
+  "domain": "hsm",
+  "qid": "13304_724",
+  "docid": "hsm/ca478ff8_10304.txt",
+  "gap": 125
+ },
+ "83d8504f022d": {
+  "domain": "hsm",
+  "qid": "3035_775",
+  "docid": "hsm/d93cb5a6_18202.txt",
+  "gap": 37
+ },
+ "7414ac27de67": {
+  "domain": "hsm",
+  "qid": "13367_721",
+  "docid": "hsm/429e3e52_10038.txt",
+  "gap": 8
+ },
+ "14cb07ad233b": {
+  "domain": "law",
+  "qid": "102997_839",
+  "docid": "law/2bea760e_7705.txt",
+  "gap": 13
+ },
+ "52472c30a0a4": {
+  "domain": "law",
+  "qid": "102997_839",
+  "docid": "law/049316d9_7708.txt",
+  "gap": 13
+ },
+ "595aa90c24eb": {
+  "domain": "politics",
+  "qid": "89482_949",
+  "docid": "politics/8c259589_9723.txt",
+  "gap": 4
+ },
+ "a8654725b930": {
+  "domain": "politics",
+  "qid": "88444_960",
+  "docid": "politics/9934027d_12031.txt",
+  "gap": 56
+ },
+ "d1e7ea595c2c": {
+  "domain": "politics",
+  "qid": "89482_949",
+  "docid": "politics/ae21e44c_9722.txt",
+  "gap": 6
+ },
+ "bc87872f82c8": {
+  "domain": "politics",
+  "qid": "89978_941",
+  "docid": "politics/4b7c127c_8325.txt",
+  "gap": 32
+ },
+ "029274d301ca": {
+  "domain": "politics",
+  "qid": "77716_1030",
+  "docid": "politics/981aef27_25156.txt",
+  "gap": 96
+ },
+ "1fd3ea92361c": {
+  "domain": "politics",
+  "qid": "74392_1052",
+  "docid": "politics/612a7006_29774.txt",
+  "gap": 2
+ },
+ "4a1047b885cd": {
+  "domain": "politics",
+  "qid": "77995_1024",
+  "docid": "politics/4ba060f6_23851.txt",
+  "gap": 5
+ },
+ "fbf2f23b0020": {
+  "domain": "politics",
+  "qid": "74412_1051",
+  "docid": "politics/9bc139ca_29622.txt",
+  "gap": 2
+ },
+ "9e113b924158": {
+  "domain": "politics",
+  "qid": "89697_946",
+  "docid": "politics/043fd27a_9095.txt",
+  "gap": 4
+ },
+ "4199fc5e42a1": {
+  "domain": "politics",
+  "qid": "74412_1051",
+  "docid": "politics/22c37c85_29621.txt",
+  "gap": 2
+ },
+ "22df87440f76": {
+  "domain": "travel",
+  "qid": "184305_1185",
+  "docid": "travel/7db1db13_23634.txt",
+  "gap": 2
+ },
+ "da692a21c566": {
+  "domain": "travel",
+  "qid": "184305_1185",
+  "docid": "travel/8e797ea7_23635.txt",
+  "gap": 2
+ },
+ "cdea5567ac4d": {
+  "domain": "travel",
+  "qid": "183966_1189",
+  "docid": "travel/1cd7d0ce_24380.txt",
+  "gap": 2
+ }
+}

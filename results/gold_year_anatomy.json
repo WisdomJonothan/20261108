@@ -1,0 +1,144 @@
+{
+ "split": "dev",
+ "per_domain": {
+  "bitcoin": {
+   "queries": 30,
+   "gold": 94,
+   "with_year": 17,
+   "consistent": 0,
+   "mismatch": 3,
+   "no_interval": 24,
+   "mismatch_frac_of_years": 0.1765,
+   "year_frac_of_gold": 0.1809
+  },
+  "cardano": {
+   "queries": 15,
+   "gold": 43,
+   "with_year": 3,
+   "consistent": 0,
+   "mismatch": 0,
+   "no_interval": 14,
+   "mismatch_frac_of_years": 0.0,
+   "year_frac_of_gold": 0.0698
+  },
+  "economics": {
+   "queries": 25,
+   "gold": 95,
+   "with_year": 38,
+   "consistent": 11,
+   "mismatch": 5,
+   "no_interval": 16,
+   "mismatch_frac_of_years": 0.1316,
+   "year_frac_of_gold": 0.4
+  },
+  "genealogy": {
+   "queries": 35,
+   "gold": 94,
+   "with_year": 23,
+   "consistent": 7,
+   "mismatch": 9,
+   "no_interval": 18,
+   "mismatch_frac_of_years": 0.3913,
+   "year_frac_of_gold": 0.2447
+  },
+  "history": {
+   "queries": 240,
+   "gold": 1010,
+   "with_year": 283,
+   "consistent": 76,
+   "mismatch": 82,
+   "no_interval": 142,
+   "mismatch_frac_of_years": 0.2898,
+   "year_frac_of_gold": 0.2802
+  },
+  "hsm": {
+   "queries": 45,
+   "gold": 115,
+   "with_year": 13,
+   "consistent": 0,
+   "mismatch": 4,
+   "no_interval": 35,
+   "mismatch_frac_of_years": 0.3077,
+   "year_frac_of_gold": 0.113
+  },
+  "iota": {
+   "queries": 3,
+   "gold": 9,
+   "with_year": 3,
+   "consistent": 0,
+   "mismatch": 0,
+   "no_interval": 2,
+   "mismatch_frac_of_years": 0.0,
+   "year_frac_of_gold": 0.3333
+  },
+  "law": {
+   "queries": 11,
+   "gold": 29,
+   "with_year": 10,
+   "consistent": 0,
+   "mismatch": 2,
+   "no_interval": 9,
+   "mismatch_frac_of_years": 0.2,
+   "year_frac_of_gold": 0.3448
+  },
+  "monero": {
+   "queries": 19,
+   "gold": 47,
+   "with_year": 10,
+   "consistent": 5,
+   "mismatch": 0,
+   "no_interval": 15,
+   "mismatch_frac_of_years": 0.0,
+   "year_frac_of_gold": 0.2128
+  },
+  "politics": {
+   "queries": 45,
+   "gold": 124,
+   "with_year": 55,
+   "consistent": 21,
+   "mismatch": 12,
+   "no_interval": 19,
+   "mismatch_frac_of_years": 0.2182,
+   "year_frac_of_gold": 0.4435
+  },
+  "quant": {
+   "queries": 10,
+   "gold": 21,
+   "with_year": 1,
+   "consistent": 1,
+   "mismatch": 0,
+   "no_interval": 7,
+   "mismatch_frac_of_years": 0.0,
+   "year_frac_of_gold": 0.0476
+  },
+  "travel": {
+   "queries": 30,
+   "gold": 73,
+   "with_year": 14,
+   "consistent": 5,
+   "mismatch": 3,
+   "no_interval": 22,
+   "mismatch_frac_of_years": 0.2143,
+   "year_frac_of_gold": 0.1918
+  },
+  "workplace": {
+   "queries": 11,
+   "gold": 29,
+   "with_year": 5,
+   "consistent": 0,
+   "mismatch": 0,
+   "no_interval": 10,
+   "mismatch_frac_of_years": 0.0,
+   "year_frac_of_gold": 0.1724
+  }
+ },
+ "total": {
+  "gold": 1783,
+  "with_year": 475,
+  "consistent": 126,
+  "mismatch": 120,
+  "no_interval": 333,
+  "year_frac_of_gold": 0.2664,
+  "mismatch_frac_of_years": 0.2526
+ }
+}

@@ -30,7 +30,7 @@ def main():
                 keep.append(json.loads(line)["id"])
     run = read_trec_run(a.run)
     missing = [q for q in keep if q not in run]
-    out = {q: run[q] for q in keep if q in run}
+    out = {q: [(d, s) for _r, s, d in run[q]] for q in keep if q in run}
     write_trec_run(a.out, out, tag="subset")
     print(json.dumps({"kept": len(out), "requested": len(keep),
                       "missing": missing, "out": a.out}))

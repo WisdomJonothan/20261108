@@ -1,0 +1,25 @@
+{
+ "label": "SFT e2b vs ZS at rrf 1:4",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.29810451120521986,
+ "candidate_macro": 0.3186888963974842,
+ "delta": 0.020584385192264354,
+ "query_bootstrap": {
+  "mean": 0.020570637268742507,
+  "ci_lo": -0.003727386964942145,
+  "ci_hi": 0.04352662275769213,
+  "p_gt_0": 0.9506
+ },
+ "domain_bootstrap": {
+  "mean": 0.020490332191565166,
+  "ci_lo": 0.0009866833018811268,
+  "ci_hi": 0.040420557882849206,
+  "p_gt_0": 0.9803
+ },
+ "better": 181,
+ "worse": 122,
+ "iters": 10000,
+ "seed": 7
+}

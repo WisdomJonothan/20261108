@@ -1,0 +1,113 @@
+{
+ "tag": "sft_e2b_ce",
+ "metric": "nDCG@10",
+ "domains": [
+  {
+   "domain": "bitcoin",
+   "n": 30,
+   "n_in_run": 30,
+   "ndcg10": 0.20916067759560286,
+   "file": "results\\score_ce_sft_e2b_bitcoin_dev.json"
+  },
+  {
+   "domain": "cardano",
+   "n": 15,
+   "n_in_run": 15,
+   "ndcg10": 0.20715328180784176,
+   "file": "results\\score_ce_sft_e2b_cardano_dev.json"
+  },
+  {
+   "domain": "economics",
+   "n": 25,
+   "n_in_run": 25,
+   "ndcg10": 0.14432967855937814,
+   "file": "results\\score_ce_sft_e2b_economics_dev.json"
+  },
+  {
+   "domain": "genealogy",
+   "n": 35,
+   "n_in_run": 35,
+   "ndcg10": 0.287874120721323,
+   "file": "results\\score_ce_sft_e2b_genealogy_dev.json"
+  },
+  {
+   "domain": "history",
+   "n": 240,
+   "n_in_run": 240,
+   "ndcg10": 0.37534188949060027,
+   "file": "results\\score_ce_sft_e2b_history_dev.json"
+  },
+  {
+   "domain": "hsm",
+   "n": 45,
+   "n_in_run": 45,
+   "ndcg10": 0.4806333020862569,
+   "file": "results\\score_ce_sft_e2b_hsm_dev.json"
+  },
+  {
+   "domain": "iota",
+   "n": 3,
+   "n_in_run": 3,
+   "ndcg10": 0.5745894902451275,
+   "file": "results\\score_ce_sft_e2b_iota_dev.json"
+  },
+  {
+   "domain": "law",
+   "n": 11,
+   "n_in_run": 11,
+   "ndcg10": 0.19589769154539977,
+   "file": "results\\score_ce_sft_e2b_law_dev.json"
+  },
+  {
+   "domain": "monero",
+   "n": 19,
+   "n_in_run": 19,
+   "ndcg10": 0.16242616995582987,
+   "file": "results\\score_ce_sft_e2b_monero_dev.json"
+  },
+  {
+   "domain": "politics",
+   "n": 45,
+   "n_in_run": 45,
+   "ndcg10": 0.32789677063250483,
+   "file": "results\\score_ce_sft_e2b_politics_dev.json"
+  },
+  {
+   "domain": "quant",
+   "n": 10,
+   "n_in_run": 10,
+   "ndcg10": 0.0515694575115067,
+   "file": "results\\score_ce_sft_e2b_quant_dev.json"
+  },
+  {
+   "domain": "travel",
+   "n": 30,
+   "n_in_run": 30,
+   "ndcg10": 0.21916255030872125,
+   "file": "results\\score_ce_sft_e2b_travel_dev.json"
+  },
+  {
+   "domain": "workplace",
+   "n": 11,
+   "n_in_run": 11,
+   "ndcg10": 0.34225358747407136,
+   "file": "results\\score_ce_sft_e2b_workplace_dev.json"
+  }
+ ],
+ "num_domains": 13,
+ "num_topics": 519,
+ "topic_macro": 0.3224507964311982,
+ "domain_macro": 0.2752529744564742,
+ "topic_macro_n_ge_19": 0.3328049829543914,
+ "domain_macro_n_ge_19": 0.2758531449187771,
+ "domains_n_ge_19": [
+  "bitcoin",
+  "economics",
+  "genealogy",
+  "history",
+  "hsm",
+  "monero",
+  "politics",
+  "travel"
+ ]
+}

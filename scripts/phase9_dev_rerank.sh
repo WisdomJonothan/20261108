@@ -6,6 +6,7 @@
 set -u
 cd "$(dirname "$0")/.."
 PY=${PY:-/d/anaconda/python.exe}; export PYTHONUTF8=1
+export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
 CKPT=${CKPT:?pass CKPT=path/to/checkpoint}
 TAG=${TAG:?pass TAG=name}
 LOG=logs/phase9_dev_rerank_${TAG}.log

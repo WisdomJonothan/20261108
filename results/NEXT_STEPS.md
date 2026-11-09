@@ -1,9 +1,14 @@
-# Next steps — decision record (2026-11-09)
-
-Status: dev-only, frozen best = `runs/sub_sft_e2bc_*` (domain-macro 0.3581;
-the 1-epoch arm `sub_sft11_*` at 0.3336 is kept as the ablation). Every
-number below is the **official domain-macro** metric (per-query nDCG@10, mean
-within domain, mean over 13 domains; missing topics = 0).
+> **Phase 11 status (2026-11-09, night).** The out-of-fold refit was rerun with the
+> correct base model (`bge-reranker-v2-m3`, 567.8 M) after the wrong-base incident,
+> for the 1-epoch (`e1b`) and 2-epoch (`e2b`) recipes. Both fits chose RRF dense:CE
+> = 1:4 on 45 held-out train queries. Dev: at RRF 1:4, SFT 0.3074 (e1b) / 0.3187
+> (e2b) vs zero-shot 0.2981 (+0.0094 and +0.0205, domain CIs above zero); at
+> RRF 1:1, e2b reaches **0.3431** vs 0.3166 (+0.0265 [+0.0052,+0.0473]). The
+> literal pre-registered bar — SFT at the OOF weight vs the zero-shot best form
+> (0.3249) — is not met (e2b 0.3187), and the frozen 0.3581 does not reproduce on
+> a fresh checkpoint (z 1:1 0.3196). The SFT arm's advantage is real at a fixed
+> form; the z 1:1 fusion form is the fragile part. See
+> `results/PHASE11_VALIDATION.md`.
 
 ## 1. Where the system stands
 

@@ -53,12 +53,27 @@ queries score 0. `iota` (3 dev queries) therefore weighs as much as `history`
 (240). `topic-macro` (519-query mean) is reported as a diagnostic only. Both
 are computed by `scripts/aggregate_scores.py`; every table states which it uses.
 
-| frozen system, dev (519 queries, 13 domains) | domain-macro (official) | topic-macro |
+| system, dev (519 queries, 13 domains) | domain-macro (official) | topic-macro |
 |---|---:|---:|
-| **dense mxbai + SFT CE (2 epochs), z 1:1** | **0.3581** | 0.3644 |
+| **dense mxbai + SFT CE (2 epochs), RRF 1:1 (reproducible)** | **0.3431** | 0.3433 |
+| same recipe, fresh checkpoint, weight fitted out-of-fold (RRF 1:4) | 0.3187 | 0.3442 |
+| same recipe, fresh checkpoint, z 1:1 | 0.3196 | 0.3444 |
+| dense mxbai + SFT CE (2 epochs), z 1:1 (dev-selected form, prior checkpoint) | 0.3581 | 0.3644 |
 | same arm, second seed (replication) | 0.3527 | 0.3624 |
 | dense + zero-shot CE, z 1:1 | 0.3249 | 0.3260 |
 | dense + zero-shot CE, RRF 1:1 (V1, first release) | 0.3166 | 0.3199 |
+
+> **Phase 11 correction (2026-11-09).** The 0.3581 headline does not reproduce on
+> a fresh checkpoint of the same fine-tuning recipe: with 45 training queries held
+> out for the fusion fit, the checkpoint scores 0.3196 at z 1:1 and 0.3431 at the
+> RRF 1:1 form that was fixed for V1 before any fine-tuning existed — so the
+> z-normalised fusion, not the reranker, is what varies across checkpoints. The
+> fine-tuned reranker is still clearly better than the zero-shot one at a fixed
+> fusion form (+0.0265 at RRF 1:1, domain CI [+0.0052,+0.0473]; +0.0205 at the
+> out-of-fold weight, CI [+0.0010,+0.0404]). The reproducible system number is
+> **0.3431**; 0.3336/0.3581 are kept as dev-selected fusion forms of their
+> checkpoints. Full protocol, numbers and the wrong-base-model incident are in
+> [`results/PHASE11_VALIDATION.md`](results/PHASE11_VALIDATION.md).
 
 Official Track-1a dev BM25 baseline is **0.1147**, i.e. the frozen system is ≈3.1× the
 official lexical baseline. TEMPO's best reported system (32.0) is on a different

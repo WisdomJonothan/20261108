@@ -1,0 +1,25 @@
+{
+ "label": "SFT vs zero-shot at rrf 1:4",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.29810451120521986,
+ "candidate_macro": 0.3074258576144543,
+ "delta": 0.009321346409234432,
+ "query_bootstrap": {
+  "mean": 0.00931058971317767,
+  "ci_lo": 9.341527982151135e-05,
+  "ci_hi": 0.019340563487563352,
+  "p_gt_0": 0.9759
+ },
+ "domain_bootstrap": {
+  "mean": 0.009353729352851774,
+  "ci_lo": 0.0008449801306164205,
+  "ci_hi": 0.019052907304896914,
+  "p_gt_0": 0.9853
+ },
+ "better": 112,
+ "worse": 79,
+ "iters": 10000,
+ "seed": 7
+}

@@ -1,0 +1,96 @@
+{
+ "n_items": 53,
+ "n_coded": 53,
+ "missing": [],
+ "mechanism_distribution": {
+  "retrospective": 23,
+  "incidental_year": 14,
+  "continuing": 13,
+  "period_shift": 2,
+  "wrong_time": 1
+ },
+ "mechanism_share": {
+  "retrospective": 0.434,
+  "incidental_year": 0.2642,
+  "continuing": 0.2453,
+  "period_shift": 0.0377,
+  "wrong_time": 0.0189
+ },
+ "confidence": {
+  "2": 35,
+  "3": 18
+ },
+ "by_domain": {
+  "history": {
+   "retrospective": 14,
+   "incidental_year": 6
+  },
+  "genealogy": {
+   "continuing": 4,
+   "retrospective": 4,
+   "incidental_year": 1
+  },
+  "law": {
+   "incidental_year": 1,
+   "continuing": 1
+  },
+  "politics": {
+   "incidental_year": 3,
+   "continuing": 1,
+   "period_shift": 2,
+   "retrospective": 3,
+   "wrong_time": 1
+  },
+  "travel": {
+   "continuing": 3
+  },
+  "hsm": {
+   "incidental_year": 1,
+   "retrospective": 2
+  },
+  "bitcoin": {
+   "incidental_year": 1,
+   "continuing": 1
+  },
+  "economics": {
+   "continuing": 3,
+   "incidental_year": 1
+  }
+ },
+ "def2_strict": {
+  "n": 35,
+  "mechanism_distribution": {
+   "retrospective": 13,
+   "incidental_year": 11,
+   "continuing": 8,
+   "period_shift": 2,
+   "wrong_time": 1
+  },
+  "mechanism_share": {
+   "retrospective": 0.3714,
+   "incidental_year": 0.3143,
+   "continuing": 0.2286,
+   "period_shift": 0.0571,
+   "wrong_time": 0.0286
+  }
+ },
+ "agreement": {
+  "n": 20,
+  "observed": 0.9,
+  "cohen_kappa": 0.8406,
+  "disagreements": [
+   {
+    "item_id": "159a02fad6ae",
+    "pass1": "continuing",
+    "pass2": "retrospective",
+    "domain": "genealogy"
+   },
+   {
+    "item_id": "742cb2e0cb15",
+    "pass1": "incidental_year",
+    "pass2": "retrospective",
+    "domain": "bitcoin"
+   }
+  ]
+ }
+}
