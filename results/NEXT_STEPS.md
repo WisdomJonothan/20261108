@@ -78,8 +78,10 @@ doc in the top-100 at all** (`results/DEV_ERROR_ANALYSIS.md`).
    κ = 0.84; retrospective 13, incidental_year 11, continuing 8, period_shift 2,
    wrong_time 1 — only 1/35 is genuinely about another period, which turns
    "mismatch is not irrelevance" from an inference into a table.
-6. *Rerun the temporal-ceiling analysis on the submitted mxbai top-100* (the
-   file currently analyses bge-base candidates) and fix its 6/8 vs 7/8 miscount.
+6. *Temporal-ceiling analysis on the submitted mxbai top-100* — **DONE**:
+   `results/TEMPORAL_CEILING.md` now uses the deployed mxbai candidates, the
+   6/8 vs 7/8 miscount is fixed (oracle lowers nDCG in 7 of 8 domains), and a
+   provenance section records the correction.
 
 **Kill list (do not spend time on):** per-domain fusion weights (fitted on
 train: negative), the 1.5B reranker (OOM risk on 8 GB, expected +~0.002), more

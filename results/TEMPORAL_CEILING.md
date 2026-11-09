@@ -66,3 +66,38 @@ table showed 7 and 6). Both are fixed above; the conclusion is unchanged and now
 holds on the deployed candidate set. The ceiling is an *upper bound* over
 candidate orderings only — it says nothing about recall, and it is measured on
 the 169 anchored queries of 8 domains, not on all 519.
+
+## What the mismatched gold documents actually are (2026-11-09)
+
+The `mismatch rate` column is a *definition*, not a fact, so we coded a sample
+by hand (`results/MISMATCH_ANNOTATION.md`, sheet and labels in
+`results/mismatch/`). 53 blinded items, four independent coders, two of them
+double-coding the same 20 items (Cohen's κ = 0.84).
+
+Two definitions are in play:
+
+* **def1** — the query interval is built from its *largest* year (what
+  `temporal_ceiling.py` and `hardneg_mine.py` use); it flags **120 / 246**
+  year-bearing dev gold documents (48.8%).
+* **def2** — the interval spans `[min year − 1, max year + 1]` when the query
+  names several years; it flags **73 / 246** (29.7%). 47 documents change side.
+
+18 of the 53 sampled items are def1 artefacts (the query names the document's
+own year, e.g. "What did X do in 2017?" against a 2017 document). On the
+remaining **35 strict mismatches**:
+
+| label | n | share |
+|---|---:|---:|
+| retrospective (mentions an older period as background) | 13 | 37.1% |
+| incidental_year (year mention is not the topic) | 11 | 31.4% |
+| continuing (mechanism still current, one dated event) | 8 | 22.9% |
+| period_shift (answers a different period) | 2 | 5.7% |
+| wrong_time (genuinely the wrong period) | 1 | 2.9% |
+
+So **34 of 35 year-mismatched gold documents are still correct answers**, and
+the ceiling's mismatch column over-states genuine period mismatch by roughly
+19 percentage points (48.8% vs 29.7%). This is the empirical mechanism behind
+the table above: an oracle that demotes "inconsistent" documents demotes gold.
+The only temporal lever that could still work needs *event-time* extraction
+from prose (what the document asserts happened when), not publication-year
+matching — which is exactly the signal the benchmark does not expose.
