@@ -644,3 +644,22 @@ out-of-fold 拟合）时，`scripts/phase11_sft_oof.sh` 调用 `train_ce.py` **�
 
 - 种子复现：seed 23/29（detached 运行中），出来后填 `results/SEED_REPLICATION.md`。
 - 论文 `docs/PAPER_DRAFT.md` 已改以 2-epoch 臂为主角（摘要/表 2/表 3/§5.1/§5.2/§4 文字）。
+
+## 5m. Phase 14 — 种子复核（seed 29，2026-11-09）
+
+同日完成第二个训练种子的复核，协议跑之前就写进 `results/NEXT_STEPS.md`：
+平均 Δ ≥ +0.005、至少 2/3 个种子为正、域聚类 CI 排除 0。
+
+- 训练 `v2m3_pool8_e2s29`：与冻结算法规格相同（2 epoch、peak lr 1.5e-5、freeze 8/24、
+  max-pool 训练、最多 3 窗、max_len 320），只把 `--seed` 改成 29。验证集
+  0.2846 → **0.3195**（epoch 1，best）→ 0.3054（epoch 2），选 checkpoint 规则与原始 run 一致。
+- dev（519 查询）：域宏 **0.3527**（seed 17 为 0.3581），对 zero-shot 融合基线
+  **+0.0278**，查询 CI [+0.0118,+0.0455]、域聚类 CI [+0.0159,+0.0404]，181/82/256；
+  12 域（去 iota）0.3123（则 Δ=+0.0291），n≥19 0.3232（Δ=+0.0247）。
+- 结论：**可复现**。两个种子的域聚类 CI 都排除 0，种子间差距 0.0054 远小于相对基线的
+  增益；iota（3 条查询）不承载效应。诚实主结论从 "+0.0332" 改为
+  **"+0.031 ± 0.003 over zero-shot"**，冻结系统仍报 seed 17 的 0.3581。
+- 产物：`results/REPLICATION.md`、`results/aggregate_sub_sft_e2s29_dev.json`、
+  `results/boot_dom_e2s29_vs_zs.json`、`runs/rerank_sft_e2s29_*_dev.trec`。
+- 工程教训（已在 NEXT_STEPS §6 固化）：宿主约 10 分钟会静默杀掉后台作业；8 GB GPU 上
+  任何加载模型的任务都不能与训练并行（本轮两次训练就是被并行的 watcher/复核任务打死的）。

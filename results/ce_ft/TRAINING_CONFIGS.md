@@ -41,3 +41,23 @@ PYTHONUTF8=1 /d/anaconda/python.exe scripts/train_ce.py --model models/bge-reran
   --freeze-layers 8 --window-mode max --max-windows 3 --max-len 320 --pool-chunk 32 \
   --epochs 1 --lr 1e-5 --seed 17 --tag v2m3_pool8_e1 --outdir results/ce_ft
 ```
+
+## Run `v2m3_pool8_e2s29` (seed replication, 2026-11-09)
+
+Same recipe as `v2m3_pool8_e2` (2 epochs, peak lr 1.5e-5, warmup 0.08, freeze 8/24 =
+202.6M trainable, `--window-mode max --max-windows 3 --max-len 320 --pool-chunk 32`,
+bf16, grad-checkpointing, `--val-frac 0.12 --val-queries 4 --val-depth 100 --pool-size` not used)
+with **`--seed 29`**. Trained detached (`ops/launch_train29.ps1`) so it survived the
+host's ~10-minute job kill.
+
+Validation trajectory (held-out train queries, same size as the original run):
+
+| epoch | val nDCG@10 | val AUC |
+|---|---|---|
+| 0 (zero-shot) | 0.2846 | 0.8189 |
+| 1 | **0.3195** (best) | 0.7924 |
+| 2 | 0.3054 | 0.7890 |
+
+`best/` = epoch-1 checkpoint (`{"event": "best", "epoch": 1, "val_ndcg10": 0.3195434}`),
+the same checkpoint-selection rule that picked epoch 1 for the original run
+(0.3029 vs 0.3012). Log: `results/ce_ft/v2m3_pool8_e2s29/train_log.jsonl`.

@@ -1,0 +1,25 @@
+{
+ "label": "SFT 2-epoch seed29 z1:1 vs zero-shot z1:1",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.3249073917275941,
+ "candidate_macro": 0.3527425123238684,
+ "delta": 0.0278351205962743,
+ "query_bootstrap": {
+  "mean": 0.02780622855197517,
+  "ci_lo": 0.011835158130751361,
+  "ci_hi": 0.045452022001178566,
+  "p_gt_0": 0.9999
+ },
+ "domain_bootstrap": {
+  "mean": 0.027807742314144394,
+  "ci_lo": 0.01592988717675372,
+  "ci_hi": 0.040421351947958296,
+  "p_gt_0": 1.0
+ },
+ "better": 181,
+ "worse": 82,
+ "iters": 10000,
+ "seed": 7
+}

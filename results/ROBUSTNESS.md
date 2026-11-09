@@ -35,3 +35,14 @@ the committed per-domain score JSONs (`results/aggregate_*_dev.json`).
   bootstrap ([+0.0037,+0.0142]) is the interval that accounts for that.
 * A single training seed. These intervals resample queries/domains; they say
   nothing about training-seed variance.
+
+## Seed replication (2026-11-09)
+
+| arm | 13-domain | 12-domain | n>=19 | delta vs zero-shot (13-domain) |
+|---|---|---|---|---|
+| zero-shot z 1:1 | 0.3249 | 0.2832 | 0.2985 | — |
+| SFT 2-epoch seed 17 | 0.3581 | 0.3181 | 0.3267 | +0.0332 [+0.0192,+0.0472] |
+| SFT 2-epoch seed 29 | 0.3527 | 0.3123 | 0.3232 | +0.0278 [+0.0159,+0.0404] |
+
+See `results/REPLICATION.md`. The effect survives both seeds, both domain subsets and
+the n>=19 view; seed-to-seed spread of the arm is 0.0054, well below the delta.
