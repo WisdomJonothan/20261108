@@ -27,7 +27,7 @@ import torch
 from transformers import AutoModel, AutoTokenizer
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from lib_reteco import load_corpus, load_examples, write_trec_run  # noqa: E402
+from lib_reteco import load_corpus, load_examples, read_jsonl, write_trec_run  # noqa: E402
 
 
 def parse_dtype(name):
@@ -78,6 +78,8 @@ def main():
     ap.add_argument("--work", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--meta", required=True)
+    ap.add_argument("--examples", default=None,
+                    help="override examples_<split>.jsonl (test phase / arbitrary queries)")
     args = ap.parse_args()
 
     os.makedirs(args.work, exist_ok=True)
@@ -103,7 +105,11 @@ def main():
         print(f"[dense] encoded {len(doc_ids)} docs in {time.perf_counter()-t0:.1f}s")
         np.save(doc_cache, doc_emb)
 
-    qids, queries = load_examples(args.index_data, args.split)
+    if args.examples:
+        recs = read_jsonl(args.examples)
+        qids, queries = [r["id"] for r in recs], [r["query"] for r in recs]
+    else:
+        qids, queries = load_examples(args.index_data, args.split)
     q_texts = [args.query_prefix + q for q in queries]
     q_emb = encode(q_texts, model, tok, device, 16, args.max_length, args.pooling, "queries")
 
