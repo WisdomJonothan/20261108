@@ -133,17 +133,22 @@ def main():
         # documents outside the CE pool keep their dense order, below every scored doc
         tail = [d for d in dlist if d not in csc]
         ranked = [(d, float(v)) for d, v in zip(order, sc[np.argsort(-sc, kind="stable")])]
-        ranked += [(d, -1e9 + 1e-6 * i) for i, d in enumerate(tail)]
+        # tail filler spaced by rank so a tie-fix step never accumulates
+        ranked += [(d, -1e9 - 1e-3 * i) for i, d in enumerate(tail)]
         fused[q] = ranked
 
     with open(args.out, "w", encoding="utf-8") as f:
         for q in sorted(fused):
             prev = None
             for rank, (docid, score) in enumerate(fused[q], 1):
-                if prev is not None and score >= prev:
-                    score = prev - max(1e-9, abs(prev) * 1e-9)
-                prev = score
-                f.write(f"{q} Q0 {docid} {rank} {score:.6f} {args.tag}" + "\n")
+                # De-tie in the *printed* space: two raw scores closer than
+                # 5e-7 still print the same value at 6 decimals. Step by exactly
+                # one unit of the sixth decimal so the difference cannot round away.
+                val = round(score, 6)
+                if prev is not None and val >= prev:
+                    val = round(prev - 1e-6, 6)
+                prev = val
+                f.write(f"{q} Q0 {docid} {rank} {val:.6f} {args.tag}" + chr(10))
 
     # 4) coverage sanity check against the query file
     qids = [r["id"] for r in read_jsonl(args.queries)]

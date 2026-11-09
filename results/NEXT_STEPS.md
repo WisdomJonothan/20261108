@@ -85,13 +85,20 @@ doc in the top-100 at all** (`results/DEV_ERROR_ANALYSIS.md`).
 3. *Synthetic test split replay.* Copy dev, rewrite ids, run dense -> CE ->
    fusion -> official `format_checker` end to end. Prevents a submission-day
    surprise; produces the exact command for January. Cost 0 GPU-h (~1 h).
-   Status 2026-11-10 00:25: CPU mode is impractical (a 30k-document law corpus
-   encodes at a few documents/s); stopped after iota. Rerun on GPU after the
-   seed replication finishes — `bash scripts/phase13_test_replay.sh law quant
-   iota` takes ~10 min there.
+   Status 2026-11-10 04:31 — **DONE on GPU** (`scripts/phase13_test_replay.sh law
+   quant iota`, 24 synthetic test topics, frozen `v2m3_pool8_e2` + z 1:1).
+   Official `format_checker.py`: 0 errors, VALID on all three; strict-run sanity
+   now passes too (PHASE 13: PASS). The replay caught a real submission-day bug:
+   two adjacent rank pairs in `quant/70097_1088` printed identical scores because
+   the de-tie compared raw floats (a 1e-9 gap rounds to the same six decimals)
+   and the tail filler `-1e9 + 1e-6*i` made the de-tie step 1000 per row. Both
+   fixed in `scripts/make_submission.py` (printed-space de-tie by 1e-6;
+   rank-spaced filler `-1e9 - 1e-3*i`). Details: `docs/SUBMISSION.md`.
 4. *Report the robust views as primary alongside the headline:* 12-domain
-   (SFT 0.2918 vs V1 0.2782) and n>=19 (0.3043 vs 0.2913) — the headline leans
-   on iota, which has 3 dev queries.
+   (SFT 0.3181 vs zero-shot 0.2832) and n>=19 (0.3267 vs 0.2985), measured on
+   the fresh 2-epoch checkpoint at z 1:1 — the headline's 0.3581 leans on iota,
+   which has only 3 dev queries. Status 2026-11-10: **done**, numbers in
+   `results/PHASE11_VALIDATION.md` and the paper's robustness paragraph.
 
 **P2 — evidence for the paper (CPU-only, highest value per hour).**
 5. *Annotate year-mismatched gold documents* — **DONE** (2026-11-09):

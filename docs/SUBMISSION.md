@@ -28,6 +28,21 @@ python scripts/official/format_checker.py submissions/iota.trec \
 * IOTA dev (2026-11-08, zero-shot CE, RRF 1:2 — the retired config): 3 topics x
   1000 rows, official `format_checker.py` `errors: 0`, `score_run.py` nDCG@10
   0.8085. That run validated the plumbing, not the current weights.
+* **Synthetic test replay (2026-11-10, GPU, law/quant/iota, 24 topics):**
+  `scripts/phase13_test_replay.sh law quant iota` with
+  `--model-ce results/ce_ft/v2m3_pool8_e2/best`, `--fusion z --wa 1 --wb 1`.
+  Official checker on all three files: `errors: 0`, `RESULT: VALID`.
+  Result: `PHASE 13: PASS`.
+  The first GPU attempt failed the strict-run sanity on `quant/70097_1088`:
+  ranks 48/49 and 51/52 printed identical scores. Two bugs in the writer:
+  de-tie compared *raw* floats (two scores 1e-9 apart both round to the same
+  six-decimal value) and the tail filler used `-1e9 + 1e-6*i`, which made the
+  de-tie step `abs(prev)*1e-6 = 1000` and walked the filler score to
+  `-1.0e9-899`. Both fixed in `make_submission.py`: de-tie now operates in
+  printed space (step exactly 1e-6, never rounded away) and the filler is
+  `-1e9 - 1e-3*i` (rank-spaced, no accumulation). The replay then passed for
+  all three domains. Lesson: the official checker accepts equal adjacent
+  scores; the strict-run check is what catches the ambiguity, so keep it.
 * The current pipeline is `--fusion z --wa 1 --wb 1` with either the zero-shot
   reranker or `--model-ce results/ce_ft/v2m3_pool8_e2/best`. The CE cache file is
   keyed by the checkpoint directory name (`ce_<domain>_<model>.trec`), so a

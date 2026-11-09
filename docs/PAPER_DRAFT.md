@@ -462,13 +462,15 @@ corpora and prebuilt indices (licensing and size), the model weights, and the
 
 ## 7 Limitations and ethics
 
-**Two training seeds, small effect.** The frozen arm was replicated with a
-second seed (29): 0.3527 vs 0.3581 domain-macro, delta over the zero-shot
-baseline +0.0278 (domain CI [+0.0159,+0.0404]) vs +0.0332
-<!-- results/REPLICATION.md -->. The bootstrap intervals resample queries and
-domains, not seeds, so with two runs we can bound seed variance only roughly;
-with 13 domains a single domain can still swing the macro. We therefore describe
-the gain as ~+0.03 and dev-specific, not as a stable property of the method.
+**Seed variance is small, the effect is not.** Three independent training runs of
+the same 2-epoch recipe score 0.3581, 0.3583, 0.3575 and 0.3528 at z 1:1
+(the last two are seeds 23 and 29), i.e. a spread of 0.0055, against deltas of
++0.0334 [+0.0191,+0.0477], +0.0325 [+0.0184,+0.0470] and +0.0279
+[+0.0160,+0.0405] over the zero-shot arm. The bootstrap intervals resample
+queries and domains, not seeds, so seed variance is bounded only by these four
+runs; with 13 domains a single domain can still swing the macro. We describe the
+gain as ~+0.03 and dev-specific, not as a stable property of the method
+<!-- results/aggregate_sub_sft_e2b_dev.json; results/aggregate_sub_sft_s23_dev.json -->.
 
 **An unrecoverable validation split.** Training held out 45 train queries (seed
 17, 12% per domain capped at 4) for monitoring and selected nothing on them.

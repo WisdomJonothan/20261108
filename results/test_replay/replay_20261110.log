@@ -1,0 +1,22 @@
+# Phase 13 synthetic test replay — GPU run, 2026-11-10
+# command: bash scripts/phase13_test_replay.sh law quant iota
+# checkpoint: results/ce_ft/v2m3_pool8_e2/best ; fusion z 1:1
+=== law: 11 queries
+=== law: official format_checker (corpus mode)
+lines: 11000  topics: 11  errors: 0  warnings: 0
+RESULT: VALID
+=== law: local sanity (>=10 docs/topic, contiguous ranks, strict scores)
+  OK: 11 topics x 1000 docs, contiguous ranks, strictly decreasing scores
+=== quant: 10 queries
+=== quant: official format_checker (corpus mode)
+lines: 10000  topics: 10  errors: 0  warnings: 0
+RESULT: VALID
+=== quant: local sanity (>=10 docs/topic, contiguous ranks, strict scores)
+  OK: 10 topics x 1000 docs, contiguous ranks, strictly decreasing scores
+=== iota: 3 queries
+=== iota: official format_checker (corpus mode)
+lines: 3000  topics: 3  errors: 0  warnings: 0
+RESULT: VALID
+=== iota: local sanity (>=10 docs/topic, contiguous ranks, strict scores)
+  OK: 3 topics x 1000 docs, contiguous ranks, strictly decreasing scores
+PHASE 13: PASS
