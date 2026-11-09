@@ -13,6 +13,7 @@
 set -u
 cd "$(dirname "$0")/.."
 PY=${PY:-/d/anaconda/python.exe}; export PYTHONUTF8=1
+export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
 TAG=${TAG:-v2m3_pool8_e1b}
 SPLIT=${SPLIT:-results/ce_val45/val_split_e1b.json}
 LOG=logs/phase11_sft_oof_${TAG}.log
@@ -25,6 +26,7 @@ $PY scripts/train_ce.py --domains $DOMS --groups-prefix results/ce_train_groups 
   --run-tag mxbai --tag dump_split --val-frac 0.12 --val-queries 4 --val-depth 100 \
   --seed 17 --dump-val-qids "$SPLIT" || { echo "FAIL dump"; exit 1; }
 $PY scripts/train_ce.py --domains $DOMS --groups-prefix results/ce_train_groups \
+  --model models/bge-reranker-v2-m3 \
   --run-tag mxbai --tag "$TAG" --epochs 1 --lr 1e-5 --warmup-frac 0.08 \
   --freeze-layers 8 --window-mode max --max-windows 3 --max-len 320 --pool-chunk 32 \
   --val-frac 0.12 --val-queries 4 --val-depth 100 --seed 17 \

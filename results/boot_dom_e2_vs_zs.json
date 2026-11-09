@@ -1,0 +1,25 @@
+{
+ "label": "SFT e2 vs zero-shot (z1:1)",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.3249073917275941,
+ "candidate_macro": 0.35809852326897723,
+ "delta": 0.033191131541383145,
+ "query_bootstrap": {
+  "mean": 0.033189370565019964,
+  "ci_lo": 0.016075156766218384,
+  "ci_hi": 0.052283095521006885,
+  "p_gt_0": 1.0
+ },
+ "domain_bootstrap": {
+  "mean": 0.03312892462512843,
+  "ci_lo": 0.019244638995845827,
+  "ci_hi": 0.04723111946078971,
+  "p_gt_0": 1.0
+ },
+ "better": 188,
+ "worse": 78,
+ "iters": 10000,
+ "seed": 7
+}

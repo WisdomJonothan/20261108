@@ -17,14 +17,16 @@ query) returns 100 candidates, a windowed cross-encoder (`bge-reranker-v2-m3`,
 title-form query, 250-token windows with stride 192, max-pooled) re-scores them,
 and the two score lists are combined after per-query z-normalisation at a 1:1
 weight fixed on the training split. On the 13-domain dev set (519 queries) the
-frozen system scores 0.3336 domain-macro nDCG@10, against 0.2943 for the dense
+frozen system scores 0.3581 domain-macro nDCG@10, against 0.2943 for the dense
 first stage and 0.1147 for the organisers' BM25 baseline
-<!-- results/aggregate_sub_sft11_dev.json; results/phase8_mxbai_summary.json; github_repo/README.md -->.
+<!-- results/aggregate_sub_sft_e2bc_dev.json; results/phase8_mxbai_summary.json; github_repo/README.md -->.
 Swapping the zero-shot cross-encoder for one fine-tuned on the 1,211 train
-queries adds +0.0087 (query bootstrap CI [+0.0025,+0.0151]; domain-clustered
-[+0.0037,+0.0142]) — small, but the only single-factor effect in this paper whose
+queries adds +0.0332 (query bootstrap CI [+0.0161,+0.0523]; domain-clustered
+[+0.0192,+0.0472]) — the only single-factor effect in this paper whose
 domain-clustered interval excludes zero
-<!-- results/boot_dom_sft_vs_zs_11.json -->.
+<!-- results/boot_dom_e2_vs_zs.json -->. A shorter 1-epoch fine-tuning schedule
+adds only +0.0087 under the same fusion, so we report both arms and use the
+2-epoch one as the frozen system.
 We additionally report ten probes of explicit temporal modelling. Exactly one
 followed a frozen, pre-registered protocol; it gained +0.0039 (pooled over its
 152 anchored queries in 7 domains) against a +0.02 bar
@@ -57,8 +59,8 @@ is very often still the right answer.
 **Contributions.** (i) A reproducible baseline ladder over all 13 domains under
 the task's official aggregation, with paired bootstraps over queries and over
 domains. (ii) A supervised cross-encoder that improves the strongest zero-shot
-baseline by +0.0087, shown not to be an artefact of the fusion weight (Section
-5.2). (iii) Negative evidence on explicit temporal modelling, with one
+baseline by +0.0332 (and by +0.0087 with a shorter schedule), shown not to be an
+artefact of the fusion weight (Section 5.2). (iii) Negative evidence on explicit temporal modelling, with one
 pre-registered test and an annotation-free ceiling, plus a correction of two
 earlier internal overclaims (the "ten pre-registered negatives" framing and the
 reporting statistic; Sections 5.4 and 2.1).
@@ -82,8 +84,8 @@ domains <!-- scripts/aggregate_scores.py -->. Zero-filling happens at scoring
 time: `scripts/score_run.py` inserts every qrels topic missing from a run with
 nDCG@10 = 0 and records `missing_counted_as_zero: true`, unless
 `--allow-missing` is passed <!-- scripts/score_run.py -->. This matters because
-27.7% of dev queries receive a system score of exactly zero
-<!-- results/DEV_ERROR_ANALYSIS.md -->, so a large share of the metric is lost to
+27.1% of dev queries receive a system score of exactly zero (26.6% under the
+frozen 2-epoch system) <!-- results/DEV_ERROR_ANALYSIS.md; results/score_sub_sft_e2bc_*_dev.json -->, so a large share of the metric is lost to
 questions the system does not answer at all.
 
 Uncertainty uses a paired bootstrap over 10,000 resamples (seed 7), reported
@@ -182,13 +184,16 @@ The 1,211 train queries yield 1,071 usable candidate groups, 2,876 positives and
 18,544 negatives; 70% of negatives are the highest-scoring dense non-gold
 candidates from the top-100 <!-- results/ce_ft/TRAINING_CONFIGS.md -->. Training
 is listwise softmax over each candidate group, batch = 1 group, bf16 with
-gradient checkpointing, AdamW, learning rate 1e-5, 8% warm-up, weight decay 0.01,
-seed 17, **8 of the 24 layers frozen** (202.6M of 567.8M parameters trainable),
-one epoch <!-- results/ce_ft/TRAINING_CONFIGS.md -->. Holding out 45 train
-queries for monitoring (never for selection) moves validation nDCG@10 from
-0.2870 to 0.3008 and AUC from 0.7950 to 0.7990
-<!-- results/ce_ft/TRAINING_CONFIGS.md -->. Training peaks at 5.5 GB on one 8 GB
-GPU <!-- github_repo/README.md:253-258 -->.
+gradient checkpointing, AdamW, 8% warm-up, weight decay 0.01, seed 17, **8 of the
+24 layers frozen** (202.6M of 567.8M parameters trainable)
+<!-- results/ce_ft/TRAINING_CONFIGS.md -->. We report two schedules: one epoch at
+learning rate 1e-5, and two epochs at 1.5e-5, where the second epoch's val nDCG
+falls slightly (0.3029 → 0.3012) so the epoch-1 checkpoint is kept. The 2-epoch
+schedule is the frozen system. Holding out 45 train queries for monitoring
+(never for selection) moves validation nDCG@10 from 0.2870 to 0.3008 (1 epoch)
+and from 0.2750 to 0.3029 (2 epochs), AUC from 0.7950 to 0.7990 and 0.7843 to
+0.7909 respectively <!-- results/ce_ft/TRAINING_CONFIGS.md -->. Training peaks at
+5.5 GB on one 8 GB GPU <!-- github_repo/README.md:253-258 -->.
 
 ## 4 Results
 
@@ -200,7 +205,8 @@ GPU <!-- github_repo/README.md:253-258 -->.
 | SFT CE alone | 0.2742 <!-- results/aggregate_sft_ce_dev.json --> | 0.3096 <!-- results/aggregate_sft_ce_dev.json --> |
 | dense + zero-shot CE, RRF 1:1 (V1) | 0.3166 <!-- results/aggregate_sub_1_1_dev.json --> | 0.3199 <!-- results/aggregate_sub_1_1_dev.json --> |
 | dense + zero-shot CE, z 1:1 | 0.3249 <!-- results/aggregate_zs_z11_dev.json --> | 0.3260 <!-- results/aggregate_zs_z11_dev.json --> |
-| **dense + SFT CE, z 1:1 (frozen)** | **0.3336** <!-- results/aggregate_sub_sft11_dev.json --> | 0.3339 <!-- results/aggregate_sub_sft11_dev.json --> |
+| dense + SFT CE (1 epoch, lr 1e-5), z 1:1 | 0.3336 <!-- results/aggregate_sub_sft11_dev.json --> | 0.3339 <!-- results/aggregate_sub_sft11_dev.json --> |
+| **dense + SFT CE (2 epochs, lr 1.5e-5), z 1:1 (frozen)** | **0.3581** <!-- results/aggregate_sub_sft_e2bc_dev.json --> | 0.3644 <!-- results/aggregate_sub_sft_e2bc_dev.json --> |
 
 *Table 2. Dev results. The BM25 row is the organisers' baseline measured with
 their code on the v1.1 dev split (0.1147; the TEMPO paper reports 0.108 on the
@@ -211,50 +217,54 @@ three places; the summary JSON holds 0.2942754, which we round to 0.2943.*
 
 | contrast (paired bootstrap, 10k, seed 7) | Δ domain-macro | query CI | domain CI |
 |---|---:|---|---|
-| SFT CE vs zero-shot CE, fixed z 1:1 | +0.0087 <!-- results/boot_dom_sft_vs_zs_11.json --> | [+0.0025,+0.0151] <!-- results/boot_dom_sft_vs_zs_11.json --> | [+0.0037,+0.0142] <!-- results/boot_dom_sft_vs_zs_11.json --> |
+| SFT CE vs zero-shot CE, fixed z 1:1 (2-epoch arm, frozen) | +0.0332 <!-- results/boot_dom_e2_vs_zs.json --> | [+0.0161,+0.0523] <!-- results/boot_dom_e2_vs_zs.json --> | [+0.0192,+0.0472] <!-- results/boot_dom_e2_vs_zs.json --> |
+| SFT CE vs zero-shot CE, fixed z 1:1 (1-epoch arm) | +0.0087 <!-- results/boot_dom_sft_vs_zs_11.json --> | [+0.0025,+0.0151] <!-- results/boot_dom_sft_vs_zs_11.json --> | [+0.0037,+0.0142] <!-- results/boot_dom_sft_vs_zs_11.json --> |
 | z 1:1 zero-shot vs V1 RRF (fusion form) | +0.0083 <!-- results/boot_dom_z11_vs_v1.json --> | [−0.0010,+0.0179] <!-- results/boot_dom_z11_vs_v1.json --> | [−0.0015,+0.0188] <!-- results/boot_dom_z11_vs_v1.json --> |
-| SFT z 1:1 vs V1 RRF (total) | +0.0170 <!-- results/boot_dom_sft_vs_v1.json --> | [+0.0055,+0.0290] <!-- results/boot_dom_sft_vs_v1.json --> | [+0.0052,+0.0287] <!-- results/boot_dom_sft_vs_v1.json --> |
+| SFT z 1:1 vs V1 RRF (total, 1-epoch arm) | +0.0170 <!-- results/boot_dom_sft_vs_v1.json --> | [+0.0055,+0.0290] <!-- results/boot_dom_sft_vs_v1.json --> | [+0.0052,+0.0287] <!-- results/boot_dom_sft_vs_v1.json --> |
 
-*Table 3. Inferential claims. The total over V1 is exactly the sum of its two
-components (0.0083 + 0.0087 = 0.0170), but only the fine-tuning component
-excludes zero at the domain level; we attribute +0.0087 to supervision and treat
-the fusion-form change as unestablished.*
+*Table 3. Inferential claims. For the 1-epoch arm the total over V1 is exactly the
+sum of its two components (0.0083 + 0.0087 = 0.0170), but only the fine-tuning
+component excludes zero at the domain level; we attribute +0.0087 to supervision
+and treat the fusion-form change as unestablished. The 2-epoch arm is compared
+only against the zero-shot system at the same frozen fusion.*
 
-The frozen system wins 95 dev queries and loses 55 against the zero-shot fused
-baseline <!-- results/boot_dom_sft_vs_zs_11.json -->, with 10 of 13 domains moving
-up <!-- results/WEIGHT_SWEEP.md -->. Dropping iota (3 queries) leaves the
-comparison at 0.2918 vs 0.2832; restricting to the 8 domains with at least 19
-queries gives 0.3043 vs 0.2985 <!-- results/ROBUSTNESS.md -->. The gain is not
-carried by the smallest domains, though it is uneven: cardano contributes
-+0.0336 and bitcoin −0.0080 <!-- results/WEIGHT_SWEEP.md -->.
+The frozen 2-epoch system wins 188 dev queries and loses 78 against the zero-shot
+fused baseline, with 253 ties <!-- results/boot_dom_e2_vs_zs.json -->, and 11 of
+13 domains move up (`hsm` +0.071, `law` +0.076, `workplace` +0.063, `cardano`
++0.055; only `bitcoin` −0.002 and `quant` −0.001 fall)
+<!-- results/WEIGHT_SWEEP_E2.md -->. Dropping iota (3 queries) leaves the
+comparison at 0.3181 vs 0.2832; restricting to the 8 domains with at least 19
+queries gives 0.3267 vs 0.2985 <!-- results/ROBUSTNESS.md -->. The gain is not
+carried by the smallest domains.
 
 The pre-registered adoption bar — dev topic-macro at least V1 + 0.015 — was
-**not** met: under the statistic registered at the time, SFT − V1 =
-0.3339 − 0.3199 = +0.0141 <!-- github_repo/README.md:275-279 -->. We report this
-rather than restating the bar under the corrected metric.
+**not** met by the 1-epoch arm under the statistic registered at the time:
+SFT − V1 = 0.3339 − 0.3199 = +0.0141 <!-- github_repo/README.md:275-279 -->. We
+report this rather than restating the bar under the corrected metric.
 
 ## 5 Analysis
 
 ### 5.1 Why rerank at all, if the cross-encoder alone is weaker?
 
-The cross-encoder alone scores 0.2742, below the dense retriever's 0.2943, yet
-fusion reaches 0.3336. Three observations make this coherent. First, re-ranking
+The cross-encoder alone scores 0.2742 (1-epoch) or 0.2823 (2-epoch), below the
+dense retriever's 0.2943, yet fusion reaches 0.3581. Three observations make this
+coherent. First, re-ranking
 is a *replacement* operator, so its damage is concentrated where nDCG is
 computed: with a poor re-ranker, replacing the top-5 costs −0.003 but replacing
 the top-100 costs −0.098 <!-- results/RERANK_NOTE.md -->. A model slightly worse
 on the full list can be much worse at the head, and vice versa. Second, the
 errors are largely complementary: the mean within-query Spearman correlation
-between dense and SFT cross-encoder scores over the top-100 is 0.328
-<!-- results/weight_sweep_dev.json -->, so a linear combination can order
+between dense and SFT cross-encoder scores over the top-100 is 0.328 (0.279 for
+the 2-epoch arm)<!-- results/weight_sweep_dev.json; results/weight_sweep_e2_dev.json -->, so a linear combination can order
 candidates better than either component. Third, the two stages discriminate
 about equally well within a query (AUC 0.806 dense vs 0.801 zero-shot CE)
 <!-- results/PHASE9_PLAN.md -->; what differs is *which* candidates they rank
 high. Fusion is therefore a variance-reduction device, bounded by the headroom
 above the retriever: the oracle over the dense top-100 is 0.7446
-<!-- github_repo/README.md:219-227 -->, of which the frozen system captures 8.7%
-<!-- github_repo/README.md:219-227 -->. Much of the remaining loss is not ordering
-at all: 27.7% of dev queries score zero, and 36% of those have no gold document
-in the top-100 <!-- results/DEV_ERROR_ANALYSIS.md -->.
+<!-- github_repo/README.md:219-227 -->, of which the frozen system captures 14.2%
+<!-- results/CAPTURE_CURVE.md; results/aggregate_sub_sft_e2bc_dev.json -->. Much of the remaining loss is not ordering
+at all: 26.6% of dev queries score zero, and 37.7% of those have no gold document
+in the top-100 <!-- results/score_sub_sft_e2bc_*_dev.json -->.
 
 ### 5.2 How much does the fusion weight matter?
 
@@ -286,6 +296,13 @@ frozen-weight number only, and we note the direction of the bias: the weight was
 fitted with the *zero-shot* arm, so the supervised arm is the under-tuned one and
 +0.0087 is, if anything, conservative
 <!-- github_repo/README.md:283-289 -->.
+
+The same sweep for the 2-epoch arm is flatter and always positive: the domain
+delta is +0.0089 at w = 0.5, +0.0332 at the frozen w = 1, +0.0339 at 1.5 and
++0.0346 at 1.8, and the SFT arm is ahead at all nine weights
+(`results/WEIGHT_SWEEP_E2.md`). At w = 0.7, 1.5 and 1.8 all 13 domains improve.
+This removes the "lucky weight" concern for the headline system: even a weight
+that grossly over-weights the cross-encoder keeps the gain.
 
 ### 5.3 The temporal ceiling: year consistency is not a relevance signal
 

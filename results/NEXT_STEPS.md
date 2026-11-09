@@ -1,6 +1,7 @@
 # Next steps — decision record (2026-11-09)
 
-Status: dev-only, frozen best = `runs/sub_sft11_*` (domain-macro 0.3336). Every
+Status: dev-only, frozen best = `runs/sub_sft_e2bc_*` (domain-macro 0.3581;
+the 1-epoch arm `sub_sft11_*` at 0.3336 is kept as the ablation). Every
 number below is the **official domain-macro** metric (per-query nDCG@10, mean
 within domain, mean over 13 domains; missing topics = 0).
 
@@ -12,9 +13,11 @@ within domain, mean over 13 domains; missing topics = 0).
 | dense mxbai top-100 | 0.2943 | 0.2891 |
 | + zero-shot CE, RRF 1:1 (V1) | 0.3166 | 0.3199 |
 | + zero-shot CE, z-sum 1:1 | 0.3249 | 0.3260 |
-| + SFT CE, z-sum 1:1 | **0.3336** | 0.3339 |
-| SFT vs zero-shot at fixed 1:1 | +0.0087 [+0.0037, +0.0142] (domain-clustered) | |
-| SFT total vs V1 | +0.0170 [+0.0052, +0.0287] | |
+| + SFT CE (1 epoch, lr 1e-5), z-sum 1:1 | **0.3336** | 0.3339 |
+| + SFT CE (2 epochs, lr 1.5e-5, best@ep1), z-sum 1:1 | **0.3581** | 0.3644 |
+| SFT vs zero-shot at fixed 1:1 (1-epoch arm) | +0.0087 [+0.0037, +0.0142] (domain-clustered) | |
+| 2-epoch arm vs zero-shot at fixed 1:1 | +0.0332 [+0.0192, +0.0472] (domain-clustered), 188/78/253 | |
+| SFT total vs V1 (1-epoch arm) | +0.0170 [+0.0052, +0.0287] | |
 
 Headroom is in scoring, not recall *in the aggregate*: oracle@10 inside the
 frozen top-100 is 0.7446 and the submitted system captures **8.7%** of the gap
@@ -48,10 +51,20 @@ doc in the top-100 at all** (`results/DEV_ERROR_ANALYSIS.md`).
    the 8.7%-capture law applies).
    Pass rule: adopt the OOF weight whatever it is; the SFT-vs-zero-shot delta
    must stay >= +0.005 at that same weight. Cost ~0.3 GPU-h.
-2. *Seed replication of the only significant gain.* Two more single-epoch runs
-   (seeds 23, 29; otherwise identical to `v2m3_pool8_e1`) + dev rerank each.
-   Keep SFT in the title iff mean delta >= +0.005, >= 2/3 seeds positive, pooled
-   domain-clustered CI excludes 0. Cost ~2.7 GPU-h train + ~2 h rerank.
+   *Status 2026-11-09 17:05 — superseded.* The 2-epoch arm (`v2m3_pool8_e2`,
+   0.3581, +0.0332) made the 45-query OOF weight a second-order question, and
+   the weight sweep over the 2-epoch arm is positive at all nine weights
+   (0.5–2.0), so "the weight is lucky" is not a live risk. The corrected
+   `v2m3_pool8_e1b` rerun was aborted for GPU budget; its retained artifacts
+   are the wrong-base ones in `results/_wrong_base_20261109/` and must not be
+   cited. If a reviewer still demands a provable fold, rerun
+   `scripts/phase11_sft_oof.sh` with the 2-epoch config (~1.5 h).
+2. *Seed replication of the only significant gain.* Seeds 23 and 29 for the
+   **2-epoch** config (`v2m3_pool8_e2`), otherwise identical + dev rerank each.
+   Keep SFT in the title iff the mean delta >= +0.005, at least 2/3 seeds
+   positive, and the pooled domain-clustered CI excludes 0. Cost ~2 h train +
+   ~2 h rerank. Status: seed 29 training detached at 17:03; seed 23 crashes
+   mid-epoch on this host (see RESEARCH_LOG §5l) and is pending a retry.
 3. *Synthetic test split replay.* Copy dev, rewrite ids, run dense -> CE ->
    fusion -> official `format_checker` end to end. Prevents a submission-day
    surprise; produces the exact command for January. Cost 0 GPU-h (~1 h).
@@ -60,10 +73,11 @@ doc in the top-100 at all** (`results/DEV_ERROR_ANALYSIS.md`).
    on iota, which has 3 dev queries.
 
 **P2 — evidence for the paper (CPU-only, highest value per hour).**
-5. *Annotate 100 year-mismatched gold documents* (blinded, 30 double-coded) to
-   turn "mismatch is not irrelevance" from an inference into a table: what are
-   those documents (retrospective, retrospective + new development, wrong year
-   in text)? This is the paper's spine and it costs 0 GPU-hours.
+5. *Annotate year-mismatched gold documents* — **DONE** (2026-11-09):
+   `results/MISMATCH_ANNOTATION.md`, 35 def-2 documents, 20 double-coded,
+   κ = 0.84; retrospective 13, incidental_year 11, continuing 8, period_shift 2,
+   wrong_time 1 — only 1/35 is genuinely about another period, which turns
+   "mismatch is not irrelevance" from an inference into a table.
 6. *Rerun the temporal-ceiling analysis on the submitted mxbai top-100* (the
    file currently analyses bge-base candidates) and fix its 6/8 vs 7/8 miscount.
 

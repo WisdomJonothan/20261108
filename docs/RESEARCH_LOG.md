@@ -578,3 +578,69 @@ SFT 臂在 9 个权重里 7 个领先、在 w≥0.85 的每个权重都领先。
 2. **"+0.0087 是否只靠一两个域"**——w=1 时 10/13 域上行，per-domain 表已落
    `results/WEIGHT_SWEEP.md`。最大正贡献是 cardano（+0.0336，36 条 query），
    负贡献是 bitcoin（−0.0080）。
+
+### §5k 事故记录：OOF 重训用错了底座模型（2026-11-09 16:00）
+
+做 P1 #1（用 `--dump-val-qids` 重训 SFT，以便**可证明**地把融合权重在训练集内
+out-of-fold 拟合）时，`scripts/phase11_sft_oof.sh` 调用 `train_ce.py` **没有传
+`--model`**，而 `train_ce.py` 的默认值是 `models/bge-reranker-base`（278 M），
+不是前两个 checkpoint 用的 `models/bge-reranker-v2-m3`（567.8 M）。结果：
+
+| 产物 | 实际模型 | 后果 |
+|---|---|---|
+| `results/ce_ft/v2m3_pool8_e1b/` | bge-reranker-base 278 M | 训练 29 min、日志 `params_m: 278.0` |
+| `runs/rerank_sft_e1b_*_dev.trec` | 同上 | CE 单独 dev 域宏 **0.1957**，远低于零样本 CE 0.2680 |
+| `runs/rerank_e1b_*_oof.trec` | 同上 | OOF 拟合权重 RRF 1:1 域宏 0.3182（train 45 query） |
+| dev 套用该权重 | 同上 | **0.2799**，低于 dense 0.2943 与零样本 RRF 1:1 0.3166 |
+
+即：这组数字衡量的是"一个更弱的底座模型"，**不能作为 SFT 有效性证据**。
+所有相关文件已移动到 `results/_wrong_base_20261109/`（未删除，保留审计），
+并在 `PHASE11` 报告里标注为作废。
+
+修复（已生效）：
+1. `phase11_sft_oof.sh` 的训练行显式加 `--model models/bge-reranker-v2-m3`；
+2. 训练启动后必须核对日志 `data_loaded.model` 含 `v2-m3`、`params_m ≈ 567.8`，
+   否则立即 kill——这条检查本身要写进脚本（见 `check_ce_model.py`）；
+3. 这次重跑（16:16 启动，bash-1893）已确认 `params_m 567.8`，OOF 权重与 dev 数字
+   出来后覆盖本节；若 OOF 权重下 SFT 仍不领先，则论文撤回 SFT 主张，只保留
+   "零样本 CE 融合 +0.0170（域宏 0.3166 vs 0.2943）"这一条更强的结论。
+
+教训（写进实验规则 9）：**凡是"tag 里带模型名"的实验，都要在日志里断言
+`model` 与 `params_m`**；文件名/目录名不是证据，配置与日志才是。
+
+## §5l. Phase 12：2-epoch SFT 臂（dev 域宏 0.3581）与深度探针（2026-11-09 傍晚）
+
+### 结果
+
+| 系统（dev 519 query，域宏） | 值 |
+|---|---|
+| zero-shot CE，z 1:1 | 0.3249 |
+| SFT CE（1 epoch，lr 1e-5），z 1:1 | 0.3336 |
+| **SFT CE（2 epochs，lr 1.5e-5，best@ep1），z 1:1** | **0.3581** |
+| 2-epoch 臂 vs zero-shot（域宏，10k bootstrap） | **+0.0332**，query CI [+0.0161,+0.0523]，domain CI [+0.0192,+0.0472]，188 升 / 78 降 / 253 平 |
+
+- 12 域（去 iota）0.3181 vs 0.2832（+0.0349）；n>=19 的 8 域 0.3267 vs 0.2985（+0.0282）→ 增益不是 iota 或小域带来的。
+- CE 单独：1 epoch 0.2742 → 2 epochs 0.2823，仍低于 dense 0.2943；融合后 0.3581，说明收益来自与 dense 的互补（Spearman 0.279）。
+- 权重扫描（`results/WEIGHT_SWEEP_E2.md`）：w=0.5…2.0 九个权重**全部为正**（+0.0089 … +0.0346），w=0.7/1.5/1.8 时 13/13 域全升。
+- 冻结产物：`runs/sub_sft_e2bc_*`（13 域，format_checker 0 错），`results/aggregate_sub_sft_e2bc_dev.json`，`results/boot_dom_e2_vs_zs.json`。
+
+### 2-epoch 相对 1-epoch 改了什么
+
+两者只差 **epoch 数与峰值学习率**（1e-5 → 1.5e-5）。2-epoch 的 `best` 出现在 epoch 1，epoch 2 的 val nDCG 反而降（0.3029 → 0.3012），所以实际用的是"一个 epoch、峰值 1.5e-5、cosine 半程"的权重。因此这更像**学习率/有效训练量**效应，而不是"多训一轮"。
+
+### 深度探针：k=300 不划算（已 kill）
+
+- 稠密池 Recall@100 0.6995 / @200 0.7783 / @500 0.8697；oracle@10 0.7446 / 0.8150 / 0.8939。
+- 取 62 个"gold 在 100–500 名之间"的难 query，用 200 深池重排（e1 checkpoint）：域宏 **+0.0010**，query CI [−0.0009,+0.0036]，9/13 域恰好 0.0000。
+- 结论：CE 对 100 名以后的文档打分接近地板，加深池子只增加成本；k=300 全量重排取消（记录 `results/DEPTH_ANALYSIS.md`）。
+
+### 工程修复与事故
+
+1. `run_chunk_rerank.py --examples` 只替换了 query 文本、仍遍历候选 run 的全部 topic（`KeyError: '126111_0'`）；已改为按 `--examples` 过滤候选。
+2. `train_ce.py` 的参数是 `--tag/--outdir`（且 `run_dir = outdir/tag`），默认底座是 `bge-reranker-base`。`train_sft_variant.sh`、`phase12_lr_sweep.sh`、`TRAINING_CONFIGS.md` 已补 `--model models/bge-reranker-v2-m3` 与正确 outdir。
+3. 后台训练两次在 ~10 分钟后被宿主静默 kill（无 traceback、GPU 显存不涨）。改为 `Start-Process` 完全脱离 job 进程树后稳定运行；**以后长训练一律 detached**。
+
+### 待办
+
+- 种子复现：seed 23/29（detached 运行中），出来后填 `results/SEED_REPLICATION.md`。
+- 论文 `docs/PAPER_DRAFT.md` 已改以 2-epoch 臂为主角（摘要/表 2/表 3/§5.1/§5.2/§4 文字）。
