@@ -12,8 +12,9 @@ Held-out selection: `--val-frac 0.12` of *groups* are removed from training,
 then up to `--val-queries 4` per domain of those queries are scored at depth 100
 (45 queries: bitcoin 4, cardano 4, economics 4, genealogy 4, history 4, hsm 4,
 iota 1, law 3, monero 4, politics 4, quant 2, travel 4, workplace 3).  The ids
-can be regenerated deterministically with `--seed 17` (recovered and stored in
-`results/ce_val45/val_qids.json`).
+cannot be regenerated from the current code (the `docs_loaded` fingerprint does
+not reproduce); see `results/NEXT_STEPS.md` §5. The corrected rerun dumps them with
+`--dump-val-qids`.
 
 Common settings: listwise softmax over the candidate group, bf16 autocast,
 gradient checkpointing, AdamW, 8 % linear warmup, weight decay 0.01,
@@ -34,9 +35,9 @@ are.
 Reproduce one run:
 
 ```bash
-PYTHONUTF8=1 /d/anaconda/python.exe scripts/train_ce.py \
+PYTHONUTF8=1 /d/anaconda/python.exe scripts/train_ce.py --model models/bge-reranker-v2-m3 \
   --domains bitcoin cardano economics genealogy history hsm iota law monero politics quant travel workplace \
   --groups-prefix results/ce_train_groups --run-tag mxbai --val-frac 0.12 --val-queries 4 --val-depth 100 \
   --freeze-layers 8 --window-mode max --max-windows 3 --max-len 320 --pool-chunk 32 \
-  --epochs 1 --lr 1e-5 --seed 17 --out-dir results/ce_ft/v2m3_pool8_e1
+  --epochs 1 --lr 1e-5 --seed 17 --tag v2m3_pool8_e1 --outdir results/ce_ft
 ```
