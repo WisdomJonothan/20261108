@@ -16,10 +16,13 @@ within domain, mean over 13 domains; missing topics = 0).
 | SFT vs zero-shot at fixed 1:1 | +0.0087 [+0.0037, +0.0142] (domain-clustered) | |
 | SFT total vs V1 | +0.0170 [+0.0052, +0.0287] | |
 
-Headroom is in scoring, not retrieval: oracle@10 inside the frozen top-100 is
-0.745, we capture ~5% of that gap; the CE's within-query AUC (0.80) is not
+Headroom is in scoring, not recall *in the aggregate*: oracle@10 inside the
+frozen top-100 is 0.7446 and the submitted system captures **8.7%** of the gap
+(41% of queries improve, 19% worsen). The CE's within-query AUC (0.80) is not
 better than the dense retriever's, which is why supervised training — not more
-candidate recall — is the only lever that moved the number.
+candidate recall — is the only lever that moved the number. Locally, though,
+recall is decisive: 27.7% of dev queries score 0 and **36% of those have no gold
+doc in the top-100 at all** (`results/DEV_ERROR_ANALYSIS.md`).
 
 ## 2. GPT review P0 — status
 
@@ -42,7 +45,7 @@ candidate recall — is the only lever that moved the number.
    (`--dump-val-qids`), reranks those held-out queries, fits the weight on them,
    and only then reranks dev. Budget: 21 min train + 6 min OOF rerank + ~1 h dev
    rerank, GPU-serial. Expected effect ±0.005 (a weight change cannot move AUC;
-   the `5%-capture` law applies).
+   the 8.7%-capture law applies).
    Pass rule: adopt the OOF weight whatever it is; the SFT-vs-zero-shot delta
    must stay >= +0.005 at that same weight. Cost ~0.3 GPU-h.
 2. *Seed replication of the only significant gain.* Two more single-epoch runs

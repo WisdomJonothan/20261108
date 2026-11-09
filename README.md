@@ -216,12 +216,17 @@ domains (`cardano, law, quant, travel, workplace`) had no train files, so
 `scripts/fetch_missing_train.py` the local counts match exactly. The corpus is
 v1.1 (13-domain total 1,167,159 documents, identical to the organizers' figure).
 
-**Diagnosis.** Inside the frozen top-100 pool the oracle nDCG@10 is **0.745**
-while the system scores 0.320 — about 5 % of the ranking headroom. The zero-shot
-cross-encoder's within-query AUC (0.801) is no better than the dense retriever's
-(0.806), and ten post-hoc interventions failed. The binding constraint is the
-scorer, not recall (a second dense retriever lifts Recall@100 0.699 → 0.737 and
-oracle@10 0.745 → 0.778, but a 5 %-capture ranker converts that into ≈+0.002).
+**Diagnosis.** Inside the frozen top-100 pool the oracle nDCG@10 is **0.7446**
+while the submitted system scores 0.3336 and dense alone 0.2943 — the reranker
+captures **8.7 %** of that headroom (per domain 0-63 %; 41 % of queries improve,
+19 % worsen). The zero-shot cross-encoder's within-query AUC (0.801) is no better
+than the dense retriever's (0.806), and ten post-hoc interventions failed. The
+binding constraint is the scorer, not recall in the aggregate (a second dense
+retriever lifts Recall@100 0.699 -> 0.737 and oracle@10 0.7446 -> 0.7784, worth
+about +0.003 at 8.7 % capture) - but **27.7 % of dev queries score exactly zero,
+and 36 % of those have no gold document anywhere in the top-100**, so recall is
+the binding constraint for that third of the failures
+(`results/CAPTURE_CURVE.md`, `results/DEV_ERROR_ANALYSIS.md`).
 
 **Fusion form.** RRF discards score magnitude and taxes the stronger component.
 Fusing on within-query z-normalised scores instead, over the same candidates:
