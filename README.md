@@ -45,16 +45,18 @@ query ──► mixedbread-ai/mxbai-embed-large-v1 (full query) ──► dense 
   (`scripts/fuse_rrf.py --wa 1 --wb 1 --c 60`; the script defaults to 2:1, so
   pass the weights explicitly).
 
-**Reporting convention.** RETECO averages nDCG@10 over **topics**. This
-repository used to quote a mean over **domains**, which weights `iota` (3 dev
-queries) the same as `history` (240). Both are computed by
-`scripts/aggregate_scores.py` and every table below states which one it uses.
+**Reporting convention (corrected 2026-11-09).** The official Track-1a
+aggregation is **domain-macro**: the Evaluation Plan says nDCG@10 is
+"computed for each query, averaged over the queries of each domain, and then
+averaged over the 13 domains, so every domain counts equally", and missing
+queries score 0. `iota` (3 dev queries) therefore weighs as much as `history`
+(240). `topic-macro` (519-query mean) is reported as a diagnostic only. Both
+are computed by `scripts/aggregate_scores.py`; every table states which it uses.
 
-| frozen system (V1), dev | topics | nDCG@10 |
+| frozen system (V1), dev | domain-macro (official) | topic-macro |
 |---|---:|---:|
-| **topic-macro (official aggregation)** | 519 | **0.3199** |
-| domain-macro | 519 | 0.3166 |
-| topic-macro, domains with n ≥ 19 | 469 | 0.3243 |
+| **dense + zero-shot CE, RRF 1:1** | **0.3166** | 0.3199 |
+| domain count | 13 | 519 |
 
 Official Track-1a dev BM25 baseline is **0.1147**, i.e. this stack is ≈2.8× the
 official lexical baseline. TEMPO's best reported system (32.0) is on a different
@@ -214,15 +216,17 @@ oracle@10 0.745 → 0.778, but a 5 %-capture ranker converts that into ≈+0.002
 **Fusion form.** RRF discards score magnitude and taxes the stronger component.
 Fusing on within-query z-normalised scores instead, over the same candidates:
 
-| fusion (same candidates) | topic-macro | domain-macro | paired bootstrap (query) |
+| fusion (same candidates) | domain-macro (official) | topic-macro | paired bootstrap (query, domain-macro stat) |
 |---|---:|---:|---|
-| RRF 1:1 (V1) | 0.3199 | 0.3166 | — |
-| score-sum 1:1 | 0.3260 | 0.3249 | +0.0061 [−0.0020,+0.0145] |
-| score-sum 1:2 | **0.3302** | 0.3193 | +0.0103 [+0.0021,+0.0184]; domain-clustered [−0.0131,+0.0175] |
+| RRF 1:1 (V1) | 0.3166 | 0.3199 | — |
+| score-sum 1:1 | **0.3249** | 0.3260 | +0.0083 [−0.0010,+0.0179]; domain-clustered [−0.0015,+0.0188] |
+| score-sum 1:2 | 0.3193 | 0.3302 | — |
 
-Note the aggregation trap: under topic-macro the CE wants *more* weight (1:2),
-under domain-macro 1:1 wins — the weight must therefore be fitted on train, not
-on dev. (`scripts/fuse_scores.py`, `scripts/bootstrap_compare.py`.)
+The weight is fitted on train under the official statistic, which selects
+**1:1** (train domain-macro 0.2612 vs 0.2596 for 1:2). Under topic-macro the CE
+wants more weight (1:2), which is why the earlier 1:2 choice was an artifact of
+the wrong metric. (`scripts/fit_fusion_weight.py --select-metric`,
+`scripts/bootstrap_compare.py --stat domain`.)
 
 **Submission freeze.** The 13 fused dev runs are committed as
 `runs/sub_1_1_<domain>_dev.trec`, de-tied (score − 1e-9·rank) so a
@@ -236,11 +240,22 @@ train queries the cross-encoder can now be trained on-domain
 (`scripts/build_ce_train_groups.py` → `scripts/train_ce.py`: listwise softmax,
 all in-candidate positives + 70 % hard negatives, bf16 + gradient checkpointing,
 5.5 GB peak on one 8 GB GPU, epoch selection on held-out **train** queries).
-Two facts gate how it is evaluated: a CE-only gain passes through fusion at
-≈19 % (RRF 1:1), 26 % (score-sum) or 61 % (RRF 1:4), so the fusion weight must be
-refit on train; and adoption requires dev topic-macro ≥ V1 + 0.015 with a
-domain-clustered CI that excludes 0, otherwise V1 is submitted and the fine-tune
-is reported as an ablation. See `results/PHASE9_PLAN.md`.
+A CE-only gain passes through fusion at ≈19 % (RRF 1:1), 26 % (score-sum) or
+61 % (RRF 1:4), so the fusion weight must be refit on train.
+
+Result under the official metric, at the train-selected weight 1:1:
+
+| dev (519 topics) | domain-macro | topic-macro |
+|---|---:|---:|
+| dense + zero-shot CE, z 1:1 | 0.3249 | 0.3260 |
+| dense + SFT CE, z 1:1 | **0.3336** | 0.3339 |
+
+SFT vs zero-shot at the fixed weight: **+0.0087**, query-bootstrap CI
+[+0.0025,+0.0151], domain-clustered [+0.0037,+0.0142]. Total over V1:
+**+0.0170** [+0.0055,+0.0290], domain-clustered [+0.0052,+0.0287] — i.e. it
+clears the pre-registered +0.015 bar. Frozen as
+`runs/sub_sft11_<domain>_dev.trec` (13/13 official-checked, de-tied).
+See `results/PHASE9_PLAN.md` and `docs/RESEARCH_LOG.md` §5i.
 
 ## What we learned (short version)
 

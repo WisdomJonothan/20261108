@@ -42,13 +42,17 @@ def windows_of(tok, text, win, stride):
     return out
 
 
-def load_queries(domain, split, mode="full"):
-    """mode: full | title | summary | clip (clip = strip then cap by tokens)."""
+def load_queries(domain, split, mode="full", examples=None):
+    """mode: full | title | summary | clip (clip = strip then cap by tokens).
+
+    ``examples`` overrides the official data path (used to score an arbitrary
+    query subset, e.g. the held-out train queries of a fine-tune run)."""
     import re
 
+    path = examples or os.path.join(ROOT, "data", "track1_tempo", domain,
+                                    f"examples_{split}.jsonl")
     q = {}
-    with open(os.path.join(ROOT, "data", "track1_tempo", domain,
-                           f"examples_{split}.jsonl"), encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         for line in f:
             r = json.loads(line)
             q[r["id"]] = r["query"]
@@ -75,6 +79,8 @@ def load_queries(domain, split, mode="full"):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--domain", required=True)
+    ap.add_argument("--examples", default=None,
+                    help="override the examples_<split>.jsonl path")
     ap.add_argument("--split", required=True)
     ap.add_argument("--run", required=True)
     ap.add_argument("--k", type=int, default=100)
@@ -102,7 +108,8 @@ def main():
 
     ids, texts = load_corpus(os.path.join(ROOT, "data", "track1_tempo", args.domain))
     corpus = dict(zip(ids, texts))
-    queries = load_queries(args.domain, args.split, args.q_mode)
+    queries = load_queries(args.domain, args.split, args.q_mode,
+                           getattr(args, "examples", None))
     cand = read_trec_run(args.run)
 
     results, per_q_ms, n_pairs, n_windows, n_missing = {}, [], 0, 0, 0

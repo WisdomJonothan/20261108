@@ -1,0 +1,43 @@
+{"event": "freeze", "layers": 8, "trainable_params_m": 202.6}
+{"event": "data_loaded", "train_groups": 942, "val_queries": {"bitcoin": 4, "cardano": 4, "economics": 4, "genealogy": 4, "history": 4, "hsm": 4, "iota": 1, "law": 3, "monero": 4, "politics": 4, "quant": 2, "travel": 4, "workplace": 3}, "docs_loaded": {"bitcoin": 1100, "cardano": 613, "economics": 1139, "genealogy": 1363, "history": 12489, "hsm": 2165, "iota": 159, "law": 588, "monero": 741, "politics": 2151, "quant": 438, "travel": 1416, "workplace": 497}, "seconds": 32.5, "model": "models/bge-reranker-v2-m3", "dtype": "bf16", "grad_ckpt": true, "params_m": 567.8}
+{"epoch": 0, "val_ndcg10": 0.27501923830296393, "val_auc": 0.784295678144623, "per_domain": {"bitcoin": 0.0, "cardano": 0.27804147723097994, "economics": 0.12690853739594307, "genealogy": 0.2757836342096552, "history": 0.281156238858727, "hsm": 0.452705434743421, "iota": 0.3903800499921017, "law": 0.3132951149593323, "monero": 0.5784070204744622, "politics": 0.17597952225853367, "quant": 0.5264379925617296, "travel": 0.15565541532499247, "workplace": 0.23139174055098677}, "n_val_queries": 45, "event": "epoch0_zeroshot"}
+{"event": "step", "epoch": 1, "step": 50, "loss": 2.6163, "lr": 3.829787234042553e-06, "pairs_s": 14.3, "gpu_mb": 3385.7}
+{"event": "step", "epoch": 1, "step": 100, "loss": 2.5568, "lr": 7.978723404255319e-06, "pairs_s": 14.1, "gpu_mb": 3422.2}
+{"event": "step", "epoch": 1, "step": 150, "loss": 2.5087, "lr": 1.1808510638297872e-05, "pairs_s": 14.3, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 200, "loss": 2.4517, "lr": 1.4894117647058824e-05, "pairs_s": 14.5, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 250, "loss": 2.414, "lr": 1.4470588235294118e-05, "pairs_s": 14.7, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 300, "loss": 2.4227, "lr": 1.4011764705882352e-05, "pairs_s": 15.0, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 350, "loss": 2.3973, "lr": 1.3588235294117648e-05, "pairs_s": 15.1, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 400, "loss": 2.3401, "lr": 1.3129411764705882e-05, "pairs_s": 14.9, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 450, "loss": 2.328, "lr": 1.2705882352941177e-05, "pairs_s": 14.8, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 500, "loss": 2.3299, "lr": 1.2247058823529413e-05, "pairs_s": 14.7, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 550, "loss": 2.2984, "lr": 1.1823529411764705e-05, "pairs_s": 14.7, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 600, "loss": 2.2362, "lr": 1.1364705882352942e-05, "pairs_s": 14.7, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 650, "loss": 2.1937, "lr": 1.0941176470588235e-05, "pairs_s": 14.7, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 700, "loss": 2.1658, "lr": 1.0482352941176472e-05, "pairs_s": 14.7, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 750, "loss": 2.1344, "lr": 1.0058823529411764e-05, "pairs_s": 14.7, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 1, "step": 800, "loss": 2.1114, "lr": 9.600000000000001e-06, "pairs_s": 14.6, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 1, "step": 850, "loss": 2.1045, "lr": 9.176470588235295e-06, "pairs_s": 14.5, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 1, "step": 900, "loss": 2.0793, "lr": 8.717647058823529e-06, "pairs_s": 14.5, "gpu_mb": 3696.1}
+{"epoch": 1, "val_ndcg10": 0.3028635068539996, "val_auc": 0.7909140257116383, "per_domain": {"bitcoin": 0.0, "cardano": 0.4519729600126157, "economics": 0.22566238326989402, "genealogy": 0.19791431016954733, "history": 0.30473646015447015, "hsm": 0.4843758374885467, "iota": 0.24630238874073, "law": 0.21694017285336972, "monero": 0.5706309303407459, "politics": 0.3055231216585449, "quant": 0.4861473614275618, "travel": 0.18611000353769774, "workplace": 0.2839120505819235}, "n_val_queries": 45, "event": "epoch", "train_loss": 2.0744, "train_seconds": 1360.1, "gpu_peak_mb": 3696.1}
+{"event": "best", "epoch": 1, "val_ndcg10": 0.3028635068539996}
+{"event": "step", "epoch": 2, "step": 50, "loss": 1.8139, "lr": 7.905882352941178e-06, "pairs_s": 15.8, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 2, "step": 100, "loss": 1.8517, "lr": 7.447058823529412e-06, "pairs_s": 15.9, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 2, "step": 150, "loss": 1.7502, "lr": 7.023529411764706e-06, "pairs_s": 16.3, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 2, "step": 200, "loss": 1.7805, "lr": 6.564705882352941e-06, "pairs_s": 16.5, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 2, "step": 250, "loss": 1.7824, "lr": 6.141176470588236e-06, "pairs_s": 16.8, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 2, "step": 300, "loss": 1.7386, "lr": 5.682352941176471e-06, "pairs_s": 16.7, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 2, "step": 350, "loss": 1.7222, "lr": 5.258823529411765e-06, "pairs_s": 16.5, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 2, "step": 400, "loss": 1.7626, "lr": 4.800000000000001e-06, "pairs_s": 16.3, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 2, "step": 450, "loss": 1.7606, "lr": 4.376470588235294e-06, "pairs_s": 16.3, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 2, "step": 500, "loss": 1.7305, "lr": 3.917647058823529e-06, "pairs_s": 16.4, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 2, "step": 550, "loss": 1.7521, "lr": 3.4941176470588238e-06, "pairs_s": 16.5, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 2, "step": 600, "loss": 1.7521, "lr": 3.035294117647059e-06, "pairs_s": 16.5, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 2, "step": 650, "loss": 1.7729, "lr": 2.611764705882353e-06, "pairs_s": 16.5, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 2, "step": 700, "loss": 1.7716, "lr": 2.1529411764705882e-06, "pairs_s": 16.5, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 2, "step": 750, "loss": 1.7864, "lr": 1.7294117647058823e-06, "pairs_s": 16.5, "gpu_mb": 3703.3}
+{"event": "step", "epoch": 2, "step": 800, "loss": 1.77, "lr": 1.2705882352941175e-06, "pairs_s": 16.5, "gpu_mb": 3703.3}
+{"event": "step", "epoch": 2, "step": 850, "loss": 1.7752, "lr": 8.470588235294118e-07, "pairs_s": 16.5, "gpu_mb": 3703.3}
+{"event": "step", "epoch": 2, "step": 900, "loss": 1.7663, "lr": 3.8823529411764707e-07, "pairs_s": 16.5, "gpu_mb": 3703.3}
+{"epoch": 2, "val_ndcg10": 0.3011565574579123, "val_auc": 0.7841501266411153, "per_domain": {"bitcoin": 0.033912993358111945, "cardano": 0.4490271876406785, "economics": 0.208953157398563, "genealogy": 0.1959748349341418, "history": 0.3073116045528005, "hsm": 0.5044456402014998, "iota": 0.24630238874073, "law": 0.21694017285336972, "monero": 0.483361162792529, "politics": 0.30271292632852376, "quant": 0.5477229586127443, "travel": 0.19549621394380862, "workplace": 0.2782311254923666}, "n_val_queries": 45, "event": "epoch", "train_loss": 1.7535, "train_seconds": 1218.6, "gpu_peak_mb": 3703.3}
+{"event": "done", "best_val_ndcg10": 0.3028635068539996, "run_dir": "D:\\RETECO\\results/ce_ft\\v2m3_pool8_e2"}

@@ -1,0 +1,24 @@
+{"event": "freeze", "layers": 8, "trainable_params_m": 202.6}
+{"event": "data_loaded", "train_groups": 942, "val_queries": {"bitcoin": 4, "cardano": 4, "economics": 4, "genealogy": 4, "history": 4, "hsm": 4, "iota": 1, "law": 3, "monero": 4, "politics": 4, "quant": 2, "travel": 4, "workplace": 3}, "docs_loaded": {"bitcoin": 1100, "cardano": 613, "economics": 1139, "genealogy": 1363, "history": 12489, "hsm": 2165, "iota": 159, "law": 588, "monero": 741, "politics": 2151, "quant": 438, "travel": 1416, "workplace": 497}, "seconds": 30.6, "model": "models/bge-reranker-v2-m3", "dtype": "bf16", "grad_ckpt": true, "params_m": 567.8}
+{"epoch": 0, "val_ndcg10": 0.28696623940480476, "val_auc": 0.7949538876011952, "per_domain": {"bitcoin": 0.0, "cardano": 0.27804147723097994, "economics": 0.19168112771442247, "genealogy": 0.11305340175787204, "history": 0.3200732938886998, "hsm": 0.6833556256115179, "iota": 0.3903800499921017, "law": 0.3132951149593323, "monero": 0.43201450172742417, "politics": 0.2851661996365151, "quant": 0.5264379925617296, "travel": 0.15565541532499247, "workplace": 0.23139174055098677}, "n_val_queries": 45, "event": "epoch0_zeroshot"}
+{"event": "step", "epoch": 1, "step": 50, "loss": 2.6163, "lr": 5.2173913043478265e-06, "pairs_s": 14.0, "gpu_mb": 3385.7}
+{"event": "step", "epoch": 1, "step": 100, "loss": 2.5487, "lr": 9.906103286384977e-06, "pairs_s": 14.6, "gpu_mb": 3422.2}
+{"event": "step", "epoch": 1, "step": 150, "loss": 2.4895, "lr": 9.342723004694837e-06, "pairs_s": 12.8, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 200, "loss": 2.4364, "lr": 8.732394366197183e-06, "pairs_s": 13.5, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 250, "loss": 2.4139, "lr": 8.169014084507043e-06, "pairs_s": 14.0, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 300, "loss": 2.449, "lr": 7.55868544600939e-06, "pairs_s": 14.3, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 350, "loss": 2.4489, "lr": 6.9953051643192495e-06, "pairs_s": 14.6, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 400, "loss": 2.4108, "lr": 6.384976525821597e-06, "pairs_s": 14.8, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 450, "loss": 2.4172, "lr": 5.821596244131456e-06, "pairs_s": 14.9, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 500, "loss": 2.4485, "lr": 5.211267605633803e-06, "pairs_s": 15.1, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 550, "loss": 2.4347, "lr": 4.647887323943662e-06, "pairs_s": 15.2, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 600, "loss": 2.3702, "lr": 4.0375586854460095e-06, "pairs_s": 15.3, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 650, "loss": 2.3387, "lr": 3.474178403755869e-06, "pairs_s": 15.4, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 700, "loss": 2.3216, "lr": 2.8638497652582163e-06, "pairs_s": 15.5, "gpu_mb": 3687.8}
+{"event": "step", "epoch": 1, "step": 750, "loss": 2.2937, "lr": 2.300469483568075e-06, "pairs_s": 15.5, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 1, "step": 800, "loss": 2.2823, "lr": 1.6901408450704227e-06, "pairs_s": 15.5, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 1, "step": 850, "loss": 2.2813, "lr": 1.1267605633802817e-06, "pairs_s": 15.6, "gpu_mb": 3696.1}
+{"event": "step", "epoch": 1, "step": 900, "loss": 2.2593, "lr": 5.164319248826292e-07, "pairs_s": 15.6, "gpu_mb": 3696.1}
+{"epoch": 1, "val_ndcg10": 0.30076866290705634, "val_auc": 0.7990170142137646, "per_domain": {"bitcoin": 0.0, "cardano": 0.35468487632666224, "economics": 0.23711136251687753, "genealogy": 0.11499287699327758, "history": 0.3825591726568117, "hsm": 0.6603063016861939, "iota": 0.3903800499921017, "law": 0.3049232647827433, "monero": 0.43201450172742417, "politics": 0.2872524440066305, "quant": 0.5220126391428783, "travel": 0.1417095835369497, "workplace": 0.24763007679604598}, "n_val_queries": 45, "event": "epoch", "train_loss": 2.264, "train_seconds": 1262.7, "gpu_peak_mb": 3696.1}
+{"event": "best", "epoch": 1, "val_ndcg10": 0.30076866290705634}
+{"event": "done", "best_val_ndcg10": 0.30076866290705634, "run_dir": "D:\\RETECO\\results/ce_ft\\v2m3_pool8_e1"}
