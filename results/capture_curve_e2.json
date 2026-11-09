@@ -1,0 +1,333 @@
+{
+ "meta": {
+  "data_dir": "data/track1_tempo",
+  "split": "dev",
+  "k": 10,
+  "pool_depth": 100,
+  "domains": [
+   "bitcoin",
+   "cardano",
+   "economics",
+   "genealogy",
+   "history",
+   "hsm",
+   "iota",
+   "law",
+   "monero",
+   "politics",
+   "quant",
+   "travel",
+   "workplace"
+  ],
+  "dense_pattern": "runs/dense_mxbai_{domain}_dev.trec",
+  "system_pattern": "runs/sub_sft_e2bc_{domain}_dev.trec",
+  "generated": "2026-11-09"
+ },
+ "definition": {
+  "baseline": "dense_mxbai first stage, scored as submitted (nDCG@10 of its own ordering)",
+  "oracle": "ideal re-ordering of the dense top-100 (oracle@10_cand100); the system's fused top-100 is asserted to be the same set",
+  "capture": "(system_ndcg10 - baseline) / (oracle_ndcg10_cand100 - baseline)",
+  "aggregation": "ratio of domain-macro means (official metric); alternatives reported separately as mean_of_domain_captures and topic_macro_capture",
+  "note": "capture_vs_oracle1000 is a depth-sensitivity diagnostic, not a reachable ceiling"
+ },
+ "domains": [
+  {
+   "domain": "bitcoin",
+   "num_queries": 30,
+   "num_scored": 30,
+   "topics_missing_from_run": [],
+   "dense_ndcg10": 0.18204963333208657,
+   "oracle_ndcg10_cand100": 0.6348882160375343,
+   "oracle_ndcg10_cand1000": 0.8947112044495388,
+   "system_ndcg10": 0.21428273629762323,
+   "oracle_gain_cand100": 0.45283858270544775,
+   "delta_vs_dense": 0.032233102965536664,
+   "capture": 0.07118011626342123,
+   "capture_vs_oracle1000": 0.04522918629524981,
+   "per_query": {
+    "capture_mean": 0.06056175097041306,
+    "capture_median": 0.0,
+    "frac_queries_improved": 0.4,
+    "frac_queries_worsened": 0.16666666666666666,
+    "n_with_headroom": 25
+   }
+  },
+  {
+   "domain": "cardano",
+   "num_queries": 15,
+   "num_scored": 15,
+   "topics_missing_from_run": [],
+   "dense_ndcg10": 0.18319061679447046,
+   "oracle_ndcg10_cand100": 0.7818503673566963,
+   "oracle_ndcg10_cand1000": 0.9557249176940273,
+   "system_ndcg10": 0.22578319338099426,
+   "oracle_gain_cand100": 0.5986597505622259,
+   "delta_vs_dense": 0.042592576586523795,
+   "capture": 0.07114655118625123,
+   "capture_vs_oracle1000": 0.05513357340499705,
+   "per_query": {
+    "capture_mean": 0.07762496650333645,
+    "capture_median": 0.11305340175787203,
+    "frac_queries_improved": 0.5333333333333333,
+    "frac_queries_worsened": 0.3333333333333333,
+    "n_with_headroom": 13
+   }
+  },
+  {
+   "domain": "economics",
+   "num_queries": 25,
+   "num_scored": 25,
+   "topics_missing_from_run": [],
+   "dense_ndcg10": 0.18903699248838302,
+   "oracle_ndcg10_cand100": 0.6769105268169189,
+   "oracle_ndcg10_cand1000": 0.9214539268634815,
+   "system_ndcg10": 0.2512374146675322,
+   "oracle_gain_cand100": 0.48787353432853586,
+   "delta_vs_dense": 0.06220042217914917,
+   "capture": 0.12749292142841095,
+   "capture_vs_oracle1000": 0.0849248826178751,
+   "per_query": {
+    "capture_mean": 0.16651692217606656,
+    "capture_median": 0.12333309217593633,
+    "frac_queries_improved": 0.48,
+    "frac_queries_worsened": 0.12,
+    "n_with_headroom": 20
+   }
+  },
+  {
+   "domain": "genealogy",
+   "num_queries": 35,
+   "num_scored": 35,
+   "topics_missing_from_run": [],
+   "dense_ndcg10": 0.32984916839424266,
+   "oracle_ndcg10_cand100": 0.6334344506147023,
+   "oracle_ndcg10_cand1000": 0.8495301739536513,
+   "system_ndcg10": 0.40596149663595177,
+   "oracle_gain_cand100": 0.3035852822204596,
+   "delta_vs_dense": 0.0761123282417091,
+   "capture": 0.25071152226160076,
+   "capture_vs_oracle1000": 0.14645970783515225,
+   "per_query": {
+    "capture_mean": 0.317178593769819,
+    "capture_median": 0.25,
+    "frac_queries_improved": 0.4,
+    "frac_queries_worsened": 0.08571428571428572,
+    "n_with_headroom": 21
+   }
+  },
+  {
+   "domain": "history",
+   "num_queries": 240,
+   "num_scored": 240,
+   "topics_missing_from_run": [],
+   "dense_ndcg10": 0.3050957892833344,
+   "oracle_ndcg10_cand100": 0.8277276283623384,
+   "oracle_ndcg10_cand1000": 0.9503059361671341,
+   "system_ndcg10": 0.3918367862116744,
+   "oracle_gain_cand100": 0.5226318390790039,
+   "delta_vs_dense": 0.08674099692833998,
+   "capture": 0.16596959932865424,
+   "capture_vs_oracle1000": 0.13443836453483698,
+   "per_query": {
+    "capture_mean": 0.14988273487089313,
+    "capture_median": 0.06487511517373207,
+    "frac_queries_improved": 0.5166666666666667,
+    "frac_queries_worsened": 0.16666666666666666,
+    "n_with_headroom": 219
+   }
+  },
+  {
+   "domain": "hsm",
+   "num_queries": 45,
+   "num_scored": 45,
+   "topics_missing_from_run": [],
+   "dense_ndcg10": 0.31251689695727997,
+   "oracle_ndcg10_cand100": 0.7937151145982463,
+   "oracle_ndcg10_cand1000": 0.929338854062614,
+   "system_ndcg10": 0.46514491847106776,
+   "oracle_gain_cand100": 0.4811982176409663,
+   "delta_vs_dense": 0.1526280215137878,
+   "capture": 0.31718326443941086,
+   "capture_vs_oracle1000": 0.24744258818225515,
+   "per_query": {
+    "capture_mean": 0.3711445795000213,
+    "capture_median": 0.3652123889719704,
+    "frac_queries_improved": 0.6444444444444445,
+    "frac_queries_worsened": 0.044444444444444446,
+    "n_with_headroom": 37
+   }
+  },
+  {
+   "domain": "iota",
+   "num_queries": 3,
+   "num_scored": 3,
+   "topics_missing_from_run": [],
+   "dense_ndcg10": 0.6485438794897314,
+   "oracle_ndcg10_cand100": 0.9439574879096275,
+   "oracle_ndcg10_cand1000": 1.0,
+   "system_ndcg10": 0.8382954784660104,
+   "oracle_gain_cand100": 0.29541360841989617,
+   "delta_vs_dense": 0.18975159897627902,
+   "capture": 0.6423251792333451,
+   "capture_vs_oracle1000": 0.5399012505481036,
+   "per_query": {
+    "capture_mean": 0.5802773475130553,
+    "capture_median": 0.6822387134545747,
+    "frac_queries_improved": 1.0,
+    "frac_queries_worsened": 0.0,
+    "n_with_headroom": 3
+   }
+  },
+  {
+   "domain": "law",
+   "num_queries": 11,
+   "num_scored": 11,
+   "topics_missing_from_run": [],
+   "dense_ndcg10": 0.3689333975800688,
+   "oracle_ndcg10_cand100": 0.8719564995575101,
+   "oracle_ndcg10_cand1000": 1.0,
+   "system_ndcg10": 0.4356663760603123,
+   "oracle_gain_cand100": 0.5030231019774413,
+   "delta_vs_dense": 0.06673297848024345,
+   "capture": 0.13266384430040787,
+   "capture_vs_oracle1000": 0.1057463320422038,
+   "per_query": {
+    "capture_mean": 0.1552938684124581,
+    "capture_median": 0.18453512321427123,
+    "frac_queries_improved": 0.45454545454545453,
+    "frac_queries_worsened": 0.2727272727272727,
+    "n_with_headroom": 9
+   }
+  },
+  {
+   "domain": "monero",
+   "num_queries": 19,
+   "num_scored": 19,
+   "topics_missing_from_run": [],
+   "dense_ndcg10": 0.18264492669870733,
+   "oracle_ndcg10_cand100": 0.6655409979092719,
+   "oracle_ndcg10_cand1000": 0.934579771553061,
+   "system_ndcg10": 0.20687113127651763,
+   "oracle_gain_cand100": 0.48289607121056455,
+   "delta_vs_dense": 0.0242262045778103,
+   "capture": 0.050168568398326396,
+   "capture_vs_oracle1000": 0.0322184890666994,
+   "per_query": {
+    "capture_mean": 0.01187189240520784,
+    "capture_median": 0.0,
+    "frac_queries_improved": 0.3157894736842105,
+    "frac_queries_worsened": 0.2631578947368421,
+    "n_with_headroom": 16
+   }
+  },
+  {
+   "domain": "politics",
+   "num_queries": 45,
+   "num_scored": 45,
+   "topics_missing_from_run": [],
+   "dense_ndcg10": 0.35993745945881966,
+   "oracle_ndcg10_cand100": 0.7016842882368506,
+   "oracle_ndcg10_cand1000": 0.9032860707769781,
+   "system_ndcg10": 0.4289738867474458,
+   "oracle_gain_cand100": 0.3417468287780309,
+   "delta_vs_dense": 0.06903642728862613,
+   "capture": 0.20201044011286556,
+   "capture_vs_oracle1000": 0.1270573363961388,
+   "per_query": {
+    "capture_mean": 0.09187209284155352,
+    "capture_median": 0.12597143554376375,
+    "frac_queries_improved": 0.4,
+    "frac_queries_worsened": 0.08888888888888889,
+    "n_with_headroom": 31
+   }
+  },
+  {
+   "domain": "quant",
+   "num_queries": 10,
+   "num_scored": 10,
+   "topics_missing_from_run": [],
+   "dense_ndcg10": 0.19543107187767816,
+   "oracle_ndcg10_cand100": 0.5558549935817422,
+   "oracle_ndcg10_cand1000": 0.9765360636988621,
+   "system_ndcg10": 0.153796286139897,
+   "oracle_gain_cand100": 0.360423921704064,
+   "delta_vs_dense": -0.04163478573778118,
+   "capture": -0.11551615536764112,
+   "capture_vs_oracle1000": -0.05330241923138612,
+   "per_query": {
+    "capture_mean": -0.06641244430111574,
+    "capture_median": 0.0,
+    "frac_queries_improved": 0.0,
+    "frac_queries_worsened": 0.4,
+    "n_with_headroom": 6
+   }
+  },
+  {
+   "domain": "travel",
+   "num_queries": 30,
+   "num_scored": 30,
+   "topics_missing_from_run": [],
+   "dense_ndcg10": 0.23210424898781032,
+   "oracle_ndcg10_cand100": 0.7787272624931052,
+   "oracle_ndcg10_cand1000": 0.9252338553169387,
+   "system_ndcg10": 0.2493604939395154,
+   "oracle_gain_cand100": 0.5466230135052949,
+   "delta_vs_dense": 0.01725624495170508,
+   "capture": 0.031568822616975176,
+   "capture_vs_oracle1000": 0.02489613023904083,
+   "per_query": {
+    "capture_mean": 0.041683582195223313,
+    "capture_median": 0.0,
+    "frac_queries_improved": 0.3333333333333333,
+    "frac_queries_worsened": 0.3,
+    "n_with_headroom": 26
+   }
+  },
+  {
+   "domain": "workplace",
+   "num_queries": 11,
+   "num_scored": 11,
+   "topics_missing_from_run": [],
+   "dense_ndcg10": 0.3362463390258097,
+   "oracle_ndcg10_cand100": 0.8138461270944614,
+   "oracle_ndcg10_cand1000": 1.0,
+   "system_ndcg10": 0.38807060420216183,
+   "oracle_gain_cand100": 0.47759978806865167,
+   "delta_vs_dense": 0.051824265176352136,
+   "capture": 0.10850981610758746,
+   "capture_vs_oracle1000": 0.07807755832229947,
+   "per_query": {
+    "capture_mean": 0.08261063590876921,
+    "capture_median": 0.10341346741316756,
+    "frac_queries_improved": 0.45454545454545453,
+    "frac_queries_worsened": 0.18181818181818182,
+    "n_with_headroom": 10
+   }
+  }
+ ],
+ "macro": {
+  "num_domains": 13,
+  "num_queries": 519,
+  "dense_ndcg10": 0.2942754169514171,
+  "oracle_ndcg10_cand100": 0.7446226123514619,
+  "oracle_ndcg10_cand1000": 0.941592367272022,
+  "system_ndcg10": 0.35809852326897723,
+  "oracle_gain_cand100": 0.45034719540004475,
+  "delta_vs_dense": 0.06382310631756011,
+  "capture": 0.1417197819137429,
+  "capture_vs_oracle1000": 0.09859637737888623,
+  "mean_of_domain_captures": 0.15810880694689353,
+  "topic_macro_capture": 0.15702524295566336,
+  "per_query_capture_mean": 0.15311649650205778,
+  "per_query_capture_median": 0.08845459581443353,
+  "frac_queries_improved": 0.47398843930635837,
+  "frac_queries_worsened": 0.16377649325626203,
+  "num_queries_with_headroom": 436
+ },
+ "checks": {
+  "num_queries": 519,
+  "topics_with_identical_top100_pool": 519,
+  "system_top10_outside_pool": 0,
+  "topics_missing_from_run": 0
+ }
+}

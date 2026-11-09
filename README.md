@@ -278,8 +278,8 @@ V1 for the 1-epoch arm is **+0.0170** [+0.0055,+0.0290], domain-clustered
 single-factor claim against the zero-shot fusion, not against V1.
 
 The pre-registered adoption bar (+0.015 on dev **topic-macro**) was **not** met
-by the 1-epoch arm: under the registered statistic SFT − V1 = 0.3339 − 0.3199 =
-+0.0141. The bar is not restated under the corrected metric; the significance
+by the 1-epoch arm: under the registered statistic SFT − V1 = 0.33393 − 0.31987 =
++0.01406. The bar is not restated under the corrected metric; the significance
 claims above are made with the official domain-macro bootstrap instead. Frozen
 as `runs/sub_sft_e2bc_<domain>_dev.trec` (13/13 official-checked, de-tied).
 See `results/PHASE9_PLAN.md`, `docs/RESEARCH_LOG.md` §5i/§5l.

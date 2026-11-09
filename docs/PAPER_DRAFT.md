@@ -22,8 +22,8 @@ first stage and 0.1147 for the organisers' BM25 baseline
 <!-- results/aggregate_sub_sft_e2bc_dev.json; results/phase8_mxbai_summary.json; github_repo/README.md -->.
 Swapping the zero-shot cross-encoder for one fine-tuned on the 1,211 train
 queries adds +0.0332 (query bootstrap CI [+0.0161,+0.0523]; domain-clustered
-[+0.0192,+0.0472]) — the only single-factor effect in this paper whose
-domain-clustered interval excludes zero
+[+0.0192,+0.0472]) — the largest single-factor effect in this paper, and one
+whose domain-clustered interval excludes zero
 <!-- results/boot_dom_e2_vs_zs.json -->. A shorter 1-epoch fine-tuning schedule
 adds only +0.0087 under the same fusion, so we report both arms and use the
 2-epoch one as the frozen system.
@@ -84,7 +84,7 @@ domains <!-- scripts/aggregate_scores.py -->. Zero-filling happens at scoring
 time: `scripts/score_run.py` inserts every qrels topic missing from a run with
 nDCG@10 = 0 and records `missing_counted_as_zero: true`, unless
 `--allow-missing` is passed <!-- scripts/score_run.py -->. This matters because
-27.1% of dev queries receive a system score of exactly zero (26.6% under the
+27.7% of dev queries receive a system score of exactly zero (26.6% under the
 frozen 2-epoch system) <!-- results/DEV_ERROR_ANALYSIS.md; results/score_sub_sft_e2bc_*_dev.json -->, so a large share of the metric is lost to
 questions the system does not answer at all.
 
@@ -202,7 +202,8 @@ and from 0.2750 to 0.3029 (2 epochs), AUC from 0.7950 to 0.7990 and 0.7843 to
 | official BM25 (organisers) | 0.1147 <!-- github_repo/README.md:61 --> | — |
 | dense mxbai, top-100 | 0.2943 <!-- results/phase8_mxbai_summary.json --> | 0.2891 <!-- docs/RESEARCH_LOG.md §5i --> |
 | zero-shot CE alone | 0.2680 <!-- results/aggregate_zs_ce_dev.json --> | 0.2990 <!-- results/aggregate_zs_ce_dev.json --> |
-| SFT CE alone | 0.2742 <!-- results/aggregate_sft_ce_dev.json --> | 0.3096 <!-- results/aggregate_sft_ce_dev.json --> |
+| SFT CE alone (1 epoch) | 0.2742 <!-- results/aggregate_sft_ce_dev.json --> | 0.3096 <!-- results/aggregate_sft_ce_dev.json --> |
+| SFT CE alone (2 epochs) | 0.2823 <!-- re-scored runs/rerank_sft_e2bc_*_dev.trec; see results/PAPER_VERIFY_E2.md --> | — |
 | dense + zero-shot CE, RRF 1:1 (V1) | 0.3166 <!-- results/aggregate_sub_1_1_dev.json --> | 0.3199 <!-- results/aggregate_sub_1_1_dev.json --> |
 | dense + zero-shot CE, z 1:1 | 0.3249 <!-- results/aggregate_zs_z11_dev.json --> | 0.3260 <!-- results/aggregate_zs_z11_dev.json --> |
 | dense + SFT CE (1 epoch, lr 1e-5), z 1:1 | 0.3336 <!-- results/aggregate_sub_sft11_dev.json --> | 0.3339 <!-- results/aggregate_sub_sft11_dev.json --> |
@@ -239,7 +240,7 @@ carried by the smallest domains.
 
 The pre-registered adoption bar — dev topic-macro at least V1 + 0.015 — was
 **not** met by the 1-epoch arm under the statistic registered at the time:
-SFT − V1 = 0.3339 − 0.3199 = +0.0141 <!-- github_repo/README.md:275-279 -->. We
+SFT − V1 = 0.33393 − 0.31987 = +0.0141 <!-- github_repo/README.md:275-279 -->. We
 report this rather than restating the bar under the corrected metric.
 
 ## 5 Analysis
@@ -262,7 +263,7 @@ about equally well within a query (AUC 0.806 dense vs 0.801 zero-shot CE)
 high. Fusion is therefore a variance-reduction device, bounded by the headroom
 above the retriever: the oracle over the dense top-100 is 0.7446
 <!-- github_repo/README.md:219-227 -->, of which the frozen system captures 14.2%
-<!-- results/CAPTURE_CURVE.md; results/aggregate_sub_sft_e2bc_dev.json -->. Much of the remaining loss is not ordering
+<!-- results/CAPTURE_CURVE_E2.md; results/capture_curve_e2.json -->. Much of the remaining loss is not ordering
 at all: 26.6% of dev queries score zero, and 37.7% of those have no gold document
 in the top-100 <!-- results/score_sub_sft_e2bc_*_dev.json -->.
 
@@ -273,14 +274,14 @@ in the top-100 <!-- results/score_sub_sft_e2bc_*_dev.json -->.
 | 0.5 | 0.3208 | 0.3211 | +0.0004 | [−0.0031,+0.0042] | 5/13 |
 | 0.7 | 0.3294 | 0.3287 | −0.0007 | [−0.0081,+0.0053] | 7/13 |
 | 0.85 | 0.3261 | 0.3308 | +0.0047 | [+0.0001,+0.0098] | 8/13 |
-| **1.0 (frozen)** | 0.3249 | **0.3336** | **+0.0087** | [+0.0038,+0.0142] | 10/13 |
+| **1.0 (frozen weight)** | 0.3249 | **0.3336** | **+0.0087** | [+0.0038,+0.0142] | 10/13 |
 | 1.15 | 0.3271 | 0.3319 | +0.0048 | [+0.0008,+0.0089] | 9/13 |
 | 1.3 | 0.3278 | 0.3334 | +0.0056 | [+0.0004,+0.0114] | 10/13 |
 | 1.5 | 0.3253 | 0.3298 | +0.0045 | [−0.0018,+0.0108] | 8/13 |
 | 1.8 | 0.3192 | 0.3341 | +0.0149 | [+0.0055,+0.0293] | 12/13 |
 | 2.0 | 0.3193 | 0.3274 | +0.0080 | [+0.0041,+0.0122] | 11/13 |
 
-*Table 4. Diagnostic sweep of the fusion weight on dev; nothing is selected
+*Table 4. Diagnostic sweep of the fusion weight on dev for the 1-epoch arm; nothing is selected
 here. All cells from `results/WEIGHT_SWEEP.md` / `results/weight_sweep_dev.json`
 (domain-clustered bootstrap CIs). The sweep uses 2,000 resamples, so the w = 1
 interval's last digit differs from the 10,000-resample interval in Table 3.*
@@ -288,7 +289,7 @@ interval's last digit differs from the 10,000-resample interval in Table 3.*
 Two things are true at once, and we state both. The sweep shows the effect does
 not hinge on a lucky weight: the SFT arm is ahead at every w ≥ 0.85, and only
 w = 0.7 is negative (−0.0007) <!-- results/WEIGHT_SWEEP.md -->. But the curve is
-also *flat* to within about ±0.008 with no monotone trend, and the zero-shot
+also *flat* to within about ±0.015 with no monotone trend, and the zero-shot
 arm's own movement across the sweep (0.3192–0.3294) is the same size as the
 effect being measured <!-- results/WEIGHT_SWEEP.md -->. These differences are
 mostly reranking noise, not weight sensitivity. We therefore claim the
@@ -297,7 +298,8 @@ fitted with the *zero-shot* arm, so the supervised arm is the under-tuned one an
 +0.0087 is, if anything, conservative
 <!-- github_repo/README.md:283-289 -->.
 
-The same sweep for the 2-epoch arm is flatter and always positive: the domain
+The same sweep for the 2-epoch arm is always positive (and wider than the
+1-epoch one, so it is not evidence of a flat surface): the domain
 delta is +0.0089 at w = 0.5, +0.0332 at the frozen w = 1, +0.0339 at 1.5 and
 +0.0346 at 1.8, and the SFT arm is ahead at all nine weights
 (`results/WEIGHT_SWEEP_E2.md`). At w = 0.7, 1.5 and 1.8 all 13 domains improve.
@@ -418,7 +420,7 @@ corpora and prebuilt indices (licensing and size), the model weights, and the
 **Single training seed.** Every supervised number comes from one run (seed 17).
 The bootstrap intervals resample queries and domains; they say nothing about
 training-seed variance <!-- results/ROBUSTNESS.md -->, and with 13 domains a
-single domain can still swing the macro. We therefore describe +0.0087 as small
+single domain can still swing the macro. We therefore describe +0.0332 as small
 and dev-specific, not as a stable property of the method.
 
 **An unrecoverable validation split.** Training held out 45 train queries (seed
@@ -436,7 +438,7 @@ claim, and the system was frozen before any test evaluation.
 **Missing queries count as zero.** This is the official convention and it
 penalises incomplete submissions; our frozen runs cover all 519 dev queries and
 13/13 files pass the official checker <!-- github_repo/README.md:244-252 -->, so
-the rule does not flatter us — but 27.7% of queries still score zero on merit
+the rule does not flatter us — but 26.6% of queries still score zero on merit
 <!-- results/DEV_ERROR_ANALYSIS.md -->.
 
 **Weight and metric.** The fusion weight was fitted on train with the zero-shot
@@ -453,9 +455,9 @@ domains <!-- results/TEMPORAL_CEILING.md; results/TEMPORAL_OBSERVABILITY.md -->.
 It bounds reorderings of the frozen candidates, not retrieval.
 
 **Heterogeneity.** Domain-macro aggregation gives iota's 3 dev queries the same
-weight as history's 240; iota's system score is 0.8344 in isolation
-<!-- results/ROBUSTNESS.md -->. Per-domain deltas range from +0.0336 (cardano) to
-−0.0080 (bitcoin) <!-- results/WEIGHT_SWEEP.md -->, so the aggregate hides real
+weight as history's 240; iota's system score is 0.8383 in isolation
+<!-- results/ROBUSTNESS.md -->. Per-domain deltas range from +0.0760 (law) to
+−0.0023 (bitcoin) <!-- results/WEIGHT_SWEEP_E2.md -->, so the aggregate hides real
 disagreement. The 12-domain and n ≥ 19 checks in Section 4 are the mitigation we
 can offer, not a solution.
 

@@ -38,7 +38,7 @@ reported as ``capture_vs_oracle1000``.  It is *not* reachable by a reranker
 that only sees 100 candidates; it exists only to show how depth-dependent a
 bare "capture %" number is.
 
-Deterministic, CPU only, no GPU, ~1 s for the 13 dev domains (519 queries).
+Deterministic, CPU only, no GPU, ~5 s for the 13 dev domains (519 queries).
 
 Usage
 -----
