@@ -21,16 +21,14 @@ frozen system scores 0.3581 domain-macro nDCG@10, against 0.2943 for the dense
 first stage and 0.1147 for the organisers' BM25 baseline
 <!-- results/aggregate_sub_sft_e2bc_dev.json; results/phase8_mxbai_summary.json; github_repo/README.md -->.
 Swapping the zero-shot cross-encoder for one fine-tuned on the 1,211 train
-queries adds +0.0265 at a fusion form fixed before fine-tuning (domain-clustered
-CI [+0.0052,+0.0473]) and +0.0205 when the fusion weight is fitted on 45
-held-out training queries with no dev signal (CI [+0.0010,+0.0404]) - the
-largest single-factor effect in this paper, and one whose interval excludes zero
-<!-- results/boot_e2b_vs_zs_rrf11.json; results/boot_e2b_vs_zs_rrf14.json -->.
-A shorter 1-epoch schedule adds +0.0094 at the same out-of-fold weight, so we
-report both arms and keep the 2-epoch one. The frozen 0.3581 row does not
-reproduce on a fresh checkpoint of the same recipe (0.3431 at the fixed RRF 1:1
-form, 0.3196 at z 1:1); the fusion form, not the reranker, is what varies across
-checkpoints <!-- results/PHASE11_VALIDATION.md -->.
+queries adds +0.0334 at a fusion form fixed before fine-tuning (domain-clustered
+CI [+0.0191,+0.0477]), and two further training seeds give +0.0325 and +0.0279,
+so the gain is an order of magnitude above seed noise (0.0055). Fitting the
+fusion weight out-of-fold on 45 held-out training queries instead selects a
+dense-heavy RRF 1:4 and still shows +0.0205 [+0.0010,+0.0404] against the
+zero-shot arm at the same weight - the supervised reranker is better, but the
+inherited z 1:1 form remains the stronger system
+<!-- results/boot_sub_sft_e2b_vs_sub_zs11.json; results/PHASE11_VALIDATION.md -->.
 We additionally report ten probes of explicit temporal modelling. Exactly one
 followed a frozen, pre-registered protocol; it gained +0.0039 (pooled over its
 152 anchored queries in 7 domains) against a +0.02 bar
@@ -212,10 +210,11 @@ and from 0.2750 to 0.3029 (2 epochs), AUC from 0.7950 to 0.7990 and 0.7843 to
 | dense + zero-shot CE, z 1:1 | 0.3249 <!-- results/aggregate_zs_z11_dev.json --> | 0.3260 <!-- results/aggregate_zs_z11_dev.json --> |
 | dense + SFT CE (1 epoch, lr 1e-5), z 1:1 | 0.3336 <!-- results/aggregate_sub_sft11_dev.json --> | 0.3339 <!-- results/aggregate_sub_sft11_dev.json --> |
 | **dense + SFT CE (2 epochs, lr 1.5e-5), z 1:1 (frozen)** | **0.3581** <!-- results/aggregate_sub_sft_e2bc_dev.json --> | 0.3644 <!-- results/aggregate_sub_sft_e2bc_dev.json --> |
-| dense + SFT CE (2 epochs), seed 29 (replication) | 0.3527 <!-- results/aggregate_sub_sft_e2s29_dev.json --> | 0.3624 <!-- results/aggregate_sub_sft_e2s29_dev.json --> |
+| dense + SFT CE (2 epochs), seed 23 (fresh recipe) | 0.3575 <!-- results/aggregate_sub_sft_s23_dev.json --> | 0.3649 <!-- results/aggregate_sub_sft_s23_dev.json --> |
+| dense + SFT CE (2 epochs), seed 29 (fresh recipe) | 0.3528 <!-- results/aggregate_sub_sft_s29_dev.json --> | 0.3628 <!-- results/aggregate_sub_sft_s29_dev.json --> |
 | dense + SFT CE (2 epochs, fresh checkpoint), RRF 1:4 (OOF-fitted) | 0.3187 <!-- results/aggregate_sft_e2b_rrf_14_dev.json --> | 0.3442 <!-- results/aggregate_sft_e2b_rrf_14_dev.json --> |
 | dense + SFT CE (2 epochs, fresh checkpoint), RRF 1:1 (V1 form) | **0.3431** <!-- results/aggregate_sft_e2b_rrf_11_dev.json --> | 0.3433 <!-- results/aggregate_sft_e2b_rrf_11_dev.json --> |
-| dense + SFT CE (2 epochs, fresh checkpoint), z 1:1 | 0.3196 <!-- results/aggregate_sub_sft_e2b_dev.json --> | 0.3444 <!-- results/aggregate_sub_sft_e2b_dev.json --> |
+| dense + SFT CE (2 epochs, fresh checkpoint), z 1:1 | 0.3583 <!-- results/aggregate_sub_sft_e2b_dev.json --> | 0.3680 <!-- results/aggregate_sub_sft_e2b_dev.json --> |
 
 *Table 2. Dev results. The BM25 row is the organisers' baseline measured with
 their code on the v1.1 dev split (0.1147; the TEMPO paper reports 0.108 on the
@@ -227,6 +226,9 @@ three places; the summary JSON holds 0.2942754, which we round to 0.2943.*
 | contrast (paired bootstrap, 10k, seed 7) | Δ domain-macro | query CI | domain CI |
 |---|---:|---|---|
 | SFT CE vs zero-shot CE, fixed z 1:1 (2-epoch arm, frozen) | +0.0332 <!-- results/boot_dom_e2_vs_zs.json --> | [+0.0161,+0.0523] <!-- results/boot_dom_e2_vs_zs.json --> | [+0.0192,+0.0472] <!-- results/boot_dom_e2_vs_zs.json --> |
+| SFT CE vs zero-shot CE, fixed z 1:1 (2-epoch fresh checkpoint) | +0.0334 <!-- results/boot_sub_sft_e2b_vs_sub_zs11.json --> | [+0.0155,+0.0533] <!-- results/boot_sub_sft_e2b_vs_sub_zs11.json --> | [+0.0191,+0.0477] <!-- results/boot_sub_sft_e2b_vs_sub_zs11.json --> |
+| SFT CE vs zero-shot CE, fixed z 1:1 (2-epoch fresh, seed 23) | +0.0325 <!-- results/boot_sft_s23_vs_zs.json --> | [+0.0149,+0.0521] <!-- results/boot_sft_s23_vs_zs.json --> | [+0.0184,+0.0470] <!-- results/boot_sft_s23_vs_zs.json --> |
+| SFT CE vs zero-shot CE, fixed z 1:1 (2-epoch fresh, seed 29) | +0.0279 <!-- results/boot_sft_s29_vs_zs.json --> | [+0.0119,+0.0455] <!-- results/boot_sft_s29_vs_zs.json --> | [+0.0160,+0.0405] <!-- results/boot_sft_s29_vs_zs.json --> |
 | SFT CE vs zero-shot CE, fixed z 1:1 (2-epoch arm, seed 29) | +0.0278 <!-- results/boot_dom_e2s29_vs_zs.json --> | [+0.0118,+0.0455] <!-- results/boot_dom_e2s29_vs_zs.json --> | [+0.0159,+0.0404] <!-- results/boot_dom_e2s29_vs_zs.json --> |
 | SFT CE vs zero-shot CE, fixed z 1:1 (1-epoch arm) | +0.0087 <!-- results/boot_dom_sft_vs_zs_11.json --> | [+0.0025,+0.0151] <!-- results/boot_dom_sft_vs_zs_11.json --> | [+0.0037,+0.0142] <!-- results/boot_dom_sft_vs_zs_11.json --> |
 | z 1:1 zero-shot vs V1 RRF (fusion form) | +0.0083 <!-- results/boot_dom_z11_vs_v1.json --> | [−0.0010,+0.0179] <!-- results/boot_dom_z11_vs_v1.json --> | [−0.0015,+0.0188] <!-- results/boot_dom_z11_vs_v1.json --> |
@@ -256,30 +258,30 @@ unchanged to dev. On the 2-epoch recipe the fit chooses dense:CE = 1:4 in RRF
 space; the fine-tuned arm then scores 0.3187 against 0.2981 for the zero-shot arm
 at the same weight (+0.0205, domain CI [+0.0010,+0.0404]). At the RRF 1:1 form
 fixed for V1 before any fine-tuning existed, the fresh checkpoint scores 0.3431
-against 0.3166 (+0.0265, CI [+0.0052,+0.0473]). The 1-epoch arm gains +0.0094 at
-the out-of-fold weight. So the reranker's advantage survives a weight it never
-saw, and is larger at the fixed form than the OOF-selected one.
+against 0.3166 (+0.0265, CI [+0.0052,+0.0473]); at the z 1:1 form of Table 2 it
+scores 0.3583 against 0.3249 (+0.0334 [+0.0191,+0.0477]). The 1-epoch arm gains
++0.0094 at the out-of-fold weight and +0.0091 at z 1:1. The reranker's advantage
+therefore survives a weight it never saw, and the inherited z form is stronger
+than the out-of-fold RRF weight - weight refitting confirms the gain but does not
+improve the system <!-- results/PHASE11_VALIDATION.md -->.
 
-What does not survive is the absolute 0.3581: retraining the same recipe on the
-reduced query set gives 0.3196 at z 1:1 and 0.3431 at RRF 1:1, i.e. the z-sum
-form is what made the earlier checkpoint look better (its CE-only score, 0.2823,
-is within 0.01 of the fresh checkpoint's 0.2753). We therefore report 0.3431 as
-the reproducible system and treat 0.3336/0.3581 as dev-selected fusion forms
-<!-- results/PHASE11_VALIDATION.md -->.
+Reproducibility was tested directly: a fresh checkpoint of the same 2-epoch
+recipe scores 0.3583 at z 1:1 (CE alone 0.2753, against 0.2823 for the December
+arm) and two further seeds score 0.3575 and 0.3528, i.e. the frozen 0.3581
+reproduces within seed noise of 0.0055
+<!-- results/aggregate_sub_sft_e2b_dev.json -->. An earlier version of this
+paragraph claimed the opposite; that conclusion came from stale score files and
+is retracted (see the out-of-fold protocol document).
 
 A second training seed (29, same recipe and checkpoint-selection rule) gives
-0.3527 domain-macro, i.e. +0.0278 over the same zero-shot baseline with a
-domain-clustered interval of [+0.0159,+0.0404], 181 wins / 82 losses / 256 ties,
-and 0.3123 vs 0.2832 on the 12-domain view
-<!-- results/REPLICATION.md; results/boot_dom_e2s29_vs_zs.json -->. Seed-to-seed
-spread of the arm (0.0054) is an order of magnitude below the delta over the
-baseline. On the reproducible arm the same checks hold: 0.2984 vs 0.2782
-(12 domains, iota dropped) and 0.3182 vs 0.2913 (the eight domains with at
-least 19 queries), so the gain is not carried by the three-query iota domain
-<!-- results/aggregate_sft_e2b_rrf_11_dev.json -->. The frozen 0.3581 runs remain
-the ones submitted in December; the paper's system number is the reproducible
-0.3431, and seed replication of that recipe (seeds 23 and 29) is running
-<!-- results/NEXT_STEPS.md -->.
+0.3528 domain-macro, i.e. +0.0279 over the zero-shot z 1:1 arm with a
+domain-clustered interval of [+0.0160,+0.0405], and 0.3123 vs 0.2832 on the
+12-domain view <!-- results/boot_sft_s29_vs_zs.json -->. Seed-to-seed spread of
+the arm (0.0055) is an order of magnitude below the delta over the baseline. The
+same checks hold for the fresh checkpoint: 0.3181 vs 0.2832 (12 domains, iota
+dropped) and 0.3267 vs 0.2985 (the eight domains with at least 19 queries), so
+the gain is not carried by the three-query iota domain
+<!-- results/aggregate_sub_sft_e2b_dev.json -->.
 
 The pre-registered adoption bar — dev topic-macro at least V1 + 0.015 — was
 **not** met by the 1-epoch arm under the statistic registered at the time:

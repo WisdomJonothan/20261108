@@ -56,28 +56,39 @@ doc in the top-100 at all** (`results/DEV_ERROR_ANALYSIS.md`).
    the 8.7%-capture law applies).
    Pass rule: adopt the OOF weight whatever it is; the SFT-vs-zero-shot delta
    must stay >= +0.005 at that same weight. Cost ~0.3 GPU-h.
-   *Status 2026-11-09 23:40 — **done, and it changed the headline.***
-    `scripts/phase11_sft_oof.sh` retrained e1b with the correct base model and a
-    dumped 45-query split, then `phase11_sft_oof.sh`/`phase11_finish_eval.sh`
-    refit and re-scored. The out-of-fold fit chooses RRF 1:4 in both arms; the
-    2-epoch arm scores 0.3187 there (zero-shot 0.2981, +0.0205 [+0.0010,+0.0404])
-    and 0.3431 at the V1-fixed RRF 1:1 form (+0.0265 [+0.0052,+0.0473]). The
-    frozen 0.3581 does not reproduce on a fresh checkpoint (z 1:1 0.3196), so the
-    reproducible system number is now **0.3431** and 0.3336/0.3581 are recorded
-    as dev-selected fusion forms. Details: `results/PHASE11_VALIDATION.md`.
+   *Status 2026-11-10 04:00 — **done; the earlier "does not reproduce" reading
+   was a stale-file artefact and is retracted.*** `scripts/phase11_sft_oof.sh`
+   retrained e1b (`v2m3_pool8_e1b`) with the correct base model and a dumped
+   45-query split; the out-of-fold fit chooses RRF 1:4 in both arms, where the
+   2-epoch arm scores 0.3187 (zero-shot 0.2981, +0.0205 [+0.0010,+0.0404]) and
+   the 1-epoch arm 0.3074. The "fresh checkpoint scores 0.3196 at z 1:1" number
+   came from `results/score_sub_sft_e2b_*_dev.json` files written from
+   intermediate fused TRECs; re-scoring the committed runs gives **0.3583**, so
+   the frozen **0.3581 reproduces** (seeds 0.3575/0.3528, spread 0.0055). The
+   pre-registered literal bar still fails (SFT at its OOF weight 0.3187 vs
+   zero-shot best form 0.3249), while the arm-level comparison at a fixed form
+   passes: +0.0334 [+0.0191,+0.0477] at z 1:1. Guard:
+   `scripts/check_score_freshness.py` (audit after re-score: 0 stale). Details:
+   `results/PHASE11_VALIDATION.md`.
 2. *Seed replication of the only significant gain.* Seeds 23 and 29 for the
    **reproducible 2-epoch recipe** (`v2m3_pool8_e2b`: 2 epochs, lr 1.5e-5,
    8 frozen layers), each followed by a 13-domain dev rerank and the frozen
    1:1 arm (`scripts/phase11_seed_repl.sh`, tags `v2m3_s23_e2` /
    `v2m3_s29_e2`). Keep SFT in the title iff the mean delta >= +0.005, at least
    2/3 seeds positive, and the pooled domain-clustered CI excludes 0.
-   Status 2026-11-10 00:10: training seed 23 (GPU-serial, ~55 min train +
-   ~70 min rerank per seed).
+   Status 2026-11-10 03:49 — **DONE.** Seeds 23 and 29 trained and reranked on
+   all 13 domains (`v2m3_s23_e2`, `v2m3_s29_e2`). Dev z 1:1: **0.3575** (seed 23)
+   and **0.3528** (seed 29) vs zero-shot 0.3249; bootstraps +0.0325
+   [+0.0184,+0.0470] and +0.0279 [+0.0160,+0.0405]. Mean of the three fresh
+   runs 0.3562, spread 0.0055, all three positive against zero-shot ⇒ keep SFT
+   in the title.
 3. *Synthetic test split replay.* Copy dev, rewrite ids, run dense -> CE ->
    fusion -> official `format_checker` end to end. Prevents a submission-day
    surprise; produces the exact command for January. Cost 0 GPU-h (~1 h).
-   Status 2026-11-10 00:05: running on CPU (`CUDA_VISIBLE_DEVICES=""`), law /
-   quant / iota; iota already passed the official checker.
+   Status 2026-11-10 00:25: CPU mode is impractical (a 30k-document law corpus
+   encodes at a few documents/s); stopped after iota. Rerun on GPU after the
+   seed replication finishes — `bash scripts/phase13_test_replay.sh law quant
+   iota` takes ~10 min there.
 4. *Report the robust views as primary alongside the headline:* 12-domain
    (SFT 0.2918 vs V1 0.2782) and n>=19 (0.3043 vs 0.2913) — the headline leans
    on iota, which has 3 dev queries.

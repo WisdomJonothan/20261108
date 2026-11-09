@@ -1,0 +1,25 @@
+{
+ "label": "sft_s29 vs zs z1:1",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.3249073917275941,
+ "candidate_macro": 0.3527938973762292,
+ "delta": 0.027886505648635096,
+ "query_bootstrap": {
+  "mean": 0.027858601722235067,
+  "ci_lo": 0.01188256448704431,
+  "ci_hi": 0.045515324319864894,
+  "p_gt_0": 0.9999
+ },
+ "domain_bootstrap": {
+  "mean": 0.027859297571171067,
+  "ci_lo": 0.01595111418685196,
+  "ci_hi": 0.04050672487417022,
+  "p_gt_0": 1.0
+ },
+ "better": 182,
+ "worse": 83,
+ "iters": 10000,
+ "seed": 7
+}

@@ -55,27 +55,29 @@ are computed by `scripts/aggregate_scores.py`; every table states which it uses.
 
 | system, dev (519 queries, 13 domains) | domain-macro (official) | topic-macro |
 |---|---:|---:|
-| **dense mxbai + SFT CE (2 epochs), RRF 1:1 (reproducible)** | **0.3431** | 0.3433 |
+| **dense mxbai + SFT CE (2 epochs), z 1:1 (frozen submission)** | **0.3581** | 0.3644 |
+| same recipe, fresh checkpoint (reproducibility check), z 1:1 | 0.3583 | 0.3680 |
+| same recipe, seed 23, z 1:1 | 0.3575 | 0.3649 |
+| same recipe, seed 29, z 1:1 | 0.3528 | 0.3628 |
+| same recipe, fresh checkpoint, RRF 1:1 (form fixed for V1) | 0.3431 | 0.3433 |
 | same recipe, fresh checkpoint, weight fitted out-of-fold (RRF 1:4) | 0.3187 | 0.3442 |
-| same recipe, fresh checkpoint, z 1:1 | 0.3196 | 0.3444 |
-| dense mxbai + SFT CE (2 epochs), z 1:1 (dev-selected form, prior checkpoint) | 0.3581 | 0.3644 |
-| same arm, second seed (replication) | 0.3527 | 0.3624 |
 | dense + zero-shot CE, z 1:1 | 0.3249 | 0.3260 |
 | dense + zero-shot CE, RRF 1:1 (V1, first release) | 0.3166 | 0.3199 |
 
-> **Phase 11 correction (2026-11-09).** The 0.3581 headline does not reproduce on
-> a fresh checkpoint of the same fine-tuning recipe: with 45 training queries held
-> out for the fusion fit, the checkpoint scores 0.3196 at z 1:1 and 0.3431 at the
-> RRF 1:1 form that was fixed for V1 before any fine-tuning existed — so the
-> z-normalised fusion, not the reranker, is what varies across checkpoints. The
-> fine-tuned reranker is still clearly better than the zero-shot one at a fixed
-> fusion form (+0.0265 at RRF 1:1, domain CI [+0.0052,+0.0473]; +0.0205 at the
-> out-of-fold weight, CI [+0.0010,+0.0404]). The reproducible system number is
-> **0.3431**; 0.3336/0.3581 are kept as dev-selected fusion forms of their
-> checkpoints. Full protocol, numbers and the wrong-base-model incident are in
-> [`results/PHASE11_VALIDATION.md`](results/PHASE11_VALIDATION.md).
+> **Phase 11 correction (2026-11-10).** An earlier version of this README said the
+> 0.3581 headline did not reproduce. That was wrong: the score files for the fresh
+> checkpoints were written from intermediate TREC files and never refreshed
+> (`results/PHASE11_VALIDATION.md`, "Incident 2"). After re-scoring every fused
+> arm from the committed runs, the frozen system is **0.3581** and three
+> independent training runs of the same recipe give **0.3583 / 0.3575 / 0.3528**
+> (seed spread 0.0055). The fine-tuned reranker is +0.0334 over the zero-shot arm
+> at the same z 1:1 form (domain-clustered CI [+0.0191,+0.0477]) and still
+> +0.0205 at a fusion weight fitted on 45 held-out training queries with no dev
+> signal, so the gain is not a product of the fusion-weight choice. A guard
+> (`scripts/check_score_freshness.py`) now fails on score files older than their
+> run files.
 
-Official Track-1a dev BM25 baseline is **0.1147**, i.e. the reproducible system is ≈3.0× the
+Official Track-1a dev BM25 baseline is **0.1147**, i.e. the system is ≈3.1× the
 official lexical baseline. TEMPO's best reported system (32.0) is on a different
 1,730-query split and is not directly comparable.
 
@@ -84,9 +86,11 @@ official lexical baseline. TEMPO's best reported system (32.0) is on a different
 on the 1,211 train queries (2 epochs, peak lr 1.5e-5, 8 of 24 layers frozen) and
 fused with the dense scores after per-query z-normalisation at **1:1**, a weight
 fitted once on train. Dev: **0.3581** domain-macro vs 0.3249 for the zero-shot
-fused arm (**+0.0332**, domain-clustered [+0.0192,+0.0472]) and 0.2943 for dense
-alone; seed 29 replicates at 0.3527 (+0.0278). Sections below keep the Phase-8
-history and the older RRF configuration for the record.
+fused arm (**+0.0334**, domain-clustered [+0.0191,+0.0477]) and 0.2943 for dense
+alone; two further seeds give 0.3575 and 0.3528. Weight refitting out-of-fold
+selects RRF 1:4 and keeps +0.0205 [+0.0010,+0.0404] over the zero-shot arm at the
+same weight, so the inherited z 1:1 form stays the system. Sections below keep the
+Phase-8 history and the older RRF configuration for the record.
 
 **Phase 8 update (historical).** Swapping only the first stage to
 `mixedbread-ai/mxbai-embed-large-v1` and fusing `w_dense : w_CE = 1:1` lifts the

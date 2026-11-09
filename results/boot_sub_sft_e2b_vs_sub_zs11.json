@@ -1,0 +1,25 @@
+{
+ "label": "sub_sft_e2b vs sub_zs11",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.3249073917275941,
+ "candidate_macro": 0.358341009549468,
+ "delta": 0.03343361782187393,
+ "query_bootstrap": {
+  "mean": 0.03341752264528015,
+  "ci_lo": 0.015518268450419287,
+  "ci_hi": 0.05331568189463906,
+  "p_gt_0": 1.0
+ },
+ "domain_bootstrap": {
+  "mean": 0.033399449708292756,
+  "ci_lo": 0.019069649163158744,
+  "ci_hi": 0.047681895512051896,
+  "p_gt_0": 1.0
+ },
+ "better": 186,
+ "worse": 79,
+ "iters": 10000,
+ "seed": 7
+}

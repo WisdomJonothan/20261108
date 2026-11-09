@@ -1,82 +1,82 @@
 {
- "tag": "sft_e2b",
+ "tag": "sub_sft_e2b",
  "metric": "nDCG@10",
  "domains": [
   {
    "domain": "bitcoin",
    "n": 30,
    "n_in_run": 30,
-   "ndcg10": 0.22042063332961065,
+   "ndcg10": 0.21409636938141502,
    "file": "results\\score_sub_sft_e2b_bitcoin_dev.json"
   },
   {
    "domain": "cardano",
    "n": 15,
    "n_in_run": 15,
-   "ndcg10": 0.22327986567438948,
+   "ndcg10": 0.24058129432939915,
    "file": "results\\score_sub_sft_e2b_cardano_dev.json"
   },
   {
    "domain": "economics",
    "n": 25,
    "n_in_run": 25,
-   "ndcg10": 0.18987624312784182,
+   "ndcg10": 0.23755320639452848,
    "file": "results\\score_sub_sft_e2b_economics_dev.json"
   },
   {
    "domain": "genealogy",
    "n": 35,
    "n_in_run": 35,
-   "ndcg10": 0.35951598356010184,
+   "ndcg10": 0.4074101876922977,
    "file": "results\\score_sub_sft_e2b_genealogy_dev.json"
   },
   {
    "domain": "history",
    "n": 240,
    "n_in_run": 240,
-   "ndcg10": 0.37883041444326054,
+   "ndcg10": 0.399621490728909,
    "file": "results\\score_sub_sft_e2b_history_dev.json"
   },
   {
    "domain": "hsm",
    "n": 45,
    "n_in_run": 45,
-   "ndcg10": 0.4914710190498389,
+   "ndcg10": 0.4685996561644078,
    "file": "results\\score_sub_sft_e2b_hsm_dev.json"
   },
   {
    "domain": "iota",
    "n": 3,
    "n_in_run": 3,
-   "ndcg10": 0.7528630556744758,
+   "ndcg10": 0.841090573974228,
    "file": "results\\score_sub_sft_e2b_iota_dev.json"
   },
   {
    "domain": "law",
    "n": 11,
    "n_in_run": 11,
-   "ndcg10": 0.20929434059225824,
+   "ndcg10": 0.4258780349181841,
    "file": "results\\score_sub_sft_e2b_law_dev.json"
   },
   {
    "domain": "monero",
    "n": 19,
    "n_in_run": 19,
-   "ndcg10": 0.20554928768934036,
+   "ndcg10": 0.20556813148688735,
    "file": "results\\score_sub_sft_e2b_monero_dev.json"
   },
   {
    "domain": "politics",
    "n": 45,
    "n_in_run": 45,
-   "ndcg10": 0.3816367869091439,
+   "ndcg10": 0.43261277447146673,
    "file": "results\\score_sub_sft_e2b_politics_dev.json"
   },
   {
    "domain": "quant",
    "n": 10,
    "n_in_run": 10,
-   "ndcg10": 0.11053389673989888,
+   "ndcg10": 0.153796286139897,
    "file": "results\\score_sub_sft_e2b_quant_dev.json"
   },
   {
@@ -96,10 +96,10 @@
  ],
  "num_domains": 13,
  "num_topics": 519,
- "topic_macro": 0.34438397149700634,
- "domain_macro": 0.3196074342501249,
- "topic_macro_n_ge_19": 0.35288209431017503,
- "domain_macro_n_ge_19": 0.309431423214267,
+ "topic_macro": 0.36803072732615255,
+ "domain_macro": 0.358341009549468,
+ "topic_macro_n_ge_19": 0.37192989336991344,
+ "domain_macro_n_ge_19": 0.32670160424061373,
  "domains_n_ge_19": [
   "bitcoin",
   "economics",

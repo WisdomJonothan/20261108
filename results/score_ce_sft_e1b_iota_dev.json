@@ -1,0 +1,61 @@
+{
+  "tag": "ce_sft_e1b",
+  "run_file": "D:\\RETECO\\runs\\rerank_sft_e1b_iota_dev.trec",
+  "data": "D:\\RETECO\\data\\track1_tempo\\iota",
+  "split": "dev",
+  "num_topics": 3,
+  "num_topics_in_run": 3,
+  "topics_missing_from_run": [],
+  "missing_counted_as_zero": true,
+  "nDCG@10": 0.5350056621029443,
+  "Recall@10": 0.7222222222222222,
+  "Recall@100": 0.9166666666666666,
+  "Recall@1000": 0.9166666666666666,
+  "oracle_nDCG@10_cand_all": 0.9439574879096275,
+  "oracle_nDCG@10_cand100": 0.9439574879096275,
+  "candidate_depth": 100,
+  "TP@10": 0.2401949985491921,
+  "TR@10": 0.20000000000000004,
+  "TC@10": 0.8333333333333334,
+  "per_query": {
+    "2714_798": {
+      "nDCG@10": 0.36331756126716835,
+      "Rec@10": 0.5,
+      "Rec@100": 0.75,
+      "Rec@1000": 0.75,
+      "oracle@10_cand_all": 0.8318724637288826,
+      "oracle@10_cand100": 0.8318724637288826,
+      "TR@10": 0.2,
+      "TP@10": 0.20483424751859086,
+      "num_gold": 4,
+      "num_candidates": 100,
+      "TC@10": 1.0
+    },
+    "2194_800": {
+      "nDCG@10": 0.6364391809889587,
+      "Rec@10": 0.6666666666666666,
+      "Rec@100": 1.0,
+      "Rec@1000": 1.0,
+      "oracle@10_cand_all": 1.0,
+      "oracle@10_cand100": 1.0,
+      "TR@10": 0.2,
+      "TP@10": 0.2984900352767555,
+      "num_gold": 3,
+      "num_candidates": 100,
+      "TC@10": 0.5
+    },
+    "314_806": {
+      "nDCG@10": 0.6052602440527057,
+      "Rec@10": 1.0,
+      "Rec@100": 1.0,
+      "Rec@1000": 1.0,
+      "oracle@10_cand_all": 1.0,
+      "oracle@10_cand100": 1.0,
+      "TR@10": 0.2,
+      "TP@10": 0.21726071285222986,
+      "num_gold": 2,
+      "num_candidates": 100,
+      "TC@10": 1.0
+    }
+  }
+}
