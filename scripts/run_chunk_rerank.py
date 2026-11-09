@@ -111,6 +111,15 @@ def main():
     queries = load_queries(args.domain, args.split, args.q_mode,
                            getattr(args, "examples", None))
     cand = read_trec_run(args.run)
+    if args.examples:
+        # An --examples file defines the query subset: score only those topics.
+        keep = [q for q in cand if q in queries]
+        if len(keep) != len(cand):
+            print(f"--examples: scoring {len(keep)}/{len(cand)} run topics "
+                  f"({len(cand) - len(keep)} skipped)", flush=True)
+        cand = {q: cand[q] for q in keep}
+    if not cand:
+        raise SystemExit("no queries to score after applying --examples")
 
     results, per_q_ms, n_pairs, n_windows, n_missing = {}, [], 0, 0, 0
     with torch.inference_mode():

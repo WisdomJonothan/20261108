@@ -56,3 +56,32 @@ failure). The depth table says most of those 52 are rescueable in principle:
 Recall@1000 = 0.9247, so their gold documents exist in the dense list further
 down. Depth is therefore the only lever that can touch the retrieval-failure half
 of the error budget; fusion weights and CE training can only touch the other half.
+
+## Result (2026-11-09 16:18): depth does NOT help
+
+`scripts/run_depth_probe.sh` (e1 checkpoint, 200-deep pool, 62 queries):
+
+| domain | n | pool 100 | pool 200 | Δ |
+|---|---:|---:|---:|---:|
+| bitcoin | 6 | 0.1224 | 0.1206 | −0.0018 |
+| cardano | 5 | 0.1028 | 0.1043 | +0.0015 |
+| economics | 6 | 0.2596 | 0.2596 | 0.0000 |
+| genealogy | 6 | 0.2585 | 0.2639 | +0.0055 |
+| history | 6 | 0.0714 | 0.0714 | 0.0000 |
+| hsm | 6 | 0.3249 | 0.3249 | 0.0000 |
+| iota | 1 | 0.8319 | 0.8319 | 0.0000 |
+| law | 2 | 0.1265 | 0.1265 | 0.0000 |
+| monero | 5 | 0.1253 | 0.1253 | 0.0000 |
+| politics | 6 | 0.1841 | 0.1841 | 0.0000 |
+| quant | 5 | 0.2731 | 0.2731 | 0.0000 |
+| travel | 6 | 0.1717 | 0.1771 | +0.0054 |
+| workplace | 2 | 0.1092 | 0.1092 | 0.0000 |
+| **overall** | **62** | — | — | **+0.0010, CI [−0.0009, +0.0036], 3 up / 2 down** |
+
+The delta is zero in 9 of 13 domains: the cross-encoder scores the rank-100–200
+candidates low enough that they never enter the top 10, so a deeper pool changes
+nothing. Deeper candidates would only pay off after fine-tuning **on** them
+(training currently uses top-100 negatives). Decision per the pre-registered
+rule: do not spend the 3–5 GPU-hours of a k=300 dev rerank; the paper's claim
+"the headroom is ranking, not recall" survives, with the sharper statement that
+the frozen CE cannot exploit new candidates it was not trained on.

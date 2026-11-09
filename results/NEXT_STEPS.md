@@ -108,3 +108,32 @@ crosses zero), "SFT validated" (one seed).
 - Submission path is test-phase ready: `scripts/make_submission.py` passes
   `--examples` to both stages, keys the CE cache by checkpoint, de-ties inside
   the writer; runbook in `docs/SUBMISSION.md`.
+- **Artifact bug found and fixed** (paper-verification pass): the first
+  `runs/sub_zs11_*` freeze was built from `runs/fused_1_1_*`, which are the *RRF*
+  V1 runs (`tag=rrf`, score 0.0317) — i.e. it was a byte-level duplicate of V1.
+  The real zero-shot z 1:1 runs are `results/ss_dev/ss_1_1_<d>_dev.trec`; they are
+  now de-tied/validated into `runs/sub_zs11_*` (13 files, 0 errors,
+  `results/submission_validation_zs11.json`) and rescored to
+  `results/aggregate_sub_zs11_dev.json` = **0.3249 domain-macro / 0.3260
+  topic-macro**, matching the number in Table 2. `RUN_MANIFEST.sha256` now covers
+  all four frozen sets (52 files: sub_1_1, sub_1_2, sub_sft11, sub_zs11).
+- **The 2-epoch checkpoint is a large win — provisional new best.** Full 13-domain
+  dev rerank (`TAG=sft_e2bc`, freezing via `scripts/freeze_sft_arm.sh`) gives
+  **0.3581 domain-macro / 0.3644 topic-macro** (`results/aggregate_sub_sft_e2bc_dev.json`,
+  13 files, 0 validation errors). Against the frozen zero-shot z 1:1 baseline:
+  **+0.0332**, query CI [+0.0161,+0.0523], domain-clustered [+0.0192,+0.0472],
+  188 better / 78 worse / 253 tied (`results/boot_dom_e2_vs_zs.json`). Per domain
+  (`results/WEIGHT_SWEEP_E2.md`): hsm +0.071, law +0.076, workplace +0.063,
+  cardano +0.055, history +0.045, economics +0.039; only bitcoin −0.002 and
+  quant −0.001 fall. The gain is flat in the fusion weight (+0.009 at w=0.5,
+  +0.025…+0.035 for w≥0.85, 13/13 domains up at w=0.7/1.5/1.8), so it is a CE
+  effect, not a re-tuning of the fusion. The chosen checkpoint is epoch 1 of the
+  2-epoch run (val 0.3029); epoch 2 was worse (0.3012), so the effective change
+  vs e1 is peak lr 1.5e-5 with a 2-epoch (slower) decay — **not** more epochs.
+  Replication with seed 23 is training (`v2m3_pool8_e2s23`); adopt e2 in the
+  paper only if it replicates.
+- **Depth probe: negative** (`results/DEPTH_ANALYSIS.md`). Reranking the 200-deep
+  pool on the 62 hardest queries changes nDCG@10 by +0.0010 [−0.0009,+0.0036]
+  (zero in 9/13 domains): the CE scores deep candidates near the floor, so a
+  larger pool buys nothing until the CE is trained on deeper negatives. The k=300
+  full rerank is cancelled; the "headroom is ranking" claim holds.
