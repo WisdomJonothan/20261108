@@ -53,6 +53,10 @@ def main():
     ap.add_argument("--q-mode", required=True,
                     choices=["title", "body", "full", "ctxt", "summ"])
     ap.add_argument("--q-cap-words", type=int, default=64)
+    ap.add_argument("--pair-max-len", type=int, default=0,
+                    help="hard token ceiling for the (query, window) pair; 0 = "
+                         "q_tokens + win + 4. Set it to the value the checkpoint "
+                         "was validated with to reproduce training-time scores")
     ap.add_argument("--q-tokens", type=int, default=256,
                     help="hard token ceiling applied after composing the query")
     ap.add_argument("--win", type=int, default=250)
@@ -115,7 +119,8 @@ def main():
             for i in range(0, len(flat), args.batch):
                 batch = flat[i:i + args.batch]
                 enc = tok([q_text] * len(batch), batch, padding=True,
-                          truncation=True, max_length=args.q_tokens + args.win + 4,
+                          truncation=True,
+                          max_length=(args.pair_max_len or args.q_tokens + args.win + 4),
                           return_tensors="pt")
                 enc = {k: v.to(device) for k, v in enc.items()}
                 logits = model(**enc).logits.view(-1).float().cpu().numpy()

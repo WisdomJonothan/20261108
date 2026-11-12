@@ -1171,3 +1171,265 @@ recall only. Also the denominator is all annotated steps with a positive, not
 No weights are published (6 x 1,082 MB); the cheapest closure is releasing
 `v2m3_pool8_e2`, the artifact every headline number uses. No official test
 queries yet.
+
+---
+
+## 5s. Why a better cross-encoder does not improve the fused system (2026-11-13)
+
+This is the question the project pivots on after the external audit, and it is
+now the intended core of the SemEval system paper: *if the cross-encoder ranks
+better on its own, why does the fused system not improve?*
+
+### 5s.1 The observation
+
+Same 100-candidate pool, same fusion recipe (`z` per query over the common
+candidates, `w = 1`), domain-macro nDCG@10 on 519 dev queries:
+
+| arm | CE alone (top-10 over 100) | fused, w = 1 | Δ |
+|---|---|---|---|
+| `lx_possum` | 0.2756 | 0.3470 | — |
+| `cx_qv` | 0.3153 | 0.3443 | CE +0.0397, fused −0.0027 |
+
+Both numbers reproduce the external audit's recomputation. The rest of this
+section is `scripts/ce_fusion_probe.py` (CPU only) and its output
+`results/CE_FUSION_PROBE.json`; per-query scores in `results/probe_scores/`.
+
+### 5s.2 The fusion weight is model-specific
+
+Sweeping `w` in `z_dense + w * z_ce`:
+
+| w | 0 | .25 | .5 | .75 | 1 | 1.25 | 1.5 | 2 | 3 | 4 | 8 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| `lx_possum` | .2943 | .3179 | .3309 | .3412 | **.3470** | .3439 | .3432 | .3395 | .3366 | .3325 | .3147 |
+| `cx_qv` | .2943 | .3204 | .3370 | .3408 | .3443 | .3509 | .3532 | **.3546** | .3487 | .3475 | .3429 |
+
+`lx_possum` peaks at the frozen weight; `cx_qv` peaks at 2.0, and moving from
+1.0 to 2.0 is worth **+0.0103**, paired bootstrap CI [+0.0012, +0.0201]
+(`results/boot_probe_cxqv_w2_vs_cxqv_w1.json`). So part of the missing gain is
+not lost, it is *under-weighted*: a stronger CE wants a larger share of the
+fused score, and the frozen 1:1 was calibrated on a weaker one.
+
+At its own optimum `cx_qv` still does not beat the frozen artifact
+(0.3546 against 0.3581, Δ −0.0035, CI [−0.0183, +0.0118]), but it does move
+ahead of the same-recipe retrain (`lx_possum` 0.3470, Δ +0.0077, CI
+[−0.0080, +0.0228]).
+
+### 5s.3 Ordering versus score shape: rank-preserving transplant
+
+Keep one model's *ordering* of the 100 candidates but give it the other
+model's *z-profile* (the sorted z-scores assigned by rank):
+
+| ordering | profile | w = 1 | w = 2 |
+|---|---|---|---|
+| `cx_qv` | `cx_qv` (own) | .3443 | .3546 |
+| `cx_qv` | `lx_possum` | **.3482** | .3517 |
+| `lx_possum` | `lx_possum` (own) | .3470 | .3395 |
+| `lx_possum` | `cx_qv` | .3403 | .3481 |
+
+Two readings. (i) At w = 1 `cx_qv`'s better ordering is worth at most
++0.0012 over the incumbent's fused list — the ordering gain is almost entirely
+absorbed. (ii) Its *profile* is actively costly: swapping it onto the
+incumbent's ordering drops 0.3470 → 0.3403 (−0.0067). `cx_qv` puts its top
+z-score a little lower (3.049 against 3.095) and its mid-rank mass a little
+higher (z at rank 10: 1.264 against 1.184), so under equal weights the dense
+component wins the contested top slots.
+
+### 5s.4 Calibration-free control
+
+Rank fusion (RRF, k = 60) throws the scores away and uses only the two orders:
+`lx_possum` 0.3393, `cx_qv` 0.3462 — the better CE is **+0.0069** ahead, about
+a sixth of its CE-only gain. So the ordering does carry signal; score-level
+fusion at w = 1 (Δ −0.0027) loses it to calibration.
+
+### 5s.5 Where the 0.04 CE gain goes, query by query
+
+Per-query Δ(CE-only) against Δ(fused, w = 1), 519 queries:
+
+| group | n | mean Δ CE-only | mean Δ fused w=1 | sum |
+|---|---|---|---|---|
+| `cx_qv` CE better (Δ > 0.01) | 185 | **+0.1985** | **+0.0458** | +8.48 |
+| `cx_qv` CE score unchanged (|Δ| ≤ 0.01) | 221 | +0.0001 | **−0.0116** | −2.55 |
+| `cx_qv` CE worse (Δ < −0.01) | 113 | −0.1398 | −0.0482 | −5.45 |
+
+Regression of Δfused on ΔCE: slope **0.302** at w = 1, **0.377** at w = 2 — a
+CE improvement reaches the fused top ten attenuated roughly threefold. The
+three flows nearly cancel: net +0.0009 per query, which is the −0.0027 macro
+difference after domains are re-weighted.
+
+The middle row is the one worth remembering: on 221 queries the better CE's own
+nDCG@10 does not move, and the fused system still loses 0.0116. Their CE top-10
+overlap with the reference arm is only 0.61, so the CE list does move — what
+does not move is its score on gold, which is what the single-stage metric sees.
+The clean isolation is the transplant: at w = 1, `cx_qv` ordering over
+`lx_possum` profile scores 0.3482 (+0.0012 over `lx_possum` itself) while
+`lx_possum` ordering over `cx_qv` profile scores 0.3403 (−0.0067). At the frozen
+weight the fused list follows the score profile more than the better ordering,
+which is a calibration effect rather than an ordering one.
+
+Fused top-ten overlap: 74% with the dense top ten, 55–60% with the CE top ten
+for both arms, i.e. the fused list is dense-anchored, which is why CE changes
+arrive attenuated.
+
+### 5s.6 Selection implication
+
+Across the six arms measured on dev (`MULTIEVIDENCE_*_depth100.json` for
+CE-only, `aggregate_sub_*_dev.json` for fused):
+
+| arm | CE-only | fused | CE rank | fused rank |
+|---|---|---|---|---|
+| `sft_e2bc` (frozen) | 0.2823 | **0.3581** | 2 | 1 |
+| `lx_possum` | 0.2756 | 0.3470 | 3 | 2 |
+| `cx_qv` | **0.3153** | 0.3443 | 1 | 3 |
+| `cx_bf` | 0.2529 | 0.3443 | 6 | 4 |
+| `sx_l03` | 0.2739 | 0.3442 | 4 | 5 |
+| `sx_l10` | 0.2720 | 0.3438 | 5 | 6 |
+
+The best CE-only arm is third fused; the frozen artifact is second on CE-only
+and first fused. Spearman across six arms is 0.66, but the two extremes invert,
+which is exactly the regime where a 45-query CE-only validation screen decides
+the wrong way. The pipeline in `docs/REPRODUCE.md` selects checkpoints on the
+cross-encoder's own val nDCG; this table says that objective is only loosely
+coupled to the deployed one.
+
+### 5s.7 The weight transfer test on 45 held-out queries
+
+`ops/queue_val_weight.sh` rebuilt the dense top-100 for the 45 held-out training
+queries (`results/val_qids_e2.json`), reranked them with both checkpoints, and
+swept `w` on val (`results/VAL_WEIGHT_SWEEP.json`):
+
+| w | 0 | .25 | .5 | .75 | 1 | 1.25 | 1.5 | 2 | 3 | 4 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| `lx_possum` val | .2824 | .3119 | .3241 | **.3336** | .3311 | .3081 | .3056 | .2924 | .2798 | .2793 |
+| `cx_qv` val | .2826 | .3050 | .3088 | .3104 | .3197 | **.3280** | .3167 | .3164 | .3054 | .3231 |
+
+The optima move the right way — `lx_possum` at 0.75, `cx_qv` at 1.25 — but
+45 queries cannot pin a weight: for `lx_possum` the top two weights differ by
+0.0025, and applying the val argmax to dev **costs** 0.0058 (0.3412 against
+0.3470 at w = 1, paired CI [−0.0117, −0.0003], i.e. a real loss). Applied the
+same way, `cx_qv` reaches 0.3509, which is +0.0097 over `lx_possum` at val
+weights (CI [−0.0021, +0.0212], P = 0.945) and −0.0072 against the frozen
+artifact (CI [−0.0203, +0.0058]).
+
+So the honest reading:
+
+* the **calibration channel is established**: the transplant test and the
+  221-query group do not depend on any weight-selection split;
+* the **direction** of the weight shift is confirmed on held-out queries
+  (`cx_qv` wants more CE than `lx_possum`), but a 45-query argmax is too noisy
+  to be a method — it hurts the incumbent;
+* a **calibration-free** fusion (RRF k = 60) recovers +0.0069 of the CE gain
+  without any weight (0.3393 → 0.3462, CI [−0.0087, +0.0221]) but still trails
+  the frozen artifact by 0.0119.
+
+The paper claim therefore stays narrower than "we recover the gain": *in a
+dense+CE system, CE-only nDCG@10 is a weak proxy for fused nDCG@10 (the best
+CE-only arm is third fused, the second-best is first), roughly a third of a CE
+change reaches the fused top ten, and part of the rest is score calibration
+rather than ordering.* Recovering it needs either a tuning split much larger
+than 45 queries or a calibration-free fusion, and neither closes the gap to the
+frozen artifact on dev.
+
+Next experiment, still cheap: fused-val checkpoint selection for one arm pair
+(three epochs of `cx_qv`, rerank val, compare "pick epoch by CE-only val" with
+"pick epoch by fused val", then dev-score the two picks). That is the part of
+the selection story that is currently inferred from six arms rather than
+demonstrated.
+
+## 5t. Goal round 1 — the screen and the deployment read different token budgets (2026-11-13 03:15 →)
+
+The publication goal (m01842) turned the selection question from a paragraph in
+5s.7 into a measurement. Two things were done in this round: the mechanism was
+written into the paper (5.8) with a new error analysis (8) and conclusion (9),
+and the checkpoint screen was measured against the fused metric on the 45
+held-out training queries.
+
+### 5t.1 What the screen actually optimises
+
+`scripts/train_ce.py` selects `best/` on `val_ndcg10_domain_macro` (or the plain
+mean for the frozen run, which predates that key), computed inside `validate()`
+on 45 held-out train queries. Until this round the assumption was that this is
+"the cross-encoder's quality". It is not, for two independent reasons:
+
+1. **It is a single-stage metric.** The submitted system fuses dense and CE
+   scores; 5s showed that a CE-only improvement does not survive the fusion
+   (anchor / attenuation / calibration).
+2. **It is measured at a different token budget than deployment.** Every
+   experimental arm (`ops/queue_loss_exp.sh:33`, `queue_seeds.sh:33`,
+   `queue_stage2.sh:97`, `queue_stage3.sh:22`, `queue_step_exp.sh:27`,
+   `queue_sx10.sh:35`) passes `--max-len 320` with the default `--win 250`, and
+   `validate()` tokenises with `max_length=args.max_len` — so the pair is
+   truncated to 320 tokens. Deployment re-ranks with
+   `max_length = q_tokens + win + 4 = 256 + 250 + 4 = 510`
+   (`scripts/run_chunk_rerank_qvar.py`, before this round). Same checkpoint, same
+   candidate list, two different readings of each document.
+
+### 5t.2 Re-scoring the screen at the deployment budget
+
+`scripts/run_chunk_rerank_qvar.py` gained `--pair-max-len` (0 = the old
+`q_tokens + win + 4`), so the two budgets can be compared on identical
+candidates. `scripts/val_epoch_select.py` then reports, per epoch, CE-only
+nDCG@10 and the fused nDCG@10 at w = 1 on the same 45 queries.
+`ops/queue_val_epochs.sh` produces `runs/rerank_<tag>_<d>_val.trec`.
+
+lx_possum, 45 queries, deployment budget (510):
+
+| epoch | CE-only | fused w=1 | top-10 ∩ dense-CE |
+|---|---|---|---|
+| 1 | **0.2462** | **0.3325** | 0.575 |
+| 2 | 0.2396 | 0.3311 | 0.564 |
+
+Training-time screen (320): ep0 0.2606/0.2730, ep1 0.2745/0.2790, ep2 0.2801/0.2865
+(plain / domain-macro), i.e. the screen kept **epoch 2**. At the deployment
+budget both CE-only and fused prefer **epoch 1**. The cardano slice shows the
+same reversal directly: at 320, ep2 0.1799 > ep1 0.1717; at 510 both 0.2020.
+So the epoch choice is a property of the truncation budget, not of the data.
+
+This does not yet say which epoch would score better on dev — that is
+`ops/queue_lx_ep1_dev.sh`, queued behind the val rerank. Until it lands, the
+honest statement is narrower: **the screen's ordering is not stable under the
+preprocessing the deployed system uses**, which disqualifies it as evidence
+that "the best checkpoint was kept" regardless of its correlation with the
+fused metric.
+
+### 5t.3 A correction to 5s.5
+
+5s.5 grouped queries by "CE top-10 unchanged". That is not what was computed:
+the group of 221 queries is those where **CE nDCG@10 itself does not move**
+(|Δ| ≤ 0.01), and their top-10 lists overlap with the reference only 0.609 on
+average (recomputed 2026-11-13). The paper and 5s now say "CE score unchanged",
+and 5s.5 carries the transplant numbers (cx ordering + lx profile 0.3482,
+lx ordering + cx profile 0.3403) as the direct isolation of order from profile.
+
+### 5t.4 The held-out replication, and what it does not show
+
+`val_epoch_select.py` on all four checkpoints (45 held-out train queries,
+deployment budget, same candidates, fused at w = 1):
+
+| checkpoint | CE-only | fused w=1 | top-10 overlap |
+|---|---:|---:|---:|
+| lx_possum ep1 | 0.2462 | **0.3325** | 0.575 |
+| lx_possum ep2 | 0.2396 | 0.3311 | 0.564 |
+| cx_qv ep1 | **0.2893** | 0.3197 | 0.596 |
+| cx_qv ep2 | 0.2882 | 0.3151 | 0.594 |
+
+Two readings, one of which is a negative result for the hypothesis this round
+started from:
+
+- **Across models the inversion replicates without dev.** cx_qv is 0.043 better
+  alone and 0.013 worse fused, on queries that played no part in the dev
+  analysis. This is the cleanest form of the 5.8 claim we have: same candidates,
+  same fusion, same 45 queries, opposite order.
+- **Within a model the two criteria agree on the epoch.** Both prefer epoch 1
+  for lx_possum and both prefer epoch 1 for cx_qv. So substituting the fused
+  metric for the CE metric would not have changed either epoch choice. The
+  selection story is therefore about *which model to ship*, not about which
+  epoch of one model - the epoch-level error that did occur came from the
+  token-budget mismatch (5t.2), not from the single-stage metric.
+
+### 5t.5 Still open
+
+- `lx_ep1` dev evaluation (in flight): does the deployment-budget epoch win on
+  the official split, or is the reversal confined to 45 queries?
+- cx_qv epochs (bash-4864): if CE-only and fused disagree on cx too, the
+  selection story has two independent demonstrations.
+- Page budget: PAPER_4PAGE is 5,691 words; the SemEval plan asks for ~4,500.

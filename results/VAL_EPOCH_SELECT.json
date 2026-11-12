@@ -1,0 +1,26 @@
+{
+ "lx_ep1": {
+  "queries": 45,
+  "ce_only_macro@10": 0.2461594182691507,
+  "fused_macro@10": 0.3324910356635392,
+  "top10_overlap_with_fused": 0.575
+ },
+ "lx_ep2": {
+  "queries": 45,
+  "ce_only_macro@10": 0.23956568480465135,
+  "fused_macro@10": 0.3310988309633276,
+  "top10_overlap_with_fused": 0.5641025641025641
+ },
+ "cx_ep1": {
+  "queries": 45,
+  "ce_only_macro@10": 0.2892978368871811,
+  "fused_macro@10": 0.31972723062736097,
+  "top10_overlap_with_fused": 0.5955128205128205
+ },
+ "cx_ep2": {
+  "queries": 45,
+  "ce_only_macro@10": 0.2882112426450027,
+  "fused_macro@10": 0.3151340845227309,
+  "top10_overlap_with_fused": 0.5935897435897436
+ }
+}

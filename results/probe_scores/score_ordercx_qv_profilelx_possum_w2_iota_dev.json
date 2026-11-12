@@ -1,0 +1,1 @@
+{"tag": "order=cx_qv|profile=lx_possum|w=2", "data": "D:/RETECO\\data\\track1_tempo\\iota", "split": "dev", "num_topics": 3, "per_query": {"2714_798": {"nDCG@10": 0.44149241373678083}, "2194_800": {"nDCG@10": 0.7039180890341347}, "314_806": {"nDCG@10": 0.9197207891481876}}}

@@ -1,0 +1,29 @@
+{
+ "ref": "lx_possum",
+ "probe": "cx_qv",
+ "w": 1.0,
+ "queries": 519,
+ "improved": {
+  "n": 185,
+  "mean_dce": 0.1984873410334615,
+  "mean_dfused": 0.045814348502984006,
+  "sum_dfused": 8.47565447305204,
+  "mean_ce_top10_overlap": 0.6054054054054054
+ },
+ "same": {
+  "n": 221,
+  "mean_dce": 9.913291114706097e-05,
+  "mean_dfused": -0.01155045749349662,
+  "sum_dfused": -2.5526511060627533,
+  "mean_ce_top10_overlap": 0.6090497737556562
+ },
+ "hurt": {
+  "n": 113,
+  "mean_dce": -0.1398375919213258,
+  "mean_dfused": -0.04822375470822857,
+  "sum_dfused": -5.449284282029828,
+  "mean_ce_top10_overlap": 0.6203539823008849
+ },
+ "slope_dfused_on_dce": 0.30173015233200845,
+ "mean_dfused_all": 0.0009127535355673585
+}

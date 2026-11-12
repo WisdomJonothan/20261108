@@ -51,7 +51,10 @@ domain-macro statistic, with paired bootstraps over queries and over domains;
 weight on dev; (iii) a multi-evidence analysis showing that the system's failure
 mode is "one easy document" inside a candidate pool that is itself incomplete;
 (iv) negative evidence on explicit temporal modelling: one pre-registered test
-and a fixed year-consistency rule that fails.
+and a fixed year-consistency rule that fails; (v) a decomposition of why the
+cross-encoder with the best standalone score is not the one that fuses best -
+anchoring, attenuation and score calibration - and what that implies for using
+a single-stage metric to select checkpoints.
 
 *Relation to prior work.* The reranker is the standard retrieve-then-rerank
 cross-encoder (Nogueira and Cho, 2019), initialised from BGE M3 (Chen et al.,
@@ -386,6 +389,60 @@ pooling) is a wash at +0.0014 - plus a negative result relative to a same-code
 baseline that the 45-query screen cannot rank at all: the four arms it scored
 on the shared split (0.2865-0.2920) and dev reverses that order.
 
+### 5.8 A better cross-encoder is not a better system
+
+The checkpoint screen scores the cross-encoder on its own validation nDCG; the
+submitted system is the dense+CE fusion. The two objectives do not rank the arms
+the same way. On dev `cx_qv` is the stronger cross-encoder by 0.0397 (0.3153
+against 0.2756) and is 0.0027 *worse* after fusion at the frozen weight; across
+the six arms this analysis scored, the best CE-only arm is third fused and the
+second-best is first (Spearman 0.66).
+
+| arm | cross-encoder alone | fused, w = 1 | fused, best w |
+|---|---:|---:|---:|
+| frozen recipe (`lx_possum`) | 0.2756 | 0.3470 | 0.3470 (w = 1) |
+| full-question (`cx_qv`) | 0.3153 | 0.3443 | 0.3546 (w = 2) |
+
+Three mechanisms explain the loss, measured on the 519 dev queries with the
+frozen dense top-1000 and per-query z-normalised 1:1 fusion. *(i) Anchoring.*
+The fused top ten is 74% dense documents and only 55-60% of it is also in the
+cross-encoder's top ten, so a changed CE ordering has to displace dense
+documents to matter. *(ii) Attenuation.* Across queries a CE gain transfers at
+a slope of 0.30: +0.1985 on the 185 queries the CE improves becomes +0.0458 in
+the fused list, and -0.1398 on the 113 it hurts becomes -0.0482.
+*(iii) Calibration.* The score profile matters more than the ordering. On the
+221 queries where the CE's own nDCG@10 does not move (|delta| <= 0.01), the
+fused score still falls 0.0116. A transplant isolates the two: `cx_qv`'s
+ordering with `lx_possum`'s score profile scores 0.3482, so the better ordering
+is worth +0.0012 over `lx_possum` itself, while `lx_possum`'s ordering with
+`cx_qv`'s profile falls to 0.3403, i.e. it costs 0.0067. At w = 1 the fused list
+follows the score profile more than the better ordering.
+
+Re-weighting is not a free fix. The optimum is model-specific - `cx_qv` wants
+w = 2, worth +0.0103 [+0.0012, +0.0201] over w = 1 - which recovers about a
+quarter of the CE gain, but the weight has to be chosen somewhere. Chosen on
+the 45 held-out training queries (argmax 1.25), `cx_qv` reaches 0.3509, still
+-0.0072 against the frozen system, and the same procedure costs `lx_possum`
+0.0058 ([-0.0117, -0.0003]). A calibration-free rank fusion (RRF, k = 60)
+recovers +0.0069 over the same weight and also trails the frozen system, by
+0.0119.
+
+On the 45 held-out training queries the inversion reproduces with the candidate
+list fixed. `cx_qv` is 0.043 better than `lx_possum` alone (0.2893 against
+0.2462) and 0.013 worse fused at w = 1 (0.3197 against 0.3325). Within either
+model the two criteria agree on the epoch - both prefer epoch 1 - so the
+substitution misleads about *which model* to ship, not about which epoch of a
+given model. The one epoch-level error we can attribute lies elsewhere: the
+screen computes its nDCG at `--max-len 320` while deployment re-ranks at
+`q_tokens + win + 4 = 510`, and re-scoring `lx_possum`'s 45 queries under the
+deployment budget flips the preferred epoch from 2 to 1
+(`results/VAL_EPOCH_SELECT.json`). We read this as a property of the
+two-stage construction rather than of
+the cross-encoder: a stage that is scored alone, and trained to order a fixed
+candidate list, can improve its own metric while the system it feeds does not
+move, because the fusion re-normalises both scores per query and the first
+stage dominates the list.
+
 ## 6 Reproducibility and efficiency
 
 Every artefact is content-addressed: document embeddings, dense runs, CE runs and
@@ -436,6 +493,53 @@ documents against 12.5k in the frozen run), and a fourth run through the current
 code path 0.3470. The retraining band is therefore 0.347-0.358, and 0.3581 is
 the property of the submitted artifact rather than a number the recipe
 reproduces on demand; we did not hold negative-pool sampling fixed.
+
+## 8 Error analysis
+
+A quarter of dev questions (138/519, 26.6%) score exactly zero. The split
+separates cleanly by candidate-pool recall: **52 (37.7%) have no relevant
+document in the dense top-100** - no top-100 reranker can score them - and 86
+(62.3%) have the gold in the pool and lose it to ordering. Per domain the zeros
+cluster where the corpus is thin (history 46, politics 14, bitcoin 13) and are
+absent where it is dense (iota 0). Three worked examples, one per mechanism
+(`results/DEV_ERROR_ANALYSIS.md`):
+
+| failure | query | gold | dense rank | CE rank | fused rank | nDCG@10 |
+|---|---|---:|---|---:|---:|---:|
+| pool miss | travel/201562_1094 | 2 | 656 / not retrieved | - | - | 0.0000 |
+| ordering | history/70583_271 | 1 | 24 | 14 | 17 | 0.0000 |
+| step coverage | history/59309_621 | 2 | 1, 10 | 1, 72 | 1, 20 | 0.6131 |
+
+The pool-miss case is a PNR booking-limit question whose evidence sits outside
+the 1,000 documents the dense stage returns - the answer is not near the
+lexical neighbourhood of the question, and no reranking depth recovers it. The
+ordering case ("How do we know when Nero was born?") has its single gold
+document at dense rank 24; the cross-encoder moves it to 14, fusion to 17, and
+the question scores zero. The step case ("How many people watched the moon
+landings after Apollo 11?") is what the multi-evidence metric is about: the
+Apollo 11 figures are rank 1 everywhere, the comparison document sits at dense
+rank 10 and falls to 72 for the cross-encoder - a short title-only query
+retains the entity but loses the comparison, so the fused list keeps one
+evidence document out of two and nDCG@10 stays high (0.61) while step coverage
+fails. This is the common shape, not an outlier: 38.3% of questions place two
+or more relevant documents in the top ten (S5.2).
+
+## 9 Conclusion
+
+A zero-shot dense first stage plus a cross-encoder fine-tuned on the 1,071
+questions with an in-pool positive gives +0.0332 domain-macro nDCG@10 over the
+dense baseline on all 13 dev domains, and the gain is stable across seeds
+(0.347-0.358) and fusion forms. The remaining headroom is not one failure but
+two: an incomplete candidate pool (1.9% of questions have no gold in the dense
+top-1,000, and 38% of zero-scoring questions have none in the top 100) and
+multi-evidence coverage (59.5% of annotated steps in the fused top ten). Every
+explicit temporal intervention tested - ten retrieval-side probes, one
+pre-registered test, step supervision, query reformulation, loss variants,
+backfilling and rank fusion - is neutral or negative on dev, and the frozen
+system is kept. The most transferable finding is the last one: a cross-encoder
+that is 0.04 better on its own metric can be worse in the fused system, because
+fusion anchors on the first stage and re-normalises the second stage's scores
+per query, so single-stage validation is a weak checkpoint criterion.
 
 ## References
 
