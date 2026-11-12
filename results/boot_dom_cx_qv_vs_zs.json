@@ -1,0 +1,25 @@
+{
+ "label": "cx_qv vs zs11",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.3249073917275941,
+ "candidate_macro": 0.344320324333899,
+ "delta": 0.01941293260630489,
+ "query_bootstrap": {
+  "mean": 0.01933649432343859,
+  "ci_lo": 0.0008705408516916466,
+  "ci_hi": 0.039424909596771515,
+  "p_gt_0": 0.9806
+ },
+ "domain_bootstrap": {
+  "mean": 0.019270903799763157,
+  "ci_lo": -0.0031729957055320903,
+  "ci_hi": 0.03847007996125121,
+  "p_gt_0": 0.9537
+ },
+ "better": 193,
+ "worse": 114,
+ "iters": 10000,
+ "seed": 7
+}

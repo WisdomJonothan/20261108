@@ -1,0 +1,25 @@
+{
+ "label": "cx_qv vs frozen",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.35809852326897723,
+ "candidate_macro": 0.344320324333899,
+ "delta": -0.013778198935078256,
+ "query_bootstrap": {
+  "mean": -0.013852876241581373,
+  "ci_lo": -0.027197374371823034,
+  "ci_hi": -0.00047497347971994086,
+  "p_gt_0": 0.0219
+ },
+ "domain_bootstrap": {
+  "mean": -0.013858020825365275,
+  "ci_lo": -0.03382827335259044,
+  "ci_hi": 0.005188717225909497,
+  "p_gt_0": 0.0819
+ },
+ "better": 124,
+ "worse": 159,
+ "iters": 10000,
+ "seed": 7
+}

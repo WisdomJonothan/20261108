@@ -1,0 +1,111 @@
+{
+ "cap_words": 64,
+ "rows": [
+  {
+   "mode": "full",
+   "domain_macro": 0.2869,
+   "mean": 0.2801,
+   "n": 45,
+   "per_domain": {
+    "bitcoin": 0.1681,
+    "cardano": 0.2327,
+    "economics": 0.31,
+    "genealogy": 0.2701,
+    "history": 0.4428,
+    "hsm": 0.4552,
+    "iota": 0.3591,
+    "law": 0.1609,
+    "monero": 0.2537,
+    "politics": 0.172,
+    "quant": 0.3485,
+    "travel": 0.1764,
+    "workplace": 0.3804
+   }
+  },
+  {
+   "mode": "title",
+   "domain_macro": 0.2827,
+   "mean": 0.2752,
+   "n": 45,
+   "per_domain": {
+    "bitcoin": 0.0339,
+    "cardano": 0.4623,
+    "economics": 0.3275,
+    "genealogy": 0.1359,
+    "history": 0.4141,
+    "hsm": 0.4846,
+    "iota": 0.2463,
+    "law": 0.2035,
+    "monero": 0.3866,
+    "politics": 0.1327,
+    "quant": 0.5725,
+    "travel": 0.0488,
+    "workplace": 0.2257
+   }
+  },
+  {
+   "mode": "ctxt",
+   "domain_macro": 0.2744,
+   "mean": 0.267,
+   "n": 45,
+   "per_domain": {
+    "bitcoin": 0.0339,
+    "cardano": 0.4623,
+    "economics": 0.3275,
+    "genealogy": 0.1359,
+    "history": 0.4141,
+    "hsm": 0.4846,
+    "iota": 0.2463,
+    "law": 0.2035,
+    "monero": 0.3866,
+    "politics": 0.1327,
+    "quant": 0.5725,
+    "travel": 0.0,
+    "workplace": 0.1667
+   }
+  },
+  {
+   "mode": "body",
+   "domain_macro": 0.2703,
+   "mean": 0.2537,
+   "n": 45,
+   "per_domain": {
+    "bitcoin": 0.1363,
+    "cardano": 0.1646,
+    "economics": 0.1912,
+    "genealogy": 0.2191,
+    "history": 0.4851,
+    "hsm": 0.4646,
+    "iota": 0.3462,
+    "law": 0.2174,
+    "monero": 0.2603,
+    "politics": 0.1888,
+    "quant": 0.5805,
+    "travel": 0.037,
+    "workplace": 0.2224
+   }
+  },
+  {
+   "mode": "summ",
+   "domain_macro": 0.2614,
+   "mean": 0.2606,
+   "n": 45,
+   "per_domain": {
+    "bitcoin": 0.1078,
+    "cardano": 0.248,
+    "economics": 0.3088,
+    "genealogy": 0.3066,
+    "history": 0.4373,
+    "hsm": 0.4785,
+    "iota": 0.2463,
+    "law": 0.0674,
+    "monero": 0.247,
+    "politics": 0.1585,
+    "quant": 0.4297,
+    "travel": 0.1606,
+    "workplace": 0.2018
+   }
+  }
+ ],
+ "winner": "full"
+}

@@ -6,11 +6,48 @@ run with the configuration this project settled on:
 ```
 mxbai-embed-large-v1 dense top-1000
   -> bge-reranker-v2-m3 on the dense top-100 (title query, 250-token window, max pooling)
-  -> RRF(dense, CE), c = 60, dense:CE = 1:2   (weight chosen on train)
+  -> z-score fusion of dense and CE, weight 1:1
+     (chosen on TRAIN under the official domain-macro statistic)
 ```
+
+RRF is still available (`--fusion rrf`, `c = 60`, default `dense:CE = 1:2` via
+`--rrf-wa/--rrf-wb`); the z weights are `--wa/--wb`. Both branches now take
+their weights from flags instead of module constants, so a run's configuration
+is always reproducible from its command line.
 
 It takes `--queries <examples_*.jsonl>` rather than a split name, so the same
 path is used for the dev sanity check and, later, for the hidden test queries.
+
+## Cache provenance
+
+Both intermediate runs are cached (`tmp/submission/dense_<domain>.trec` and
+`ce_<domain>_<checkpoint>.trec`). Each cache file carries a fingerprint sidecar
+(`*.fp.json`) over everything that changes its bytes:
+
+* dense: sha1 of the query file, the index directory, the dense model, the
+  pooling, the query prefix and `--topk`;
+* CE: sha1 of the dense run, the checkpoint path, `q-mode/q-cap/win/stride/pool`
+  and `--k`.
+
+On a mismatch the script refuses to reuse the cache (`SystemExit`, with the two
+fingerprints printed) instead of silently scoring a different query file;
+`--refresh` forces a rebuild, `--strict-cache` also rejects legacy caches that
+have no sidecar. A legacy cache without a sidecar is **adopted**: it is reused
+once and stamped with the current fingerprint (`"provenance": "adopted-legacy"`),
+so the next run does catch a changed query file — verified on the iota replay,
+where a two-query query file is refused with
+`[cache] dense mismatch: ... was built with adf15789aa03423c, current inputs give 2edb931a8d354821`.
+The fusion configuration and both fingerprints are written to
+`<out>.config.json` next to the run, so a submitted file can be traced back to
+the exact inputs that produced it.
+
+Rebuilding the iota submission from the legacy caches reproduces the frozen
+file byte for byte (`md5 a210d92a9f06317cbb2a17adf22387a2`, 1.2 s, no GPU).
+
+The document-embedding cache in `run_dense_generic.py` uses the same scheme
+(`doc_emb_*.npy.fp.json`, over model/pooling/max-length/dtype/prefix/document
+texts), which is what makes a zero-shot and a fine-tuned encoder impossible to
+confuse.
 
 ```bash
 python scripts/make_submission.py --domain iota \
@@ -32,7 +69,11 @@ python scripts/official/format_checker.py submissions/iota.trec \
   `scripts/phase13_test_replay.sh law quant iota` with
   `--model-ce results/ce_ft/v2m3_pool8_e2/best`, `--fusion z --wa 1 --wb 1`.
   Official checker on all three files: `errors: 0`, `RESULT: VALID`.
-  Result: `PHASE 13: PASS`.
+  Result: `PHASE 13: PASS`. Independently re-checked (2026-11-10 04:55): iota
+  3000 rows / 3 topics, law 11000 / 11, quant 10000 / 10, `errors: 0`,
+  `warnings: 0` each, and a strict scan found **0** rank-order violations and
+  **0** exact printed ties at 1000 rows per topic — i.e. the de-tie fix is in
+  effect in the files that were kept.
   The first GPU attempt failed the strict-run sanity on `quant/70097_1088`:
   ranks 48/49 and 51/52 printed identical scores. Two bugs in the writer:
   de-tie compared *raw* floats (two scores 1e-9 apart both round to the same
@@ -45,8 +86,10 @@ python scripts/official/format_checker.py submissions/iota.trec \
   scores; the strict-run check is what catches the ambiguity, so keep it.
 * The current pipeline is `--fusion z --wa 1 --wb 1` with either the zero-shot
   reranker or `--model-ce results/ce_ft/v2m3_pool8_e2/best`. The CE cache file is
-  keyed by the checkpoint directory name (`ce_<domain>_<model>.trec`), so a
-  zero-shot cache can never be silently reused for a fine-tuned model.
+  keyed by the checkpoint directory name (`ce_<domain>_<model>.trec`) *and*
+  fingerprinted over the dense run and the rerank parameters, so neither a
+  zero-shot cache nor a cache built for another query file can be silently
+  reused for a fine-tuned model.
 * Dev-format runs of the frozen system live in `runs/sub_sft11_<domain>_dev.trec`
   (13/13 official-checked). Those are produced by the offline pipeline, not by
   this script; `scripts/test_mode_dryrun.sh` is the script that fabricates a test
@@ -67,3 +110,24 @@ Runtime on IOTA (9,680 docs): dense encode ~2 min on the RTX 4060, CE rerank of
 3 queries a few seconds. For the largest domain (travel, 158k docs) dense
 encoding is ~1 h at ~46 doc/s; reranking adds ~2 s/query at 250-token windows,
 more for long documents (history averages ~30 s/query on dev).
+
+## Packaging all test domains (January)
+
+```bash
+DOMAINS="iota law quant" bash ops/submit_all.sh /path/to/test_queries     results/ce_ft/v2m3_pool8_e2/best results/submission_pkg
+```
+
+`ops/submit_all.sh` builds one submission per `examples_test_<domain>.jsonl` it
+finds, runs the official `format_checker.py` **and** the local
+`scripts/check_submission_strict.py` (contiguous ranks, strictly decreasing
+scores, no missing topics), then writes `MANIFEST.json` with each file's md5,
+line count and the full provenance block from `<out>.config.json` (query file
+sha1, fusion weights, CE q-mode/cap/window/pool, dense and CE fingerprints).
+
+* `WORK_ROOT=<dir>` reuses an existing cache directory (a dry run against the
+  synthetic replay, `WORK_ROOT=results/test_replay`, reproduces the frozen iota
+  file byte for byte: `md5 a210d92a9f06317cbb2a17adf22387a2`, 3000 lines).
+* The script exports `PYTHONUTF8=1` itself: the official checker opens files
+  with the locale codec and dies on UTF-8 corpora on a Chinese Windows.
+* Exit code is non-zero if any domain fails either check; a failed domain is
+  reported and the rest still build.

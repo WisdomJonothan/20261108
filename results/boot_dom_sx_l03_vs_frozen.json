@@ -1,0 +1,25 @@
+{
+ "label": "sx_l03 vs frozen",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.35809852326897723,
+ "candidate_macro": 0.3442300652383683,
+ "delta": -0.013868458030608932,
+ "query_bootstrap": {
+  "mean": -0.014040263342700312,
+  "ci_lo": -0.02834773677212174,
+  "ci_hi": 0.0005616175034847372,
+  "p_gt_0": 0.0307
+ },
+ "domain_bootstrap": {
+  "mean": -0.013841830585742676,
+  "ci_lo": -0.034786129661257055,
+  "ci_hi": 0.004361132953447936,
+  "p_gt_0": 0.0792
+ },
+ "better": 142,
+ "worse": 158,
+ "iters": 10000,
+ "seed": 7
+}

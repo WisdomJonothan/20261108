@@ -1,0 +1,25 @@
+{
+ "label": "sx_l03 vs zs11",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.3249073917275941,
+ "candidate_macro": 0.3442300652383683,
+ "delta": 0.019322673510774213,
+ "query_bootstrap": {
+  "mean": 0.01914910722231965,
+  "ci_lo": -0.00018169230832761372,
+  "ci_hi": 0.03985437985379155,
+  "p_gt_0": 0.9741
+ },
+ "domain_bootstrap": {
+  "mean": 0.01928709403938576,
+  "ci_lo": -0.0039059992660752676,
+  "ci_hi": 0.036969422048833446,
+  "p_gt_0": 0.9523
+ },
+ "better": 196,
+ "worse": 116,
+ "iters": 10000,
+ "seed": 7
+}

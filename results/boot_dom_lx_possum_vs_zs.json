@@ -1,0 +1,25 @@
+{
+ "label": "lx_possum vs zs11",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.3249073917275941,
+ "candidate_macro": 0.34697026217901694,
+ "delta": 0.022062870451422856,
+ "query_bootstrap": {
+  "mean": 0.02196151154692376,
+  "ci_lo": -0.0004737342426337511,
+  "ci_hi": 0.04559007131184289,
+  "p_gt_0": 0.9725
+ },
+ "domain_bootstrap": {
+  "mean": 0.02200036478030546,
+  "ci_lo": 0.007322216065509557,
+  "ci_hi": 0.03495610610601214,
+  "p_gt_0": 0.9982
+ },
+ "better": 179,
+ "worse": 134,
+ "iters": 10000,
+ "seed": 7
+}

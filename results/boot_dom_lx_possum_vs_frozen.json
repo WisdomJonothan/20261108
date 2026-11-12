@@ -1,0 +1,25 @@
+{
+ "label": "lx_possum vs frozen",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.35809852326897723,
+ "candidate_macro": 0.34697026217901694,
+ "delta": -0.01112826108996029,
+ "query_bootstrap": {
+  "mean": -0.01122785901809621,
+  "ci_lo": -0.02562465648103898,
+  "ci_hi": 0.0035399825111843515,
+  "p_gt_0": 0.069
+ },
+ "domain_bootstrap": {
+  "mean": -0.011128559844822973,
+  "ci_lo": -0.026505770924906885,
+  "ci_hi": 0.0056803099474615325,
+  "p_gt_0": 0.0957
+ },
+ "better": 132,
+ "worse": 167,
+ "iters": 10000,
+ "seed": 7
+}

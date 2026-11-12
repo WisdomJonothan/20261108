@@ -663,3 +663,335 @@ out-of-fold 拟合）时，`scripts/phase11_sft_oof.sh` 调用 `train_ce.py` **�
   `results/boot_dom_e2s29_vs_zs.json`、`runs/rerank_sft_e2s29_*_dev.trec`。
 - 工程教训（已在 NEXT_STEPS §6 固化）：宿主约 10 分钟会静默杀掉后台作业；8 GB GPU 上
   任何加载模型的任务都不能与训练并行（本轮两次训练就是被并行的 watcher/复核任务打死的）。
+
+## 5n. Phase 15 — 种子收口、Phase 11 更正与提交回放（2026-11-10）
+
+### 种子复核完成
+
+- seed 23（`v2m3_s23_e2`，00:58 训完，epoch 1 best：0.2754 > 0.2684）：dev 域宏 **0.3575**，
+  对 zero-shot z 1:1 的 **+0.0326**，查询 CI [+0.0149,+0.0521]、域聚类 CI [+0.0184,+0.0470]，186/83/250。
+- seed 29 重训（`v2m3_s29_e2`，03:49 训完，epoch 1 best：0.2838 > 0.2775）：dev 域宏 **0.3528**，
+  **+0.0279**，查询 CI [+0.0119,+0.0455]、域聚类 CI [+0.0160,+0.0405]，182/83/254。
+  同一 seed 的两次独立训练得到 0.3527 / 0.3528（差 5e-5），训练管线本身可复现。
+- 三种子：0.3581 / 0.3575 / 0.3528，均值 **0.3561**、样本 sd **0.0029** → 主结论维持 **+0.031 ± 0.003**。
+
+### Phase 11 的更正：过期聚合，不是 epoch 选择踩空
+
+- 现有 `results/aggregate_sub_sft_e2b_dev.json`（tag `sub_sft_e2b`）给出 z 1:1 = **0.3583**、
+  topic 0.3680；用当前 `runs/fused_sft_e2b_bitcoin_dev.trec` 重跑 `score_run.py` 得 0.214096，
+  与新存档逐位相同。
+- 旧的 0.3196 与当前 run 文件不一致：03:53–03:58 一轮全量重算把 score 文件按当前 run 重写过，
+  旧聚合引用的仍是重算前的 score。RRF 1:1（0.3431）与 OOF RRF 1:4（0.3187）在重算后不变。
+- 因此 11-09 夜间"0.3581 不可复现、z 1:1 融合形式脆弱"的结论**撤回**：
+  五条独立训练（0.3581 / 0.3583 / 0.3575 / 0.3527 / 0.3528）落在 0.003 宽的区间内。
+- 仍然成立的窄结论：OOF 在 45 条 train query 上选出 RRF 1:4 时增益只有 +0.0205 [+0.0010,+0.0404]，
+  所以论文把固定 z 1:1 当系统、RRF 1:4 当权重受控变体。
+- 审计规则（新增，写进 `results/PHASE11_VALIDATION.md` 与提交脚本）：**任何进报告的数字，
+  都必须能从当前 run 文件重算出来**；聚合产物与 run 文件不同步时以 run 文件为准。
+
+### test replay 与提交加固
+
+- `results/test_replay/submission_{iota,law,quant}.trec` 全部通过官方 `format_checker.py`：
+  iota 3000 行 / 3 topics、law 11000 / 11、quant 10000 / 10，`errors 0  warnings 0  RESULT: VALID`；
+  另做严格扫描：0 处排名逆序、0 对打印同分、每 topic 正好 1000 行。
+- 去平局步长原来用 `max(1e-9, abs(prev)*1e-9)`，小于 `%.6f` 打印精度，导致相邻两行打印同分；
+  已改为 `max(2e-6, abs(prev)*1e-6)`。
+- 两条缓存指纹链：`run_dense_generic.py` 的 doc embedding 缓存、`make_submission.py` 的 dense/CE run 缓存，
+  都在旁写 `<file>.fp.json`（含模型、pooling、max_length、dtype、输入指纹）；命中比对、不符即拒绝复用，
+  `--refresh` 强制重算，`--strict-cache` 连无 sidecar 的旧缓存也拒绝。每次提交另写 `<out>.config.json`。
+
+### 工程教训
+
+- 本会话与另一个 DSH 会话曾同时操作 D:\RETECO（同一仓库、同一批输出文件、同一块 8 GB GPU）。
+  发现后杀掉了自己重复的那条队列；`aggregate_sub_*.json` 与 `runs/` 不一致也来自这次并发。
+  以后同一时间只允许一个会话持有 GPU 队列与写权限。
+- WDDM 下 `nvidia-smi` 常驻约 3 GB 且 compute-apps 全是 `[N/A]`，显存阈值不能用来判断空闲；
+  改用 `ops/gpu_busy.ps1` 按进程命令行匹配（run_chunk_rerank / train_ce / run_dense_generic / encode_docs / score_ce）。
+- `CUDA_VISIBLE_DEVICES=`（空值）在本机**不能**禁用 CUDA，必须 `-1`；而真 CPU 上 `train_ce.py`
+  会在首步段错误（rc=139），所以"CPU 冒烟"这条路在本机不成立，只能用 py_compile + GPU 小样。
+- 用 Python heredoc 往 bash 脚本里写 `\` + 换行会被吞成空格（bash 续行丢失）；heredoc 里的 `0x00`
+  会变成真 NUL 字节让 Python 语法检查失败。写脚本一律避免反斜杠转义。
+
+## 5o. Phase 16 — 研究重启：域宏选择、多正例损失、多证据监督（2026-11-10 晨）
+
+导师式备忘（`docs/RESEARCH_PLAN_NEXT.md` 的来源）指出四条代码缺口：checkpoint 用全验证查询直接平均且
+训练不按域平衡；`logsumexp(all) - logsumexp(pos)` 让一篇容易正例主导损失；训练丢掉了
+"top-100 无正例"的 140 条 query；只用标题会删掉时间范围/排除/比较条件。对应的实验阶梯 0–6 已落成脚本：
+
+- `train_ce.py` 新增（默认行为不变）：`--loss possum|allpos|ndcg`、`--val-metric mean|domain_macro`、
+  `--sampler uniform|sqrt`（P(域) ∝ sqrt(n)）、`--step-targets/--step-lambda`、`--q-mode title|body|full|ctxt|summ`
+  （共用词预算）、`--eval-qvariants`、`--eval-win-limit`、`--init-from`、`--dump-val-qids/--val-qids`、
+  `--dump-val-scores`、`--report-steps`。
+- 损失对照（12 候选、3 正 9 负）：一篇正例在前时 possum 0.0541 / allpos 3.1083 / ndcg 0.1958
+  三正例全在前时 possum 0.0511 / allpos 1.4587 / ndcg 0.0181 —— possum 几乎不区分，坐实"容易正例主导"。
+- 约束丢失统计（13 域 1,730 条 query，脚本 `scripts/build_query_constraint_stats.py`，正则写在文件头）：年份只在正文 247 条、时间关系 328、排除 282、比较 243；
+  **至少一类线索被标题化丢掉 775 条 = 44.8%**（dev 上 241/519 = 46.4%；逐 query 标记在 `results/QUERY_CONSTRAINT_FLAGS.json`）。
+- 分步监督的数据半：13 域 1,121 query / 2,762 步；现有训练组覆盖 **2,321/2,547 = 91.1%** 的步骤
+  （补全组 `results/ce_train_groups_bf_*` 把 140 条 query、294 篇 gold 注入后为 91.2%/98.3% query 覆盖）。
+- 多证据诊断（`scripts/dev_multievidence.py`，519 dev query）：平均 2.34 步、3.44 篇相关，
+  78.8% 的 query ≥2 步、87.9% ≥2 篇相关；dense → zs CE → SFT 的"top-10 里相关文档数"从
+  1.03 → 1.11 → 1.21，"≥2 篇"从 31.8% → 35.6% → 38.3%，而"步骤可检索"始终 96.3%
+  —— 瓶颈不是召回，是"只找最容易的那一篇"，正是 `L_step` 要压的失效模式。
+- 队列（detached，等 GPU 空闲）：四臂损失/采样 → 胜者上的五表示消融 → 步骤监督 `sx_l03/sx_l10`
+  → 约束保真（`cx_qv`）与补全组（`cx_bf`）→ 最终 dev 只跑一次（`ops/final_eval.sh`）。
+  日志 `logs/loss_exp.log`、`logs/stage2.log`、`logs/step_exp.log`、`logs/stage3.log`。
+
+### 5o.1 增益落在哪类问题上（stepsplit 分析，05:5x）
+
+`scripts/eval_stepsplit.py` 按 dev query 的官方证据步数切分（qrels_steps_dev 的 `_stepK` 行），
+算两系统在各分区上的域宏 nDCG@10 与配对 bootstrap（域聚类，2000 次）：
+
+| partition | queries | zero-shot CE | frozen SFT | delta | 95% CI |
+|---|---:|---:|---:|---:|---|
+| 1 step | 75 | 0.3185 | 0.3896 | +0.0711 | [+0.0244, +0.1056] |
+| 2 steps | 151 | 0.3857 | 0.4058 | +0.0200 | [-0.0033, +0.0463] |
+| 3+ steps | 258 | 0.3196 | 0.3511 | +0.0315 | [+0.0084, +0.0571] |
+| no steps | 35 | 0.1579 | 0.1705 | +0.0126 | [+0.0030, +0.0524] |
+
+合计 519 条，与官方一致。结论（写进 PAPER_4PAGE §5.2b）：现有目标函数买的是"单篇选得更好"，
+**没有教出多证据装配**——151 条两步题的增益落在噪声里。这既是 `L_step` 的目标，也是它的判据：
+必须让两步分区动，而不只是总均值动。
+
+### 5o.2 损失与表示两阶梯的结果（09:1x–09:2x）
+
+**损失四臂**（同一 942 组、同一 45 条固定 val，域宏 nDCG@10，best epoch）：
+
+| 目标函数 / 采样 | best epoch | val 域宏 | plain mean |
+|---|---:|---:|---:|
+| 当前 logsumexp-正例（possum） | 2 | **0.2865** | 0.2801 |
+| 全正例平均（allpos） | 2 | 0.2809 | 0.2754 |
+| nDCG 加权（LambdaLoss 式） | 2 | 0.2764 | 0.2743 |
+| possum + √域 采样（sqrt） | 2 | 0.2912 | 0.2871 |
+| 零样本参考 | — | 0.2730 | — |
+
+按域宏选点与按 plain mean 选点在**四个臂上完全一致**（都是 epoch 2），即官方聚合
+口径不影响 checkpoint 选择；影响选点的是 45 条 val 自身的分辨率（±0.03）。
+
+预登记规则：胜者须比当前损失高 **0.010** 以上，否则保留当前损失。sqrt 只高
+0.0047 → `results/LOSS_WINNER.json` 记 `forced: {from: lx_sqrt, to: lx_possum,
+margin: 0.004692}`。机制旁证：sqrt 把「前十至少一篇相关」的 query 比例从
+93.3% 抬到 **95.6%**（四臂中唯一），但 nDCG 没动——域平衡让容易的判断更容易，
+没让难的判断变对。allpos 与 possum 的配对检验：Δ+0.0047，query CI
+[-0.0164,+0.0285]，零分 query 数两臂完全相同（各 16/45）。
+
+**表示五臂**（同一个 lx_possum best checkpoint，只评不训，64 词预算）：
+
+| 表示 | val 域宏 |
+|---|---:|
+| full（标题+正文拼接） | **0.2869** |
+| title | 0.2827 |
+| ctxt（约束保真，标题+线索句） | 0.2744 |
+| body（定长正文窗） | 0.2703 |
+| summ（词频摘要） | 0.2614 |
+
+45 条 val 的分辨率是 ±0.03（同 checkpoint 对零样本的配对 CI [-0.0317,+0.0571]），
+full 与 title 的 0.0042 差距在噪声内，所以表示臂的胜负交给 dev（stage3 会训练
+full 与 title 两个臂并用 519 条配对 bootstrap 定胜负）。ctxt 在 val 上垫底，
+与 5o.1 的子集发现一致：约束句不是当前排序器缺的东西，只有在 dev 的 lost 子集
+上求出增益才算数。
+
+### 5o.3 两次队列事故（本日最有价值的工程教训）
+
+1. **heredoc 绑错对象导致整条链静默停摆**（09:08–09:14）。`queue_stage2.sh` 里写
+   `$PY - 2>&1 | tee -a "$LOG" <<'PY'`：bash 把 heredoc 绑到管道**最后一个**命令
+   `tee`，于是 tee 把整段 Python 源码写进日志，而 `python -` 转去读脚本自身的
+   stdin，永久阻塞。表象只是「日志停住」，实际四条下游队列都在等它写出的
+   `QVARIANT_WINNER.json`。定位办法：`Get-CimInstance Win32_Process -Filter
+   "Name='python.exe'"` 看到 `python.exe -` 且父进程是队列脚本的 bash。修法：
+   `$PY - 2>&1 <<'PY' | tee -a "$LOG"`（heredoc 写在命令本体后、管道之前）。
+2. **队列脚本引用了不存在的参数**（09:23–09:28）。`queue_step_exp.sh` 传
+   `--report-steps`，但 `train_ce.py` 从未定义该参数（诊断是给了 `--step-targets`
+   就自动算），两个步骤臂各在 30 秒内 `rc=2` 死掉，而队列照旧打印
+   `=== step experiment done`——下游 stage3 会据此认为步骤监督已经做完。修法：
+   给 `train_ce.py` 加一个真正的兼容 no-op 参数（`--help` 里可见），轮转
+   `logs/step_exp.log` 让 stage3 重新等标记，再重拉两条队列。
+
+**通用规则**：队列脚本改动后必须 `bash -n` + 用一个臂的 `--help` 或 30 秒小跑
+验证参数名；队列启动后 1 分钟内要检查 `logs/<arm>.log` 有没有 `rc=` 失败，
+不能只看 `START`/标记行。heredoc 在 bash 里永远属于「紧跟它的那个命令」，
+跨管道时位置决定了谁读到脚本。
+
+### 5o.4 分步监督（主线创新 A）的判定：负结果（18:0x）
+
+**做法**：`L_step = -(1/m) Σ_j log Σ_{d∈P_j} p(d)`，`L = L_list + λ L_step`，
+训练组内每步至少一篇正例才计分（覆盖率 2,518/2,762 = 91.2%）；λ ∈ {0.3, 1.0}，
+两臂除该项外与 `lx_possum` 完全同参（942 groups、2 epoch、seed 17、固定 45 条 val）。
+
+**训练内 45 条 val（域宏）**：sx_l03 0.2882（e2）、sx_l10 0.2913（e2），
+都高于当前目标函数的 0.2865——λ=1.0 甚至是当天六臂里 val 最高的一支。
+
+**dev（519 条、域宏、z 1:1 冻结融合）**：
+
+| 系统 | 域宏 | Δ vs frozen | 域聚类 CI | 步骤覆盖率 top10 | ≥2 篇进 top10 |
+|---|---|---|---|---|---|
+| 冻结 sft_e2bc | 0.3581 | — | — | 59.45% | 38.31% |
+| sx_l03 (λ=0.3) | 0.3442 | −0.0139 | [−0.0348,+0.0044] | 55.58% | 37.95% |
+| sx_l10 (λ=1.0) | 0.3438 | −0.0143 | [−0.0351,+0.0037] | 56.00% | 37.88% |
+
+分步分区里连"两步题"这一预登记检查点也在掉（0.4058→0.3910 / 0.3889，CI 含 0）；
+四个分区（1 步 / 2 步 / 3+ 步 / 无步骤）全为负。机制指标同向下降，
+即**损失没有实现它要优化的量**。
+
+**为什么**：① 每步正例大多就是 listwise 项已经覆盖的同一批文档（平均 3.44 篇相关 /
+2.34 步，一步很少带来"另一篇"）；② 步内 log-sum-exp 被"最难检索的那一步"主导，
+梯度去追候选里位置很深的文档，而不是组装答案。数据侧已排除：2,873/2,873 的
+步骤正例都是 query 级正例（脚本核验，100%）。
+
+**最重要的教训**：45 条 val 上 λ=1.0 是六臂第一、dev 上却是最后一名。
+**训练内划分在小样本下不是弱信号，而是错误信号**——这正是预注册"融合形式先冻结、
+不在 dev 上选点"的价值所在。按预注册判据（+0.005 且域 CI 不跨 0）记为
+**未证实且方向为负**，不再扫 λ（在 45 条上再扫只会买到噪声）。
+
+产物：`results/STEP_ARM_sx_l03.md`、`results/STEP_ARM_sx_l10.md`、
+`results/aggregate_sub_sx_l0{3,10}_dev.json`、`results/boot_dom_sx_l0{3,10}_vs_frozen.json`、
+`results/MULTIEVIDENCE_sx_l0{3,10}.json`。
+
+## 5p. Phase 17 — dev 端结账：三次 val 选点全错、一次崩溃、一次睡眠谋杀（2026-11-11 → 11-12）
+
+阶梯 3/4/5 的三个候选（`lx_possum`、`cx_qv`、`cx_bf`）在 11-11 夜里到 11-12 凌晨跑完 13 域
+dev。本小节把「val 上选出来的东西在 dev 上还算不算」一次性结清，并记两起工程事故
+（5p.6 的睡眠谋杀最贵：11 小时 GPU 空转）。
+
+### 5p.1 约束保真的 64 词全问题（`cx_qv`）：−0.0138
+
+配置：训练池不变（1,071 groups / 942 训练组），`--q-mode full --q-cap-words 64`（标题 +
+正文前 64 词），其余与 `lx_possum` 完全同参（2 epoch、seed 17、possum 损失）。
+
+| 系统 | dev 域宏 | Δ vs frozen | 查询聚类 CI | 域聚类 CI | 好/坏 | val |
+|---|---:|---:|---|---|---:|---:|
+| 冻结 sft_e2bc | 0.3581 | — | — | — | — | — |
+| `cx_qv` | 0.3443 | −0.0138 | [−0.0272, −0.0005] | [−0.0338, +0.0052] | 124/159 | **0.2920** |
+
+0.2920 是 11-10 当天七臂在 45 条 val 上的最高分（比 base 0.2865 高 0.0055），dev 上却低
+0.0138——**第三次同向的选点错误**（前两次见 §5o.4 与 §5o.2 的 sqrt 采样）。
+
+子集机制检验（`results/CONSTRAINT_SUBSET_cx_qv.json`：241 条"线索只在正文"的 lost 与
+278 条 kept，域宏 nDCG@10）：
+
+| 系统 | lost (241) | kept (278) |
+|---|---:|---:|
+| dense（一阶段） | 0.3044 | 0.2892 |
+| 零样本 CE | 0.3175 | 0.3272 |
+| 冻结 SFT | 0.3656 | 0.3518 |
+| `cx_qv` | 0.3566 | 0.3296 |
+
+全问题臂在 lost 上只丢 0.0090、在 kept 上丢 0.0222：**额外正文确实带了信号**（相对零样本，
+lost 上 +0.0391，冻结是 +0.0481），但代价摊在 278 条本来就被短标题问得更好的 query 上。
+换句话说"约束保真"是对的方向、错的剂量——把精排器的输入从干净短句换成 64 词长句，
+在 46% 的 query 上换来的是净损失。
+
+### 5p.2 补全 140 条无正例 query（`cx_bf`）：同样的 −0.0138，但两个口径结论相反
+
+配置：训练池 1,071 → 1,211 groups（补回 140 条 dense top-100 无正例的训练 query、注入
+294 篇官方正例；去掉 val 划分后训练侧 942 → 1,065），`--q-mode title`，其余同参。
+
+| 系统 | dev 域宏 | topic-macro | Δ vs frozen | 查询聚类 CI | 域聚类 CI | 好/坏 |
+|---|---:|---:|---:|---|---|---:|
+| 冻结 | 0.3581 | 0.3644 | — | — | — | — |
+| `cx_bf` | 0.3443 | **0.3711** | −0.0138 | [−0.0288, +0.0010] | [−0.0311, +0.0012] | 149/136 |
+
+**口径警告（本日最该记住的一条）**：按 topic-macro 报，这一臂是 **+0.0067 的胜利**
+（0.3711 vs 0.3644）；按官方 domain-macro 它是 −0.0138。同一份 run、两个口径、结论相反。
+这正是 §5.3 口径更正的价值：补回的 140 条训练 query 集中在少数域，它的 topic-macro 增益
+被 topic 平均放大、被域平均抵消。**任何"在 topic-macro 上赢了"的说法在这份 dev 上必须用
+domain-macro 重算。**
+
+机制：294 篇补回的文档按构造是**一阶段根本检索不到**的（dense top-100 里没有它们），
+训练 CE 把它们排高等于在学一个推理时永远不会发生的判断。要让它变现必须先改一阶段，而
+§5.4 的十个检索侧探针都没做到。子集上两条曲线同时掉（lost 0.3471 / kept 0.3371）。
+
+### 5p.3 stage3 的 val 配对 bootstrap 崩了，而且崩得有信息
+
+`scripts/compare_val_arms.py:58` 抛 `KeyError: '14418_700'`：`results/val_scores_cx_bf_e2.json`
+记了 46 条 query，而 `lx_possum` / `cx_qv` 都是同一批 45 条，配对 bootstrap 按 key 对齐
+直接炸。46 vs 45 的来源是补全组换了训练池，val 划分跟着变（1,065 组 vs 942 组的划分）。
+
+**dev 全量评测不受影响**（519 条同一集合，bootstrap 走 `ops/final_eval.sh` 的域聚类路径），
+但这条崩溃暴露了一个此前没说透的事实：**三个 val 数字（0.2865 / 0.2920 / 0.2533）不是
+严格同一把尺子**，0.2533 里掺着"换了 val 集"这一项。这也解释了 `cx_bf` 的 val（0.2533）
+为何比 dev（0.3443）低那么多——它的 val 集与另两臂不可比。
+
+`results/STAGE3_WINNER.json` 仍记 `selected: lx_possum`（base 0.2865 vs cx_qv 0.2920，
+差 0.0056 落在 0.010 并列带内 → 按预注册保留 baseline）。事后看，这是本轮阶梯里唯一一次
+"保守选择"救回了正确结果：dev 上 cx_qv 真的更差。
+
+### 5p.4 `lx_possum` 的 dev：0.3470，−0.0111——第五个"val 选出来的输家"，而且它是 base
+
+这是整个阶梯里唯一没被评过的臂，也是 stage3 按预注册并列带保留下来的 base
+（`results/ce_ft/lx_possum/best`，11-10 06:27 训好）。13:29 重跑、15:19 结束，13 域全过
+（`submission_validation_lx_possum.json`：0 errors，去平后重新校验）。
+
+| 口径 | 值 |
+|---|---|
+| dev domain-macro nDCG@10 | **0.3469703** |
+| dev topic-macro（仅供参考） | 0.3589602 |
+| vs zero-shot z1:1（0.3249） | +0.02206，域聚类 CI [+0.00732, +0.03496]，p_gt_0 = 0.9982，179 好 / 134 坏 |
+| vs 冻结 sft_e2bc（0.3581） | **−0.01113**，query CI [−0.02562, +0.00354]，domain CI [−0.02651, +0.00568]，p_gt_0 = 0.069，132 好 / 167 坏 |
+| 多证据（n=519） | multi@10 0.3608、step_cov 57.56%、step_recall 96.33%、gold_found 98.61% |
+
+**排除了两个最容易的误读。**
+- 不是 checkpoint 选错：val 三个 epoch 的 domain-macro 是 0.2730 / 0.2790 / **0.2865**，
+  epoch 2 在 plain（0.2606/0.2745/0.2801）与 domain-macro 两个口径上都是第一，`best` 就是 epoch2。
+  但要点是**冻结臂的 `best` 是它自己的 epoch1**（md5 核对：`v2m3_pool8_e2/best` =
+  `ff2b4ab8…` = `v2m3_pool8_e2/epoch1`；`lx_possum/best` = `64da2308…` = 自己的 epoch2）。
+  两次都按"各自 val 最优"取，却选中了不同 epoch——epoch 选择本身就是 ±0.01 量级的噪声源。
+- 不是训练集不同：所有臂 `train_groups` 都是 942（val 45 query / 129 组被切掉），val 域分布
+  也完全一致（bitcoin 4、iota 1、quant 2……）。
+
+**剩下两项差异没能隔离。**
+1. 代码路径：`lx_possum` 走的是 Phase 17 的显式 possum 实现 + `--dump-val-scores` 那条路，
+   v2m3_* 系列是旧路径。逻辑上应该等价，但没有逐 step 数值对齐过。
+2. 负例池重采样：`data_loaded.docs_loaded.history` 在冻结臂是 12,489，`lx_possum` 是 14,734，
+   s23 是 14,778、s29 是 14,650。**因此"seed 离散度 0.0029"其实是"重训 + 池重采样"的带**，
+   不是纯 seed 噪声；带的范围是 0.3527–0.3581，而 `lx_possum` 落在带外下方 0.006。
+
+**结论（已写进论文 §5.5 与 §7）。**
+- 五个 dev 级候选（cx_qv −0.0138、cx_bf −0.0138、sx_l03 −0.0139、sx_l10 −0.0143、
+  lx_possum −0.0111）全部负，方向完全一致，幅度 0.011–0.014。val 阶梯（0.2764–0.2912）
+  对 dev 的排序信息量约为零，这不是"某个臂运气差"，而是这把尺子的分辨率问题（S7）。
+- 唯一"救回正确结果"的是 stage3 的预注册并列带：0.0056 的 val 差 < 0.010，按规则保留 base。
+  但 base 重训后仍比冻结低 0.0111，所以 **0.3581 只能作为"提交件本身的属性"报告**，
+  不能声称"该方法可复现地达到 0.358"。论文用"重训带 0.347–0.358，冻结件在带顶"表述。
+- 对提交件的直接影响：无。提交用的一直是冻结的 `sft_e2bc`，`lx_possum` 只是补测，
+  不参与 submission。
+
+### 5p.5 两起工程事故：睡眠谋杀 CUDA，和 PowerShell 的 uint32 陷阱
+
+**事故 A：02:18:13 睡眠 7 秒，11 小时白跑。**
+
+- 现象：`bash-4232`（`ops/final_eval.sh lx_possum`）02:01:08 启动，02:06 日志写到
+  `logs/final_lx_possum_bitcoin.log` 的 "20/30 queries"，此后到 13:27 一行不动。
+  进程 26928 一直活着，GPU 86% / 3,192 MiB、CPU 累计只有 243 秒
+  （线程 `Wait/UserRequest`），`runs/rerank_lx_possum_bitcoin_dev.trec` 从未生成。
+- 根因：`Get-WinEvent` 的 Kernel-Power **Id=42/107** 显示 2026-11-12 02:18:13 进入睡眠、
+  02:18:20 唤醒（只睡了 7 秒）。睡眠会销毁 CUDA 上下文，而进程不抛异常，
+  于是在 GPU 上空转。`LastBootUpTime` 仍是 11-05 13:17，所以不是崩溃、不是断电。
+- 排除的假设（不要再重走）：
+  - 不是文档过大：genealogy 语料最大 4.95 M 字符 ≈ 6.5k 窗口，最贵 query 约 4,396 窗口，
+    35 条 query 合计 21,186 窗口；11-11 三个臂用同一脚本跑 genealogy 只要
+    388.5 / 410.5 / 341.7 秒（`mean_ms_per_query` ≈ 8.3–9.4 s）。
+  - 不是进度打印丢缓冲：`scripts/run_chunk_rerank_qvar.py:132-133` 每 10 条 flush 一次。
+- 处理：`job_kill bash-4232` + `Stop-Process 26928`，GPU 归零（848 MiB），
+  13:29:51 重启（逐域可恢复，bitcoin/cardano/economics 直接 skip），genealogy 13:39:58 补完。
+
+**教训**：GPU 长跑必须配"防睡眠守卫"，而且**"进程还活着 + GPU 占用高"不等于在工作**；
+判活要看日志时间戳。恢复后第一件事是比对日志最后修改时间与当前时间。
+
+**事故 B：`SetThreadExecutionState` 在 PowerShell 里被 `0x80000000` 坑死。**
+
+`ops/keep_awake.ps1` 第一版写的是 `0x80000000 -bor 0x00000001`。PowerShell 把
+`0x80000000` 解析成**负 Int32**，于是 `-bor` 得到 `-2147483647`，P/Invoke 声明是
+`uint`，调用直接抛 `CannotConvertArgument`；脚本在第一轮就死掉，但 `Start-Process -Hidden`
+把错误吞了，看起来像在跑。
+
+- 正确写法：`$ES_CONTINUOUS = [uint32]2147483648`、`$ES_KEEP_ON = [uint32]2147483649`。
+  调用成功后返回值是"上一次的状态"（例如 2147483648）。
+- **唯一的验证方法**是 `powercfg /requests`，SYSTEM 段必须出现
+  `[PROCESS] \Device\HarddiskVolume3\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`。
+  第一版跑着的时候该段是"无"，就是没生效。
+- 该脚本不改电源方案（只持有一个当前会话的 power request），`-Hours 10` 到点自动释放，
+  注释已写进文件头部，避免下次再踩。
+
+**当前状态**：`keep_awake.ps1` 以 `-Hours 10` 运行，`powercfg /requests` 已确认持有请求；
+`final_eval lx_possum` 15:19 完成；`ops/queue_cls.sh` 已在 15:10 左右接过 GPU
+（hsm 169,552 docs @ ~51 doc/s，预计 18:20–18:45 全部结束）。

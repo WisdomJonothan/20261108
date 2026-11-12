@@ -5,10 +5,12 @@
 > (e2b) vs zero-shot 0.2981 (+0.0094 and +0.0205, domain CIs above zero); at
 > RRF 1:1, e2b reaches **0.3431** vs 0.3166 (+0.0265 [+0.0052,+0.0473]). The
 > literal pre-registered bar — SFT at the OOF weight vs the zero-shot best form
-> (0.3249) — is not met (e2b 0.3187), and the frozen 0.3581 does not reproduce on
-> a fresh checkpoint (z 1:1 0.3196). The SFT arm's advantage is real at a fixed
-> form; the z 1:1 fusion form is the fragile part. See
-> `results/PHASE11_VALIDATION.md`.
+> (0.3249) — is not met (e2b 0.3187). The earlier "the frozen 0.3581 does not
+> reproduce" reading came from stale `score_sub_sft_e2b_*` files; re-scoring the
+> committed runs gives **0.3583**, so the frozen 0.3581 reproduces (further runs
+> 0.3575 / 0.3527 / 0.3528, sample sd 0.0029). The SFT arm's advantage therefore
+> holds at a fixed form, and the inherited z 1:1 fusion form is *not* the fragile
+> part. See `results/PHASE11_VALIDATION.md`.
 
 ## 1. Where the system stands
 
@@ -197,3 +199,35 @@ crosses zero), "SFT validated" (one seed).
   （查询 CI [+0.0118,+0.0455]，域聚类 [+0.0159,+0.0404]），12 域 0.3123，n>=19 0.3232。
 - 两个种子都为正且 CI 排除 0，协议门槛通过；主结论统一为 **+0.031 ± 0.003 over zero-shot**，
   冻结提交仍是 seed 17 的 0.3581。详见 `results/REPLICATION.md`。
+
+## 8. Update 2026-11-12 15:30 — Phase 17 结账（dev 端全部落定）
+
+**一句话**：五个 dev 级候选全部为负（−0.011 ~ −0.014），冻结件 0.3581 保留；
+提交件不变，唯一变化是论文与日志现在把"重训带 0.347–0.358"写明。
+
+| 臂 | val（45 query） | dev domain-macro | Δ vs 冻结 0.3581 |
+|---|---|---|---|
+| 冻结 sft_e2bc（v2m3_pool8_e2/**ep1**） | 0.3029† | 0.3581 | — |
+| `lx_possum`（同一 loss 重训，新代码路） | 0.2865 | **0.3470** | −0.0111 |
+| `cx_qv`（64 词全问题） | 0.2920 | 0.3443 | −0.0138 |
+| `cx_bf`（补 140 无正例 query） | 0.2533 | 0.3443 | −0.0138 |
+| `sx_l03` / `sx_l10`（分步监督） | — / 0.2913 | 0.3442 / 0.3438 | −0.0139 / −0.0143 |
+| 种子 23 / 29（旧路径重训） | — | 0.3575 / 0.3528 / 0.3527 | +0.0 / −0.005 |
+
+† 冻结臂的 val 是旧划分/旧负例池上的 plain nDCG@10（ep1 0.3029 vs ep2 0.3012，`best` 取 ep1，md5 ff2b4ab8 = `v2m3_pool8_e2/epoch1`），与 `lx_*` 系列的 0.2865（domain-macro、新池）**不可比**；`lx_possum` 的 `best` 是自己的 ep2（0.2865 > 0.2790 > 0.2730）。
+
+**口径教训（本轮最重要）**：`cx_bf` 的 topic-macro 是 0.3711，**高于**冻结的 0.3644——
+同一份 run，按旧口径是 +0.0067 的胜利，按官方 domain-macro 是 −0.0138 的失败。
+论文/日志/汇报一律用 domain-macro，且必须注明口径。
+
+**工程事故（详见 docs/RESEARCH_LOG.md §5p.5）**
+- 02:18 系统睡眠 7 秒 → CUDA 上下文被销毁、进程空转 11 小时。GPU 长跑必须配
+  `ops/keep_awake.ps1`，验证只看 `powercfg /requests` 的 SYSTEM 段。
+- PowerShell 里 `0x80000000` 是负 Int32，`SetThreadExecutionState` 必须传
+  `[uint32]2147483648` / `[uint32]2147483649`。
+
+**还剩的活**
+1. CLS 池化基线（`ops/queue_cls.sh` 正在跑，预计 18:20–18:45）→ `results/aggregate_dense_mxbai_cls_dev.json`；
+   若优于 mean 的 0.2943 要改论文 §4 的 dense 基线行。
+2. 把 CLS 结果写进 §5p.6 与论文（若不改结论就只写一句）。
+3. `docs/RESEARCH_NARRATIVE.md` §14 表格更新；最后 git 提交并推送 `D:\RETECO\github_repo`。

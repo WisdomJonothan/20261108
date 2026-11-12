@@ -1,0 +1,25 @@
+{
+ "label": "sx_l10 vs zs11",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.3249073917275941,
+ "candidate_macro": 0.34384306077976234,
+ "delta": 0.018935669052168258,
+ "query_bootstrap": {
+  "mean": 0.018766657713955012,
+  "ci_lo": -0.0004230755038017216,
+  "ci_hi": 0.039189088251797545,
+  "p_gt_0": 0.9727
+ },
+ "domain_bootstrap": {
+  "mean": 0.018906315255173577,
+  "ci_lo": -0.004119784132789883,
+  "ci_hi": 0.03614727101338955,
+  "p_gt_0": 0.9516
+ },
+ "better": 194,
+ "worse": 115,
+ "iters": 10000,
+ "seed": 7
+}

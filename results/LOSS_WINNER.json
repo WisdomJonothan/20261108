@@ -1,0 +1,44 @@
+{
+ "metric": "train-internal val domain-macro nDCG@10",
+ "rows": [
+  {
+   "tag": "lx_sqrt",
+   "score": 0.291156,
+   "epoch": 2,
+   "domain_macro": 0.291156,
+   "mean": 0.287146,
+   "epoch0_mean": 0.260631
+  },
+  {
+   "tag": "lx_possum",
+   "score": 0.286464,
+   "epoch": 2,
+   "domain_macro": 0.286464,
+   "mean": 0.280104,
+   "epoch0_mean": 0.260631
+  },
+  {
+   "tag": "lx_allpos",
+   "score": 0.280931,
+   "epoch": 2,
+   "domain_macro": 0.280931,
+   "mean": 0.275361,
+   "epoch0_mean": 0.260631
+  },
+  {
+   "tag": "lx_ndcg",
+   "score": 0.276364,
+   "epoch": 2,
+   "domain_macro": 0.276364,
+   "mean": 0.274283,
+   "epoch0_mean": 0.260631
+  }
+ ],
+ "tie_band": 0.01,
+ "forced": {
+  "from": "lx_sqrt",
+  "to": "lx_possum",
+  "margin": 0.004692
+ },
+ "winner": "lx_possum"
+}

@@ -7,7 +7,7 @@ documents that are relevant **and** consistent with the temporal conditions
 implied by the query.
 
 **摘要（中文）**：本仓库是 RETECO Track-1a 的全部实验产物：官方 BM25 基线复现、
-bge-base 稠密检索、bge-reranker-v2-m3 交叉编码器精排、RRF 两视图融合、跨 13 个领域
+bge-base 稠密检索、bge-reranker-v2-m3 交叉编码器精排、z 归一化两视图融合（历史章节保留 RRF 对照）、跨 13 个领域
 的 dev 评测，以及时间表示（时间特征、语义时间一致性、查询分解、HyDE）的一系列负结果。
 所有数字都由 TREC run 文件 + 官方 qrels 重算得到，可复现。
 
@@ -28,7 +28,7 @@ query ──► mixedbread-ai/mxbai-embed-large-v1 (full query) ──► dense 
                                               │
                         bge-reranker-v2-m3 (title query, 250-token windows)
                                               │
-                              RRF (c = 60, w_dense : w_CE = 1 : 1)
+                    per-query z-norm, score sum (w_dense : w_CE = 1 : 1)
                                               ▼
                                         final ranking
 ```
@@ -41,9 +41,12 @@ query ──► mixedbread-ai/mxbai-embed-large-v1 (full query) ──► dense 
   (text before the first `<p>`), capped at 256 tokens. The earlier release
   described stride 250; every run's `meta.json` says 192 and that is what the
   committed runs used;
-* Fusion: reciprocal rank fusion, `c = 60`, `w_dense : w_CE = 1 : 1`
-  (`scripts/fuse_rrf.py --wa 1 --wb 1 --c 60`; the script defaults to 2:1, so
-  pass the weights explicitly).
+* Fusion: per-query z-normalisation of both score lists, then a weighted sum with
+  `w_dense : w_CE = 1 : 1` (`scripts/fuse_scores.py --norm z --wa 1 --wb 1`) - the
+  form fixed before fine-tuning. Reciprocal rank fusion (`scripts/fuse_rrf.py`,
+  `c = 60`) is the earlier release's form and is kept below as a comparison; the
+  out-of-fold weight refit selects RRF 1:4, which does not clear the
+  pre-registered bar at that form, so the submission stays on z 1:1.
 
 **Reporting convention (corrected 2026-11-09).** The official Track-1a
 aggregation is **domain-macro**: the Evaluation Plan says nDCG@10 is
@@ -63,6 +66,7 @@ are computed by `scripts/aggregate_scores.py`; every table states which it uses.
 | same recipe, fresh checkpoint, weight fitted out-of-fold (RRF 1:4) | 0.3187 | 0.3442 |
 | dense + zero-shot CE, z 1:1 | 0.3249 | 0.3260 |
 | dense + zero-shot CE, RRF 1:1 (V1, first release) | 0.3166 | 0.3199 |
+| same recipe, retrained through the current code path, z 1:1 | 0.3470 | 0.3590 |
 
 > **Phase 11 correction (2026-11-10).** An earlier version of this README said the
 > 0.3581 headline did not reproduce. That was wrong: the score files for the fresh
@@ -70,12 +74,26 @@ are computed by `scripts/aggregate_scores.py`; every table states which it uses.
 > (`results/PHASE11_VALIDATION.md`, "Incident 2"). After re-scoring every fused
 > arm from the committed runs, the frozen system is **0.3581** and three
 > independent training runs of the same recipe give **0.3583 / 0.3575 / 0.3528**
-> (seed spread 0.0055). The fine-tuned reranker is +0.0334 over the zero-shot arm
-> at the same z 1:1 form (domain-clustered CI [+0.0191,+0.0477]) and still
+> (seed spread 0.0055). The fine-tuned reranker is +0.0332 over the zero-shot arm
+> at the same z 1:1 form (domain-clustered CI [+0.0192,+0.0472]) and still
 > +0.0205 at a fusion weight fitted on 45 held-out training queries with no dev
 > signal, so the gain is not a product of the fusion-weight choice. A guard
 > (`scripts/check_score_freshness.py`) now fails on score files older than their
 > run files.
+
+> **Phase 17 (2026-11-12): five dev-tested variants, all negative.** The loss,
+> representation and step-supervision ladders were closed on dev. Every arm that
+> the 45-query internal split promoted loses 0.011-0.014 on dev, including the
+> incumbent objective retrained through the current code path (0.3470): the
+> internal split has essentially no ranking information at that size.
+> Step supervision costs 0.0139/0.0143 and *lowers* step coverage from 59.5% to
+> 55.6/56.0%; the constraint-faithful 64-word query and the 140 backfilled
+> queries cost 0.0138 each. One of them is a "+0.0067 win" under topic-macro and a
+> "-0.0138 loss" under the official domain-macro, which is why every table here
+> states its convention. The frozen 0.3581 stays the submission; the recipe's
+> retraining band is 0.347-0.358 and the frozen artifact sits at its top.
+> Details: `docs/RESEARCH_LOG.md` section 5p, `docs/PAPER_4PAGE.md` sections
+> 5.5-5.7.
 
 Official Track-1a dev BM25 baseline is **0.1147**, i.e. the system is ≈3.1× the
 official lexical baseline. TEMPO's best reported system (32.0) is on a different

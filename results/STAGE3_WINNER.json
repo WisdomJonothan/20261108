@@ -1,0 +1,11 @@
+{
+ "base": "lx_possum",
+ "base_val": 0.286464,
+ "cands": {
+  "cx_qv": 0.292019,
+  "cx_bf": 0.253272
+ },
+ "selected": "lx_possum",
+ "selected_val": 0.286464,
+ "runner_up": "cx_qv"
+}

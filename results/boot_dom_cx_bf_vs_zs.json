@@ -1,0 +1,25 @@
+{
+ "label": "cx_bf vs zs11",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.3249073917275941,
+ "candidate_macro": 0.3443344110932597,
+ "delta": 0.0194270193656656,
+ "query_bootstrap": {
+  "mean": 0.01923653816534138,
+  "ci_lo": -0.0026793561425995523,
+  "ci_hi": 0.04219418235636323,
+  "p_gt_0": 0.9549
+ },
+ "domain_bootstrap": {
+  "mean": 0.01939676268992525,
+  "ci_lo": -0.002632378848870656,
+  "ci_hi": 0.038673669389819094,
+  "p_gt_0": 0.9595
+ },
+ "better": 200,
+ "worse": 115,
+ "iters": 10000,
+ "seed": 7
+}
