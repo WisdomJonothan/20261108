@@ -29,7 +29,8 @@ pre-registered test (+0.0039 against a +0.02 bar) and a fixed year-consistency
 reordering that *lowers* nDCG@10 in 7 of 8 domains.
 Supervising the cross-encoder with the organisers' step annotations -- so that
 every step must have a positive ranked high -- costs 0.014 domain-macro on dev
-and *lowers* step coverage from 59.5% to 56.0%. Two further corrections, a
+and *lowers* step coverage from 51.4% to 48.1%/45.8% at the depth the reranker
+sees (59.5% to 55.6%/56.0% at depth 1000). Two further corrections, a
 constraint-faithful 64-word full-question query and the restoration of the 140
 training queries whose dense top-100 contains no positive, each cost 0.0138 on
 the same split - but only 0.0026 against a same-code retrain of the unchanged
@@ -292,14 +293,15 @@ should be read. They stay unmeasured on dev - the val screen separates them by a
 most 0.015, which the dev half-width of 0.007-0.014 cannot resolve - and we do
 not carry a sign across splits. What dev supports is narrower than "the
 replacements lose": the screen ranks arms at 0.2764-0.2912, it cannot resolve a
-0.003 difference, and the arm it ranks lowest of the candidates run here
-reproduces 0.0111 below the frozen number. This is the fifth arm to lose on dev
-in this phase of work, and it was the incumbent.
+0.003 difference, and the one arm run here - the incumbent itself, mid-screen at
+0.2865 - reproduces 0.0111 below the frozen number. This is the fifth arm to
+lose on dev in this phase of work, and it was the incumbent.
 
 ### 5.6 Forcing every evidence step into the top ten makes the system worse
 
 The remedy S5.2 points to is mechanical: if the top ten covers only 59.5% of the
-annotated steps, require every step to have a positive ranked high. We trained
+annotated steps at depth 1000 (51.4% of reachable steps at depth 100), require
+every step to have a positive ranked high. We trained
 the step-augmented listwise objective of S3 at two weights and scored the
 resulting systems on dev with the frozen fusion:
 
@@ -308,6 +310,10 @@ resulting systems on dev with the frozen fusion:
 | frozen (no step term) | 0.3581 | - | - | 59.45% | 38.31% |
 | L_step, lambda = 0.3 | 0.3442 | -0.0139 | [-0.0348, +0.0044] | 55.58% | 37.95% |
 | L_step, lambda = 1.0 | 0.3438 | -0.0143 | [-0.0351, +0.0037] | 56.00% | 37.88% |
+
+The coverage column uses the depth-1000 pool. At the depth the reranker sees it
+reads 51.39% / 48.14% / 45.78% (`results/MULTIEVIDENCE_*_depth100.json`), so the
+step term loses coverage under either denominator.
 
 The term does not merely fail to pay for itself: it *reduces* the very quantity
 it optimises. Both arms also lose on the population they target, the two-step
@@ -368,8 +374,8 @@ include zero; the two step arms above behave the same way (-0.0027 [-0.0154,
 What dev supports is a deployment decision - five of the ladder's six steps were
 retrained and none beats the frozen 0.3581, and the sixth (the dense encoder's
 pooling) is a wash at +0.0014 - plus a negative result relative to a same-code
-baseline that the 45-query screen cannot rank at all: the five arms it scored
-lie within 0.006 of each other and dev reverses that order.
+baseline that the 45-query screen cannot rank at all: the four arms it scored
+on the shared split (0.2865-0.2920) and dev reverses that order.
 
 ## 6 Reproducibility and efficiency
 
@@ -411,9 +417,9 @@ screen's record is not that it promoted every loser: one arm was its top score
 pre-registered 0.010 tie band and the base was kept (`LOSS_WINNER.json`), stage 3
 kept the same base (`STAGE3_WINNER.json`), one arm was trained to fix a documented
 defect rather than because it won, and the step arms were run as a pair. It is
-rather that the screen cannot rank them: five arms it scored lie within 0.006 of
-each other and dev puts them 0.0026-0.0031 apart from the same-code baseline, all
-with intervals that include zero.
+rather that the screen cannot rank them: the four arms it scored on the shared
+split lie within 0.006 of each other and dev puts them 0.0026-0.0031 apart from
+the same-code baseline, all with intervals that include zero.
 
 Neither is retraining free: the frozen recipe re-run under three seeds gives
 0.3575 / 0.3528 / 0.3527 on dev with freshly sampled pools (14.6-14.8k history

@@ -1,0 +1,153 @@
+{
+ "run_template": "runs/rerank_sx_l10_{domain}_dev.trec",
+ "k": 10,
+ "domains": {
+  "bitcoin": {
+   "queries": 30,
+   "gold_mean": 0.6667,
+   "multi_at_k": 0.2,
+   "steps": 56,
+   "step_cov": 0.3214,
+   "step_recall": 0.6786,
+   "gold_found": 0.8667,
+   "ndcg10": 0.1578
+  },
+  "cardano": {
+   "queries": 15,
+   "gold_mean": 0.6667,
+   "multi_at_k": 0.1333,
+   "steps": 33,
+   "step_cov": 0.3939,
+   "step_recall": 0.7879,
+   "gold_found": 0.9333,
+   "ndcg10": 0.1542
+  },
+  "economics": {
+   "queries": 25,
+   "gold_mean": 0.92,
+   "multi_at_k": 0.24,
+   "steps": 51,
+   "step_cov": 0.3137,
+   "step_recall": 0.7255,
+   "gold_found": 0.84,
+   "ndcg10": 0.1627
+  },
+  "genealogy": {
+   "queries": 35,
+   "gold_mean": 0.9714,
+   "multi_at_k": 0.2286,
+   "steps": 68,
+   "step_cov": 0.4118,
+   "step_recall": 0.7206,
+   "gold_found": 0.8,
+   "ndcg10": 0.2782
+  },
+  "history": {
+   "queries": 240,
+   "gold_mean": 1.3625,
+   "multi_at_k": 0.4125,
+   "steps": 636,
+   "step_cov": 0.6164,
+   "step_recall": 0.9009,
+   "gold_found": 0.9417,
+   "ndcg10": 0.3764
+  },
+  "hsm": {
+   "queries": 45,
+   "gold_mean": 1.2667,
+   "multi_at_k": 0.4667,
+   "steps": 105,
+   "step_cov": 0.6095,
+   "step_recall": 0.8952,
+   "gold_found": 0.8889,
+   "ndcg10": 0.4072
+  },
+  "iota": {
+   "queries": 3,
+   "gold_mean": 1.6667,
+   "multi_at_k": 0.6667,
+   "steps": 8,
+   "step_cov": 0.625,
+   "step_recall": 1.0,
+   "gold_found": 1.0,
+   "ndcg10": 0.4458
+  },
+  "law": {
+   "queries": 11,
+   "gold_mean": 1.0,
+   "multi_at_k": 0.3636,
+   "steps": 23,
+   "step_cov": 0.4348,
+   "step_recall": 0.913,
+   "gold_found": 0.9091,
+   "ndcg10": 0.3173
+  },
+  "monero": {
+   "queries": 19,
+   "gold_mean": 0.4737,
+   "multi_at_k": 0.1053,
+   "steps": 28,
+   "step_cov": 0.2143,
+   "step_recall": 0.6786,
+   "gold_found": 0.8421,
+   "ndcg10": 0.1558
+  },
+  "politics": {
+   "queries": 45,
+   "gold_mean": 1.0222,
+   "multi_at_k": 0.3111,
+   "steps": 119,
+   "step_cov": 0.521,
+   "step_recall": 0.7395,
+   "gold_found": 0.8444,
+   "ndcg10": 0.3114
+  },
+  "quant": {
+   "queries": 10,
+   "gold_mean": 0.6,
+   "multi_at_k": 0.1,
+   "steps": 15,
+   "step_cov": 0.4667,
+   "step_recall": 0.6667,
+   "gold_found": 0.8,
+   "ndcg10": 0.1922
+  },
+  "travel": {
+   "queries": 30,
+   "gold_mean": 0.7,
+   "multi_at_k": 0.2,
+   "steps": 52,
+   "step_cov": 0.4231,
+   "step_recall": 0.8846,
+   "gold_found": 0.9,
+   "ndcg10": 0.2079
+  },
+  "workplace": {
+   "queries": 11,
+   "gold_mean": 1.1818,
+   "multi_at_k": 0.5455,
+   "steps": 20,
+   "step_cov": 0.6,
+   "step_recall": 0.9,
+   "gold_found": 0.9091,
+   "ndcg10": 0.3693
+  }
+ },
+ "domain_macro": {
+  "gold_mean": 0.9614,
+  "multi_at_k": 0.3056,
+  "step_cov": 0.4578,
+  "step_recall": 0.807,
+  "gold_found": 0.8827,
+  "ndcg10": 0.272,
+  "queries": 519
+ },
+ "micro": {
+  "gold_mean": 1.1214,
+  "multi_at_k": 0.341,
+  "gold_found": 0.8998,
+  "ndcg10": 0.3151,
+  "step_cov": 0.5396,
+  "step_recall": 0.8459
+ }
+}
