@@ -448,6 +448,7 @@ Phase 11 改变了训练集（留出 45 条）、改变了量（567.8M 但不同
 | C5 | 根因是"时间不一致 ≠ 不相关"（oracle 天花板） | `results/TEMPORAL_CEILING.md`，8 域 7 降 | 成立 |
 | C6 | ~~0.3581 不可复现 / 融合形式脆弱~~ | Phase 11 重算 + 三个种子 + Phase 17 重训 | **已结案（2026-11-12）**：撤回。原始 0.3581 可复现——回放已提交 run 得 0.3583，种子 23/29 得 0.3575/0.3528/0.3527（sd 0.0029）。替换为更窄的真命题：**重训带=0.347–0.358**，冻结件在带顶；同 recipe 走新代码路重训（`lx_possum`）得 0.3470，差 −0.0111 [−0.0265,+0.0057]。所以"0.3581 是提交件的属性"而不是"该方法稳定达到 0.358"。见 `PAPER_4PAGE.md` §4/§5.5/§7、`RESEARCH_LOG.md` §5p.4 |
 | C7 | 45 query 的内部划分不能用来选臂 | 五个 dev 级候选全为负（−0.011~−0.014），其中三个在该划分上排第一 | 成立，且是当前论文最硬的方法学结论（S7） |
+| C8 | 五臂负结果全部应归因于方法本身 | 外部审计（2026-11-13，钉 681cd80）指出 lx_possum 先掉 −0.0111 | **部分撤回**：0.0111 是同代码路重训成本，四臂相对同代码基线只有 −0.0026~−0.0031、域 CI 全跨零（`results/ATTRIBUTION_LXPOSSUM.json`）。保留的是"部署决策 + 相对同代码基线不可分辨"，不是"每个改动都有害" |
 
 **论文当前的自相矛盾**（必须在回写时一起修）：
 - （已于 11-10 04:08 由并发的修复提交改正）摘要曾以 "0.3581" 开场、第 29–31 行又说 "does not reproduce on a fresh checkpoint (0.3431 at RRF 1:1, 0.3196 at z 1:1); the fusion form, not the reranker, is what varies across checkpoints"；该句源自 §9.6 的过期聚合，现已撤回；
@@ -482,6 +483,6 @@ Phase 11 改变了训练集（留出 45 条）、改变了量（567.8M 但不同
 | Phase 11 的完整论证 | `results/PHASE11_VALIDATION.md`（195 行） |
 | 当前下一步与 P0 清单 | `results/NEXT_STEPS.md` |
 | 错误分析 | `results/DEV_ERROR_ANALYSIS.md` |
-| 时间天花板 | `results/TEMPORAL_CEILING.md` |
+| 时间规则重排（原名"天花板"，2026-11-13 改称） | `results/TEMPORAL_CEILING.md` |
 | 复现一份结果 | `scripts/reproduce_all.sh`；单臂 `scripts/freeze_sft_arm.sh` |
 | 公开仓库 | `github_repo/`（= github.com/WisdomJonothan/20261108，HEAD 9591d92） |

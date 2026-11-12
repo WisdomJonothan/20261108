@@ -35,8 +35,8 @@ constraint-faithful 64-word full-question query and the restoration of the 140
 training queries whose dense top-100 contains no positive, each cost 0.0138 on
 the same split - but only 0.0026 against a same-code retrain of the unchanged
 objective, which itself costs 0.0111, so on dev they are indistinguishable from
-it. Five of the six planned interventions are neutral or negative on dev, and
-the frozen system is kept.
+it. Every intervention in the six-step ladder is neutral or negative on dev,
+and the frozen system is kept.
 
 ## 1 Introduction
 

@@ -234,3 +234,15 @@ crosses zero), "SFT validated" (one seed).
 2. ✅ 写进 `docs/RESEARCH_LOG.md` §5p.6；论文 §3 加 "0.2956 with CLS pooling: a wash"、
    §5.7 结尾改成"五步重训皆输 + 第六步是 wash"、§7 的池化消融措辞收窄到 CE 窗口池化。
 3. ✅ `docs/RESEARCH_NARRATIVE.md` §14 表已更新；提交见 github_repo commit（2026-11-12 第二轮）。
+
+## 9. External audit response (2026-11-13)
+
+- 审计钉在 `681cd80`，四类问题逐条核实；仓库缺的 `ops/`、全部 `scripts/`、65 份逐查询评分、
+  100 深 rerank run、`val_qids_e2.json`、训练组与 step targets 已全部提交（`1059995`）。
+- 归因拆分：`lx_possum` 0.3470（−0.0111 同代码重训成本）；四臂相对它 −0.0026/−0.0026/−0.0027/−0.0031，
+  域 CI 全跨零（`results/boot_dom_*_vs_lxpossum.json`、`ATTRIBUTION_LXPOSSUM.json`）。论文 §5.5/§5.7 已重写。
+- 深度修正：96.3% 是 depth-1000；CE 只看 100，对应 80.7%/88.3%/51.4%；138 个零分 query 中 52 个 top-100 无相关。
+- 年份规则改称"固定重排规则失效"，不再叫天花板/上界；训练组是 top-100 里抽的 20 篇（1,071 组/21,420 对）。
+- 代码加固：模型目录**内容指纹**进缓存 key；无 sidecar 的旧缓存默认拒绝（`--adopt-legacy` 才收养）；
+  `validate_submission.py` 无法解析域名时报错，缺 qrels/corpus 报错。
+- 剩余：fused 1000 深 run 未提交（每臂 37 MB，可由 dense top-1000 + CE 分数重建）；官方 test query 仍未放出。
