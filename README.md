@@ -9,7 +9,9 @@ implied by the query.
 **摘要（中文）**：本仓库是 RETECO Track-1a 的全部实验产物：官方 BM25 基线复现、
 bge-base 稠密检索、bge-reranker-v2-m3 交叉编码器精排、z 归一化两视图融合（历史章节保留 RRF 对照）、跨 13 个领域
 的 dev 评测，以及时间表示（时间特征、语义时间一致性、查询分解、HyDE）的一系列负结果。
-所有数字都由 TREC run 文件 + 官方 qrels 重算得到，可复现。
+所有数字都由本仓库中的逐查询评分 JSON（`results/score_*_dev.json`）、
+dev TREC run 文件与官方 qrels 重算得到，可复现；fused 的 1000 深 run 未提交，
+可用 `scripts/fuse_scores.py` 从 dense top-1000 + CE 分数重建。
 
 ## Data
 
@@ -96,8 +98,20 @@ are computed by `scripts/aggregate_scores.py`; every table states which it uses.
 > correction: CLS pooling gives 0.2956 against 0.2943 for mean on the 13-domain
 > dev set (+0.0014, topic-macro the other way), i.e. a wash - the baseline was not
 > held down by the pooling choice.
+> **Attribution correction (2026-11-13, after external review).** Most of the
+> 0.0138-0.0143 gap is not the variants: re-running the *unchanged* objective
+> through the current code path already costs 0.0111 (0.3470 against 0.3581), and
+> against that same-code baseline the four arms cost only 0.0026-0.0031, every
+> domain-clustered interval including zero (`results/ATTRIBUTION_LXPOSSUM.json`).
+> What dev supports is the deployment decision (keep the frozen artifact) and a
+> negative result relative to a same-code baseline, not the claim that each edit
+> is intrinsically bad.
+> **Depth correction.** The 96.3% "steps retrievable" figure is at depth 1000;
+> at the 100 candidates the cross-encoder actually sees it is 80.7% (88.3% of
+> queries keep a positive), so recall is a partial limit rather than a non-issue
+> (`results/MULTIEVIDENCE_sft_e2bc_depth100.json`).
 > Details: `docs/RESEARCH_LOG.md` section 5p, `docs/PAPER_4PAGE.md` sections
-> 5.5-5.7.
+> 5.2 and 5.5-5.7.
 
 Official Track-1a dev BM25 baseline is **0.1147**, i.e. the system is ≈3.1× the
 official lexical baseline. TEMPO's best reported system (32.0) is on a different

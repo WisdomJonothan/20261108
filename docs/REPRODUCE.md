@@ -48,13 +48,21 @@ $PY scripts/train_ce.py --domains <13> \
     --loss possum --sampler uniform --q-mode title --q-cap 256 \
     --win 250 --stride 192 --window-mode max --max-windows 3 --max-len 320 \
     --pool-chunk 32 --freeze-layers 8 --epochs 2 --lr 1.5e-5 --warmup-frac 0.08 \
-    --seed 17 --val-frac 0.12 --val-queries 4 --val-metric domain_macro \
+    --seed 17 --val-frac 0.12 --val-queries 4 --val-metric mean \
+    --val-qids results/val_qids_e2.json \
     --tag v2m3_pool8_e2
 ```
 
-`best/` is chosen by domain-macro nDCG@10 on the train-internal split. Pass
-`--val-qids results/val_qids_e2.json` to pin the split (the fraction-based split
-depends on a shuffle and is therefore not reproducible across code changes).
+`best/` is chosen on the cross-encoder's own ordering over held-out training
+queries: `--val-frac 0.12` holds out 12% of each domain's groups and
+`--val-queries 4` scores at most four of them per domain, which is the 45-query
+split used here. `--val-qids results/val_qids_e2.json` pins exactly which queries
+(the fraction-based split depends on a shuffle). The frozen artifact selected
+epoch 1 on the plain mean (0.3029 against 0.3012); that run predates domain-macro
+logging. The current code writes both numbers every epoch and
+`--val-metric domain_macro` selects on the official aggregation instead; on every
+later arm the two criteria pick the same epoch, so no reported number depends on
+which one is chosen.
 
 ## 3. Re-rank dev + fuse + score (GPU, ~35 min; CPU, seconds)
 

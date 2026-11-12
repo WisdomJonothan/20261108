@@ -1,0 +1,25 @@
+{
+ "label": "sx_l03 vs lx_possum",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.34697026217901694,
+ "candidate_macro": 0.3442300652383683,
+ "delta": -0.0027401969406486426,
+ "query_bootstrap": {
+  "mean": -0.0028124043246041024,
+  "ci_lo": -0.01465007418087227,
+  "ci_hi": 0.007918565203296587,
+  "p_gt_0": 0.3255
+ },
+ "domain_bootstrap": {
+  "mean": -0.002713270740919704,
+  "ci_lo": -0.01542827280850909,
+  "ci_hi": 0.008172709605660234,
+  "p_gt_0": 0.3555
+ },
+ "better": 125,
+ "worse": 99,
+ "iters": 10000,
+ "seed": 7
+}

@@ -43,23 +43,61 @@ def _text_sha1(texts):
     return h.hexdigest()
 
 
-def _cache_fingerprint(model, pooling, max_length, dtype, prefix, texts):
-    """Everything that changes the bytes of the .npy cache."""
+def _dir_digest(path):
+    """Content proxy for a model directory: relative path, size and mtime of
+    every file under it. Cheap (no 1 GB read) and changes whenever the weights,
+    tokenizer or config are replaced in place."""
     import hashlib
     h = hashlib.sha1()
-    for v in (model, pooling, str(max_length), dtype, prefix):
+    for root, _dirs, files in os.walk(path):
+        for name in sorted(files):
+            f = os.path.join(root, name)
+            try:
+                st = os.stat(f)
+            except OSError:
+                continue
+            h.update(os.path.relpath(f, path).encode("utf-8", "ignore"))
+            h.update(b"|")
+            h.update(str(st.st_size).encode())
+            h.update(b"|")
+            h.update(str(st.st_mtime_ns).encode())
+            h.update(b"|")
+    return h.hexdigest()[:16]
+
+
+def _cache_fingerprint(model, pooling, max_length, dtype, prefix, texts):
+    """Everything that changes the bytes of the .npy cache.
+
+    The model enters as a content digest, not a path: a checkpoint retrained in
+    place at the same path is a different encoder and must not reuse the cache.
+    """
+    import hashlib
+    h = hashlib.sha1()
+    for v in (model, _dir_digest(model), pooling, str(max_length), dtype, prefix):
         h.update(str(v).encode("utf-8", "ignore"))
         h.update(b"||SEP||")
     h.update(_text_sha1(texts).encode())
     return h.hexdigest()[:16]
 
 
-def _check_cache(path, fp):
-    """Fail closed on a proven mismatch; warn on caches without provenance."""
+def _check_cache(path, fp, adopt_legacy=False):
+    """Fail closed on a proven mismatch, and on a cache with no provenance.
+
+    A file without a sidecar cannot be shown to match the current inputs, so the
+    default is to refuse it: reusing it silently is exactly how a stale
+    embedding of a replaced model leaks into a run. `--adopt-legacy` adopts it
+    once, writing a sidecar that records the adoption, and is opt-in.
+    """
     meta = path + ".fp.json"
     if not os.path.isfile(meta):
-        print(f"[cache] {os.path.basename(path)} has no fingerprint sidecar (legacy); "
-              f"adopting it into a sidecar so later mismatches are caught")
+        if not adopt_legacy:
+            raise SystemExit(
+                "[cache] %s has no fingerprint sidecar, so it cannot be shown to "
+                "match the current model/texts; refusing to reuse. Delete the .npy "
+                "or pass --refresh to rebuild, or --adopt-legacy to trust it once."
+                % path)
+        print(f"[cache] {os.path.basename(path)} has no fingerprint sidecar "
+              f"(legacy); adopting it at the user's request")
         with open(meta, "w", encoding="utf-8") as f:
             json.dump({"fingerprint": fp, "provenance": "adopted-legacy"}, f, indent=1)
         return
@@ -120,6 +158,9 @@ def main():
     ap.add_argument("--max-length", type=int, default=512)
     ap.add_argument("--refresh", action="store_true",
                     help="ignore an existing doc-embedding cache")
+    ap.add_argument("--adopt-legacy", action="store_true",
+                    help="trust a .npy cache that has no fingerprint sidecar "
+                         "(default: refuse it)")
     ap.add_argument("--batch-size", type=int, default=64)
     ap.add_argument("--topk", type=int, default=1000)
     ap.add_argument("--dtype", choices=["fp16", "bf16", "fp32"], default="fp16")
@@ -147,7 +188,7 @@ def main():
     emb_fp = _cache_fingerprint(args.model, args.pooling, args.max_length, args.dtype,
                                 args.doc_prefix, texts)
     if os.path.isfile(doc_cache) and not args.refresh:
-        _check_cache(doc_cache, emb_fp)
+        _check_cache(doc_cache, emb_fp, args.adopt_legacy)
         print(f"[dense] reusing {doc_cache}")
         doc_emb = np.load(doc_cache)
     else:

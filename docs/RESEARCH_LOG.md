@@ -1040,3 +1040,76 @@ domain-macro 重算。**
 - 工程教训：语料里"单条超大文档"会绕过所有基于 max_length 的内存假设——**先按字符截断，
   再进 tokenizer**；另外 D: 盘只剩 3.5 GB，`emb/` 已经 16 GB（两套池化的 doc cache 各约 7 GB），
   再跑第三个 pooling 之前要先清缓存。
+
+## 5q. External audit of 681cd80 (2026-11-13) — what held, what did not
+
+An external reviewer read the public repository at `681cd80` and raised four
+classes of complaint. Each was checked against the local artifacts; the checks
+are recorded here because two of them changed published numbers.
+
+**1. The repository did not match the experiments.** Confirmed. `ops/` was
+missing entirely, `scripts/train_ce.py` had 32 of its 43 arguments, and the
+documented command failed with `unrecognized arguments: --loss --sampler
+--val-metric` because those flags only existed locally. Also missing: the 65
+per-query score files for the five Phase-17 arms and their 100-deep rerank runs.
+All of it is now committed; the fused 1000-deep runs stay out (37 MB per arm) and
+are regenerable with `scripts/fuse_scores.py`.
+
+**2. The negative result was over-attributed.** Confirmed, and this is the
+substantive correction. `lx_possum` (same objective, current code path) scores
+**0.3470**, `-0.0111` against the frozen artifact, so most of the `-0.0138` the
+paper charged to each correction is a retraining cost. Paired domain bootstrap
+against that same-code baseline:
+
+| arm | delta vs lx_possum | query CI | domain CI | better/worse |
+|---|---:|---|---|---|
+| cx_qv | -0.002650 | [-0.0168, +0.0109] | [-0.0187, +0.0100] | 144/120 |
+| cx_bf | -0.002636 | [-0.0121, +0.0060] | [-0.0162, +0.0101] | 142/110 |
+| sx_l03 | -0.002740 | [-0.0147, +0.0079] | [-0.0154, +0.0082] | 125/99 |
+| sx_l10 | -0.003127 | [-0.0144, +0.0070] | [-0.0153, +0.0072] | 131/106 |
+
+Every interval crosses zero. The paper's Sections 5.5 and 5.7 now separate the
+code-path cost from the method effect and report the four arms at
+0.0026-0.0031, not 0.0138.
+
+**3. The 96.3% "steps retrievable" figure had no depth.** Confirmed, and worse
+than the reviewer knew: it was computed on `runs/sub_*_dev.trec`, which is
+1000-deep, while the cross-encoder only ever sees 100 candidates. Recomputed on
+`runs/rerank_sft_e2bc_*_dev.trec` (`results/MULTIEVIDENCE_sft_e2bc_depth100.json`):
+**step_recall 80.70%, gold_found 88.27%, step_cov 51.39%** (96.33/98.61/59.45 at
+depth 1000). So recall is a partial bottleneck at the operating depth, not a
+non-issue; the abstract and Section 5.2 now give both numbers. The retrieval
+floor proper stays small: 10 of 519 dev queries (1.9%) have no relevant document
+anywhere in the dense top-1000.
+
+**4. The 45-query screen was described as promoting every loser.** Confirmed as
+an inaccuracy: `LOSS_WINNER.json` kept the base because `lx_sqrt` fell inside the
+pre-registered 0.010 tie band, `STAGE3_WINNER.json` also kept `lx_possum`, and
+`cx_bf` was trained to fix a documented defect rather than because it won on val.
+Only the full-question arm was the screen's top score. The text now says the
+screen cannot rank these arms (its five scores lie within 0.006) instead of
+claiming it promoted all of them.
+
+**5. Smaller corrections, all applied.**
+- The year-consistency clause is a *fixed rule* that loses (0.2980 -> 0.2498 in
+  7/8 anchored domains), not an "upper bound": the reordered list is not the best
+  obtainable one. Renamed everywhere, including the 4-page abstract.
+- Training is listwise softmax over **20-document groups** sampled from each
+  query's top-100 (`1,071 groups / 21,420 pairs`), not over 100 candidates.
+- Checkpoint selection is on the cross-encoder's own ordering over 45 held-out
+  train queries, not on the fused system; the frozen run selected epoch 1 on the
+  plain mean because it predates domain-macro logging. `docs/REPRODUCE.md` said
+  otherwise and now matches the code (`--val-metric mean --val-qids ...`).
+- `scripts/run_dense_generic.py` and `scripts/make_submission.py` now put a
+  *content digest* of the model directory in the cache fingerprint (path alone
+  let a retrained checkpoint at the same path reuse stale embeddings) and refuse
+  legacy caches without a sidecar unless `--adopt-legacy` is passed.
+- `scripts/validate_submission.py` refuses a run whose domain cannot be resolved
+  from its name instead of falling back to a token that silently skipped every
+  check (`bad_unknown_dev.trec` previously reported `0 errors`); missing
+  qrels/corpus is now an error, not a warning.
+
+**Still open.** The fused 1000-deep runs are not committed (size). No official
+test queries have been released, so there is still no leaderboard number.
+`docs/PAPER_DRAFT.md` (the long version) was corrected on the same points but has
+not been re-read line by line against the 4-page version.

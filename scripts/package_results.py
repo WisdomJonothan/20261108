@@ -34,19 +34,24 @@ def collect() -> list[tuple[str, str]]:
     """(archive_name, absolute_path) for every file to ship."""
     items: list[tuple[str, str]] = []
 
-    def add_dir(sub: str, suffix: tuple[str, ...]) -> None:
+    def add_dir(sub: str, suffix: tuple[str, ...],
+                skip_names: frozenset[str] = frozenset()) -> None:
         base = os.path.join(ROOT, sub)
         if not os.path.isdir(base):
             return
         for dirpath, dirnames, filenames in os.walk(base):
             dirnames[:] = [d for d in dirnames if d != "__pycache__"]
             for name in sorted(filenames):
+                if name in skip_names:
+                    continue
                 if name.endswith(suffix):
                     items.append((rel(os.path.join(dirpath, name)),
                                   os.path.join(dirpath, name)))
 
     items.append(("PHASE0.md", os.path.join(ROOT, "PHASE0.md")))
-    add_dir("results", (".md", ".json"))
+    add_dir("results", (".md", ".json", ".jsonl"),
+            frozenset({"tokenizer.json", "special_tokens_map.json",
+                       "added_tokens.json", "tokenizer_config.json"}))
     add_dir("runs", (".trec",))
     add_dir("logs", (".log",))
     add_dir("scripts", (".py", ".sh", ".md", ".txt"))
@@ -55,7 +60,14 @@ def collect() -> list[tuple[str, str]]:
             p = os.path.join(ROOT, "data", "track1_tempo", dom, name)
             if os.path.isfile(p):
                 items.append((f"data_meta/{dom}/{name}", p))
-    return [(a, p) for a, p in items if os.path.isfile(p)]
+    def keep(a: str) -> bool:
+        # fused views and train-split TRECs are derivable from the shipped
+        # component runs; shipping them would add ~1 GB for no new evidence.
+        if "/fused_" in "/" + a or a.split("/")[-1].endswith("_train.trec"):
+            return False
+        return True
+
+    return [(a, p) for a, p in items if os.path.isfile(p) and keep(a)]
 
 
 def sha256(path: str) -> str:
@@ -121,7 +133,7 @@ into the expected layout, or pass the official data directory directly.
 def main() -> int:
     os.makedirs(DIST, exist_ok=True)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d")
-    out = os.path.join(DIST, f"RETECO_Phase0_results_{stamp}_v11.zip")
+    out = os.path.join(DIST, f"RETECO_Phase0_results_{stamp}_v16.zip")
 
     items = collect()
     manifest: list[str] = []

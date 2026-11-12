@@ -1,0 +1,25 @@
+{
+ "label": "cx_qv vs lx_possum",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.34697026217901694,
+ "candidate_macro": 0.344320324333899,
+ "delta": -0.0026499378451179667,
+ "query_bootstrap": {
+  "mean": -0.0026250172234851647,
+  "ci_lo": -0.016844887206159384,
+  "ci_hi": 0.010924667975791147,
+  "p_gt_0": 0.3652
+ },
+ "domain_bootstrap": {
+  "mean": -0.002729460980542301,
+  "ci_lo": -0.01871715267402952,
+  "ci_hi": 0.010007275373500048,
+  "p_gt_0": 0.3858
+ },
+ "better": 144,
+ "worse": 120,
+ "iters": 10000,
+ "seed": 7
+}

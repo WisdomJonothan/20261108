@@ -32,6 +32,7 @@ import argparse
 import json
 import os
 import random
+import re
 import sys
 import time
 
@@ -47,6 +48,97 @@ ROOT = os.environ.get("RETEco_ROOT",
                       os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
+# ---------------------------------------------------------------- query text
+# Four representations of the *same* question under one word budget, so the
+# comparison isolates what truncation throws away (see ladder item 3 in
+# docs/RESEARCH_PLAN_NEXT.md): the bare title, a fixed-width body window, an
+# extractive summary, and a constraint-preserving selection that keeps the
+# sentences carrying time ranges / exclusion / comparison cues.
+CUE_RE = re.compile(
+    r"(before|after|between|during|since|until|prior to|by (the )?(end|time)|"
+    r"\b(1[5-9]\d\d|20\d\d)\b|not |exclud|except|without|other than|"
+    r"more than|less than|fewer|at least|at most|than|first|last|earliest|latest)",
+    re.I)
+
+
+def _sents(text):
+    return [s.strip() for s in re.split(r"(?<=[.!?;])\s+", text or "") if s.strip()]
+
+
+def compose_query(title, body, mode, cap_words):
+    """Render one query under `mode`, capped at `cap_words` words (0 = no cap).
+
+    title/body are already tag-stripped. `full` reproduces the historic
+    behaviour; `body` is a fixed left window of the body; `ctxt` keeps the
+    title then greedily adds body sentences that carry a constraint cue;
+    `summ` does the same but ranks sentences by term frequency instead of cues.
+    """
+    title, body = (title or "").strip(), (body or "").strip()
+    if mode == "title":
+        txt = title
+    elif mode == "full":
+        txt = (title + " " + body).strip()
+    elif mode == "body":
+        txt = body or title
+    else:
+        keep, used = [title], len(title.split())
+        sents = _sents(body)
+        if mode == "summ":
+            freq = {}
+            for w in re.findall(r"[a-z]{4,}", body.lower()):
+                freq[w] = freq.get(w, 0) + 1
+            order = sorted(range(len(sents)),
+                           key=lambda i: -sum(freq.get(w, 0) for w in
+                                              set(re.findall(r"[a-z]{4,}", sents[i].lower())))
+                           / max(1, len(sents[i].split())))
+        else:
+            def cue_score(t):
+                """How much of a constraint this sentence carries (0 = none).
+
+                Precision matters more than recall here: the point of `ctxt` is
+                to add only sentences that hold a condition which the title
+                drops, so a bare "first" or a negated verb in ordinary prose
+                must not qualify.
+                """
+                sc = 0.0
+                if re.search(r"(1[5-9][0-9][0-9]|20[0-9][0-9])", t):
+                    sc += 3
+                if re.search(r"(before|after|between|during|since|until|prior to|"
+                             r"no later than|earlier than|later than|as of)", t, re.I):
+                    sc += 3
+                if re.search(r"(except|excluding|without|other than|"
+                             r"no longer|not[^.]{0,30}(includ|mention|involv|"
+                             r"use|used|about|from)\w*)", t, re.I):
+                    sc += 2
+                if re.search(r"(more than|less than|fewer|at least|at most|"
+                             r"earliest|latest)", t, re.I):
+                    sc += 2
+                return sc
+
+            scored = [(cue_score(x), k) for k, x in enumerate(sents)]
+            order = [k for sc, k in sorted(scored, key=lambda q: (-q[0], q[1])) if sc >= 2]
+        picked = set()
+        for i in order:
+            n = len(sents[i].split())
+            if cap_words and used + n > cap_words:
+                continue
+            keep.append(sents[i])
+            picked.add(i)
+            used += n
+        txt = " ".join(keep)
+    if cap_words:
+        txt = " ".join(txt.split()[:cap_words])
+    return txt
+
+
+def split_raw_query(raw):
+    """(title, body) of a raw query: the part before the first <p> is the title."""
+    parts = (raw or "").split("<p>")
+    title = parts[0]
+    body = " ".join(parts[1:]) if len(parts) > 1 else ""
+    return title, body
+
+
 def auc_score(scores, labels):
     """Within-query AUC of the CE score for gold vs non-gold candidates."""
     order = np.argsort(scores)
@@ -57,6 +149,48 @@ def auc_score(scores, labels):
     if n_pos == 0 or n_neg == 0:
         return float("nan")
     return float((ranks[labels == 1].sum() - n_pos * (n_pos + 1) / 2) / (n_pos * n_neg))
+
+
+def dcg_discounts(rank, k):
+    """1/log2(rank+2) for rank < k, else 0 (rank is 0-based, sorted desc)."""
+    d = torch.zeros(rank.numel(), dtype=torch.float32, device=rank.device)
+    keep = rank < k
+    d[keep] = 1.0 / torch.log2(rank[keep].float() + 2.0)
+    return d
+
+
+def lambdarank_ndcg_loss(logits, labels, k=10):
+    """LambdaRank with nDCG@k swap weights (Burges 2010).
+
+    A pair (i, j) with rel_i > rel_j contributes |Delta nDCG@k| of the swap
+    times log(1 + exp(s_j - s_i)). Only pairs whose swap touches the top-k
+    contributes, so ordering mistakes inside the top 10 dominate while
+    reshuffling below rank k is free. Loss is the weighted mean, keeping the
+    gradient scale comparable to the listwise softmax.
+    """
+    n = logits.numel()
+    if n < 2:
+        return logits.sum() * 0.0
+    rel = labels.float()
+    gains = torch.pow(2.0, rel) - 1.0
+    order = torch.argsort(logits, descending=True)
+    rank = torch.empty(n, dtype=torch.long, device=logits.device)
+    rank[order] = torch.arange(n, device=logits.device)
+    ideal_rel = torch.sort(rel, descending=True).values[:k]
+    ideal_dcg = ((torch.pow(2.0, ideal_rel) - 1.0) *
+                 dcg_discounts(torch.arange(ideal_rel.numel(),
+                                            device=logits.device), k)).sum().clamp_min(1e-9)
+    disc = dcg_discounts(rank, k)
+    pair = ((rel.unsqueeze(1) > rel.unsqueeze(0)) &
+            (rank.unsqueeze(1) < k) & (rank.unsqueeze(0) < k))
+    if not bool(pair.any()):
+        return logits.sum() * 0.0
+    delta = (gains.unsqueeze(1) - gains.unsqueeze(0)) * \
+            (disc.unsqueeze(1) - disc.unsqueeze(0))
+    w = (delta.abs() / ideal_dcg) * pair.float()
+    diff = logits.unsqueeze(1) - logits.unsqueeze(0)   # s_i - s_j, i ranked above j
+    loss = torch.nn.functional.softplus(-diff)
+    return (w * loss).sum() / w.sum().clamp_min(1e-9)
 
 
 def clean_query(text):
@@ -119,7 +253,17 @@ def main():
     ap.add_argument("--warmup-frac", type=float, default=0.1)
     ap.add_argument("--weight-decay", type=float, default=0.01)
     ap.add_argument("--grad-accum", type=int, default=4)
-    ap.add_argument("--q-mode", choices=["title", "full"], default="title")
+    ap.add_argument("--q-mode", choices=["title", "full", "body", "ctxt", "summ"],
+                    default="title")
+    ap.add_argument("--q-cap-words", type=int, default=64,
+                    help="word budget shared by the four query variants (0 = uncapped)")
+    ap.add_argument("--eval-win-limit", type=int, default=0,
+                    help="cap document windows while scoring (0 = all)")
+    ap.add_argument("--eval-qvariants", default="",
+                    help="comma list of modes: score the val split once per mode and exit")
+    ap.add_argument("--init-from", default="",
+                    help="start from a saved checkpoint dir instead of --model "
+                         "(used for eval-only runs and warm starts)")
     ap.add_argument("--q-cap", type=int, default=256)
     ap.add_argument("--win", type=int, default=250)
     ap.add_argument("--stride", type=int, default=192)
@@ -137,6 +281,10 @@ def main():
     ap.add_argument("--dump-val-qids", default=None,
                     help="write the seed-determined train/val split here and exit "
                          "(lets later seeds reuse the exact same held-out queries)")
+    ap.add_argument("--dump-val-scores", default=None, action="store_true",
+                    help="write per-query validation nDCG@10 per epoch to "
+                         "results/val_scores_<tag>_e<epoch>.json so arms can be "
+                         "compared with a paired bootstrap")
     ap.add_argument("--val-qids", default=None,
                     help="reuse a split written by --dump-val-qids, so a seed "
                          "replication differs only in initialisation/order")
@@ -150,6 +298,31 @@ def main():
                     help="windows scored per forward pass when window-mode=max")
     ap.add_argument("--freeze-layers", type=int, default=0,
                     help="freeze the embedding table and the first N encoder layers")
+    ap.add_argument("--loss", choices=["possum", "allpos", "ndcg"], default="possum",
+                    help="listwise objective: 'possum' = -log sum_(d in P) p(d) "
+                         "(the original loss), 'allpos' = mean over positives of "
+                         "-log p(d) so every gold document is trained directly, "
+                         "'ndcg' = LambdaRank with nDCG@10 swap weights")
+    ap.add_argument("--val-metric", choices=["mean", "domain_macro"], default="mean",
+                    help="checkpoint selection signal: plain mean over held-out "
+                         "train queries, or the domain-macro mean that matches the "
+                         "official scoring rule")
+    ap.add_argument("--sampler", choices=["uniform", "sqrt"], default="uniform",
+                    help="epoch sampling: 'uniform' visits every training group "
+                         "once (original behaviour); 'sqrt' draws with probability "
+                         "proportional to sqrt(groups in the domain), balancing "
+                         "small domains without repeating them to parity")
+    ap.add_argument("--step-targets", default="results/ce_step_targets",
+                    help="prefix of the per-domain step->gold-doc target files "
+                         "written by scripts/build_step_targets.py")
+    ap.add_argument("--step-lambda", type=float, default=0.0,
+                    help="weight of the evidence-step term added to the objective: "
+                         "-mean_j log sum_{d in step j} p(d). 0 disables it; the "
+                         "official steps are used for training only, never as "
+                         "inference input")
+    ap.add_argument("--report-steps", action="store_true",
+                    help="compatibility no-op: step diagnostics are always logged "
+                         "when --step-targets is given")
     args = ap.parse_args()
 
     torch.manual_seed(args.seed)
@@ -168,9 +341,12 @@ def main():
             f.write(json.dumps(obj, ensure_ascii=False) + "\n")
         print(json.dumps(obj, ensure_ascii=False), flush=True)
 
+    init_path = args.init_from or args.model
     tok = AutoTokenizer.from_pretrained(args.model)
+    if args.init_from:
+        print(json.dumps({"event": "init_from", "path": init_path}), flush=True)
     model = AutoModelForSequenceClassification.from_pretrained(
-        args.model, dtype=dtype, num_labels=1)
+        init_path, dtype=dtype, num_labels=1)
     model.config.use_cache = False
     if args.grad_ckpt:
         model.gradient_checkpointing_enable()
@@ -209,6 +385,17 @@ def main():
             val_q[d] = {g["qid"] for g in gs[:n_val]}
         groups_by_domain[d] = [g for g in gs if g["qid"] not in val_q[d]]
     n_train_groups = sum(len(v) for v in groups_by_domain.values())
+
+    step_targets = {}
+    if args.step_lambda:
+        for d in args.domains:
+            p = os.path.join(ROOT, f"{args.step_targets}_{d}.json")
+            if os.path.exists(p):
+                with open(p, encoding="utf-8") as f:
+                    step_targets[d] = json.load(f)
+        log({"event": "step_targets", "domains": len(step_targets),
+             "queries": sum(len(v) for v in step_targets.values()),
+             "lambda": args.step_lambda})
 
     needed = {d: set() for d in args.domains}
     for d in args.domains:
@@ -298,6 +485,8 @@ def main():
         flat, spans = [], []
         for x in docids:
             ws = doc_windows(d, x)
+            if args.eval_win_limit and len(ws) > args.eval_win_limit:
+                ws = ws[:args.eval_win_limit]
             spans.append((len(flat), len(flat) + len(ws)))
             flat.extend(ws)
         outs = []
@@ -310,10 +499,13 @@ def main():
                 outs.extend(model(**enc).logits.view(-1).float().cpu().tolist())
         return [max(outs[a:b]) for a, b in spans]
 
-    def validate(epoch):
+    def validate(epoch, qmode=None):
         was_training = model.training
         model.eval()
-        per_dom, all_scores, all_auc = {}, [], []
+        per_dom, all_scores, all_auc, per_q = {}, [], [], {}
+        # multi-evidence counters live outside the per-domain loop so a run
+        # with no scorable validation domain still reports cleanly
+        step_hit = step_tot = mp10 = mq = 0
         for d in args.domains:
             # val queries are absent from the group files, so query text comes
             # from the official examples file
@@ -326,50 +518,124 @@ def main():
                 for ln in f:
                     r = json.loads(ln)
                     if r["id"] in val_runs[d]:
-                        full = r["query"]
-                        qtext[r["id"]] = clean_query(full.split("<p>")[0]) or clean_query(full) \
-                            if args.q_mode == "title" else clean_query(full)
+                        _t, _b = split_raw_query(r["query"])
+                        qtext[r["id"]] = compose_query(clean_query(_t), clean_query(_b),
+                                                       qmode or args.q_mode,
+                                                       args.q_cap_words)
             vals, aucs = [], []
             for qid, docs in scores:
                 sc = score_docs(d, qid, qtext.get(qid, ""), docs)
                 order = np.argsort(-np.asarray(sc))
                 ranked = [docs[i] for i in order]
                 gold = val_gold[d].get(qid, {})
-                vals.append(float(ndcg_at_k(ranked, gold, 10)))
+                _nd = float(ndcg_at_k(ranked, gold, 10))
+                vals.append(_nd)
+                per_q[qid] = _nd
                 lbl = np.array([1 if gold.get(x, 0) > 0 else 0 for x in docs])
                 if 0 < lbl.sum() < len(lbl):
                     aucs.append(float(auc_score(np.asarray(sc), lbl)))
+                # multi-evidence diagnostics: does the model satisfy every
+                # annotated step, and does it put several positives in the top
+                # ten instead of only the easiest one?
+                top10 = set(ranked[:10])
+                steps = step_targets.get(d, {}).get(qid) if step_targets else None
+                if steps:
+                    cand = set(docs)
+                    for st in steps:
+                        avail = [x for x in st if x in cand]
+                        if avail:
+                            step_tot += 1
+                            step_hit += int(any(x in top10 for x in avail))
+                n_pos10 = sum(1 for x in ranked[:10] if gold.get(x, 0) > 0)
+                mp10 += n_pos10
+                mq += int(n_pos10 >= 2)
             per_dom[d] = float(np.mean(vals)) if vals else float("nan")
             all_scores.extend(vals)
             all_auc.extend(aucs)
         model.train(was_training)
-        return {"epoch": epoch, "val_ndcg10": float(np.mean(all_scores)) if all_scores else 0.0,
+        dom_vals = [v for v in per_dom.values() if v == v]
+        diag = {}
+        if step_tot:
+            diag["step_hit_rate"] = round(step_hit / step_tot, 4)
+            diag["step_n"] = step_tot
+        if scores:
+            diag["pos_in_top10"] = round(mp10 / max(1, len(all_scores)), 4)
+            diag["q_with_2pos_top10"] = round(mq / max(1, len(all_scores)), 4)
+        if args.dump_val_scores and per_q:
+            sp = os.path.join(ROOT, "results",
+                              "val_scores_%s_e%d.json" % (args.tag, epoch))
+            with open(sp, "w", encoding="utf-8") as f:
+                json.dump(per_q, f, indent=1, ensure_ascii=False)
+            log({"event": "dumped_val_scores", "path": os.path.basename(sp),
+                 "queries": len(per_q)})
+        return {**diag, "epoch": epoch, "val_ndcg10": float(np.mean(all_scores)) if all_scores else 0.0,
+                "val_ndcg10_domain_macro": float(np.mean(dom_vals)) if dom_vals else 0.0,
                 "val_auc": float(np.mean(all_auc)) if all_auc else 0.0,
                 "per_domain": per_dom, "n_val_queries": len(all_scores)}
+
+    def sel_metric(v):
+        """The number used to pick `best`, following --val-metric."""
+        if args.val_metric == "domain_macro":
+            return v["val_ndcg10_domain_macro"]
+        return v["val_ndcg10"]
 
     # ------------------------------------------------------------- training
     # epoch-0 validation = the zero-shot reference on exactly the same held-out
     # train queries, so the fine-tuning gain is measured against its own baseline
+    if args.eval_qvariants:
+        modes = [m.strip() for m in args.eval_qvariants.split(",") if m.strip()]
+        out = {}
+        for m in modes:
+            v = validate(0, qmode=m)
+            out[m] = {"domain_macro": round(v["val_ndcg10_domain_macro"], 4),
+                      "mean": round(v["val_ndcg10"], 4),
+                      "n": v["n_val_queries"],
+                      "per_domain": {k: round(x, 4) for k, x in v["per_domain"].items()}}
+        log({"event": "qvariants", "cap_words": args.q_cap_words, "results": out})
+        return
+
     v0 = validate(0)
     v0["event"] = "epoch0_zeroshot"
     log(v0)
 
-    best = v0["val_ndcg10"] if v0["val_ndcg10"] == v0["val_ndcg10"] else -1.0
+    best = sel_metric(v0) if sel_metric(v0) == sel_metric(v0) else -1.0
     global_step = 0
     for epoch in range(1, args.epochs + 1):
-        order = []
-        for d in args.domains:
-            for g in groups_by_domain[d]:
-                order.append((d, g))
-        random.Random(args.seed + epoch).shuffle(order)
+        if args.sampler == "sqrt":
+            # draw n_train_groups groups with P(domain) ~ sqrt(n_domain): small
+            # domains are lifted without being repeated up to parity
+            doms = [d for d in args.domains if groups_by_domain[d]]
+            w = np.sqrt(np.array([len(groups_by_domain[d]) for d in doms], dtype=float))
+            w = w / w.sum()
+            pick_rng = np.random.default_rng(args.seed * 7919 + epoch)
+            grng = random.Random(args.seed + 313 + epoch)
+            picks = pick_rng.choice(len(doms), size=n_train_groups, p=w)
+            order = []
+            for k in picks:
+                d = doms[int(k)]
+                gs = groups_by_domain[d]
+                order.append((d, gs[grng.randrange(len(gs))]))
+        else:
+            order = []
+            for d in args.domains:
+                for g in groups_by_domain[d]:
+                    order.append((d, g))
+            random.Random(args.seed + epoch).shuffle(order)
         if args.limit_groups:
             order = order[: args.limit_groups]
         wrng = random.Random(args.seed * 1000 + epoch)
         ep_t0, ep_loss, ep_n, nb = time.time(), 0.0, 0, 0
+        ep_step, ep_step_n = 0.0, 0
         opt.zero_grad(set_to_none=True)
         for i, (d, g) in enumerate(order):
             docs = g["docs"]
-            qtxt = g["query_title"] if args.q_mode == "title" else g["query_full"]
+            if args.q_mode == "full":
+                qtxt = g["query_full"]
+            else:
+                _t = g["query_title"] or ""
+                _f = g["query_full"]
+                _b = _f[len(_t):] if _f.startswith(_t) else _f
+                qtxt = compose_query(_t, _b, args.q_mode, args.q_cap_words)
             labels = torch.tensor([x["label"] for x in docs], device=device)
             if args.window_mode == "max":
                 flat, spans = [], []
@@ -398,7 +664,28 @@ def main():
             pos = labels > 0
             if not bool(pos.any()):
                 continue
-            loss = torch.logsumexp(logits, dim=0) - torch.logsumexp(logits[pos], dim=0)
+            if args.loss == "possum":
+                loss = torch.logsumexp(logits, dim=0) - torch.logsumexp(logits[pos], dim=0)
+            elif args.loss == "allpos":
+                logp = logits - torch.logsumexp(logits, dim=0)
+                loss = -logp[pos].mean()
+            else:
+                loss = lambdarank_ndcg_loss(logits, labels, k=10)
+            if args.step_lambda and d in step_targets:
+                st = step_targets[d].get(g["qid"])
+                if st:
+                    idx = {x["id"]: i for i, x in enumerate(docs)}
+                    lp = logits - torch.logsumexp(logits, dim=0)
+                    terms = []
+                    for s in st:
+                        hit = [idx[k] for k in s if k in idx]
+                        if hit:
+                            terms.append(torch.logsumexp(lp[hit], dim=0))
+                    if terms:
+                        step_loss = -torch.stack(terms).mean()
+                        loss = loss + args.step_lambda * step_loss
+                        ep_step += float(step_loss)
+                        ep_step_n += 1
             (loss / args.grad_accum).backward()
             ep_loss += float(loss)
             ep_n += 1
@@ -428,16 +715,20 @@ def main():
                   "train_seconds": round(time.time() - ep_t0, 1),
                   "gpu_peak_mb": round(torch.cuda.max_memory_allocated() / 2 ** 20, 1)
                   if device == "cuda" else None})
+        if args.step_lambda:
+            v["step_loss"] = round(ep_step / max(1, ep_step_n), 4)
         log(v)
         # save
         ckpt = os.path.join(run_dir, f"epoch{epoch}")
         model.save_pretrained(ckpt, safe_serialization=True)
         tok.save_pretrained(ckpt)
-        if v["val_ndcg10"] > best:
-            best = v["val_ndcg10"]
+        if sel_metric(v) > best:
+            best = sel_metric(v)
             model.save_pretrained(os.path.join(run_dir, "best"), safe_serialization=True)
             tok.save_pretrained(os.path.join(run_dir, "best"))
-            log({"event": "best", "epoch": epoch, "val_ndcg10": best})
+            log({"event": "best", "epoch": epoch, "metric": args.val_metric,
+                 "score": round(best, 6), "val_ndcg10": round(v["val_ndcg10"], 6),
+                 "val_ndcg10_domain_macro": round(v["val_ndcg10_domain_macro"], 6)})
         # prune old checkpoints
         for e in range(1, epoch):
             p = os.path.join(run_dir, f"epoch{e}")

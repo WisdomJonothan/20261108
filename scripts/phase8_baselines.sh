@@ -3,6 +3,8 @@
 # gte-large-en-v1.5 skipped: custom RoPE/pack_qkv code incompatible with transformers 5.x.
 set -u
 cd "$(dirname "$0")/.."
+ROOT=${RETEco_ROOT:-$(pwd)}
+MODELS=${RETEco_MODELS:-$ROOT/models}
 PY=/d/anaconda/python.exe
 export PYTHONUTF8=1
 DATA=data/track1_tempo
@@ -28,10 +30,10 @@ run_model () {
 }
 
 # e5-base-v2 first: fastest, and it is the family the TEMPO paper compares against.
-run_model e5base D:/RETECO/models/e5-base-v2 "query: " "passage: " \
+run_model e5base ${MODELS:-$ROOT/models}/e5-base-v2 "query: " "passage: " \
   iota quant law workplace cardano monero bitcoin economics travel genealogy politics hsm history
 # mxbai only on the three domains that carry most of the argument (335M is ~5x slower).
-run_model mxbai D:/RETECO/models/mxbai-embed-large-v1 \
+run_model mxbai ${MODELS:-$ROOT/models}/mxbai-embed-large-v1 \
   "Represent this sentence for searching relevant passages: " "" \
   bitcoin economics politics
 echo "ALL DONE $(date +%H:%M:%S)"

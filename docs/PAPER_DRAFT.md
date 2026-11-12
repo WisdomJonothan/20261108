@@ -32,10 +32,11 @@ inherited z 1:1 form remains the stronger system
 We additionally report ten probes of explicit temporal modelling. Exactly one
 followed a frozen, pre-registered protocol; it gained +0.0039 (pooled over its
 152 anchored queries in 7 domains) against a +0.02 bar
-<!-- results/TEMPORAL_GATE.md -->. An annotation-free ceiling analysis explains
-the family of negative results: ordering the frozen candidates by year
+<!-- results/TEMPORAL_GATE.md -->. A fixed year-consistency reordering shows the
+same thing without the word ceiling: ordering the frozen candidates by year
 consistency, with an oracle that knows the query interval exactly, *lowers*
-nDCG@10 in 7 of 8 anchored domains <!-- results/TEMPORAL_CEILING.md -->.
+nDCG@10 in 7 of 8 anchored domains <!-- results/TEMPORAL_CEILING.md -->. This is
+a rule failing, not a bound: the reordered list is not the best one obtainable.
 
 ## 1 Introduction
 
@@ -52,7 +53,7 @@ fused <!-- results/phase8_mxbai_summary.json; results/aggregate_zs_z11_dev.json 
 suggests it should. We tested ten ways of injecting time: year and anchor
 features, a semantic time-consistency score, oracle and LLM query decomposition,
 HyDE, temporal hard-negative mining, a time-aware constraint rerank, a
-train-fitted gate, an annotation-free ceiling analysis, and a coverage
+train-fitted gate, a fixed year-consistency reordering, and a coverage
 diagnostic. One was pre-registered in the strict sense; none produced a gain we
 would deploy. Section 5.4 gives the protocol and results, and Section 5.3
 explains why they fail: in this benchmark a document that mentions another period
@@ -63,8 +64,8 @@ the task's official aggregation, with paired bootstraps over queries and over
 domains. (ii) A supervised cross-encoder that improves the strongest zero-shot
 baseline by +0.0332 (and by +0.0087 with a shorter schedule), shown not to be an
 artefact of the fusion weight (Section 5.2). (iii) Negative evidence on explicit temporal modelling, with one
-pre-registered test and an annotation-free ceiling, plus a correction of two
-earlier internal overclaims (the "ten pre-registered negatives" framing and the
+pre-registered test and a fixed year-consistency rule that fails, plus a
+correction of two earlier internal overclaims (the "ten pre-registered negatives" framing and the
 reporting statistic; Sections 5.4 and 2.1).
 
 We do not claim that temporal signals are useless in retrieval. Temporal
@@ -371,11 +372,11 @@ rate: among candidates with an extractable year, 57–100% lie outside the query
 interval, and many of them are gold <!-- results/TEMPORAL_CEILING.md -->. A
 document that discusses another period — as background, comparison or
 retrospective — is frequently the right answer to a question about a period.
-"Time mismatch" is thus not a usable negative signal here, and an upper bound
-that assumes it is cannot be beaten by a better extractor of the same signal.
+"Time mismatch" is thus not a usable negative signal here, and a reordering rule
+built on it cannot be rescued by a better extractor of the same signal.
 
-Two caveats keep this honest: the ceiling is computed over *reorderings of the
-frozen candidate set*, so it says nothing about recall, and it covers 169 of 519
+Two caveats keep this honest: the reordering is computed over *the frozen
+candidate set*, so it says nothing about recall, and it covers 169 of 519
 dev queries in 8 domains <!-- results/TEMPORAL_CEILING.md -->.
 
 ### 5.4 Ten temporal probes: protocol and results
@@ -402,7 +403,7 @@ was wrong and is corrected here.
 | 5 | HyDE | 5 hypothetical documents per query, α = 1.0 | fixed α | 0.1819 / 0.1529, both below dense <!-- docs/RESEARCH_LOG.md §5f --> |
 | 6 | temporal hard-negative mining | year-inconsistent candidates as training negatives | mined candidates | 37–43 across five domains (≈0.4 per anchored query): too few to train <!-- results/TEMPORAL_CEILING.md --> |
 | 7 | naive TACR rerank | time-aware constraint reordering | no frozen protocol | ranking collapse; no metric retained <!-- results/TEMPORAL_CEILING.md --> |
-| 8 | year-consistency ceiling | perfect / demote reordering of the frozen top-100 | annotation-free; 169 anchored queries, 8 domains | macro 0.2498 / 0.2834 vs 0.2980; worse in 7/8 and 6/8 <!-- results/TEMPORAL_CEILING.md --> |
+| 8 | year-consistency reordering | perfect / demote reordering of the frozen top-100 | annotation-free; 169 anchored queries, 8 domains | macro 0.2498 / 0.2834 vs 0.2980; worse in 7/8 and 6/8 <!-- results/TEMPORAL_CEILING.md --> |
 | 9 | temporal gate | train-fitted gate over temporal features on the dense top-100 (CE scores as features) | **pre-registered**: fit on train, λ inside train, dev once, bar +0.02 | pooled over 152 anchored queries in 7 domains: 0.3862 → 0.3901, Δ+0.0039, query CI [−0.0023,+0.0103], domain CI [−0.0006,+0.0142], P(Δ>0)=0.893 <!-- results/TEMPORAL_GATE.md --> |
 | 10 | temporal observability | share of documents/queries with an extractable year | diagnostic, no ranking | docs 20.4–50.6%; queries 6.7–57.8% <!-- results/TEMPORAL_OBSERVABILITY.md --> |
 

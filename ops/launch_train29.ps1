@@ -1,0 +1,4 @@
+$bash = "C:\Users\Lenovo\.dsh\profiles\desktop\node_modules\@dsh-ops\bash-win32-x64\usr\bin\bash.exe"
+$cmd = 'cd /d/RETECO && rm -rf results/ce_ft/v2m3_pool8_e2s29 && PYTHONUNBUFFERED=1 /d/anaconda/python.exe scripts/train_ce.py --domains bitcoin cardano economics genealogy history hsm iota law monero politics quant travel workplace --groups-prefix results/ce_train_groups --model models/bge-reranker-v2-m3 --run-tag mxbai --tag v2m3_pool8_e2s29 --epochs 2 --lr 1.5e-5 --warmup-frac 0.08 --freeze-layers 8 --window-mode max --max-windows 3 --max-len 320 --pool-chunk 32 --val-frac 0.12 --val-queries 4 --val-depth 100 --seed 29 --outdir results/ce_ft > logs/detached_e2s29c.out 2> logs/detached_e2s29c.err'
+$p = Start-Process -FilePath $bash -ArgumentList ('-lc "{0}"' -f $cmd) -WindowStyle Hidden -PassThru
+Write-Output ("launched pid " + $p.Id)

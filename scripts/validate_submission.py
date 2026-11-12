@@ -30,13 +30,34 @@ ROOT = os.environ.get("RETEco_ROOT",
 OFFICIAL = os.path.join(ROOT, "scripts", "official", "format_checker.py")
 
 
+DOMAINS = ["bitcoin", "cardano", "economics", "genealogy", "history", "hsm",
+           "iota", "law", "monero", "politics", "quant", "travel", "workplace"]
+
+
 def domain_of(run_path):
+    """Resolve the domain from the file name, or refuse.
+
+    An unrecognised name used to fall back to the second-to-last token, which
+    silently produced a domain that does not exist: every check then skipped and
+    the run was reported clean. That is worse than failing, so an unknown name
+    is an error the caller must see.
+    """
     base = os.path.basename(run_path)
-    m = re.match(r"^(?:fused_[\d_]+_|dense_mxbai_|rerank_mxbai_)(.+)_(dev|test|train)\.trec$", base)
-    if m:
-        return m.group(1), m.group(2)
-    parts = base[:-5].split("_")
-    return parts[-2] if len(parts) > 1 else base, parts[-1]
+    if not base.endswith(".trec"):
+        raise SystemExit("[validate] %s: not a .trec file" % base)
+    stem = base[:-5]
+    split = stem.rsplit("_", 1)[-1]
+    if split not in ("dev", "test", "train"):
+        raise SystemExit(
+            "[validate] %s: cannot tell the split from the file name (expected "
+            "_dev/_test/_train)" % base)
+    for d in DOMAINS:
+        if re.search(r"(?:^|_)" + re.escape(d) + r"(?:_|$)", stem[:-len(split) - 1]):
+            return d, split
+    raise SystemExit(
+        "[validate] %s: cannot resolve a Track 1a domain from the file name; "
+        "rename it as <anything>_<domain>_<split>.trec"
+        % base)
 
 
 def read_topics(path):
@@ -66,6 +87,11 @@ def check_run(path, split, examples_pattern, detie):
     data_dir = os.path.join(ROOT, "data", "track1_tempo", domain)
     qrels = os.path.join(data_dir, f"qrels_{split}.txt")
     corpus = os.path.join(data_dir, "documents.jsonl")
+    for need in (qrels, corpus):
+        if not os.path.isfile(need):
+            raise SystemExit(
+                "[validate] %s: missing %s, so this run cannot be checked "
+                "(refusing to report it as clean)" % (path, need))
     cmd = [sys.executable, OFFICIAL, path]
     if os.path.exists(qrels):
         cmd += ["--qrels", qrels]

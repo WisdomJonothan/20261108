@@ -48,7 +48,7 @@ PY
     echo "!!! $d FAILED the official checker"; fail=1; continue
   fi
 
-  echo "=== $d: local sanity (10 docs/topic, contiguous ranks, strict scores)"
+  echo "=== $d: local sanity (>=10 docs/topic, contiguous ranks, strict scores)"
   "$PY" - "$run" "$ex" <<'PY' || fail=1
 import json, sys
 run, ex = sys.argv[1], sys.argv[2]
@@ -61,12 +61,12 @@ missing = [q for q in qids if q not in rows]
 bad = []
 for q in qids:
     r = rows.get(q, [])
-    if len(r) != 10: bad.append((q, f"{len(r)} rows"))
-    if [x[0] for x in r] != list(range(1, 11)): bad.append((q, "ranks"))
+    if len(r) < 10: bad.append((q, f"{len(r)} rows"))
+    if [x[0] for x in r] != list(range(1, len(r) + 1)): bad.append((q, "ranks"))
     if any(r[i][1] <= r[i+1][1] for i in range(len(r)-1)): bad.append((q, "scores"))
 if missing or bad:
     print("  SANITY FAIL", {"missing": len(missing), "bad": bad[:5]}); sys.exit(1)
-print(f"  OK: {len(qids)} topics x 10 docs, ranks 1-10, strictly decreasing scores")
+print(f"  OK: {len(qids)} topics x {min(len(rows[q]) for q in qids)} docs, contiguous ranks, strictly decreasing scores")
 PY
 done
 

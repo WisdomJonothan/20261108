@@ -1,0 +1,25 @@
+{
+ "label": "cx_bf vs lx_possum",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.34697026217901694,
+ "candidate_macro": 0.3443344110932597,
+ "delta": -0.002635851085757257,
+ "query_bootstrap": {
+  "mean": -0.002724973381582375,
+  "ci_lo": -0.012121539411719642,
+  "ci_hi": 0.006037220538360464,
+  "p_gt_0": 0.2834
+ },
+ "domain_bootstrap": {
+  "mean": -0.002603602090380212,
+  "ci_lo": -0.016199985362993205,
+  "ci_hi": 0.010070826835688138,
+  "p_gt_0": 0.3616
+ },
+ "better": 142,
+ "worse": 110,
+ "iters": 10000,
+ "seed": 7
+}
