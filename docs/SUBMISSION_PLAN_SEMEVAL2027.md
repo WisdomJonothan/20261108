@@ -55,9 +55,9 @@ should keep its table.
    evaluation window opens, the paper can only report dev numbers; §4 and the
    abstract must say "dev" explicitly, and the submission must add the official
    test score once released.
-3. **Error analysis section.** `results/DEV_ERROR_ANALYSIS.md` has the material
-   (138 zero-score questions, 52 with no relevant document in the top 100,
-   per-domain breakdown) but the paper has no dedicated section with examples.
+3. ~~**Error analysis section.**~~ Done 2026-11-13: `PAPER_4PAGE.md` §8 with
+   three worked examples (pool miss, pool hit but ranked out, entity kept and
+   comparison lost) and the per-domain breakdown.
 4. **Related work.** Currently two paragraphs. SemEval reviewers expect
    coverage of: multi-stage retrieval fusion (HLATR), joint document selection
    for coverage (JPR), cross-encoder distillation, and temporal IR. The
@@ -66,13 +66,17 @@ should keep its table.
 5. **Cost table.** The efficiency claim ("commodity GPU") needs hardware,
    wall-clock and candidate counts per stage - already measured
    (`results/`, `logs/`), not yet in the paper.
-6. **One more experiment** (running): fused-metric checkpoint selection vs
-   CE-only selection, on two arms' saved epochs. This converts the selection
-   claim from "inferred from six arms" to "demonstrated on two arms".
+6. ~~**One more experiment.**~~ Done 2026-11-13 (`results/VAL_EPOCH_SELECT.json`,
+   `results/boot_dom_lx_ep1_vs_lxpossum.json`): the cross-model inversion
+   replicates on 45 held-out queries, but at the epoch level both criteria pick
+   the same checkpoint and the deployment-budget pick is 0.0042 *worse* on dev
+   (0.3428 against 0.3470, CI [-0.0114,+0.0022]). The selection claim is
+   therefore scoped to "which model to ship", not "which epoch", and the paper
+   says so in §5.8.
 
 ## 4. Order of work
 
-1. Fused-val selection experiment → §5.8 paragraph (or a new §5.9).
+1. ~~Fused-val selection experiment → §5.8 paragraph.~~ Done; see 3.6 above.
 2. Error-analysis section with three worked examples (one per failure mode).
 3. Related work expansion.
 4. Trim to page budget, then render a real PDF (the file name "4PAGE" has
