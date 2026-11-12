@@ -1541,3 +1541,17 @@ Measured: body ends inside page 5, references pages 5-6, Appendix A pages 6-8,
 0 overfull boxes, no `??` in the PDF. "5 pages + appendix" is now the honest
 claim; the earlier "6+1" note in 5v is superseded.
 
+## 5x. A claims ledger, and the last pass before submission (2026-11-13)
+
+Every headline number in the paper now has a machine check. `scripts/check_claims.py`
+pulls each value back out of the artefact that produced it and fails if the paper's
+4-decimal value does not match: 14 claims, all traceable (frozen 0.3581, +0.0332
+[+0.0192,+0.0472], dense 0.2943, zero-shot 0.3249, in-pool 0.3581, the four arms,
+0.3428, CE-only 0.2756/0.3153, fusion 0.3443/0.3470/0.3546, BM25 0.1147 as the
+organisers' published baseline). `results/CLAIMS.md` is the human-readable table.
+
+Two numbers round differently by one unit in the fourth decimal depending on the
+aggregation path: CE-only 0.2755 (probe, per-query then domain) against 0.2756
+(multievidence file); the checker accepts a 2e-4 window and the paper keeps the
+multievidence value, which is the artefact it cites.
+

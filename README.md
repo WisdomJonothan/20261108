@@ -13,6 +13,22 @@ bge-base 稠密检索、bge-reranker-v2-m3 交叉编码器精排、z 归一化�
 dev TREC run 文件与官方 qrels 重算得到，可复现；fused 的 1000 深 run 未提交，
 可用 `scripts/fuse_scores.py` 从 dense top-1000 + CE 分数重建。
 
+## Paper
+
+`paper/main.pdf` is the SemEval-2027 system-paper draft, built from
+`docs/PAPER_4PAGE.md` by `scripts/md2tex.py` against the official ACL style:
+
+```
+python scripts/md2tex.py docs/PAPER_4PAGE.md paper/main.tex
+cd paper && pdflatex main.tex && pdflatex main.tex
+```
+
+State: **draft, not submitted**. Body ends inside page 5 (the SemEval review
+limit), references pages 5-6, Appendix A (the whole six-step ladder) pages 6-8,
+0 overfull boxes. Title follows the required "Team Name at SemEval-2027 Task 1:"
+form with placeholder author fields. Headline numbers are checked against their
+artefacts by `scripts/check_claims.py` (`results/CLAIMS.md`).
+
 ## Data
 
 Official de-duplicated v1.1 release (`RETECO-SemEval2027`), Track-1a split:
