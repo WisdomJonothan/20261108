@@ -1113,3 +1113,61 @@ claiming it promoted all of them.
 test queries have been released, so there is still no leaderboard number.
 `docs/PAPER_DRAFT.md` (the long version) was corrected on the same points but has
 not been re-read line by line against the 4-page version.
+
+## 5r. Second external audit of fb2bf2f (2026-11-13 02:20)
+
+Same reviewer, re-checking the audit response. It accepted the previous round
+(65 score files + 65 rerank runs recompute; fusion reproduced on iota/quant; the
+four paired bootstraps match independently) and raised three new items.
+
+### 5r.1 Eval entry could reuse stale outputs
+
+`ops/final_eval.sh` resumed on `[ -s "$out" ]`, so the same TAG with a different
+checkpoint, query mode or cap silently reused the old rerank. Fixed with
+`scripts/run_complete.py`: every step stamps `<out>.done.json` holding a
+fingerprint over (model dir digest, params string, each input file's sha1) plus
+the output's size and sha1, and is skipped only when all three still match. A
+truncated output fails the sha1 check; a config change fails the fingerprint
+check. `ALLOW_ADOPT=1` is the explicit migration path for pre-marker files.
+
+### 5r.2 `--detie` wrote nothing when there were no ties
+
+The validator only wrote the de-tied copy when `tie_topics` was non-zero, while
+`final_eval.sh` scored that file unconditionally: a tie-free run left either a
+missing file or a stale one from an earlier run. Now the copy is always written
+(atomic `os.replace` from `.partial`, full-precision scores) and re-read. Tested
+on `fused_sft_e2bc_iota_dev.trec` (ties) and `sub_sft_e2bc_iota_dev.trec` (no
+ties): both produce the file, 0 errors.
+
+### 5r.3 Coverage numbers mixed two different orderings
+
+The 51.39% added in §5.2/§5.6 came from `MULTIEVIDENCE_*_depth100.json`, which
+measures the **cross-encoder alone** (`rerank_*`, 100 rows); 59.45% measures the
+**fused submission** (`sub_*`). Closing the gap by "depth" was wrong. Control
+experiment: truncating the fused run to 100 rows per query leaves its top ten
+unchanged, so `step_cov` stays 59.45% and nDCG 0.3581 while `step_recall` drops
+96.3% -> 80.7% (`results/MULTIEVIDENCE_sft_e2bc_sub100.json`). Depth moves
+recall only. Also the denominator is all annotated steps with a positive, not
+"reachable steps". Paper text rewritten accordingly; definitions collected in
+`results/MULTIEVIDENCE_NOTE.md`.
+
+### 5r.4 Smaller items
+
+* `make_submission.py` dense fingerprint now includes a corpus digest (size,
+  mtime plus head/tail MiB sha1 of `documents.jsonl`), so an in-place corpus edit
+  invalidates the cached ranking.
+* `validate_submission.py`: `examples` is now required (unknown/missing topics
+  cannot be checked without it) and `qrels` is optional, which is what a test
+  split needs; the official `format_checker.py` already treats both as optional.
+* `docs/REPRODUCE.md` §2 gained the train-split dense pass that
+  `build_ce_train_groups.py` needs, and says the published training groups make
+  that pass optional.
+* `results/CHECKPOINTS.md` now states plainly that the six checkpoints are not
+  published, gives their md5s, and explains what can be re-derived without them.
+* `TEMPORAL_CEILING.md` retitled: fixed rule failing, not an upper bound.
+
+### 5r.5 Still open
+
+No weights are published (6 x 1,082 MB); the cheapest closure is releasing
+`v2m3_pool8_e2`, the artifact every headline number uses. No official test
+queries yet.

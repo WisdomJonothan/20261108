@@ -40,9 +40,28 @@ afterwards if the inputs change. Expected dev: **0.2943** domain-macro.
 
 ## 2. Supervised cross-encoder (GPU, ~55 min for 2 epochs on an RTX 4060 laptop)
 
+The training groups are published, so this step is optional. To train from the
+published groups, skip straight to `train_ce.py` (they are its inputs,
+`results/ce_train_groups_<domain>.jsonl`: 1,071 groups over 1,071 training
+queries).
+
+Rebuilding them needs a **train-split** dense run
+(`runs/dense_<tag>_<domain>_train.trec`), which section 1 does not produce: it
+only runs the dev split. Add this pass first:
+
 ```bash
+for d in <13 domains>; do
+  $PY scripts/run_dense_generic.py --index-data data/track1_tempo/$d --split train \
+      --model models/mxbai-embed-large-v1 --tag mxbai --pooling mean \
+      --query-prefix "Represent this sentence for searching relevant passages: " \
+      --topk 100 --work emb --out runs/dense_mxbai_${d}_train.trec \
+      --meta results/dense_mxbai_${d}_train.json
+done
 $PY scripts/build_ce_train_groups.py --domains <13 domains> --run-tag mxbai --k 100
 # -> results/ce_train_groups_<domain>.jsonl (dense top-100 candidates + labels)
+```
+
+```bash
 $PY scripts/train_ce.py --domains <13> \
     --model models/bge-reranker-v2-m3 \
     --loss possum --sampler uniform --q-mode title --q-cap 256 \

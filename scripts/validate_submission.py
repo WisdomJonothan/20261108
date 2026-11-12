@@ -87,14 +87,15 @@ def check_run(path, split, examples_pattern, detie):
     data_dir = os.path.join(ROOT, "data", "track1_tempo", domain)
     qrels = os.path.join(data_dir, f"qrels_{split}.txt")
     corpus = os.path.join(data_dir, "documents.jsonl")
-    for need in (qrels, corpus):
-        if not os.path.isfile(need):
-            raise SystemExit(
-                "[validate] %s: missing %s, so this run cannot be checked "
-                "(refusing to report it as clean)" % (path, need))
+    if not os.path.isfile(corpus):
+        raise SystemExit(
+            "[validate] %s: missing %s, so this run cannot be checked "
+            "(refusing to report it as clean)" % (path, corpus))
     cmd = [sys.executable, OFFICIAL, path]
     if os.path.exists(qrels):
         cmd += ["--qrels", qrels]
+    elif split != "test":
+        warnings.append("no qrels_%s.txt; checked format and corpus only" % split)
     if os.path.exists(corpus):
         cmd += ["--corpus", corpus]
     env = dict(os.environ, PYTHONUTF8="1")
@@ -130,7 +131,10 @@ def check_run(path, split, examples_pattern, detie):
             errors.append(f"missing topics ({len(want - got)}): {sorted(want - got)[:5]} "
                           f"-> these score 0 officially")
     else:
-        warnings.append(f"no examples file found for domain={domain} split={split}")
+        raise SystemExit(
+            "[validate] %s: no examples file for domain=%s split=%s; without the "
+            "query set a submission cannot be checked for unknown or missing "
+            "topics (refusing to report it as clean)" % (path, domain, split))
 
     if os.path.exists(corpus):
         corpus_ids = read_corpus_ids(corpus)
@@ -158,11 +162,12 @@ def check_run(path, split, examples_pattern, detie):
             if len(set(scores[:10])) != len(scores[:10]):
                 tied_top10 += 1
 
-    if detie and tie_topics:
+    if detie:
         out = detie.format(domain=domain, split=run_split)
-        # ordinal de-tie: only break exact ties, keep the rank order the source run
-        # already has.  A fixed 1e-9*rank offset is invisible next to the -1e9
-        # padding sentinel, so the step must scale with the score magnitude.
+        # Always materialise the output for the current input, ties or not: the
+        # eval pipeline scores this file unconditionally, so writing only when
+        # ties exist would leave either a missing file or, worse, a stale one
+        # from an earlier run that the scorer would then read as this result.
         fixed = {}
         for qid, rows in topics.items():
             prev = None
@@ -173,10 +178,14 @@ def check_run(path, split, examples_pattern, detie):
                 prev = score
                 out_rows.append((rank, score, docid))
             fixed[qid] = out_rows
-        with open(out, "w", encoding="utf-8", newline="\n") as f:
+        tmp = out + ".partial"
+        with open(tmp, "w", encoding="utf-8", newline="\n") as f:
             for qid, rows in fixed.items():
                 for rank, score, docid in rows:
-                    f.write(f"{qid}	Q0	{docid}	{rank}	{score:.9f}	rrf\n")
+                    f.write(f"{qid}\tQ0\t{docid}\t{rank}\t{score!r}\trrf\n")
+        os.replace(tmp, out)
+        # re-read the file we just wrote: the scorer reads this exact file, so it
+        # is the artefact that has to be strictly ordered, not our in-memory copy
         reparsed = {}
         with open(out, encoding="utf-8") as f:
             for ln in f:
@@ -193,7 +202,7 @@ def check_run(path, split, examples_pattern, detie):
             if any(sc[i] <= sc[i + 1] for i in range(len(sc) - 1)):
                 errors.append("de-tied " + qid + ": scores not strictly decreasing")
                 break
-        warnings.append("de-tied copy written and re-validated: " + out)
+        warnings.append("deterministic copy written and re-validated: " + out)
 
     return {"run": os.path.relpath(path, ROOT), "domain": domain, "split": run_split,
             "topics": len(topics), "lines": sum(len(v) for v in topics.values()),

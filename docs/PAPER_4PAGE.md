@@ -21,16 +21,16 @@ reranker contributes +0.0332 (domain-clustered 95% CI [+0.0192, +0.0472]) at a
 fusion form fixed before fine-tuning, and reproduces at +0.0326 / +0.0279 under
 two further seeds. An analysis of the frozen system shows the remaining headroom
 is only partly recall: at the 100 candidates the reranker sees, 80.7% of annotated
-steps have at least one relevant document (96.3% within the dense top-1000), the
-top ten covers only 51.4% of those reachable steps, and only 38.3% of questions
-place two or more relevant documents there. Explicit temporal
+steps have at least one relevant document (96.3% within the dense top-1000), yet
+the fused top ten covers only 59.5% of the annotated steps and the cross-encoder's
+own top ten 51.4%, and only 38.3% of questions place two relevant documents there. Explicit temporal
 modelling did not close this gap in ten probes, including one strictly
 pre-registered test (+0.0039 against a +0.02 bar) and a fixed year-consistency
 reordering that *lowers* nDCG@10 in 7 of 8 domains.
 Supervising the cross-encoder with the organisers' step annotations -- so that
 every step must have a positive ranked high -- costs 0.014 domain-macro on dev
-and *lowers* step coverage from 51.4% to 48.1%/45.8% at the depth the reranker
-sees (59.5% to 55.6%/56.0% at depth 1000). Two further corrections, a
+and *lowers* step coverage, 59.5% to 55.6%/56.0% in the fused list and 51.4% to
+48.1%/45.8% for the cross-encoder alone. Two further corrections, a
 constraint-faithful 64-word full-question query and the restoration of the 140
 training queries whose dense top-100 contains no positive, each cost 0.0138 on
 the same split - but only 0.0026 against a same-code retrain of the unchanged
@@ -124,7 +124,9 @@ both are rejected on dev (S5.6).
 
 Mechanistically it targets the failure mode of S5.2: steps are retrievable
 (80.7% at the 100 candidates the reranker sees, 96.3% at depth 1000) far more
-often than they reach the top ten (51.4% of reachable steps at depth 100).
+often than they reach the top ten: 59.5% of annotated steps reach it in the fused
+list and 51.4% for the cross-encoder alone, with every annotated step that has a
+positive in the denominator.
 
 ## 4 Results
 
@@ -176,7 +178,10 @@ depth 1000, seven of ten steps are retrievable yet four of ten never reach the
 top ten; at the depth the reranker actually sees - the rerank files keep 100
 candidates per query - only 80.7% of annotated steps are reachable and 88.3% of
 questions keep at least one positive, so a fifth of the step structure is lost
-before the cross-encoder runs. That limit is visible in the zeros: 52 of the 138
+before the cross-encoder runs. Truncating the fused list from 1000 to 100 rows
+leaves its top ten unchanged (59.45%, `results/MULTIEVIDENCE_sft_e2bc_sub100.json`),
+so depth moves reachability only; the 51.4% above is the cross-encoder's own
+ordering over those 100 candidates, a different list from the fused one. That limit is visible in the zeros: 52 of the 138
 questions the frozen system scores at zero (38%) have no relevant document in
 the top 100 at all (`results/DEV_ERROR_ANALYSIS.md`), and no reranker over those
 candidates can lift them. The retrieval floor proper is small: in 10 of the 519
@@ -297,11 +302,11 @@ replacements lose": the screen ranks arms at 0.2764-0.2912, it cannot resolve a
 0.2865 - reproduces 0.0111 below the frozen number. This is the fifth arm to
 lose on dev in this phase of work, and it was the incumbent.
 
-### 5.6 Forcing every evidence step into the top ten makes the system worse
+### 5.6 Forcing every evidence step into the top ten does not pay
 
-The remedy S5.2 points to is mechanical: if the top ten covers only 59.5% of the
-annotated steps at depth 1000 (51.4% of reachable steps at depth 100), require
-every step to have a positive ranked high. We trained
+The remedy S5.2 points to is mechanical: if the fused top ten covers only 59.5%
+of annotated steps (51.4% for the cross-encoder alone), require every step to
+have a positive ranked high. We trained
 the step-augmented listwise objective of S3 at two weights and scored the
 resulting systems on dev with the frozen fusion:
 
@@ -311,9 +316,12 @@ resulting systems on dev with the frozen fusion:
 | L_step, lambda = 0.3 | 0.3442 | -0.0139 | [-0.0348, +0.0044] | 55.58% | 37.95% |
 | L_step, lambda = 1.0 | 0.3438 | -0.0143 | [-0.0351, +0.0037] | 56.00% | 37.88% |
 
-The coverage column uses the depth-1000 pool. At the depth the reranker sees it
-reads 51.39% / 48.14% / 45.78% (`results/MULTIEVIDENCE_*_depth100.json`), so the
-step term loses coverage under either denominator.
+The coverage column counts the fused list (`runs/sub_*`); its top ten does not
+change when the list is truncated from 1000 to 100 rows (59.45%,
+`results/MULTIEVIDENCE_sft_e2bc_sub100.json`). The cross-encoder's own ordering
+over the same 100 candidates covers 51.39% before the step term and 48.14% /
+45.78% with it (`results/MULTIEVIDENCE_*_depth100.json`), so the degradation is a
+property of the ordering, not of the candidate depth.
 
 The term does not merely fail to pay for itself: it *reduces* the very quantity
 it optimises. Both arms also lose on the population they target, the two-step

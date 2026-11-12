@@ -63,6 +63,26 @@ def file_sha1(path):
     return h.hexdigest()
 
 
+def _corpus_digest(index_data):
+    """Content proxy for a domain corpus.
+
+    Size and mtime alone would miss an in-place edit of documents.jsonl, so the
+    head and tail MiB of the file are hashed as well; that is content-bound but
+    still cheap on a 100-500 MB corpus.
+    """
+    path = os.path.join(index_data, "documents.jsonl")
+    st = os.stat(path)
+    h = hashlib.sha1()
+    h.update(str(st.st_size).encode())
+    h.update(b"|")
+    with open(path, "rb") as f:
+        h.update(f.read(1 << 20))
+        if st.st_size > (2 << 20):
+            f.seek(-(1 << 20), os.SEEK_END)
+            h.update(f.read(1 << 20))
+    return h.hexdigest()[:16]
+
+
 def _dir_digest(path):
     """Content proxy for a model directory: relpath, size, mtime of every file."""
     h = hashlib.sha1()
@@ -180,8 +200,10 @@ def main():
     ce_run = os.path.join(args.work, f"ce_{args.domain}_{ce_tag}.trec")
 
     q_sha = file_sha1(args.queries)
-    dense_fp = _fp("dense", q_sha, os.path.abspath(args.index_data), args.model_dense,
-                   _dir_digest(args.model_dense), "mean", QPREFIX, args.topk, "mxbai")
+    corpus_fp = _corpus_digest(args.index_data)
+    dense_fp = _fp("dense", q_sha, os.path.abspath(args.index_data), corpus_fp,
+                   args.model_dense, _dir_digest(args.model_dense), "mean", QPREFIX,
+                   args.topk, "mxbai")
 
     # 1) dense retrieval over the domain corpus
     if not _cached(dense_run, dense_fp, "dense", args.refresh, args.strict_cache):
