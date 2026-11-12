@@ -1461,3 +1461,38 @@ performance claim.
   ~4,500. This is the main remaining writing task.
 - Weight release and official-test predictions remain blocked on the user's
   call / the organisers.
+
+### 5u Rendering the paper: a real template, a real page count
+
+The "4PAGE" file name had never been checked against a template. It now is:
+`scripts/md2tex.py` converts `docs/PAPER_4PAGE.md` into an ACL-style LaTeX
+document (`paper/main.tex`, official `acl.sty` + `acl_natbib.bst` from
+acl-org/acl-style-files, numeric natbib) and MiKTeX at
+`D:/miktex/miktex/bin/x64/pdflatex` builds `paper/main.pdf` in two passes.
+
+Measured, not guessed:
+
+| version | words | pages | body pages |
+|---|---:|---:|---:|
+| first build (before any trim) | 6,104 | 9 | 8 + a stray float |
+| after trimming 5.5-5.8 | 5,792 | 8 | 7 + 1 page of references |
+
+Two conversion defects were found and fixed on the way, both worth remembering:
+the Markdown headings carry their own numbers ("5.2b"), so the converter emits
+starred sections (otherwise LaTeX renumbers and 5.2b collapses, shifting every
+later number); and wide tables overflow a single column by 260 pt, so they are
+set with `table` at `footnotesize` after the number of columns was cut to fit.
+
+Citations were the other submission-blocking gap: the body had zero `\cite`
+commands. `[@key]` now maps to `\citep{...}`, the prior-work paragraph cites the
+retrieve-then-rerank cross-encoder, M3-Embedding, LambdaRank/LambdaLoss, HLATR
+and JPR, and the bibliography is a real `thebibliography` with 14 entries (the
+last three - M3-Embedding 2402.03216, HLATR 2205.10569, JPR EMNLP 2021 - were
+checked against arXiv and the ACL Anthology before adding).
+
+Still open: 8 pages against an unknown limit. SemEval's CFP decides whether a
+system paper is 4, 6 or 8 pages; until it appears, the honest target is "trim
+to 6 and keep the numbers", which means cutting ~1,200 words from the analysis
+section - the next writing pass. Eight overfull boxes remain (long `\texttt`
+paths inside narrow columns); they are cosmetic at this stage.
+

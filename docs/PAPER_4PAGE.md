@@ -57,13 +57,18 @@ anchoring, attenuation and score calibration - and what that implies for using
 a single-stage metric to select checkpoints.
 
 *Relation to prior work.* The reranker is the standard retrieve-then-rerank
-cross-encoder (Nogueira and Cho, 2019), initialised from BGE M3 (Chen et al.,
-2024). Our multi-evidence objective is a sibling of listwise and LambdaRank
-training (Burges, 2010; Wang et al., 2018), with one difference: instead of
-ordering one list, it asks that every official step of a question own a document
-in the top ten. Temporal retrieval is the benchmark's own subject (Abdallah et
-al., 2026); our contribution there is negative evidence about what does not
-transfer from the two-domain pilot to the full suite.
+cross-encoder [@nogueira2019passage], initialised from M3-Embedding
+[@chen2024m3]. Our multi-evidence objective is a sibling of listwise and
+LambdaRank training [@burges2010lambdarank; @wang2018lambdaloss], with one
+difference: instead of ordering one list, it asks that every official step of a
+question own a document in the top ten. Multi-stage fusion has its own line -
+list-aware reranking of the first stage's list [@zhang2022hlatr] and joint
+selection of documents that cover the answer set [@mao2021jpr] - but both train
+the fusion stage end to end, whereas we freeze the first stage and ask what the
+second stage can add; the retrieval-side probes and the fusion-weight family
+below are that question. Temporal retrieval is the benchmark's own subject
+[@abdallah2026tempo]; our contribution there is negative evidence about what
+does not transfer from the two-domain pilot to the full suite.
 
 ## 2 Task, metric, data
 
@@ -265,10 +270,10 @@ would have to beat. In this corpus a document that mentions another period is
 often still the right answer.
 
 ### 5.5 The loss form is not the bottleneck
-Three alternatives suggested by S5.2 - averaging the log-loss over all
-positives, an nDCG-weighted permutation loss (LambdaLoss-style, cutoff 10), and
-domain-balanced (sqrt) sampling - were trained on the same 942 groups with the
-same hyper-parameters and scored on the same 45-query split:
+Three alternatives suggested by the coverage gap - averaging the log-loss over
+all positives, an nDCG-weighted permutation loss (LambdaLoss-style, cutoff 10),
+and domain-balanced (sqrt) sampling - were trained on the same 942 groups with
+the same hyper-parameters and scored on the same 45-query split:
 
 | objective / sampler | best epoch | val domain-macro nDCG@10 |
 |---|---|---|
@@ -278,43 +283,38 @@ same hyper-parameters and scored on the same 45-query split:
 | current + sqrt(domain) sampling | 2 | 0.2912 |
 | zero-shot reference | - | 0.2730 |
 
-Selecting on domain-macro rather than on the plain mean picks the same epoch in
-all four arms, so the official aggregation does not move the checkpoint choice;
-what the internal split cannot do is resolve the gaps themselves (+-0.03, S7), so
-of these only the one between sqrt sampling and the current objective (+0.0047,
-[-0.0164, +0.0285]) is even measurable, and the 0.010 tie band we fixed before seeing any number
-keeps the current objective. The one visible effect of sqrt sampling is that it
-raises the share of queries with at least one relevant document in the top 10
-from 93.3% to 95.6% without moving nDCG: it makes the easy decision easier, not
-the hard one right. This matches S5.2 - what the listwise objective buys is "the
-single easiest positive", and none of the three replacements asks for *every*
-evidence step to be found.
+Selecting on domain-macro rather than the plain mean picks the same epoch in
+all four arms, so the official aggregation does not move the checkpoint; the
+internal split cannot resolve the gaps themselves (+-0.03, S7), so only sqrt
+sampling's +0.0047 ([-0.0164, +0.0285]) is even measurable, and the 0.010 tie
+band fixed before seeing any number keeps the current objective. Sqrt
+sampling's one visible effect is raising the share of queries with a relevant
+document in the top ten from 93.3% to 95.6% without moving nDCG: it makes the
+easy decision easier, not the hard one right.
 
-Dev closes this table the same way it closed the others, and it separates two
-effects the paragraph above conflates. The incumbent objective (log-sum-exp over
-positives) was retrained through the current code path - same 942 groups, two
-epochs, each run taking the epoch its own val prefers (the frozen run picked
-epoch 1, this one epoch 2) - and scored on dev: **0.3470**, 0.0111 below the
-frozen artifact (domain-clustered CI [-0.0265, +0.0057], 132 better / 167 worse).
-That gap is the price of re-running the recipe, not of a new objective: the
-objective is unchanged, so it is the baseline against which the four arms above
-should be read. They stay unmeasured on dev - the val screen separates them by at
-most 0.015, which the dev half-width of 0.007-0.014 cannot resolve - and we do
-not carry a sign across splits. What dev supports is narrower than "the
-replacements lose": the screen ranks arms at 0.2764-0.2912, it cannot resolve a
-0.003 difference, and the one arm run here - the incumbent itself, mid-screen at
-0.2865 - reproduces 0.0111 below the frozen number. This is the fifth arm to
-lose on dev in this phase of work, and it was the incumbent.
+Dev separates two effects this screen conflates. The incumbent objective,
+retrained through the current code path (same 942 groups, two epochs, each run
+taking its own val-preferred epoch - the frozen run kept epoch 1, this one
+epoch 2), scores **0.3470**, 0.0111 below the frozen artifact (domain-clustered
+CI [-0.0265, +0.0057], 132 better / 167 worse). That gap is the price of
+re-running the recipe, not of a new objective, and it is the baseline against
+which the four arms above should be read. They stay unmeasured on dev: the
+screen separates them by at most 0.015, below the dev half-width of
+0.007-0.014, and we do not carry a sign across splits. What dev supports is
+narrower than "the replacements lose": the screen ranks arms at 0.2764-0.2912,
+it cannot resolve a 0.003 difference, and the one arm it put on dev - the
+incumbent itself, mid-screen at 0.2865 - reproduces 0.0111 below the frozen
+number.
 
 ### 5.6 Forcing every evidence step into the top ten does not pay
 
-The remedy S5.2 points to is mechanical: if the fused top ten covers only 59.5%
-of annotated steps (51.4% for the cross-encoder alone), require every step to
-have a positive ranked high. We trained
-the step-augmented listwise objective of S3 at two weights and scored the
-resulting systems on dev with the frozen fusion:
+The remedy the coverage gap points to is mechanical: if the fused top ten
+covers only 59.5% of annotated steps (51.4% for the cross-encoder alone),
+require every step to have a positive ranked high. We trained the
+step-augmented listwise objective of S3 at two weights and scored the resulting
+systems on dev with the frozen fusion:
 
-| system | dev domain-macro | Δ vs frozen | domain-clustered 95% CI | steps in top 10 | questions with 2+ relevant in top 10 |
+| system | dev domain-macro | Delta vs frozen | domain-clustered 95% CI | steps in top 10 | questions with 2+ relevant in top 10 |
 |---|---|---:|---|---:|---:|
 | frozen (no step term) | 0.3581 | - | - | 59.45% | 38.31% |
 | L_step, lambda = 0.3 | 0.3442 | -0.0139 | [-0.0348, +0.0044] | 55.58% | 37.95% |
@@ -327,33 +327,29 @@ over the same 100 candidates covers 51.39% before the step term and 48.14% /
 45.78% with it (`results/MULTIEVIDENCE_*_depth100.json`), so the degradation is a
 property of the ordering, not of the candidate depth.
 
-The term does not merely fail to pay for itself: it *reduces* the very quantity
-it optimises. Both arms also lose on the population they target, the two-step
-questions (0.4058 to 0.3910 and 0.3889, domain-clustered CI including zero), and
-the loss is spread over all partitions rather than concentrated where coverage
-was low. Two readings are consistent with the numbers: a step's positives are
-mostly documents the ordinary listwise term already covers (3.44 relevant
-documents over 2.34 steps, so a step rarely adds a *different* document), and the
+The term does not merely fail to pay for itself: it *reduces* the quantity it
+optimises. Both arms also lose on the population they target, the two-step
+questions (0.4058 to 0.3910 and 0.3889, CI including zero), and the loss is
+spread over all partitions. Two readings fit: a step's positives are mostly
+documents the ordinary listwise term already covers (3.44 relevant documents
+over 2.34 steps, so a step rarely adds a *different* document), and the
 log-sum-exp inside a step is dominated by the step whose positive is hardest to
-retrieve, so the gradient chases documents that are absent or buried in the
-candidate list rather than assembling the answer. The annotations are not at
-fault: every one of the 2,873 step-level positives is also a query-level
-positive.
+retrieve, so the gradient chases documents that are absent or buried. The
+annotations are not at fault: every one of the 2,873 step-level positives is
+also a query-level positive.
 
 The instructive part is the selection behaviour. On the 45-query internal split
 lambda = 1.0 was the *best* of all six arms trained that day (0.2913, above the
-current objective's 0.2865), and dev puts it last. At this split size the
-internal ranking is not a weak signal but the wrong one, which is why S3 fixes
-the fusion form in advance and S7 refuses to select anything on 45 questions.
-We report the failure rather than tuning lambda further: the pre-registered bar
-was +0.005, and a second sweep of weights on 45 queries would buy noise.
+current objective's 0.2865), and dev puts it last. At this size the internal
+ranking is not a weak signal but the wrong one, which is why S3 fixes the fusion
+form in advance and S7 refuses to select anything on 45 questions.
 
 ### 5.7 Two further corrections that also lose
 
 The frozen system feeds the reranker a title-only query and excludes the 140
-training queries whose dense top-100 contains no positive. Both are defensible
-complaints, and both were corrected with the frozen recipe (two epochs, same
-schedule) and scored on dev with the frozen fusion:
+training queries whose dense top-100 contains no positive. Both were corrected
+with the frozen recipe (two epochs, same schedule) and scored on dev with the
+frozen fusion:
 
 | system | dev domain-macro | Delta vs frozen | query-clustered 95% CI | domain-clustered 95% CI |
 |---|---:|---:|---|---|
@@ -361,88 +357,74 @@ schedule) and scored on dev with the frozen fusion:
 | full-question query, 64-word cap | 0.3443 | -0.0138 | [-0.0272, -0.0005] | [-0.0338, +0.0052] |
 | + 140 backfilled queries, 294 positives | 0.3443 | -0.0138 | [-0.0288, +0.0010] | [-0.0311, +0.0012] |
 
-The two corrections cost exactly the same 0.0138, which suggests the frozen
-recipe sits in a flat basin in both directions rather than that either
-correction is intrinsically bad. The mechanisms differ. For the query arm the
-loss is smaller on the subset where the body conditions live (S5.3), so the
-extra text does carry signal, but not enough to pay for the harm it does on the
-other 278 queries; the reranker is simply better at its job with a short, clean
-query. For the backfill arm the mechanism is sharper: the 294 restored positives
-are, by construction, documents the first stage never retrieves. Training the
-cross-encoder to rank them high therefore spends capacity on a decision it never
-gets to make at inference, where the candidate list is the dense top-100. The
-correction would only pay if the first stage were fixed too, which the ten
-retrieval-side probes of S5.4 did not achieve.
+The two corrections cost exactly the same 0.0138, which suggests a flat basin in
+both directions rather than two intrinsically bad ideas. The mechanisms differ.
+For the query arm the loss is smaller where the body conditions live (S5.3), so
+the extra text carries signal but not enough to pay for the harm on the other
+278 queries; the reranker is better at its job with a short, clean query. For
+the backfill arm the 294 restored positives are, by construction, documents the
+first stage never retrieves, so training on them spends capacity on a decision
+never made at inference, where the candidate list is the dense top-100.
 
 The selection behaviour repeated itself: the full-question arm's 0.2920 was the
-highest score of the seven arms trained on 11-10 on the 45-query internal split,
-and it lands at 0.3443 on dev, 0.0138 below the system it was meant to improve.
-Most of that 0.0138 is not the correction, though. The unchanged objective
-re-run through the current code path costs 0.0111 (S5.5), and measured against
-that same-code baseline the two corrections here cost 0.0026 each, with
-domain-clustered intervals [-0.0187, +0.0100] and [-0.0162, +0.0101] that
-include zero; the two step arms above behave the same way (-0.0027 [-0.0154,
-+0.0082] and -0.0031 [-0.0153, +0.0072], `results/ATTRIBUTION_LXPOSSUM.json`).
-What dev supports is a deployment decision - five of the ladder's six steps were
-retrained and none beats the frozen 0.3581, and the sixth (the dense encoder's
-pooling) is a wash at +0.0014 - plus a negative result relative to a same-code
-baseline that the 45-query screen cannot rank at all: the four arms it scored
-on the shared split (0.2865-0.2920) and dev reverses that order.
+highest of the seven arms trained on 11-10 on the internal split, and it lands
+0.0138 below the system it was meant to improve. Most of that is not the
+correction. The unchanged objective re-run through the current code path costs
+0.0111 (S5.5), and against that same-code baseline the two corrections cost
+0.0026 each, with domain-clustered intervals [-0.0187, +0.0100] and
+[-0.0162, +0.0101] that include zero; the two step arms behave the same way
+(-0.0027 [-0.0154, +0.0082] and -0.0031 [-0.0153, +0.0072],
+`results/ATTRIBUTION_LXPOSSUM.json`). Dev therefore supports a deployment
+decision - five of the ladder's six steps were retrained and none beats the
+frozen 0.3581, and the sixth (dense pooling) is a wash at +0.0014 - plus a
+negative result against a same-code baseline that the 45-query screen cannot
+rank at all.
 
 ### 5.8 A better cross-encoder is not a better system
 
 The checkpoint screen scores the cross-encoder on its own validation nDCG; the
-submitted system is the dense+CE fusion. The two objectives do not rank the arms
-the same way. On dev `cx_qv` is the stronger cross-encoder by 0.0397 (0.3153
-against 0.2756) and is 0.0027 *worse* after fusion at the frozen weight; across
-the six arms this analysis scored, the best CE-only arm is third fused and the
-second-best is first (Spearman 0.66).
+submitted system is the dense+CE fusion, and the two do not rank the arms the
+same way. On dev `cx_qv` is the stronger cross-encoder by 0.0397 (0.3153
+against 0.2756) and 0.0027 *worse* after fusion at the frozen weight; across the
+six arms scored, the best CE-only arm is third fused and the second-best is
+first (Spearman 0.66).
 
 | arm | cross-encoder alone | fused, w = 1 | fused, best w |
 |---|---:|---:|---:|
 | frozen recipe (`lx_possum`) | 0.2756 | 0.3470 | 0.3470 (w = 1) |
 | full-question (`cx_qv`) | 0.3153 | 0.3443 | 0.3546 (w = 2) |
 
-Three mechanisms explain the loss, measured on the 519 dev queries with the
-frozen dense top-1000 and per-query z-normalised 1:1 fusion. *(i) Anchoring.*
-The fused top ten is 74% dense documents and only 55-60% of it is also in the
-cross-encoder's top ten, so a changed CE ordering has to displace dense
-documents to matter. *(ii) Attenuation.* Across queries a CE gain transfers at
-a slope of 0.30: +0.1985 on the 185 queries the CE improves becomes +0.0458 in
-the fused list, and -0.1398 on the 113 it hurts becomes -0.0482.
-*(iii) Calibration.* The score profile matters more than the ordering. On the
+Three mechanisms explain the loss (519 dev queries, frozen dense top-1000,
+per-query z-normalised 1:1 fusion). *(i) Anchoring.* The fused top ten is 74%
+dense documents and only 55-60% of it is also in the CE top ten, so a changed
+ordering must displace dense documents to matter. *(ii) Attenuation.* A CE gain
+transfers at a slope of 0.30: +0.1985 on the 185 queries the CE improves becomes
++0.0458 fused, and -0.1398 on the 113 it hurts becomes -0.0482.
+*(iii) Calibration.* The score profile matters more than the ordering: on the
 221 queries where the CE's own nDCG@10 does not move (|delta| <= 0.01), the
 fused score still falls 0.0116. A transplant isolates the two: `cx_qv`'s
-ordering with `lx_possum`'s score profile scores 0.3482, so the better ordering
-is worth +0.0012 over `lx_possum` itself, while `lx_possum`'s ordering with
-`cx_qv`'s profile falls to 0.3403, i.e. it costs 0.0067. At w = 1 the fused list
-follows the score profile more than the better ordering.
+ordering with `lx_possum`'s profile scores 0.3482 (+0.0012 over `lx_possum`),
+while `lx_possum`'s ordering with `cx_qv`'s profile falls to 0.3403 (-0.0067).
+At w = 1 the fused list follows the score profile more than the better ordering.
 
-Re-weighting is not a free fix. The optimum is model-specific - `cx_qv` wants
-w = 2, worth +0.0103 [+0.0012, +0.0201] over w = 1 - which recovers about a
-quarter of the CE gain, but the weight has to be chosen somewhere. Chosen on
-the 45 held-out training queries (argmax 1.25), `cx_qv` reaches 0.3509, still
--0.0072 against the frozen system, and the same procedure costs `lx_possum`
-0.0058 ([-0.0117, -0.0003]). A calibration-free rank fusion (RRF, k = 60)
-recovers +0.0069 over the same weight and also trails the frozen system, by
-0.0119.
+Re-weighting is not a free fix. The optimum is model-specific (`cx_qv` wants
+w = 2, worth +0.0103 [+0.0012, +0.0201] over w = 1, recovering about a quarter
+of the CE gain), but the weight must be chosen somewhere: chosen on the 45
+held-out queries (argmax 1.25) `cx_qv` reaches 0.3509, still -0.0072 against the
+frozen system, and the same procedure costs `lx_possum` 0.0058
+([-0.0117, -0.0003]). A calibration-free RRF (k = 60) recovers +0.0069 over the
+same weight and also trails the frozen system, by 0.0119.
 
-On the 45 held-out training queries the inversion reproduces with the candidate
-list fixed. `cx_qv` is 0.043 better than `lx_possum` alone (0.2893 against
-0.2462) and 0.013 worse fused at w = 1 (0.3197 against 0.3325). Within either
-model the two criteria agree on the epoch: both prefer epoch 1. That preference
-is itself noise. Re-scoring `lx_possum`'s epoch 1 on dev, the epoch both
-criteria prefer, gives 0.3428 against 0.3470 for the epoch the original
-single-stage screen kept (domain CI [-0.0114, +0.0022], 397 of 519 topics tied),
-so on 45 queries neither criterion can resolve a 0.004 difference and the
-screen's choice was, if anything, the better one. What we can attribute is the
-*model*-level inversion, not an epoch-level mistake: a single-stage metric is a
-good ranker of cross-encoders and a poor ranker of the system they feed. We read
-this as a property of the two-stage construction rather than of
-the cross-encoder: a stage that is scored alone, and trained to order a fixed
-candidate list, can improve its own metric while the system it feeds does not
-move, because the fusion re-normalises both scores per query and the first
-stage dominates the list.
+On the same 45 queries the inversion reproduces with the candidate list fixed:
+`cx_qv` is 0.043 better alone (0.2893 against 0.2462) and 0.013 worse fused
+(0.3197 against 0.3325). Within either model both criteria prefer epoch 1 - and
+that preference is itself noise: re-scoring `lx_possum`'s epoch 1 on dev gives
+0.3428 against 0.3470 for the epoch the original screen kept (domain CI
+[-0.0114, +0.0022], 397 of 519 topics tied). On 45 queries neither criterion
+resolves a 0.004 difference. What we can attribute is the *model*-level
+inversion, not an epoch-level mistake: a single-stage metric is a good ranker of
+cross-encoders and a poor ranker of the system they feed, because the fusion
+re-normalises both scores per query and the first stage dominates the list.
 
 ## 6 Reproducibility and efficiency
 
@@ -593,3 +575,8 @@ https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1 (`mxbai2024card`) No
 peer-reviewed description exists for this checkpoint; we cite the model card and
 report the exact revision in `results/MODEL_MANIFEST.json`.
 
+[chen2024m3] Jianlv Chen, Shitao Xiao, Peitian Zhang, Kun Luo, Defu Lian, and Zheng Liu. 2024. M3-Embedding: Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation. arXiv:2402.03216. (`chen2024m3`)
+
+[zhang2022hlatr] Yanzhao Zhang, Dingkun Long, Guangwei Xu, and Pengjun Xie. 2022. HLATR: Enhance Multi-Stage Text Retrieval with Hybrid List Aware Transformer Reranking. arXiv:2205.10569. (`zhang2022hlatr`)
+
+[mao2021jpr] Yuning Mao, Pengcheng He, Xiaodong Liu, Yelong Shen, Jianfeng Gao, Jiawei Han, and Weizhu Chen. 2021. Joint Passage Ranking for Diverse Multi-Answer Retrieval. In *EMNLP 2021*, pages 6997-7008. (`mao2021jpr`)
