@@ -25,7 +25,21 @@ Our current 4-page draft already has: system design (§3), splits and metrics
 (§5.2-§5.8), and a negative-results narrative. What it does not yet have is
 listed in §3 below.
 
-## 2. Page budget (ACL two-column; measured 2026-11-13: 5,115 words -> 6 pages body + 1 page references, 0 overfull boxes)
+## 2. Page budget (confirmed against semeval.github.io/paper-requirements.html, 2026-11-13)
+
+Authoritative rules for a single-task system paper: **5 pages for review**
+(references, acknowledgments and appendices excluded), **6 pages camera-ready**
+(+1 for reviewer responses). Papers are **not anonymous**: real names and
+affiliations go on the title block. The title must follow
+"Team Name at SemEval-YYYY Task N: Descriptive Title" (at, hyphen, colon, space
+after the colon). The task description paper must be cited (a placeholder is
+allowed for the initial submission; here `[abdallah2026reteco]` is the task
+proposal, with the TEMPO paper as the temporary stand-in the organisers ask for).
+
+Measured state (2026-11-13): **body ends inside page 5** (conclusion at the top
+of page 5), references run from page 5 to page 6, Appendix A on pages 6-8; 0
+overfull boxes, 15 references, no unresolved citations. The draft therefore fits
+the 5-page review limit with the whole ladder in an appendix.
 
 | part | now | target |
 |---|---|---|

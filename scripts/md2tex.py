@@ -12,6 +12,7 @@ import sys
 PRE = r"""\documentclass[11pt]{article}
 \PassOptionsToPackage{numbers}{natbib}
 \usepackage[review]{acl}
+\makeatletter\acl@anonymizefalse\makeatother
 \usepackage{times}
 \usepackage{latexsym}
 \usepackage[T1]{fontenc}
@@ -24,7 +25,7 @@ PRE = r"""\documentclass[11pt]{article}
 \sloppy
 \setlength{\tabcolsep}{4pt}
 \title{%(title)s}
-\author{Anonymous submission}
+\author{Author Name \\ Affiliation \\ \texttt{email@example.org}}
 \date{}
 \begin{document}
 \maketitle

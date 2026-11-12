@@ -1516,3 +1516,28 @@ with MiKTeX/pdflatex against the official `acl.sty` (review mode, line numbers).
   honest at 6+1; if the call is 4 pages, section 5 needs a second, harder cut (to
   ~1,200 words) or a move of S5.5-S5.8 into an appendix.
 
+## 5w. The real page limit is 5, not 6 (2026-11-13)
+
+Checked `semeval.github.io/paper-requirements.html` instead of guessing: a
+single-task system paper is **5 pages at submission** (references/appendices
+excluded), 6 camera-ready, and **not anonymous** - the title must read
+"Team Name at SemEval-YYYY Task N: Descriptive Title".
+
+Restructure done: S5.5-S5.7 (loss forms, step supervision, the two corrections)
+and S5.2b (step split) moved to `Appendix A` as A.1-A.4; the body keeps a new,
+short S5.5 that states their numbers plus a pointer, so every claim is still in
+the paper. The CE-vs-fusion section stayed in the body as S5.6 (~300 words) - it
+is the contribution most likely to be quoted, and it survives compression.
+
+Also fixed in this pass: S6 and S8 had lost their headings in earlier in-place
+replacements (and S8 was briefly duplicated in the PDF - caught by rendering page
+5 and seeing the same paragraph twice); the reference list had two entries for
+M3 (removed) and printed the `(key)` markers (stripped); the title block now
+follows the SemEval template with placeholder author fields, and
+`\makeatlettercl@anonymizefalse\makeatother` turns off the "Anonymous ACL
+submission" banner while keeping line numbers.
+
+Measured: body ends inside page 5, references pages 5-6, Appendix A pages 6-8,
+0 overfull boxes, no `??` in the PDF. "5 pages + appendix" is now the honest
+claim; the earlier "6+1" note in 5v is superseded.
+

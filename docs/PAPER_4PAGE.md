@@ -1,4 +1,4 @@
-# Multi-evidence re-ranking for RETECO Track 1a (4-page system description draft)
+# Team Name at SemEval-2027 Task 1: Multi-evidence re-ranking with a frozen first stage (4-page system description draft)
 
 > Status: draft, numbers frozen as of 2026-11-12 02:30 (loss arms S5.5, step
 > arms S5.6, query-representation and recall-backfill arms S5.7). No pending
@@ -174,28 +174,14 @@ reachability only; the 51.4% is the cross-encoder's own ordering over those 100
 candidates. The retrieval floor is small but visible: in 10 of 519 dev questions
 (1.9%) no relevant document appears anywhere in the dense top-1000, and 52 of
 the 138 questions the frozen system scores at zero (38%) have none in the top
-100, where no reranker can lift them. Coverage is not cosmetic: per-question
-coverage and nDCG@10 are strongly associated (Spearman 0.69), and questions
-whose steps are all covered average 0.595 against 0.187 otherwise (228 vs 256,
-`results/STEP_COVERAGE_CORR.json`) - partly mechanical, so we use it as a
-mechanism check only.
+100, where no reranker can lift them. Coverage tracks nDCG@10
+(Spearman 0.69; all-covered questions average 0.595 against 0.187,
+`results/STEP_COVERAGE_CORR.json`), though partly mechanically, so we read it as
+a check rather than a result.
 
-### 5.2b Where the gain sits: not on the multi-step questions
-Partitioning dev by the number of official evidence steps a question needs
-(`results/STEP_SPLIT.md`), the frozen system's gain over zero-shot CE is largest
-on single-step questions and weakest on two-step ones:
-
-| partition | queries | zero-shot CE | frozen SFT | delta | 95% CI (domain-clustered) |
-|---|---:|---:|---:|---:|---|
-| 1 step | 75 | 0.3185 | 0.3896 | +0.0711 | [+0.0244, +0.1056] |
-| 2 steps | 151 | 0.3857 | 0.4058 | +0.0200 | [-0.0033, +0.0463] |
-| 3+ steps | 258 | 0.3196 | 0.3511 | +0.0315 | [+0.0084, +0.0571] |
-| none | 35 | 0.1579 | 0.1705 | +0.0126 | [+0.0030, +0.0524] |
-
-The objective buys a better *single-document* decision almost everywhere but
-does not teach evidence assembly: on the 151 two-step questions the gain is
-within noise. That is the gap the step term targets, and it fixes the bar those
-arms have to clear.
+The gain does not concentrate on the questions that need several evidence
+documents: on the 151 two-step dev questions it is +0.0200 (CI [-0.0033,
++0.0463]) against +0.0711 on single-step ones (Appendix A.4).
 
 ### 5.3 Query truncation drops the conditions
 In 1,730 train+dev queries, 44.8% (46.4% of dev: 241 of 519) carry at least one
@@ -236,7 +222,171 @@ possible one, and the rule itself is what a temporal ranker would have to beat.
 In this corpus a document mentioning another period is often still the right
 answer.
 
-### 5.5 The loss form is not the bottleneck
+### 5.5 The rest of the ladder, in brief
+Three further steps are reported in full in Appendix A. **Loss forms**: averaging
+the log-loss over all positives (0.2809), an nDCG-weighted permutation loss
+(0.2764) and domain-sqrt sampling (0.2912) all sit within the 0.010 tie band of
+the current objective (0.2865) on the 45-query split, and dev separates none of
+them from the unchanged objective re-run through the current code path (0.3470,
+0.0111 below the frozen artifact). **Step supervision**: requiring every
+annotated step to have a positive ranked high costs 0.0139 / 0.0143 and *lowers*
+the coverage it targets (59.5% to 55.6% / 56.0%), even on the two-step questions
+(0.4058 to 0.3910 / 0.3889). **Corrections**: the 64-word full question and the
+restoration of the 140 empty-pool queries each cost 0.0138, but only 0.0026
+against the same-code retrain, and every interval includes zero
+(`results/ATTRIBUTION_LXPOSSUM.json`). With S5.3 and S5.4 the message is
+consistent: every correction is neutral or negative here, and the ladder's five
+retrained steps never beat 0.3581.
+
+### 5.6 A better cross-encoder is not a better system
+The checkpoint screen scores the cross-encoder alone; the system is the dense+CE
+fusion, and the two rank the arms differently. `cx_qv` is the stronger
+cross-encoder by 0.0397 (0.3153 against 0.2756) and 0.0027 *worse* fused at the
+frozen weight; across the six arms scored, the best CE-only arm is third fused
+and the second-best is first (Spearman 0.66).
+
+Three mechanisms explain it (519 dev queries, frozen dense top-1000, per-query
+z-normalised 1:1 fusion). *(i) Anchoring*: the fused top ten is 74% dense
+documents and only 55-60% of it is also in the CE top ten, so a changed ordering
+must displace dense documents to matter. *(ii) Attenuation*: a CE gain transfers
+at slope 0.30 - +0.1985 on the 185 queries the CE improves becomes +0.0458
+fused, and -0.1398 on the 113 it hurts becomes -0.0482. *(iii) Calibration*: on
+the 221 queries where the CE's own nDCG@10 does not move (|delta| <= 0.01) the
+fused score still falls 0.0116, and a transplant isolates the two - `cx_qv`'s
+ordering with `lx_possum`'s score profile scores 0.3482 (+0.0012) while the
+reverse falls to 0.3403 (-0.0067).
+
+Re-weighting does not fix it. The optimum is model-specific (`cx_qv` wants w = 2,
+worth +0.0103 [+0.0012, +0.0201] over w = 1, a quarter of the CE gain), but the
+weight must be chosen somewhere: chosen on the 45 held-out queries `cx_qv` reaches
+0.3509, still -0.0072 against the frozen system, and the same procedure costs
+`lx_possum` 0.0058. A calibration-free RRF (k = 60) recovers +0.0069 and trails by
+0.0119. On those queries the model-level inversion reproduces with the candidate
+list fixed (`cx_qv` 0.2893 alone against 0.2462, and 0.3197 against 0.3325
+fused); within a model both criteria prefer epoch 1, and that preference is
+itself noise (epoch 1 on dev: 0.3428 against 0.3470, CI [-0.0114, +0.0022], 397
+of 519 tied). A single-stage metric is thus a good ranker of cross-encoders and a
+poor ranker of the system they feed.
+
+## 7 Limitations
+Domain-macro lets 3-query domains weigh as much as 240-query ones, so a
+single-domain regression can move the headline; the temporal findings are about
+*textual* time only, not about systems that have timestamps; and the supervised
+results are single-corpus and single-family (one dense model, one cross-encoder).
+The window/pooling schedule (250-token windows, stride 192, max over windows,
+256-token query cap) was fixed a priori and is not ablated; the dense encoder's
+pooling was ablated late and is a wash (CLS 0.2956 against 0.2943 for mean); the
+1:1 fusion weight and the two-epoch schedule were picked on the training-internal
+split, so the frozen number carries that selection. The step-supervision results
+are reported at one seed; a second seed and distillation of a larger reranker
+[@hinton2015distilling] were not affordable within the GPU budget.
+
+Selection is noisy by construction: the 45-query internal split improves the
+sum-positive arm by +0.0135 with a domain-clustered interval of [-0.0317,
++0.0571], i.e. it cannot resolve differences below about 0.04. Every arm here is
+therefore screened internally and judged on dev with a paired domain bootstrap
+(half-width 0.007-0.014); dev gains below +0.010 are treated as unresolved. The
+screen did not promote every loser (S5.5) - what it cannot do is rank these arms:
+the four it scored lie within 0.006 of each other, dev puts them 0.0026-0.0031
+apart from the same-code baseline, and every interval includes zero. Retraining is not free: fresh pools and
+seeds give 0.3575 / 0.3528 / 0.3527 and the current code path 0.3470, so 0.3581
+belongs to the artifact, not to the recipe.
+
+## 8 Error analysis
+
+A quarter of dev questions (138/519, 26.6%) score exactly zero. The split
+separates cleanly by candidate-pool recall: **52 (37.7%) have no relevant
+document in the dense top-100** - no top-100 reranker can score them - and 86
+(62.3%) have the gold in the pool and lose it to ordering. Zeros cluster where
+the corpus is thin (history 46, politics 14, bitcoin 13). Three worked examples,
+one per mechanism
+(`results/DEV_ERROR_ANALYSIS.md`):
+
+| failure | query | gold | dense rank | nDCG@10 |
+|---|---|---:|---:|---:|
+| pool miss | travel/201562_1094 | 2 | 656, not retrieved | 0.0000 |
+| ordering | history/70583_271 | 1 | 24 (CE 14, fused 17) | 0.0000 |
+| step coverage | history/59309_621 | 2 | 1, 10 (CE 1, 72) | 0.6131 |
+
+The pool miss is a PNR booking-limit question whose evidence sits outside the
+1,000 documents returned - not near the question's lexical neighbourhood, and no
+reranking depth recovers it. The ordering case ("How do we know when Nero was
+born?") has its gold at dense rank 24, moves to 14 for the cross-encoder and 17
+fused, and scores zero. The step case ("How many people watched the moon
+landings after Apollo 11?") keeps the Apollo 11 figures at rank 1 but pushes the
+comparison document from dense rank 10 to 72 for the title-only cross-encoder:
+one of two evidence documents survives, nDCG@10 stays at 0.61, and step coverage
+fails. That shape is common, not anomalous: only 38.3% of questions place two or
+more relevant documents in the top ten (S5.2).
+
+## 9 Conclusion
+
+A zero-shot dense stage plus a cross-encoder fine-tuned on the 1,071 questions
+with an in-pool positive gives +0.0332 domain-macro nDCG@10 over the dense
+baseline on all 13 dev domains, stable across seeds (0.347-0.358). Two failures remain:
+an incomplete pool (1.9% of questions have no gold in the dense top-1,000) and
+multi-evidence coverage (59.5% of steps in the fused top ten). Every explicit temporal intervention - ten probes, one pre-registered
+test, step supervision, query reformulation, loss variants, backfilling, rank
+fusion - is neutral or negative. Most transferable: a cross-encoder 0.04 better
+on its own metric can be worse fused, because fusion anchors on the first stage
+and re-normalises the second's scores.
+
+## References
+
+Citations as they will appear in the camera-ready (`\cite{key}` keys in parentheses).
+
+[abdallah2026tempo] Abdelrahman Abdallah, Mohammed Ali, Muhammad Abdul-Mageed, and Adam
+Jatowt. 2026. TEMPO: A Realistic Multi-Domain Benchmark for Temporal
+Reasoning-Intensive Retrieval. arXiv:2601.09523.
+
+[abdallah2026reteco] Abdelrahman Abdallah, Mohammed Ali, Muhammad Abdul-Mageed, Kevin Duh, and
+Adam Jatowt. 2026. RETECO: A SemEval-2027 Shared Task on Reasoning-Oriented
+Retrieval. Task proposal, University of Innsbruck. The
+organizers ask participants to cite TEMPO (and RECOR for Track 2) until the task
+description paper appears.
+
+[robertson2009bm25] Stephen Robertson and Hugo Zaragoza. 2009. The Probabilistic
+Relevance Framework: BM25 and Beyond. *Foundations and Trends in Information
+Retrieval*, 3(4):333-389.
+
+[nogueira2019passage] Rodrigo Nogueira and Kyunghyun Cho. 2019. Passage Re-ranking
+with BERT. arXiv:1901.04085.
+
+[cormack2009rrf] Gordon V. Cormack, Charles L. A. Clarke, and Stefan Buettcher.
+2009. Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning
+Methods. In *SIGIR 2009*, pages 758-759.
+
+[burges2010lambdarank] Christopher J. C. Burges. 2010. From RankNet to LambdaRank
+to LambdaMART: An Overview. Technical Report MSR-TR-2010-82, Microsoft Research.
+
+[wang2018lambdaloss] Xuanhui Wang, Cheng Li, Nadav Golbandi, Michael Bendersky, and
+Marc Najork. 2018. The LambdaLoss Framework for Ranking Metric Optimization. In
+*CIKM 2018*, pages 1313-1322.
+
+[jarvelin2002ndcg] Kalervo Jarvelin and Jaana Kekalainen. 2002. Cumulated Gain-based
+Evaluation of IR Techniques. *ACM Transactions on Information Systems*,
+20(4):422-446.
+
+[hinton2015distilling] Geoffrey Hinton, Oriol Vinyals, and Jeff Dean. 2015.
+Distilling the Knowledge in a Neural Network. arXiv:1503.02531.
+
+[chen2024bgem3] Jianlv Chen, Shitao Xiao, Peitian Zhang, Kun Luo, Defu Lian, and
+Zheng Liu. 2024. BGE M3-Embedding: Multi-Lingual, Multi-Functionality,
+Multi-Granularity Text Embeddings Through Self-Knowledge Distillation.
+arXiv:2402.03216.
+
+[mxbai2024card] mixedbread.ai. 2024. mxbai-embed-large-v1 model card.
+https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1 No
+peer-reviewed description exists for this checkpoint; we cite the model card and
+report the exact revision in `results/MODEL_MANIFEST.json`.
+
+[zhang2022hlatr] Yanzhao Zhang, Dingkun Long, Guangwei Xu, and Pengjun Xie. 2022. HLATR: Enhance Multi-Stage Text Retrieval with Hybrid List Aware Transformer Reranking. arXiv:2205.10569.
+
+[mao2021jpr] Yuning Mao, Pengcheng He, Xiaodong Liu, Yelong Shen, Jianfeng Gao, Jiawei Han, and Weizhu Chen. 2021. Joint Passage Ranking for Diverse Multi-Answer Retrieval. In *EMNLP 2021*, pages 6997-7008.
+
+## Appendix A. The six-step ladder in full
+
+### A.1 The loss form is not the bottleneck
 Three alternatives suggested by the coverage gap - averaging the log-loss over
 all positives, an nDCG-weighted permutation loss (LambdaLoss-style, cutoff 10),
 and domain-balanced (sqrt) sampling - were trained on the same 942 groups with
@@ -270,7 +420,7 @@ screen ranks arms at 0.2764-0.2912, cannot resolve 0.003, and the one arm it put
 on dev, the incumbent itself mid-screen at 0.2865, reproduces 0.0111 below the
 frozen number.
 
-### 5.6 Forcing every evidence step into the top ten does not pay
+### A.2 Forcing every evidence step into the top ten does not pay
 If the fused top ten covers only 59.5% of annotated steps (51.4% for the
 cross-encoder alone), the mechanical remedy is to require every step to have a
 positive ranked high. We trained the step-augmented objective of S3 at two
@@ -300,7 +450,7 @@ is the selection: on the internal split lambda = 1.0 was the *best* of six arms
 trained that day (0.2913, above 0.2865), and dev puts it last - which is why S3
 fixes the fusion form in advance and S7 refuses to select on 45 questions.
 
-### 5.7 Two further corrections that also lose
+### A.3 Two further corrections that also lose
 The frozen system feeds the reranker a title-only query and excludes the 140
 training queries whose dense top-100 contains no positive. Both were corrected
 with the frozen recipe and scored on dev with the frozen fusion:
@@ -319,7 +469,7 @@ the 294 restored positives are, by construction, documents the first stage never
 retrieves, so training on them spends capacity on a decision never made at
 inference, where the candidate list is the dense top-100. Most of the 0.0138 is
 not the correction anyway: the unchanged objective re-run through the current
-code path costs 0.0111 (S5.5), and against that baseline the corrections cost
+code path costs 0.0111 (Appendix A), and against that baseline the corrections cost
 0.0026 each (domain-clustered [-0.0187, +0.0100] and [-0.0162, +0.0101]); the
 step arms behave the same way (-0.0027 [-0.0154, +0.0082] and -0.0031
 [-0.0153, +0.0072], `results/ATTRIBUTION_LXPOSSUM.json`). Dev therefore supports
@@ -327,176 +477,19 @@ a deployment decision - five of the ladder's six steps retrained, none beating
 0.3581, and the sixth (dense pooling) a wash at +0.0014 - plus a negative result
 against a same-code baseline that the 45-query screen cannot rank at all.
 
-### 5.8 A better cross-encoder is not a better system
-The checkpoint screen scores the cross-encoder on its own validation nDCG; the
-submitted system is the dense+CE fusion, and the two do not rank the arms the
-same way. On dev `cx_qv` is the stronger cross-encoder by 0.0397 (0.3153 against
-0.2756) and 0.0027 *worse* after fusion at the frozen weight; across the six
-arms scored, the best CE-only arm is third fused and the second-best is first
-(Spearman 0.66).
+### A.4 Where the gain sits: not on the multi-step questions
+Partitioning dev by the number of official evidence steps a question needs
+(`results/STEP_SPLIT.md`), the frozen system's gain over zero-shot CE is largest
+on single-step questions and weakest on two-step ones:
 
-| arm | cross-encoder alone | fused, w = 1 | fused, best w |
-|---|---:|---:|---:|
-| frozen recipe (`lx_possum`) | 0.2756 | 0.3470 | 0.3470 (w = 1) |
-| full-question (`cx_qv`) | 0.3153 | 0.3443 | 0.3546 (w = 2) |
+| partition | queries | zero-shot CE | frozen SFT | delta | 95% CI (domain-clustered) |
+|---|---:|---:|---:|---:|---|
+| 1 step | 75 | 0.3185 | 0.3896 | +0.0711 | [+0.0244, +0.1056] |
+| 2 steps | 151 | 0.3857 | 0.4058 | +0.0200 | [-0.0033, +0.0463] |
+| 3+ steps | 258 | 0.3196 | 0.3511 | +0.0315 | [+0.0084, +0.0571] |
+| none | 35 | 0.1579 | 0.1705 | +0.0126 | [+0.0030, +0.0524] |
 
-Three mechanisms explain the loss (519 dev queries, frozen dense top-1000,
-per-query z-normalised 1:1 fusion). *(i) Anchoring.* The fused top ten is 74%
-dense documents and only 55-60% of it is also in the CE top ten, so a changed
-ordering must displace dense documents to matter. *(ii) Attenuation.* A CE gain
-transfers at a slope of 0.30: +0.1985 on the 185 queries the CE improves becomes
-+0.0458 fused, and -0.1398 on the 113 it hurts becomes -0.0482.
-*(iii) Calibration.* The score profile matters more than the ordering: on the
-221 queries where the CE's own nDCG@10 does not move (|delta| <= 0.01) the fused
-score still falls 0.0116, and a transplant isolates the two - `cx_qv`'s ordering
-with `lx_possum`'s profile scores 0.3482 (+0.0012), while `lx_possum`'s ordering
-with `cx_qv`'s profile falls to 0.3403 (-0.0067).
-
-Re-weighting is not a free fix. The optimum is model-specific (`cx_qv` wants
-w = 2, worth +0.0103 [+0.0012, +0.0201] over w = 1, about a quarter of the CE
-gain), but the weight must be chosen somewhere: chosen on the 45 held-out
-queries (argmax 1.25) `cx_qv` reaches 0.3509, still -0.0072 against the frozen
-system, and the same procedure costs `lx_possum` 0.0058 ([-0.0117, -0.0003]). A
-calibration-free RRF (k = 60) recovers +0.0069 over the same weight and also
-trails the frozen system, by 0.0119.
-
-On the same 45 queries the inversion reproduces with the candidate list fixed
-(`cx_qv` 0.2893 alone vs 0.2462, and 0.3197 vs 0.3325 fused). Within either
-model both criteria prefer epoch 1, and that preference is itself noise:
-re-scoring `lx_possum`'s epoch 1 on dev gives 0.3428 against 0.3470 (domain CI
-[-0.0114, +0.0022], 397 of 519 topics tied). What we can attribute is the
-*model*-level inversion, not an epoch-level mistake: a single-stage metric is a
-good ranker of cross-encoders and a poor ranker of the system they feed, because
-fusion re-normalises both scores per query and the first stage dominates the
-list.
-
-Every artefact is content-addressed: embeddings, dense runs, CE runs and
-submissions carry a fingerprint sidecar that binds model, pooling, max length,
-query file and fusion parameters, and the submission writer refuses a stale
-cache. The path was replayed on synthetic test splits and passes the
-organisers' `format_checker.py` with zero errors on three domains. Seed
-ensembling was tried and rejected: z-averaging the three seeds gives 0.3567,
--0.0014 against the single checkpoint (CI [-0.0032, +0.0001], 481 of 519 topics
-tied), so one model ships (`results/ENSEMBLE.md`). Two CE epochs take 55 minutes
-and dev re-ranking about 34 GPU-minutes on one 8 GB laptop GPU; the document
-embeddings are the only large artefact.
-
-## 7 Limitations
-Domain-macro lets 3-query domains weigh as much as 240-query ones, so a
-single-domain regression can move the headline; the temporal findings are about
-*textual* time only, not about systems that have timestamps; and the supervised
-results are single-corpus and single-family (one dense model, one cross-encoder).
-The window/pooling schedule (250-token windows, stride 192, max over windows,
-256-token query cap) was fixed a priori and is not ablated; the dense encoder's
-pooling was ablated late and is a wash (CLS 0.2956 against 0.2943 for mean); the
-1:1 fusion weight and the two-epoch schedule were picked on the training-internal
-split, so the frozen number carries that selection. The step-supervision results
-are reported at one seed; a second seed and distillation of a larger reranker
-[@hinton2015distilling] were not affordable within the GPU budget.
-
-Selection is noisy by construction: the 45-query internal split improves the
-sum-positive arm by +0.0135 with a domain-clustered interval of [-0.0317,
-+0.0571], i.e. it cannot resolve differences below about 0.04. Every arm here is
-therefore screened internally and judged on dev with a paired domain bootstrap
-(half-width 0.007-0.014); dev gains below +0.010 are treated as unresolved. The
-screen did not promote every loser (S5.5) - what it cannot do is rank these arms:
-the four it scored lie within 0.006 of each other, dev puts them 0.0026-0.0031
-apart from the same-code baseline, and every interval includes zero. Retraining is not free: fresh pools and
-seeds give 0.3575 / 0.3528 / 0.3527 and the current code path 0.3470, so 0.3581
-belongs to the artifact, not to the recipe.
-
-A quarter of dev questions (138/519, 26.6%) score exactly zero. The split
-separates cleanly by candidate-pool recall: **52 (37.7%) have no relevant
-document in the dense top-100** - no top-100 reranker can score them - and 86
-(62.3%) have the gold in the pool and lose it to ordering. Zeros cluster where
-the corpus is thin (history 46, politics 14, bitcoin 13). Three worked examples,
-one per mechanism
-(`results/DEV_ERROR_ANALYSIS.md`):
-
-| failure | query | gold | dense rank | nDCG@10 |
-|---|---|---:|---:|---:|
-| pool miss | travel/201562_1094 | 2 | 656, not retrieved | 0.0000 |
-| ordering | history/70583_271 | 1 | 24 (CE 14, fused 17) | 0.0000 |
-| step coverage | history/59309_621 | 2 | 1, 10 (CE 1, 72) | 0.6131 |
-
-The pool miss is a PNR booking-limit question whose evidence sits outside the
-1,000 documents returned - not near the question's lexical neighbourhood, and no
-reranking depth recovers it. The ordering case ("How do we know when Nero was
-born?") has its gold at dense rank 24, moves to 14 for the cross-encoder and 17
-fused, and scores zero. The step case ("How many people watched the moon
-landings after Apollo 11?") keeps the Apollo 11 figures at rank 1 but pushes the
-comparison document from dense rank 10 to 72 for the title-only cross-encoder:
-one of two evidence documents survives, nDCG@10 stays at 0.61, and step coverage
-fails. Only 38.3% of questions place two or more relevant documents in the top
-ten (S5.2).
-
-## 9 Conclusion
-
-A zero-shot dense stage plus a cross-encoder fine-tuned on the 1,071 questions
-with an in-pool positive gives +0.0332 domain-macro nDCG@10 over the dense
-baseline on all 13 dev domains, stable across seeds (0.347-0.358). The remaining
-headroom is two failures: an incomplete pool (1.9% of questions have no gold in
-the dense top-1,000) and multi-evidence coverage (59.5% of steps in the fused top
-ten). Every explicit temporal intervention - ten probes, one pre-registered
-test, step supervision, query reformulation, loss variants, backfilling, rank
-fusion - is neutral or negative. Most transferable: a cross-encoder 0.04 better
-on its own metric can be worse fused, because fusion anchors on the first stage
-and re-normalises the second's scores.
-
-## References
-
-Citations as they will appear in the camera-ready (`\cite{key}` keys in parentheses).
-
-[abdallah2026tempo] Abdelrahman Abdallah, Mohammed Ali, Muhammad Abdul-Mageed, and Adam
-Jatowt. 2026. TEMPO: A Realistic Multi-Domain Benchmark for Temporal
-Reasoning-Intensive Retrieval. arXiv:2601.09523. (`abdallah2026tempo`)
-
-[abdallah2026reteco] Abdelrahman Abdallah, Mohammed Ali, Muhammad Abdul-Mageed, Kevin Duh, and
-Adam Jatowt. 2026. RETECO: A SemEval-2027 Shared Task on Reasoning-Oriented
-Retrieval. Task proposal, University of Innsbruck. (`abdallah2026reteco`) The
-organizers ask participants to cite TEMPO (and RECOR for Track 2) until the task
-description paper appears.
-
-[robertson2009bm25] Stephen Robertson and Hugo Zaragoza. 2009. The Probabilistic
-Relevance Framework: BM25 and Beyond. *Foundations and Trends in Information
-Retrieval*, 3(4):333-389. (`robertson2009bm25`)
-
-[nogueira2019passage] Rodrigo Nogueira and Kyunghyun Cho. 2019. Passage Re-ranking
-with BERT. arXiv:1901.04085. (`nogueira2019passage`)
-
-[cormack2009rrf] Gordon V. Cormack, Charles L. A. Clarke, and Stefan Buettcher.
-2009. Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning
-Methods. In *SIGIR 2009*, pages 758-759. (`cormack2009rrf`)
-
-[burges2010lambdarank] Christopher J. C. Burges. 2010. From RankNet to LambdaRank
-to LambdaMART: An Overview. Technical Report MSR-TR-2010-82, Microsoft Research.
-(`burges2010lambdarank`)
-
-[wang2018lambdaloss] Xuanhui Wang, Cheng Li, Nadav Golbandi, Michael Bendersky, and
-Marc Najork. 2018. The LambdaLoss Framework for Ranking Metric Optimization. In
-*CIKM 2018*, pages 1313-1322. (`wang2018lambdaloss`)
-
-[jarvelin2002ndcg] Kalervo Jarvelin and Jaana Kekalainen. 2002. Cumulated Gain-based
-Evaluation of IR Techniques. *ACM Transactions on Information Systems*,
-20(4):422-446. (`jarvelin2002ndcg`)
-
-[hinton2015distilling] Geoffrey Hinton, Oriol Vinyals, and Jeff Dean. 2015.
-Distilling the Knowledge in a Neural Network. arXiv:1503.02531.
-(`hinton2015distilling`)
-
-[chen2024bgem3] Jianlv Chen, Shitao Xiao, Peitian Zhang, Kun Luo, Defu Lian, and
-Zheng Liu. 2024. BGE M3-Embedding: Multi-Lingual, Multi-Functionality,
-Multi-Granularity Text Embeddings Through Self-Knowledge Distillation.
-arXiv:2402.03216. (`chen2024bgem3`)
-
-[mxbai2024card] mixedbread.ai. 2024. mxbai-embed-large-v1 model card.
-https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1 (`mxbai2024card`) No
-peer-reviewed description exists for this checkpoint; we cite the model card and
-report the exact revision in `results/MODEL_MANIFEST.json`.
-
-[chen2024m3] Jianlv Chen, Shitao Xiao, Peitian Zhang, Kun Luo, Defu Lian, and Zheng Liu. 2024. M3-Embedding: Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation. arXiv:2402.03216. (`chen2024m3`)
-
-[zhang2022hlatr] Yanzhao Zhang, Dingkun Long, Guangwei Xu, and Pengjun Xie. 2022. HLATR: Enhance Multi-Stage Text Retrieval with Hybrid List Aware Transformer Reranking. arXiv:2205.10569. (`zhang2022hlatr`)
-
-[mao2021jpr] Yuning Mao, Pengcheng He, Xiaodong Liu, Yelong Shen, Jianfeng Gao, Jiawei Han, and Weizhu Chen. 2021. Joint Passage Ranking for Diverse Multi-Answer Retrieval. In *EMNLP 2021*, pages 6997-7008. (`mao2021jpr`)
-
+The objective buys a better *single-document* decision almost everywhere but
+does not teach evidence assembly: on the 151 two-step questions the gain is
+within noise. That is the gap the step term targets, and it fixes the bar those
+arms have to clear.
