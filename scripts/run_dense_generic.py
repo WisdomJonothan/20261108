@@ -34,11 +34,58 @@ def parse_dtype(name):
     return {"fp16": torch.float16, "bf16": torch.bfloat16, "fp32": torch.float32}[name]
 
 
+def _text_sha1(texts):
+    import hashlib
+    h = hashlib.sha1()
+    for t in texts:
+        h.update(t.encode("utf-8", "ignore"))
+        h.update(b"||SEP||")
+    return h.hexdigest()
+
+
+def _cache_fingerprint(model, pooling, max_length, dtype, prefix, texts):
+    """Everything that changes the bytes of the .npy cache."""
+    import hashlib
+    h = hashlib.sha1()
+    for v in (model, pooling, str(max_length), dtype, prefix):
+        h.update(str(v).encode("utf-8", "ignore"))
+        h.update(b"||SEP||")
+    h.update(_text_sha1(texts).encode())
+    return h.hexdigest()[:16]
+
+
+def _check_cache(path, fp):
+    """Fail closed on a proven mismatch; warn on caches without provenance."""
+    meta = path + ".fp.json"
+    if not os.path.isfile(meta):
+        print(f"[cache] {os.path.basename(path)} has no fingerprint sidecar (legacy); "
+              f"adopting it into a sidecar so later mismatches are caught")
+        with open(meta, "w", encoding="utf-8") as f:
+            json.dump({"fingerprint": fp, "provenance": "adopted-legacy"}, f, indent=1)
+        return
+    try:
+        got = json.load(open(meta, encoding="utf-8")).get("fingerprint")
+    except Exception:
+        got = None
+    if got != fp:
+        raise SystemExit(
+            "[cache] %s was built with fingerprint %s, current inputs give %s; "
+            "refusing to reuse. Delete the .npy (and its .fp.json) or pass --refresh."
+            % (path, got, fp))
+    print(f"[cache] {os.path.basename(path)} fingerprint matches ({fp})")
+
+
 def encode(texts, model, tok, device, batch_size, max_length, pooling, desc):
     embs, n = [], len(texts)
     t0 = time.perf_counter()
+    # Character pre-truncation: the fast tokenizer tokenizes a whole string before
+    # applying max_length, so one pathological document (hsm has a 44.5 M-character
+    # file) makes it allocate gigabytes and die with a Rust OOM. A vocabulary token
+    # is at most a few dozen characters, so 512 tokens always fit in 100x
+    # max_length characters; the cap cannot change any embedding.
+    char_cap = 100 * max_length
     for i in range(0, n, batch_size):
-        batch = texts[i:i + batch_size]
+        batch = [t[:char_cap] for t in texts[i:i + batch_size]]
         enc = tok(batch, padding=True, truncation=True, max_length=max_length,
                   return_tensors="pt").to(device)
         with torch.no_grad():
@@ -71,6 +118,8 @@ def main():
     ap.add_argument("--query-prefix", default="")
     ap.add_argument("--doc-prefix", default="")
     ap.add_argument("--max-length", type=int, default=512)
+    ap.add_argument("--refresh", action="store_true",
+                    help="ignore an existing doc-embedding cache")
     ap.add_argument("--batch-size", type=int, default=64)
     ap.add_argument("--topk", type=int, default=1000)
     ap.add_argument("--dtype", choices=["fp16", "bf16", "fp32"], default="fp16")
@@ -95,7 +144,10 @@ def main():
     doc_ids, texts = load_corpus(args.index_data)
     tag = re.sub(r"[^A-Za-z0-9._-]+", "_", args.tag)
     doc_cache = os.path.join(args.work, f"doc_emb_{tag}_{len(doc_ids)}.npy")
-    if os.path.isfile(doc_cache):
+    emb_fp = _cache_fingerprint(args.model, args.pooling, args.max_length, args.dtype,
+                                args.doc_prefix, texts)
+    if os.path.isfile(doc_cache) and not args.refresh:
+        _check_cache(doc_cache, emb_fp)
         print(f"[dense] reusing {doc_cache}")
         doc_emb = np.load(doc_cache)
     else:
@@ -104,6 +156,10 @@ def main():
                          args.batch_size, args.max_length, args.pooling, "docs")
         print(f"[dense] encoded {len(doc_ids)} docs in {time.perf_counter()-t0:.1f}s")
         np.save(doc_cache, doc_emb)
+        with open(doc_cache + ".fp.json", "w", encoding="utf-8") as f:
+            json.dump({"fingerprint": emb_fp, "model": args.model, "pooling": args.pooling,
+                       "max_length": args.max_length, "dtype": args.dtype,
+                       "doc_prefix": args.doc_prefix, "n_docs": len(doc_ids)}, f, indent=1)
 
     if args.examples:
         recs = read_jsonl(args.examples)

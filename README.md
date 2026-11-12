@@ -92,6 +92,10 @@ are computed by `scripts/aggregate_scores.py`; every table states which it uses.
 > "-0.0138 loss" under the official domain-macro, which is why every table here
 > states its convention. The frozen 0.3581 stays the submission; the recipe's
 > retraining band is 0.347-0.358 and the frozen artifact sits at its top.
+> The remaining ladder step (the dense encoder's pooling) was run as a baseline
+> correction: CLS pooling gives 0.2956 against 0.2943 for mean on the 13-domain
+> dev set (+0.0014, topic-macro the other way), i.e. a wash - the baseline was not
+> held down by the pooling choice.
 > Details: `docs/RESEARCH_LOG.md` section 5p, `docs/PAPER_4PAGE.md` sections
 > 5.5-5.7.
 

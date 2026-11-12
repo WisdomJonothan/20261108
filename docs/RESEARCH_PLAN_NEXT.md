@@ -105,7 +105,7 @@ cardano 18、workplace 17、quant 16、law 12、iota 3。dev 上 241/519 = 46.4%
 | 3 | 标题 vs 同词预算的约束保真短查询 | ❌ **已判负（2026-11-12）**：dev `cx_qv` 0.3443（−0.0138，子集检验见 §5p.1）；val 五臂全部并列（full 0.2869 / title 0.2827 / ctxt 0.2744 / body 0.2703 / summ 0.2614，均 <0.010 带） |
 | 4 | 在最佳普通排序基线上叠加步骤监督 | ❌ **已判负**：`sx_l03` (λ=0.3) dev 0.3442、`sx_l10` (λ=1.0) dev 0.3438，对冻结 0.3581 Δ −0.0139 / −0.0143（域 CI 均含 0），步骤覆盖率反而 59.45%→55.6%/56.0%；而 45 条 val 上 λ=1.0 是六臂第一 → 训练内划分选错臂。见 `results/STEP_ARM_sx_l0{3,10}.md` 与 `docs/PAPER_4PAGE.md` §5.6 |
 | 5 | 补回漏召回正例 + 深层困难候选 | ❌ **已判负（2026-11-12）**：`cx_bf`（1,211 query / 294 额外正例）dev 0.3443（−0.0138）；按 topic-macro 反而是 +0.0067，口径必须写 domain-macro（§5p.2） |
-| 6 | 固定预算多来源候选 + 最终融合训练 | 🚫 **未做**：4/5 判负后失去前提。剩余等价工作降级为 CLS 池化基线（`ops/queue_cls.sh`，2026-11-12 在跑），属基线校正而非方法改进 |
+| 6 | 固定预算多来源候选 + 最终融合训练 | 🚫 **未做**：4/5 判负后失去前提。剩余等价工作降级为 CLS 池化基线（2026-11-12 完成）：13 域 domain-macro 0.2956 vs mean 0.2943（+0.0014）、topic-macro 方向相反，判为 **wash**，dense 基线不改（`results/aggregate_dense_mxbai_cls_dev.json`，见 RESEARCH_LOG §5p.6） |
 
 队列 `ops/queue_loss_exp.sh`（日志 `logs/loss_exp.log`）先等 GPU 空闲，随后
 **共用同一条 seed-17 切分**（`results/val_qids_e2.json`）跑四臂：

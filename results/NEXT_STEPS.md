@@ -226,8 +226,11 @@ crosses zero), "SFT validated" (one seed).
 - PowerShell 里 `0x80000000` 是负 Int32，`SetThreadExecutionState` 必须传
   `[uint32]2147483648` / `[uint32]2147483649`。
 
-**还剩的活**
-1. CLS 池化基线（`ops/queue_cls.sh` 正在跑，预计 18:20–18:45）→ `results/aggregate_dense_mxbai_cls_dev.json`；
-   若优于 mean 的 0.2943 要改论文 §4 的 dense 基线行。
-2. 把 CLS 结果写进 §5p.6 与论文（若不改结论就只写一句）。
-3. `docs/RESEARCH_NARRATIVE.md` §14 表格更新；最后 git 提交并推送 `D:\RETECO\github_repo`。
+**还剩的活（2026-11-12 19:40 已全部关闭）**
+1. ✅ CLS 池化基线跑完：`results/aggregate_dense_mxbai_cls_dev.json`，13 域 domain-macro
+   **0.2956** vs mean 0.2943（+0.0014）、topic-macro 0.2827 vs 0.2891（反向 −0.0064）→ wash，
+   dense 基线不改；hsm 曾因一条 44.5 M 字符的文档触发 tokenizer OOM，已按字符预截断修复
+   （`scripts/run_dense_generic.py`），hsm 重跑 54 min 补齐。
+2. ✅ 写进 `docs/RESEARCH_LOG.md` §5p.6；论文 §3 加 "0.2956 with CLS pooling: a wash"、
+   §5.7 结尾改成"五步重训皆输 + 第六步是 wash"、§7 的池化消融措辞收窄到 CE 窗口池化。
+3. ✅ `docs/RESEARCH_NARRATIVE.md` §14 表已更新；提交见 github_repo commit（2026-11-12 第二轮）。

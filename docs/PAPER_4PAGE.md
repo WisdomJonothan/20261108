@@ -77,7 +77,7 @@ range, exclusions and comparisons (Section 5.3).
 
 **Dense first stage.** `mxbai-embed-large-v1`, full query with the model's
 retrieval instruction, mean pooling, cosine similarity, fp16, `top-100`
-candidates per query. Dev: 0.2943.
+candidates per query. Dev: 0.2943 (0.2956 with CLS pooling: a wash).
 
 **Windowed cross-encoder.** `bge-reranker-v2-m3` (568M). Documents are split into
 250-token windows with stride 192, each window is scored against the query, and
@@ -267,9 +267,10 @@ run picked epoch 1, this one epoch 2) - and scored on dev:
 +0.0057], 132 better / 167 worse). The four arms above are separated by at most
 0.015 on val; the one we could afford to run on dev lands more than that below
 the frozen system, so no loss replacement in this table would have won. This is
-the fifth val-selected arm to lose on dev, and it was the incumbent - which is
-what the free parameters' identifiability looks like from the inside: the val
-ladder ranks arms at 0.2764-0.2912 and every one of them is a dev regression.
+the fifth arm to lose on dev in this phase of work, and it was the incumbent -
+which is what the free parameters' identifiability looks like from the inside:
+the ladder ranks arms at 0.2764-0.2912 and the ones we can afford to run on dev
+all come back 0.011-0.014 lower.
 
 ### 5.6 Forcing every evidence step into the top ten makes the system worse
 
@@ -337,8 +338,9 @@ and it lands at 0.3443 on dev, 0.0138 below the system it was meant to improve.
 Counting the two step-supervised arms above and the loss retrain of S5.5, every
 arm this split has promoted and we could afford to score on dev lands 0.011–0.014
 lower, so we treat the internal split as a coarse screen only and keep the frozen
-system: the ladder tested five of its six steps and none of them, on dev, beat
-0.3581.
+system: five of the ladder's six steps were retrained and none, on dev, beat
+0.3581, and the sixth - the dense encoder's pooling - moves the baseline by
++0.0014 (0.2956 CLS against 0.2943 mean), so it was not the limiter either.
 
 ## 6 Reproducibility and efficiency
 
@@ -362,6 +364,8 @@ findings are about *textual* time only, not about systems with timestamps;
 supervised results are single-corpus and single-family (one dense model, one
 cross-encoder). The window/pooling schedule (250-token windows, stride 192, max
 over windows, 256-token query cap) was fixed a priori and is not ablated here; the
+dense encoder's pooling was ablated late and is a wash (CLS 0.2956 against 0.2943
+for mean); the
 1:1 fusion weight and the two-epoch schedule were picked on the training-internal
 split, so the frozen number carries that selection. The step-supervision results
 are reported at one seed; a second seed, and distilling a larger re-ranker into

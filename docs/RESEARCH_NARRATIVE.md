@@ -466,9 +466,9 @@ Phase 11 改变了训练集（留出 45 条）、改变了量（567.8M 但不同
 | P0 | test split 回放（law/quant/iota） | **已完成**：三个文件过官方 `format_checker.py`（errors 0 / warnings 0），严格扫描 0 顺序违反、0 打印同分 |
 | P0 | 五条 run 汇总 + PAPER_DRAFT / PHASE11_VALIDATION / REPLICATION / NEXT_STEPS / README 回写 | **已完成**（另一会话 04:08 提交 0ff3f03；我补了 NEXT_STEPS 头部与 NARRATIVE §9.6） |
 | P0 | 提交路径加固（缓存指纹、去平分、打包清单） | **已完成**：`make_submission.py` / `run_dense_generic.py` 两条指纹链、`check_submission_strict.py`、`ops/submit_all.sh` + `MANIFEST.json`，iota 回放逐位重建（md5 a210d92a…） |
-| P1 | 4 页 SemEval system description | **数字已冻结（2026-11-12 02:30）**：`docs/PAPER_4PAGE.md` 429 行，损失/表示/步骤监督/两处修正全部有 dev 数字；§5.5 与 §4 补上"重训带 0.347–0.358、冻结件在带顶"；只剩 CLS 基线一句待补（GPU 在跑） |
+| P1 | 4 页 SemEval system description | **数字已冻结（2026-11-12 02:30）**：`docs/PAPER_4PAGE.md` 429 行，损失/表示/步骤监督/两处修正全部有 dev 数字；§5.5 与 §4 补上"重训带 0.347–0.358、冻结件在带顶"；CLS 池化基线已补（13 域 0.2956 vs mean 0.2943，wash；§3/§5.7/§7 各一句） |
 | P1 | 1 月正式测试集提交包 | **就绪待测试集**：`docs/SUBMISSION.md` 运行手册 + `ops/submit_all.sh`；需在 GPU 空闲时做一次打包空跑 |
-| P1 | 研究重启（m00374 备忘的实验阶梯 0-6） | **阶梯 3/4/5 全部结账，全部为负**：五个 dev 级候选 −0.011 ~ −0.014（`lx_possum` −0.0111、`cx_qv`/`cx_bf` −0.0138、`sx_l03`/`sx_l10` −0.0139/−0.0143），冻结件 0.3581 保留；阶梯 6 是 CLS 池化基线，属基线校正而非方法改进（`docs/RESEARCH_LOG.md` §5p） |
+| P1 | 研究重启（m00374 备忘的实验阶梯 0-6） | **阶梯 3/4/5 全部结账，全部为负**：五个 dev 级候选 −0.011 ~ −0.014（`lx_possum` −0.0111、`cx_qv`/`cx_bf` −0.0138、`sx_l03`/`sx_l10` −0.0139/−0.0143），冻结件 0.3581 保留；阶梯 6 是 CLS 池化基线，2026-11-12 跑完判为 wash（+0.0014，topic-macro 反向），属基线校正而非方法改进（`docs/RESEARCH_LOG.md` §5p.6） |
 | P0 | Phase 17 dev 结账 + 两起事故归档 | **已完成**：`docs/RESEARCH_LOG.md` §5p.1–§5p.5、`results/NEXT_STEPS.md` §8；事故=睡眠杀 CUDA（§5p.5）与 PowerShell uint32 陷阱 |
 
 ---

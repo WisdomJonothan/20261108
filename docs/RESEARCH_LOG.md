@@ -995,3 +995,48 @@ domain-macro 重算。**
 **当前状态**：`keep_awake.ps1` 以 `-Hours 10` 运行，`powercfg /requests` 已确认持有请求；
 `final_eval lx_possum` 15:19 完成；`ops/queue_cls.sh` 已在 15:10 左右接过 GPU
 （hsm 169,552 docs @ ~51 doc/s，预计 18:20–18:45 全部结束）。
+
+### 5p.6 阶梯第 6 步（dense 池化）结账：wash，以及一颗 44.5 M 字符的 tokenizer 炸弹
+
+第 6 步原本是"换 dense encoder 的池化"，在 11-11 的预注册里被降级为**基线校正**：
+它不改系统，只回答"0.2943 这个 dense 基线是不是被我选的 mean pooling 压低了"。
+
+- 跑法：`ops/queue_cls.sh` 逐域调用 `scripts/run_dense_generic.py --tag mxbai_cls
+  --pooling cls`，其余与 mean 线完全相同（mxbai-embed-large-v1、指令前缀
+  "Represent this sentence for searching relevant passages: "、top-100、fp16、
+  max_length 512、同一 519 条 dev query）。13 域全部重编码，hsm 用 `ops/queue_cls_hsm.sh` 补。
+- 结果（`results/aggregate_dense_mxbai_cls_dev.json`，13 域 519 query）：
+
+  | 口径 | mean pooling | CLS pooling | 差 |
+  |---|---:|---:|---:|
+  | domain_macro（官方） | 0.294275 | **0.295633** | +0.0014 |
+  | topic_macro（旧口径） | 0.289121 | 0.282661 | -0.0064 |
+
+  逐域 cls - mean：bitcoin -0.0084、cardano +0.0155、economics +0.0410、
+  genealogy +0.0011、history -0.0130、hsm -0.0125、iota -0.0027、law +0.0136、
+  monero +0.0077、politics -0.0206、quant -0.0322、travel -0.0028、workplace +0.0311。
+  两个口径方向相反、幅度都在 ±0.006 以内，落在 dev 的半宽（0.007–0.014）之下：
+  **池化是 wash，0.2943 不用改**，阶梯第 6 步以"无差别"结案。论文 §3 加了一句
+  "Dev: 0.2943 (0.2956 with CLS pooling: a wash)"，§5.7 结尾改成"六步里五步重训
+  都输、第六步（池化）是 wash"，§7 的"未做池化消融"改成只针对 CE 的窗口池化。
+
+- **事故：hsm 15:51:07 死于 Rust 的 OOM。** 报错原文
+  `memory allocation of 5616173056 bytes failed`（5.2 GiB，Rust/tokenizers），
+  死在 97,344/169,552 篇的批边界上；`ops/queue_cls.sh` 记 `FAIL dense hsm`，
+  随后 aggregate 因缺这一域也 `FAIL`（12 域照常落盘）。
+- 根因：`data/track1_tempo/hsm/documents.jsonl` 第 98,342 行
+  `hsm/4529d6f6_210275.txt` 的 `content` 有 **44,469,997 字符**（该域平均 2,433）。
+  fast tokenizer 是"整串先分词、再按 max_length 截断"，所以 512 的截断救不了它：
+  44 M 字符 ≈ 1,100 万 token，单条就要几 GiB。
+- 修复：`scripts/run_dense_generic.py:78-88` 的 `encode()` 在进 tokenizer 前按字符预截断
+  `char_cap = 100 * max_length`（512 → 51,200 字符）。正确性论证写在注释里：词表 token
+  至多几十个字符，前 512 个 token 必然落在前 100×512 个字符内，所以这个截断**不改变任何
+  embedding**（对已跑完的 12 域也是零影响）。hsm 重跑 54 分钟（169,552 docs @ 53.5 doc/s，
+  19:33:05 完成），score + aggregate 不到 1 秒。
+- 一句保留意见：mean 线的 hsm 是**旧脚本版本**跑的（meta 里 python 3.12.7、
+  peak GPU 1.4 GB、num_docs 169,552、max_length 512），它的字符截断路径没有留下来；
+  hsm 上 cls 比 mean 低 0.0125 可以确定不是这次补丁造成的（补丁前后向量相同），但也不能
+  完全排除旧版对超长文档的截断与新版不同。该差异只影响 hsm 一域，且被 wash 结论吸收。
+- 工程教训：语料里"单条超大文档"会绕过所有基于 max_length 的内存假设——**先按字符截断，
+  再进 tokenizer**；另外 D: 盘只剩 3.5 GB，`emb/` 已经 16 GB（两套池化的 doc cache 各约 7 GB），
+  再跑第三个 pooling 之前要先清缓存。
