@@ -23,8 +23,9 @@ two further seeds. An analysis of the frozen system shows the remaining headroom
 is only partly recall: at the 100 candidates the reranker sees, 80.7% of annotated
 steps have at least one relevant document (96.3% within the dense top-1000), yet
 the fused top ten covers only 59.5% of the annotated steps and the cross-encoder's
-own top ten 51.4%, and only 38.3% of questions place two relevant documents there. Explicit temporal
-modelling did not close this gap in ten probes, including one strictly
+own top ten 51.4%, and only 38.3% of questions place two or more relevant
+documents there. Explicit temporal modelling did not close this gap in ten probes,
+including one strictly
 pre-registered test (+0.0039 against a +0.02 bar) and a fixed year-consistency
 reordering that *lowers* nDCG@10 in 7 of 8 domains.
 Supervising the cross-encoder with the organisers' step annotations -- so that
