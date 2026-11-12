@@ -25,7 +25,7 @@ Our current 4-page draft already has: system design (§3), splits and metrics
 (§5.2-§5.8), and a negative-results narrative. What it does not yet have is
 listed in §3 below.
 
-## 2. Page budget (ACL two-column, 4 pages + references for a system paper)
+## 2. Page budget (ACL two-column; measured 2026-11-13: 5,115 words -> 6 pages body + 1 page references, 0 overfull boxes)
 
 | part | now | target |
 |---|---|---|

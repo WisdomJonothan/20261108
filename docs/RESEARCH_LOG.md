@@ -1496,3 +1496,23 @@ to 6 and keep the numbers", which means cutting ~1,200 words from the analysis
 section - the next writing pass. Eight overfull boxes remain (long `\texttt`
 paths inside narrow columns); they are cosmetic at this stage.
 
+## 5v. Page budget closed: 5,115 words, 6 pages body + 1 references (2026-11-13)
+
+The paper was rendered through `scripts/md2tex.py` into `paper/main.tex`, compiled
+with MiKTeX/pdflatex against the official `acl.sty` (review mode, line numbers).
+
+- 6,104 words -> 9 pages (first render, tables overflowing).
+- section 5 rewritten against the same numbers (2,862 -> ~1,900 words), abstract
+  318, sections 3/4/6/7/8/9 tightened: **5,115 words -> 7 pages total = 6 body +
+  1 references, 0 overfull hbox**. Body ends exactly at the bottom of page 6.
+- Tables are `resizebox`-scaled to column width (5 or fewer columns) or to text
+  width in `table*` (6+ columns); the previous 8 overfull warnings (up to 301 pt,
+  i.e. tables spilling into the next column) are gone.
+- References are real `thebibliography` entries (15), including the three verified
+  lines (HLATR arXiv:2205.10569, JPR EMNLP 2021 pp. 6997-7008, M3 arXiv:2402.03216)
+  and Hinton et al. 2015 for the distillation remark; every citation in the text
+  resolves (no `??` in the PDF).
+- Still unknown: whether RETECO's system papers are 4, 6 or 8 pages. The draft is
+  honest at 6+1; if the call is 4 pages, section 5 needs a second, harder cut (to
+  ~1,200 words) or a move of S5.5-S5.8 into an appendix.
+

@@ -56,6 +56,8 @@ def esc(s):
             out.append(r"\textasciitilde{}")
         elif ch == "^":
             out.append(r"\textasciicircum{}")
+        elif ch == "'":
+            out.append("\u2019")
         else:
             out.append(ch)
     s = "".join(out)
@@ -73,15 +75,19 @@ def table(rows):
     header, body = rows[0], rows[1:]
     cols = len(header)
     spec = "l" + "r" * (cols - 1)
-    lines = [r"\begin{table}[t]", r"\centering", r"\footnotesize",
+    wide = cols >= 6
+    env = "table*" if wide else "table"
+    width = r"\textwidth" if wide else r"\columnwidth"
+    size = r"\scriptsize" if wide else r"\footnotesize"
+    lines = [r"\begin{%s}[t]" % env, r"\centering", size,
+             r"\resizebox{%s}{!}{%%" % width,
              r"\begin{tabular}{%s}" % spec, r"\toprule",
              " & ".join(esc(c.strip()) for c in header) + r" \\", r"\midrule"]
     for r in body:
         r = r + [""] * (cols - len(r))
         lines.append(" & ".join(esc(c.strip()) for c in r[:cols]) + r" \\")
-    lines += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
+    lines += [r"\bottomrule", r"\end{tabular}}%", r"\end{%s}" % env]
     return "\n".join(lines)
-
 
 def convert(md):
     lines = md.splitlines()
