@@ -95,3 +95,25 @@ should keep its table.
   stage reads the full question (§5.3 already says this).
 * "step recall 96.3%" without the depth-1000 qualifier (§5.2).
 * "annotation-free ceiling" - it is a fixed year-consistency rule that loses.
+
+## 7. Weight release plan (decided 2026-11-13, not yet executed)
+
+Six checkpoints exist, 1,082 MB each: `v2m3_pool8_e2/best` (frozen, md5
+`ff2b4ab8`), `lx_possum` (ep2, `64da2308`), `cx_qv` (ep1, `2b9df379`), `cx_bf`
+(ep2, `1afa779c`), `sx_l03` (ep2, `64396bd2`), `sx_l10` (ep2, `a7801545`). They
+are not in the repository and the submission currently cannot be rebuilt
+end-to-end from public artefacts, which is the largest reproducibility gap
+(`results/CHECKPOINTS.md`).
+
+Plan: publish the frozen `v2m3_pool8_e2/best` first (one file, ~1.1 GB) as a
+GitHub release asset or a Hugging Face / ModelScope model repo under the
+author's account, with the md5 in the release note, a `MODEL_MANIFEST.json`
+(base model, LoRA-free full fine-tune, max length 320/510, 8 frozen layers,
+seed 17, 2 epochs), and a one-command rerank snippet. The five experimental
+checkpoints follow only if reviewers ask; they are needed to reproduce S5.5-S5.8
+exactly but every number there can also be recomputed from the committed score
+JSONs and TREC runs, which is why they are second in line. Nothing here requires
+new computation, only storage and credentials; until it is done the status of
+the paper stays `draft` and the README says the system cannot be rebuilt from
+scratch.
+
