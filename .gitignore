@@ -13,3 +13,10 @@ scripts/official/
 __pycache__/
 *.pyc
 runs/*_train.trec
+ops/_disabled_*
+ops/chain.ps1
+ops/cmd*.txt
+ops/fix_paper_flags.py
+ops/launch_push_loop.ps1
+ops/patch_*.py
+ops/push_loop.sh
