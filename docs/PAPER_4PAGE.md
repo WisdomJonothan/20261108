@@ -430,14 +430,15 @@ recovers +0.0069 over the same weight and also trails the frozen system, by
 On the 45 held-out training queries the inversion reproduces with the candidate
 list fixed. `cx_qv` is 0.043 better than `lx_possum` alone (0.2893 against
 0.2462) and 0.013 worse fused at w = 1 (0.3197 against 0.3325). Within either
-model the two criteria agree on the epoch - both prefer epoch 1 - so the
-substitution misleads about *which model* to ship, not about which epoch of a
-given model. The one epoch-level error we can attribute lies elsewhere: the
-screen computes its nDCG at `--max-len 320` while deployment re-ranks at
-`q_tokens + win + 4 = 510`, and re-scoring `lx_possum`'s 45 queries under the
-deployment budget flips the preferred epoch from 2 to 1
-(`results/VAL_EPOCH_SELECT.json`). We read this as a property of the
-two-stage construction rather than of
+model the two criteria agree on the epoch: both prefer epoch 1. That preference
+is itself noise. Re-scoring `lx_possum`'s epoch 1 on dev, the epoch both
+criteria prefer, gives 0.3428 against 0.3470 for the epoch the original
+single-stage screen kept (domain CI [-0.0114, +0.0022], 397 of 519 topics tied),
+so on 45 queries neither criterion can resolve a 0.004 difference and the
+screen's choice was, if anything, the better one. What we can attribute is the
+*model*-level inversion, not an epoch-level mistake: a single-stage metric is a
+good ranker of cross-encoders and a poor ranker of the system they feed. We read
+this as a property of the two-stage construction rather than of
 the cross-encoder: a stage that is scored alone, and trained to order a fixed
 candidate list, can improve its own metric while the system it feeds does not
 move, because the fusion re-normalises both scores per query and the first

@@ -1,0 +1,13 @@
+{
+ "run_a": "D:\\RETECO\\runs\\dense_mxbai_workplace_dev.trec",
+ "run_b": "D:\\RETECO\\runs\\rerank_lx_ep1_workplace_dev.trec",
+ "wa": 1.0,
+ "wb": 1.0,
+ "norm": "z",
+ "queries": 11,
+ "common": 1100,
+ "a_only": 9900,
+ "b_only": 0,
+ "all_tied": 0,
+ "note": "scores are fused values, not comparable across queries"
+}

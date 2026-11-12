@@ -1,0 +1,25 @@
+{
+ "label": "lx_ep1 vs frozen",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.35809852326897723,
+ "candidate_macro": 0.34276150753185175,
+ "delta": -0.015337015737125481,
+ "query_bootstrap": {
+  "mean": -0.015440752781487987,
+  "ci_lo": -0.029426460627335733,
+  "ci_hi": -0.0014696564938324222,
+  "p_gt_0": 0.0142
+ },
+ "domain_bootstrap": {
+  "mean": -0.01535421421972248,
+  "ci_lo": -0.028590830815105175,
+  "ci_hi": -0.0007549107701778435,
+  "p_gt_0": 0.02
+ },
+ "better": 116,
+ "worse": 177,
+ "iters": 10000,
+ "seed": 7
+}

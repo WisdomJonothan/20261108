@@ -1,0 +1,25 @@
+{
+ "label": "B vs A",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.34697026217901694,
+ "candidate_macro": 0.34276150753185175,
+ "delta": -0.0042087546471651915,
+ "query_bootstrap": {
+  "mean": -0.004212893763391778,
+  "ci_lo": -0.009480267102458733,
+  "ci_hi": 0.0004974726499589709,
+  "p_gt_0": 0.0415
+ },
+ "domain_bootstrap": {
+  "mean": -0.004225654374899506,
+  "ci_lo": -0.011361977401709735,
+  "ci_hi": 0.0021716007605273343,
+  "p_gt_0": 0.1112
+ },
+ "better": 42,
+ "worse": 80,
+ "iters": 10000,
+ "seed": 7
+}

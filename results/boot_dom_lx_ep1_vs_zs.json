@@ -1,0 +1,25 @@
+{
+ "label": "lx_ep1 vs zs11",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.3249073917275941,
+ "candidate_macro": 0.34276150753185175,
+ "delta": 0.017854115804257664,
+ "query_bootstrap": {
+  "mean": 0.01774861778353198,
+  "ci_lo": -0.003259314844640142,
+  "ci_hi": 0.039593012323203086,
+  "p_gt_0": 0.9525
+ },
+ "domain_bootstrap": {
+  "mean": 0.017774710405405954,
+  "ci_lo": 0.005682256021535821,
+  "ci_hi": 0.02913397793172045,
+  "p_gt_0": 0.9982
+ },
+ "better": 168,
+ "worse": 141,
+ "iters": 10000,
+ "seed": 7
+}

@@ -1384,12 +1384,16 @@ budget both CE-only and fused prefer **epoch 1**. The cardano slice shows the
 same reversal directly: at 320, ep2 0.1799 > ep1 0.1717; at 510 both 0.2020.
 So the epoch choice is a property of the truncation budget, not of the data.
 
-This does not yet say which epoch would score better on dev — that is
-`ops/queue_lx_ep1_dev.sh`, queued behind the val rerank. Until it lands, the
-honest statement is narrower: **the screen's ordering is not stable under the
-preprocessing the deployed system uses**, which disqualifies it as evidence
-that "the best checkpoint was kept" regardless of its correlation with the
-fused metric.
+This does not say which epoch scores better on dev — that is
+`ops/queue_lx_ep1_dev.sh`, and the answer arrived at 05:18: **ep1 0.3428,
+ep2 0.3470**, i.e. the epoch the deployment-budget screen prefers is 0.0042
+*worse* on dev (domain CI [-0.0114, +0.0022], 42 better / 80 worse / 397 tied).
+So the 320/510 difference is real but it is not the reason anything failed:
+both val screens are underpowered at 45 queries, and the original screen's
+choice happened to be the better one. The lesson is the one 5s.5 already
+carries - a 45-query screen cannot rank arms this close - plus a new footnote:
+the screen's *preprocessing* is not the deployment's, so its numbers should not
+be re-used as system numbers even when the ordering survives.
 
 ### 5t.3 A correction to 5s.5
 
@@ -1426,10 +1430,34 @@ started from:
   epoch of one model - the epoch-level error that did occur came from the
   token-budget mismatch (5t.2), not from the single-stage metric.
 
-### 5t.5 Still open
 
-- `lx_ep1` dev evaluation (in flight): does the deployment-budget epoch win on
-  the official split, or is the reversal confined to 45 queries?
-- cx_qv epochs (bash-4864): if CE-only and fused disagree on cx too, the
-  selection story has two independent demonstrations.
-- Page budget: PAPER_4PAGE is 5,691 words; the SemEval plan asks for ~4,500.
+### 5t.5 The dev check: the flipped epoch is worse, not better
+
+`ops/queue_lx_ep1_dev.sh` finished at 05:18 (13 domains, 519 queries,
+~90 GPU-minutes) and produced `results/aggregate_sub_lx_ep1_dev.json`:
+
+| lx_possum checkpoint | dev domain-macro | vs frozen | vs the other epoch |
+|---|---:|---:|---:|
+| epoch 1 (deployment-budget pick) | 0.3428 | -0.0153 [-0.0286, -0.0008] | -0.0042 [-0.0114, +0.0022] |
+| epoch 2 (original screen pick) | 0.3470 | -0.0111 [-0.0265, +0.0057] | - |
+
+The 45-query screen at the deployment budget ranks these two the other way
+round, and dev says it is wrong by 0.0042 with 397/519 topics tied. This is the
+C7 lesson in its cleanest form: at this screen size the differences between
+epochs of one model are below the resolution of the metric, so any argument
+that rests on "the screen picked the wrong epoch" cannot be supported - and the
+one we can measure went the other way. What survives is the cross-model
+inversion (5t.4) and the finding that the screen's preprocessing (320) differs
+from deployment's (510); the latter is a reproducibility footnote, not a
+performance claim.
+
+### 5t.6 Still open
+
+- ~~`lx_ep1` dev evaluation~~: done in 5t.5; the deployment-budget pick is
+  0.0042 worse on dev, so the reversal is confined to the 45-query screen.
+- ~~cx_qv epochs~~: done in 5t.4; CE-only and fused agree on epoch 1 for both
+  models, so the selection story is cross-model only.
+- Page budget: PAPER_4PAGE is now ~6,100 words; the SemEval plan asks for
+  ~4,500. This is the main remaining writing task.
+- Weight release and official-test predictions remain blocked on the user's
+  call / the organisers.
