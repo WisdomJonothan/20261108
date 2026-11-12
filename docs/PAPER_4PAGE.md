@@ -122,7 +122,8 @@ train-internal split above the baseline (0.2882 and 0.2913 against 0.2865), yet
 both are rejected on dev (S5.6).
 
 Mechanistically it targets the failure mode of S5.2: steps are retrievable
-(96.3%) far more often than they reach the top ten (59.5%).
+(80.7% at the 100 candidates the reranker sees, 96.3% at depth 1000) far more
+often than they reach the top ten (51.4% of reachable steps at depth 100).
 
 ## 4 Results
 
@@ -174,9 +175,12 @@ depth 1000, seven of ten steps are retrievable yet four of ten never reach the
 top ten; at the depth the reranker actually sees - the rerank files keep 100
 candidates per query - only 80.7% of annotated steps are reachable and 88.3% of
 questions keep at least one positive, so a fifth of the step structure is lost
-before the cross-encoder runs. The retrieval floor is small but not zero: in 10
-of the 519 dev questions (1.9%) no relevant document appears anywhere in the
-dense top-1000. Coverage is
+before the cross-encoder runs. That limit is visible in the zeros: 52 of the 138
+questions the frozen system scores at zero (38%) have no relevant document in
+the top 100 at all (`results/DEV_ERROR_ANALYSIS.md`), and no reranker over those
+candidates can lift them. The retrieval floor proper is small: in 10 of the 519
+dev questions (1.9%) no relevant document appears anywhere in the dense
+top-1000. Coverage is
 not a cosmetic statistic: on the frozen dev run, per-question coverage and nDCG@10
 are strongly associated (Spearman 0.69), and questions whose steps are all covered
 average 0.595 nDCG@10 against 0.187 otherwise (228 vs 256 questions,
