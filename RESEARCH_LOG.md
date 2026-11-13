@@ -1691,3 +1691,29 @@ sentence in the audit reply; the old numbers came from the query-split bug.
    mirror stalled at 0.35 MB/s), `accelerate` 1.15.0 installed, iota smoke test
    passed. Scores will be fused at the same 1:1 and scored with the same script,
    so the comparison is like-for-like except the model.
+
+## 5ac. Qwen3-Reranker prompt: the chat template silently emptied the query (2026-11-14)
+
+The first Qwen3 run produced identical scores for every pair (-5.53125 on every
+document). Three defects, found in this order:
+
+1. `apply_chat_template(messages, add_generation_prompt=...)` does not reproduce
+   the Qwen3-Reranker prompt here: the rendered string lost the query and the
+   document entirely (`<Query>: \n<Document>: <|im_end|>`) and appended a
+   `thinking` block. Scoring therefore hit an empty prompt for all 100 candidates
+   and returned one saturated value. The working construction is the literal
+   prompt from the model card, built as a string:
+   `<|im_start|>system\n{SYSTEM}<|im_end|>\n<|im_start|>user\n<Instruct>: ...
+   \n<Query>: ...\n<Document>: ...<|im_end|>\n<|im_start|>assistant\n`.
+   With it, a relevant passage scores -3.34, an irrelevant one -10.9, junk -12.1,
+   and per-query score spread is 3.6 points.
+2. `write_trec_run` expects `[(doc, score)]` already sorted by descending score;
+   the script passed dense order, so the "rerank" reproduced the dense ranking
+   exactly (iota 0.6485 = dense 0.6485). Now sorted before writing.
+3. `model(**enc).logits` materialises `[batch, seq, 151669]`, i.e. 14 GiB at
+   batch 32: CUDA OOM on an 8 GB card. `logits_to_keep=1` keeps only the last
+   position (the one we read), and batch stays at 16.
+
+Smoke numbers after the fixes: iota CE-only 0.3276 (ours 0.28-0.30 on iota),
+iota fused 0.6842 against 0.8411 for the frozen recipe. The 13-domain run is
+`ops/queue_qwen3.sh`; at 200 pairs/min it needs about four hours.

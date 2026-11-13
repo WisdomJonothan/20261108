@@ -80,21 +80,20 @@ def main():
         texts = [corpus[d][:args.doc_cap] for d in docs]
         pairs = []
         for t in texts:
-            msg = [{"role": "system", "content": SYSTEM},
-                   {"role": "user",
-                    "content": "<Instruct>: %s\n<Query>: %s\n<Document>: %s"
-                               % (INSTRUCT, q, t)}]
-            pairs.append(tok.apply_chat_template(msg, tokenize=False,
-                                                 add_generation_prompt=False))
+            pairs.append(
+                "<|im_start|>system\n%s<|im_end|>\n<|im_start|>user\n"
+                "<Instruct>: %s\n<Query>: %s\n<Document>: %s<|im_end|>\n"
+                "<|im_start|>assistant\n" % (SYSTEM, INSTRUCT, q, t))
         scores = []
         with torch.no_grad():
             for i in range(0, len(pairs), args.batch):
                 enc = tok(pairs[i:i + args.batch], padding=True, truncation=True,
                           max_length=args.max_len, return_tensors="pt").to(dev)
-                logits = model(**enc).logits[:, -1, :]
+                logits = model(**enc, logits_to_keep=1).logits[:, -1, :]
                 s = (logits[:, yes] - logits[:, no]).float().cpu().numpy()
                 scores.extend(s.tolist())
-        results[qid] = list(zip(docs, scores))
+        order = sorted(range(len(docs)), key=lambda i: -scores[i])
+        results[qid] = [(docs[i], scores[i]) for i in order]
         n_pairs += len(docs)
         print(json.dumps({"domain": args.domain, "qid": qid, "docs": len(docs),
                           "scored": n_pairs}), flush=True)
