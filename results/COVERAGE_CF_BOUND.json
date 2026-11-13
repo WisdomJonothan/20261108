@@ -1,0 +1,163 @@
+{
+ "runs": "runs/sub_sft_e2bc_{domain}_dev.trec",
+ "pool": "runs/dense_mxbai_{domain}_dev.trec",
+ "k": 10,
+ "domain_macro": {
+  "cov_now": 1.2702,
+  "cov_cf": 1.2989,
+  "cov_pool": 1.6967,
+  "cov_all": 2.0739,
+  "ndcg10": 0.3581
+ },
+ "totals": {
+  "queries": 519,
+  "gain_queries": 39,
+  "gain_steps": 44,
+  "single_slot_left_on_table": 19
+ },
+ "domains": {
+  "bitcoin": {
+   "queries": 30,
+   "cov_now": 0.8,
+   "cov_cf": 0.8333,
+   "cov_pool": 1.2667,
+   "cov_all": 1.8667,
+   "gain_queries": 2,
+   "gain_steps": 2,
+   "single_slot_left_on_table": 0,
+   "ndcg10": 0.2143
+  },
+  "cardano": {
+   "queries": 15,
+   "cov_now": 1.2667,
+   "cov_cf": 1.2667,
+   "cov_pool": 1.7333,
+   "cov_all": 2.2,
+   "gain_queries": 0,
+   "gain_steps": 0,
+   "single_slot_left_on_table": 0,
+   "ndcg10": 0.2258
+  },
+  "economics": {
+   "queries": 25,
+   "cov_now": 1.08,
+   "cov_cf": 1.16,
+   "cov_pool": 1.48,
+   "cov_all": 2.04,
+   "gain_queries": 2,
+   "gain_steps": 2,
+   "single_slot_left_on_table": 0,
+   "ndcg10": 0.2512
+  },
+  "genealogy": {
+   "queries": 35,
+   "cov_now": 1.3143,
+   "cov_cf": 1.3429,
+   "cov_pool": 1.4,
+   "cov_all": 1.9429,
+   "gain_queries": 2,
+   "gain_steps": 2,
+   "single_slot_left_on_table": 0,
+   "ndcg10": 0.406
+  },
+  "history": {
+   "queries": 240,
+   "cov_now": 1.75,
+   "cov_cf": 1.7958,
+   "cov_pool": 2.3875,
+   "cov_all": 2.65,
+   "gain_queries": 24,
+   "gain_steps": 27,
+   "single_slot_left_on_table": 13,
+   "ndcg10": 0.3918
+  },
+  "hsm": {
+   "queries": 45,
+   "cov_now": 1.5556,
+   "cov_cf": 1.6889,
+   "cov_pool": 2.0889,
+   "cov_all": 2.3333,
+   "gain_queries": 5,
+   "gain_steps": 7,
+   "single_slot_left_on_table": 2,
+   "ndcg10": 0.4651
+  },
+  "iota": {
+   "queries": 3,
+   "cov_now": 2.6667,
+   "cov_cf": 2.6667,
+   "cov_pool": 2.6667,
+   "cov_all": 2.6667,
+   "gain_queries": 0,
+   "gain_steps": 0,
+   "single_slot_left_on_table": 0,
+   "ndcg10": 0.8383
+  },
+  "law": {
+   "queries": 11,
+   "cov_now": 1.2727,
+   "cov_cf": 1.2727,
+   "cov_pool": 1.9091,
+   "cov_all": 2.0909,
+   "gain_queries": 0,
+   "gain_steps": 0,
+   "single_slot_left_on_table": 0,
+   "ndcg10": 0.4357
+  },
+  "monero": {
+   "queries": 19,
+   "cov_now": 0.6842,
+   "cov_cf": 0.7368,
+   "cov_pool": 1.0,
+   "cov_all": 1.4737,
+   "gain_queries": 1,
+   "gain_steps": 1,
+   "single_slot_left_on_table": 1,
+   "ndcg10": 0.2069
+  },
+  "politics": {
+   "queries": 45,
+   "cov_now": 1.4889,
+   "cov_cf": 1.4889,
+   "cov_pool": 1.9556,
+   "cov_all": 2.6444,
+   "gain_queries": 1,
+   "gain_steps": 1,
+   "single_slot_left_on_table": 1,
+   "ndcg10": 0.429
+  },
+  "quant": {
+   "queries": 10,
+   "cov_now": 0.7,
+   "cov_cf": 0.7,
+   "cov_pool": 1.0,
+   "cov_all": 1.5,
+   "gain_queries": 0,
+   "gain_steps": 0,
+   "single_slot_left_on_table": 0,
+   "ndcg10": 0.1538
+  },
+  "travel": {
+   "queries": 30,
+   "cov_now": 0.9333,
+   "cov_cf": 0.9333,
+   "cov_pool": 1.5333,
+   "cov_all": 1.7333,
+   "gain_queries": 1,
+   "gain_steps": 1,
+   "single_slot_left_on_table": 1,
+   "ndcg10": 0.2494
+  },
+  "workplace": {
+   "queries": 11,
+   "cov_now": 1.0,
+   "cov_cf": 1.0,
+   "cov_pool": 1.6364,
+   "cov_all": 1.8182,
+   "gain_queries": 1,
+   "gain_steps": 1,
+   "single_slot_left_on_table": 1,
+   "ndcg10": 0.3881
+  }
+ }
+}
