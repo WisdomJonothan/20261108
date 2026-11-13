@@ -1,0 +1,1406 @@
+[
+{
+"domain": "bitcoin",
+"qid": "122013_25",
+"doc": "bitcoin/53fbbd5a_4765.txt",
+"dense": 24,
+"ce": 19,
+"fused": 20,
+"n_gold": 4
+},
+{
+"domain": "bitcoin",
+"qid": "122013_25",
+"doc": "bitcoin/dd9c6358_4766.txt",
+"dense": 19,
+"ce": 84,
+"fused": 51,
+"n_gold": 4
+},
+{
+"domain": "bitcoin",
+"qid": "122013_25",
+"doc": "bitcoin/c894bd6e_4767.txt",
+"dense": 38,
+"ce": 30,
+"fused": 31,
+"n_gold": 4
+},
+{
+"domain": "bitcoin",
+"qid": "121089_32",
+"doc": "bitcoin/cb25fa23_6119.txt",
+"dense": 23,
+"ce": 34,
+"fused": 24,
+"n_gold": 3
+},
+{
+"domain": "bitcoin",
+"qid": "113500_66",
+"doc": "bitcoin/39c65f62_12898.txt",
+"dense": 34,
+"ce": 27,
+"fused": 28,
+"n_gold": 2
+},
+{
+"domain": "bitcoin",
+"qid": "112979_68",
+"doc": "bitcoin/c2c6773d_13865.txt",
+"dense": 85,
+"ce": 30,
+"fused": 55,
+"n_gold": 5
+},
+{
+"domain": "bitcoin",
+"qid": "112929_69",
+"doc": "bitcoin/66f84d9c_14043.txt",
+"dense": 8,
+"ce": 97,
+"fused": 85,
+"n_gold": 2
+},
+{
+"domain": "bitcoin",
+"qid": "112021_76",
+"doc": "bitcoin/efbbd80d_15148.txt",
+"dense": 55,
+"ce": 44,
+"fused": 51,
+"n_gold": 5
+},
+{
+"domain": "bitcoin",
+"qid": "97236_86",
+"doc": "bitcoin/c5cfb37a_17398.txt",
+"dense": 62,
+"ce": 9,
+"fused": 24,
+"n_gold": 1
+},
+{
+"domain": "bitcoin",
+"qid": "97179_88",
+"doc": "bitcoin/314fa2f2_17770.txt",
+"dense": 26,
+"ce": 79,
+"fused": 60,
+"n_gold": 4
+},
+{
+"domain": "bitcoin",
+"qid": "93368_97",
+"doc": "bitcoin/5ed2537e_20138.txt",
+"dense": 37,
+"ce": 20,
+"fused": 28,
+"n_gold": 2
+},
+{
+"domain": "cardano",
+"qid": "11106_102",
+"doc": "cardano/ff08e47d_0062.txt",
+"dense": 10,
+"ce": 28,
+"fused": 13,
+"n_gold": 3
+},
+{
+"domain": "cardano",
+"qid": "11106_102",
+"doc": "cardano/70fefdc1_0061.txt",
+"dense": 82,
+"ce": 78,
+"fused": 80,
+"n_gold": 3
+},
+{
+"domain": "cardano",
+"qid": "11106_102",
+"doc": "cardano/1604471c_0063.txt",
+"dense": 11,
+"ce": 70,
+"fused": 31,
+"n_gold": 3
+},
+{
+"domain": "cardano",
+"qid": "4225_128",
+"doc": "cardano/7c471e17_5339.txt",
+"dense": 9,
+"ce": 15,
+"fused": 11,
+"n_gold": 2
+},
+{
+"domain": "cardano",
+"qid": "4225_128",
+"doc": "cardano/f751c898_1824.txt",
+"dense": 16,
+"ce": 12,
+"fused": 13,
+"n_gold": 2
+},
+{
+"domain": "cardano",
+"qid": "80_150",
+"doc": "cardano/cf63108c_11186.txt",
+"dense": 46,
+"ce": 41,
+"fused": 45,
+"n_gold": 2
+},
+{
+"domain": "economics",
+"qid": "60545_155",
+"doc": "economics/006b65bc_0361.txt",
+"dense": 11,
+"ce": 88,
+"fused": 32,
+"n_gold": 2
+},
+{
+"domain": "economics",
+"qid": "60545_155",
+"doc": "economics/97761ae1_0360.txt",
+"dense": 60,
+"ce": 91,
+"fused": 87,
+"n_gold": 2
+},
+{
+"domain": "economics",
+"qid": "55201_179",
+"doc": "economics/4c363fd8_4296.txt",
+"dense": 81,
+"ce": 71,
+"fused": 84,
+"n_gold": 2
+},
+{
+"domain": "economics",
+"qid": "51330_198",
+"doc": "economics/24b62045_9747.txt",
+"dense": 25,
+"ce": 36,
+"fused": 28,
+"n_gold": 2
+},
+{
+"domain": "economics",
+"qid": "47763_212",
+"doc": "economics/fdb496f3_10367.txt",
+"dense": 27,
+"ce": 62,
+"fused": 35,
+"n_gold": 3
+},
+{
+"domain": "economics",
+"qid": "43952_227",
+"doc": "economics/4a1ff91a_13255.txt",
+"dense": 42,
+"ce": 30,
+"fused": 39,
+"n_gold": 4
+},
+{
+"domain": "economics",
+"qid": "43952_227",
+"doc": "economics/2d6b6de6_13253.txt",
+"dense": 25,
+"ce": 15,
+"fused": 12,
+"n_gold": 4
+},
+{
+"domain": "economics",
+"qid": "43952_227",
+"doc": "economics/ee4b13de_13254.txt",
+"dense": 39,
+"ce": 22,
+"fused": 29,
+"n_gold": 4
+},
+{
+"domain": "genealogy",
+"qid": "15307_257",
+"doc": "genealogy/eecff47f_2120.txt",
+"dense": 55,
+"ce": 18,
+"fused": 37,
+"n_gold": 3
+},
+{
+"domain": "genealogy",
+"qid": "11818_301",
+"doc": "genealogy/b9df7d88_6980.txt",
+"dense": 48,
+"ce": 65,
+"fused": 62,
+"n_gold": 2
+},
+{
+"domain": "genealogy",
+"qid": "3224_325",
+"doc": "genealogy/890ad196_9341.txt",
+"dense": 49,
+"ce": 73,
+"fused": 75,
+"n_gold": 1
+},
+{
+"domain": "history",
+"qid": "79485_7",
+"doc": "history/d0c6823b_0801.txt",
+"dense": 39,
+"ce": 49,
+"fused": 41,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "79485_7",
+"doc": "history/75f1c2dd_0803.txt",
+"dense": 38,
+"ce": 29,
+"fused": 30,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "79485_7",
+"doc": "history/443850d3_0802.txt",
+"dense": 20,
+"ce": 26,
+"fused": 20,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "79114_14",
+"doc": "history/f8f93d4c_1497.txt",
+"dense": 24,
+"ce": 28,
+"fused": 17,
+"n_gold": 5
+},
+{
+"domain": "history",
+"qid": "79114_14",
+"doc": "history/be451918_1496.txt",
+"dense": 72,
+"ce": 29,
+"fused": 50,
+"n_gold": 5
+},
+{
+"domain": "history",
+"qid": "79114_14",
+"doc": "history/d13c5ce1_1495.txt",
+"dense": 23,
+"ce": 23,
+"fused": 15,
+"n_gold": 5
+},
+{
+"domain": "history",
+"qid": "79114_14",
+"doc": "history/97296649_1499.txt",
+"dense": 45,
+"ce": 48,
+"fused": 42,
+"n_gold": 5
+},
+{
+"domain": "history",
+"qid": "79114_14",
+"doc": "history/fb2071db_1498.txt",
+"dense": 36,
+"ce": 10,
+"fused": 20,
+"n_gold": 5
+},
+{
+"domain": "history",
+"qid": "77270_48",
+"doc": "history/cc36c0c1_5842.txt",
+"dense": 29,
+"ce": 34,
+"fused": 22,
+"n_gold": 2
+},
+{
+"domain": "history",
+"qid": "77270_48",
+"doc": "history/36d9d65b_5843.txt",
+"dense": 70,
+"ce": 50,
+"fused": 72,
+"n_gold": 2
+},
+{
+"domain": "history",
+"qid": "76410_105",
+"doc": "history/a52ddb6a_14427.txt",
+"dense": 55,
+"ce": 45,
+"fused": 40,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "76410_105",
+"doc": "history/b9a7ad00_14425.txt",
+"dense": 16,
+"ce": 19,
+"fused": 19,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "76410_105",
+"doc": "history/da1e6a1d_14426.txt",
+"dense": 75,
+"ce": 63,
+"fused": 72,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "76250_114",
+"doc": "history/f682041d_15418.txt",
+"dense": 24,
+"ce": 12,
+"fused": 15,
+"n_gold": 1
+},
+{
+"domain": "history",
+"qid": "74426_129",
+"doc": "history/7ab0d9a5_17219.txt",
+"dense": 55,
+"ce": 82,
+"fused": 84,
+"n_gold": 8
+},
+{
+"domain": "history",
+"qid": "74426_129",
+"doc": "history/ca9e7982_17218.txt",
+"dense": 72,
+"ce": 96,
+"fused": 97,
+"n_gold": 8
+},
+{
+"domain": "history",
+"qid": "74058_133",
+"doc": "history/c03db93f_18093.txt",
+"dense": 65,
+"ce": 4,
+"fused": 24,
+"n_gold": 14
+},
+{
+"domain": "history",
+"qid": "72564_153",
+"doc": "history/a6185d15_20582.txt",
+"dense": 16,
+"ce": 19,
+"fused": 12,
+"n_gold": 1
+},
+{
+"domain": "history",
+"qid": "72552_154",
+"doc": "history/e0c53081_20683.txt",
+"dense": 56,
+"ce": 39,
+"fused": 47,
+"n_gold": 21
+},
+{
+"domain": "history",
+"qid": "72552_154",
+"doc": "history/5fef650a_20671.txt",
+"dense": 9,
+"ce": 27,
+"fused": 12,
+"n_gold": 21
+},
+{
+"domain": "history",
+"qid": "72552_154",
+"doc": "history/71974fe0_20672.txt",
+"dense": 83,
+"ce": 59,
+"fused": 77,
+"n_gold": 21
+},
+{
+"domain": "history",
+"qid": "72552_154",
+"doc": "history/f5d84816_20680.txt",
+"dense": 32,
+"ce": 58,
+"fused": 41,
+"n_gold": 21
+},
+{
+"domain": "history",
+"qid": "72370_163",
+"doc": "history/a8b3b1d3_21719.txt",
+"dense": 51,
+"ce": 2,
+"fused": 12,
+"n_gold": 2
+},
+{
+"domain": "history",
+"qid": "72370_163",
+"doc": "history/d974f229_21720.txt",
+"dense": 85,
+"ce": 21,
+"fused": 49,
+"n_gold": 2
+},
+{
+"domain": "history",
+"qid": "71551_207",
+"doc": "history/ec7655fb_28723.txt",
+"dense": 56,
+"ce": 1,
+"fused": 12,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "71551_207",
+"doc": "history/258ece0d_28724.txt",
+"dense": 83,
+"ce": 47,
+"fused": 66,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "70746_260",
+"doc": "history/ecfb0f6c_35729.txt",
+"dense": 40,
+"ce": 64,
+"fused": 50,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "70746_260",
+"doc": "history/b4d3a964_35726.txt",
+"dense": 25,
+"ce": 38,
+"fused": 26,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "70624_268",
+"doc": "history/55581270_37216.txt",
+"dense": 70,
+"ce": 30,
+"fused": 48,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "70624_268",
+"doc": "history/3de499c0_37214.txt",
+"dense": 39,
+"ce": 35,
+"fused": 29,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "70624_268",
+"doc": "history/2863eeb7_37215.txt",
+"dense": 23,
+"ce": 8,
+"fused": 14,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "70594_270",
+"doc": "history/3e242a20_37471.txt",
+"dense": 77,
+"ce": 15,
+"fused": 35,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "70594_270",
+"doc": "history/d3c3e85a_37472.txt",
+"dense": 70,
+"ce": 69,
+"fused": 80,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "70594_270",
+"doc": "history/a58f8dd8_37474.txt",
+"dense": 60,
+"ce": 43,
+"fused": 47,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "70583_271",
+"doc": "history/5f314964_37506.txt",
+"dense": 24,
+"ce": 14,
+"fused": 17,
+"n_gold": 1
+},
+{
+"domain": "history",
+"qid": "70361_291",
+"doc": "history/29b2a4a2_39780.txt",
+"dense": 79,
+"ce": 16,
+"fused": 28,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "70188_298",
+"doc": "history/08b699a5_41221.txt",
+"dense": 16,
+"ce": 66,
+"fused": 30,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "69860_322",
+"doc": "history/fb0f316d_43558.txt",
+"dense": 49,
+"ce": 11,
+"fused": 25,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "69860_322",
+"doc": "history/3f7effd2_43556.txt",
+"dense": 17,
+"ce": 28,
+"fused": 17,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "69851_324",
+"doc": "history/45704d4c_44069.txt",
+"dense": 56,
+"ce": 38,
+"fused": 45,
+"n_gold": 5
+},
+{
+"domain": "history",
+"qid": "69389_354",
+"doc": "history/1dde1859_48276.txt",
+"dense": 13,
+"ce": 33,
+"fused": 14,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "69389_354",
+"doc": "history/fa921d39_48274.txt",
+"dense": 20,
+"ce": 26,
+"fused": 18,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "69389_354",
+"doc": "history/d4b99172_48275.txt",
+"dense": 14,
+"ce": 53,
+"fused": 19,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "68362_413",
+"doc": "history/d20cb920_55360.txt",
+"dense": 64,
+"ce": 35,
+"fused": 53,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "68362_413",
+"doc": "history/d31db5ec_55357.txt",
+"dense": 78,
+"ce": 19,
+"fused": 42,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "68358_414",
+"doc": "history/7d169fde_55382.txt",
+"dense": 27,
+"ce": 25,
+"fused": 26,
+"n_gold": 9
+},
+{
+"domain": "history",
+"qid": "68358_414",
+"doc": "history/1356c60c_55383.txt",
+"dense": 16,
+"ce": 21,
+"fused": 15,
+"n_gold": 9
+},
+{
+"domain": "history",
+"qid": "68358_414",
+"doc": "history/ae77f37f_55384.txt",
+"dense": 25,
+"ce": 39,
+"fused": 29,
+"n_gold": 9
+},
+{
+"domain": "history",
+"qid": "68107_426",
+"doc": "history/1f3d6092_57177.txt",
+"dense": 30,
+"ce": 6,
+"fused": 11,
+"n_gold": 12
+},
+{
+"domain": "history",
+"qid": "68107_426",
+"doc": "history/7edb7852_57179.txt",
+"dense": 71,
+"ce": 29,
+"fused": 53,
+"n_gold": 12
+},
+{
+"domain": "history",
+"qid": "66092_501",
+"doc": "history/1a9c5060_68943.txt",
+"dense": 30,
+"ce": 29,
+"fused": 21,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "66092_501",
+"doc": "history/148d1b6f_68944.txt",
+"dense": 82,
+"ce": 74,
+"fused": 92,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "64604_517",
+"doc": "history/d356cd1c_71410.txt",
+"dense": 26,
+"ce": 12,
+"fused": 14,
+"n_gold": 7
+},
+{
+"domain": "history",
+"qid": "64604_517",
+"doc": "history/df8fd879_71408.txt",
+"dense": 49,
+"ce": 38,
+"fused": 45,
+"n_gold": 7
+},
+{
+"domain": "history",
+"qid": "64604_517",
+"doc": "history/9c6bba27_71411.txt",
+"dense": 61,
+"ce": 54,
+"fused": 66,
+"n_gold": 7
+},
+{
+"domain": "history",
+"qid": "64604_517",
+"doc": "history/916fc520_71409.txt",
+"dense": 11,
+"ce": 18,
+"fused": 12,
+"n_gold": 7
+},
+{
+"domain": "history",
+"qid": "64604_517",
+"doc": "history/fa55fcc6_71406.txt",
+"dense": 68,
+"ce": 4,
+"fused": 22,
+"n_gold": 7
+},
+{
+"domain": "history",
+"qid": "64072_537",
+"doc": "history/966c0b5e_74258.txt",
+"dense": 30,
+"ce": 11,
+"fused": 18,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "64072_537",
+"doc": "history/f09297b4_74259.txt",
+"dense": 60,
+"ce": 30,
+"fused": 41,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "64072_537",
+"doc": "history/897365e9_74257.txt",
+"dense": 34,
+"ce": 7,
+"fused": 19,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "62753_599",
+"doc": "history/70126d54_86431.txt",
+"dense": 15,
+"ce": 19,
+"fused": 17,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "62753_599",
+"doc": "history/561626e4_86432.txt",
+"dense": 20,
+"ce": 8,
+"fused": 15,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "62753_599",
+"doc": "history/4db0e573_86434.txt",
+"dense": 19,
+"ce": 7,
+"fused": 13,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "59289_624",
+"doc": "history/979da6aa_90384.txt",
+"dense": 38,
+"ce": 64,
+"fused": 42,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "59289_624",
+"doc": "history/109fdcdd_90386.txt",
+"dense": 29,
+"ce": 39,
+"fused": 34,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "59289_624",
+"doc": "history/e3e7dbde_90383.txt",
+"dense": 24,
+"ce": 7,
+"fused": 13,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "59289_624",
+"doc": "history/eb1aa937_90385.txt",
+"dense": 41,
+"ce": 21,
+"fused": 35,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "58699_662",
+"doc": "history/1b16b6a5_94799.txt",
+"dense": 24,
+"ce": 4,
+"fused": 11,
+"n_gold": 1
+},
+{
+"domain": "history",
+"qid": "56734_725",
+"doc": "history/1a6a2606_102392.txt",
+"dense": 31,
+"ce": 56,
+"fused": 43,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "56734_725",
+"doc": "history/e921dbe0_102393.txt",
+"dense": 11,
+"ce": 23,
+"fused": 13,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "56734_725",
+"doc": "history/485e24e0_102394.txt",
+"dense": 74,
+"ce": 50,
+"fused": 69,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "56551_731",
+"doc": "history/983d0a2b_103511.txt",
+"dense": 17,
+"ce": 42,
+"fused": 26,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "56551_731",
+"doc": "history/a19b7e47_103512.txt",
+"dense": 5,
+"ce": 28,
+"fused": 11,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "56551_731",
+"doc": "history/88e8e676_103510.txt",
+"dense": 13,
+"ce": 74,
+"fused": 30,
+"n_gold": 3
+},
+{
+"domain": "history",
+"qid": "56068_771",
+"doc": "history/41eae566_108133.txt",
+"dense": 59,
+"ce": 43,
+"fused": 55,
+"n_gold": 4
+},
+{
+"domain": "history",
+"qid": "56068_771",
+"doc": "history/ecf47326_108131.txt",
+"dense": 28,
+"ce": 10,
+"fused": 17,
+"n_gold": 4
+},
+{
+"domain": "hsm",
+"qid": "13846_707",
+"doc": "hsm/3a3f1877_7840.txt",
+"dense": 87,
+"ce": 38,
+"fused": 56,
+"n_gold": 3
+},
+{
+"domain": "hsm",
+"qid": "13846_707",
+"doc": "hsm/3ed165c3_7839.txt",
+"dense": 31,
+"ce": 90,
+"fused": 74,
+"n_gold": 3
+},
+{
+"domain": "hsm",
+"qid": "13367_721",
+"doc": "hsm/429e3e52_10038.txt",
+"dense": 91,
+"ce": 2,
+"fused": 18,
+"n_gold": 3
+},
+{
+"domain": "hsm",
+"qid": "13304_724",
+"doc": "hsm/242dcca1_10306.txt",
+"dense": 24,
+"ce": 14,
+"fused": 17,
+"n_gold": 3
+},
+{
+"domain": "hsm",
+"qid": "13304_724",
+"doc": "hsm/ca478ff8_10304.txt",
+"dense": 85,
+"ce": 83,
+"fused": 89,
+"n_gold": 3
+},
+{
+"domain": "hsm",
+"qid": "2976_779",
+"doc": "hsm/467ee7a0_18449.txt",
+"dense": 10,
+"ce": 54,
+"fused": 20,
+"n_gold": 2
+},
+{
+"domain": "hsm",
+"qid": "2976_779",
+"doc": "hsm/c7cc51b3_18450.txt",
+"dense": 50,
+"ce": 9,
+"fused": 21,
+"n_gold": 2
+},
+{
+"domain": "hsm",
+"qid": "276_797",
+"doc": "hsm/ce541cb8_21805.txt",
+"dense": 96,
+"ce": 13,
+"fused": 49,
+"n_gold": 2
+},
+{
+"domain": "hsm",
+"qid": "276_797",
+"doc": "hsm/4e456088_21804.txt",
+"dense": 44,
+"ce": 17,
+"fused": 24,
+"n_gold": 2
+},
+{
+"domain": "law",
+"qid": "106440_824",
+"doc": "law/7e1fe823_2779.txt",
+"dense": 5,
+"ce": 47,
+"fused": 11,
+"n_gold": 2
+},
+{
+"domain": "law",
+"qid": "106440_824",
+"doc": "law/65cd7b36_2778.txt",
+"dense": 19,
+"ce": 35,
+"fused": 26,
+"n_gold": 2
+},
+{
+"domain": "law",
+"qid": "102419_841",
+"doc": "law/de9208dd_8163.txt",
+"dense": 46,
+"ce": 80,
+"fused": 75,
+"n_gold": 1
+},
+{
+"domain": "monero",
+"qid": "14078_844",
+"doc": "monero/83da2ac6_0079.txt",
+"dense": 56,
+"ce": 13,
+"fused": 26,
+"n_gold": 1
+},
+{
+"domain": "monero",
+"qid": "10071_871",
+"doc": "monero/6ebeaf9f_5639.txt",
+"dense": 11,
+"ce": 34,
+"fused": 14,
+"n_gold": 3
+},
+{
+"domain": "monero",
+"qid": "7072_882",
+"doc": "monero/0190d8ed_7647.txt",
+"dense": 14,
+"ce": 25,
+"fused": 11,
+"n_gold": 3
+},
+{
+"domain": "monero",
+"qid": "5677_892",
+"doc": "monero/949df14c_10656.txt",
+"dense": 71,
+"ce": 52,
+"fused": 63,
+"n_gold": 3
+},
+{
+"domain": "monero",
+"qid": "4053_899",
+"doc": "monero/00ffd35d_12541.txt",
+"dense": 4,
+"ce": 64,
+"fused": 21,
+"n_gold": 1
+},
+{
+"domain": "politics",
+"qid": "89978_941",
+"doc": "politics/4b7c127c_8325.txt",
+"dense": 84,
+"ce": 49,
+"fused": 77,
+"n_gold": 3
+},
+{
+"domain": "politics",
+"qid": "89697_946",
+"doc": "politics/c581610d_9094.txt",
+"dense": 10,
+"ce": 25,
+"fused": 13,
+"n_gold": 2
+},
+{
+"domain": "politics",
+"qid": "89697_946",
+"doc": "politics/043fd27a_9095.txt",
+"dense": 49,
+"ce": 88,
+"fused": 84,
+"n_gold": 2
+},
+{
+"domain": "politics",
+"qid": "88444_960",
+"doc": "politics/9934027d_12031.txt",
+"dense": 55,
+"ce": 8,
+"fused": 25,
+"n_gold": 3
+},
+{
+"domain": "politics",
+"qid": "88444_960",
+"doc": "politics/d3de1ac3_12029.txt",
+"dense": 43,
+"ce": 13,
+"fused": 24,
+"n_gold": 3
+},
+{
+"domain": "politics",
+"qid": "87499_976",
+"doc": "politics/00e3ab31_15164.txt",
+"dense": 61,
+"ce": 22,
+"fused": 45,
+"n_gold": 3
+},
+{
+"domain": "politics",
+"qid": "87499_976",
+"doc": "politics/4854c5fb_15162.txt",
+"dense": 57,
+"ce": 14,
+"fused": 40,
+"n_gold": 3
+},
+{
+"domain": "politics",
+"qid": "81967_1013",
+"doc": "politics/3456981b_21736.txt",
+"dense": 72,
+"ce": 44,
+"fused": 60,
+"n_gold": 4
+},
+{
+"domain": "politics",
+"qid": "78217_1019",
+"doc": "politics/947191e1_22746.txt",
+"dense": 37,
+"ce": 6,
+"fused": 12,
+"n_gold": 3
+},
+{
+"domain": "politics",
+"qid": "78217_1019",
+"doc": "politics/ed65ea50_22747.txt",
+"dense": 18,
+"ce": 13,
+"fused": 15,
+"n_gold": 3
+},
+{
+"domain": "politics",
+"qid": "74259_1054",
+"doc": "politics/cabe1362_30196.txt",
+"dense": 46,
+"ce": 33,
+"fused": 36,
+"n_gold": 2
+},
+{
+"domain": "politics",
+"qid": "74259_1054",
+"doc": "politics/5e030c94_30195.txt",
+"dense": 53,
+"ce": 28,
+"fused": 40,
+"n_gold": 2
+},
+{
+"domain": "quant",
+"qid": "83939_1059",
+"doc": "quant/e5444096_0563.txt",
+"dense": 22,
+"ce": 37,
+"fused": 29,
+"n_gold": 2
+},
+{
+"domain": "quant",
+"qid": "78710_1068",
+"doc": "quant/1efbda5b_2113.txt",
+"dense": 66,
+"ce": 27,
+"fused": 47,
+"n_gold": 1
+},
+{
+"domain": "quant",
+"qid": "77873_1071",
+"doc": "quant/a2d1fce0_2464.txt",
+"dense": 69,
+"ce": 97,
+"fused": 98,
+"n_gold": 3
+},
+{
+"domain": "travel",
+"qid": "198471_1102",
+"doc": "travel/3aa77aeb_2647.txt",
+"dense": 11,
+"ce": 35,
+"fused": 16,
+"n_gold": 3
+},
+{
+"domain": "travel",
+"qid": "198471_1102",
+"doc": "travel/68cc1e41_2649.txt",
+"dense": 10,
+"ce": 34,
+"fused": 15,
+"n_gold": 3
+},
+{
+"domain": "travel",
+"qid": "198471_1102",
+"doc": "travel/4087d7ff_2648.txt",
+"dense": 75,
+"ce": 51,
+"fused": 66,
+"n_gold": 3
+},
+{
+"domain": "travel",
+"qid": "191493_1129",
+"doc": "travel/c53b6f77_10315.txt",
+"dense": 40,
+"ce": 35,
+"fused": 32,
+"n_gold": 2
+},
+{
+"domain": "travel",
+"qid": "190846_1134",
+"doc": "travel/51bf68e5_11508.txt",
+"dense": 41,
+"ce": 61,
+"fused": 48,
+"n_gold": 2
+},
+{
+"domain": "travel",
+"qid": "190667_1135",
+"doc": "travel/532f225d_11883.txt",
+"dense": 15,
+"ce": 89,
+"fused": 61,
+"n_gold": 2
+},
+{
+"domain": "travel",
+"qid": "188364_1150",
+"doc": "travel/99f84ea3_14298.txt",
+"dense": 5,
+"ce": 55,
+"fused": 15,
+"n_gold": 3
+},
+{
+"domain": "travel",
+"qid": "188364_1150",
+"doc": "travel/bd3e5948_14297.txt",
+"dense": 40,
+"ce": 62,
+"fused": 52,
+"n_gold": 3
+},
+{
+"domain": "travel",
+"qid": "186482_1157",
+"doc": "travel/05c5f169_16005.txt",
+"dense": 15,
+"ce": 30,
+"fused": 16,
+"n_gold": 2
+},
+{
+"domain": "travel",
+"qid": "185727_1169",
+"doc": "travel/f06e0264_19006.txt",
+"dense": 20,
+"ce": 57,
+"fused": 31,
+"n_gold": 3
+},
+{
+"domain": "travel",
+"qid": "185727_1169",
+"doc": "travel/1664dbec_19004.txt",
+"dense": 47,
+"ce": 66,
+"fused": 57,
+"n_gold": 3
+},
+{
+"domain": "travel",
+"qid": "185727_1169",
+"doc": "travel/d1309c93_19005.txt",
+"dense": 61,
+"ce": 84,
+"fused": 84,
+"n_gold": 3
+},
+{
+"domain": "travel",
+"qid": "184615_1180",
+"doc": "travel/d955ae9f_22925.txt",
+"dense": 46,
+"ce": 15,
+"fused": 31,
+"n_gold": 2
+},
+{
+"domain": "travel",
+"qid": "183966_1189",
+"doc": "travel/f7a64fd9_24378.txt",
+"dense": 15,
+"ce": 38,
+"fused": 18,
+"n_gold": 3
+},
+{
+"domain": "travel",
+"qid": "183966_1189",
+"doc": "travel/e1e47919_24379.txt",
+"dense": 7,
+"ce": 21,
+"fused": 11,
+"n_gold": 3
+},
+{
+"domain": "travel",
+"qid": "183966_1189",
+"doc": "travel/1cd7d0ce_24380.txt",
+"dense": 14,
+"ce": 18,
+"fused": 13,
+"n_gold": 3
+},
+{
+"domain": "workplace",
+"qid": "181803_1211",
+"doc": "workplace/26ebfd2a_6707.txt",
+"dense": 28,
+"ce": 45,
+"fused": 28,
+"n_gold": 1
+},
+{
+"domain": "workplace",
+"qid": "171543_1222",
+"doc": "workplace/b6f4b332_10994.txt",
+"dense": 72,
+"ce": 35,
+"fused": 56,
+"n_gold": 5
+},
+{
+"domain": "workplace",
+"qid": "168198_1227",
+"doc": "workplace/e7d72ca1_12595.txt",
+"dense": 74,
+"ce": 19,
+"fused": 44,
+"n_gold": 2
+},
+{
+"domain": "workplace",
+"qid": "168198_1227",
+"doc": "workplace/8040232c_12596.txt",
+"dense": 57,
+"ce": 3,
+"fused": 23,
+"n_gold": 2
+}
+]

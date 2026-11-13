@@ -1601,3 +1601,23 @@ Still open: rerun-dependent numbers in S5.5/S5.6; binding `examples_dev.jsonl`
 and `documents.jsonl` into the `final_eval` marker (deliberately not edited while
 the queue is running); checkpoint weights still unpublished.
 
+## 5z. The cross-encoder rewards coverage, and that is the bottleneck (2026-11-13)
+
+Third review asked whether "valid partial evidence" is being buried. Measured
+over every document in each dev query's dense top-100 (519 queries):
+coverage-graded ranks, median 4 for documents covering all steps (73% in top
+ten), 7 for two steps, **13 for one step of a two-plus-step question (47% in
+top ten)**, 9 for the gold of a single-step question, 51 for non-relevant.
+The single-step witness lands one slot outside the ten that count.
+
+Loss analysis: of 138 zero-score queries, 86 have gold in the dense top-100,
+42 only in 101-1000, 10 nowhere in the top-1000. Of 156 (query, gold) pairs
+where the gold is in the pool but outside the fused top ten, only 19 were in
+the cross-encoder's own top ten (fusion demoted them); 96 sat at 11-50 and 41
+below 50. The bottleneck is the cross-encoder, not the fusion.
+
+Windowing is ruled out: the deployment reranker scores all windows and takes
+the max (`run_chunk_rerank.py`), so nothing is unseen; `--max-windows 3` is a
+training-validation cap only. Files: `results/PARTIAL_EVIDENCE.{md,json}`,
+`results/HARD_GOLD_PAIRS.json`.
+
