@@ -101,17 +101,17 @@ def compose_query(title, body, mode, cap_words):
                 must not qualify.
                 """
                 sc = 0.0
-                if re.search(r"(1[5-9][0-9][0-9]|20[0-9][0-9])", t):
+                if re.search(r"(\b1[5-9][0-9][0-9]\b|\b20[0-9][0-9]\b)", t):
                     sc += 3
-                if re.search(r"(before|after|between|during|since|until|prior to|"
-                             r"no later than|earlier than|later than|as of)", t, re.I):
+                if re.search(r"\b(before|after|between|during|since|until|prior to|"
+                             r"no later than|earlier than|later than|as of)\b", t, re.I):
                     sc += 3
-                if re.search(r"(except|excluding|without|other than|"
-                             r"no longer|not[^.]{0,30}(includ|mention|involv|"
+                if re.search(r"(\bexcept\b|\bexcluding\b|\bwithout\b|other than|"
+                             r"\bno longer\b|\bnot\b[^.]{0,30}\b(includ|mention|involv|"
                              r"use|used|about|from)\w*)", t, re.I):
                     sc += 2
                 if re.search(r"(more than|less than|fewer|at least|at most|"
-                             r"earliest|latest)", t, re.I):
+                             r"\bearliest\b|\blatest\b)", t, re.I):
                     sc += 2
                 return sc
 

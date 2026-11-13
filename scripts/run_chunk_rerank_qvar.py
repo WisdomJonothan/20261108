@@ -43,6 +43,25 @@ def _load_train_ce():
     return mod
 
 
+def load_raw_queries(domain, split, examples=None):
+    """Raw query text, HTML intact.
+
+    ``load_queries`` cleans the tags first, which destroys the ``<p>`` that
+    separates title from body; splitting after cleaning silently turns the whole
+    question into the "title" and empties the body. Splitting must happen on the
+    raw string, exactly as ``train_ce`` does at training time.
+    """
+    import json as _json
+    path = examples or os.path.join(ROOT, "data", "track1_tempo", domain,
+                                    "examples_%s.jsonl" % split)
+    out = {}
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            r = _json.loads(line)
+            out[r["id"]] = r["query"]
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--domain", required=True)
@@ -81,7 +100,7 @@ def main():
 
     ids, texts = load_corpus(os.path.join(ROOT, "data", "track1_tempo", args.domain))
     corpus = dict(zip(ids, texts))
-    raw = load_queries(args.domain, args.split, "full", args.examples)
+    raw = load_raw_queries(args.domain, args.split, args.examples)
     queries = {}
     for qid, q in raw.items():
         t, b = tce.split_raw_query(q)

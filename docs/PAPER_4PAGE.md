@@ -15,7 +15,8 @@ two-stage ranker - a zero-shot dense retriever plus a windowed cross-encoder
 fine-tuned on the 1,071 training queries that carry at least one positive among
 their dense top-100 candidates - that scores 0.3581 domain-macro nDCG@10 on the
 13-domain dev set, against 0.2943 for the dense stage and 0.1147 for the
-organisers' BM25 baseline. The reranker contributes +0.0332 (domain-clustered
+organisers' BM25 baseline. Against the same pipeline with the cross-encoder
+left at zero-shot (0.3249), the fine-tuned reranker contributes +0.0332 (domain-clustered
 95% CI [+0.0192, +0.0472]) at a fusion form fixed before fine-tuning, and
 reproduces at +0.0326 / +0.0279 under two further seeds. The remaining headroom
 is only partly recall: at the 100 candidates the reranker sees, 80.7% of
@@ -56,10 +57,12 @@ LambdaRank training [@burges2010lambdarank; @wang2018lambdaloss], with one
 difference: instead of ordering one list, it asks that every official step of a
 question own a document in the top ten. Multi-stage fusion has its own line -
 list-aware reranking of the first stage's list [@zhang2022hlatr] and joint
-selection of documents that cover the answer set [@mao2021jpr] - but both train
-the fusion stage end to end, whereas we freeze the first stage and ask what the
-second stage can add; the retrieval-side probes and the fusion-weight family
-below are that question. Temporal retrieval is the benchmark's own subject
+selection of documents that cover the answer set [@mao2021jpr] - but both learn
+the second stage jointly with the list it consumes (HLATR adds a list-aware
+module over retrieved and reranked lists; JPR reranks the set autoregressively),
+whereas we freeze the first stage and ask what one second stage can add at a
+fixed fusion weight. The contribution is the measured behaviour of that frozen
+system, not a new fusion architecture. Temporal retrieval is the benchmark's own subject
 [@abdallah2026tempo]; our contribution there is negative evidence about what
 does not transfer from the two-domain pilot to the full suite.
 
@@ -309,8 +312,8 @@ one per mechanism
 | step coverage | history/59309_621 | 2 | 1, 10 (CE 1, 72) | 0.6131 |
 
 The pool miss is a PNR booking-limit question whose evidence sits outside the
-1,000 documents returned - not near the question's lexical neighbourhood, and no
-reranking depth recovers it. The ordering case ("How do we know when Nero was
+100 candidates the reranker sees (dense rank 656); a deeper second stage could
+reach that document, but nothing downstream of the reranker can. The ordering case ("How do we know when Nero was
 born?") has its gold at dense rank 24, moves to 14 for the cross-encoder and 17
 fused, and scores zero. The step case ("How many people watched the moon
 landings after Apollo 11?") keeps the Apollo 11 figures at rank 1 but pushes the
@@ -322,8 +325,8 @@ more relevant documents in the top ten (S5.2).
 ## 9 Conclusion
 
 A zero-shot dense stage plus a cross-encoder fine-tuned on the 1,071 questions
-with an in-pool positive gives +0.0332 domain-macro nDCG@10 over the dense
-baseline on all 13 dev domains, stable across seeds (0.347-0.358). Two failures remain:
+with an in-pool positive gives +0.0332 domain-macro nDCG@10 over the same pipeline with the
+cross-encoder left at zero-shot (0.3249), on all 13 dev domains, stable across seeds (0.347-0.358). Two failures remain:
 an incomplete pool (1.9% of questions have no gold in the dense top-1,000) and
 multi-evidence coverage (59.5% of steps in the fused top ten). Every explicit temporal intervention - ten probes, one pre-registered
 test, step supervision, query reformulation, loss variants, backfilling, rank
@@ -370,7 +373,7 @@ Evaluation of IR Techniques. *ACM Transactions on Information Systems*,
 [hinton2015distilling] Geoffrey Hinton, Oriol Vinyals, and Jeff Dean. 2015.
 Distilling the Knowledge in a Neural Network. arXiv:1503.02531.
 
-[chen2024bgem3] Jianlv Chen, Shitao Xiao, Peitian Zhang, Kun Luo, Defu Lian, and
+[chen2024m3] Jianlv Chen, Shitao Xiao, Peitian Zhang, Kun Luo, Defu Lian, and
 Zheng Liu. 2024. BGE M3-Embedding: Multi-Lingual, Multi-Functionality,
 Multi-Granularity Text Embeddings Through Self-Knowledge Distillation.
 arXiv:2402.03216.
@@ -382,7 +385,7 @@ report the exact revision in `results/MODEL_MANIFEST.json`.
 
 [zhang2022hlatr] Yanzhao Zhang, Dingkun Long, Guangwei Xu, and Pengjun Xie. 2022. HLATR: Enhance Multi-Stage Text Retrieval with Hybrid List Aware Transformer Reranking. arXiv:2205.10569.
 
-[mao2021jpr] Yuning Mao, Pengcheng He, Xiaodong Liu, Yelong Shen, Jianfeng Gao, Jiawei Han, and Weizhu Chen. 2021. Joint Passage Ranking for Diverse Multi-Answer Retrieval. In *EMNLP 2021*, pages 6997-7008.
+[mao2021jpr] Sewon Min, Kenton Lee, Ming-Wei Chang, Kristina Toutanova, and Hannaneh Hajishirzi. 2021. Joint Passage Ranking for Diverse Multi-Answer Retrieval. In *EMNLP 2021*, pages 6997-7008.
 
 ## Appendix A. The six-step ladder in full
 

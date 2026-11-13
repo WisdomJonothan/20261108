@@ -151,11 +151,19 @@ def convert(md):
                 body.append(r"\begin{thebibliography}{99}")
                 body.append(r"\small")
             else:
+                if state["refs"]:
+                    body.append(r"\end{thebibliography}")
+                    body.append("")
+                    state["refs"] = False
                 body.append(r"\section*{%s}" % esc(name))
             i += 1
             continue
         if s.startswith("### "):
             flush_para(); flush_bullets()
+            if state["refs"]:
+                body.append(r"\end{thebibliography}")
+                body.append("")
+                state["refs"] = False
             body.append(r"\subsection*{%s}" % esc(s[4:].strip()))
             i += 1
             continue

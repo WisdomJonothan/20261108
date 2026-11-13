@@ -46,7 +46,7 @@ def dir_digest(path):
     return h.hexdigest()[:16]
 
 
-def fingerprint(ckpt, params, inputs):
+def fingerprint(ckpt, params, inputs, stat_inputs=()):
     h = hashlib.sha1()
     h.update(dir_digest(ckpt).encode())
     h.update(b"|")
@@ -54,6 +54,10 @@ def fingerprint(ckpt, params, inputs):
     for p in inputs:
         size, sha = file_digest(p)
         h.update(b"|%s|%d|%s" % (os.path.basename(p).encode(), size, sha.encode()))
+    for p in stat_inputs:
+        st = os.stat(p)
+        h.update(b"|stat|%s|%d|%d" % (os.path.basename(p).encode(), st.st_size,
+                                      st.st_mtime_ns))
     return h.hexdigest()[:16]
 
 
@@ -64,11 +68,13 @@ def main():
     ap.add_argument("--ckpt", required=True)
     ap.add_argument("--params", required=True)
     ap.add_argument("--input", nargs="*", default=[])
+    ap.add_argument("--stat-input", nargs="*", default=[],
+                    help="large inputs bound by size+mtime instead of a full hash")
     ap.add_argument("--note", default="")
     a = ap.parse_args()
 
     marker = a.out + ".done.json"
-    fp = fingerprint(a.ckpt, a.params, a.input)
+    fp = fingerprint(a.ckpt, a.params, a.input, a.stat_input)
 
     if a.action == "stamp":
         size, sha = file_digest(a.out)

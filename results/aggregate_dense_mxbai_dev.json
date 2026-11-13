@@ -1,0 +1,113 @@
+{
+ "tag": "dense_mxbai",
+ "metric": "nDCG@10",
+ "domains": [
+  {
+   "domain": "bitcoin",
+   "n": 30,
+   "n_in_run": 30,
+   "ndcg10": 0.18204963333208657,
+   "file": "results\\score_dense_mxbai_bitcoin_dev.json"
+  },
+  {
+   "domain": "cardano",
+   "n": 15,
+   "n_in_run": 15,
+   "ndcg10": 0.18319061679447046,
+   "file": "results\\score_dense_mxbai_cardano_dev.json"
+  },
+  {
+   "domain": "economics",
+   "n": 25,
+   "n_in_run": 25,
+   "ndcg10": 0.18903699248838302,
+   "file": "results\\score_dense_mxbai_economics_dev.json"
+  },
+  {
+   "domain": "genealogy",
+   "n": 35,
+   "n_in_run": 35,
+   "ndcg10": 0.32984916839424266,
+   "file": "results\\score_dense_mxbai_genealogy_dev.json"
+  },
+  {
+   "domain": "history",
+   "n": 240,
+   "n_in_run": 240,
+   "ndcg10": 0.3050957892833344,
+   "file": "results\\score_dense_mxbai_history_dev.json"
+  },
+  {
+   "domain": "hsm",
+   "n": 45,
+   "n_in_run": 45,
+   "ndcg10": 0.31251689695727997,
+   "file": "results\\score_dense_mxbai_hsm_dev.json"
+  },
+  {
+   "domain": "iota",
+   "n": 3,
+   "n_in_run": 3,
+   "ndcg10": 0.6485438794897314,
+   "file": "results\\score_dense_mxbai_iota_dev.json"
+  },
+  {
+   "domain": "law",
+   "n": 11,
+   "n_in_run": 11,
+   "ndcg10": 0.3689333975800688,
+   "file": "results\\score_dense_mxbai_law_dev.json"
+  },
+  {
+   "domain": "monero",
+   "n": 19,
+   "n_in_run": 19,
+   "ndcg10": 0.18264492669870733,
+   "file": "results\\score_dense_mxbai_monero_dev.json"
+  },
+  {
+   "domain": "politics",
+   "n": 45,
+   "n_in_run": 45,
+   "ndcg10": 0.35993745945881966,
+   "file": "results\\score_dense_mxbai_politics_dev.json"
+  },
+  {
+   "domain": "quant",
+   "n": 10,
+   "n_in_run": 10,
+   "ndcg10": 0.19543107187767816,
+   "file": "results\\score_dense_mxbai_quant_dev.json"
+  },
+  {
+   "domain": "travel",
+   "n": 30,
+   "n_in_run": 30,
+   "ndcg10": 0.23210424898781032,
+   "file": "results\\score_dense_mxbai_travel_dev.json"
+  },
+  {
+   "domain": "workplace",
+   "n": 11,
+   "n_in_run": 11,
+   "ndcg10": 0.3362463390258097,
+   "file": "results\\score_dense_mxbai_workplace_dev.json"
+  }
+ ],
+ "num_domains": 13,
+ "num_topics": 519,
+ "topic_macro": 0.2891208669777126,
+ "domain_macro": 0.2942754169514171,
+ "topic_macro_n_ge_19": 0.28923017324009626,
+ "domain_macro_n_ge_19": 0.261654389450083,
+ "domains_n_ge_19": [
+  "bitcoin",
+  "economics",
+  "genealogy",
+  "history",
+  "hsm",
+  "monero",
+  "politics",
+  "travel"
+ ]
+}

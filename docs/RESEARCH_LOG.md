@@ -1555,3 +1555,49 @@ aggregation path: CE-only 0.2755 (probe, per-query then domain) against 0.2756
 (multievidence file); the checker accepts a 2e-4 window and the paper keeps the
 multievidence value, which is the artefact it cites.
 
+## 5y. Two implementation bugs found in review (2026-11-13)
+
+**B1. The variant reranker never saw a title.** `run_chunk_rerank_qvar.py` loaded
+queries through `run_chunk_rerank.load_queries(..., "full")`, which strips HTML
+tags, and then called `train_ce.split_raw_query`, which splits on `<p>`. After
+cleaning there is no `<p>`, so the whole question became the "title" and the body
+was empty: `--q-mode title` was really "full text, 256-word cap".
+
+Scope, established by recomputing query `314_806` (iota) against the stored
+frozen run: the frozen `rerank_sft_e2bc_*` files correlate 0.975 with a
+title-only recompute (top-10 overlap 8/10) and 0.807 with a full-text one
+(top-10 4/10), so the frozen 0.3581 was measured the way the submission runs
+(title only). Everything run through `final_eval.sh` after the qvar script was
+adopted was not: `lx_possum` 0.3470, `lx_ep1` 0.3428, `sx_l03` 0.3442,
+`sx_l10` 0.3438, `cx_bf` 0.3443 all used full-text-as-title. `cx_qv` asked for
+`full`, so its 64-word query was close to what it meant to be.
+
+Consequence: the "same-code retrain costs 0.0111" attribution (S5.5/S5.6) is
+confounded with the query change and must be re-measured. Re-runs with fixed
+tags (`lx_possum2`, `lx_ep1b`, `sx_l03b`, `sx_l10b`, `cx_bfb`) started at 14:23;
+the old files stay for comparison.
+
+After the fix, qvar reproduces `run_chunk_rerank.py --q-mode title` exactly
+(Pearson 1.00000, max |delta| 0 on the test query).
+
+**B2. The cue selector's word-boundary regexes were 21 backspaces.** `train_ce`
+contained literal U+0008 where `` was intended, so year and
+before/after/between cues never matched as boundaries. Now fixed: 
+`compose_query("Title", "Only after 2020.", "ctxt", 64)` returns
+"Title Only after 2020." instead of "Title". This invalidates the `ctxt`
+representation arm (val 0.2744) as evidence about constraint-faithful
+reformulation; it was never run on dev, so no dev number changes.
+
+**Paper fixes independent of the re-runs.** +0.0332 now names its comparator
+(zero-shot CE pipeline 0.3249, not the dense stage); the 656-rank error case is
+described as outside the top-100 the reranker sees (a deeper stage could reach
+it) instead of outside 1,000; JPR is attributed to Min et al.; the M3 cite key
+matches its bibitem (no more `[?]`); HLATR/JPR are described as learning the
+second stage with the list it consumes rather than "end to end"; and
+`md2tex.py` now closes `thebibliography` before Appendix A, which restores the
+A.1-A.4 prose that the earlier PDF had silently dropped.
+
+Still open: rerun-dependent numbers in S5.5/S5.6; binding `examples_dev.jsonl`
+and `documents.jsonl` into the `final_eval` marker (deliberately not edited while
+the queue is running); checkpoint weights still unpublished.
+
