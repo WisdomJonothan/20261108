@@ -1,0 +1,12 @@
+{
+ "domain": "travel",
+ "queries": 30,
+ "pairs": 3000,
+ "max_len": 2048,
+ "body_budget": 2000,
+ "doc_cap": 4000,
+ "truncated_bodies": 0,
+ "prefix_tokens": 39,
+ "suffix_tokens": 9,
+ "protocol": "Qwen3 model card: prefix + truncated body + think suffix, P(yes)"
+}

@@ -272,6 +272,15 @@ model both criteria prefer epoch 1, and that preference is itself noise (epoch 1
 0.3560 against 0.3575, CI [-0.0047, +0.0020], 423 of 519 tied). A single-stage metric is thus a good ranker of cross-encoders and a
 poor ranker of the system they feed.
 
+**A general-purpose reranker does not fill the gap.** Qwen3-Reranker-0.6B - 0.6B
+parameters, close to our 0.57B cross-encoder - was scored on the same dense
+top-100 under its official input recipe (budgeted document body, think suffix,
+P(yes)): 0.2313 on its own, below our fine-tuned 0.2765, and 0.2996 when fused
+at the same 1:1 weights, 0.058 under the frozen system. Candidates and fusion
+are identical in both runs, so the difference is the task fine-tune rather than
+the first stage or the fusion rule, and the two models are of comparable size,
+so it is not a capacity story either.
+
 ## 6 Reproducibility
 
 Every number in the tables is recomputed from released artefacts rather than

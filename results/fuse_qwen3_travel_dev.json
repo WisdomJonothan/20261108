@@ -1,0 +1,13 @@
+{
+ "run_a": "D:\\RETECO\\runs\\dense_mxbai_travel_dev.trec",
+ "run_b": "D:\\RETECO\\runs\\rerank_qwen3_travel_dev.trec",
+ "wa": 1.0,
+ "wb": 1.0,
+ "norm": "z",
+ "queries": 30,
+ "common": 3000,
+ "a_only": 27000,
+ "b_only": 0,
+ "all_tied": 0,
+ "note": "scores are fused values, not comparable across queries"
+}

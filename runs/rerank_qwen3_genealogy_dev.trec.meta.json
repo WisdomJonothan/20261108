@@ -1,0 +1,12 @@
+{
+ "domain": "genealogy",
+ "queries": 35,
+ "pairs": 3500,
+ "max_len": 2048,
+ "body_budget": 2000,
+ "doc_cap": 4000,
+ "truncated_bodies": 29,
+ "prefix_tokens": 39,
+ "suffix_tokens": 9,
+ "protocol": "Qwen3 model card: prefix + truncated body + think suffix, P(yes)"
+}

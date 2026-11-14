@@ -1,0 +1,12 @@
+{
+ "domain": "iota",
+ "queries": 3,
+ "pairs": 300,
+ "max_len": 4096,
+ "body_budget": 4048,
+ "doc_cap": 6000,
+ "truncated_bodies": 0,
+ "prefix_tokens": 39,
+ "suffix_tokens": 9,
+ "protocol": "Qwen3 model card: prefix + truncated body + think suffix, P(yes)"
+}

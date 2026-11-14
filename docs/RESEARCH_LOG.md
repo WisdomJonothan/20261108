@@ -1790,3 +1790,40 @@ rerank/score files for the five repaired arms (committed now), a `MODEL_MANIFEST
 with downloadable weights (not published), and the human verification of the
 44-row hard-pair sheet, which remains explicitly labelled *automatic screen,
 awaiting human check*.
+
+## 5ae. Qwen3-Reranker-0.6B baseline, official protocol (2026-11-14)
+
+The fourth audit's first item was that the previous Qwen run could not serve as
+a baseline: the prompt ended at `assistant\n` (no think block) and the whole
+prompt was truncated to 1,024 tokens, so long queries lost their scoring
+suffix. Re-implemented to the model card: `prefix + body + suffix`, body
+pre-truncated to `max_len - len(prefix) - len(suffix)` with `longest_first`,
+score = P(yes) from the `[no, yes]` log-softmax at the last position, and a
+`.meta.json` per domain recording the protocol, body budget and how many bodies
+were cut.
+
+Operational notes: batch 16 at 2,048 tokens OOMs on the 8 GB card after a few
+queries (attention buffers + fragmentation); the script now halves the batch on
+`torch.OutOfMemoryError` and calls `empty_cache()` after every query, and the
+history/hsm reruns used batch 4 with `expandable_segments:True`. Four dev
+queries exceed 1,000 tokens (hsm 18672_660 = 2,069; history 70364_290 = 1,757,
+56254_754 = 1,429; law 102419_841 = 1,066); they were re-scored at
+`max_len=4096` via `--qids` and spliced in with `merge_trec_run.py`, so no
+query is scored on a document-free prefix.
+
+Results (13 domains, 519 queries, same dense top-100 for both systems):
+
+    Qwen3-Reranker-0.6B, cross-encoder alone      0.2313
+    Qwen3 fused with dense at z 1:1               0.2996
+    our cross-encoder alone (probe)               0.2765
+    our frozen system                             0.3575
+
+So the fine-tune is worth +0.045 standalone and +0.058 fused on identical
+candidates. The size story from the previous report is withdrawn twice over:
+`bge-reranker-v2-m3` is 567.8M total parameters (202.6M updated), so the
+comparison is 0.57B against 0.6B, and §5.6 now states it that way.
+
+The old five-domain numbers from the broken protocol (bitcoin 0.1168/0.2144,
+cardano 0.1628/0.2270, economics 0.1794/0.2366, genealogy 0.3062/0.4074,
+iota 0.6842/0.8411) are void: the "fused" column was in fact the dense ordering,
+because the script had written the run unsorted.

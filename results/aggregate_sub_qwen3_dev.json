@@ -1,0 +1,113 @@
+{
+ "tag": "",
+ "metric": "nDCG@10",
+ "domains": [
+  {
+   "domain": "bitcoin",
+   "n": 30,
+   "n_in_run": 30,
+   "ndcg10": 0.16514180233468637,
+   "file": "results\\score_sub_qwen3_bitcoin_dev.json"
+  },
+  {
+   "domain": "cardano",
+   "n": 15,
+   "n_in_run": 15,
+   "ndcg10": 0.18067705955262747,
+   "file": "results\\score_sub_qwen3_cardano_dev.json"
+  },
+  {
+   "domain": "economics",
+   "n": 25,
+   "n_in_run": 25,
+   "ndcg10": 0.1939793851232951,
+   "file": "results\\score_sub_qwen3_economics_dev.json"
+  },
+  {
+   "domain": "genealogy",
+   "n": 35,
+   "n_in_run": 35,
+   "ndcg10": 0.3455360913217917,
+   "file": "results\\score_sub_qwen3_genealogy_dev.json"
+  },
+  {
+   "domain": "history",
+   "n": 240,
+   "n_in_run": 240,
+   "ndcg10": 0.30390219736023244,
+   "file": "results\\score_sub_qwen3_history_dev.json"
+  },
+  {
+   "domain": "hsm",
+   "n": 45,
+   "n_in_run": 45,
+   "ndcg10": 0.3217287700486113,
+   "file": "results\\score_sub_qwen3_hsm_dev.json"
+  },
+  {
+   "domain": "iota",
+   "n": 3,
+   "n_in_run": 3,
+   "ndcg10": 0.7248972433100992,
+   "file": "results\\score_sub_qwen3_iota_dev.json"
+  },
+  {
+   "domain": "law",
+   "n": 11,
+   "n_in_run": 11,
+   "ndcg10": 0.35115016076701755,
+   "file": "results\\score_sub_qwen3_law_dev.json"
+  },
+  {
+   "domain": "monero",
+   "n": 19,
+   "n_in_run": 19,
+   "ndcg10": 0.23161319396277222,
+   "file": "results\\score_sub_qwen3_monero_dev.json"
+  },
+  {
+   "domain": "politics",
+   "n": 45,
+   "n_in_run": 45,
+   "ndcg10": 0.3544149448580619,
+   "file": "results\\score_sub_qwen3_politics_dev.json"
+  },
+  {
+   "domain": "quant",
+   "n": 10,
+   "n_in_run": 10,
+   "ndcg10": 0.19543107187767816,
+   "file": "results\\score_sub_qwen3_quant_dev.json"
+  },
+  {
+   "domain": "travel",
+   "n": 30,
+   "n_in_run": 30,
+   "ndcg10": 0.2620268817425814,
+   "file": "results\\score_sub_qwen3_travel_dev.json"
+  },
+  {
+   "domain": "workplace",
+   "n": 11,
+   "n_in_run": 11,
+   "ndcg10": 0.2648463446514083,
+   "file": "results\\score_sub_qwen3_workplace_dev.json"
+  }
+ ],
+ "num_domains": 13,
+ "num_topics": 519,
+ "topic_macro": 0.2912082340478055,
+ "domain_macro": 0.29964193437775866,
+ "topic_macro_n_ge_19": 0.2932237815974667,
+ "domain_macro_n_ge_19": 0.27229290834400405,
+ "domains_n_ge_19": [
+  "bitcoin",
+  "economics",
+  "genealogy",
+  "history",
+  "hsm",
+  "monero",
+  "politics",
+  "travel"
+ ]
+}

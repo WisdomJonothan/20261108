@@ -109,6 +109,12 @@ should keep its table.
   stage reads the full question (§5.3 already says this).
 * "step recall 96.3%" without the depth-1000 qualifier (§5.2).
 * "annotation-free ceiling" - it is a fixed year-consistency rule that loses.
+* "a 0.2B reranker beats a 4x larger one" - the cross-encoder is
+  `bge-reranker-v2-m3`: 567.8M total parameters, of which 202.6M are updated.
+  The honest comparison is 0.57B against Qwen3's 0.6B, and the two must be
+  compared under the same fusion as well as standalone.
+* "the better standalone model is worse fused at every weight" - false at
+  w=2 (0.3546 against 0.3492); only the frozen 1:1 inversion is established.
 
 ## 7. Weight release plan (decided 2026-11-13, not yet executed)
 
@@ -131,3 +137,18 @@ new computation, only storage and credentials; until it is done the status of
 the paper stays `draft` and the README says the system cannot be rebuilt from
 scratch.
 
+
+
+## 8. Evidence status after the fourth audit (2026-11-14)
+
+| item | state |
+|---|---|
+| frozen result 0.3581, +0.0332 [+0.0192,+0.0472] | reproducible from committed runs + scores |
+| five repaired arms (lx_possum2, sx_l03b, sx_l10b, cx_bfb, lx_ep1b) | 65 rerank + 65 score files now committed |
+| CE-vs-fusion inversion, weights | probe JSON committed; the old 0.3552 was a weighting bug, the number is 0.3522 |
+| counterfactual coverage bound | algorithm fixed (exact DP): 1.3405 / 1.1844, +5.5% / +6.5%, not +2.3% / +4.2% |
+| claims gate | 22 claims, cross-checked against the paper text; `check_claims.py` passes |
+| paper entry point | single source `docs/PAPER_4PAGE.md` → `paper/main.tex` → `paper/main.pdf`; root copies deleted |
+| Qwen3-Reranker-0.6B baseline | protocol rewritten to the model card (budgeted body + think suffix), 13-domain rerun in progress; the five old-protocol domain numbers are withdrawn |
+| hard-pair sheet | 44 rows, explicitly *automatic screen, awaiting human check* |
+| weights | still unpublished, still the largest reproducibility gap |

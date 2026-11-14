@@ -1,0 +1,12 @@
+{
+ "domain": "law",
+ "queries": 11,
+ "pairs": 1100,
+ "max_len": 2048,
+ "body_budget": 2000,
+ "doc_cap": 4000,
+ "truncated_bodies": 5,
+ "prefix_tokens": 39,
+ "suffix_tokens": 9,
+ "protocol": "Qwen3 model card: prefix + truncated body + think suffix, P(yes)"
+}
