@@ -1,0 +1,113 @@
+{
+ "tag": "lx_ep1b",
+ "metric": "nDCG@10",
+ "domains": [
+  {
+   "domain": "bitcoin",
+   "n": 30,
+   "n_in_run": 30,
+   "ndcg10": 0.21764941085614492,
+   "file": "results\\score_sub_lx_ep1b_bitcoin_dev.json"
+  },
+  {
+   "domain": "cardano",
+   "n": 15,
+   "n_in_run": 15,
+   "ndcg10": 0.22578319338099426,
+   "file": "results\\score_sub_lx_ep1b_cardano_dev.json"
+  },
+  {
+   "domain": "economics",
+   "n": 25,
+   "n_in_run": 25,
+   "ndcg10": 0.25011243686342133,
+   "file": "results\\score_sub_lx_ep1b_economics_dev.json"
+  },
+  {
+   "domain": "genealogy",
+   "n": 35,
+   "n_in_run": 35,
+   "ndcg10": 0.4015661974744993,
+   "file": "results\\score_sub_lx_ep1b_genealogy_dev.json"
+  },
+  {
+   "domain": "history",
+   "n": 240,
+   "n_in_run": 240,
+   "ndcg10": 0.3895469251790545,
+   "file": "results\\score_sub_lx_ep1b_history_dev.json"
+  },
+  {
+   "domain": "hsm",
+   "n": 45,
+   "n_in_run": 45,
+   "ndcg10": 0.46325705690231633,
+   "file": "results\\score_sub_lx_ep1b_hsm_dev.json"
+  },
+  {
+   "domain": "iota",
+   "n": 3,
+   "n_in_run": 3,
+   "ndcg10": 0.8382954784660104,
+   "file": "results\\score_sub_lx_ep1b_iota_dev.json"
+  },
+  {
+   "domain": "law",
+   "n": 11,
+   "n_in_run": 11,
+   "ndcg10": 0.4341711859383087,
+   "file": "results\\score_sub_lx_ep1b_law_dev.json"
+  },
+  {
+   "domain": "monero",
+   "n": 19,
+   "n_in_run": 19,
+   "ndcg10": 0.20615586469741978,
+   "file": "results\\score_sub_lx_ep1b_monero_dev.json"
+  },
+  {
+   "domain": "politics",
+   "n": 45,
+   "n_in_run": 45,
+   "ndcg10": 0.42612582890643724,
+   "file": "results\\score_sub_lx_ep1b_politics_dev.json"
+  },
+  {
+   "domain": "quant",
+   "n": 10,
+   "n_in_run": 10,
+   "ndcg10": 0.153796286139897,
+   "file": "results\\score_sub_lx_ep1b_quant_dev.json"
+  },
+  {
+   "domain": "travel",
+   "n": 30,
+   "n_in_run": 30,
+   "ndcg10": 0.24185491934138378,
+   "file": "results\\score_sub_lx_ep1b_travel_dev.json"
+  },
+  {
+   "domain": "workplace",
+   "n": 11,
+   "n_in_run": 11,
+   "ndcg10": 0.38005549878720135,
+   "file": "results\\score_sub_lx_ep1b_workplace_dev.json"
+  }
+ ],
+ "num_domains": 13,
+ "num_topics": 519,
+ "topic_macro": 0.36207957958040343,
+ "domain_macro": 0.3560284833025453,
+ "topic_macro_n_ge_19": 0.36572113235125125,
+ "domain_macro_n_ge_19": 0.32453358002758464,
+ "domains_n_ge_19": [
+  "bitcoin",
+  "economics",
+  "genealogy",
+  "history",
+  "hsm",
+  "monero",
+  "politics",
+  "travel"
+ ]
+}

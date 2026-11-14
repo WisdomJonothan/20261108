@@ -80,20 +80,40 @@ def ndcg10(ranked, gold, k=10):
 
 
 def best_union(docs, doc_steps, k):
-    """Largest union of steps any k of `docs` can cover."""
+    """Largest union of steps any k of `docs` can cover.
+
+    Exact, by dynamic programming over the subsets of the query's step set:
+    dp[mask] is the fewest documents needed to cover `mask`.  The earlier
+    version stopped as soon as it found a combo with no internal overlap,
+    which is not the same as the largest union (three docs covering {1}, {2}
+    and {1,3}: no-overlap pairs stop at two, the best pair gives three).
+    Per query the step set is small (<= 8 in this corpus), so the 2**|steps|
+    table is cheap.
+    """
     if k <= 0 or not docs:
         return 0
-    if k == 1:
-        return max(len(doc_steps.get(d, ())) for d in docs)
+    step_ids = sorted({s for d in docs for s in doc_steps.get(d, ())})
+    if not step_ids:
+        return 0
+    bit = {s: 1 << i for i, s in enumerate(step_ids)}
+    full = (1 << len(step_ids)) - 1
+    INF = 10 ** 6
+    dp = [INF] * (full + 1)
+    dp[0] = 0
+    for d in docs:
+        m = 0
+        for s in doc_steps.get(d, ()):
+            m |= bit[s]
+        if not m:
+            continue
+        prev = dp[:]          # each document may be used at most once
+        for mask in range(full + 1):
+            if prev[mask] + 1 < dp[mask | m]:
+                dp[mask | m] = prev[mask] + 1
     best = 0
-    for combo in itertools.combinations(docs, k):
-        u = set()
-        for d in combo:
-            u |= doc_steps.get(d, set())
-        if len(u) > best:
-            best = len(u)
-            if best == sum(len(doc_steps.get(d, ())) for d in combo):
-                break
+    for mask in range(full + 1):
+        if dp[mask] <= k:
+            best = max(best, bin(mask).count("1"))
     return best
 
 

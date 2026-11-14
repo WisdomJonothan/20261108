@@ -1,0 +1,25 @@
+{
+ "label": "cx_bfb vs frozen",
+ "topics": 519,
+ "domains": 13,
+ "statistic": "domain-macro (official)",
+ "baseline_macro": 0.35809852326897723,
+ "candidate_macro": 0.3564849954292908,
+ "delta": -0.001613527839686435,
+ "query_bootstrap": {
+  "mean": -0.00169330299954432,
+  "ci_lo": -0.010087169799815051,
+  "ci_hi": 0.006869585378127037,
+  "p_gt_0": 0.3458
+ },
+ "domain_bootstrap": {
+  "mean": -0.0015406451754453887,
+  "ci_lo": -0.008831181015534106,
+  "ci_hi": 0.006121531868093535,
+  "p_gt_0": 0.3435
+ },
+ "better": 114,
+ "worse": 81,
+ "iters": 10000,
+ "seed": 7
+}

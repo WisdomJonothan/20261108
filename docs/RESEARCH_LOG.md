@@ -1621,3 +1621,172 @@ the max (`run_chunk_rerank.py`), so nothing is unseen; `--max-windows 3` is a
 training-validation cap only. Files: `results/PARTIAL_EVIDENCE.{md,json}`,
 `results/HARD_GOLD_PAIRS.json`.
 
+
+## 5aa. The counterfactual coverage bound: what a coverage-aware reranker gets for free (2026-11-14)
+
+The third review's third priority: hold the relevance pattern of the top ten
+fixed (same judged-relevant documents at the same ranks, so nDCG@10 cannot
+move), re-choose which relevant documents fill those slots from the dense
+top-100, and see how many more annotated steps a coverage-aware ranker could
+cover. Script `scripts/coverage_cf_bound.py`; results `COVERAGE_CF_BOUND.json`
+and `COVERAGE_CF_BOUND_ce.json`, write-up `results/COVERAGE_CF_BOUND.md`.
+
+| ranking scored | steps@10 | best, same slots | pool ceiling | annotation ceiling | nDCG@10 |
+|---|---|---|---|---|---|
+| fused | 1.2702 | 1.2989 | 1.6967 | 2.0739 | 0.3581 |
+| cross-encoder alone | 1.1122 | 1.1593 | 1.6967 | 2.0739 | 0.2823 |
+
+39/519 queries gain (44 step-slots) for the fused list and 44/519 (58 slots)
+for the cross-encoder: +0.029 and +0.047 steps per query, +2.3% and +4.2%
+relative. That is the entire free lunch.
+
+Three consequences.
+
+1. A coverage term that only reorders relevant documents among themselves
+   cannot pay for itself. The 51.4% -> 59.5% framing in the paper is a
+   property of the lists, not a deficit a reordering layer repairs.
+2. The real gap is relevance: the top ten shows 61% of annotated steps, the
+   pool makes 82% reachable, and closing that 0.43-step gap means ranking
+   pool golds higher, which is what nDCG@10 pays for (pool oracle: 0.7446 at
+   1.6967 steps). "Cover another step" and "put another gold in the top ten"
+   are the same event. So the hard-pair programme has to be tested as a
+   re-weighting of the listwise objective, and its value must appear in
+   nDCG@10; there is no separate coverage axis to optimise.
+3. The only separable headroom is the pool: 0.377 steps per query (18% of
+   annotations) never enter the top-100. That is the ceiling the fixed-budget
+   candidate remediation has to beat, and the number to quote if it is tried.
+
+## 5ab. Paper rebuilt on the repaired numbers, weight paragraph, hard pairs (2026-11-14)
+
+`§5ac` supersedes the weight claims in 5s.7 and the "reweighting cannot fix it"
+sentence in the audit reply; the old numbers came from the query-split bug.
+
+1. **Weight is a free parameter with a model-specific optimum.** Fixed pipeline,
+   45 held-out queries: `lx_possum` prefers 0.75 (val 0.3307 against 0.3218 at
+   1.0), `cx_qv` prefers 1.25 (0.3280 against 0.3197). Carried to dev through
+   `ops/fuse_at_weight.sh`: `lx_possum` 0.3552 (a 0.0023 loss against w=1's
+   0.3575), `cx_qv` 0.3509 (a 0.0066 gain against 0.3443). So reweighting moves
+   a model by up to 0.007, closes part of the 0.0132 gap, and still leaves both
+   under the frozen 0.3581. The controlled probe (z over the same 100
+   candidates) peaks at 1.0-1.5 for `lx_possum` (0.3575/0.3563) and 1.5-2.0 for
+   `cx_qv` (0.3532/0.3546): the ordering survives the sweep.
+2. **Probe rerun on repaired runs** (`results/CE_FUSION_PROBE_FIXED.json`,
+   `CE_FUSION_DECOMP_FIXED.json`): CE-only 0.2765/0.3152; fused 0.3575/0.3443;
+   anchoring 0.726/0.543 and 0.748/0.600; slope 0.289 (169 improved +0.2082 ->
+   +0.0438, 215 flat -0.0113, 135 hurt -0.1661 -> -0.0665); transplant
+   0.3500/0.3421; RRF 0.3433/0.3462. All unchanged from the bug-era decomp
+   except the two fused anchors - the mechanism numbers were robust to the bug.
+3. **`§6 Reproducibility` had been lost** in an earlier in-place rewrite (the
+   markdown had no section 6 between 5.6 and 7). Rewritten at 120 words: claim
+   ledger, three-command pipeline, RTX 4060 timing (6 h encoding at 52 doc/s,
+   80 min reranking), seeds as released runs.
+4. **Hard pairs.** Of the 156 judged-relevant documents the frozen top ten does
+   not show, **125 would add a step no top-ten document covers** and 67 are
+   single-step evidence (history 60, travel 15, politics 10, hsm 9, bitcoin 8).
+   `results/HARD_PAIR_ENRICHED.json` and `results/HARD_PAIR_SHEET.md` (44 rows,
+   CE rank >= 11, <= 5 per domain) are the human-verification sheet: if the
+   annotations hold, these are the pairs a coverage-aware objective must move.
+5. **Qwen3-Reranker-0.6B baseline** is running (`ops/queue_qwen3.sh`, log
+   `logs/qwen3_rerank.log`): 1.19 GB weights from ModelScope (3.6 MB/s; the HF
+   mirror stalled at 0.35 MB/s), `accelerate` 1.15.0 installed, iota smoke test
+   passed. Scores will be fused at the same 1:1 and scored with the same script,
+   so the comparison is like-for-like except the model.
+
+## 5ac. Qwen3-Reranker prompt: the chat template silently emptied the query (2026-11-14)
+
+The first Qwen3 run produced identical scores for every pair (-5.53125 on every
+document). Three defects, found in this order:
+
+1. `apply_chat_template(messages, add_generation_prompt=...)` does not reproduce
+   the Qwen3-Reranker prompt here: the rendered string lost the query and the
+   document entirely (`<Query>: \n<Document>: <|im_end|>`) and appended a
+   `thinking` block. Scoring therefore hit an empty prompt for all 100 candidates
+   and returned one saturated value. The working construction is the literal
+   prompt from the model card, built as a string:
+   `<|im_start|>system\n{SYSTEM}<|im_end|>\n<|im_start|>user\n<Instruct>: ...
+   \n<Query>: ...\n<Document>: ...<|im_end|>\n<|im_start|>assistant\n`.
+   With it, a relevant passage scores -3.34, an irrelevant one -10.9, junk -12.1,
+   and per-query score spread is 3.6 points.
+2. `write_trec_run` expects `[(doc, score)]` already sorted by descending score;
+   the script passed dense order, so the "rerank" reproduced the dense ranking
+   exactly (iota 0.6485 = dense 0.6485). Now sorted before writing.
+3. `model(**enc).logits` materialises `[batch, seq, 151669]`, i.e. 14 GiB at
+   batch 32: CUDA OOM on an 8 GB card. `logits_to_keep=1` keeps only the last
+   position (the one we read), and batch stays at 16.
+
+Smoke numbers after the fixes: iota CE-only 0.3276 (ours 0.28-0.30 on iota),
+iota fused 0.6842 against 0.8411 for the frozen recipe. The 13-domain run is
+`ops/queue_qwen3.sh`; at 200 pairs/min it needs about four hours.
+
+## 5ad. Fourth audit (2026-11-14): Qwen protocol, the union bug, and two papers in one repo
+
+The reviewer read `94ec5bf`, ran the official tokenizer over all 519 dev
+queries, recomputed the coverage bound in closed form, and re-checked the
+paper against the artefacts. Three findings were material; all are fixed here.
+
+**1. Qwen input protocol was wrong.** The script ended the prompt at
+`assistant\n` (missing the empty think block) and truncated the *whole*
+prompt to 1024 tokens, so for long inputs the scoring suffix itself was cut
+off. The official recipe budgets the body first: `process_inputs` truncates
+the document to `max_length - len(prefix) - len(suffix)` and then appends a
+protected prefix and suffix. The reviewer's tokenizer check found five dev
+queries (history 3, hsm 1, law 1) whose query+prompt alone exceeds 1024 tokens
+(max 2132), so for those queries every candidate was scored on the same prefix.
+The script now follows the model card exactly (`prefix + budgeted body + think
+suffix`, `P(yes)` from `[no, yes]` log-softmax, `--max-len 2048 --doc-cap 4000
+--batch 16`), writes `runs/rerank_qwen3_<d>_dev.trec` plus a `.meta.json` with
+`body_budget`, `truncated_bodies` and the protocol string. The five partial
+domain numbers from the old protocol are withdrawn; the 13-domain rerun started
+at 14:44 and takes about 2.4 h (bitcoin 3,000 pairs in 8m20s = 360 pairs/min).
+
+**2. `best_union` was not a maximum.** It stopped as soon as one combo had no
+internal step overlap, but "no overlap" is not "largest union" ({1}, {2},
+{1,3}: the no-overlap pair covers 2, the best pair covers 3). Replaced with an
+exact DP over the subsets of each query's step set (`dp[mask]` = fewest
+documents covering `mask`). Recomputed 13 domains / 519 queries:
+fused top ten 1.2702 -> best-with-same-slots **1.3405** (+5.5%),
+cross-encoder alone 1.1122 -> **1.1844** (+6.5%), against the reviewer's
+independent exhaustive 1.3405 / 1.1844. The macro itself is unchanged
+(1.2702 / 1.1122), so the gain is entirely in the counterfactual column.
+
+The interpretation also had to shrink: 138 zero-score queries have zero
+relevant slots, so they contribute 0 to this bound by construction even though
+86 of them have the gold inside the pool. The corrected text says only that
+*at fixed relevance* complementary swapping is worth ~5.5%, and that this
+construction does not speak to queries where relevance and coverage would
+improve together.
+
+**3. Two papers in one repository.** The repaired text had been copied to the
+repo root (`PAPER_4PAGE.md`, `main.tex`, `main.pdf`) while `docs/PAPER_4PAGE.md`
+still carried the pre-fix numbers (0.3470 / 0.3442 / 0.3438). Root copies
+deleted; `docs/PAPER_4PAGE.md` is the single source, `paper/` the single build
+output, and README already pointed there. The repaired arms' 65 rerank files,
+65 score files and five aggregates are now committed so the new numbers can be
+recomputed by a third party.
+
+**4. `0.3552` was wrong; it is `0.3522`.** `fuse_at_weight` multiplied the
+weight into the dense score instead of the cross-encoder score, so the
+"deployment" aggregate at the val-chosen weight was not the same function as
+the probe. The probe's `w=0.75` value, 0.3522, is the correct number; the paper
+now says 0.3522 (-0.0053 against 1:1) and there is no separate deploy sweep.
+
+**5. Two claims softened.** "The better standalone model is the worse fused one
+at every weight we tried" is false: at `w=2`, `cx_qv` reaches 0.3546 against
+`lx_possum`'s 0.3492. What the data supports is (a) the inversion at the frozen
+1:1 weight, and (b) even each model's own best weight leaves it below 0.3575.
+And "no retrained arm beats 0.3581" became "no retrained arm shows a reliable
+gain": the step arms' point estimates (0.3593, 0.3600) are above the frozen
+number, their intervals include zero, and only the full-question arm loses
+(0.3443).
+
+**6. The claims gate now checks the paper itself.** `check_claims.py` no longer
+hard-codes the pre-fix 0.3470: 22 claims cover the frozen result, the ladder
+after the query-split fix, the CE/fusion inversion and the coverage bound; the
+`in_paper` flag additionally requires every claim's four-decimal value to
+appear in `docs/PAPER_4PAGE.md`, so a stale paper fails the gate. All 22 pass.
+
+Still open after this round: the 13-domain Qwen comparison (running), the
+rerank/score files for the five repaired arms (committed now), a `MODEL_MANIFEST`
+with downloadable weights (not published), and the human verification of the
+44-row hard-pair sheet, which remains explicitly labelled *automatic screen,
+awaiting human check*.

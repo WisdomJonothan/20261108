@@ -4,22 +4,22 @@
  "k": 10,
  "domain_macro": {
   "cov_now": 1.2702,
-  "cov_cf": 1.2989,
+  "cov_cf": 1.3405,
   "cov_pool": 1.6967,
   "cov_all": 2.0739,
   "ndcg10": 0.3581
  },
  "totals": {
   "queries": 519,
-  "gain_queries": 39,
-  "gain_steps": 44,
+  "gain_queries": 47,
+  "gain_steps": 56,
   "single_slot_left_on_table": 19
  },
  "domains": {
   "bitcoin": {
    "queries": 30,
    "cov_now": 0.8,
-   "cov_cf": 0.8333,
+   "cov_cf": 0.8667,
    "cov_pool": 1.2667,
    "cov_all": 1.8667,
    "gain_queries": 2,
@@ -52,7 +52,7 @@
   "genealogy": {
    "queries": 35,
    "cov_now": 1.3143,
-   "cov_cf": 1.3429,
+   "cov_cf": 1.3714,
    "cov_pool": 1.4,
    "cov_all": 1.9429,
    "gain_queries": 2,
@@ -63,18 +63,18 @@
   "history": {
    "queries": 240,
    "cov_now": 1.75,
-   "cov_cf": 1.7958,
+   "cov_cf": 1.8958,
    "cov_pool": 2.3875,
    "cov_all": 2.65,
-   "gain_queries": 24,
-   "gain_steps": 27,
+   "gain_queries": 28,
+   "gain_steps": 35,
    "single_slot_left_on_table": 13,
    "ndcg10": 0.3918
   },
   "hsm": {
    "queries": 45,
    "cov_now": 1.5556,
-   "cov_cf": 1.6889,
+   "cov_cf": 1.7111,
    "cov_pool": 2.0889,
    "cov_all": 2.3333,
    "gain_queries": 5,
@@ -107,18 +107,18 @@
   "monero": {
    "queries": 19,
    "cov_now": 0.6842,
-   "cov_cf": 0.7368,
+   "cov_cf": 0.7895,
    "cov_pool": 1.0,
    "cov_all": 1.4737,
-   "gain_queries": 1,
-   "gain_steps": 1,
+   "gain_queries": 2,
+   "gain_steps": 2,
    "single_slot_left_on_table": 1,
    "ndcg10": 0.2069
   },
   "politics": {
    "queries": 45,
    "cov_now": 1.4889,
-   "cov_cf": 1.4889,
+   "cov_cf": 1.5111,
    "cov_pool": 1.9556,
    "cov_all": 2.6444,
    "gain_queries": 1,
@@ -140,22 +140,22 @@
   "travel": {
    "queries": 30,
    "cov_now": 0.9333,
-   "cov_cf": 0.9333,
+   "cov_cf": 1.0333,
    "cov_pool": 1.5333,
    "cov_all": 1.7333,
-   "gain_queries": 1,
-   "gain_steps": 1,
+   "gain_queries": 3,
+   "gain_steps": 3,
    "single_slot_left_on_table": 1,
    "ndcg10": 0.2494
   },
   "workplace": {
    "queries": 11,
    "cov_now": 1.0,
-   "cov_cf": 1.0,
+   "cov_cf": 1.1818,
    "cov_pool": 1.6364,
    "cov_all": 1.8182,
-   "gain_queries": 1,
-   "gain_steps": 1,
+   "gain_queries": 2,
+   "gain_steps": 2,
    "single_slot_left_on_table": 1,
    "ndcg10": 0.3881
   }
