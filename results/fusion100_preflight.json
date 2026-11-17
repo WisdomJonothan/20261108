@@ -1,0 +1,57 @@
+{
+  "boundary_gradient_test": "pass",
+  "domains": {
+    "bitcoin": {
+      "groups": 53,
+      "validation": 11
+    },
+    "cardano": {
+      "groups": 31,
+      "validation": 6
+    },
+    "economics": {
+      "groups": 48,
+      "validation": 10
+    },
+    "genealogy": {
+      "groups": 61,
+      "validation": 12
+    },
+    "history": {
+      "groups": 526,
+      "validation": 105
+    },
+    "hsm": {
+      "groups": 92,
+      "validation": 18
+    },
+    "iota": {
+      "groups": 7,
+      "validation": 1
+    },
+    "law": {
+      "groups": 24,
+      "validation": 5
+    },
+    "monero": {
+      "groups": 38,
+      "validation": 8
+    },
+    "politics": {
+      "groups": 90,
+      "validation": 18
+    },
+    "quant": {
+      "groups": 19,
+      "validation": 4
+    },
+    "travel": {
+      "groups": 60,
+      "validation": 12
+    },
+    "workplace": {
+      "groups": 22,
+      "validation": 4
+    }
+  }
+}

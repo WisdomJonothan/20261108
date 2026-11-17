@@ -1,0 +1,384 @@
+{
+  "metric": "official domain-macro nDCG@10",
+  "queries": 519,
+  "domains": 13,
+  "seed": 17,
+  "uncertainty": "Paired bootstraps over domains and within-domain queries; conditional on these trained checkpoints, excludes training randomness. Absolute CIs describe resampling uncertainty, not training reproducibility.",
+  "systems": {
+    "title_ce_ce": {
+      "macro": 0.2923736030160295,
+      "domain_ci95": [
+        0.21458587645019522,
+        0.37829319884412316
+      ],
+      "within_domain_query_ci95": [
+        0.25857180685684117,
+        0.32751430736008336
+      ]
+    },
+    "title_ce_fused": {
+      "macro": 0.35055249327935994,
+      "domain_ci95": [
+        0.26991262111198283,
+        0.45181974604590047
+      ],
+      "within_domain_query_ci95": [
+        0.31899036491772814,
+        0.3834347772749927
+      ]
+    },
+    "title_fusion_ce": {
+      "macro": 0.2896874944319017,
+      "domain_ci95": [
+        0.2180243843836158,
+        0.3679104225335417
+      ],
+      "within_domain_query_ci95": [
+        0.25830242296644385,
+        0.3225919275980168
+      ]
+    },
+    "title_fusion_fused": {
+      "macro": 0.3294078807571705,
+      "domain_ci95": [
+        0.2538834602191822,
+        0.4253428210811243
+      ],
+      "within_domain_query_ci95": [
+        0.29817052674444855,
+        0.3615349990936427
+      ]
+    },
+    "full_ce_ce": {
+      "macro": 0.33095821492630095,
+      "domain_ci95": [
+        0.26705322199518267,
+        0.40437734859979096
+      ],
+      "within_domain_query_ci95": [
+        0.2979050751249386,
+        0.3649384393552498
+      ]
+    },
+    "full_ce_fused": {
+      "macro": 0.34501578363048274,
+      "domain_ci95": [
+        0.26906106914646033,
+        0.43998272949788203
+      ],
+      "within_domain_query_ci95": [
+        0.31090473636568333,
+        0.38036253210171533
+      ]
+    },
+    "full_fusion_ce": {
+      "macro": 0.2736380260592909,
+      "domain_ci95": [
+        0.213028996416693,
+        0.34469147908256365
+      ],
+      "within_domain_query_ci95": [
+        0.2411464600178956,
+        0.3078707405024314
+      ]
+    },
+    "full_fusion_fused": {
+      "macro": 0.31888720028591394,
+      "domain_ci95": [
+        0.25227055880964283,
+        0.4039136241290075
+      ],
+      "within_domain_query_ci95": [
+        0.284339940472871,
+        0.3545326147549911
+      ]
+    },
+    "frozen": {
+      "macro": 0.35809852326897723,
+      "domain_ci95": [
+        0.2756409275469119,
+        0.45948874872421347
+      ],
+      "within_domain_query_ci95": [
+        0.3251995216000794,
+        0.39164742354436516
+      ]
+    }
+  },
+  "comparisons_to_frozen": {
+    "title_ce_ce": {
+      "macro": -0.06572492025294772,
+      "domain_ci95": [
+        -0.10793150498173314,
+        -0.030953531350869267
+      ],
+      "within_domain_query_ci95": [
+        -0.09436454052411633,
+        -0.038638164765273805
+      ]
+    },
+    "title_ce_fused": {
+      "macro": -0.007546029989617308,
+      "domain_ci95": [
+        -0.014933752146116986,
+        -0.0009254790012579376
+      ],
+      "within_domain_query_ci95": [
+        -0.015391983240996924,
+        -3.701374991859446e-05
+      ]
+    },
+    "title_fusion_ce": {
+      "macro": -0.06841102883707549,
+      "domain_ci95": [
+        -0.11585503925900445,
+        -0.0295504120489772
+      ],
+      "within_domain_query_ci95": [
+        -0.09616387868729916,
+        -0.04269027144408014
+      ]
+    },
+    "title_fusion_fused": {
+      "macro": -0.02869064251180673,
+      "domain_ci95": [
+        -0.04014681144301079,
+        -0.017813493413344886
+      ],
+      "within_domain_query_ci95": [
+        -0.04268411752122653,
+        -0.015383197526958098
+      ]
+    },
+    "full_ce_ce": {
+      "macro": -0.02714030834267624,
+      "domain_ci95": [
+        -0.0609364567969863,
+        -0.00041420497383651706
+      ],
+      "within_domain_query_ci95": [
+        -0.052031884497595014,
+        -0.0017971470383241425
+      ]
+    },
+    "full_ce_fused": {
+      "macro": -0.0130827396384944,
+      "domain_ci95": [
+        -0.024073284686337446,
+        1.4368463347037061e-05
+      ],
+      "within_domain_query_ci95": [
+        -0.026923317143385153,
+        0.00045539945913312664
+      ]
+    },
+    "full_fusion_ce": {
+      "macro": -0.0844604972096863,
+      "domain_ci95": [
+        -0.12485668895350327,
+        -0.044982683530388305
+      ],
+      "within_domain_query_ci95": [
+        -0.11310442636499216,
+        -0.05629964418731431
+      ]
+    },
+    "full_fusion_fused": {
+      "macro": -0.03921132298306326,
+      "domain_ci95": [
+        -0.06191763136321786,
+        -0.015003860790578112
+      ],
+      "within_domain_query_ci95": [
+        -0.05466544754911608,
+        -0.0233273021191401
+      ]
+    }
+  },
+  "four_arm_contrasts": {
+    "title_effect": {
+      "delta": -0.021144612522189427,
+      "domain_ci95": [
+        -0.029232941521082478,
+        -0.013060798888061702
+      ],
+      "within_domain_query_ci95": [
+        -0.03306916175028185,
+        -0.010344747333128755
+      ],
+      "per_domain": {
+        "bitcoin": -0.013445310627961707,
+        "cardano": -0.039912809194179874,
+        "economics": -0.016982541134145306,
+        "genealogy": -0.02152215906060744,
+        "history": -0.005674608339295857,
+        "hsm": -0.03389697034172737,
+        "iota": -0.04245162841574782,
+        "law": -0.039266940561541674,
+        "monero": -0.005255779456846543,
+        "politics": -0.03806311160752252,
+        "quant": 0.00205655539631949,
+        "travel": -0.009426647256860746,
+        "workplace": -0.011038012188345159
+      },
+      "positive_domains": 1,
+      "negative_domains": 12,
+      "without_iota": -0.01936902786439289
+    },
+    "full_effect": {
+      "delta": -0.02612858334456887,
+      "domain_ci95": [
+        -0.040736560695124595,
+        -0.011546139055502967
+      ],
+      "within_domain_query_ci95": [
+        -0.040723820131094844,
+        -0.013019261277980117
+      ],
+      "per_domain": {
+        "bitcoin": -0.025234213907129377,
+        "cardano": -0.02737134159407516,
+        "economics": -0.028308140757981298,
+        "genealogy": -0.04687417219307628,
+        "history": -0.03533706846616217,
+        "hsm": -0.06764412485411471,
+        "iota": -0.07595512679609155,
+        "law": -0.0043384114135521235,
+        "monero": 0.015050304082829608,
+        "politics": -0.026924555584632474,
+        "quant": 0.019554289611841483,
+        "travel": -0.011329041453120293,
+        "workplace": -0.024959980154130923
+      },
+      "positive_domains": 2,
+      "negative_domains": 11,
+      "without_iota": -0.02197637139027531
+    },
+    "interaction": {
+      "delta": -0.004983970822379441,
+      "domain_ci95": [
+        -0.01656145023128791,
+        0.0067816776113813265
+      ],
+      "within_domain_query_ci95": [
+        -0.01754792771009399,
+        0.008107559568168334
+      ],
+      "per_domain": {
+        "bitcoin": -0.01178890327916767,
+        "cardano": 0.01254146760010472,
+        "economics": -0.011325599623835992,
+        "genealogy": -0.025352013132468848,
+        "history": -0.029662460126866318,
+        "hsm": -0.03374715451238734,
+        "iota": -0.03350349838034372,
+        "law": 0.03492852914798956,
+        "monero": 0.02030608353967615,
+        "politics": 0.011138556022890038,
+        "quant": 0.017497734215521997,
+        "travel": -0.0019023941962595483,
+        "workplace": -0.013921967965785764
+      },
+      "positive_domains": 5,
+      "negative_domains": 8,
+      "without_iota": -0.0026073435258824177
+    },
+    "representation_independent": {
+      "delta": -0.005536709648877091,
+      "domain_ci95": [
+        -0.01656390102148589,
+        0.0058691990465742005
+      ],
+      "within_domain_query_ci95": [
+        -0.019044999320535678,
+        0.007774580685760717
+      ],
+      "per_domain": {
+        "bitcoin": -0.01409891168450846,
+        "cardano": -0.02887847104940882,
+        "economics": 0.00733011414931921,
+        "genealogy": -0.013373290110151597,
+        "history": 0.007327486780846328,
+        "hsm": 0.004758019507550822,
+        "iota": -0.040561144049233756,
+        "law": -0.009214909918951934,
+        "monero": -0.004989589872479942,
+        "politics": -0.03049748077193493,
+        "quant": 0.02409468218396635,
+        "travel": 0.03515897648112541,
+        "workplace": -0.009032707081540864
+      },
+      "positive_domains": 5,
+      "negative_domains": 8,
+      "without_iota": -0.0026180067821807017
+    }
+  },
+  "independent_run_audit_and_zero_query_recovery": {
+    "queries": 519,
+    "domains": 13,
+    "max_run_json_error": 0,
+    "same_dense_top100_candidates_all_arms": true,
+    "original_zero_queries": {
+      "pool_miss": 52,
+      "ranking_miss": 86
+    },
+    "frozen_macro": 0.35809852326897723,
+    "arms": {
+      "title_ce": {
+        "macro": 0.35055249327935994,
+        "delta_vs_frozen": -0.007546029989617308,
+        "domain_bootstrap_ci95_vs_frozen": [
+          -0.014933752146116986,
+          -0.0009254790012579376
+        ],
+        "recovered_pool_miss": 0,
+        "recovered_ranking_miss": 7,
+        "new_zero": 6,
+        "zero_count": 137
+      },
+      "title_fusion": {
+        "macro": 0.3294078807571705,
+        "delta_vs_frozen": -0.02869064251180673,
+        "domain_bootstrap_ci95_vs_frozen": [
+          -0.04014681144301079,
+          -0.017813493413344886
+        ],
+        "recovered_pool_miss": 0,
+        "recovered_ranking_miss": 8,
+        "new_zero": 14,
+        "zero_count": 144
+      },
+      "full_ce": {
+        "macro": 0.34501578363048274,
+        "delta_vs_frozen": -0.0130827396384944,
+        "domain_bootstrap_ci95_vs_frozen": [
+          -0.024073284686337446,
+          1.4368463347037061e-05
+        ],
+        "recovered_pool_miss": 0,
+        "recovered_ranking_miss": 14,
+        "new_zero": 18,
+        "zero_count": 142
+      },
+      "full_fusion": {
+        "macro": 0.31888720028591394,
+        "delta_vs_frozen": -0.03921132298306326,
+        "domain_bootstrap_ci95_vs_frozen": [
+          -0.06191763136321786,
+          -0.015003860790578112
+        ],
+        "recovered_pool_miss": 0,
+        "recovered_ranking_miss": 15,
+        "new_zero": 34,
+        "zero_count": 157
+      }
+    },
+    "interpretation": [
+      "Single seed estimates conditional on trained checkpoints; query/domain bootstrap excludes training randomness.",
+      "Same candidate pool verifies ranking comparisons, but original recipe differs in loss, groups, split, text budget and training environment; differences versus frozen are deployment comparisons, not isolated fusion effects.",
+      "Current direct z-normalized fusion training regresses broadly; prioritize objective-scale and normalization-gradient diagnostics before further full training.",
+      "Full-question independent CE improves standalone ranking while fused ranking remains below title control: repeatable inversion is promising mechanism target."
+    ]
+  },
+  "frozen_comparison_scope": "Same dense top100 candidate sets. Original training recipe differs; comparison measures deployment performance, not a controlled training-objective effect."
+}

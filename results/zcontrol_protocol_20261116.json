@@ -1,0 +1,24 @@
+{
+  "experiment": "fusion100_full_zce_s17_20261116",
+  "purpose": "Separate CE score normalization from dense-conditioned training",
+  "control": "fusion100_full_ce_s17_20261115",
+  "comparator": "fusion100_full_fusion_s17_20261115",
+  "changed_factor": "Training loss uses z(CE) only",
+  "fixed": [
+    "seed17",
+    "official train split 857/214",
+    "2 epochs",
+    "original window sampling",
+    "original gradient accumulation",
+    "fused validation checkpoint selection"
+  ],
+  "selection": "Internal validation only; official dev once after frozen checkpoint",
+  "interpretation": [
+    "Compare raw CE with zCE to isolate normalization",
+    "Compare zCE with zCE+zdense to isolate dense conditioning",
+    "Use dev profile transplant as post-hoc diagnosis only"
+  ],
+  "next_pilot": "Evidence-grounded train-only temporal minimal pairs, including expected changes and invariance",
+  "status": "launched",
+  "original_artifacts": "preserved"
+}
