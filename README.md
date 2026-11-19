@@ -21,6 +21,43 @@ bge-base 稠密检索、bge-reranker-v2-m3 交叉编码器精排、z 归一化�
 dev TREC run 文件与官方 qrels 重算得到，可复现；fused 的 1000 深 run 未提交，
 可用 `scripts/fuse_scores.py` 从 dense top-1000 + CE 分数重建。
 
+## Replacement study (dev, 2026-11-20)
+
+Everything below uses the frozen system (`0.3581`), the frozen candidate
+protocol in `configs/replacement_study_20261120.json`, threshold 0, and at most
+one swap per query. Candidates are the union of dense top-20 and full-CE top-20
+minus the fused top-10, capped at 3 and paired only against ranks 8-10.
+
+* **Ceiling.** Oracle over exactly this scope: **0.3769** (+0.0188), with a
+  beneficial pair on 68/519 queries. The older wider-pool 0.4098 is not this
+  ceiling.
+* **Direct** (Qwen3-4B-Instruct-2507 judges query + two passages, both orders,
+  abstention): **0.3646**, +0.0065, 95% CI [+0.0021, +0.0117]; 32 helpful /
+  19 harmful / 273 neutral / 195 no-swap; 9,342 prompts, 5.31M tokens, 873 s,
+  11.2 GB.
+* **Context** (adds clips of the other retained results): 0.3632, +0.0051;
+  paired Direct-Context -0.0015 (CI [-0.0051, +0.0016]) at 1.77x tokens and
+  1.74x time, so retained context is not a contribution and the project
+  continues with Direct.
+* **Controls.** Same-model per-document scoring 0.3598 (+0.0017, ns);
+  active-PRP 0.3626 (+0.0045, 2,630 prompts); Qwen3-Reranker-4B single swap
+  0.3577 (-0.0004), full 13-document rerank 0.2671 (-0.0910), dense-100 rerank
+  0.1244 (-0.2337).
+* **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
+  the cap stays at 3 because the cap-2 advantage was observed post hoc.
+* **Ablations.** Full 0.3646; without abstention 0.3647; forward order only
+  0.3596 (bidirectional agreement is the load-bearing part); without either
+  0.3623.
+* **Gate.** A logistic-regression gate trained on 969 held-out CE folds
+  reproduces Direct (tau 0.0549); the cheap gap rule is the strongest variant
+  at +0.0072; a pre-call cheap gate costs 84% of the gain for 15.6% of the
+  judge calls. Fold deltas are +0.0007 / +0.0032 / +0.0068 and the 242
+  calibration queries -0.0014, so the expected effect on a fresh split is
+  around +0.002 to +0.003.
+
+Tables: `results/replacement_v2/SCORE_COST.md`, `SUMMARY_DEV.md`, `REPORT.md`;
+per-policy JSONs and TREC runs under `results/replacement_v2/`.
+
 ## Paper
 
 `paper/main.pdf` is the SemEval-2027 system-paper draft, built from
@@ -156,6 +193,18 @@ are computed by `scripts/aggregate_scores.py`; every table states which it uses.
 > *uncapped* candidate pool and is **not** the ceiling of this protocol. Using the
 > title-query CE as the second source instead gives 0.3737, so the source choice is
 > documented rather than assumed.
+
+> **Dev replacement results (2026-11-20, frozen candidates, threshold 0, one swap).**
+> Direct (Qwen3-4B-Instruct-2507 judges A/B with both presentation orders, abstention
+> allowed) reaches **0.36461** (+0.00651, 95% CI [+0.00206, +0.01172]; 32 helpful /
+> 19 harmful / 273 neutral / 195 no-swap queries; 9,342 prompts, 5.31M prompt tokens,
+> 873 s, 11.2 GB peak). That is 35% of the 0.0188 protocol ceiling. Adding excerpts of
+> the nine retained documents (Context) gives 0.36315 (+0.00505, CI [+0.00126,
+> +0.00943]), but the paired Direct-minus-Context difference is **-0.00146**
+> (CI [-0.00506, +0.00155], p=0.81) while costing 1.77x the tokens and 1.74x the wall
+> time, so retained context buys no quality. Same-model per-document scoring gives
+> 0.35979 (not significant) and PRP-style active ordering gives 0.36262 with only
+> 2,630 prompts. Artefacts: `results/replacement_v2/`.
 
 Official Track-1a dev BM25 baseline is **0.1147**, i.e. the system is ≈3.1× the
 official lexical baseline. TEMPO's best reported system (32.0) is on a different

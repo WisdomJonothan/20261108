@@ -23,6 +23,29 @@ artefact, and that artefact (paths relative to `results/`).
 | cx_qv fusion at w=1 | 0.3443 | 0.3443 | `CE_FUSION_PROBE.json` |
 | BM25 baseline (organisers) | 0.1147 | 0.1147 | `PHASE9_PLAN.md (organisers' data page)` |
 
+## Replacement study (2026-11-20)
+
+| claim | paper | artefact | source |
+|---|---|---|---|
+| Direct dev nDCG@10 | 0.3646 | 0.3646 | `replacement_v2/exp_direct_context_dev.json` |
+| Direct delta (CI) | 0.0065 [0.0021, 0.0117] | 0.0065 [0.0021, 0.0117] | `replacement_v2/exp_direct_context_dev.json` |
+| Context dev nDCG@10 | 0.3632 | 0.3632 | `replacement_v2/exp_direct_context_dev.json` |
+| Direct - Context (paired) | -0.0015 [-0.0051, 0.0015] | -0.0015 [-0.0051, 0.0015] | `replacement_v2/compare_ctx_vs_direct.json` |
+| per-doc scoring dev | 0.3598 | 0.3598 | `replacement_v2/exp_perdoc_dev.json` |
+| active PRP dev | 0.3626 | 0.3626 | `replacement_v2/exp_active_dev.json` |
+| Qwen3-Reranker single swap | 0.3577 | 0.3577 | `replacement_v2/reranker_pool_dev.json` |
+| Qwen3-Reranker full 13-doc rerank | 0.2671 | 0.2671 | `replacement_v2/reranker_pool_dev.json` |
+| Qwen3-Reranker dense-100 rerank | 0.1244 | 0.1244 | `replacement_v2/reranker_deep100_dev.json` |
+| budget: 1 candidate | 0.3610 | 0.3610 | `replacement_v2/exp_budget_cap1.json` |
+| budget: 2 candidates | 0.3655 | 0.3655 | `replacement_v2/exp_budget_cap2.json` |
+| ablation: no abstention | 0.3647 | 0.3647 | `replacement_v2/ablations_dev.json` |
+| ablation: forward order only | 0.3596 | 0.3596 | `replacement_v2/ablations_dev.json` |
+| gate: logistic regression (tau) | 0.0065 (tau 0.0549) | 0.0065 (tau 0.0549) | `replacement_v2/gate_eval.json` |
+| gate: cheap gap rule | 0.0072 | 0.0072 | `replacement_v2/gate_eval.json` |
+| gate: pre-call cheap gate (judge calls) | 0.0011 (15.6%) | 0.0011 (15.6%) | `replacement_v2/gate_eval.json` |
+| fold f0 / f1 / f2 delta | 0.0007 / 0.0032 / 0.0068 | 0.0007 / 0.0032 / 0.0068 | `replacement_v2/exp_train_f0.json` ... `exp_train_f2.json` |
+| calibration split delta | -0.0014 | -0.0014 | `replacement_v2/exp_train_fall.json` |
+
 Gate: `/d/anaconda/python.exe scripts/check_claims.py` exits 0 with
 `RESULT: all claims traceable`. The BM25 row is the organisers' published
 baseline, not our computation; everything else recomputes from a local file.

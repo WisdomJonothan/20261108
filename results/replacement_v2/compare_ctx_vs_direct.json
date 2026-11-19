@@ -1,0 +1,13 @@
+{
+ "a": "direct",
+ "b": "contextual",
+ "delta_b_minus_a": -0.001458,
+ "ci95": [
+  -0.005059,
+  0.00155
+ ],
+ "p_le_0": 0.8067,
+ "queries_where_b_better": 21,
+ "queries_where_a_better": 17,
+ "n_queries": 519
+}

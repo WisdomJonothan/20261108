@@ -1,17 +1,18 @@
 # Bounded replacement study — results (dev, 519 queries)
 
+All numbers below come from committed artefacts under `results/replacement_v2/`; the frozen protocol is `configs/replacement_study_20261120.json`.
+
 ## 0. Frozen baseline
 
-* re-scored domain-macro nDCG@10 = `0.3580985233` (recorded `0.3580985233`), identical = **True**
-* coverage: 13 domains, 519 queries, missing from runs = 0
-* hashes: `results/FROZEN_BASELINE_20261120.json`
+* re-scored domain-macro nDCG@10 = `0.3580985233` (recorded delta +0.0e+00, identical = True)
+* topic-macro = `0.3643666957`; domains = 13, queries = 519
+* hashes in `results/FROZEN_BASELINE_20261120.json`
 
 ## 1. Frozen candidate protocol and its ceiling
 
-* union(dense top20, CE top20) minus frozen top10; order by best rank (tie: dense before CE, then docid); keep top 3
-* each candidate vs frozen ranks 8,9,10 (<= 9 pairs)
-* at most one swap per query, other ranks frozen
-* queries 519, pairs 4671, queries with 3 candidates 519
+* union(dense top20, full-CE top20) minus frozen top10; order by best rank (tie: dense before CE, then docid); keep 3
+* each candidate vs frozen ranks 8, 9, 10 (<= 9 pairs); at most one swap per query
+* 519 queries, 4671 pairs
 
 | | value |
 |---|---:|
@@ -19,43 +20,77 @@
 | oracle (<=1 swap, frozen pairs) | 0.3769 |
 | ceiling gain | +0.0188 |
 | queries with a beneficial pair | 68 / 519 |
-| beneficial / harmful pairs | 209 / 257 of 4671 |
 
-> The earlier 0.4098 figure came from an *uncapped* candidate pool and is not the ceiling of this protocol.
+> The earlier 0.4098 figure came from an *uncapped* pool and is not the ceiling of this protocol.
 
-## 2. Direct vs Context (Qwen3-4B-Instruct-2507, threshold 0, one swap/query)
+## 2. Arms (Qwen3-4B-Instruct-2507, threshold 0, one swap per query)
 
-| arm | macro nDCG@10 | delta | 95% CI | helpful | harmful | neutral | no swap | prompts | prompt tok | seconds | peak MB |
+| arm | nDCG@10 | delta | 95% CI | helpful | harmful | neutral | no swap | prompts | tokens | s | peak MB |
 |---|---:|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| active | 0.3626 | +0.0045 | [+0.0004, +0.0093] | 19 | 11 | 168 | 321 | 2,630 | 1,519,002 | 249 | 8164 |
-| direct | 0.3646 | +0.0065 | [+0.0021, +0.0117] | 32 | 19 | 273 | 195 | 9,342 | 5,313,531 | 873 | 11162 |
-| contextual | 0.3632 | +0.0051 | [+0.0013, +0.0094] | 27 | 7 | 219 | 266 | 9,342 | 9,404,037 | 1519 | 12045 |
+| frozen | 0.3581 | - | - | - | - | - | - | 0 | 0 | 0 | 0 |
+| direct | 0.3646 | +0.0065 | [+0.0021, +0.0117] | 32 | 19 | 273 | 195 | 9,342 | 5,313,531 | 872 | 11162 |
+| contextual | 0.3632 | +0.0051 | [+0.0013, +0.0094] | 27 | 7 | 219 | 266 | 9,342 | 9,404,037 | 1518 | 12045 |
 | perdoc | 0.3598 | +0.0017 | [-0.0046, +0.0078] | 35 | 18 | 412 | 54 | 6,747 | 2,778,934 | 474 | 9295 |
+| active | 0.3626 | +0.0045 | [+0.0004, +0.0093] | 19 | 11 | 168 | 321 | 2,630 | 1,519,002 | 249 | 8164 |
+| direct, budget cap 1 | 0.3610 | +0.0029 | [-0.0003, +0.0067] | 15 | 11 | 157 | 336 | 3,114 | 1,772,026 | 309 | 8881 |
+| direct, budget cap 2 | 0.3655 | +0.0074 | [+0.0026, +0.0131] | 26 | 13 | 224 | 256 | 6,228 | 3,544,580 | 968 | 10306 |
 
-| arm | points gained | points lost | net | pairs agreeing | pairs eligible |
-|---|---:|---:|---:|---:|---:|
-| active | +2.639 | -1.396 | +1.243 | 0 / 4671 | 0 |
-| direct | +4.479 | -2.316 | +2.164 | 1000 / 4671 | 1000 |
-| contextual | +3.617 | -0.789 | +2.828 | 651 / 4671 | 651 |
-| perdoc | +4.569 | -2.457 | +2.112 | 0 / 4671 | 0 |
+Context is +0.0051 with 1.77x the tokens and 1.74x the time of Direct, and the paired Direct-Context difference is -0.0015 (CI [-0.0051, +0.0016]): retained context is not a contribution.
 
-### Per-domain nDCG@10
+## 3. Second starting system (dense-only pool, same protocol)
 
-| domain | n | baseline | active | direct | contextual | perdoc |
-|---|---:|---:|---:|---:|---:|---:|
-| bitcoin |30 | 0.2143 | 0.2011 | 0.2058 | 0.2143 | 0.2107 |
-| cardano |15 | 0.2258 | 0.2258 | 0.2352 | 0.2352 | 0.2142 |
-| economics |25 | 0.2512 | 0.2473 | 0.2522 | 0.2482 | 0.2430 |
-| genealogy |35 | 0.4060 | 0.4086 | 0.4060 | 0.4060 | 0.4060 |
-| history |240 | 0.3918 | 0.3925 | 0.3934 | 0.3973 | 0.3968 |
-| hsm |45 | 0.4651 | 0.4683 | 0.4710 | 0.4709 | 0.4742 |
-| iota |3 | 0.8383 | 0.8383 | 0.8383 | 0.8383 | 0.8383 |
-| law |11 | 0.4357 | 0.4622 | 0.4533 | 0.4524 | 0.4382 |
-| monero |19 | 0.2069 | 0.2069 | 0.2235 | 0.2069 | 0.2069 |
-| politics |45 | 0.4290 | 0.4344 | 0.4375 | 0.4375 | 0.4399 |
-| quant |10 | 0.1538 | 0.1538 | 0.1661 | 0.1655 | 0.1655 |
-| travel |30 | 0.2494 | 0.2701 | 0.2696 | 0.2697 | 0.2647 |
-| workplace |11 | 0.3881 | 0.4049 | 0.3881 | 0.3788 | 0.3788 |
+_exp_dense_start_dev.json not present._
 
-## 3. Reranker controls (score vs cost)
+## 4. Strong controls (Qwen3-Reranker-4B, same candidates)
+
+| control | nDCG@10 | delta | 95% CI | docs scored | tokens | s |
+|---|---:|---:|---|---:|---:|---:|
+| single_swap | 0.3577 | -0.0004 | [-0.0046, +0.0037] | 6,747 | 3,873,426 | 708 |
+| full_rerank | 0.2671 | -0.0910 | [-0.1206, -0.0619] | 6,747 | 3,873,426 | 708 |
+| deep-100 rerank | 0.1244 | -0.2337 | [-0.2746, -0.1944] | 51,900 | 29,022,563 | 5552 |
+
+Per-document scoring with the same judge (13 yes/no prompts per query) reaches 0.3598 (+0.0017, ns); the second-best judge arm is active-PRP at 0.3626.
+
+## 5. Decision-rule ablations
+
+| rule | nDCG@10 | delta | 95% CI | help / harm / neutral / no-swap |
+|---|---:|---:|---|---|
+| full | 0.3646 | +0.0065 | [+0.0020, +0.0118] | 32 / 19 / 273 / 195 |
+| no_abstain | 0.3647 | +0.0066 | [+0.0012, +0.0128] | 34 / 20 / 332 / 133 |
+| no_bidir | 0.3596 | +0.0015 | [-0.0071, +0.0096] | 36 / 27 / 392 / 64 |
+| neither | 0.3623 | +0.0042 | [-0.0009, +0.0095] | 35 / 26 / 427 / 31 |
+
+Bidirectional agreement is load-bearing; abstention is not.
+
+## 6. Gate (logistic regression on 3-fold, leakage-free train features)
+
+| rule | dev delta | 95% CI | calibration delta | judge calls |
+|---|---:|---|---:|---:|
+| gate_judge | +0.0065 | [+0.0021, +0.0117] | - | 2916 |
+| direct_all | +0.0065 | [+0.0021, +0.0117] | -0.0014 | 2916 |
+| fixed_margin_0.9 | +0.0062 | [+0.0018, +0.0114] | - | 2916 |
+| ce_gap_rule | +0.0049 | [+0.0023, +0.0081] | - | 2916 |
+| ce_or_dense_gap | +0.0072 | [+0.0030, +0.0123] | - | 2916 |
+| precall_cheap_gate | +0.0011 | [+0.0000, +0.0025] | - | 15.6% of pairs |
+
+Threshold chosen on the 242 calibration queries: tau = 0.0549. The gate reproduces Direct; the cheap gap rule is the strongest variant; a pre-call cheap gate buys 15.6% of the judge calls for 16% of the gain.
+
+## 7. Fold evidence (train split, 969 queries)
+
+| fold | queries | nDCG@10 | delta | 95% CI |
+|---|---:|---:|---:|---|
+| f0 | 328 | 0.2568 | +0.0007 | [-0.0033, +0.0041] |
+| f1 | 323 | 0.2828 | +0.0032 | [+0.0002, +0.0066] |
+| f2 | 318 | 0.3098 | +0.0068 | [+0.0022, +0.0124] |
+| fall | 242 | 0.2639 | -0.0014 | [-0.0059, +0.0028] |
+
+The three folds average +0.0036 and the calibration queries -0.0014, so the dev gain of +0.0065 is an upper draw; +0.002 to +0.003 is the honest expectation on a fresh split.
+
+## 8. Case studies
+
+See `CASES_DEV.md`: the six largest gains and losses with query text, and the per-domain swap counts.
+
+## 9. Transfer
+
+FollowIR could not be run on this host (no route to Hugging Face, ModelScope or GitHub, and the evaluation split is not on any reachable mirror); the probes and the substitute evidence are in `docs/FOLLOWIR_TRANSFER.md`.
 
