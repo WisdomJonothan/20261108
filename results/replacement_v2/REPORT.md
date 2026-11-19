@@ -37,6 +37,26 @@ All numbers below come from committed artefacts under `results/replacement_v2/`;
 
 Context is +0.0051 with 1.77x the tokens and 1.74x the time of Direct, and the paired Direct-Context difference is -0.0015 (CI [-0.0051, +0.0016]): retained context is not a contribution.
 
+Points gained by helpful swaps: +4.48; lost by harmful swaps: -2.32 (net +2.16).
+
+### Per-domain nDCG@10 (frozen / direct / contextual)
+
+| domain | frozen | direct | contextual |
+|---|---:|---:|---:|
+| bitcoin | 0.2143 | 0.2058 | 0.2143 |
+| cardano | 0.2258 | 0.2352 | 0.2352 |
+| economics | 0.2512 | 0.2522 | 0.2482 |
+| genealogy | 0.4060 | 0.4060 | 0.4060 |
+| history | 0.3918 | 0.3934 | 0.3973 |
+| hsm | 0.4651 | 0.4710 | 0.4709 |
+| iota | 0.8383 | 0.8383 | 0.8383 |
+| law | 0.4357 | 0.4533 | 0.4524 |
+| monero | 0.2069 | 0.2235 | 0.2069 |
+| politics | 0.4290 | 0.4375 | 0.4375 |
+| quant | 0.1538 | 0.1661 | 0.1655 |
+| travel | 0.2494 | 0.2696 | 0.2697 |
+| workplace | 0.3881 | 0.3881 | 0.3788 |
+
 ## 3. Starting systems (same candidates, judge and one-swap rule)
 
 | start | nDCG@10 (start) | + correction | delta | 95% CI | help / harm | prompts | s |
