@@ -97,6 +97,30 @@ frozen arm and `dev_multievidence.py`.
 Expected: frozen **0.3581**, zero-shot CE z 1:1 **0.3249**, dense **0.2943**,
 paired gain **+0.0332** [+0.0192, +0.0472].
 
+
+## 3b. Frozen replacement study (2026-11-20)
+
+The frozen-baseline re-verification and the bounded replacement protocol have
+their own artefacts:
+
+* `scripts/freeze_baseline.py` -> `results/FROZEN_BASELINE_20261120.json`:
+  re-scores the 13 committed dev runs and pins sha256 for the runs, dense runs,
+  qrels, examples, evaluation scripts and the checkpoint.
+* `scripts/build_replacement_candidates.py` -> `results/replacement_v2/candidates_dev.json`:
+  the frozen candidate rule (dense top-20 union full-query CE top-20, minus the
+  frozen top-10, ordered by best rank, capped at 3, compared with ranks 8-10).
+  It never reads qrels.
+* `scripts/eval_replacement_pilot.py --mode oracle-fixed` -> `results/replacement_v2/oracle_fixed_dev.json`:
+  the oracle over exactly that candidate/swap scope (dev ceiling 0.3769).
+* `scripts/benchmark_pairwise_replacement_v2.py` -> `results/replacement_v2/exp_*.json`:
+  the Direct / Context / per-document / active arms, one swap per query,
+  threshold 0, cost and paired-bootstrap reported per arm.
+* `scripts/reranker_control.py` -> `results/replacement_v2/reranker_controls_dev.json`:
+  Qwen3-Reranker-4B controls over the same 13-document pool.
+* `configs/replacement_study_20261120.json`: every frozen choice (prompts,
+  truncations, merge rule, threshold, model, continuation rule).
+* `scripts/make_report.py` assembles `results/replacement_v2/REPORT.md`.
+
 ## 4. Submission
 
 See `docs/SUBMISSION.md` (runbook + `ops/submit_all.sh` + manifest). The
