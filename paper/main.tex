@@ -191,6 +191,15 @@ forward only, no abstain & 0.3623 & +0.0042 & [-0.0009, +0.0095] \\
 \caption{Decision-rule ablations, recomputed from the stored per-order probabilities of the Direct run; the first row reproduces the arm exactly.}
 \end{table}
 
+\paragraph{Second starting system.} Starting from the dense ranking
+(0.2943 nDCG@10, no cross-encoder in the pool) instead of the fused one,
+the same candidates, judge and one-swap rule reach 0.3049
+(+0.0106, 95\% CI [+0.0048, +0.0167]; 61 helpful, 15 harmful swaps).
+The mechanism is therefore not specific to the fused start, and it gains
+more where the top ten contains more clearly wrong slots.
+
+
+
 \textbf{Bidirectional agreement is load-bearing; abstention is not.} Judging each pair in one order only drops the gain to +0.0015 with an interval that includes zero, while removing the abstain option changes nothing (+0.0066). The benefit comes from requiring the judge to prefer the challenger in both presentation orders, not from letting it decline.
 
 \textbf{Learning when to swap did not add anything.} We split the 1,211 official training queries by domain into 969 for the gate and 242 for calibration; three folds trained cross-encoders on two thirds of the 969 so that no ranking used for training a gate came from a model that had seen its query, and a fourth model trained on all 969 to rank the calibration queries. A logistic regression on rank features, dense and cross-encoder score gaps, rank disagreement, judge margin and order consistency, with its threshold chosen only on the 242 calibration queries, reproduces Direct exactly on dev (+0.0065 at tau = 0.055): it removes no errors and saves no calls. Fixed margins of 0.7 and 0.9, a cross-encoder-gap rule, and a cheap pre-call gate that avoids 84\% of judge calls all score no better; a simple "cross-encoder or dense gap" ordering rule is in fact the strongest dev rule at +0.0072, which says the judge's value here lies in the comparison itself rather than in a learned policy over it. On the training side the picture is flatter than on dev: the three held-out folds give +0.0007 [-0.0033, +0.0041], +0.0032 [+0.0002, +0.0066] and +0.0068 [+0.0022, +0.0124], and the 242 calibration queries give -0.0014 [-0.0059, +0.0028]. The expected effect of the deployed rule is therefore in the +0.002 to +0.003 range, and dev's +0.0065 should be read as an upper draw rather than the typical one.

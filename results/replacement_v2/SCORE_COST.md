@@ -31,3 +31,19 @@
 | ce_gap_rule | +0.00492 | [+0.00229, +0.00806] | -0.00060 | 2916 |
 | ce_or_dense_gap | +0.00719 | [+0.00296, +0.01231] | -0.00032 | 2916 |
 | precall_cheap_gate | +0.00112 | [+0.00001, +0.00254] | - | 15.6% of pairs |
+
+## Normalised cost per query (same 519 dev queries)
+
+| system | nDCG@10 | delta | judge prompts / query | candidates / query | prompt tokens / query | s / query | peak MB | judge |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| direct (cap 2) | 0.3655 | +0.0074 | 12.0 | 2 | 6,829 | 1.86 | 10,306 | Qwen3-4B-Instruct-2507 |
+| direct (cap 3) | 0.3646 | +0.0065 | 18.0 | 3 | 10,238 | 1.68 | 11,161 | Qwen3-4B-Instruct-2507 |
+| contextual (cap 3) | 0.3632 | +0.0051 | 18.0 | 3 | 18,119 | 2.93 | 12,044 | Qwen3-4B-Instruct-2507 |
+| active PRP (<=3 pairs) | 0.3626 | +0.0045 | 5.1 | 3 | 2,926 | 0.48 | 8,164 | Qwen3-4B-Instruct-2507 |
+| direct (cap 1) | 0.3610 | +0.0029 | 6.0 | 1 | 3,414 | 0.60 | 8,881 | Qwen3-4B-Instruct-2507 |
+| per-document scoring | 0.3598 | +0.0017 | 13.0 | 3 | 5,354 | 0.91 | 9,295 | Qwen3-4B-Instruct-2507 |
+| frozen system | 0.3581 | +0.0000 | 0.0 | 0 | 0 | 0.00 | - | - |
+| reranker single swap | 0.3577 | -0.0004 | 13.0 | 3 | 7,463 | 1.36 | 8,357 | Qwen3-Reranker-4B |
+| dense start, direct | 0.3049 | +0.0106 | 18.0 | 3 | 10,321 | 1.68 | 11,297 | Qwen3-4B-Instruct-2507 |
+| reranker full 13 | 0.2671 | -0.0910 | 13.0 | 3 | 7,463 | 1.36 | 8,357 | Qwen3-Reranker-4B |
+| reranker dense-100 | 0.1244 | -0.2337 | 100.0 | 100 | 55,920 | 10.70 | 8,683 | Qwen3-Reranker-4B |

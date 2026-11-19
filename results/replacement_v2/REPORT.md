@@ -39,7 +39,11 @@ Context is +0.0051 with 1.77x the tokens and 1.74x the time of Direct, and the p
 
 ## 3. Second starting system (dense-only pool, same protocol)
 
-_exp_dense_start_dev.json not present._
+| start | nDCG@10 | delta | 95% CI | helpful / harmful | prompts | s |
+|---|---:|---:|---|---:|---:|---:|
+| dense top-100 (no CE in the pool) | 0.3049 | +0.0106 | [+0.0048, +0.0167] | 61 / 15 | 9,342 | 871 |
+
+Same candidates, same judge, same one-swap rule; the starting ranking is 0.0638 weaker, so this isolates how much of the gain needs the fused start.
 
 ## 4. Strong controls (Qwen3-Reranker-4B, same candidates)
 

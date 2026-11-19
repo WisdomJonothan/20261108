@@ -45,6 +45,11 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   0.1244 (-0.2337).
 * **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
   the cap stays at 3 because the cap-2 advantage was observed post hoc.
+* **Second starting system.** From the dense ranking (0.2943) the same
+  candidates, judge and one-swap rule reach 0.3049 (+0.0106, CI
+  [+0.0048, +0.0167]; 61 helpful / 15 harmful), so the mechanism is not
+  specific to the fused start and gains more where the top-10 has more
+  clearly wrong slots.
 * **Ablations.** Full 0.3646; without abstention 0.3647; forward order only
   0.3596 (bidirectional agreement is the load-bearing part); without either
   0.3623.
