@@ -137,6 +137,26 @@ are computed by `scripts/aggregate_scores.py`; every table states which it uses.
 > Details: `docs/RESEARCH_LOG.md` section 5p, `docs/PAPER_4PAGE.md` sections
 > 5.2 and 5.5-5.7.
 
+> **Replacement study frozen (2026-11-20).** The 0.3581 arm was re-scored end to end
+> from the 13 committed dev run files with the official metric: **0.3580985233**
+> domain-macro (topic-macro 0.3643666957), identical to the recorded value, with all
+> 519 queries in all 13 domains counted and none missing from the runs. Checkpoint,
+> run, qrels, example and evaluation-script hashes are pinned in
+> `results/FROZEN_BASELINE_20261120.json`; the study protocol is
+> `configs/replacement_study_20261120.json`.
+>
+> The replacement candidate set is now frozen as well: per query, the union of the
+> dense top-20 and the full-query CE top-20 minus the frozen top-10, ordered by best
+> rank (ties: dense before CE, then docid), capped at **3** candidates; every
+> candidate is compared with frozen ranks 8-10 (9 pairs per query) and a policy may
+> execute at most **one** swap. Candidate generation never reads qrels. On dev this
+> protocol's oracle ceiling is **0.3769** (+0.0188): 68 of 519 queries contain at
+> least one beneficial pair (209 of 4,671 pairs are positive) and 15 of those queries
+> currently score zero. The 0.4098 of the earlier research update came from an
+> *uncapped* candidate pool and is **not** the ceiling of this protocol. Using the
+> title-query CE as the second source instead gives 0.3737, so the source choice is
+> documented rather than assumed.
+
 Official Track-1a dev BM25 baseline is **0.1147**, i.e. the system is ≈3.1× the
 official lexical baseline. TEMPO's best reported system (32.0) is on a different
 1,730-query split and is not directly comparable.

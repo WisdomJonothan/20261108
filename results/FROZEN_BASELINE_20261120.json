@@ -1,0 +1,259 @@
+{
+  "created": "2026-11-20",
+  "config": {
+    "frozen_tag": "sub_sft_e2bc",
+    "description": "dense (mxbai-embed-large-v1, top-100) + SFT cross-encoder (title query, 2 epochs, lr 1.5e-5), z-normalised 1:1 fusion, detied",
+    "dense": {
+      "model": "mixedbread-ai/mxbai-embed-large-v1",
+      "pooling": "mean",
+      "query_prefix": "Represent this sentence for searching relevant passages: ",
+      "top_k": 100
+    },
+    "reranker": {
+      "base": "BAAI/bge-reranker-v2-m3",
+      "checkpoint": "results/ce_ft/v2m3_pool8_e2/best",
+      "query_mode": "title",
+      "query_max_tokens": 256,
+      "window_tokens": 250,
+      "stride_tokens": 192,
+      "max_windows_per_doc": 3,
+      "validation_pair_max_len": 320,
+      "deployment_pair_max_len": 510
+    },
+    "fusion": {
+      "normalisation": "z",
+      "weight_dense": 1.0,
+      "weight_ce": 1.0,
+      "tie_breaking": "detie"
+    },
+    "evaluation": {
+      "split": "dev",
+      "metric": "nDCG@10",
+      "aggregation": "domain-macro (13 domains)",
+      "scorer": "scripts/ir_metrics.py (vendored official)",
+      "k": 10
+    },
+    "data": {
+      "corpus": "track1_tempo v1.1",
+      "qrels": "data/track1_tempo/<domain>/qrels_dev.txt",
+      "queries": "data/track1_tempo/<domain>/examples_dev.jsonl"
+    }
+  },
+  "old_recorded": {
+    "file": "results/aggregate_sub_sft_e2bc_dev.json",
+    "domain_macro": 0.35809852326897723,
+    "topic_macro": 0.36436669567697244
+  },
+  "new_reverification": {
+    "command": "scripts/score_run.py (13 domains) -> scripts/aggregate_scores.py --metric ndcg@10",
+    "domain_macro": 0.35809852326897723,
+    "topic_macro": 0.36436669567697244,
+    "num_domains": 13,
+    "num_topics": 519,
+    "delta_vs_old": 0.0,
+    "identical": true
+  },
+  "coverage_audit": {
+    "domains": 13,
+    "topics_scored": 519,
+    "qrels_queries": 519,
+    "topics_equals_qrels_queries": true,
+    "missing_from_any_run": 0,
+    "per_domain": [
+      {
+        "domain": "bitcoin",
+        "num_topics": 30,
+        "num_topics_in_run": 30,
+        "missing_from_run": 0,
+        "nDCG@10": 0.21428273629762323,
+        "qrels_queries": 94
+      },
+      {
+        "domain": "cardano",
+        "num_topics": 15,
+        "num_topics_in_run": 15,
+        "missing_from_run": 0,
+        "nDCG@10": 0.22578319338099426,
+        "qrels_queries": 43
+      },
+      {
+        "domain": "economics",
+        "num_topics": 25,
+        "num_topics_in_run": 25,
+        "missing_from_run": 0,
+        "nDCG@10": 0.2512374146675322,
+        "qrels_queries": 95
+      },
+      {
+        "domain": "genealogy",
+        "num_topics": 35,
+        "num_topics_in_run": 35,
+        "missing_from_run": 0,
+        "nDCG@10": 0.40596149663595177,
+        "qrels_queries": 94
+      },
+      {
+        "domain": "history",
+        "num_topics": 240,
+        "num_topics_in_run": 240,
+        "missing_from_run": 0,
+        "nDCG@10": 0.3918367862116744,
+        "qrels_queries": 1010
+      },
+      {
+        "domain": "hsm",
+        "num_topics": 45,
+        "num_topics_in_run": 45,
+        "missing_from_run": 0,
+        "nDCG@10": 0.46514491847106776,
+        "qrels_queries": 115
+      },
+      {
+        "domain": "iota",
+        "num_topics": 3,
+        "num_topics_in_run": 3,
+        "missing_from_run": 0,
+        "nDCG@10": 0.8382954784660104,
+        "qrels_queries": 9
+      },
+      {
+        "domain": "law",
+        "num_topics": 11,
+        "num_topics_in_run": 11,
+        "missing_from_run": 0,
+        "nDCG@10": 0.4356663760603123,
+        "qrels_queries": 29
+      },
+      {
+        "domain": "monero",
+        "num_topics": 19,
+        "num_topics_in_run": 19,
+        "missing_from_run": 0,
+        "nDCG@10": 0.20687113127651763,
+        "qrels_queries": 47
+      },
+      {
+        "domain": "politics",
+        "num_topics": 45,
+        "num_topics_in_run": 45,
+        "missing_from_run": 0,
+        "nDCG@10": 0.4289738867474458,
+        "qrels_queries": 124
+      },
+      {
+        "domain": "quant",
+        "num_topics": 10,
+        "num_topics_in_run": 10,
+        "missing_from_run": 0,
+        "nDCG@10": 0.153796286139897,
+        "qrels_queries": 21
+      },
+      {
+        "domain": "travel",
+        "num_topics": 30,
+        "num_topics_in_run": 30,
+        "missing_from_run": 0,
+        "nDCG@10": 0.2493604939395154,
+        "qrels_queries": 73
+      },
+      {
+        "domain": "workplace",
+        "num_topics": 11,
+        "num_topics_in_run": 11,
+        "missing_from_run": 0,
+        "nDCG@10": 0.38807060420216183,
+        "qrels_queries": 29
+      }
+    ]
+  },
+  "per_domain_ndcg10": {
+    "bitcoin": 0.21428273629762323,
+    "cardano": 0.22578319338099426,
+    "economics": 0.2512374146675322,
+    "genealogy": 0.40596149663595177,
+    "history": 0.3918367862116744,
+    "hsm": 0.46514491847106776,
+    "iota": 0.8382954784660104,
+    "law": 0.4356663760603123,
+    "monero": 0.20687113127651763,
+    "politics": 0.4289738867474458,
+    "quant": 0.153796286139897,
+    "travel": 0.2493604939395154,
+    "workplace": 0.38807060420216183
+  },
+  "inputs": {
+    "dev_runs": {
+      "bitcoin": "1eeb5152d846571875ea9cc771abeb6adb349e777db8debbc5b57e2fde8731fc",
+      "cardano": "aeb511efe53fccd0c9489cca07f7f1ffa1f946eebd637fb1ea8df459cb3a6168",
+      "economics": "99c4e5a64c5ddb155c0199982213c6ba55ebbc13b6b07d46204102196d6c632f",
+      "genealogy": "3f660fa924f8227e2828337c71ae1e336bb87e1008380d384d1859fc103e90bc",
+      "history": "cd8151bb31d800585cec3a1e00922590b484caa3e1e4ce5b374bf2ae78987542",
+      "hsm": "f293daddda0374177eb5c4320aa6186ebfd53e714c844bb404f9cc3e78f1f18b",
+      "iota": "604366969e181f2b508a8e6a70167e9be92265394b7e798c5f45a1e0ca7122dc",
+      "law": "a78e3aaa8812b66931ebd6b0eda2d3dfc2364b0050dd552fd530d2687a9d9d59",
+      "monero": "930a237039f918c77c21b8c73c4f3d67c43860ccab77ac8c15062c9afac9abb6",
+      "politics": "5fc0a59a6fc9a4196173ec491831f70048038fd8a68e5222437e310b08f77720",
+      "quant": "cfd4ae6003f6c219935c3f67cb4d15039194b1a04657c0d8724df51db5720d9b",
+      "travel": "a3ecf67a3385f30926ffcb64e7aafd82ca637f413ba19940235df7c07d685d20",
+      "workplace": "64c35389f28c62dacaf8b6f27c23fc321b73e863590849a16274f2a784d0e041"
+    },
+    "dense_runs": {
+      "bitcoin": "c1239ca20c7c4e3eb959ff11871c7dfdd9e9612f17044a5dbf110c68656dcfc8",
+      "cardano": "ff948bf836560c7fe601868f2ee22039000de6ad08746dbc177440df61455e30",
+      "economics": "6a7ce4236330d5e94630fedf8d9a70d26b00c1c9bd30649226d4b84f7da65a90",
+      "genealogy": "1d2a1f43cbf09010a8d22ff5aaf5ba14c4aebde9d02d67d4000baff1e3607547",
+      "history": "990dd9831de509178d61ba6beb2dcaab5dd7082c287bca709df282ae4f947d86",
+      "hsm": "0117697fbeee3fca069838b3d912dd316147f5c885df82d1f363c9eaadd4967c",
+      "iota": "28b0bec8de09308a3312bdc5b055b6fc390da399c84efdbd93f6d60c335d4ce2",
+      "law": "ca54a4960653e0a86dc97820561b3e4f3b4c370923617a044a0d7a7aa59bb655",
+      "monero": "21f28c2c065d23073663c97a02c38b8cf142dafad3d97ea1d54b0f04ae582700",
+      "politics": "2d672ead8082265ace76bc80466ada634e4caceb5df83674abf0fbfac4158296",
+      "quant": "92f7e77ba23a2ee98ff81e058fbb7d094fe2bb0dadd3be1154f8abc0932d8a04",
+      "travel": "413b1968de432985a67823180478d54584f1720d03da80c8765c10634e648d08",
+      "workplace": "f671c6b6c0701c4df0411fd5c26c8b348b020ac1e8e33f4d24ee30261d166fa9"
+    },
+    "qrels_dev": {
+      "bitcoin": "618d5ac5b0a0f2e31bce59551a2c2f4d4ff72cf63b2bfd2fc6db5478a594f1ca",
+      "cardano": "236681428dcbb75ed7b6893355b1cbad4d0d3086e12dd0eef32f585d38f16047",
+      "economics": "c1c4497c9cf67eb24a0db515f5014c2f42d9c53b94030a36aa0f7b7a800b9dd3",
+      "genealogy": "4efec30dbe57da2be0b8c1681efa8dda3ead4656a2cad31f73e9a287cddc1a23",
+      "history": "13710bb01f7a91dd8d8f85b2501da17a4c3432485c476759a5cccee811d05b45",
+      "hsm": "c3904f85a6d4463b6d7e1b0c93bbd9e142df25eaba9962ae466bda8aacff946b",
+      "iota": "3dd070a0ca8cd20b79cb75eeb15e1c13ec196b62f57a2d26a5d877222cb345f1",
+      "law": "d90ab3ac213d85804d331815c21a8b7f28e82296acf7e496798b4d4687c51c27",
+      "monero": "911cda223e4a8aa392e710bfb5e042c02f048197cb6e74df435ccbbd82f13000",
+      "politics": "b016766c82513eba64daa2cbed8e183d2e6b492a3d6cf2d391034617863ff07a",
+      "quant": "7fb485962cf8d2e7b5dc6ab553f16960c6cd0ecd6867032546d53ea990eb97e7",
+      "travel": "b93a25897045cfad4f2f0f1ee8a289191b2a031f0cb26c50671d6c9d08a220b5",
+      "workplace": "ff91d72ed22d6132c20c874b188fbd2ab5c061970d35cb13184ff76f4226572c"
+    },
+    "examples_dev": {
+      "bitcoin": "e803d0f57f504105cb5f423f0ab2a840672fc4c444fc779e23dd8dad42e14589",
+      "cardano": "f0622cf6b7dd9882f4373c90bec7bcc0f565c9a7205443deb625c83e0185f0e5",
+      "economics": "e1f8c5830a98a7e6217d537181bc9595af16d3ae1d96d4e65acbba8093bc1890",
+      "genealogy": "0a762522784fb21f6116a8a1b8302682b3848d22745bcf3089356ea024fa388f",
+      "history": "271c67d31b5a56bc97936e2406cde5d5f3bbe6bf1d01e4329d7506767fb9764c",
+      "hsm": "bcc0b34c91319b4da994a4f16f2c6271169b24b3cd02e190d3cf4a590e523045",
+      "iota": "03da1c343fb2e01427d0e35cae7f27af4c98fe947b73123076ad58194384f476",
+      "law": "cba956cfb6e0c49d45b4f12e85dbe4be655b6a9bec960117c043e30e73440f88",
+      "monero": "c5ddabe4983b5a5a02d6387f1d3bf836cf5fbf75dd7b68bb80ef7a77da16273f",
+      "politics": "a7dd0105f03849dc8a321220ed948a5a1b1f5018dc58aa63bf93c4ce293cd675",
+      "quant": "7be4b25bbb685bbda91c604097bd309fb4df2c5e894f4266917dffc740634eff",
+      "travel": "17862a2015854a535330a1e316c912462c91dd87fb1e3f76a88f03cf14095b22",
+      "workplace": "6f6a1212cddb2a4a9b13b5bc2ad2fbbc0eff417feefa74c8934cd42f80ece0b5"
+    },
+    "eval_scripts": {
+      "score_run.py": "d40d0a2b447c11eaf491a8ac49a9c280f31d1c53dd3038b58fb0d8cc1e134c73",
+      "aggregate_scores.py": "db49682280ff5dcb1a148d629e0dc2b8019bc2b33190cdcdf904bad9f157f1ec",
+      "ir_metrics.py": "31f4c909158f21eb59182ba16a3d359c17e13b3a4ca3c403c6ef97a3ada31fb3",
+      "bootstrap_compare.py": "ad1fea511fdefd5959070ee56cbc251ab66e86df7f5bd6c1038fd49bdd8e441c",
+      "lib_reteco.py": "fc67e2a4ef991951a0284d836e2c363e1e8694235b0e6729256044425d506043"
+    },
+    "checkpoint": {
+      "config.json": "b0af68447dcecfdf5857c65c459214d299b0eb42f8f9eeb37c13f300d2dc01e3",
+      "model.safetensors": "0227ff42dca10494dde631590b8a45fc659f1fa92e54a4aa25e87acacd24e682",
+      "tokenizer.json": "1beec8a56e32e8117bf92cfdb326d8a1ce19c10b8bf72f89404ae30a33805af7",
+      "tokenizer_config.json": "175ecf746a7568811bc8ed8b438589b4e58863324b726071db24baabdc469555"
+    }
+  }
+}

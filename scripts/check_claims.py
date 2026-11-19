@@ -44,6 +44,13 @@ CLAIMS = [
     # --- frozen system, the headline positive result -------------------------
     ("frozen dev nDCG@10", 0.3581, lambda: dom_macro("aggregate_sub_sft_e2bc_dev.json"),
      "aggregate_sub_sft_e2bc_dev.json", True),
+    # --- re-verification and bounded-replacement ceiling (2026-11-20) --------
+    ("frozen dev nDCG@10, re-verified", 0.3581,
+     lambda: jload("FROZEN_BASELINE_20261120.json")["new_reverification"]["domain_macro"],
+     "FROZEN_BASELINE_20261120.json", False),
+    ("bounded-replacement oracle (cap 3)", 0.3769,
+     lambda: jload("replacement_v2/oracle_fixed_dev.json")["macro_oracle"],
+     "replacement_v2/oracle_fixed_dev.json", False),
     ("frozen gain vs zero-shot", 0.0332,
      lambda: boot("boot_dom_e2_vs_zs.json", "domain_bootstrap")[0], "boot_dom_e2_vs_zs.json", True),
     ("frozen CI low", 0.0192,
