@@ -6,13 +6,17 @@ given a natural-language query and a domain corpus, return a ranked list of
 documents that are relevant **and** consistent with the temporal conditions
 implied by the query.
 
-**Current research status (2026-11-19).** The reference submission system
-scores **0.3581** on official dev. The current research question is why a
-stronger standalone reranker can yield a weaker fused ranking, and whether
-limited top-ten replacements recover evidence that fusion misses. See the
-[research update and next experiment](docs/RESEARCH_UPDATE_20261119.md) for
-three-seed results, candidate-replacement ceilings, and the Qwen3 4B pilot.
-The pilot uses an internal holdout and a dense-only starting ranking.
+**Current research status (2026-11-20).** The reference submission system
+scores **0.3581** on official dev (re-verified: 519 queries, 13 domains, hashes
+in `results/FROZEN_BASELINE_20261120.json`). The research question is why a
+stronger standalone reranker yields a weaker fused ranking, and whether a
+bounded top-ten replacement recovers evidence fusion misses. On the frozen
+candidate protocol (at most 3 external candidates against ranks 8-10, at most
+one swap per query) a Qwen3-4B judge reaches **0.3646** (+0.0065, 95% CI
+[+0.0021, +0.0117]) against a **0.3769** ceiling for that pool; adding retained
+context to the same prompt does not help, and off-the-shelf rerankers given the
+same pool lose. Details: `results/replacement_v2/REPORT.md`,
+`SCORE_COST.md`, `CASES_DEV.md`, `docs/DECISIONS_20261120.md`.
 
 **摘要（中文）**：本仓库是 RETECO Track-1a 的全部实验产物：官方 BM25 基线复现、
 bge-base 稠密检索、bge-reranker-v2-m3 交叉编码器精排、z 归一化两视图融合（历史章节保留 RRF 对照）、跨 13 个领域
