@@ -50,6 +50,9 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   [+0.0048, +0.0167]; 61 helpful / 15 harmful), so the mechanism is not
   specific to the fused start and gains more where the top-10 has more
   clearly wrong slots.
+* **Qwen3-Reranker-4B starting system.** Reranking the dense top-20 with the
+  off-the-shelf reranker gives a 0.2162 start; the same candidates, judge and
+  one-swap rule reach 0.2348 (+0.0186, CI [+0.0118, +0.0258]; 94 helpful / 11 harmful).
 * **Ablations.** Full 0.3646; without abstention 0.3647; forward order only
   0.3596 (bidirectional agreement is the load-bearing part); without either
   0.3623.

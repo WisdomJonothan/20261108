@@ -37,13 +37,16 @@ All numbers below come from committed artefacts under `results/replacement_v2/`;
 
 Context is +0.0051 with 1.77x the tokens and 1.74x the time of Direct, and the paired Direct-Context difference is -0.0015 (CI [-0.0051, +0.0016]): retained context is not a contribution.
 
-## 3. Second starting system (dense-only pool, same protocol)
+## 3. Starting systems (same candidates, judge and one-swap rule)
 
-| start | nDCG@10 | delta | 95% CI | helpful / harmful | prompts | s |
-|---|---:|---:|---|---:|---:|---:|
-| dense top-100 (no CE in the pool) | 0.3049 | +0.0106 | [+0.0048, +0.0167] | 61 / 15 | 9,342 | 871 |
+| start | nDCG@10 (start) | + correction | delta | 95% CI | help / harm | prompts | s |
+|---|---:|---:|---:|---|---:|---:|---:|
+| fused (frozen top-10) | 0.3581 | 0.3646 | +0.0065 | [+0.0021, +0.0117] | 32 / 19 | 9,342 | 872 |
+| dense top-100 | 0.2943 | 0.3049 | +0.0106 | [+0.0048, +0.0167] | 61 / 15 | 9,342 | 871 |
+| Qwen3-Reranker-4B on dense top-20 | 0.2162 | 0.2348 | +0.0186 | [+0.0118, +0.0258] | 94 / 11 | 9,342 | 864 |
 
-Same candidates, same judge, same one-swap rule; the starting ranking is 0.0638 weaker, so this isolates how much of the gain needs the fused start.
+The correction is not specific to the fused start: it gains most where the
+top ten has more clearly wrong slots.
 
 ## 4. Strong controls (Qwen3-Reranker-4B, same candidates)
 

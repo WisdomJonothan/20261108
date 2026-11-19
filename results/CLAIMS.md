@@ -46,6 +46,7 @@ artefact, and that artefact (paths relative to `results/`).
 | fold f0 / f1 / f2 delta | 0.0007 / 0.0032 / 0.0068 | 0.0007 / 0.0032 / 0.0068 | `replacement_v2/exp_train_f0.json` ... `exp_train_f2.json` |
 | calibration split delta | -0.0014 | -0.0014 | `replacement_v2/exp_train_fall.json` |
 | dense-start replacement (dense 0.2943) | 0.3049 (+0.0106 [+0.0048, +0.0167]) | same | `replacement_v2/exp_dense_start_dev.json` |
+| Qwen3-Reranker start + Direct | 0.2348 (+0.0186 [+0.0118, +0.0258], base 0.2162) | same | `replacement_v2/exp_rr_start_dev.json` |
 
 Gate: `/d/anaconda/python.exe scripts/check_claims.py` exits 0 with
 `RESULT: all claims traceable`. The BM25 row is the organisers' published

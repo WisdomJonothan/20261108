@@ -1,0 +1,4183 @@
+{
+ "model": "/homeC/wujiaheng/RETECO/models/Qwen3-Reranker-4B",
+ "candidate_file": "results/replacement_v2/candidates_dev.json",
+ "instruct": "Given a web search query, retrieve relevant passages that answer the query",
+ "n_queries": 519,
+ "modes": {
+  "start20": {
+   "macro_baseline": 0.21623800035721571,
+   "macro_policy": 0.21623800035721571,
+   "macro_delta": 0.0,
+   "swap_counts": {
+    "no_swap": 519
+   },
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "cost": {
+    "docs_scored": 10380,
+    "prompt_tokens": 5793582,
+    "seconds": 1085.0570811340585,
+    "docs_per_s": 9.566316998872757,
+    "gpu_peak_mb": 8669.7841796875
+   }
+  }
+ },
+ "per_query": {
+  "start20": [
+   {
+    "domain": "bitcoin",
+    "qid": "110742_80",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "112021_76",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "112193_74",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "112359_73",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "112862_71",
+    "baseline": 0.20438239758848611,
+    "policy": 0.20438239758848611,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "112929_69",
+    "baseline": 0.20438239758848611,
+    "policy": 0.20438239758848611,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "112979_68",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "113500_66",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "113938_64",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "114601_60",
+    "baseline": 0.2890648263178879,
+    "policy": 0.2890648263178879,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "118364_58",
+    "baseline": 0.18953836965473142,
+    "policy": 0.18953836965473142,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "118421_57",
+    "baseline": 0.21109268758922906,
+    "policy": 0.21109268758922906,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "119010_55",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "119507_50",
+    "baseline": 0.23463936301137822,
+    "policy": 0.23463936301137822,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "120027_46",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "120273_40",
+    "baseline": 0.16958010263680806,
+    "policy": 0.16958010263680806,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "121089_32",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "122013_25",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "122022_24",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "122143_23",
+    "baseline": 0.3065735963827292,
+    "policy": 0.3065735963827292,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "123234_16",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "123461_13",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "124510_9",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "124603_8",
+    "baseline": 0.23463936301137822,
+    "policy": 0.23463936301137822,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "126111_0",
+    "baseline": 0.2920782154400332,
+    "policy": 0.2920782154400332,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "93150_99",
+    "baseline": 0.46927872602275644,
+    "policy": 0.46927872602275644,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "93368_97",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "97135_89",
+    "baseline": 0.5307212739772434,
+    "policy": 0.5307212739772434,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "97179_88",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "97236_86",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "11106_102",
+    "baseline": 0.6049306994552042,
+    "policy": 0.6049306994552042,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "2057_135",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "2164_133",
+    "baseline": 0.2350455494144854,
+    "policy": 0.2350455494144854,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "2221_131",
+    "baseline": 0.14606834984270645,
+    "policy": 0.14606834984270645,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "4225_128",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "4775_121",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "560_141",
+    "baseline": 0.8175295903539445,
+    "policy": 0.8175295903539445,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "6888_120",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "6918_119",
+    "baseline": 0.41618115554873086,
+    "policy": 0.41618115554873086,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "7235_117",
+    "baseline": 0.13565197343244778,
+    "policy": 0.13565197343244778,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "7539_115",
+    "baseline": 0.19342640361727081,
+    "policy": 0.19342640361727081,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "7564_114",
+    "baseline": 0.16716045496620227,
+    "policy": 0.16716045496620227,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "80_150",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "840_139",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "cardano",
+    "qid": "9250_104",
+    "baseline": 0.38685280723454163,
+    "policy": 0.38685280723454163,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "43579_231",
+    "baseline": 0.13565197343244778,
+    "policy": 0.13565197343244778,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "43853_228",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "43952_227",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "45680_223",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "45773_222",
+    "baseline": 0.09109240322345807,
+    "policy": 0.09109240322345807,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "45828_221",
+    "baseline": 0.21398626473452756,
+    "policy": 0.21398626473452756,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "47148_218",
+    "baseline": 0.38364913903790027,
+    "policy": 0.38364913903790027,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "47454_216",
+    "baseline": 0.21840743681816419,
+    "policy": 0.21840743681816419,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "47636_213",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "47763_212",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "48548_206",
+    "baseline": 0.2856436410275446,
+    "policy": 0.2856436410275446,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "49965_204",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "50570_202",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "51330_198",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "52071_193",
+    "baseline": 0.4144299250118475,
+    "policy": 0.4144299250118475,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "52658_189",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "55201_179",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "56372_176",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "57498_172",
+    "baseline": 0.3903800499921017,
+    "policy": 0.3903800499921017,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "57699_171",
+    "baseline": 0.7606395682357036,
+    "policy": 0.7606395682357036,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "57769_170",
+    "baseline": 0.13565197343244778,
+    "policy": 0.13565197343244778,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "58503_167",
+    "baseline": 0.31339049739370206,
+    "policy": 0.31339049739370206,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "59178_164",
+    "baseline": 0.13032376591037065,
+    "policy": 0.13032376591037065,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "60545_155",
+    "baseline": 0.17723928678404774,
+    "policy": 0.17723928678404774,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "economics",
+    "qid": "60625_152",
+    "baseline": 0.09785159463516042,
+    "policy": 0.09785159463516042,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "10043_313",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "10385_309",
+    "baseline": 0.29769321486741446,
+    "policy": 0.29769321486741446,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "10634_305",
+    "baseline": 0.21515079688078367,
+    "policy": 0.21515079688078367,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "11739_303",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "11818_301",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "11823_300",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "11831_299",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "12001_296",
+    "baseline": 0.11305340175787204,
+    "policy": 0.11305340175787204,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "12197_293",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "12774_283",
+    "baseline": 0.48553456068968903,
+    "policy": 0.48553456068968903,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "12798_282",
+    "baseline": 0.43067655807339306,
+    "policy": 0.43067655807339306,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "13056_276",
+    "baseline": 0.312706129752478,
+    "policy": 0.312706129752478,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "13069_275",
+    "baseline": 0.11284514134893527,
+    "policy": 0.11284514134893527,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "13596_269",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "13778_266",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "13822_265",
+    "baseline": 0.13565197343244778,
+    "policy": 0.13565197343244778,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "14620_261",
+    "baseline": 1.0,
+    "policy": 1.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "14960_260",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "15288_258",
+    "baseline": 0.3065735963827292,
+    "policy": 0.3065735963827292,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "15307_257",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "15729_253",
+    "baseline": 0.46927872602275644,
+    "policy": 0.46927872602275644,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "1711_346",
+    "baseline": 0.2640681225725909,
+    "policy": 0.2640681225725909,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "18583_242",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "18721_238",
+    "baseline": 0.4848745602737557,
+    "policy": 0.4848745602737557,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "19348_236",
+    "baseline": 0.6131471927654584,
+    "policy": 0.6131471927654584,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "1980_342",
+    "baseline": 0.45749452618986164,
+    "policy": 0.45749452618986164,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "20551_235",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "20587_234",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "2061_339",
+    "baseline": 0.2622073738811406,
+    "policy": 0.2622073738811406,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "2182_338",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "2264_333",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "2975_328",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "3224_325",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "3238_323",
+    "baseline": 0.20438239758848611,
+    "policy": 0.20438239758848611,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "genealogy",
+    "qid": "3370_319",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "55730_797",
+    "baseline": 0.370291336443826,
+    "policy": 0.370291336443826,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "55786_792",
+    "baseline": 0.743892490467829,
+    "policy": 0.743892490467829,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "55800_790",
+    "baseline": 0.2856436410275446,
+    "policy": 0.2856436410275446,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "55806_789",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "55888_782",
+    "baseline": 0.3228087653971817,
+    "policy": 0.3228087653971817,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "55937_780",
+    "baseline": 0.21840743681816419,
+    "policy": 0.21840743681816419,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56053_773",
+    "baseline": 0.38685280723454163,
+    "policy": 0.38685280723454163,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56068_771",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56083_770",
+    "baseline": 0.1480409554829326,
+    "policy": 0.1480409554829326,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56089_769",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56254_754",
+    "baseline": 0.11751610475642714,
+    "policy": 0.11751610475642714,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56354_746",
+    "baseline": 0.5413996682199069,
+    "policy": 0.5413996682199069,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56434_738",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56514_736",
+    "baseline": 0.3065735963827292,
+    "policy": 0.3065735963827292,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56523_734",
+    "baseline": 0.3065735963827292,
+    "policy": 0.3065735963827292,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56551_731",
+    "baseline": 0.2960819109658652,
+    "policy": 0.2960819109658652,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56655_728",
+    "baseline": 0.3065735963827292,
+    "policy": 0.3065735963827292,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56713_726",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56734_725",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56860_716",
+    "baseline": 0.23719771276929622,
+    "policy": 0.23719771276929622,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56861_715",
+    "baseline": 0.6310473491188938,
+    "policy": 0.6310473491188938,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56928_711",
+    "baseline": 0.23719771276929622,
+    "policy": 0.23719771276929622,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56929_710",
+    "baseline": 0.18457569677956817,
+    "policy": 0.18457569677956817,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "56978_708",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "57032_706",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "57062_705",
+    "baseline": 0.15642624200758548,
+    "policy": 0.15642624200758548,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "57063_704",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "57075_703",
+    "baseline": 0.3333333333333333,
+    "policy": 0.3333333333333333,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "57118_700",
+    "baseline": 0.18457569677956817,
+    "policy": 0.18457569677956817,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "57176_696",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "57302_688",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "57324_686",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "58540_674",
+    "baseline": 0.2640681225725909,
+    "policy": 0.2640681225725909,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "58651_665",
+    "baseline": 0.38685280723454163,
+    "policy": 0.38685280723454163,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "58669_663",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "58699_662",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "58823_658",
+    "baseline": 1.0,
+    "policy": 1.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "58841_656",
+    "baseline": 0.5249810332008933,
+    "policy": 0.5249810332008933,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "58914_650",
+    "baseline": 0.38364913903790027,
+    "policy": 0.38364913903790027,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "58962_648",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "59006_644",
+    "baseline": 0.16716045496620227,
+    "policy": 0.16716045496620227,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "59150_637",
+    "baseline": 0.38685280723454163,
+    "policy": 0.38685280723454163,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "59178_633",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "59254_629",
+    "baseline": 0.5078961547485289,
+    "policy": 0.5078961547485289,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "59267_627",
+    "baseline": 0.11284514134893527,
+    "policy": 0.11284514134893527,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "59289_624",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "59291_623",
+    "baseline": 0.19342640361727081,
+    "policy": 0.19342640361727081,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "59294_622",
+    "baseline": 0.15642624200758548,
+    "policy": 0.15642624200758548,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "59309_621",
+    "baseline": 0.19342640361727081,
+    "policy": 0.19342640361727081,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "62574_607",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "62736_601",
+    "baseline": 0.38356636737133565,
+    "policy": 0.38356636737133565,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "62753_599",
+    "baseline": 0.44229834886928765,
+    "policy": 0.44229834886928765,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "62765_598",
+    "baseline": 0.3044671974905181,
+    "policy": 0.3044671974905181,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "62821_597",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "62887_596",
+    "baseline": 0.16945984979943976,
+    "policy": 0.16945984979943976,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "62994_591",
+    "baseline": 0.07311683844390995,
+    "policy": 0.07311683844390995,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "62997_590",
+    "baseline": 0.13905617951077562,
+    "policy": 0.13905617951077562,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "63222_583",
+    "baseline": 0.2691828628414762,
+    "policy": 0.2691828628414762,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "63284_581",
+    "baseline": 0.559206739398752,
+    "policy": 0.559206739398752,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "63331_580",
+    "baseline": 0.11751610475642714,
+    "policy": 0.11751610475642714,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "63482_568",
+    "baseline": 0.3065735963827292,
+    "policy": 0.3065735963827292,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "63561_567",
+    "baseline": 0.22009176629808017,
+    "policy": 0.22009176629808017,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "63644_562",
+    "baseline": 0.9349366583346496,
+    "policy": 0.9349366583346496,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "63843_555",
+    "baseline": 0.5078961547485289,
+    "policy": 0.5078961547485289,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "63862_552",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "63880_549",
+    "baseline": 0.2528847364210069,
+    "policy": 0.2528847364210069,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "63982_544",
+    "baseline": 0.20509662144948265,
+    "policy": 0.20509662144948265,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "64051_539",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "64055_538",
+    "baseline": 0.06362078819895171,
+    "policy": 0.06362078819895171,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "64072_537",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "64177_534",
+    "baseline": 0.1480409554829326,
+    "policy": 0.1480409554829326,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "64203_533",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "64208_532",
+    "baseline": 0.8070380459557518,
+    "policy": 0.8070380459557518,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "64228_530",
+    "baseline": 0.2640681225725909,
+    "policy": 0.2640681225725909,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "64282_527",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "64346_525",
+    "baseline": 0.06625422345438903,
+    "policy": 0.06625422345438903,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "64383_523",
+    "baseline": 0.8503449055347546,
+    "policy": 0.8503449055347546,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "64579_518",
+    "baseline": 0.41183384043543503,
+    "policy": 0.41183384043543503,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "64604_517",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "64613_515",
+    "baseline": 0.18457569677956817,
+    "policy": 0.18457569677956817,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "65746_512",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "65773_508",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66092_501",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66161_499",
+    "baseline": 0.5430667908374095,
+    "policy": 0.5430667908374095,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66192_492",
+    "baseline": 0.6410811757706057,
+    "policy": 0.6410811757706057,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66253_483",
+    "baseline": 0.3026024134988135,
+    "policy": 0.3026024134988135,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66273_481",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66396_469",
+    "baseline": 0.20438239758848611,
+    "policy": 0.20438239758848611,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66417_468",
+    "baseline": 0.23463936301137822,
+    "policy": 0.23463936301137822,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66491_463",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66498_462",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66499_461",
+    "baseline": 0.4776237035032179,
+    "policy": 0.4776237035032179,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66521_459",
+    "baseline": 0.16716045496620227,
+    "policy": 0.16716045496620227,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66637_454",
+    "baseline": 0.3903800499921017,
+    "policy": 0.3903800499921017,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66663_452",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66701_449",
+    "baseline": 0.29769321486741446,
+    "policy": 0.29769321486741446,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66726_446",
+    "baseline": 0.6131471927654584,
+    "policy": 0.6131471927654584,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "66814_442",
+    "baseline": 0.8885837595925427,
+    "policy": 0.8885837595925427,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "67963_434",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "67966_433",
+    "baseline": 0.3973220069685352,
+    "policy": 0.3973220069685352,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "67980_431",
+    "baseline": 0.07839826897867533,
+    "policy": 0.07839826897867533,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68013_430",
+    "baseline": 0.3347975674340217,
+    "policy": 0.3347975674340217,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68107_426",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68211_423",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68328_416",
+    "baseline": 0.08671382849411974,
+    "policy": 0.08671382849411974,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68358_414",
+    "baseline": 0.1012286082123002,
+    "policy": 0.1012286082123002,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68362_413",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68426_409",
+    "baseline": 0.5724962033825487,
+    "policy": 0.5724962033825487,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68574_399",
+    "baseline": 0.15101961822780524,
+    "policy": 0.15101961822780524,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68604_398",
+    "baseline": 0.2558209594125084,
+    "policy": 0.2558209594125084,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68627_396",
+    "baseline": 0.31546487678572877,
+    "policy": 0.31546487678572877,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68630_395",
+    "baseline": 0.2350455494144854,
+    "policy": 0.2350455494144854,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68680_394",
+    "baseline": 0.13905617951077562,
+    "policy": 0.13905617951077562,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68862_380",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68898_378",
+    "baseline": 0.2960819109658652,
+    "policy": 0.2960819109658652,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68935_374",
+    "baseline": 0.46927872602275644,
+    "policy": 0.46927872602275644,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "68983_372",
+    "baseline": 0.3903800499921017,
+    "policy": 0.3903800499921017,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69077_371",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69208_363",
+    "baseline": 0.9197207891481876,
+    "policy": 0.9197207891481876,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69226_361",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69389_354",
+    "baseline": 0.20210734650054757,
+    "policy": 0.20210734650054757,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69507_347",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69544_344",
+    "baseline": 0.09546043308946735,
+    "policy": 0.09546043308946735,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69644_340",
+    "baseline": 0.3065735963827292,
+    "policy": 0.3065735963827292,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69758_331",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69791_330",
+    "baseline": 0.31546487678572877,
+    "policy": 0.31546487678572877,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69851_324",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69860_322",
+    "baseline": 0.13565197343244778,
+    "policy": 0.13565197343244778,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69879_320",
+    "baseline": 0.5166400850076803,
+    "policy": 0.5166400850076803,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69881_319",
+    "baseline": 0.5417015581078644,
+    "policy": 0.5417015581078644,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69894_318",
+    "baseline": 0.1865528363129254,
+    "policy": 0.1865528363129254,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "69940_313",
+    "baseline": 0.2640681225725909,
+    "policy": 0.2640681225725909,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70076_305",
+    "baseline": 0.15642624200758548,
+    "policy": 0.15642624200758548,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70103_303",
+    "baseline": 0.6713860725233041,
+    "policy": 0.6713860725233041,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70117_302",
+    "baseline": 0.06625422345438903,
+    "policy": 0.06625422345438903,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70131_301",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70188_298",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70284_294",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70361_291",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70364_290",
+    "baseline": 0.1785641173248663,
+    "policy": 0.1785641173248663,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70382_288",
+    "baseline": 0.30798345931689824,
+    "policy": 0.30798345931689824,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70431_286",
+    "baseline": 0.20210734650054757,
+    "policy": 0.20210734650054757,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70471_283",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70544_278",
+    "baseline": 0.5922216874835863,
+    "policy": 0.5922216874835863,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70565_272",
+    "baseline": 0.39106560501896365,
+    "policy": 0.39106560501896365,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70583_271",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70594_270",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70624_268",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70634_266",
+    "baseline": 0.24630238874073,
+    "policy": 0.24630238874073,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70668_264",
+    "baseline": 0.6131471927654584,
+    "policy": 0.6131471927654584,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70693_263",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70695_262",
+    "baseline": 0.3903800499921017,
+    "policy": 0.3903800499921017,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70746_260",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70850_254",
+    "baseline": 0.16812753627111746,
+    "policy": 0.16812753627111746,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70896_251",
+    "baseline": 0.5205067333228022,
+    "policy": 0.5205067333228022,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70924_247",
+    "baseline": 0.36926780146674987,
+    "policy": 0.36926780146674987,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "70965_244",
+    "baseline": 0.19519002499605084,
+    "policy": 0.19519002499605084,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71066_240",
+    "baseline": 0.15642624200758548,
+    "policy": 0.15642624200758548,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71155_236",
+    "baseline": 0.6309297535714575,
+    "policy": 0.6309297535714575,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71222_231",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71235_230",
+    "baseline": 0.20438239758848611,
+    "policy": 0.20438239758848611,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71301_223",
+    "baseline": 0.24630238874073,
+    "policy": 0.24630238874073,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71333_221",
+    "baseline": 0.23463936301137822,
+    "policy": 0.23463936301137822,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71352_218",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71367_216",
+    "baseline": 0.43067655807339306,
+    "policy": 0.43067655807339306,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71394_215",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71402_214",
+    "baseline": 0.13120507751234178,
+    "policy": 0.13120507751234178,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71494_212",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71507_211",
+    "baseline": 0.15642624200758548,
+    "policy": 0.15642624200758548,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71509_210",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71551_207",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71693_200",
+    "baseline": 1.0,
+    "policy": 1.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71889_192",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71924_189",
+    "baseline": 0.3156484524795145,
+    "policy": 0.3156484524795145,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "71985_188",
+    "baseline": 0.6663312458715583,
+    "policy": 0.6663312458715583,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72086_184",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72096_183",
+    "baseline": 0.38685280723454163,
+    "policy": 0.38685280723454163,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72115_181",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72186_175",
+    "baseline": 0.5855700749881525,
+    "policy": 0.5855700749881525,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72216_173",
+    "baseline": 0.20438239758848611,
+    "policy": 0.20438239758848611,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72255_172",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72360_164",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72370_163",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72472_158",
+    "baseline": 0.2960819109658652,
+    "policy": 0.2960819109658652,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72518_156",
+    "baseline": 0.6052602440527057,
+    "policy": 0.6052602440527057,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72552_154",
+    "baseline": 0.06362078819895171,
+    "policy": 0.06362078819895171,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72564_153",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72588_152",
+    "baseline": 0.2920782154400332,
+    "policy": 0.2920782154400332,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72655_149",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72726_139",
+    "baseline": 0.14126697285982898,
+    "policy": 0.14126697285982898,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "72822_137",
+    "baseline": 0.13032376591037065,
+    "policy": 0.13032376591037065,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "74058_133",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "74426_129",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "75960_119",
+    "baseline": 0.20210734650054757,
+    "policy": 0.20210734650054757,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76250_114",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76262_113",
+    "baseline": 0.21398626473452756,
+    "policy": 0.21398626473452756,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76264_112",
+    "baseline": 0.123151194370365,
+    "policy": 0.123151194370365,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76308_110",
+    "baseline": 0.3333333333333333,
+    "policy": 0.3333333333333333,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76328_109",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76348_108",
+    "baseline": 0.15958907712489637,
+    "policy": 0.15958907712489637,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76410_105",
+    "baseline": 0.13565197343244778,
+    "policy": 0.13565197343244778,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76456_101",
+    "baseline": 0.13120507751234178,
+    "policy": 0.13120507751234178,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76499_99",
+    "baseline": 0.21398626473452756,
+    "policy": 0.21398626473452756,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76516_97",
+    "baseline": 0.3903800499921017,
+    "policy": 0.3903800499921017,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76547_95",
+    "baseline": 0.5726073975563163,
+    "policy": 0.5726073975563163,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76608_94",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76661_90",
+    "baseline": 0.3562071871080222,
+    "policy": 0.3562071871080222,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76671_88",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76694_86",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76697_85",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76737_81",
+    "baseline": 0.11751610475642714,
+    "policy": 0.11751610475642714,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76805_79",
+    "baseline": 0.10209739512291163,
+    "policy": 0.10209739512291163,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76872_74",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76886_73",
+    "baseline": 0.5307212739772434,
+    "policy": 0.5307212739772434,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76925_72",
+    "baseline": 0.34620964322385606,
+    "policy": 0.34620964322385606,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76952_71",
+    "baseline": 0.312706129752478,
+    "policy": 0.312706129752478,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "76967_70",
+    "baseline": 0.24630238874073,
+    "policy": 0.24630238874073,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77003_69",
+    "baseline": 0.431733884398313,
+    "policy": 0.431733884398313,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77019_67",
+    "baseline": 0.39325912586965384,
+    "policy": 0.39325912586965384,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77071_64",
+    "baseline": 0.6364391809889587,
+    "policy": 0.6364391809889587,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77095_63",
+    "baseline": 0.3044671974905181,
+    "policy": 0.3044671974905181,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77144_59",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77151_58",
+    "baseline": 0.502373740777944,
+    "policy": 0.502373740777944,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77154_56",
+    "baseline": 0.8519590445170673,
+    "policy": 0.8519590445170673,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77164_54",
+    "baseline": 0.09803928583135704,
+    "policy": 0.09803928583135704,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77203_51",
+    "baseline": 0.5,
+    "policy": 0.5,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77221_49",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77270_48",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77295_46",
+    "baseline": 0.3065735963827292,
+    "policy": 0.3065735963827292,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77362_45",
+    "baseline": 0.13565197343244778,
+    "policy": 0.13565197343244778,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77380_44",
+    "baseline": 0.2489083270225946,
+    "policy": 0.2489083270225946,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77441_39",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77513_36",
+    "baseline": 0.28952298823485745,
+    "policy": 0.28952298823485745,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77682_27",
+    "baseline": 0.31546487678572877,
+    "policy": 0.31546487678572877,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "77769_24",
+    "baseline": 0.41322699210894587,
+    "policy": 0.41322699210894587,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "78907_21",
+    "baseline": 0.29769321486741446,
+    "policy": 0.29769321486741446,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "79114_14",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "79485_7",
+    "baseline": 0.15101961822780524,
+    "policy": 0.15101961822780524,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "79523_3",
+    "baseline": 0.8278123145308894,
+    "policy": 0.8278123145308894,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "history",
+    "qid": "79533_1",
+    "baseline": 0.13886244387355454,
+    "policy": 0.13886244387355454,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "12878_739",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "13022_735",
+    "baseline": 0.2640681225725909,
+    "policy": 0.2640681225725909,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "13081_730",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "13118_729",
+    "baseline": 0.17723928678404774,
+    "policy": 0.17723928678404774,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "13304_724",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "13367_721",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "13398_720",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "13520_718",
+    "baseline": 0.4415801103577823,
+    "policy": 0.4415801103577823,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "13570_716",
+    "baseline": 0.20210734650054757,
+    "policy": 0.20210734650054757,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "13594_714",
+    "baseline": 0.23330247263525344,
+    "policy": 0.23330247263525344,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "13664_712",
+    "baseline": 0.7773960039392072,
+    "policy": 0.7773960039392072,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "13846_707",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "14467_697",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "17457_695",
+    "baseline": 0.6131471927654584,
+    "policy": 0.6131471927654584,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "17543_694",
+    "baseline": 0.20210734650054757,
+    "policy": 0.20210734650054757,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "17698_691",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "17703_690",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "17828_685",
+    "baseline": 0.2622073738811406,
+    "policy": 0.2622073738811406,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "17936_682",
+    "baseline": 0.558226059985166,
+    "policy": 0.558226059985166,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "18057_676",
+    "baseline": 0.44130740935663865,
+    "policy": 0.44130740935663865,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "18059_675",
+    "baseline": 0.2987100207034456,
+    "policy": 0.2987100207034456,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "18235_671",
+    "baseline": 0.8772153153380493,
+    "policy": 0.8772153153380493,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "18314_669",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "18573_661",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "18672_660",
+    "baseline": 1.0,
+    "policy": 1.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "18737_659",
+    "baseline": 0.46927872602275644,
+    "policy": 0.46927872602275644,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "18796_657",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "2057_790",
+    "baseline": 0.6509209298071326,
+    "policy": 0.6509209298071326,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "276_797",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "2944_781",
+    "baseline": 0.6131471927654584,
+    "policy": 0.6131471927654584,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "2976_779",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "3003_777",
+    "baseline": 0.5307212739772434,
+    "policy": 0.5307212739772434,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "3035_775",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "3184_770",
+    "baseline": 0.38685280723454163,
+    "policy": 0.38685280723454163,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "3206_767",
+    "baseline": 0.16716045496620227,
+    "policy": 0.16716045496620227,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "3215_766",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "3282_761",
+    "baseline": 0.6131471927654584,
+    "policy": 0.6131471927654584,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "3323_760",
+    "baseline": 0.20438239758848611,
+    "policy": 0.20438239758848611,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "5514_757",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "5572_755",
+    "baseline": 0.8315546295836225,
+    "policy": 0.8315546295836225,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "5627_754",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "5674_752",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "5709_750",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "7363_743",
+    "baseline": 0.8503449055347546,
+    "policy": 0.8503449055347546,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "hsm",
+    "qid": "7366_742",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "iota",
+    "qid": "2194_800",
+    "baseline": 0.6713860725233041,
+    "policy": 0.6713860725233041,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "iota",
+    "qid": "2714_798",
+    "baseline": 0.5855700749881525,
+    "policy": 0.5855700749881525,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "iota",
+    "qid": "314_806",
+    "baseline": 0.3889580943680543,
+    "policy": 0.3889580943680543,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "law",
+    "qid": "101678_842",
+    "baseline": 0.369453583111095,
+    "policy": 0.369453583111095,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "law",
+    "qid": "102419_841",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "law",
+    "qid": "102830_840",
+    "baseline": 0.14606834984270645,
+    "policy": 0.14606834984270645,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "law",
+    "qid": "102997_839",
+    "baseline": 0.11284514134893527,
+    "policy": 0.11284514134893527,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "law",
+    "qid": "103233_838",
+    "baseline": 0.9197207891481876,
+    "policy": 0.9197207891481876,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "law",
+    "qid": "103373_837",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "law",
+    "qid": "103498_834",
+    "baseline": 0.13120507751234178,
+    "policy": 0.13120507751234178,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "law",
+    "qid": "103790_832",
+    "baseline": 0.5,
+    "policy": 0.5,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "law",
+    "qid": "104892_830",
+    "baseline": 0.2890648263178879,
+    "policy": 0.2890648263178879,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "law",
+    "qid": "106440_824",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "law",
+    "qid": "106562_822",
+    "baseline": 0.13565197343244778,
+    "policy": 0.13565197343244778,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "10054_872",
+    "baseline": 0.370291336443826,
+    "policy": 0.370291336443826,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "10071_871",
+    "baseline": 0.13565197343244778,
+    "policy": 0.13565197343244778,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "11753_859",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "12479_853",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "13996_845",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "14078_844",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "3262_907",
+    "baseline": 0.13012668333070054,
+    "policy": 0.13012668333070054,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "3515_904",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "3554_903",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "4053_899",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "4083_898",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "4155_896",
+    "baseline": 0.4822987244600303,
+    "policy": 0.4822987244600303,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "5677_892",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "6838_884",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "7072_882",
+    "baseline": 0.14126697285982898,
+    "policy": 0.14126697285982898,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "7335_881",
+    "baseline": 0.16812753627111746,
+    "policy": 0.16812753627111746,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "7854_878",
+    "baseline": 0.7864724919925569,
+    "policy": 0.7864724919925569,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "7922_877",
+    "baseline": 0.5249810332008933,
+    "policy": 0.5249810332008933,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "monero",
+    "qid": "8008_875",
+    "baseline": 0.38685280723454163,
+    "policy": 0.38685280723454163,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "74084_1057",
+    "baseline": 0.8315546295836225,
+    "policy": 0.8315546295836225,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "74259_1054",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "74392_1052",
+    "baseline": 0.8065735963827293,
+    "policy": 0.8065735963827293,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "74412_1051",
+    "baseline": 0.6131471927654584,
+    "policy": 0.6131471927654584,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "74876_1047",
+    "baseline": 0.6364391809889587,
+    "policy": 0.6364391809889587,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "74930_1045",
+    "baseline": 0.2960819109658652,
+    "policy": 0.2960819109658652,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "75191_1040",
+    "baseline": 0.3065735963827292,
+    "policy": 0.3065735963827292,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "77317_1034",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "77681_1031",
+    "baseline": 0.617319681505689,
+    "policy": 0.617319681505689,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "77716_1030",
+    "baseline": 0.6131471927654584,
+    "policy": 0.6131471927654584,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "77784_1029",
+    "baseline": 0.13905617951077562,
+    "policy": 0.13905617951077562,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "77995_1024",
+    "baseline": 0.5646436081071458,
+    "policy": 0.5646436081071458,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "78147_1020",
+    "baseline": 0.18457569677956817,
+    "policy": 0.18457569677956817,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "78217_1019",
+    "baseline": 0.14126697285982898,
+    "policy": 0.14126697285982898,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "81967_1013",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "82010_1011",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "82039_1009",
+    "baseline": 0.23463936301137822,
+    "policy": 0.23463936301137822,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "82063_1008",
+    "baseline": 0.787702056960637,
+    "policy": 0.787702056960637,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "82153_1005",
+    "baseline": 0.21109268758922906,
+    "policy": 0.21109268758922906,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "82825_1003",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "83279_999",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "83581_996",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "83619_994",
+    "baseline": 0.38685280723454163,
+    "policy": 0.38685280723454163,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "83672_990",
+    "baseline": 0.23719771276929622,
+    "policy": 0.23719771276929622,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "83771_988",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "86781_983",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "86904_981",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "87402_977",
+    "baseline": 0.9197207891481876,
+    "policy": 0.9197207891481876,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "87499_976",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "87624_975",
+    "baseline": 0.2960819109658652,
+    "policy": 0.2960819109658652,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "87878_971",
+    "baseline": 0.6131471927654584,
+    "policy": 0.6131471927654584,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "87918_970",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "88090_967",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "88444_960",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "88683_957",
+    "baseline": 0.48522855511632257,
+    "policy": 0.48522855511632257,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "88829_955",
+    "baseline": 0.1480409554829326,
+    "policy": 0.1480409554829326,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "89482_949",
+    "baseline": 0.5912352048230277,
+    "policy": 0.5912352048230277,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "89697_946",
+    "baseline": 0.17723928678404774,
+    "policy": 0.17723928678404774,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "89753_942",
+    "baseline": 0.22290869782240583,
+    "policy": 0.22290869782240583,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "89978_941",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "90545_934",
+    "baseline": 0.15642624200758548,
+    "policy": 0.15642624200758548,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "90821_929",
+    "baseline": 0.14126697285982898,
+    "policy": 0.14126697285982898,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "91586_923",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "92743_919",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "politics",
+    "qid": "93372_915",
+    "baseline": 0.38685280723454163,
+    "policy": 0.38685280723454163,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "quant",
+    "qid": "69707_1089",
+    "baseline": 0.13012668333070054,
+    "policy": 0.13012668333070054,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "quant",
+    "qid": "70097_1088",
+    "baseline": 0.13565197343244778,
+    "policy": 0.13565197343244778,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "quant",
+    "qid": "70819_1086",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "quant",
+    "qid": "73356_1084",
+    "baseline": 0.17723928678404774,
+    "policy": 0.17723928678404774,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "quant",
+    "qid": "74929_1079",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "quant",
+    "qid": "75646_1077",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "quant",
+    "qid": "77873_1071",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "quant",
+    "qid": "78710_1068",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "quant",
+    "qid": "79564_1066",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "quant",
+    "qid": "83939_1059",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "183412_1191",
+    "baseline": 0.15642624200758548,
+    "policy": 0.15642624200758548,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "183966_1189",
+    "baseline": 0.46927872602275644,
+    "policy": 0.46927872602275644,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "184237_1186",
+    "baseline": 0.5805485932475565,
+    "policy": 0.5805485932475565,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "184305_1185",
+    "baseline": 0.1480409554829326,
+    "policy": 0.1480409554829326,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "184615_1180",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "185199_1176",
+    "baseline": 0.3084274278260313,
+    "policy": 0.3084274278260313,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "185727_1169",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "186051_1165",
+    "baseline": 0.2890648263178879,
+    "policy": 0.2890648263178879,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "186393_1158",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "186482_1157",
+    "baseline": 0.23719771276929622,
+    "policy": 0.23719771276929622,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "188098_1152",
+    "baseline": 0.19342640361727081,
+    "policy": 0.19342640361727081,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "188364_1150",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "188596_1148",
+    "baseline": 0.18457569677956817,
+    "policy": 0.18457569677956817,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "188979_1146",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "189862_1143",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "190042_1140",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "190667_1135",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "190846_1134",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "191493_1129",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "191713_1127",
+    "baseline": 0.17723928678404774,
+    "policy": 0.17723928678404774,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "192060_1123",
+    "baseline": 0.3084274278260313,
+    "policy": 0.3084274278260313,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "192167_1122",
+    "baseline": 0.31546487678572877,
+    "policy": 0.31546487678572877,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "192320_1118",
+    "baseline": 0.2640681225725909,
+    "policy": 0.2640681225725909,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "193643_1110",
+    "baseline": 0.18457569677956817,
+    "policy": 0.18457569677956817,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "193736_1108",
+    "baseline": 0.787702056960637,
+    "policy": 0.787702056960637,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "198158_1104",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "198308_1103",
+    "baseline": 0.14126697285982898,
+    "policy": 0.14126697285982898,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "198471_1102",
+    "baseline": 0.16716045496620227,
+    "policy": 0.16716045496620227,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "200183_1100",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "travel",
+    "qid": "201562_1094",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "workplace",
+    "qid": "168198_1227",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "workplace",
+    "qid": "169903_1225",
+    "baseline": 0.6182885020492784,
+    "policy": 0.6182885020492784,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "workplace",
+    "qid": "171543_1222",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "workplace",
+    "qid": "179162_1214",
+    "baseline": 0.4371994911049732,
+    "policy": 0.4371994911049732,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "workplace",
+    "qid": "181712_1212",
+    "baseline": 0.6934264036172708,
+    "policy": 0.6934264036172708,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "workplace",
+    "qid": "181803_1211",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "workplace",
+    "qid": "183145_1209",
+    "baseline": 0.23719771276929622,
+    "policy": 0.23719771276929622,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "workplace",
+    "qid": "190938_1203",
+    "baseline": 0.15642624200758548,
+    "policy": 0.15642624200758548,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "workplace",
+    "qid": "191906_1200",
+    "baseline": 0.46927872602275644,
+    "policy": 0.46927872602275644,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "workplace",
+    "qid": "194500_1197",
+    "baseline": 0.3065735963827292,
+    "policy": 0.3065735963827292,
+    "delta": 0.0,
+    "swap": null
+   },
+   {
+    "domain": "workplace",
+    "qid": "200148_1194",
+    "baseline": 0.0,
+    "policy": 0.0,
+    "delta": 0.0,
+    "swap": null
+   }
+  ]
+ }
+}
