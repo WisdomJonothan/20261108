@@ -6,6 +6,14 @@ given a natural-language query and a domain corpus, return a ranked list of
 documents that are relevant **and** consistent with the temporal conditions
 implied by the query.
 
+**Current research status (2026-11-19).** The reference submission system
+scores **0.3581** on official dev. The current research question is why a
+stronger standalone reranker can yield a weaker fused ranking, and whether
+limited top-ten replacements recover evidence that fusion misses. See the
+[research update and next experiment](docs/RESEARCH_UPDATE_20261119.md) for
+three-seed results, candidate-replacement ceilings, and the Qwen3 4B pilot.
+The pilot uses an internal holdout and a dense-only starting ranking.
+
 **摘要（中文）**：本仓库是 RETECO Track-1a 的全部实验产物：官方 BM25 基线复现、
 bge-base 稠密检索、bge-reranker-v2-m3 交叉编码器精排、z 归一化两视图融合（历史章节保留 RRF 对照）、跨 13 个领域
 的 dev 评测，以及时间表示（时间特征、语义时间一致性、查询分解、HyDE）的一系列负结果。

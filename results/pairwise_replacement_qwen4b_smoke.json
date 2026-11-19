@@ -1,0 +1,1381 @@
+{
+  "scope": "Smoke test with fixed rank pairs. Outcome counts are per pair. A replacement requires agreement after reversing A/B. No final ranking applies multiple pairs.",
+  "model": "Qwen/Qwen3-4B-Instruct-2507",
+  "device": "cuda",
+  "queries": 13,
+  "pairs": 26,
+  "prompts": 104,
+  "scoring_seconds": 16.894841987639666,
+  "positive_pairs_available": 2,
+  "negative_pairs_available": 2,
+  "metrics": {
+    "direct": {
+      "position_agreement": 0.46153846153846156,
+      "agreed_pairs": 12,
+      "helpful": 0,
+      "harmful": 0,
+      "neutral": 4
+    },
+    "contextual": {
+      "position_agreement": 0.38461538461538464,
+      "agreed_pairs": 10,
+      "helpful": 1,
+      "harmful": 0,
+      "neutral": 5
+    }
+  },
+  "per_pair": [
+    {
+      "domain": "bitcoin",
+      "qid": "124874_6",
+      "slot": 10,
+      "incumbent_id": "bitcoin/00b94d12_4629.txt",
+      "challenger_id": "bitcoin/cb9391b8_143379.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 4,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 4.2228330130456015e-06,
+              "challenger": 0.9999957084655762,
+              "abstain": 1.0632194680226803e-08
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 0.0009098451700992882,
+              "incumbent": 0.997766375541687,
+              "abstain": 0.0013238168321549892
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 0.05033048987388611,
+              "challenger": 0.9496666789054871,
+              "abstain": 2.8437293622118887e-06
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9995383024215698,
+              "incumbent": 5.7364391977898777e-05,
+              "abstain": 0.00040445831837132573
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "bitcoin",
+      "qid": "124874_6",
+      "slot": 9,
+      "incumbent_id": "bitcoin/122143_b4dd4ebe14fa878b_10.txt",
+      "challenger_id": "bitcoin/88c0e781_143380.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 4,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 2.1600705668589626e-09,
+              "challenger": 1.0,
+              "abstain": 8.72747374369709e-10
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9999990463256836,
+              "incumbent": 1.003014176603756e-06,
+              "abstain": 2.952463384886528e-09
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 0.45325997471809387,
+              "challenger": 0.5467358827590942,
+              "abstain": 4.11585324400221e-06
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9928523898124695,
+              "incumbent": 0.007010837085545063,
+              "abstain": 0.0001366895594401285
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "cardano",
+      "qid": "92_149",
+      "slot": 10,
+      "incumbent_id": "cardano/4ea4a545_11386.txt",
+      "challenger_id": "cardano/f248dd24_86719.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 2,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "abstain",
+            "probabilities": {
+              "incumbent": 3.889111610533291e-08,
+              "challenger": 3.098819161342914e-12,
+              "abstain": 1.0
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "abstain",
+            "probabilities": {
+              "challenger": 1.2606945347215515e-05,
+              "incumbent": 3.7109689543513014e-08,
+              "abstain": 0.9999873638153076
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "abstain",
+            "probabilities": {
+              "incumbent": 0.2508973181247711,
+              "challenger": 6.157765164971352e-05,
+              "abstain": 0.7490410208702087
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9929437041282654,
+              "incumbent": 0.0047442056238651276,
+              "abstain": 0.002312141004949808
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "cardano",
+      "qid": "92_149",
+      "slot": 9,
+      "incumbent_id": "cardano/a66609d4_10635.txt",
+      "challenger_id": "cardano/839_ec6e5aea596ac56e_47.txt",
+      "swap_delta_ndcg": -0.08274602130532004,
+      "swap_delta_steps": 0,
+      "steps": 2,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.9755727052688599,
+              "challenger": 0.024422984570264816,
+              "abstain": 4.250471647537779e-06
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 8.139691999531351e-06,
+              "incumbent": 0.9999918937683105,
+              "abstain": 1.2625995360338038e-08
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.9805498719215393,
+              "challenger": 0.007486590184271336,
+              "abstain": 0.011963536962866783
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 0.12591874599456787,
+              "incumbent": 0.8740493059158325,
+              "abstain": 3.188520349794999e-05
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "economics",
+      "qid": "60542_156",
+      "slot": 10,
+      "incumbent_id": "economics/54294_e4a4e3d936798ab3_578.txt",
+      "challenger_id": "economics/5334a17b_82091.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 1,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 3.063631570654479e-10,
+              "challenger": 1.0,
+              "abstain": 1.1032560420787263e-09
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9999932050704956,
+              "incumbent": 7.811436830706953e-07,
+              "abstain": 5.955134383839322e-06
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 3.76364441763144e-05,
+              "challenger": 0.999962329864502,
+              "abstain": 2.0816129264744632e-08
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 1.0,
+              "incumbent": 6.058067381076171e-09,
+              "abstain": 5.430416560869844e-09
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "economics",
+      "qid": "60542_156",
+      "slot": 9,
+      "incumbent_id": "economics/47148_1774964895969880_24.txt",
+      "challenger_id": "economics/43853_08f1976e72e281ca_70.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 1,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "abstain",
+            "probabilities": {
+              "incumbent": 0.29979437589645386,
+              "challenger": 0.02460862137377262,
+              "abstain": 0.6755970120429993
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 0.00012429547496140003,
+              "incumbent": 0.976189136505127,
+              "abstain": 0.023686526343226433
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.9989320635795593,
+              "challenger": 0.0010649595642462373,
+              "abstain": 2.9448769964801613e-06
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.994938850402832,
+              "incumbent": 0.005060327704995871,
+              "abstain": 7.894344093983818e-07
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "genealogy",
+      "qid": "17409_248",
+      "slot": 10,
+      "incumbent_id": "genealogy/64adbd77_10459.txt",
+      "challenger_id": "genealogy/12937_98146201da3b8b5e_67.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 3,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 0.01243105810135603,
+              "challenger": 0.9875212907791138,
+              "abstain": 4.772490501636639e-05
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 2.6094675465576644e-12,
+              "incumbent": 1.0,
+              "abstain": 3.0334058181979984e-11
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.9998773336410522,
+              "challenger": 0.0001214816074934788,
+              "abstain": 1.2287690651646699e-06
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 3.373721847310662e-05,
+              "incumbent": 0.9999661445617676,
+              "abstain": 1.4449314278408565e-07
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "genealogy",
+      "qid": "17409_248",
+      "slot": 9,
+      "incumbent_id": "genealogy/cd952a77_1374.txt",
+      "challenger_id": "genealogy/2191_4d8f87c89ba24022_100.txt",
+      "swap_delta_ndcg": -0.11751610475642715,
+      "swap_delta_steps": -1,
+      "steps": 3,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 0.0003681292000692338,
+              "challenger": 0.9991737008094788,
+              "abstain": 0.00045814417535439134
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 1.0950676369247958e-05,
+              "incumbent": 0.9997656941413879,
+              "abstain": 0.0002234139246866107
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.9993533492088318,
+              "challenger": 0.00017392318113707006,
+              "abstain": 0.000472772226203233
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.7922322750091553,
+              "incumbent": 0.20666615664958954,
+              "abstain": 0.0011015626369044185
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "59155_636",
+      "slot": 10,
+      "incumbent_id": "history/3675ac23_330457.txt",
+      "challenger_id": "history/beeb02cd_91320.txt",
+      "swap_delta_ndcg": 0.13565197343244773,
+      "swap_delta_steps": 0,
+      "steps": 3,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 3.1517477516729286e-10,
+              "challenger": 0.9971103668212891,
+              "abstain": 0.002889581024646759
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "abstain",
+            "probabilities": {
+              "challenger": 0.0002234163403045386,
+              "incumbent": 5.9288616682806605e-08,
+              "abstain": 0.9997765421867371
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 0.00014653123798780143,
+              "challenger": 0.9998531341552734,
+              "abstain": 2.699181891330227e-07
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9999716281890869,
+              "incumbent": 1.777836587280035e-05,
+              "abstain": 1.061594593920745e-05
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "59155_636",
+      "slot": 9,
+      "incumbent_id": "history/3fd365df_341226.txt",
+      "challenger_id": "history/c0bf47b5_330452.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 3,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "abstain",
+            "probabilities": {
+              "incumbent": 1.5229330685428977e-08,
+              "challenger": 4.264746530679986e-05,
+              "abstain": 0.9999573230743408
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "abstain",
+            "probabilities": {
+              "challenger": 1.5534978956566192e-06,
+              "incumbent": 2.3222911593734352e-08,
+              "abstain": 0.9999984502792358
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 0.008320655673742294,
+              "challenger": 0.8487299084663391,
+              "abstain": 0.1429494470357895
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9096159934997559,
+              "incumbent": 0.0003197862533852458,
+              "abstain": 0.09006418287754059
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "18933_651",
+      "slot": 10,
+      "incumbent_id": "hsm/2035_cf8b9e0971c96393_1023.txt",
+      "challenger_id": "hsm/18057_dcd4406d5f48241d_1006.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 3,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "abstain",
+            "probabilities": {
+              "incumbent": 0.0033316935878247023,
+              "challenger": 0.36175990104675293,
+              "abstain": 0.6349084377288818
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "abstain",
+            "probabilities": {
+              "challenger": 2.1233670395304216e-06,
+              "incumbent": 5.422207323135808e-06,
+              "abstain": 0.9999924898147583
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.8555786609649658,
+              "challenger": 0.0930398628115654,
+              "abstain": 0.051381491124629974
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "abstain",
+            "probabilities": {
+              "challenger": 0.003368794685229659,
+              "incumbent": 0.002315336372703314,
+              "abstain": 0.9943159222602844
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "18933_651",
+      "slot": 9,
+      "incumbent_id": "hsm/3334_1bcb41b94222f570_1908.txt",
+      "challenger_id": "hsm/291_a7908f39f9ede1f5_23.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 3,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "abstain",
+            "probabilities": {
+              "incumbent": 2.5215601908712415e-06,
+              "challenger": 5.255382347968407e-06,
+              "abstain": 0.9999922513961792
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "abstain",
+            "probabilities": {
+              "challenger": 0.0006878509884700179,
+              "incumbent": 2.740203797202412e-07,
+              "abstain": 0.9993119239807129
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "abstain",
+            "probabilities": {
+              "incumbent": 0.07131203263998032,
+              "challenger": 0.003899370552971959,
+              "abstain": 0.9247885346412659
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9907469749450684,
+              "incumbent": 0.006470213644206524,
+              "abstain": 0.002782804425805807
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "iota",
+      "qid": "470_804",
+      "slot": 10,
+      "incumbent_id": "iota/4c11f188_9828.txt",
+      "challenger_id": "iota/1ba73016_9857.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 2,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 4.139937814784389e-08,
+              "challenger": 1.0,
+              "abstain": 3.4177277674629636e-10
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 0.004070138093084097,
+              "incumbent": 0.9959298968315125,
+              "abstain": 9.491887276169564e-09
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.9706874489784241,
+              "challenger": 0.029312221333384514,
+              "abstain": 3.5261967923361226e-07
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9955294728279114,
+              "incumbent": 0.004468374885618687,
+              "abstain": 2.113890332111623e-06
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "iota",
+      "qid": "470_804",
+      "slot": 9,
+      "incumbent_id": "iota/4ea3ceaa_0611.txt",
+      "challenger_id": "iota/796d1025_9875.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 2,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 5.547519665860534e-10,
+              "challenger": 1.0,
+              "abstain": 1.2972231622221386e-10
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 0.0007096701883710921,
+              "incumbent": 0.9992899894714355,
+              "abstain": 2.6146634013457515e-07
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.9981322884559631,
+              "challenger": 0.001867565675638616,
+              "abstain": 6.012323439108513e-08
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9992189407348633,
+              "incumbent": 0.0007793648401275277,
+              "abstain": 1.6267825913018896e-06
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "law",
+      "qid": "105973_826",
+      "slot": 10,
+      "incumbent_id": "law/108089_b3ccd1cb1b71b21d_22.txt",
+      "challenger_id": "law/1b3dbdcc_3185.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 1,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 3.894696024020483e-11,
+              "challenger": 0.999929666519165,
+              "abstain": 7.031184213701636e-05
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "abstain",
+            "probabilities": {
+              "challenger": 0.0004044807283207774,
+              "incumbent": 1.9026149402634474e-06,
+              "abstain": 0.9995936751365662
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "abstain",
+            "probabilities": {
+              "incumbent": 3.535580253810622e-05,
+              "challenger": 1.2606498785316944e-05,
+              "abstain": 0.999951958656311
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "abstain",
+            "probabilities": {
+              "challenger": 0.0008557810797356069,
+              "incumbent": 0.00013970243162475526,
+              "abstain": 0.9990045428276062
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "law",
+      "qid": "105973_826",
+      "slot": 9,
+      "incumbent_id": "law/86cce6be_3581.txt",
+      "challenger_id": "law/103394_2fece98c7ca0ba1b_6.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 1,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 4.1211632151316735e-07,
+              "challenger": 0.9553187489509583,
+              "abstain": 0.04468085616827011
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "abstain",
+            "probabilities": {
+              "challenger": 0.0001686526375124231,
+              "incumbent": 7.223222837637877e-07,
+              "abstain": 0.9998306035995483
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "abstain",
+            "probabilities": {
+              "incumbent": 0.031853824853897095,
+              "challenger": 0.037240900099277496,
+              "abstain": 0.930905282497406
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "abstain",
+            "probabilities": {
+              "challenger": 0.036219336092472076,
+              "incumbent": 2.0032348402310163e-05,
+              "abstain": 0.9637607336044312
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "monero",
+      "qid": "6528_886",
+      "slot": 10,
+      "incumbent_id": "monero/69a713c7_84825.txt",
+      "challenger_id": "monero/eea4a540_14290.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 0,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.8558511734008789,
+              "challenger": 0.14414885640144348,
+              "abstain": 2.7594239782047225e-08
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 0.001700722612440586,
+              "incumbent": 0.9982993006706238,
+              "abstain": 1.7877157532097954e-09
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.9997040629386902,
+              "challenger": 0.0002959571429528296,
+              "abstain": 1.0796476601626637e-08
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9999227523803711,
+              "incumbent": 7.722191367065534e-05,
+              "abstain": 2.409546784321037e-09
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "monero",
+      "qid": "6528_886",
+      "slot": 9,
+      "incumbent_id": "monero/eb215cb9_84850.txt",
+      "challenger_id": "monero/68bc34e2_84860.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 0,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.6513549089431763,
+              "challenger": 0.3486451506614685,
+              "abstain": 1.377272429436971e-08
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 2.0816912638110807e-08,
+              "incumbent": 1.0,
+              "abstain": 4.2534309407926685e-10
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.9999635219573975,
+              "challenger": 3.647853736765683e-05,
+              "abstain": 7.464731055506491e-10
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.998793363571167,
+              "incumbent": 0.0012065897462889552,
+              "abstain": 7.413543112733123e-09
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "90177_939",
+      "slot": 10,
+      "incumbent_id": "politics/90177_5dc9eb071f72ed48_230.txt",
+      "challenger_id": "politics/74392_746f82b773edfd4f_8.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 3,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 2.5759541699699184e-07,
+              "challenger": 0.9999992847442627,
+              "abstain": 4.965281732438598e-07
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.734801709651947,
+              "incumbent": 0.262001633644104,
+              "abstain": 0.0031966413371264935
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.5466523766517639,
+              "challenger": 0.45319074392318726,
+              "abstain": 0.00015685445396229625
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9954013824462891,
+              "incumbent": 0.00013076495088171214,
+              "abstain": 0.004467800259590149
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "90177_939",
+      "slot": 9,
+      "incumbent_id": "politics/90177_98daf1ea7a525c81_0.txt",
+      "challenger_id": "politics/82838_282a7b2ad936b4cb_29.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 3,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 0.009163022972643375,
+              "challenger": 0.9643228650093079,
+              "abstain": 0.02651408687233925
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 2.486225669784403e-09,
+              "incumbent": 1.0,
+              "abstain": 8.814435403792231e-09
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.9999908208847046,
+              "challenger": 9.22347044252092e-06,
+              "abstain": 4.9936723200971755e-08
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9883125424385071,
+              "incumbent": 0.011687254533171654,
+              "abstain": 2.2118723563835374e-07
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "quant",
+      "qid": "84061_1058",
+      "slot": 10,
+      "incumbent_id": "quant/6548c682_26658.txt",
+      "challenger_id": "quant/755f87a3_0002.txt",
+      "swap_delta_ndcg": 0.11284514134893531,
+      "swap_delta_steps": 0,
+      "steps": 3,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 0.04084571450948715,
+              "challenger": 0.9591541886329651,
+              "abstain": 7.535327739560671e-08
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 0.04885777086019516,
+              "incumbent": 0.9511420726776123,
+              "abstain": 1.2911119995351328e-07
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.9999998807907104,
+              "challenger": 1.4225777533738437e-07,
+              "abstain": 3.850741503441668e-09
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9999997615814209,
+              "incumbent": 2.536018826049258e-07,
+              "abstain": 2.263733867025053e-09
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "quant",
+      "qid": "84061_1058",
+      "slot": 9,
+      "incumbent_id": "quant/80937_cefc04f23f421222_830.txt",
+      "challenger_id": "quant/78042_fa82b31999d8bb06_432.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 3,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.9775254130363464,
+              "challenger": 0.022281892597675323,
+              "abstain": 0.00019277613318990916
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "abstain",
+            "probabilities": {
+              "challenger": 1.1519168765516952e-06,
+              "incumbent": 0.355774462223053,
+              "abstain": 0.6442244052886963
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.7122267484664917,
+              "challenger": 0.28776562213897705,
+              "abstain": 7.680246199015528e-06
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9678916931152344,
+              "incumbent": 0.032100457698106766,
+              "abstain": 7.878404176153708e-06
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "travel",
+      "qid": "192426_1117",
+      "slot": 10,
+      "incumbent_id": "travel/084976ef_2835.txt",
+      "challenger_id": "travel/78f8dd40_2663.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 2,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 0.006097481586039066,
+              "challenger": 0.993889331817627,
+              "abstain": 1.313139819103526e-05
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 4.611274562194012e-05,
+              "incumbent": 0.9999538660049438,
+              "abstain": 4.27115658396815e-08
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.9658933281898499,
+              "challenger": 0.034100208431482315,
+              "abstain": 6.41689121039235e-06
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9263002276420593,
+              "incumbent": 0.07369599491357803,
+              "abstain": 3.7912800507911015e-06
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "travel",
+      "qid": "192426_1117",
+      "slot": 9,
+      "incumbent_id": "travel/c2a26b70_6542.txt",
+      "challenger_id": "travel/d6ccbc50_2691.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 2,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 3.3075897931666987e-07,
+              "challenger": 0.9999991655349731,
+              "abstain": 4.5921339619781065e-07
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9998414516448975,
+              "incumbent": 0.00015843620349187404,
+              "abstain": 6.411044495280294e-08
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 0.06008658558130264,
+              "challenger": 0.9399123787879944,
+              "abstain": 1.0517094324313803e-06
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9999731779098511,
+              "incumbent": 2.668852721399162e-05,
+              "abstain": 7.496257836692166e-08
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "workplace",
+      "qid": "178519_1217",
+      "slot": 10,
+      "incumbent_id": "workplace/178519_981160a7b67e1441_1.txt",
+      "challenger_id": "workplace/c566170a_9526.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 2,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "challenger",
+            "probabilities": {
+              "incumbent": 0.00015941628953441978,
+              "challenger": 0.9904295206069946,
+              "abstain": 0.00941108912229538
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 0.17737483978271484,
+              "incumbent": 0.820172905921936,
+              "abstain": 0.0024522726889699697
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.9996637105941772,
+              "challenger": 0.00033015068038366735,
+              "abstain": 6.238871264940826e-06
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9706645011901855,
+              "incumbent": 0.029311528429389,
+              "abstain": 2.39594101003604e-05
+            }
+          }
+        ]
+      }
+    },
+    {
+      "domain": "workplace",
+      "qid": "178519_1217",
+      "slot": 9,
+      "incumbent_id": "workplace/178519_cf2d8f2f47e09af7_0.txt",
+      "challenger_id": "workplace/3b7afb45_9524.txt",
+      "swap_delta_ndcg": 0.0,
+      "swap_delta_steps": 0,
+      "steps": 2,
+      "predictions": {
+        "direct": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 1.0,
+              "challenger": 1.9252500038646758e-08,
+              "abstain": 4.338617642929421e-08
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "incumbent",
+            "probabilities": {
+              "challenger": 0.0002694790600799024,
+              "incumbent": 0.9997301697731018,
+              "abstain": 3.5753953397943405e-07
+            }
+          }
+        ],
+        "contextual": [
+          {
+            "reverse": false,
+            "choice": "incumbent",
+            "probabilities": {
+              "incumbent": 0.999987006187439,
+              "challenger": 1.0616108738759067e-05,
+              "abstain": 2.3687741759204073e-06
+            }
+          },
+          {
+            "reverse": true,
+            "choice": "challenger",
+            "probabilities": {
+              "challenger": 0.9324119091033936,
+              "incumbent": 0.06754369288682938,
+              "abstain": 4.436296512722038e-05
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

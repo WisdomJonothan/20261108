@@ -1,0 +1,5582 @@
+{
+  "scope": "Exploratory internal holdout. At most one swap, highest positive symmetric mean log-probability margin across fixed pairs. No labels used to select swaps. Same two prompts per pair and same candidate pairs. Contextual prompts include additional input tokens.",
+  "queries": 214,
+  "domains": 13,
+  "pairs": 642,
+  "prompts": 2568,
+  "scoring_seconds": 404.2561741848476,
+  "order_agreement": {
+    "direct": {
+      "position_agreement": 0.6199376947040498,
+      "agreed_pairs": 398,
+      "helpful": 17,
+      "harmful": 5,
+      "neutral": 125
+    },
+    "contextual": {
+      "position_agreement": 0.3847352024922118,
+      "agreed_pairs": 247,
+      "helpful": 9,
+      "harmful": 2,
+      "neutral": 80
+    }
+  },
+  "queries_with_helpful_pair": 41,
+  "summary": {
+    "baseline": {
+      "per_domain": {
+        "bitcoin": {
+          "ndcg": 0.28151534139312545,
+          "coverage": 0.6
+        },
+        "cardano": {
+          "ndcg": 0.03352146904344716,
+          "coverage": 0.2
+        },
+        "economics": {
+          "ndcg": 0.15929257461210122,
+          "coverage": 0.2333333333333333
+        },
+        "genealogy": {
+          "ndcg": 0.3349652738850879,
+          "coverage": 0.4861111111111111
+        },
+        "history": {
+          "ndcg": 0.3026194852951941,
+          "coverage": 0.5806930693069307
+        },
+        "hsm": {
+          "ndcg": 0.2797636162287661,
+          "coverage": 0.5277777777777778
+        },
+        "iota": {
+          "ndcg": 0.0,
+          "coverage": 0.0
+        },
+        "law": {
+          "ndcg": 0.4381771649819174,
+          "coverage": 0.6833333333333333
+        },
+        "monero": {
+          "ndcg": 0.16654602585142786,
+          "coverage": 0.2857142857142857
+        },
+        "politics": {
+          "ndcg": 0.3969299994773856,
+          "coverage": 0.7058823529411765
+        },
+        "quant": {
+          "ndcg": 0.11037310343419521,
+          "coverage": 0.25
+        },
+        "travel": {
+          "ndcg": 0.2822561890911345,
+          "coverage": 0.46212121212121215
+        },
+        "workplace": {
+          "ndcg": 0.22766181088294205,
+          "coverage": 0.625
+        }
+      },
+      "counts": {},
+      "macro_ndcg": 0.2318170810905173,
+      "macro_coverage": 0.43384357504916615
+    },
+    "direct": {
+      "per_domain": {
+        "bitcoin": {
+          "ndcg": 0.3108379343890389,
+          "coverage": 0.7333333333333333
+        },
+        "cardano": {
+          "ndcg": 0.05819496162393593,
+          "coverage": 0.26666666666666666
+        },
+        "economics": {
+          "ndcg": 0.15018333428975542,
+          "coverage": 0.2333333333333333
+        },
+        "genealogy": {
+          "ndcg": 0.34255630748704274,
+          "coverage": 0.4861111111111111
+        },
+        "history": {
+          "ndcg": 0.3115479406619044,
+          "coverage": 0.6143564356435643
+        },
+        "hsm": {
+          "ndcg": 0.28798811375559574,
+          "coverage": 0.5555555555555556
+        },
+        "iota": {
+          "ndcg": 0.0,
+          "coverage": 0.0
+        },
+        "law": {
+          "ndcg": 0.5284005350255527,
+          "coverage": 0.8833333333333334
+        },
+        "monero": {
+          "ndcg": 0.15244038318281095,
+          "coverage": 0.2857142857142857
+        },
+        "politics": {
+          "ndcg": 0.4037717324979615,
+          "coverage": 0.7058823529411765
+        },
+        "quant": {
+          "ndcg": 0.13858438877142903,
+          "coverage": 0.25
+        },
+        "travel": {
+          "ndcg": 0.27199358956027075,
+          "coverage": 0.41666666666666674
+        },
+        "workplace": {
+          "ndcg": 0.22766181088294205,
+          "coverage": 0.625
+        }
+      },
+      "counts": {
+        "neutral": 129,
+        "helpful": 21,
+        "kept": 58,
+        "harmful": 6
+      },
+      "macro_ndcg": 0.24493546400986466,
+      "macro_coverage": 0.46584254417684823
+    },
+    "contextual": {
+      "per_domain": {
+        "bitcoin": {
+          "ndcg": 0.3108379343890389,
+          "coverage": 0.7333333333333333
+        },
+        "cardano": {
+          "ndcg": 0.057065964520085326,
+          "coverage": 0.26666666666666666
+        },
+        "economics": {
+          "ndcg": 0.15018333428975542,
+          "coverage": 0.2333333333333333
+        },
+        "genealogy": {
+          "ndcg": 0.34255630748704274,
+          "coverage": 0.4861111111111111
+        },
+        "history": {
+          "ndcg": 0.30946829328504943,
+          "coverage": 0.6077557755775577
+        },
+        "hsm": {
+          "ndcg": 0.28798811375559574,
+          "coverage": 0.5555555555555556
+        },
+        "iota": {
+          "ndcg": 0.0,
+          "coverage": 0.0
+        },
+        "law": {
+          "ndcg": 0.5284005350255527,
+          "coverage": 0.8833333333333334
+        },
+        "monero": {
+          "ndcg": 0.15244038318281095,
+          "coverage": 0.2857142857142857
+        },
+        "politics": {
+          "ndcg": 0.4037717324979615,
+          "coverage": 0.7058823529411765
+        },
+        "quant": {
+          "ndcg": 0.11037310343419521,
+          "coverage": 0.25
+        },
+        "travel": {
+          "ndcg": 0.2822561890911345,
+          "coverage": 0.46212121212121215
+        },
+        "workplace": {
+          "ndcg": 0.22766181088294205,
+          "coverage": 0.625
+        }
+      },
+      "counts": {
+        "neutral": 140,
+        "helpful": 18,
+        "kept": 51,
+        "harmful": 5
+      },
+      "macro_ndcg": 0.243307977064705,
+      "macro_coverage": 0.46883130459135114
+    }
+  },
+  "per_query": [
+    {
+      "domain": "bitcoin",
+      "qid": "112761_72",
+      "baseline": {
+        "ndcg": 0.30798345931689824,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.30798345931689824,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "bitcoin/c9602829_143239.txt",
+          "challenger_id": "bitcoin/112862_c38a802dba784d63_42.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.30798345931689824,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "bitcoin/119475_df66e03a7804adf4_13.txt",
+          "challenger_id": "bitcoin/124603_ef723515186fc4cc_39.txt"
+        }
+      }
+    },
+    {
+      "domain": "bitcoin",
+      "qid": "114177_62",
+      "baseline": {
+        "ndcg": 0.24630238874073,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.24630238874073,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "bitcoin/0004071a_12290.txt",
+          "challenger_id": "bitcoin/24a35f29_143011.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.24630238874073,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "bitcoin/7461999a_149079.txt",
+          "challenger_id": "bitcoin/70758eec_143012.txt"
+        }
+      }
+    },
+    {
+      "domain": "bitcoin",
+      "qid": "120259_41",
+      "baseline": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "bitcoin/ccb3ce66_144870.txt",
+          "challenger_id": "bitcoin/5ef8f75e_15117.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "bitcoin/ccb3ce66_144870.txt",
+          "challenger_id": "bitcoin/5ef8f75e_15117.txt"
+        }
+      }
+    },
+    {
+      "domain": "bitcoin",
+      "qid": "120496_37",
+      "baseline": {
+        "ndcg": 0.26687965254220064,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0.10699313236726382,
+      "direct": {
+        "ndcg": 0.37387278490946446,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "bitcoin/5cf2e9cd_7160.txt",
+          "challenger_id": "bitcoin/504e8a72_16775.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.37387278490946446,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "bitcoin/5cf2e9cd_7160.txt",
+          "challenger_id": "bitcoin/504e8a72_16775.txt"
+        }
+      }
+    },
+    {
+      "domain": "bitcoin",
+      "qid": "121384_28",
+      "baseline": {
+        "ndcg": 0.3333333333333333,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3333333333333333,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "bitcoin/d7e4e1ab_5313.txt",
+          "challenger_id": "bitcoin/121384_ffe6a3a8f714cd89_4.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.3333333333333333,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "bitcoin",
+      "qid": "122862_18",
+      "baseline": {
+        "ndcg": 0.3903800499921017,
+        "coverage": 0.3333333333333333
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3903800499921017,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "bitcoin/66f84d9c_14043.txt",
+          "challenger_id": "bitcoin/50504637_149173.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.3903800499921017,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "bitcoin/73134f29_144997.txt",
+          "challenger_id": "bitcoin/3d5b9fbe_144252.txt"
+        }
+      }
+    },
+    {
+      "domain": "bitcoin",
+      "qid": "124303_10",
+      "baseline": {
+        "ndcg": 0.3191471544989227,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0.11751610475642704,
+      "direct": {
+        "ndcg": 0.43666325925534977,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "bitcoin/95129_b870765883d94c06_82.txt",
+          "challenger_id": "bitcoin/e52222a0_1987.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.43666325925534977,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "bitcoin/95129_b870765883d94c06_82.txt",
+          "challenger_id": "bitcoin/e52222a0_1987.txt"
+        }
+      }
+    },
+    {
+      "domain": "bitcoin",
+      "qid": "124874_6",
+      "baseline": {
+        "ndcg": 0.5274486902992358,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.5274486902992358,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "bitcoin/122143_b4dd4ebe14fa878b_10.txt",
+          "challenger_id": "bitcoin/88c0e781_143380.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.5274486902992358,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "bitcoin/00b94d12_4629.txt",
+          "challenger_id": "bitcoin/cb9391b8_143379.txt"
+        }
+      }
+    },
+    {
+      "domain": "bitcoin",
+      "qid": "125174_3",
+      "baseline": {
+        "ndcg": 0.123151194370365,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.123151194370365,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "bitcoin/123252_52dfb855f168fa01_2.txt",
+          "challenger_id": "bitcoin/66381a57_151968.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.123151194370365,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "bitcoin/123252_52dfb855f168fa01_2.txt",
+          "challenger_id": "bitcoin/66381a57_151968.txt"
+        }
+      }
+    },
+    {
+      "domain": "bitcoin",
+      "qid": "95324_94",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0.09803928583135704,
+      "direct": {
+        "ndcg": 0.09803928583135704,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "bitcoin/112979_2ab9b93a16ebeb6b_3.txt",
+          "challenger_id": "bitcoin/2c5678e4_19619.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.09803928583135704,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "bitcoin/112979_2ab9b93a16ebeb6b_3.txt",
+          "challenger_id": "bitcoin/2c5678e4_19619.txt"
+        }
+      }
+    },
+    {
+      "domain": "bitcoin",
+      "qid": "98875_83",
+      "baseline": {
+        "ndcg": 0.19519002499605084,
+        "coverage": null
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.19519002499605084,
+        "coverage": null,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "bitcoin/122862_a38de5bd3d96ffea_11.txt",
+          "challenger_id": "bitcoin/2f80b7aa_17616.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.19519002499605084,
+        "coverage": null,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "bitcoin/122862_a38de5bd3d96ffea_11.txt",
+          "challenger_id": "bitcoin/2f80b7aa_17616.txt"
+        }
+      }
+    },
+    {
+      "domain": "cardano",
+      "qid": "1942_137",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "cardano/11106_c194a004e746de12_71.txt",
+          "challenger_id": "cardano/5d8e54bc_86693.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "cardano/11106_c194a004e746de12_71.txt",
+          "challenger_id": "cardano/5d8e54bc_86693.txt"
+        }
+      }
+    },
+    {
+      "domain": "cardano",
+      "qid": "4264_126",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": null
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": null,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "cardano/bdaa7bb6_86697.txt",
+          "challenger_id": "cardano/97ec01c4_86154.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": null,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "cardano/bdaa7bb6_86697.txt",
+          "challenger_id": "cardano/97ec01c4_86154.txt"
+        }
+      }
+    },
+    {
+      "domain": "cardano",
+      "qid": "4659_122",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0.1480409554829326,
+      "direct": {
+        "ndcg": 0.1480409554829326,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "cardano/598e6512_85980.txt",
+          "challenger_id": "cardano/23224f90_4557.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.14126697285982898,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "cardano/83194894_85975.txt",
+          "challenger_id": "cardano/2dc68dfb_4559.txt"
+        }
+      }
+    },
+    {
+      "domain": "cardano",
+      "qid": "7599_113",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0.2890648263178879,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "cardano",
+      "qid": "9155_105",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "cardano/bf44465e_8742.txt",
+          "challenger_id": "cardano/a01e4634_9764.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "cardano/bf44465e_8742.txt",
+          "challenger_id": "cardano/a01e4634_9764.txt"
+        }
+      }
+    },
+    {
+      "domain": "cardano",
+      "qid": "92_149",
+      "baseline": {
+        "ndcg": 0.20112881426068296,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.20112881426068296,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "cardano/6ed5a490_2985.txt",
+          "challenger_id": "cardano/72994a6a_11118.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.20112881426068296,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "economics",
+      "qid": "43830_229",
+      "baseline": {
+        "ndcg": 0.2683637998873703,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.2683637998873703,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "economics/f9408f32_92750.txt",
+          "challenger_id": "economics/14ffdcd7_92082.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.2683637998873703,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "economics/55778_1f887c7af8a90c10_977.txt",
+          "challenger_id": "economics/8979496b_92883.txt"
+        }
+      }
+    },
+    {
+      "domain": "economics",
+      "qid": "47165_217",
+      "baseline": {
+        "ndcg": 0.17342765698823948,
+        "coverage": 0.3333333333333333
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.17342765698823948,
+        "coverage": 0.3333333333333333,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.17342765698823948,
+        "coverage": 0.3333333333333333,
+        "swap": null
+      }
+    },
+    {
+      "domain": "economics",
+      "qid": "48501_207",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "economics/4b42e15d_3666.txt",
+          "challenger_id": "economics/57498_1604a40bfa9fecd8_23.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "economics/4b42e15d_3666.txt",
+          "challenger_id": "economics/57498_1604a40bfa9fecd8_23.txt"
+        }
+      }
+    },
+    {
+      "domain": "economics",
+      "qid": "50971_199",
+      "baseline": {
+        "ndcg": 0.09109240322345807,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "economics/62e0026a_7619.txt",
+          "challenger_id": "economics/5ce67e54_87844.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "economics/62e0026a_7619.txt",
+          "challenger_id": "economics/5ce67e54_87844.txt"
+        }
+      }
+    },
+    {
+      "domain": "economics",
+      "qid": "51827_194",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "economics/bb0c2fa8_90218.txt",
+          "challenger_id": "economics/13c8fb54_84279.txt"
+        }
+      }
+    },
+    {
+      "domain": "economics",
+      "qid": "52186_192",
+      "baseline": {
+        "ndcg": 0.42335944728911257,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.42335944728911257,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "economics/9663ecca_81678.txt",
+          "challenger_id": "economics/f51ee6f7_86365.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.42335944728911257,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "economics/9663ecca_81678.txt",
+          "challenger_id": "economics/f51ee6f7_86365.txt"
+        }
+      }
+    },
+    {
+      "domain": "economics",
+      "qid": "54925_180",
+      "baseline": {
+        "ndcg": 0.6366824387328317,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.6366824387328317,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "economics/221f8987_82550.txt",
+          "challenger_id": "economics/57699_cdc088afe0fbaa91_261.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.6366824387328317,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "economics/221f8987_82550.txt",
+          "challenger_id": "economics/57699_cdc088afe0fbaa91_261.txt"
+        }
+      }
+    },
+    {
+      "domain": "economics",
+      "qid": "58852_166",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "economics/99365db2_2502.txt",
+          "challenger_id": "economics/56692001_2417.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "economics/99365db2_2502.txt",
+          "challenger_id": "economics/56692001_2417.txt"
+        }
+      }
+    },
+    {
+      "domain": "economics",
+      "qid": "60289_158",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "economics/677d1a5f_82219.txt",
+          "challenger_id": "economics/60542_ab7221142c298b72_80.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "economics/677d1a5f_82219.txt",
+          "challenger_id": "economics/60542_ab7221142c298b72_80.txt"
+        }
+      }
+    },
+    {
+      "domain": "economics",
+      "qid": "60542_156",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "economics/54294_e4a4e3d936798ab3_578.txt",
+          "challenger_id": "economics/5334a17b_82091.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "economics/54294_e4a4e3d936798ab3_578.txt",
+          "challenger_id": "economics/5334a17b_82091.txt"
+        }
+      }
+    },
+    {
+      "domain": "genealogy",
+      "qid": "10322_310",
+      "baseline": {
+        "ndcg": 0.8772153153380493,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.8772153153380493,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "genealogy/43c2386e_154702.txt",
+          "challenger_id": "genealogy/91d550cb_11495.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.8772153153380493,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "genealogy",
+      "qid": "11998_297",
+      "baseline": {
+        "ndcg": 0.23463936301137822,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.23463936301137822,
+        "coverage": 0.5,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.23463936301137822,
+        "coverage": 0.5,
+        "swap": null
+      }
+    },
+    {
+      "domain": "genealogy",
+      "qid": "12161_294",
+      "baseline": {
+        "ndcg": 0.3065735963827292,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0.1845756967795682,
+      "direct": {
+        "ndcg": 0.3065735963827292,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.3065735963827292,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "genealogy/a0750429_6573.txt",
+          "challenger_id": "genealogy/15668_cc2a5a949d96bb74_77.txt"
+        }
+      }
+    },
+    {
+      "domain": "genealogy",
+      "qid": "12836_281",
+      "baseline": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "genealogy/a4ab677a_12319.txt",
+          "challenger_id": "genealogy/4da0c602_11173.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "genealogy/a4ab677a_12319.txt",
+          "challenger_id": "genealogy/4da0c602_11173.txt"
+        }
+      }
+    },
+    {
+      "domain": "genealogy",
+      "qid": "12904_279",
+      "baseline": {
+        "ndcg": 0.644824486427155,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0.09109240322345802,
+      "direct": {
+        "ndcg": 0.735916889650613,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "genealogy/12904_b6e0724e24b87b30_7.txt",
+          "challenger_id": "genealogy/b4190d74_4518.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.735916889650613,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "genealogy/12904_b6e0724e24b87b30_7.txt",
+          "challenger_id": "genealogy/b4190d74_4518.txt"
+        }
+      }
+    },
+    {
+      "domain": "genealogy",
+      "qid": "13718_268",
+      "baseline": {
+        "ndcg": 0.24630238874073,
+        "coverage": 0.3333333333333333
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.24630238874073,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "genealogy/12937_98146201da3b8b5e_163.txt",
+          "challenger_id": "genealogy/12937_98146201da3b8b5e_40.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.24630238874073,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "genealogy/12937_98146201da3b8b5e_163.txt",
+          "challenger_id": "genealogy/12937_98146201da3b8b5e_40.txt"
+        }
+      }
+    },
+    {
+      "domain": "genealogy",
+      "qid": "17409_248",
+      "baseline": {
+        "ndcg": 0.7100281367210132,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.7100281367210132,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "genealogy/2c618468_12514.txt",
+          "challenger_id": "genealogy/010fdcba_1568.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.7100281367210132,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "genealogy/2c618468_12514.txt",
+          "challenger_id": "genealogy/010fdcba_1568.txt"
+        }
+      }
+    },
+    {
+      "domain": "genealogy",
+      "qid": "17675_247",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "genealogy",
+      "qid": "18516_243",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "genealogy/911b0933_10741.txt",
+          "challenger_id": "genealogy/18516_e32763ea7468acb5_3.txt"
+        }
+      }
+    },
+    {
+      "domain": "genealogy",
+      "qid": "18623_240",
+      "baseline": {
+        "ndcg": 0.6131471927654584,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.6131471927654584,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "genealogy/a8955955_11189.txt",
+          "challenger_id": "genealogy/3152_98d2ece1ae8a0fbd_3.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.6131471927654584,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "genealogy",
+      "qid": "2828_329",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "genealogy/12640_31fdee4ab31c3339_94.txt",
+          "challenger_id": "genealogy/13721_bf06e68bd48770e4_27.txt"
+        }
+      }
+    },
+    {
+      "domain": "genealogy",
+      "qid": "3376_318",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "genealogy/a750525b_2638.txt",
+          "challenger_id": "genealogy/fa111d8c_153062.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "genealogy/a750525b_2638.txt",
+          "challenger_id": "genealogy/fa111d8c_153062.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "52284_799",
+      "baseline": {
+        "ndcg": 0.24966402870278917,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.24966402870278917,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.24966402870278917,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "55753_796",
+      "baseline": {
+        "ndcg": 0.5249810332008933,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.5249810332008933,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.5249810332008933,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "55792_791",
+      "baseline": {
+        "ndcg": 0.14126697285982898,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/19756fb2_110859.txt",
+          "challenger_id": "history/d3723584_209922.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/19756fb2_110859.txt",
+          "challenger_id": "history/d3723584_209922.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "55970_778",
+      "baseline": {
+        "ndcg": 0.3903800499921017,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3903800499921017,
+        "coverage": 0.5,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.3903800499921017,
+        "coverage": 0.5,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "55994_777",
+      "baseline": {
+        "ndcg": 0.9325210919548239,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.9325210919548239,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/16d4ab33_29874.txt",
+          "challenger_id": "history/989a8de7_350869.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.9325210919548239,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/16d4ab33_29874.txt",
+          "challenger_id": "history/989a8de7_350869.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "56031_774",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/bef80ff7_350529.txt",
+          "challenger_id": "history/1ba69b2b_350516.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/7c47ff12_350508.txt",
+          "challenger_id": "history/56077bdb_350541.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "56098_768",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/e5bea460_348987.txt",
+          "challenger_id": "history/6ea3aa4c_348983.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/e5bea460_348987.txt",
+          "challenger_id": "history/6ea3aa4c_348983.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "56153_762",
+      "baseline": {
+        "ndcg": 0.5706417189553201,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.5706417189553201,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.5706417189553201,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/311cb154_40920.txt",
+          "challenger_id": "history/69788ff0_137483.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "56203_758",
+      "baseline": {
+        "ndcg": 0.23719771276929622,
+        "coverage": null
+      },
+      "oracle_pair_delta": 0.1934264036172708,
+      "direct": {
+        "ndcg": 0.23719771276929622,
+        "coverage": null,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/64f92f0b_347421.txt",
+          "challenger_id": "history/525f6706_347461.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.23719771276929622,
+        "coverage": null,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/64f92f0b_347421.txt",
+          "challenger_id": "history/525f6706_347461.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "56257_753",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/9f1030b6_346542.txt",
+          "challenger_id": "history/51fd8c04_343998.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "56264_752",
+      "baseline": {
+        "ndcg": 0.3333333333333333,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3333333333333333,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/c4476b95_284977.txt",
+          "challenger_id": "history/292c2afc_10571.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.3333333333333333,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/8da3cf14_331626.txt",
+          "challenger_id": "history/1979c14d_285044.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "56390_743",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0.2890648263178879,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/3a7686bc_345392.txt",
+          "challenger_id": "history/6a02dd42_345344.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/3a7686bc_345392.txt",
+          "challenger_id": "history/6a02dd42_345344.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "56711_727",
+      "baseline": {
+        "ndcg": 0.32531670832675136,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0.11284514134893525,
+      "direct": {
+        "ndcg": 0.4381618496756866,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/bae693e0_327421.txt",
+          "challenger_id": "history/33ead59f_102616.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.4381618496756866,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/bae693e0_327421.txt",
+          "challenger_id": "history/33ead59f_102616.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "56738_724",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0.17723928678404774,
+      "direct": {
+        "ndcg": 0.17723928678404774,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/5feacb29_342738.txt",
+          "challenger_id": "history/f08ed6b3_102265.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.17723928678404774,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/5feacb29_342738.txt",
+          "challenger_id": "history/f08ed6b3_102265.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "57102_701",
+      "baseline": {
+        "ndcg": 0.36926780146674987,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0.14126697285982903,
+      "direct": {
+        "ndcg": 0.36926780146674987,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/030b5d19_345857.txt",
+          "challenger_id": "history/4fe6ac2d_105406.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.36926780146674987,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/030b5d19_345857.txt",
+          "challenger_id": "history/4fe6ac2d_105406.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "57183_695",
+      "baseline": {
+        "ndcg": 0.46927872602275644,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.46927872602275644,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.46927872602275644,
+        "coverage": 0.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "57223_692",
+      "baseline": {
+        "ndcg": 0.19519002499605084,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.19519002499605084,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/c61bbf7d_342672.txt",
+          "challenger_id": "history/cf6fed66_342665.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.19519002499605084,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/1d7d0389_342694.txt",
+          "challenger_id": "history/6c854588_89327.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "58430_682",
+      "baseline": {
+        "ndcg": 0.11751610475642714,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.11751610475642714,
+        "coverage": 0.5,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.11751610475642714,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/d16f5299_332150.txt",
+          "challenger_id": "history/0941508c_336407.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "58446_680",
+      "baseline": {
+        "ndcg": 0.1208113026994942,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0.1069931323672638,
+      "direct": {
+        "ndcg": 0.1208113026994942,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/6488d437_336258.txt",
+          "challenger_id": "history/9e6cd7a9_336223.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.1208113026994942,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/6488d437_336258.txt",
+          "challenger_id": "history/9e6cd7a9_336223.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "58449_678",
+      "baseline": {
+        "ndcg": 0.13565197343244778,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.13565197343244778,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/0820c953_57311.txt",
+          "challenger_id": "history/9c01cb01_278033.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.13565197343244778,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/0820c953_57311.txt",
+          "challenger_id": "history/9c01cb01_278033.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "58579_671",
+      "baseline": {
+        "ndcg": 0.24630238874073,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.24630238874073,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/bc2d9c8e_334909.txt",
+          "challenger_id": "history/30ab4c33_334910.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.24630238874073,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/bc2d9c8e_334909.txt",
+          "challenger_id": "history/30ab4c33_334910.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "58595_670",
+      "baseline": {
+        "ndcg": 0.6131471927654584,
+        "coverage": 0.3333333333333333
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.6131471927654584,
+        "coverage": 0.3333333333333333,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.6131471927654584,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/430af57f_334884.txt",
+          "challenger_id": "history/bd5aa2d6_334894.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "58785_661",
+      "baseline": {
+        "ndcg": 0.18154179253735267,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0.14804095548293264,
+      "direct": {
+        "ndcg": 0.3295827480202853,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/e6aca4e0_47792.txt",
+          "challenger_id": "history/39fed2e9_94676.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.3295827480202853,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/e6aca4e0_47792.txt",
+          "challenger_id": "history/39fed2e9_94676.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "58805_659",
+      "baseline": {
+        "ndcg": 0.15642624200758548,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.15642624200758548,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/887874b5_333853.txt",
+          "challenger_id": "history/e977f07e_94592.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.15642624200758548,
+        "coverage": 0.6666666666666666,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "59040_640",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/2fc79cf0_330738.txt",
+          "challenger_id": "history/ca0077d2_276696.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/2fc79cf0_330738.txt",
+          "challenger_id": "history/ca0077d2_276696.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "59155_636",
+      "baseline": {
+        "ndcg": 0.46927872602275644,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0.13565197343244773,
+      "direct": {
+        "ndcg": 0.46927872602275644,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/13fa17b0_331969.txt",
+          "challenger_id": "history/d7330f09_88391.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.6049306994552042,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/3675ac23_330457.txt",
+          "challenger_id": "history/beeb02cd_91320.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "59171_634",
+      "baseline": {
+        "ndcg": 0.13905617951077562,
+        "coverage": 0.3333333333333333
+      },
+      "oracle_pair_delta": 0.11751610475642713,
+      "direct": {
+        "ndcg": 0.13905617951077562,
+        "coverage": 0.3333333333333333,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.13905617951077562,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/dc3297a4_91170.txt",
+          "challenger_id": "history/f7eb9397_330067.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "59272_625",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/9c9d6fdf_328983.txt",
+          "challenger_id": "history/3c632b70_328996.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/9c9d6fdf_328983.txt",
+          "challenger_id": "history/3c632b70_328996.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "59390_615",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/74ff58b7_327455.txt",
+          "challenger_id": "history/cc91aeda_327463.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/74ff58b7_327455.txt",
+          "challenger_id": "history/cc91aeda_327463.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "59392_614",
+      "baseline": {
+        "ndcg": 0.49818925746641285,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.49818925746641285,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/960bafab_343450.txt",
+          "challenger_id": "history/8e888954_88664.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.49818925746641285,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/a939a0ba_327414.txt",
+          "challenger_id": "history/fa684436_202465.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "62514_608",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/c4efe019_61872.txt",
+          "challenger_id": "history/bc5de9b8_248565.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/c4efe019_61872.txt",
+          "challenger_id": "history/bc5de9b8_248565.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "62622_605",
+      "baseline": {
+        "ndcg": 0.23719771276929622,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.23719771276929622,
+        "coverage": 0.6666666666666666,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.23719771276929622,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/dcbabd58_38492.txt",
+          "challenger_id": "history/4d4a6516_298210.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "62718_603",
+      "baseline": {
+        "ndcg": 0.15642624200758548,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.15642624200758548,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/6ec8542b_324152.txt",
+          "challenger_id": "history/cbbfba07_303694.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.15642624200758548,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/6ec8542b_324152.txt",
+          "challenger_id": "history/cbbfba07_303694.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "62963_592",
+      "baseline": {
+        "ndcg": 0.2350455494144854,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.2350455494144854,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/ac8e61f5_319581.txt",
+          "challenger_id": "history/ada6007b_319595.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.2350455494144854,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/8313d76c_320317.txt",
+          "challenger_id": "history/55b5072d_319577.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "63033_589",
+      "baseline": {
+        "ndcg": 0.2583297509898471,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.2583297509898471,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/888703a3_319032.txt",
+          "challenger_id": "history/6e0ffd0a_319021.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.2583297509898471,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/888703a3_319032.txt",
+          "challenger_id": "history/6e0ffd0a_319021.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "63034_588",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0.09109240322345807,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/1cde0829_83381.txt",
+          "challenger_id": "history/8a1980ee_318216.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/467fe178_83401.txt",
+          "challenger_id": "history/ae40ff89_83393.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "63341_578",
+      "baseline": {
+        "ndcg": 0.17342765698823948,
+        "coverage": 0.3333333333333333
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.17342765698823948,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/e3e0642a_81229.txt",
+          "challenger_id": "history/4282dc4c_315164.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.17342765698823948,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/e3e0642a_81229.txt",
+          "challenger_id": "history/4282dc4c_315164.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "63366_577",
+      "baseline": {
+        "ndcg": 0.3936948167222716,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3936948167222716,
+        "coverage": 0.6666666666666667,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/61e36f70_80924.txt",
+          "challenger_id": "history/793a3835_80926.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.3936948167222716,
+        "coverage": 0.6666666666666667,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/61e36f70_80924.txt",
+          "challenger_id": "history/793a3835_80926.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "63444_570",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0.07614334071738352,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/7f1357b3_58307.txt",
+          "challenger_id": "history/9cdafadb_80160.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/7f1357b3_58307.txt",
+          "challenger_id": "history/9cdafadb_80160.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "63677_561",
+      "baseline": {
+        "ndcg": 0.5827738848179198,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.5827738848179198,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.5827738848179198,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "64305_526",
+      "baseline": {
+        "ndcg": 0.1909208661789347,
+        "coverage": 0.25
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.1909208661789347,
+        "coverage": 0.25,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/e8d4038f_211838.txt",
+          "challenger_id": "history/e92588a4_141362.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.1909208661789347,
+        "coverage": 0.25,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "65653_514",
+      "baseline": {
+        "ndcg": 0.28165758790969186,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.28165758790969186,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/71124548_292714.txt",
+          "challenger_id": "history/541aac1e_292707.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.28165758790969186,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/71124548_292714.txt",
+          "challenger_id": "history/541aac1e_292707.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "65777_507",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0.06625422345438903,
+      "direct": {
+        "ndcg": 0.06362078819895171,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/9d07967c_289533.txt",
+          "challenger_id": "history/6320d518_69947.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.06362078819895171,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/9d07967c_289533.txt",
+          "challenger_id": "history/6320d518_69947.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "66169_496",
+      "baseline": {
+        "ndcg": 0.36181498356361597,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.36181498356361597,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.36181498356361597,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "66246_484",
+      "baseline": {
+        "ndcg": 0.14126697285982898,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.14126697285982898,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/284a9cd4_282868.txt",
+          "challenger_id": "history/d626689a_282880.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.14126697285982898,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/284a9cd4_282868.txt",
+          "challenger_id": "history/d626689a_282880.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "66306_478",
+      "baseline": {
+        "ndcg": 0.32097939710179135,
+        "coverage": 0.3333333333333333
+      },
+      "oracle_pair_delta": 0.1020973951229116,
+      "direct": {
+        "ndcg": 0.32097939710179135,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/bbcb1ef1_64910.txt",
+          "challenger_id": "history/e49fc1aa_64907.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.32097939710179135,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/bbcb1ef1_64910.txt",
+          "challenger_id": "history/e49fc1aa_64907.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "66324_474",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/a5d5f045_333029.txt",
+          "challenger_id": "history/774bcf83_51959.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/a5d5f045_333029.txt",
+          "challenger_id": "history/774bcf83_51959.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "66379_472",
+      "baseline": {
+        "ndcg": 0.16812753627111746,
+        "coverage": 0.4
+      },
+      "oracle_pair_delta": 0.12315119437036501,
+      "direct": {
+        "ndcg": 0.29127873064148246,
+        "coverage": 0.8,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/e8fb5273_5253.txt",
+          "challenger_id": "history/ecb5bd39_64281.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.29127873064148246,
+        "coverage": 0.8,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/e8fb5273_5253.txt",
+          "challenger_id": "history/ecb5bd39_64281.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "66566_455",
+      "baseline": {
+        "ndcg": 0.3065735963827292,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3065735963827292,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/9586a851_11055.txt",
+          "challenger_id": "history/220445ea_284125.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.3065735963827292,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/9586a851_11055.txt",
+          "challenger_id": "history/220445ea_284125.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "66710_448",
+      "baseline": {
+        "ndcg": 0.7653606369886217,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.7653606369886217,
+        "coverage": 0.6666666666666666,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.7653606369886217,
+        "coverage": 0.6666666666666666,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "66810_443",
+      "baseline": {
+        "ndcg": 0.6309297535714575,
+        "coverage": null
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.6309297535714575,
+        "coverage": null,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/73a6eb87_275595.txt",
+          "challenger_id": "history/2432d92b_60579.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.6309297535714575,
+        "coverage": null,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/728e8381_106619.txt",
+          "challenger_id": "history/1a66ca6c_275586.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "66857_437",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/79b4372e_274822.txt",
+          "challenger_id": "history/d3682aae_274810.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/a5a5c1ed_280088.txt",
+          "challenger_id": "history/70b72a95_335445.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "68314_418",
+      "baseline": {
+        "ndcg": 0.18833918526767934,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.18833918526767934,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/1e2b0c0d_261395.txt",
+          "challenger_id": "history/af9981d6_261608.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.18833918526767934,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/1e2b0c0d_261395.txt",
+          "challenger_id": "history/af9981d6_261608.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "68551_401",
+      "baseline": {
+        "ndcg": 0.4935232796777482,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.4935232796777482,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/f154e552_249826.txt",
+          "challenger_id": "history/c9854fce_249729.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.4935232796777482,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/f154e552_249826.txt",
+          "challenger_id": "history/c9854fce_249729.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "68800_385",
+      "baseline": {
+        "ndcg": 0.11305340175787204,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.11305340175787204,
+        "coverage": 0.5,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.11305340175787204,
+        "coverage": 0.5,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "68818_382",
+      "baseline": {
+        "ndcg": 0.5706417189553201,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.5706417189553201,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.5706417189553201,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "69134_367",
+      "baseline": {
+        "ndcg": 0.10209739512291163,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0.09803928583135707,
+      "direct": {
+        "ndcg": 0.2001366809542687,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/e4950bf9_50278.txt",
+          "challenger_id": "history/d04b51fe_50197.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.2001366809542687,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/e4950bf9_50278.txt",
+          "challenger_id": "history/d04b51fe_50197.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "69204_364",
+      "baseline": {
+        "ndcg": 0.6934264036172708,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.6934264036172708,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/d7da817e_274883.txt",
+          "challenger_id": "history/54c9976c_339363.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.6934264036172708,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/d7da817e_274883.txt",
+          "challenger_id": "history/54c9976c_339363.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "69605_342",
+      "baseline": {
+        "ndcg": 0.3391602052736161,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3391602052736161,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/49a01961_236924.txt",
+          "challenger_id": "history/0b95ab61_247427.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.3391602052736161,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/49a01961_236924.txt",
+          "challenger_id": "history/0b95ab61_247427.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "69724_337",
+      "baseline": {
+        "ndcg": 0.559206739398752,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.45221360703148816,
+        "coverage": 0.33333333333333337,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/5c2fd850_45654.txt",
+          "challenger_id": "history/c1964dc1_325014.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.45221360703148816,
+        "coverage": 0.33333333333333337,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/5c2fd850_45654.txt",
+          "challenger_id": "history/c1964dc1_325014.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "69865_321",
+      "baseline": {
+        "ndcg": 0.22009176629808017,
+        "coverage": 0.75
+      },
+      "oracle_pair_delta": 0.0636207881989517,
+      "direct": {
+        "ndcg": 0.22009176629808017,
+        "coverage": 0.75,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/a2f303b3_231977.txt",
+          "challenger_id": "history/e918b930_231544.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.22009176629808017,
+        "coverage": 0.75,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/a2f303b3_231977.txt",
+          "challenger_id": "history/e918b930_231544.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "69994_308",
+      "baseline": {
+        "ndcg": 0.3872487704346732,
+        "coverage": 0.75
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3872487704346732,
+        "coverage": 0.75,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.3872487704346732,
+        "coverage": 0.75,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "70025_307",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/e1d51625_228868.txt",
+          "challenger_id": "history/18eb5eae_228827.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/e1d51625_228868.txt",
+          "challenger_id": "history/18eb5eae_228827.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "70043_306",
+      "baseline": {
+        "ndcg": 0.49503792495918414,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.49503792495918414,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.49503792495918414,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "70172_299",
+      "baseline": {
+        "ndcg": 0.510383374527714,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0.07311683844390993,
+      "direct": {
+        "ndcg": 0.510383374527714,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.5835002129716239,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/7e5ff2ac_258332.txt",
+          "challenger_id": "history/342db51a_41243.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "70257_296",
+      "baseline": {
+        "ndcg": 0.3628869103342175,
+        "coverage": 0.3333333333333333
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3628869103342175,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/c55a5fa2_22865.txt",
+          "challenger_id": "history/3337bd0b_224721.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.3628869103342175,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/7034ca48_225474.txt",
+          "challenger_id": "history/84cfa5ab_197159.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "70445_284",
+      "baseline": {
+        "ndcg": 0.8175295903539445,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.8175295903539445,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.8175295903539445,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "70535_280",
+      "baseline": {
+        "ndcg": 0.9438661545147247,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.9438661545147247,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/af685e2b_331916.txt",
+          "challenger_id": "history/39d9f657_296584.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.9438661545147247,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/4d6c64fd_296583.txt",
+          "challenger_id": "history/5ac00491_38782.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "70539_279",
+      "baseline": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/92a870c0_329177.txt",
+          "challenger_id": "history/4ae5c29a_329194.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "70551_275",
+      "baseline": {
+        "ndcg": 0.09803928583135704,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.09803928583135704,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/b05eabe6_38534.txt",
+          "challenger_id": "history/e786e1aa_211742.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.09803928583135704,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/b05eabe6_38534.txt",
+          "challenger_id": "history/e786e1aa_211742.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "70556_274",
+      "baseline": {
+        "ndcg": 0.41618115554873086,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0.1412669728598291,
+      "direct": {
+        "ndcg": 0.55744812840856,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/d33a97a1_211653.txt",
+          "challenger_id": "history/c9f1826a_38183.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.41618115554873086,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "70561_273",
+      "baseline": {
+        "ndcg": 0.6333518746717375,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0.11751610475642715,
+      "direct": {
+        "ndcg": 0.6333518746717375,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.6333518746717375,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "70626_267",
+      "baseline": {
+        "ndcg": 0.2960819109658652,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0.13565197343244778,
+      "direct": {
+        "ndcg": 0.431733884398313,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/3d81bdaf_211162.txt",
+          "challenger_id": "history/3d549cdb_36957.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.2960819109658652,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "70646_265",
+      "baseline": {
+        "ndcg": 0.2640681225725909,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0.19342640361727076,
+      "direct": {
+        "ndcg": 0.2640681225725909,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/a01fc9f9_210956.txt",
+          "challenger_id": "history/cbc1225f_210951.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.2640681225725909,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/a01fc9f9_210956.txt",
+          "challenger_id": "history/cbc1225f_210951.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "70749_259",
+      "baseline": {
+        "ndcg": 0.16716045496620227,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.16716045496620227,
+        "coverage": 0.6666666666666666,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.16716045496620227,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/19879c8f_35722.txt",
+          "challenger_id": "history/1c6630ae_209841.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "71037_242",
+      "baseline": {
+        "ndcg": 0.24630238874073,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0.12315119437036501,
+      "direct": {
+        "ndcg": 0.369453583111095,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/5053caaf_208038.txt",
+          "challenger_id": "history/58ba77c4_33610.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.369453583111095,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/5053caaf_208038.txt",
+          "challenger_id": "history/58ba77c4_33610.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "71218_232",
+      "baseline": {
+        "ndcg": 0.9197207891481876,
+        "coverage": null
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.9197207891481876,
+        "coverage": null,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.9197207891481876,
+        "coverage": null,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/2f82a4c7_3743.txt",
+          "challenger_id": "history/8e070272_19258.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "71244_229",
+      "baseline": {
+        "ndcg": 0.6257049680303419,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0.14126697285982892,
+      "direct": {
+        "ndcg": 0.6257049680303419,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/99520848_206170.txt",
+          "challenger_id": "history/faf3bce6_206303.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.6257049680303419,
+        "coverage": 0.5,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "71261_227",
+      "baseline": {
+        "ndcg": 0.5640920940185894,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.5640920940185894,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/a17e42c0_206005.txt",
+          "challenger_id": "history/b403f805_206018.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.5640920940185894,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "71607_205",
+      "baseline": {
+        "ndcg": 0.34870224750355494,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.34870224750355494,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/753d9ef4_202576.txt",
+          "challenger_id": "history/e152f713_156876.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.34870224750355494,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/753d9ef4_202576.txt",
+          "challenger_id": "history/e152f713_156876.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "71805_193",
+      "baseline": {
+        "ndcg": 0.19796212533499347,
+        "coverage": 0.3333333333333333
+      },
+      "oracle_pair_delta": 0.07945707943276742,
+      "direct": {
+        "ndcg": 0.2774192047677609,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/1aef41fc_200480.txt",
+          "challenger_id": "history/4d8e9ca2_26424.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.19796212533499347,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/c2e744a4_324947.txt",
+          "challenger_id": "history/c92e9dce_324948.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "71993_186",
+      "baseline": {
+        "ndcg": 0.23463936301137822,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0.1480409554829326,
+      "direct": {
+        "ndcg": 0.23463936301137822,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/07054a93_199426.txt",
+          "challenger_id": "history/48e81c16_199318.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.23463936301137822,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/07054a93_199426.txt",
+          "challenger_id": "history/48e81c16_199318.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "72122_179",
+      "baseline": {
+        "ndcg": 0.20438239758848611,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.20438239758848611,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/b42c6ac2_198694.txt",
+          "challenger_id": "history/0ce7fad5_198497.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.20438239758848611,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/b42c6ac2_198694.txt",
+          "challenger_id": "history/0ce7fad5_198497.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "72126_178",
+      "baseline": {
+        "ndcg": 0.7486761295186739,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.7486761295186739,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.7486761295186739,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/408a2d81_198321.txt",
+          "challenger_id": "history/6a4d272e_198309.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "72212_174",
+      "baseline": {
+        "ndcg": 0.3080351663449861,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3080351663449861,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.3080351663449861,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/5254a13b_197853.txt",
+          "challenger_id": "history/2e75e5c2_197852.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "72282_171",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/5a7cb5fb_73176.txt",
+          "challenger_id": "history/226c47ca_197432.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/5a7cb5fb_73176.txt",
+          "challenger_id": "history/226c47ca_197432.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "72290_170",
+      "baseline": {
+        "ndcg": 0.16716045496620227,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.16716045496620227,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/2aafd272_197175.txt",
+          "challenger_id": "history/a1c42424_197181.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.16716045496620227,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/2aafd272_197175.txt",
+          "challenger_id": "history/a1c42424_197181.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "72702_144",
+      "baseline": {
+        "ndcg": 0.6934264036172708,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.6934264036172708,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/d32a2f16_185222.txt",
+          "challenger_id": "history/47fc790a_68923.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.6934264036172708,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/d32a2f16_185222.txt",
+          "challenger_id": "history/47fc790a_68923.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "75662_126",
+      "baseline": {
+        "ndcg": 0.17723928678404774,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.17723928678404774,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/0818be48_66403.txt",
+          "challenger_id": "history/3a9acd3d_169820.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.17723928678404774,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/0818be48_66403.txt",
+          "challenger_id": "history/3a9acd3d_169820.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "76215_116",
+      "baseline": {
+        "ndcg": 0.3562071871080222,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3562071871080222,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/16f73618_331954.txt",
+          "challenger_id": "history/01b3ad4c_157375.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.3562071871080222,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "76464_100",
+      "baseline": {
+        "ndcg": 0.5,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.5,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.5,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "76525_96",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/ffd6b15d_153697.txt",
+          "challenger_id": "history/a726367c_153673.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/ffd6b15d_153697.txt",
+          "challenger_id": "history/a726367c_153673.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "76663_89",
+      "baseline": {
+        "ndcg": 0.20210734650054757,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.20210734650054757,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/2684ad13_151701.txt",
+          "challenger_id": "history/e1022b9c_151879.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.20210734650054757,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/11e97594_151815.txt",
+          "challenger_id": "history/6450a1f9_151891.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "76674_87",
+      "baseline": {
+        "ndcg": 0.252016380211836,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.252016380211836,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/277298ea_151270.txt",
+          "challenger_id": "history/0b3b05fe_151186.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.252016380211836,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "history/277298ea_151270.txt",
+          "challenger_id": "history/0b3b05fe_151186.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "76784_80",
+      "baseline": {
+        "ndcg": 0.4202024810692814,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0.12315119437036504,
+      "direct": {
+        "ndcg": 0.4202024810692814,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/d7d9b45d_146356.txt",
+          "challenger_id": "history/9d4bb355_146424.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.4202024810692814,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "77030_66",
+      "baseline": {
+        "ndcg": 0.5087403079104241,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.5087403079104241,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.5087403079104241,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/5fb70aca_127192.txt",
+          "challenger_id": "history/e4e4201c_127070.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "77400_43",
+      "baseline": {
+        "ndcg": 0.2640681225725909,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.2640681225725909,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/052465e5_5175.txt",
+          "challenger_id": "history/ff4c3826_5134.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.2640681225725909,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/052465e5_5175.txt",
+          "challenger_id": "history/ff4c3826_5134.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "77466_38",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/6eeb0d99_322193.txt",
+          "challenger_id": "history/8ff27f7d_93180.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/6eeb0d99_322193.txt",
+          "challenger_id": "history/8ff27f7d_93180.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "77529_33",
+      "baseline": {
+        "ndcg": 0.08372491399919348,
+        "coverage": 0.3333333333333333
+      },
+      "oracle_pair_delta": 0.07075576072108063,
+      "direct": {
+        "ndcg": 0.1544806747202741,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "history/6e81275b_122502.txt",
+          "challenger_id": "history/9d4136b0_3461.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.08372491399919348,
+        "coverage": 0.3333333333333333,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "77639_30",
+      "baseline": {
+        "ndcg": 0.5802792108518124,
+        "coverage": null
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.5802792108518124,
+        "coverage": null,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.5802792108518124,
+        "coverage": null,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "77670_28",
+      "baseline": {
+        "ndcg": 0.07336392209936005,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.07336392209936005,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.07336392209936005,
+        "coverage": 0.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "78923_19",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "79343_11",
+      "baseline": {
+        "ndcg": 0.9409528262193452,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.8534811121179371,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/e7dc5465_1318.txt",
+          "challenger_id": "history/a0edf63a_154310.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.8534811121179371,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/e7dc5465_1318.txt",
+          "challenger_id": "history/a0edf63a_154310.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "79371_10",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/4186ec83_22272.txt",
+          "challenger_id": "history/0e210871_100737.txt"
+        }
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "79511_5",
+      "baseline": {
+        "ndcg": 0.4776237035032179,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.4776237035032179,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/63b244f8_0524.txt",
+          "challenger_id": "history/cfa922e1_113839.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.4776237035032179,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "history/63b244f8_0524.txt",
+          "challenger_id": "history/cfa922e1_113839.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "11149_740",
+      "baseline": {
+        "ndcg": 0.3333333333333333,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3333333333333333,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/08b86b69_14962.txt",
+          "challenger_id": "hsm/e611767b_14958.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.3333333333333333,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/08b86b69_14962.txt",
+          "challenger_id": "hsm/e611767b_14958.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "13450_719",
+      "baseline": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "hsm/b5d0f7c4_209256.txt",
+          "challenger_id": "hsm/2694_c65f3a4c728113d1_297.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "17599_693",
+      "baseline": {
+        "ndcg": 0.6131471927654584,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.6131471927654584,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/17543_94c08a9872027b6b_528.txt",
+          "challenger_id": "hsm/2035_fada495a46bc0d66_564.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.6131471927654584,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/17543_94c08a9872027b6b_528.txt",
+          "challenger_id": "hsm/2035_fada495a46bc0d66_564.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "17737_688",
+      "baseline": {
+        "ndcg": 0.6240505200038379,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.6240505200038379,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.6240505200038379,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "17806_686",
+      "baseline": {
+        "ndcg": 0.13905617951077562,
+        "coverage": 0.3333333333333333
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.13905617951077562,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/19033_f0f28a25a8e0c75a_3.txt",
+          "challenger_id": "hsm/37c89d12_208798.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.13905617951077562,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/19033_f0f28a25a8e0c75a_3.txt",
+          "challenger_id": "hsm/37c89d12_208798.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "18176_673",
+      "baseline": {
+        "ndcg": 0.23463936301137822,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0.1480409554829326,
+      "direct": {
+        "ndcg": 0.38268031849431083,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/13073_a68ffe8b3c2c6586_198.txt",
+          "challenger_id": "hsm/2db86461_2732.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.38268031849431083,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/13073_a68ffe8b3c2c6586_198.txt",
+          "challenger_id": "hsm/2db86461_2732.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "18346_668",
+      "baseline": {
+        "ndcg": 0.20210734650054757,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.20210734650054757,
+        "coverage": 0.6666666666666666,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.20210734650054757,
+        "coverage": 0.6666666666666666,
+        "swap": null
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "18450_665",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "hsm/18450_561abca04376241e_31.txt",
+          "challenger_id": "hsm/18450_a343ff026f03cbb0_55.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "hsm/18450_561abca04376241e_31.txt",
+          "challenger_id": "hsm/18450_a343ff026f03cbb0_55.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "18903_654",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0.13565197343244778,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/17762_025c44ae4844ef61_52.txt",
+          "challenger_id": "hsm/17543_94c08a9872027b6b_633.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/17762_025c44ae4844ef61_52.txt",
+          "challenger_id": "hsm/17543_94c08a9872027b6b_633.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "18933_651",
+      "baseline": {
+        "ndcg": 0.7653606369886217,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.7653606369886217,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.7653606369886217,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "hsm/3334_1bcb41b94222f570_1908.txt",
+          "challenger_id": "hsm/291_a7908f39f9ede1f5_23.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "2639_785",
+      "baseline": {
+        "ndcg": 0.5802792108518124,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.5802792108518124,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "hsm/4e510c2f_213375.txt",
+          "challenger_id": "hsm/51e8b69b_16448.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.5802792108518124,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "hsm/4e510c2f_213375.txt",
+          "challenger_id": "hsm/51e8b69b_16448.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "2694_782",
+      "baseline": {
+        "ndcg": 0.8503449055347546,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.8503449055347546,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.8503449055347546,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/18057_dcd4406d5f48241d_711.txt",
+          "challenger_id": "hsm/2694_c6b9bd509cd1e803_16.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "295_793",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/5bf96e90_21280.txt",
+          "challenger_id": "hsm/295_f79e931fdd8b29d6_1.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/5bf96e90_21280.txt",
+          "challenger_id": "hsm/295_f79e931fdd8b29d6_1.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "3040_774",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "3188_769",
+      "baseline": {
+        "ndcg": 0.3065735963827292,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3065735963827292,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "hsm/17630_4d1c13cac6b4a28d_19.txt",
+          "challenger_id": "hsm/18051_92600e5e48c25438_16.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.3065735963827292,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "hsm/17630_4d1c13cac6b4a28d_19.txt",
+          "challenger_id": "hsm/18051_92600e5e48c25438_16.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "3265_763",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/9482ee88_213284.txt",
+          "challenger_id": "hsm/47fcbd56_213299.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/9482ee88_213284.txt",
+          "challenger_id": "hsm/47fcbd56_213299.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "5772_746",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "hsm/2035_cf8b9e0971c96393_386.txt",
+          "challenger_id": "hsm/18176_e0b7e3b864e6fd22_501.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "hsm/5712_015d60cb89b0f79c_27.txt",
+          "challenger_id": "hsm/2694_c65f3a4c728113d1_454.txt"
+        }
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "6776_745",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "hsm/df701cda_14763.txt",
+          "challenger_id": "hsm/295b119f_211514.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "hsm/df701cda_14763.txt",
+          "challenger_id": "hsm/295b119f_211514.txt"
+        }
+      }
+    },
+    {
+      "domain": "iota",
+      "qid": "470_804",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "iota/4ea3ceaa_0611.txt",
+          "challenger_id": "iota/796d1025_9875.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "iota/470_18b7f002b944808a_2.txt",
+          "challenger_id": "iota/a10d5aae_0610.txt"
+        }
+      }
+    },
+    {
+      "domain": "law",
+      "qid": "105973_826",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0.31546487678572877,
+      "direct": {
+        "ndcg": 0.31546487678572877,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "law/1409ac1a_42008.txt",
+          "challenger_id": "law/6ac4dc55_3077.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.31546487678572877,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "law/1409ac1a_42008.txt",
+          "challenger_id": "law/6ac4dc55_3077.txt"
+        }
+      }
+    },
+    {
+      "domain": "law",
+      "qid": "106732_821",
+      "baseline": {
+        "ndcg": 0.6309297535714575,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.6309297535714575,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.6309297535714575,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "law/106732_c65518ce656df400_20.txt",
+          "challenger_id": "law/a46b9a08_2356.txt"
+        }
+      }
+    },
+    {
+      "domain": "law",
+      "qid": "106995_819",
+      "baseline": {
+        "ndcg": 1.0,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 1.0,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "law/106995_47c8128bc70c5855_34.txt",
+          "challenger_id": "law/106995_47c8128bc70c5855_14.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 1.0,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "law",
+      "qid": "108728_814",
+      "baseline": {
+        "ndcg": 0.32531670832675136,
+        "coverage": 0.75
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.32531670832675136,
+        "coverage": 0.75,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "law/108728_9a0409d59c887160_8.txt",
+          "challenger_id": "law/108728_57715402c5ac768b_0.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.32531670832675136,
+        "coverage": 0.75,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "law/108728_9a0409d59c887160_8.txt",
+          "challenger_id": "law/108728_57715402c5ac768b_0.txt"
+        }
+      }
+    },
+    {
+      "domain": "law",
+      "qid": "110623_810",
+      "baseline": {
+        "ndcg": 0.23463936301137822,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0.13565197343244778,
+      "direct": {
+        "ndcg": 0.370291336443826,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "law/f7be3d3d_0526.txt",
+          "challenger_id": "law/5ec541d1_0385.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.370291336443826,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "law/f7be3d3d_0526.txt",
+          "challenger_id": "law/5ec541d1_0385.txt"
+        }
+      }
+    },
+    {
+      "domain": "monero",
+      "qid": "10083_870",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "monero/5f885314_10533.txt",
+          "challenger_id": "monero/13093_5221ba6b311fa32a_18.txt"
+        }
+      }
+    },
+    {
+      "domain": "monero",
+      "qid": "11215_862",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "monero/9f9adeff_84298.txt",
+          "challenger_id": "monero/0bbd0c4f_12018.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "monero/9f9adeff_84298.txt",
+          "challenger_id": "monero/0bbd0c4f_12018.txt"
+        }
+      }
+    },
+    {
+      "domain": "monero",
+      "qid": "11284_861",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "monero/0a7cd463_0352.txt",
+          "challenger_id": "monero/ec95ed9a_82166.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "monero/0a7cd463_0352.txt",
+          "challenger_id": "monero/ec95ed9a_82166.txt"
+        }
+      }
+    },
+    {
+      "domain": "monero",
+      "qid": "4235_894",
+      "baseline": {
+        "ndcg": 0.5294362295028773,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.5294362295028773,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.5294362295028773,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "monero/105df725_6411.txt",
+          "challenger_id": "monero/cf86fa66_81423.txt"
+        }
+      }
+    },
+    {
+      "domain": "monero",
+      "qid": "4634_893",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "monero/6e07f002_81270.txt",
+          "challenger_id": "monero/04c77900_84773.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "monero/a3390bfc_81271.txt",
+          "challenger_id": "monero/5dd7d48f_84770.txt"
+        }
+      }
+    },
+    {
+      "domain": "monero",
+      "qid": "6011_889",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "monero/53d960ed_6603.txt",
+          "challenger_id": "monero/f3da9bf0_82975.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "monero/53d960ed_6603.txt",
+          "challenger_id": "monero/f3da9bf0_82975.txt"
+        }
+      }
+    },
+    {
+      "domain": "monero",
+      "qid": "6312_887",
+      "baseline": {
+        "ndcg": 0.6333518746717375,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.5205067333228022,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "monero/138a6aed_9614.txt",
+          "challenger_id": "monero/12c8fc90_82370.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.5205067333228022,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "monero/138a6aed_9614.txt",
+          "challenger_id": "monero/12c8fc90_82370.txt"
+        }
+      }
+    },
+    {
+      "domain": "monero",
+      "qid": "6528_886",
+      "baseline": {
+        "ndcg": 0.16958010263680806,
+        "coverage": null
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.16958010263680806,
+        "coverage": null,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.16958010263680806,
+        "coverage": null,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "monero/69a713c7_84825.txt",
+          "challenger_id": "monero/eea4a540_14290.txt"
+        }
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "74177_1055",
+      "baseline": {
+        "ndcg": 1.0,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 1.0,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 1.0,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "77497_1032",
+      "baseline": {
+        "ndcg": 0.16716045496620227,
+        "coverage": 0.3333333333333333
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.16716045496620227,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "politics/67f40780_21304.txt",
+          "challenger_id": "politics/77784_35e6740b09af9ad1_37.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.16716045496620227,
+        "coverage": 0.3333333333333333,
+        "swap": null
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "77856_1027",
+      "baseline": {
+        "ndcg": 0.18457569677956817,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.18457569677956817,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.18457569677956817,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "77959_1025",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "politics/661b0c4d_24331.txt",
+          "challenger_id": "politics/93430_b88fc280eb2fc2e8_43.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "politics/661b0c4d_24331.txt",
+          "challenger_id": "politics/93430_b88fc280eb2fc2e8_43.txt"
+        }
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "78127_1021",
+      "baseline": {
+        "ndcg": 0.3562071871080222,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3562071871080222,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "politics/83771_351c2b8f26aa7b2c_24.txt",
+          "challenger_id": "politics/0dc31b31_15001.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.3562071871080222,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "politics/83771_351c2b8f26aa7b2c_24.txt",
+          "challenger_id": "politics/0dc31b31_15001.txt"
+        }
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "82726_1004",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "politics/83639_0618e06771d9c0dc_9.txt",
+          "challenger_id": "politics/82726_576dee82b5e48c36_11.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "politics/90846_cb3f62afeea5e3e8_48.txt",
+          "challenger_id": "politics/82726_576dee82b5e48c36_3.txt"
+        }
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "82838_1002",
+      "baseline": {
+        "ndcg": 0.9060254355346823,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.9060254355346823,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "politics/dc172a3b_182132.txt",
+          "challenger_id": "politics/82838_282a7b2ad936b4cb_112.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.9060254355346823,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "politics/dc172a3b_182132.txt",
+          "challenger_id": "politics/82838_282a7b2ad936b4cb_112.txt"
+        }
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "86398_985",
+      "baseline": {
+        "ndcg": 0.8772153153380493,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.8772153153380493,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "politics/93094_9f5da22b62353fe7_766.txt",
+          "challenger_id": "politics/83628_c5707c79bfc03ea5_14.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.8772153153380493,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "politics/83628_c5707c79bfc03ea5_80.txt",
+          "challenger_id": "politics/86398_4f750ee50d1c85f9_26.txt"
+        }
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "87658_974",
+      "baseline": {
+        "ndcg": 0.18154179253735267,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.18154179253735267,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "politics/87658_832d6dedaf04d46e_5.txt",
+          "challenger_id": "politics/77006_cbf925cd9f100e6a_48.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.18154179253735267,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "politics/87658_832d6dedaf04d46e_5.txt",
+          "challenger_id": "politics/77006_cbf925cd9f100e6a_48.txt"
+        }
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "88225_965",
+      "baseline": {
+        "ndcg": 0.11751610475642714,
+        "coverage": 0.3333333333333333
+      },
+      "oracle_pair_delta": 0.12315119437036497,
+      "direct": {
+        "ndcg": 0.2406672991267921,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "politics/74876_230de5185d236e6d_85.txt",
+          "challenger_id": "politics/c7eb807f_12707.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.2406672991267921,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "politics/74876_230de5185d236e6d_85.txt",
+          "challenger_id": "politics/c7eb807f_12707.txt"
+        }
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "88566_958",
+      "baseline": {
+        "ndcg": 0.6366824387328317,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.6366824387328317,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.6366824387328317,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "89303_951",
+      "baseline": {
+        "ndcg": 0.8175295903539445,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.8175295903539445,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "politics/74977_08e0c77bd9dd0de6_60.txt",
+          "challenger_id": "politics/7515da7a_11420.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.8175295903539445,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "politics/0ae13047_12099.txt",
+          "challenger_id": "politics/2048daac_11419.txt"
+        }
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "90177_939",
+      "baseline": {
+        "ndcg": 0.15101961822780524,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.15101961822780524,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "politics/90177_5dc9eb071f72ed48_230.txt",
+          "challenger_id": "politics/74392_746f82b773edfd4f_8.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.15101961822780524,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "politics/90177_5dc9eb071f72ed48_230.txt",
+          "challenger_id": "politics/74392_746f82b773edfd4f_8.txt"
+        }
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "90625_933",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": null
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": null,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": null,
+        "swap": null
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "91207_926",
+      "baseline": {
+        "ndcg": 0.5078961547485289,
+        "coverage": 0.6666666666666666
+      },
+      "oracle_pair_delta": 0.12315119437036492,
+      "direct": {
+        "ndcg": 0.5078961547485289,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "politics/a2d08fed_179599.txt",
+          "challenger_id": "politics/75dd20e0_19944.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.5078961547485289,
+        "coverage": 0.6666666666666666,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "politics/a2d08fed_179599.txt",
+          "challenger_id": "politics/75dd20e0_19944.txt"
+        }
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "91269_925",
+      "baseline": {
+        "ndcg": 0.6240505200038379,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.6240505200038379,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "politics/91269_33d53dd2501002cb_139.txt",
+          "challenger_id": "politics/93094_9f5da22b62353fe7_279.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.6240505200038379,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "politics/316223f0_3482.txt",
+          "challenger_id": "politics/551375d4_3473.txt"
+        }
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "91594_922",
+      "baseline": {
+        "ndcg": 0.617319681505689,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.617319681505689,
+        "coverage": 1.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.617319681505689,
+        "coverage": 1.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "93094_916",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "politics/93094_4a7d0965810da141_2.txt",
+          "challenger_id": "politics/da1293e1_179262.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "politics/91586_36d764fd7d70cc20_25.txt",
+          "challenger_id": "politics/8139c437_179263.txt"
+        }
+      }
+    },
+    {
+      "domain": "quant",
+      "qid": "77757_1072",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "quant/78042_fa82b31999d8bb06_512.txt",
+          "challenger_id": "quant/78042_fa82b31999d8bb06_623.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "quant/78042_fa82b31999d8bb06_512.txt",
+          "challenger_id": "quant/78042_fa82b31999d8bb06_623.txt"
+        }
+      }
+    },
+    {
+      "domain": "quant",
+      "qid": "78845_1067",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "quant/73909_5a5076dcd2cd4293_14.txt",
+          "challenger_id": "quant/586626bd_27113.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "quant/73909_5a5076dcd2cd4293_14.txt",
+          "challenger_id": "quant/586626bd_27113.txt"
+        }
+      }
+    },
+    {
+      "domain": "quant",
+      "qid": "80694_1063",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "quant",
+      "qid": "84061_1058",
+      "baseline": {
+        "ndcg": 0.44149241373678083,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0.11284514134893531,
+      "direct": {
+        "ndcg": 0.5543375550857161,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "quant/6548c682_26658.txt",
+          "challenger_id": "quant/755f87a3_0002.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.44149241373678083,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "quant/80937_cefc04f23f421222_830.txt",
+          "challenger_id": "quant/78042_fa82b31999d8bb06_432.txt"
+        }
+      }
+    },
+    {
+      "domain": "travel",
+      "qid": "184379_1184",
+      "baseline": {
+        "ndcg": 0.15642624200758548,
+        "coverage": 0.3333333333333333
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.15642624200758548,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "travel/ad07bcc7_23521.txt",
+          "challenger_id": "travel/767e51fa_177146.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.15642624200758548,
+        "coverage": 0.3333333333333333,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "travel/ad07bcc7_23521.txt",
+          "challenger_id": "travel/767e51fa_177146.txt"
+        }
+      }
+    },
+    {
+      "domain": "travel",
+      "qid": "184994_1177",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "travel",
+      "qid": "185286_1175",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "travel/185286_0eb790f764c8d6c7_29.txt",
+          "challenger_id": "travel/2d06f9fd_2879.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "travel/185286_0eb790f764c8d6c7_29.txt",
+          "challenger_id": "travel/2d06f9fd_2879.txt"
+        }
+      }
+    },
+    {
+      "domain": "travel",
+      "qid": "186102_1164",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "travel/1234ce26_175555.txt",
+          "challenger_id": "travel/201618_d12896478e40e1a1_12.txt"
+        }
+      }
+    },
+    {
+      "domain": "travel",
+      "qid": "186154_1162",
+      "baseline": {
+        "ndcg": 0.6366824387328317,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.6366824387328317,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "travel/201618_d12896478e40e1a1_47.txt",
+          "challenger_id": "travel/100c05c5_171484.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.6366824387328317,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "travel/d10165ea_171485.txt",
+          "challenger_id": "travel/201618_d12896478e40e1a1_23.txt"
+        }
+      }
+    },
+    {
+      "domain": "travel",
+      "qid": "186567_1155",
+      "baseline": {
+        "ndcg": 0.3562071871080222,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3562071871080222,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "travel/9d0ddd06_174784.txt",
+          "challenger_id": "travel/d54d3820_174776.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.3562071871080222,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "travel/9d0ddd06_174784.txt",
+          "challenger_id": "travel/d54d3820_174776.txt"
+        }
+      }
+    },
+    {
+      "domain": "travel",
+      "qid": "191067_1133",
+      "baseline": {
+        "ndcg": 0.5,
+        "coverage": null
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.5,
+        "coverage": null,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.5,
+        "coverage": null,
+        "swap": null
+      }
+    },
+    {
+      "domain": "travel",
+      "qid": "191336_1131",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "travel/190846_6f148f7a636d8ec3_192.txt",
+          "challenger_id": "travel/b435061f_175701.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "travel/190846_6f148f7a636d8ec3_192.txt",
+          "challenger_id": "travel/b435061f_175701.txt"
+        }
+      }
+    },
+    {
+      "domain": "travel",
+      "qid": "192052_1124",
+      "baseline": {
+        "ndcg": 0.4852658227346317,
+        "coverage": 0.75
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.4852658227346317,
+        "coverage": 0.75,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "travel/187688_63ff06c9ab013ca4_206.txt",
+          "challenger_id": "travel/e7c9a061_9183.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.4852658227346317,
+        "coverage": 0.75,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "travel/187688_63ff06c9ab013ca4_206.txt",
+          "challenger_id": "travel/e7c9a061_9183.txt"
+        }
+      }
+    },
+    {
+      "domain": "travel",
+      "qid": "192426_1117",
+      "baseline": {
+        "ndcg": 0.7087212693585175,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.5855700749881525,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "travel/93cbc5dc_6531.txt",
+          "challenger_id": "travel/ad167f50_6668.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.7087212693585175,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "travel/c2a26b70_6542.txt",
+          "challenger_id": "travel/d6ccbc50_2691.txt"
+        }
+      }
+    },
+    {
+      "domain": "travel",
+      "qid": "198687_1101",
+      "baseline": {
+        "ndcg": 0.23719771276929622,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.23719771276929622,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "travel/198687_d4c63b44c3367d48_15.txt",
+          "challenger_id": "travel/206618b8_8682.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.23719771276929622,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "travel/198687_d4c63b44c3367d48_15.txt",
+          "challenger_id": "travel/206618b8_8682.txt"
+        }
+      }
+    },
+    {
+      "domain": "travel",
+      "qid": "201507_1096",
+      "baseline": {
+        "ndcg": 0.3065735963827292,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.3065735963827292,
+        "coverage": 0.5,
+        "swap": null
+      },
+      "contextual": {
+        "ndcg": 0.3065735963827292,
+        "coverage": 0.5,
+        "swap": null
+      }
+    },
+    {
+      "domain": "workplace",
+      "qid": "178519_1217",
+      "baseline": {
+        "ndcg": 0.0,
+        "coverage": 0.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "workplace/178519_981160a7b67e1441_1.txt",
+          "challenger_id": "workplace/c566170a_9526.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.0,
+        "coverage": 0.0,
+        "swap": null
+      }
+    },
+    {
+      "domain": "workplace",
+      "qid": "178602_1216",
+      "baseline": {
+        "ndcg": 0.1208113026994942,
+        "coverage": 0.5
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.1208113026994942,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "workplace/61cfa517_64172.txt",
+          "challenger_id": "workplace/0d0813a3_64110.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.1208113026994942,
+        "coverage": 0.5,
+        "swap": {
+          "slot": 10,
+          "incumbent_id": "workplace/aca01e93_64170.txt",
+          "challenger_id": "workplace/816615a3_64187.txt"
+        }
+      }
+    },
+    {
+      "domain": "workplace",
+      "qid": "191273_1201",
+      "baseline": {
+        "ndcg": 0.40298313359773236,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.40298313359773236,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "workplace/178519_981160a7b67e1441_0.txt",
+          "challenger_id": "workplace/055bd62b_64460.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.40298313359773236,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 8,
+          "incumbent_id": "workplace/178519_981160a7b67e1441_0.txt",
+          "challenger_id": "workplace/055bd62b_64460.txt"
+        }
+      }
+    },
+    {
+      "domain": "workplace",
+      "qid": "200292_1193",
+      "baseline": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0
+      },
+      "oracle_pair_delta": 0,
+      "direct": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0,
+        "swap": {
+          "slot": 9,
+          "incumbent_id": "workplace/181803_bc9e7e3f9e6b3f22_2.txt",
+          "challenger_id": "workplace/4917d383_64459.txt"
+        }
+      },
+      "contextual": {
+        "ndcg": 0.38685280723454163,
+        "coverage": 1.0,
+        "swap": null
+      }
+    }
+  ],
+  "paired_exploratory_comparisons": {
+    "direct_vs_baseline": {
+      "delta": 0.013118382919347351,
+      "domain_bootstrap_95": [
+        0.001006519365639665,
+        0.02901351295655828
+      ]
+    },
+    "contextual_vs_baseline": {
+      "delta": 0.011490895974187686,
+      "domain_bootstrap_95": [
+        0.0003582419824121416,
+        0.027051165802176626
+      ]
+    },
+    "contextual_vs_direct": {
+      "delta": -0.0016274869451596658,
+      "domain_bootstrap_95": [
+        -0.006757115422492849,
+        0.002048346449144713
+      ]
+    }
+  },
+  "oracle_macro_ndcg": 0.2553019472936895
+}

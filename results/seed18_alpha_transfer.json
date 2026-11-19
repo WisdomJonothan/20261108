@@ -1,0 +1,21 @@
+{
+  "tag": "fusion100_full_ce_s18_20261118",
+  "alpha": 0.7,
+  "selection": "frozen seed17 internal-validation choice transferred to seed18",
+  "domains": {
+    "bitcoin": 0.21113219397336244,
+    "cardano": 0.21494958728637822,
+    "economics": 0.2411532326025919,
+    "genealogy": 0.3813010128910343,
+    "history": 0.3926393612574177,
+    "hsm": 0.4482298106579036,
+    "iota": 0.7857499695511357,
+    "law": 0.4175111212554991,
+    "monero": 0.2252866774423172,
+    "politics": 0.4245679513944893,
+    "quant": 0.18366029418222168,
+    "travel": 0.32440496305600247,
+    "workplace": 0.3839224814589779
+  },
+  "macro": 0.35650066592379476
+}
