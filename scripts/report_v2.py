@@ -225,20 +225,29 @@ a("## 8. Case studies\n")
 a("See `CASES_DEV.md`: the six largest gains and losses with query text, and the "
   "per-domain swap counts.\n")
 a("## 9. Transfer\n")
-fi = load(V2 / "followir" / "exp_followir_dev.json")
-if fi:
-    p = fi["policies"]["direct"]
-    a("FollowIR Core17 (20 topics) was re-run from scratch under the frozen protocol: "
-      "dense mxbai top-100, frozen CE rerank, z 1:1 fusion, then the same cap-3 "
-      "replacement arms. Graded nDCG@10 of the frozen system is 0.2674 with the "
-      "original instructions and 0.1761 with the changed instructions (dense 0.2256 / "
-      "0.1608; CE-only 0.2523 / 0.1516). The Direct judge moves the harness binary-gain "
-      "mean from 0.3039 to 0.3123 (delta +0.0084, CI [-0.0017, +0.0186]; 8 helpful, 3 "
-      "harmful, 18 neutral, 11 no-swap of 40 queries). The interval includes zero: this "
-      "is transfer evidence in the same direction, not a second significant win. "
-      "News21 and Robust04 are not yet run.")
+sc = load(V2 / "followir" / "scores_followir.json")
+a("Three FollowIR collections were re-run from scratch under the frozen protocol "
+  "(dense mxbai top-100, frozen CE rerank, z 1:1 fusion, then the same cap-3 "
+  "replacement arms with threshold 0). Graded nDCG@10 of the frozen system, and the "
+  "Direct judge's change in the harness binary-gain metric:\n")
+a("")
+a("| collection | topics | docs | frozen og | frozen chg | Direct delta | 95% CI | help / harm |")
+a("|---|---:|---:|---:|---:|---:|---|---|")
+if sc:
+    for name, c in sc["collections"].items():
+        g = c["graded_ndcg10"]
+        d = c["direct"]
+        og = list(g.values())[0]["frozen"]
+        chg = list(g.values())[1]["frozen"]
+        a("| %s | %d | %s | %.4f | %.4f | %+.4f | [%+.4f, %+.4f] | %d / %d |"
+          % (name, c["topics"], format(c["documents"], ","), og, chg, d["delta"],
+             d["ci95"][0], d["ci95"][1], d["counts"]["helpful"], d["counts"]["harmful"]))
+    a("")
+    a("Robust04 is the only collection whose interval excludes zero; Core17 and News21 "
+      "are positive but not significant. The fusion advantage itself replicates on all "
+      "three (frozen above both dense and CE-only in all six instruction splits).")
 else:
-    a("FollowIR Core17 data are local but the run is not in the artefact set.")
+    a("FollowIR artefacts are not in the committed set.")
 
 out = V2 / "REPORT.md"
 out.write_text("\n".join(L) + "\n", encoding="utf-8")

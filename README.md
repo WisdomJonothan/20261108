@@ -57,12 +57,13 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   at k=3 +0.0002 / +0.0046 / +0.0060 / +0.0115; at k=9 every ordering returns
   +0.0065. Judging some pair early captures most of the gain; the gap order
   saves calls rather than adding quality.
-* **FollowIR Core17 transfer.** Re-running the frozen pipeline on Core17
-  (20 topics, 19,899 docs) gives graded nDCG@10 0.2674 (original
-  instructions) and 0.1761 (changed), against dense 0.2256 / 0.1608 and
-  CE-only 0.2523 / 0.1516. Direct then adds +0.0084 on the harness binary
-  metric (CI [-0.0017, +0.0186], 8 helpful / 3 harmful over 40 queries):
-  same direction, not significant. News21 and Robust04 remain.
+* **FollowIR transfer (three collections).** Re-running the frozen pipeline on
+  Core17, News21 and Robust04 gives graded nDCG@10 (original / changed
+  instructions): 0.2674 / 0.1761, 0.3401 / 0.2849, 0.3092 / 0.2382. Fusion
+  beats both dense and CE-only in all six instruction splits. Direct then adds
+  +0.0084 (CI [-0.0017, +0.0186], 8/3), +0.0072 (CI [-0.0014, +0.0161],
+  12/6) and +0.0064 (CI [+0.0018, +0.0114], 13/3): positive everywhere, only
+  Robust04 significant.
 * **Second starting system.** From the dense ranking (0.2943) the same
   candidates, judge and one-swap rule reach 0.3049 (+0.0106, CI
   [+0.0048, +0.0167]; 61 helpful / 15 harmful), so the mechanism is not

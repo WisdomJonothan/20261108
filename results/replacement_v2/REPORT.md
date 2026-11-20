@@ -120,4 +120,13 @@ See `CASES_DEV.md`: the six largest gains and losses with query text, and the pe
 
 ## 9. Transfer
 
-FollowIR Core17 (20 topics) was re-run from scratch under the frozen protocol: dense mxbai top-100, frozen CE rerank, z 1:1 fusion, then the same cap-3 replacement arms. Graded nDCG@10 of the frozen system is 0.2674 with the original instructions and 0.1761 with the changed instructions (dense 0.2256 / 0.1608; CE-only 0.2523 / 0.1516). The Direct judge moves the harness binary-gain mean from 0.3039 to 0.3123 (delta +0.0084, CI [-0.0017, +0.0186]; 8 helpful, 3 harmful, 18 neutral, 11 no-swap of 40 queries). The interval includes zero: this is transfer evidence in the same direction, not a second significant win. News21 and Robust04 are not yet run.
+Three FollowIR collections were re-run from scratch under the frozen protocol (dense mxbai top-100, frozen CE rerank, z 1:1 fusion, then the same cap-3 replacement arms with threshold 0). Graded nDCG@10 of the frozen system, and the Direct judge's change in the harness binary-gain metric:
+
+
+| collection | topics | docs | frozen og | frozen chg | Direct delta | 95% CI | help / harm |
+|---|---:|---:|---:|---:|---:|---|---|
+| core17 | 20 | 19,899 | 0.2674 | 0.1761 | +0.0084 | [-0.0017, +0.0186] | 8 / 3 |
+| news21 | 32 | 30,921 | 0.3401 | 0.2849 | +0.0072 | [-0.0014, +0.0161] | 12 / 6 |
+| robust04 | 52 | 47,492 | 0.3092 | 0.2382 | +0.0064 | [+0.0018, +0.0114] | 13 / 3 |
+
+Robust04 is the only collection whose interval excludes zero; Core17 and News21 are positive but not significant. The fusion advantage itself replicates on all three (frozen above both dense and CE-only in five of six instruction splits).

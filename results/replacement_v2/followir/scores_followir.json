@@ -1,0 +1,102 @@
+{
+  "collections": {
+    "core17": {
+      "topics": 20,
+      "documents": 19899,
+      "graded_ndcg10": {
+        "fo_og": {
+          "dense": 0.225637,
+          "ce": 0.252271,
+          "frozen": 0.26741
+        },
+        "fo_chg": {
+          "dense": 0.160849,
+          "ce": 0.15156,
+          "frozen": 0.176068
+        }
+      },
+      "direct": {
+        "queries": 40,
+        "baseline": 0.30386401284659903,
+        "policy": 0.312304640702517,
+        "delta": 0.008440627855917981,
+        "ci95": [
+          -0.001669944667033503,
+          0.018631931510947074
+        ],
+        "counts": {
+          "helpful": 8,
+          "harmful": 3,
+          "neutral": 18,
+          "no_swap": 11
+        }
+      }
+    },
+    "news21": {
+      "topics": 32,
+      "documents": 30921,
+      "graded_ndcg10": {
+        "fn21_og": {
+          "dense": 0.323703,
+          "ce": 0.304989,
+          "frozen": 0.340105
+        },
+        "fn21_chg": {
+          "dense": 0.27793,
+          "ce": 0.263741,
+          "frozen": 0.284893
+        }
+      },
+      "direct": {
+        "queries": 64,
+        "baseline": 0.5022,
+        "policy": 0.5094,
+        "delta": 0.0072,
+        "ci95": [
+          -0.0014,
+          0.0161
+        ],
+        "counts": {
+          "helpful": 12,
+          "harmful": 6,
+          "neutral": 25,
+          "no_swap": 21
+        }
+      }
+    },
+    "robust04": {
+      "topics": 52,
+      "documents": 47492,
+      "graded_ndcg10": {
+        "frob_og": {
+          "dense": 0.269206,
+          "ce": 0.293066,
+          "frozen": 0.309178
+        },
+        "frob_chg": {
+          "dense": 0.200437,
+          "ce": 0.217032,
+          "frozen": 0.238198
+        }
+      },
+      "direct": {
+        "queries": 104,
+        "baseline": 0.3205,
+        "policy": 0.3269,
+        "delta": 0.0064,
+        "ci95": [
+          0.0018,
+          0.0114
+        ],
+        "counts": {
+          "helpful": 13,
+          "harmful": 3,
+          "neutral": 44,
+          "no_swap": 44
+        }
+      }
+    }
+  },
+  "protocol": "dense mxbai top-100 -> frozen CE (v2m3_pool8_e2/best) -> z 1:1 fusion -> cap-3 replacement, threshold 0",
+  "note": "graded nDCG@10 from scripts/followir_score.py; Direct deltas from the harness (binary gains), 10k paired bootstrap over system-query pairs"
+}

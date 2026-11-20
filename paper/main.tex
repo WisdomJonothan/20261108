@@ -204,7 +204,25 @@ so the gain is not an artefact of the fused start's top ten being right.
 
 
 
-\paragraph{Transfer to FollowIR Core17.} To check that the stage is not tied to the RETECO corpus we re-ran the whole frozen protocol on the FollowIR Core17 collection (20 topics, 19,899 documents): dense mxbai top-100, the frozen cross-encoder, 1:1 z-score fusion, then the same three-candidate, nine-pair, threshold-zero replacement rule. The frozen system reaches graded nDCG@10 0.2674 under the original instructions and 0.1761 under the changed ones (dense 0.2256 / 0.1608; cross-encoder alone 0.2523 / 0.1516), so the fusion advantage carries over. The Direct judge moves the harness binary-gain mean from 0.3039 to 0.3123 (+0.0084, 95\% CI [-0.0017, +0.0186]; 8 helpful, 3 harmful, 18 neutral and 11 no-swap swaps over 40 system-query pairs). The interval includes zero, so we read this as transfer in the same direction rather than a second significant win; News21 and Robust04 remain to be run.
+\paragraph{Transfer to FollowIR.} To check that the stage is not tied to the RETECO corpus we re-ran the whole frozen protocol, from dense encoding onward, on three FollowIR collections. Table~\ref{tab:followir} reports the graded nDCG@10 of the frozen system under the original and the changed instructions and the Direct judge's binary-gain delta. The frozen fusion beats both the dense and the cross-encoder-only ranking in all six instruction splits, so the starting system replicates; the replacement stage is positive on all three collections (+0.0084, +0.0072, +0.0064) though only Robust04's interval excludes zero. The effect is therefore not specific to RETECO, but the transfer evidence is weaker than the in-domain result.
+
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrr}
+\toprule
+collection & topics & frozen (og) & frozen (chg) & Direct $\Delta$ & 95\% CI \\
+\midrule
+Core17 & 20 & 0.2674 & 0.1761 & +0.0084 & [-0.0017, +0.0186] \\
+News21 & 32 & 0.3401 & 0.2849 & +0.0072 & [-0.0014, +0.0161] \\
+Robust04 & 52 & 0.3092 & 0.2382 & +0.0064 & [+0.0018, +0.0114] \\
+\bottomrule
+\end{tabular}
+\caption{FollowIR transfer. Graded nDCG@10 of the frozen system under the original and changed instructions; the last two columns are the Direct judge's delta in the harness binary-gain metric and its 95\% paired-bootstrap interval over system-query pairs.}
+\label{tab:followir}
+\end{table}
+
 \textbf{Bidirectional agreement is load-bearing; abstention is not.} Judging each pair in one order only drops the gain to +0.0015 with an interval that includes zero, while removing the abstain option changes nothing (+0.0066). The benefit comes from requiring the judge to prefer the challenger in both presentation orders, not from letting it decline.
 
 \textbf{Learning when to swap did not add anything.} We split the 1,211 official training queries by domain into 969 for the gate and 242 for calibration; three folds trained cross-encoders on two thirds of the 969 so that no ranking used for training a gate came from a model that had seen its query, and a fourth model trained on all 969 to rank the calibration queries. A logistic regression on rank features, dense and cross-encoder score gaps, rank disagreement, judge margin and order consistency, with its threshold chosen only on the 242 calibration queries, reproduces Direct exactly on dev (+0.0065 at tau = 0.0549). That threshold is not a filter, however: it coincides with the smallest eligible calibration probability, and the gate's calibration delta at that point is -0.0014, worse than the 0.0 of swapping nothing. Choosing the threshold on the calibration split alone (tau = 0.1026) gives +0.00015 on calibration and +0.00086 on dev. The learned gate thus neither removes errors nor saves calls, which is the negative result. Fixed margins of 0.7 and 0.9, a cross-encoder-gap rule, and a cheap pre-call gate that avoids 84\% of judge calls all score no better; a simple "cross-encoder or dense gap" ordering rule is in fact the strongest dev rule at +0.0072, which says the judge's value here lies in the comparison itself rather than in a learned policy over it. On the training side the picture is flatter than on dev: the three held-out folds give +0.0007 [-0.0033, +0.0041], +0.0032 [+0.0002, +0.0066] and +0.0068 [+0.0022, +0.0124], and the 242 calibration queries give -0.0014 [-0.0059, +0.0028]. Because those folds also differ in their cross-encoder and in their starting nDCG (0.2562, 0.2796 and 0.3030 against the frozen 0.3581), they show that the gain varies with the query split and the starting system; we report the measured dev gain and the other splits rather than converting them into a fresh-split expectation.
