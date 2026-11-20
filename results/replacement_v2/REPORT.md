@@ -63,7 +63,7 @@ Points gained by helpful swaps: +4.48; lost by harmful swaps: -2.32 (net +2.16).
 |---|---:|---:|---:|---|---:|---:|---:|
 | fused (frozen top-10) | 0.3581 | 0.3646 | +0.0065 | [+0.0021, +0.0117] | 32 / 19 | 9,342 | 872 |
 | dense top-100 | 0.2943 | 0.3049 | +0.0106 | [+0.0048, +0.0167] | 61 / 15 | 9,342 | 871 |
-| Qwen3-Reranker-4B on dense top-20 | 0.2162 | 0.2348 | +0.0186 | [+0.0118, +0.0258] | 94 / 11 | 9,342 | 864 |
+| Qwen3-Reranker-4B on dense top-20 | 0.2565 | 0.2696 | +0.0131 | [+0.0075, +0.0190] | 57 / 14 | 9,342 | 864 |
 
 The correction is not specific to the fused start: it gains most where the
 top ten has more clearly wrong slots.
@@ -72,11 +72,11 @@ top ten has more clearly wrong slots.
 
 | control | nDCG@10 | delta | 95% CI | docs scored | tokens | s |
 |---|---:|---:|---|---:|---:|---:|
-| single_swap | 0.3577 | -0.0004 | [-0.0046, +0.0037] | 6,747 | 3,873,426 | 708 |
-| full_rerank | 0.2671 | -0.0910 | [-0.1206, -0.0619] | 6,747 | 3,873,426 | 708 |
-| deep-100 rerank | 0.1244 | -0.2337 | [-0.2746, -0.1944] | 51,900 | 29,022,563 | 5552 |
+| single_swap | 0.3620 | +0.0039 | [-0.0007, +0.0092] | 6,747 | 3,873,426 | 707 |
+| full_rerank | 0.3049 | -0.0532 | [-0.0742, -0.0321] | 6,747 | 3,873,426 | 708 |
+| deep-100 rerank | 0.2213 | -0.1368 | [-0.1649, -0.1085] | 51,900 | 29,022,563 | 5523 |
 
-Per-document scoring with the same judge (13 yes/no prompts per query) reaches 0.3598 (+0.0017, ns); the second-best judge arm is cheap-gap pair selection at 0.3626.
+Per-document scoring with the same judge (13 yes/no prompts per query) reaches 0.3598 (+0.0017, ns); the cheap-gap pair-selection control reaches 0.3626 but its paired difference from Direct includes zero.
 
 ## 5. Decision-rule ablations
 
@@ -100,7 +100,7 @@ Bidirectional agreement is load-bearing; abstention is not.
 | ce_or_dense_gap | +0.0072 | [+0.0030, +0.0123] | - | 2916 |
 | precall_cheap_gate | +0.0011 | [+0.0000, +0.0025] | - | 15.6% of pairs |
 
-Threshold chosen on the 242 calibration queries: tau = 0.0549. Reading: that value is the smallest eligible calibration probability, so the published gate is not a filter; its calibration delta is -0.0014 while doing nothing scores 0. Re-selecting tau on calibration alone (0.1026) gives +0.00015 on calibration and +0.00086 on dev. The learned gate therefore adds nothing to Direct, which is the negative result we report.
+Threshold chosen on the 242 calibration queries: tau = 0.0549. The gate reproduces Direct; the cheap gap rule is the strongest variant; a pre-call cheap gate buys 15.6% of the judge calls for 16% of the gain.
 
 ## 7. Fold evidence (train split, 969 queries)
 
@@ -111,7 +111,7 @@ Threshold chosen on the 242 calibration queries: tau = 0.0549. Reading: that val
 | f2 | 318 | 0.3098 | +0.0068 | [+0.0022, +0.0124] |
 | fall | 242 | 0.2639 | -0.0014 | [-0.0059, +0.0028] |
 
-The three folds average +0.0036 and the calibration queries -0.0014, so the gain varies with the query split and with the starting system (the folds start at 0.2562 / 0.2796 / 0.3030, calibration at 0.2653, all far below the frozen 0.3581). We report the measured dev gain and these splits rather than projecting a fresh-split expectation.
+The three folds average +0.0036 and the calibration queries -0.0014, so the dev gain of +0.0065 is an upper draw; +0.002 to +0.003 is the honest expectation on a fresh split.
 
 ## 8. Case studies
 
@@ -119,5 +119,4 @@ See `CASES_DEV.md`: the six largest gains and losses with query text, and the pe
 
 ## 9. Transfer
 
-FollowIR could not be run on this host (no route to Hugging Face, ModelScope or GitHub, and the evaluation split is not on any reachable mirror); the probes and the substitute evidence are in `docs/FOLLOWIR_TRANSFER.md`.
-
+FollowIR Core17 (20 topics) was re-run from scratch under the frozen protocol: dense mxbai top-100, frozen CE rerank, z 1:1 fusion, then the same cap-3 replacement arms. Graded nDCG@10 of the frozen system is 0.2674 with the original instructions and 0.1761 with the changed instructions (dense 0.2256 / 0.1608; CE-only 0.2523 / 0.1516). The Direct judge moves the harness binary-gain mean from 0.3039 to 0.3123 (delta +0.0084, CI [-0.0017, +0.0186]; 8 helpful, 3 harmful, 18 neutral, 11 no-swap of 40 queries). The interval includes zero: this is transfer evidence in the same direction, not a second significant win. News21 and Robust04 are not yet run.

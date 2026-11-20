@@ -33,9 +33,13 @@ artefact, and that artefact (paths relative to `results/`).
 | Direct - Context (paired) | -0.0015 [-0.0051, 0.0015] | -0.0015 [-0.0051, 0.0015] | `replacement_v2/compare_ctx_vs_direct.json` |
 | per-doc scoring dev | 0.3598 | 0.3598 | `replacement_v2/exp_perdoc_dev.json` |
 | active PRP dev | 0.3626 | 0.3626 | `replacement_v2/exp_active_dev.json` |
-| Qwen3-Reranker single swap | 0.3577 | 0.3577 | `replacement_v2/reranker_pool_dev.json` |
-| Qwen3-Reranker full 13-doc rerank | 0.2671 | 0.2671 | `replacement_v2/reranker_pool_dev.json` |
-| Qwen3-Reranker dense-100 rerank | 0.1244 | 0.1244 | `replacement_v2/reranker_deep100_dev.json` |
+| Qwen3-Reranker single swap (left-padded rerun) | 0.3620 | 0.3620 | `replacement_v2/reranker_pool_dev.json` |
+| Qwen3-Reranker full 13-doc rerank (left-padded rerun) | 0.3049 | 0.3049 | `replacement_v2/reranker_pool_dev.json` |
+| Qwen3-Reranker dense-100 rerank (left-padded rerun) | 0.2213 | 0.2213 | `replacement_v2/reranker_deep100_dev.json` |
+| FollowIR Core17 frozen fusion, original instructions | 0.2674 | 0.2674 | `replacement_v2/followir/scores_followir_core17.json` |
+| FollowIR Core17 frozen fusion, changed instructions | 0.1761 | 0.1761 | `replacement_v2/followir/scores_followir_core17.json` |
+| FollowIR Core17 Direct gain (binary nDCG) | +0.0084 | +0.0084 | `replacement_v2/followir/exp_followir_dev.json` |
+| Reranker start -> Direct correction | 0.2696 | 0.2696 | `replacement_v2/exp_rr20_dev.json` |
 | budget: 1 candidate | 0.3610 | 0.3610 | `replacement_v2/exp_budget_cap1.json` |
 | budget: 2 candidates | 0.3655 | 0.3655 | `replacement_v2/exp_budget_cap2.json` |
 | ablation: no abstention | 0.3647 | 0.3647 | `replacement_v2/ablations_dev.json` |

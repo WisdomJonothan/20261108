@@ -44,19 +44,33 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   1.74x time, so retained context is not a contribution and the project
   continues with Direct.
 * **Controls.** Same-model per-document scoring 0.3598 (+0.0017, ns);
-  cheap-gap pair selection 0.3626 (+0.0045, 2,630 prompts); Qwen3-Reranker-4B single swap
-  0.3577 (-0.0004), full 13-document rerank 0.2671 (-0.0910), dense-100 rerank
-  0.1244 (-0.2337).
+  cheap-gap pair selection 0.3626 (+0.0045, 2,630 prompts); Qwen3-Reranker-4B
+  single swap 0.3620 (+0.0039, CI [-0.0007, +0.0092], so not significant),
+  reranking the same thirteen documents 0.3049 (-0.0532), dense-100 rerank
+  0.2213 (-0.1368). The reranker numbers are the corrected left-padded values;
+  the first implementation right-padded and read pad tokens.
 * **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
   the cap stays at 3 because the cap-2 advantage was observed post hoc.
+* **Pair budget (single prediction cache).** Replaying the same Direct
+  predictions while judging only k pairs: at k=1 the deltas are -0.0007
+  (frozen order), +0.0043 (cheap-gap), +0.0037 (random), +0.0075 (oracle);
+  at k=3 +0.0002 / +0.0046 / +0.0060 / +0.0115; at k=9 every ordering returns
+  +0.0065. Judging some pair early captures most of the gain; the gap order
+  saves calls rather than adding quality.
+* **FollowIR Core17 transfer.** Re-running the frozen pipeline on Core17
+  (20 topics, 19,899 docs) gives graded nDCG@10 0.2674 (original
+  instructions) and 0.1761 (changed), against dense 0.2256 / 0.1608 and
+  CE-only 0.2523 / 0.1516. Direct then adds +0.0084 on the harness binary
+  metric (CI [-0.0017, +0.0186], 8 helpful / 3 harmful over 40 queries):
+  same direction, not significant. News21 and Robust04 remain.
 * **Second starting system.** From the dense ranking (0.2943) the same
   candidates, judge and one-swap rule reach 0.3049 (+0.0106, CI
   [+0.0048, +0.0167]; 61 helpful / 15 harmful), so the mechanism is not
   specific to the fused start and gains more where the top-10 has more
   clearly wrong slots.
 * **Qwen3-Reranker-4B starting system.** Reranking the dense top-20 with the
-  off-the-shelf reranker gives a 0.2162 start; the same candidates, judge and
-  one-swap rule reach 0.2348 (+0.0186, CI [+0.0118, +0.0258]; 94 helpful / 11 harmful).
+  off-the-shelf reranker gives a 0.2565 start; the same candidates, judge and
+  one-swap rule reach 0.2696 (+0.0131, CI [+0.0075, +0.0190]; 57 helpful / 14 harmful).
 * **Ablations.** Full 0.3646; without abstention 0.3647; forward order only
   0.3596 (bidirectional agreement is the load-bearing part); without either
   0.3623.

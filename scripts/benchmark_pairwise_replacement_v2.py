@@ -358,13 +358,15 @@ def apply_and_score(rows, threshold=0.0):
     return per_query
 
 
-def domain_macro(per_query, key="policy"):
-    return float(np.mean([np.mean([r[key] for r in per_query if r["domain"] == d]) for d in DOMAINS]))
+def domain_macro(per_query, key="policy", domains=None):
+    doms = domains or DOMAINS
+    return float(np.mean([np.mean([r[key] for r in per_query if r["domain"] == d]) for d in doms]))
 
 
-def paired_bootstrap(per_query, draws=10000, seed=20261120):
+def paired_bootstrap(per_query, draws=10000, seed=20261120, domains=None):
     rng = np.random.default_rng(seed)
-    deltas = {d: np.array([r["delta"] for r in per_query if r["domain"] == d]) for d in DOMAINS}
+    doms = domains or DOMAINS
+    deltas = {d: np.array([r["delta"] for r in per_query if r["domain"] == d]) for d in doms}
     point = float(np.mean([v.mean() for v in deltas.values()]))
     sims = np.empty(draws)
     for i in range(draws):
@@ -435,13 +437,13 @@ def main():
                   "threshold": args.threshold, "n_queries": len(rows), "policies": {}}
         for policy in args.policies.split(","):
             per_query = apply_and_score(rows, args.threshold)
-            macro, macro_base = domain_macro(per_query), domain_macro(per_query, "baseline")
+            macro, macro_base = domain_macro(per_query, domains=domains), domain_macro(per_query, "baseline", domains=domains)
             counts = Counter("no_swap" if r["swap"] is None else
                              "helpful" if r["delta"] > 1e-12 else
                              "harmful" if r["delta"] < -1e-12 else "neutral" for r in per_query)
             result["policies"][policy] = {
                 "macro_policy": macro, "macro_baseline": macro_base, "macro_delta": macro - macro_base,
-                "swap_counts": dict(counts), "bootstrap": paired_bootstrap(per_query),
+                "swap_counts": dict(counts), "bootstrap": paired_bootstrap(per_query, domains=domains),
                 "net_points": sum(r["delta"] for r in per_query)}
             print(policy, json.dumps({k: v for k, v in result["policies"][policy].items()}))
         out = Path(root) / (args.out.replace(".json", f".sim_{args.simulate}.json"))
@@ -470,7 +472,7 @@ def main():
         else:
             stats = score_arm(model, tokenizer, rows, policy, args.batch_size, device, option_ids)
             per_query = apply_and_score(rows, args.threshold)
-        macro, macro_base = domain_macro(per_query), domain_macro(per_query, "baseline")
+        macro, macro_base = domain_macro(per_query, domains=domains), domain_macro(per_query, "baseline", domains=domains)
         per_domain = {}
         for d in DOMAINS:
             sub = [r for r in per_query if r["domain"] == d]
@@ -498,7 +500,7 @@ def main():
             "macro_policy": macro, "macro_baseline": macro_base, "macro_delta": macro - macro_base,
             "swap_counts": dict(counts), "points_gained": gained, "points_lost": lost,
             "net_points": sum(r["delta"] for r in per_query), "per_domain": per_domain,
-            "bootstrap": paired_bootstrap(per_query), "cost": stats,
+            "bootstrap": paired_bootstrap(per_query, domains=domains), "cost": stats,
             "agreement_pairs": int(sum(p.get("agree", False) for r in rows for p in r["pairs"])),
             "eligible_pairs": int(sum(bool(p.get("agree")) and p.get("margin", -1) > args.threshold
                                       for r in rows for p in r["pairs"])),

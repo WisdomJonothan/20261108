@@ -1,0 +1,19 @@
+{
+  "collection": "FollowIR Core17",
+  "topics": 20,
+  "documents": 19899,
+  "protocol": "dense mxbai top-100 -> frozen CE (v2m3_pool8_e2/best) -> z 1:1 fusion",
+  "graded_ndcg10": {
+    "fo_og": {
+      "dense": 0.225637,
+      "ce": 0.252271,
+      "frozen": 0.26741
+    },
+    "fo_chg": {
+      "dense": 0.160849,
+      "ce": 0.15156,
+      "frozen": 0.176068
+    }
+  },
+  "source": "scripts/followir_score.py on runs/{dense_mxbai,full_ce,frozen_fo}_<domain>_dev[_ce].trec, printed 2026-11-20"
+}
