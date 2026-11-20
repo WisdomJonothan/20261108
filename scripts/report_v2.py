@@ -198,9 +198,14 @@ if g:
         a("| %s | %+.4f | %s | %s | %s |"
           % (k, p["macro_delta"], ci(p), "%+.4f" % cal if cal is not None else "-", calls))
     a("")
-    a("Threshold chosen on the 242 calibration queries: tau = %.4f. The gate "
-      "reproduces Direct; the cheap gap rule is the strongest variant; a pre-call "
-      "cheap gate buys 15.6%% of the judge calls for 16%% of the gain.\n" % g["calibration"]["tau"])
+    a("Threshold chosen on the 242 calibration queries: tau = %.4f. That value is "
+      "the smallest predicted probability among eligible calibration pairs, so the "
+      "gate is effectively unfiltered and its calibration delta (-0.0014) is worse "
+      "than swapping nothing (0.0). Recalibrating the threshold on the calibration "
+      "split alone (tau = 0.1026) gives +0.00015 there and +0.00086 on dev, still far "
+      "below Direct. The cheap gap rule is the strongest variant; a pre-call cheap "
+      "gate buys 15.6%% of the judge calls for 16%% of the gain.\n"
+      % g["calibration"]["tau"])
 
 a("## 7. Fold evidence (train split, 969 queries)\n")
 a("| fold | queries | nDCG@10 | delta | 95% CI |")

@@ -101,7 +101,7 @@ Bidirectional agreement is load-bearing; abstention is not.
 | ce_or_dense_gap | +0.0072 | [+0.0030, +0.0123] | - | 2916 |
 | precall_cheap_gate | +0.0011 | [+0.0000, +0.0025] | - | 15.6% of pairs |
 
-Threshold chosen on the 242 calibration queries: tau = 0.0549. The gate reproduces Direct; the cheap gap rule is the strongest variant; a pre-call cheap gate buys 15.6% of the judge calls for 16% of the gain.
+Threshold chosen on the 242 calibration queries: tau = 0.0549. That value is the smallest predicted probability among eligible calibration pairs, so the gate is effectively unfiltered and its calibration delta (-0.0014) is worse than swapping nothing (0.0). Recalibrating the threshold on the calibration split alone (tau = 0.1026) gives +0.00015 there and +0.00086 on dev, still far below Direct. The cheap gap rule is the strongest variant; a pre-call cheap gate buys 15.6% of the judge calls for 16% of the gain.
 
 ## 7. Fold evidence (train split, 969 queries)
 
