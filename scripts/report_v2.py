@@ -93,6 +93,7 @@ for name, path in arms[1:]:
          sc.get("helpful", 0), sc.get("harmful", 0), sc.get("neutral", 0), sc.get("no_swap", 0),
          format(c.get("prompts", 0), ","), format(c.get("prompt_tokens", 0), ","), secs(c), c.get("gpu_peak_mb", 0)))
 a("")
+a("Direct improves nine of thirteen domains, worsens one (bitcoin, -0.0085) and leaves three flat (genealogy, iota, workplace). ")
 a("Context is +0.0051 with 1.77x the tokens and 1.74x the time of Direct, and the "
   "paired Direct-Context difference is -0.0015 (CI [-0.0051, +0.0016]): retained "
   "context is not a contribution.\n")

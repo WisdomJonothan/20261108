@@ -35,6 +35,7 @@ All numbers below come from committed artefacts under `results/replacement_v2/`;
 | direct, budget cap 1 | 0.3610 | +0.0029 | [-0.0003, +0.0067] | 15 | 11 | 157 | 336 | 3,114 | 1,772,026 | 309 | 8881 |
 | direct, budget cap 2 | 0.3655 | +0.0074 | [+0.0026, +0.0131] | 26 | 13 | 224 | 256 | 6,228 | 3,544,580 | 968 | 10306 |
 
+Direct improves nine of thirteen domains, worsens one (bitcoin, -0.0085) and leaves three flat (genealogy, iota, workplace). 
 Context is +0.0051 with 1.77x the tokens and 1.74x the time of Direct, and the paired Direct-Context difference is -0.0015 (CI [-0.0051, +0.0016]): retained context is not a contribution.
 
 Points gained by helpful swaps: +4.48; lost by harmful swaps: -2.32 (net +2.16).
