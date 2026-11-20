@@ -47,3 +47,44 @@
 | dense start, direct | 0.3049 | +0.0106 | 18.0 | 3 | 10,321 | 1.68 | 11,297 | Qwen3-4B-Instruct-2507 |
 | reranker full 13 | 0.2671 | -0.0910 | 13.0 | 3 | 7,463 | 1.36 | 8,357 | Qwen3-Reranker-4B |
 | reranker dense-100 | 0.1244 | -0.2337 | 100.0 | 100 | 55,920 | 10.70 | 8,683 | Qwen3-Reranker-4B |
+
+## Budget curve replayed from one prediction cache (2026-11-20)
+
+The Direct run judged all 4,671 pairs, so a budgeted policy can be simulated
+without new inference: judge only the first k pairs of a query in a given
+order, apply the frozen rule to those, and measure. Every arm reads the same
+stored probabilities, so differences are pair-selection differences, not
+sampling noise. `scripts/budget_from_cache.py` -> `budget_cache_dev.json`.
+
+| order | k pairs | prompts/query | nDCG@10 | delta | 95% CI | judge calls |
+|---|---:|---:|---:|---:|---|---:|
+| fixed | 1 | 1 | 0.3574 | -0.0007 | [-0.0079, +0.0056] | 519 |
+| fixed | 2 | 2 | 0.3588 | +0.0007 | [-0.0070, +0.0081] | 1038 |
+| fixed | 3 | 3 | 0.3583 | +0.0002 | [-0.0078, +0.0077] | 1557 |
+| fixed | 6 | 6 | 0.3647 | +0.0066 | [+0.0012, +0.0126] | 3114 |
+| fixed | 9 | 9 | 0.3646 | +0.0065 | [+0.0021, +0.0117] | 4671 |
+| cheapgap | 1 | 1 | 0.3624 | +0.0043 | [+0.0010, +0.0086] | 519 |
+| cheapgap | 2 | 2 | 0.3616 | +0.0035 | [-0.0002, +0.0079] | 1038 |
+| cheapgap | 3 | 3 | 0.3627 | +0.0046 | [+0.0005, +0.0094] | 1557 |
+| cheapgap | 6 | 6 | 0.3640 | +0.0059 | [+0.0015, +0.0111] | 3114 |
+| cheapgap | 9 | 9 | 0.3646 | +0.0065 | [+0.0021, +0.0117] | 4671 |
+| random | 1 | 1 | 0.3618 | +0.0037 | [+0.0006, +0.0076] | 519 |
+| random | 2 | 2 | 0.3628 | +0.0047 | [+0.0012, +0.0090] | 1038 |
+| random | 3 | 3 | 0.3641 | +0.0060 | [+0.0010, +0.0119] | 1557 |
+| random | 6 | 6 | 0.3648 | +0.0067 | [+0.0023, +0.0119] | 3114 |
+| random | 9 | 9 | 0.3646 | +0.0065 | [+0.0021, +0.0117] | 4671 |
+| oracle | 1 | 1 | 0.3656 | +0.0075 | [+0.0036, +0.0124] | 519 |
+| oracle | 2 | 2 | 0.3685 | +0.0104 | [+0.0056, +0.0161] | 1038 |
+| oracle | 3 | 3 | 0.3696 | +0.0115 | [+0.0065, +0.0173] | 1557 |
+| oracle | 6 | 6 | 0.3680 | +0.0099 | [+0.0052, +0.0155] | 3114 |
+| oracle | 9 | 9 | 0.3646 | +0.0065 | [+0.0021, +0.0117] | 4671 |
+
+Reading: at k=9 every ordering returns the frozen Direct result (0.364609, +0.006510),
+which is the consistency check. At one judged pair (2 prompts/query) the cheap-gap
+order keeps +0.0044 [+0.0011, +0.0086] while slot order loses and a random pair gains
++0.0037; at k=3 cheap-gap +0.0046 [+0.0005, +0.0094] against random +0.0060
+[+0.0010, +0.0119]. The gap ordering therefore beats judging slot 8 first, but it does
+not beat a random pair at small budgets: the value comes from judging *some* pair early
+and from the bidirectional agreement rule, not from which pair the cheap gap picks.
+The oracle ordering shows what perfect pair selection would buy at each budget
+(+0.0075 at k=1, +0.0115 at k=3).

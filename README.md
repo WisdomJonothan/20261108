@@ -44,7 +44,7 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   1.74x time, so retained context is not a contribution and the project
   continues with Direct.
 * **Controls.** Same-model per-document scoring 0.3598 (+0.0017, ns);
-  active-PRP 0.3626 (+0.0045, 2,630 prompts); Qwen3-Reranker-4B single swap
+  cheap-gap pair selection 0.3626 (+0.0045, 2,630 prompts); Qwen3-Reranker-4B single swap
   0.3577 (-0.0004), full 13-document rerank 0.2671 (-0.0910), dense-100 rerank
   0.1244 (-0.2337).
 * **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
@@ -61,11 +61,17 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   0.3596 (bidirectional agreement is the load-bearing part); without either
   0.3623.
 * **Gate.** A logistic-regression gate trained on 969 held-out CE folds
-  reproduces Direct (tau 0.0549); the cheap gap rule is the strongest variant
-  at +0.0072; a pre-call cheap gate costs 84% of the gain for 15.6% of the
-  judge calls. Fold deltas are +0.0007 / +0.0032 / +0.0068 and the 242
-  calibration queries -0.0014, so the expected effect on a fresh split is
-  around +0.002 to +0.003.
+  reproduces Direct (tau 0.0549) but that threshold is not a filter: it equals
+  the smallest eligible calibration probability, and its calibration score
+  (-0.0014) is worse than doing nothing (0). Re-selecting tau on the
+  calibration split alone (0.1026) gives +0.00015 on calibration and +0.00086
+  on dev, so the learned gate adds nothing to Direct. The cheap "cross-encoder
+  or dense gap" ordering rule is the strongest dev variant at +0.0072; a
+  pre-call cheap gate costs 84% of the gain for 15.6% of the judge calls. Fold
+  deltas are +0.0007 / +0.0032 / +0.0068 and the 242 calibration queries
+  -0.0014: the gain varies with the query split and the starting system, and we
+  report the measured dev gain and the other splits rather than projecting a
+  fresh-split expectation.
 
 Tables: `results/replacement_v2/SCORE_COST.md`, `SUMMARY_DEV.md`, `REPORT.md`;
 per-policy JSONs and TREC runs under `results/replacement_v2/`.
@@ -215,7 +221,7 @@ are computed by `scripts/aggregate_scores.py`; every table states which it uses.
 > +0.00943]), but the paired Direct-minus-Context difference is **-0.00146**
 > (CI [-0.00506, +0.00155], p=0.81) while costing 1.77x the tokens and 1.74x the wall
 > time, so retained context buys no quality. Same-model per-document scoring gives
-> 0.35979 (not significant) and PRP-style active ordering gives 0.36262 with only
+> 0.35979 (not significant) and cheap-gap pair selection gives 0.36262 with only
 > 2,630 prompts. Artefacts: `results/replacement_v2/`.
 
 Official Track-1a dev BM25 baseline is **0.1147**, i.e. the system is ≈3.1× the

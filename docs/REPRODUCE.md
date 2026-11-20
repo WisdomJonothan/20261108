@@ -120,6 +120,38 @@ their own artefacts:
 * `configs/replacement_study_20261120.json`: every frozen choice (prompts,
   truncations, merge rule, threshold, model, continuation rule).
 * `scripts/make_report.py` assembles `results/replacement_v2/REPORT.md`.
+* `scripts/summarize.py` -> `summary_dev.json` / `SUMMARY_DEV.md` (per-domain tables),
+  `scripts/compare_arms.py` -> `compare_ctx_vs_direct.json` (paired Direct vs Context),
+  `scripts/score_cost.py` -> `SCORE_COST.md` (score/cost table, ablations, gate),
+  `scripts/ablate_decisions.py` -> `ablations_dev.json`,
+  `scripts/gate_fit.py` -> `gate_eval.json`,
+  `scripts/make_budget_candidates.py` + budget runs -> `exp_budget_cap{1,2}.json`,
+  `scripts/budget_from_cache.py` -> `budget_cache_dev.json` (budget curve replayed
+  from one prediction cache),
+  `scripts/make_cases.py` -> `CASES_DEV.md`.
+
+### Verification on a CPU (no GPU, no weights)
+
+Two checks make the tables auditable from a clean checkout:
+
+```bash
+# 1. rebuild every ranking, macro, swap count, point total and bootstrap CI
+python scripts/replay_replacement.py          # add --quick to skip the 10k bootstrap
+# -> "RESULT: replay matches every committed number"; exits non-zero otherwise
+
+# 2. reranker inference check (needs the weights and a GPU)
+python scripts/verify_reranker.py --root . --per-domain 2     --model models/Qwen3-Reranker-4B
+# -> results/replacement_v2/reranker_verify.json
+```
+
+`replay_replacement.py` reads only committed artefacts plus the official dev
+qrels in `data/track1_tempo/<domain>/qrels_dev.txt`; `PROVENANCE.json` records
+the model shard hashes, library versions and GPU used for the runs it checks.
+
+A note on `check_claims.py`: it compares registered numbers with the JSON
+fields they came from. It does not read the README or the paper, so "all claims
+traceable" means "every registered number still matches its artefact", not
+"every sentence is supported".
 
 ## 4. Submission
 

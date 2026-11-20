@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  20 NOV 2026 05:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  20 NOV 2026 14:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -703,31 +703,35 @@ Underfull \vbox (badness 7925) has occurred while \output is active []
 
 [5]
 
+Package hyperref Warning: Suppressing empty link on input line 173.
+
+
+
 
 
 [6]
+Underfull \vbox (badness 8113) has occurred while \output is active []
 
 
-Underfull \hbox (badness 1024) in paragraph at lines 225--226
-[]\T1/ptm/m/n/9 (+20) Jianlv Chen, Shi-tao Xiao, Peitian Zhang, Kun Luo,
- []
-
-
-Underfull \hbox (badness 2376) in paragraph at lines 225--226
-\T1/ptm/m/n/9 (+20) Multi-Lingual, Multi-Functionality, Multi-Granularity
- []
-
-
-Underfull \hbox (badness 5431) in paragraph at lines 226--227
-[]\T1/ptm/m/n/9 (+20) mixedbread.ai. 2024. mxbai-embed-large-v1 model
- []
 
 
 
 [7]
+Underfull \hbox (badness 1024) in paragraph at lines 229--230
+[]\T1/ptm/m/n/9 (+20) Jianlv Chen, Shi-tao Xiao, Peitian Zhang, Kun Luo,
+ []
 
 
-Package lineno Warning: Line number reference failed, re-run to get it right.
+Underfull \hbox (badness 2376) in paragraph at lines 229--230
+\T1/ptm/m/n/9 (+20) Multi-Lingual, Multi-Functionality, Multi-Granularity
+ []
+
+
+Underfull \hbox (badness 5431) in paragraph at lines 230--231
+[]\T1/ptm/m/n/9 (+20) mixedbread.ai. 2024. mxbai-embed-large-v1 model
+ []
+
+
 
 
 
@@ -750,20 +754,22 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 15129 strings out of 469941
- 234926 string characters out of 5486262
- 691806 words of memory out of 5000000
- 41317 multiletter control sequences out of 15000+600000
- 692294 words of font info for 336 fonts, out of 8000000 for 9000
+ 15142 strings out of 469941
+ 235163 string characters out of 5486262
+ 691890 words of memory out of 5000000
+ 41329 multiletter control sequences out of 15000+600000
+ 693240 words of font info for 340 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,10n,93p,2383b,541s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<D:/miktex/fonts/type1/public/amsfonts/cm/cmr9.pfb><D:/miktex/fonts/type1/urw
-/courier/ucrr8a.pfb><D:/miktex/fonts/type1/urw/helvetic/uhvb8a.pfb><D:/miktex/f
-onts/type1/urw/times/utmb8a.pfb><D:/miktex/fonts/type1/urw/times/utmr8a.pfb><D:
-/miktex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (10 pages, 152828 bytes).
+ 84i,10n,93p,2383b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<D:/miktex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/miktex/fonts/type1/pu
+blic/amsfonts/cm/cmr8.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmr9.pfb><D
+:/miktex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/miktex/fonts/type1/urw/co
+urier/ucrr8a.pfb><D:/miktex/fonts/type1/urw/helvetic/uhvb8a.pfb><D:/miktex/font
+s/type1/urw/times/utmb8a.pfb><D:/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/mi
+ktex/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (10 pages, 180832 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 55 named destinations out of 1000 (max. 500000)
- 62465 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 159 PDF objects out of 1000 (max. 8388607)
+ 56 named destinations out of 1000 (max. 500000)
+ 62977 words of extra memory for PDF output out of 74296 (max. 10000000)
 

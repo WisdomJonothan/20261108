@@ -73,9 +73,9 @@ def main():
     rows = []
     for domain in DOMAINS:
         data = root / 'data/track1_tempo' / domain
-        baseline = read_trec_run(root / 'runs' / f'sub_sft_e2bc_{domain}_dev_head10.trec')
+        baseline = read_trec_run(root / 'runs' / f'sub_sft_e2bc_{domain}_dev.trec')
         dense = read_trec_run(root / 'runs' / f'dense_mxbai_{domain}_dev.trec')
-        ce = read_trec_run(root / 'runs'
+        ce = read_trec_run(root / 'results/server_review_20261116/runs'
                            / f'fusion100_full_ce_s17_20261115_{domain}_dev_ce.trec')
         queries = {}
         with (data / 'examples_dev.jsonl').open(encoding='utf-8') as stream:
@@ -178,5 +178,121 @@ def main():
     print('Matched-slot oracle:', output['oracle_macro'])
 
 
+# --------------------------------------------------------------------------
+# Oracle over the frozen candidate/comparison list (step-2 ceiling).
+# Reads the SAME file the replacement policies read.
+# --------------------------------------------------------------------------
+def _read_json(path):
+    import json as _json
+    with open(path, encoding="utf-8") as fh:
+        return _json.load(fh)
+
+
+def _swap_ndcg(top, slot, incoming, gold):
+    ranking = list(top)
+    ranking[slot] = incoming
+    return ndcg10(ranking, gold)
+
+
+def oracle_fixed(argv=None):
+    import json as _json
+    import argparse as _argparse
+    import numpy as _np
+    from ir_metrics import ndcg_at_k as _official
+
+    ap = _argparse.ArgumentParser(description="Oracle over the frozen candidate list")
+    ap.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
+    ap.add_argument("--candidates", required=True)
+    ap.add_argument("--split", default="dev")
+    ap.add_argument("--out", default="results/replacement_v2/oracle_fixed_dev.json")
+    args = ap.parse_args(argv)
+    root = args.root
+    payload = _read_json(args.candidates)
+    rows = payload["queries"]
+    by_domain = {}
+    for row in rows:
+        by_domain.setdefault(row["domain"], []).append(row)
+
+    per_query = []
+    for domain, subset in by_domain.items():
+        gold = read_qrels(root / "data/track1_tempo" / domain / f"qrels_{args.split}.txt")
+        for row in subset:
+            q, top = row["qid"], row["frozen_top10"]
+            g = gold[q]
+            base_lex = ndcg10(top, g)
+            base_off = _official(top, g, 10)
+            assert abs(base_lex - base_off) < 1e-12, (q, base_lex, base_off)
+            best = {"delta": 0.0, "pair": None}
+            n_pos = n_neg = 0
+            for pair in row["pairs"]:
+                val = _swap_ndcg(top, pair["slot_rank"] - 1, pair["incoming_docid"], g)
+                delta = val - base_off
+                if delta > 1e-12:
+                    n_pos += 1
+                elif delta < -1e-12:
+                    n_neg += 1
+                if delta > best["delta"] + 1e-12:
+                    best = {"delta": delta, "pair": pair, "ndcg": val}
+            per_query.append({
+                "qid": q, "domain": domain, "baseline": base_off,
+                "n_pairs": len(row["pairs"]), "n_pairs_positive": n_pos,
+                "n_pairs_negative": n_neg,
+                "oracle_ndcg": base_off + best["delta"],
+                "oracle_delta": best["delta"],
+                "oracle_swap": (None if best["pair"] is None else {
+                    "slot_rank": best["pair"]["slot_rank"],
+                    "removed_docid": best["pair"]["removed_docid"],
+                    "incoming_docid": best["pair"]["incoming_docid"],
+                    "incoming_best_rank": best["pair"]["incoming_best_rank"],
+                    "incoming_best_source": best["pair"]["incoming_best_source"],
+                }),
+            })
+
+    domains = sorted(by_domain)
+    per_domain = {}
+    for d in domains:
+        sub = [r for r in per_query if r["domain"] == d]
+        per_domain[d] = {
+            "n": len(sub),
+            "baseline": float(_np.mean([r["baseline"] for r in sub])),
+            "oracle": float(_np.mean([r["oracle_ndcg"] for r in sub])),
+            "gain": float(_np.mean([r["oracle_delta"] for r in sub])),
+            "queries_with_beneficial_pair": int(sum(r["n_pairs_positive"] > 0 for r in sub)),
+        }
+    macro_base = float(_np.mean([v["baseline"] for v in per_domain.values()]))
+    macro_oracle = float(_np.mean([v["oracle"] for v in per_domain.values()]))
+    out = {
+        "candidate_file": str(args.candidates),
+        "protocol": payload["protocol"],
+        "macro_baseline": macro_base,
+        "macro_oracle": macro_oracle,
+        "macro_gain": macro_oracle - macro_base,
+        "n_queries": len(per_query),
+        "n_pairs": sum(r["n_pairs"] for r in per_query),
+        "queries_with_beneficial_pair": int(sum(r["n_pairs_positive"] > 0 for r in per_query)),
+        "pairs_positive": int(sum(r["n_pairs_positive"] for r in per_query)),
+        "pairs_negative": int(sum(r["n_pairs_negative"] for r in per_query)),
+        "sum_best_single_delta": float(sum(r["oracle_delta"] for r in per_query)),
+        "per_domain": per_domain,
+        "per_query": per_query,
+    }
+    out_path = root / args.out
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(_json.dumps(out, indent=1), encoding="utf-8")
+    print(_json.dumps({k: v for k, v in out.items() if k not in ("per_query", "per_domain")},
+                      indent=1))
+    for d in domains:
+        v = per_domain[d]
+        print(f"{d:10s} n={v['n']:3d} base={v['baseline']:.4f} oracle={v['oracle']:.4f} "
+              f"gain={v['gain']:+.4f} q_with_gain={v['queries_with_beneficial_pair']}")
+    print("wrote", out_path)
+
+
 if __name__ == '__main__':
-    main()
+    import sys as _sys
+    if '--mode' in _sys.argv and _sys.argv[_sys.argv.index('--mode') + 1] == 'oracle-fixed':
+        _sys.argv = [a for i, a in enumerate(_sys.argv)
+                     if a != '--mode' and not (i and _sys.argv[i - 1] == '--mode')]
+        oracle_fixed()
+    else:
+        main()

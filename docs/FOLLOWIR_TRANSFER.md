@@ -1,57 +1,72 @@
-# FollowIR transfer: feasibility on this host (2026-11-20)
+# FollowIR transfer: plan and status (2026-11-20, revised)
 
-Status: **not executed**. This note records why, with the probes that were run, so
-the claim is not silently dropped from the paper.
+## What FollowIR is
 
-## What the official protocol needs
+FollowIR (Weller et al., 2024) measures whether a reranker follows *instructions*
+attached to a TREC-style topic. Each topic carries an original description, a
+modified one, and two qrels files; a system is evaluated with the original and
+with the modified instruction, and the reported quantity is the *pairwise*
+difference (the model should improve on the qrels its instruction matches and
+not on the other). The three official collections are **Robust04, Core17 and
+News21** - not MSMARCO. Each official data release ships the corpus, the topics,
+both qrels and the official candidate lists, so no external collection is
+needed.
 
-FollowIR evaluates instruction-following rerankers on MSMARCO-v1/v2 and TREC
-NeuCLIR collections: for each topic it needs the *original* and *modified*
-instruction, the qrels for both, the provided BM25 candidate runs, **and the
-document texts** (a reranker has to read the passages). The official evaluation
-split is hosted on Hugging Face (`jhu-clsp/FollowIR`); the corpora come from the
-MSMARCO/BEIR distributions.
+An earlier version of this document claimed the evaluation data required tens
+of GB of MSMARCO text and was therefore out of reach on this host. That was
+wrong: the official repository is `orionw/FollowIR` (branch `master`), and the
+datasets are on Hugging Face as
 
-## Probes run from the RETECO server (10.13.71.195)
+| release | size | contents |
+|---|---:|---|
+| `jhu-clsp/core17-instructions` | 47.1 MB | corpus, 20 topics (og + changed), two qrels, top-1000 candidates |
+| `jhu-clsp/news21-instructions` | 81.7 MB | same shape |
+| `jhu-clsp/robust04-instructions` | 118 MB | same shape |
 
-| endpoint | result |
-|---|---|
-| `https://huggingface.co/datasets/jhu-clsp/FollowIR` | `000` (no route) |
-| `https://modelscope.cn/api/v1/datasets/jhu-clsp/FollowIR` | `000` (no route) |
-| `https://github.com` / `https://api.github.com` | `000` (no route) |
-| `https://raw.githubusercontent.com/WisdomJonothan/20261108/main/README.md` | `200`, 32,233 B (our own repo works) |
-| `https://raw.githubusercontent.com/jhu-clsp/FollowIR/main/README.md` | `404` (reachable path, wrong repo/branch; the FollowIR data tree is not there) |
+Total ≈ 247 MB, downloaded through the workstation proxy (the compute host has
+no direct egress). Core17 is already local at `D:\RETECO\followir\core17`
+(45 MB): `corpus.jsonl` (19,899 documents), `queries.jsonl` (20 topics with
+`text`, `instruction_og`, `instruction_changed`, `short_query`),
+`qrels_og/test.tsv`, `qrels_changed/test.tsv` (4,741 judgements each) and
+`top_ranked.jsonl` (20 × 1,000 BM25 candidates).
 
-The RETECO box sits behind a whitelist: PyPI, several university/corporate
-mirrors, and `raw.githubusercontent.com` answer; Hugging Face, ModelScope and
-`github.com` do not. ModelScope mirrors `jhu-clsp/FollowIR-train` and the
-`mFollowIR-*` variants, but the official FollowIR evaluation split is not among
-them (the ModelScope API answers "dataset does not exist" for
-`jhu-clsp/FollowIR`), and the MSMARCO corpora needed for passage text are not
-mirrored on any reachable host either.
+## Protocol we will run (frozen before looking at scores)
 
-A faithful FollowIR run would therefore require moving tens of GB of MSMARCO
-passages through the Windows workstation that relays the RETECO models (the same
-machine reaches ModelScope at ~3.5 MB/s), and even then the evaluation split
-itself is not obtainable from a reachable source. That is outside this study's
-budget.
+1. Rank the 19,899 Core17 documents for each of the 20 topics with the frozen
+   dense retriever (mxbai-embed-large-v1, same query prefix and pooling as the
+   RETECO runs), keeping the top 100.
+2. Re-rank those 100 with the frozen cross-encoder checkpoint
+   (`results/ce_ft/v2m3_pool8_e2/best`, window 250 / stride 192 / at most 3
+   windows, pair length 510), z-normalise both score vectors and fuse 1:1 -
+   the exact deployment configuration of the RETECO system.
+3. Evaluate four arms with the same candidate generator and decision rule as
+   the dev study (cap 3, ≤9 pairs, both orders, threshold 0, one swap):
+   frozen, Direct, cheap-gap pair selection, and the corrected Qwen3-Reranker
+   (single swap and full rerank).
+4. Report nDCG@10 under the original instruction and under the changed
+   instruction, per collection, plus the paired original-minus-changed
+   difference that FollowIR uses; also report the 13-domain RETECO breakdown as
+   a within-domain sanity check.
 
-## What is reported instead
+The strategy parameters (candidate cap, pair budget, threshold) are transported
+unchanged from the frozen RETECO protocol; nothing is tuned on FollowIR.
 
-1. **Cross-domain transfer inside RETECO** — the per-domain nDCG@10 table in
-   `results/replacement_v2/SUMMARY_DEV.md` shows the effect on each of the 13
-   domains separately (Direct improves 11 of 13, largest on monero +0.0166,
-   travel +0.0202, law +0.0176; bitcoin and workplace move down).
-2. **Second starting system** — the same frozen protocol applied to the dense
-   ranking (`results/replacement_v2/exp_dense_start_dev.json`), i.e. a system
-   that is 0.0638 nDCG@10 weaker and has no cross-encoder in the pool.
-3. **Budget curve** — 0/1/2/3 candidates (`exp_budget_cap{1,2}.json`), which is
-   the compute side of the same transfer question.
+## Overlap control
 
-## Overlap with the training queries
+FollowIR topics are Robust04/Core17/News21 TREC topics, not RETECO queries, so
+there is no RETECO-train/dev query overlap. The cross-encoder was trained on
+RETECO corpus text only, so a FollowIR number is a zero-shot transfer number
+for the reranker as well. Document overlap between Core17 and the RETECO
+corpora is not possible (different collections), so no de-duplication step is
+needed.
 
-RETECO's replacement candidates never read qrels, and the study trains nothing on
-dev, so there is no RETECO-train/dev overlap to control for. A FollowIR transfer
-would have raised the separate question of MSMARCO-v1 topics appearing in both
-FollowIR and its training data; that check remains open because the data could
-not be obtained.
+## Status
+
+- Core17 data: downloaded and validated (20 topics, 19,899 documents, two qrels
+  files, 20,000 candidate pairs).
+- News21 and Robust04: not downloaded yet (81.7 MB and 118 MB).
+- Evaluation harness: to be adapted from `scripts/run_chunk_rerank_qvar.py` +
+  `scripts/fusion_for_train.py`; the reranker judge is reused unchanged.
+- This transfer run is the last outstanding item of the six-step program; it is
+  reported separately from the dev table and does not feed back into any dev
+  choice.

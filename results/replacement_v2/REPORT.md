@@ -76,7 +76,7 @@ top ten has more clearly wrong slots.
 | full_rerank | 0.2671 | -0.0910 | [-0.1206, -0.0619] | 6,747 | 3,873,426 | 708 |
 | deep-100 rerank | 0.1244 | -0.2337 | [-0.2746, -0.1944] | 51,900 | 29,022,563 | 5552 |
 
-Per-document scoring with the same judge (13 yes/no prompts per query) reaches 0.3598 (+0.0017, ns); the second-best judge arm is active-PRP at 0.3626.
+Per-document scoring with the same judge (13 yes/no prompts per query) reaches 0.3598 (+0.0017, ns); the second-best judge arm is cheap-gap pair selection at 0.3626.
 
 ## 5. Decision-rule ablations
 
@@ -100,7 +100,7 @@ Bidirectional agreement is load-bearing; abstention is not.
 | ce_or_dense_gap | +0.0072 | [+0.0030, +0.0123] | - | 2916 |
 | precall_cheap_gate | +0.0011 | [+0.0000, +0.0025] | - | 15.6% of pairs |
 
-Threshold chosen on the 242 calibration queries: tau = 0.0549. The gate reproduces Direct; the cheap gap rule is the strongest variant; a pre-call cheap gate buys 15.6% of the judge calls for 16% of the gain.
+Threshold chosen on the 242 calibration queries: tau = 0.0549. Reading: that value is the smallest eligible calibration probability, so the published gate is not a filter; its calibration delta is -0.0014 while doing nothing scores 0. Re-selecting tau on calibration alone (0.1026) gives +0.00015 on calibration and +0.00086 on dev. The learned gate therefore adds nothing to Direct, which is the negative result we report.
 
 ## 7. Fold evidence (train split, 969 queries)
 
@@ -111,7 +111,7 @@ Threshold chosen on the 242 calibration queries: tau = 0.0549. The gate reproduc
 | f2 | 318 | 0.3098 | +0.0068 | [+0.0022, +0.0124] |
 | fall | 242 | 0.2639 | -0.0014 | [-0.0059, +0.0028] |
 
-The three folds average +0.0036 and the calibration queries -0.0014, so the dev gain of +0.0065 is an upper draw; +0.002 to +0.003 is the honest expectation on a fresh split.
+The three folds average +0.0036 and the calibration queries -0.0014, so the gain varies with the query split and with the starting system (the folds start at 0.2562 / 0.2796 / 0.3030, calibration at 0.2653, all far below the frozen 0.3581). We report the measured dev gain and these splits rather than projecting a fresh-split expectation.
 
 ## 8. Case studies
 

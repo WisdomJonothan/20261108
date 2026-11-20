@@ -1,0 +1,20 @@
+{
+  "python": "Python 3.12.16",
+  "torch": "2.7.0+cu126 12.6 NVIDIA GeForce RTX 3090",
+  "transformers": "5.22.2",
+  "models": {
+    "Qwen3-4B-Instruct-2507": [
+      "3957900840 /tmp/reteco/models/Qwen3-4B-Instruct-2507/model-00001-of-00003.safetensors",
+      "3987450520 /tmp/reteco/models/Qwen3-4B-Instruct-2507/model-00002-of-00003.safetensors",
+      "99630640 /tmp/reteco/models/Qwen3-4B-Instruct-2507/model-00003-of-00003.safetensors"
+    ],
+    "Qwen3-Reranker-4B": [
+      "4058781760 /tmp/reteco/models/Qwen3-Reranker-4B/model-00001-of-00002.safetensors",
+      "3984833200 /tmp/reteco/models/Qwen3-Reranker-4B/model-00002-of-00002.safetensors"
+    ],
+    "bge-reranker-v2-m3": [
+      "2271071852 /homeC/wujiaheng/RETECO/models/bge-reranker-v2-m3/model.safetensors"
+    ]
+  },
+  "gpu": "NVIDIA GeForce RTX 3090, 24576 MiB\nNVIDIA GeForce RTX 3090, 24576 MiB\nNVIDIA GeForce RTX 3090, 24576 MiB\nNVIDIA GeForce RTX 3090, 24576 MiB"
+}
