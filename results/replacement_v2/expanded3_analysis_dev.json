@@ -1,0 +1,138 @@
+{
+ "source": "expanded3_prior_dev.json",
+ "n_queries": 519,
+ "max_actions": 18,
+ "prompts": 18684,
+ "seconds": 2090.7340836524963,
+ "gpu_peak_mb": 9001.822265625,
+ "budgets": {
+  "2": {
+   "macro_policy": 0.3572479336887371,
+   "macro_delta": -0.0008505895802401464,
+   "ci95": [
+    -0.002503365016929396,
+    0.0
+   ],
+   "p_le_0": 1.0,
+   "swap_counts": {
+    "helpful": 0,
+    "harmful": 2,
+    "neutral": 10,
+    "no_swap": 507
+   }
+  },
+  "6": {
+   "macro_policy": 0.35653920150254625,
+   "macro_delta": -0.0015593217664309766,
+   "ci95": [
+    -0.003917559456420546,
+    3.947153665716828e-05
+   ],
+   "p_le_0": 0.9554,
+   "swap_counts": {
+    "helpful": 1,
+    "harmful": 3,
+    "neutral": 34,
+    "no_swap": 481
+   }
+  },
+  "12": {
+   "macro_policy": 0.3527360997468342,
+   "macro_delta": -0.005362423522143056,
+   "ci95": [
+    -0.012148059912058808,
+    -0.00029204518870626486
+   ],
+   "p_le_0": 0.9874,
+   "swap_counts": {
+    "helpful": 2,
+    "harmful": 6,
+    "neutral": 53,
+    "no_swap": 458
+   }
+  },
+  "18": {
+   "macro_policy": 0.3523921695592534,
+   "macro_delta": -0.005706353709723833,
+   "ci95": [
+    -0.01252514549216466,
+    -0.0006026963282070565
+   ],
+   "p_le_0": 0.9951,
+   "swap_counts": {
+    "helpful": 2,
+    "harmful": 9,
+    "neutral": 64,
+    "no_swap": 444
+   }
+  }
+ },
+ "action_pool": {
+  "actions_judged": 9342,
+  "candidates": "union(dense top-100, frozen full-query CE top-100) minus frozen top-10, best-rank order, 20 kept",
+  "slots": "1..10"
+ },
+ "by_slot": {
+  "1": {
+   "judged": 338,
+   "helpful": 22,
+   "harmful": 78,
+   "mean_delta": -0.08337696957399152
+  },
+  "2": {
+   "judged": 594,
+   "helpful": 25,
+   "harmful": 68,
+   "mean_delta": -0.020898513493816953
+  },
+  "3": {
+   "judged": 604,
+   "helpful": 29,
+   "harmful": 31,
+   "mean_delta": 0.0009299707832816801
+  },
+  "4": {
+   "judged": 774,
+   "helpful": 32,
+   "harmful": 24,
+   "mean_delta": 0.0033619256383975427
+  },
+  "5": {
+   "judged": 819,
+   "helpful": 32,
+   "harmful": 35,
+   "mean_delta": 7.07668857796246e-05
+  },
+  "6": {
+   "judged": 941,
+   "helpful": 49,
+   "harmful": 24,
+   "mean_delta": 0.004186761673704539
+  },
+  "7": {
+   "judged": 1124,
+   "helpful": 50,
+   "harmful": 70,
+   "mean_delta": -0.0017956257132239932
+  },
+  "8": {
+   "judged": 1304,
+   "helpful": 45,
+   "harmful": 88,
+   "mean_delta": -0.004594746723145226
+  },
+  "9": {
+   "judged": 1358,
+   "helpful": 58,
+   "harmful": 25,
+   "mean_delta": 0.0027545832850855967
+  },
+  "10": {
+   "judged": 1486,
+   "helpful": 58,
+   "harmful": 82,
+   "mean_delta": -0.0020737994092148606
+  }
+ },
+ "note": "Widening the pool and the slot range lowers the score monotonically: the judge accepts more swaps but the extra ones are wrong. Replacing a top-3 document costs 10-40x more than replacing a tail document (mean delta -0.083 at slot 1) while the judge's reliability does not improve with position."
+}

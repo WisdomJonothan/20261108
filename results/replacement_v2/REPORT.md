@@ -100,6 +100,14 @@ Bidirectional agreement is load-bearing; abstention is not.
 
 Threshold chosen on the 242 calibration queries: tau = 0.0549. The gate reproduces Direct; the cheap gap rule is the strongest variant; a pre-call cheap gate buys 15.6% of the judge calls for 16% of the gain.
 
+## 6b. Where the recoverable gain sits
+
+Of the 4524 non-relevant slots in the 519 dev top-tens, 2497 hold a relevant document inside the dense top-100, and every query improves under its best single replacement. The recoverable gain splits 43.6% / 35.0% / 21.4% across ranks 1-3 / 4-7 / 8-10. A model-assisted label over 100 fixable slots gives temporal 41, entity scope 39, numeric 10, exclusion 4, comparison 3, none 2.
+
+## 6c. Widening the action space (top-100 candidates, any of the ten slots)
+
+9,342 actions over the 519 dev queries (18 per query, 18,684 prompts, 2090 s). Dev domain-macro falls monotonically with the budget: 2: 0.35725 (delta -0.00085), 6: 0.35654 (delta -0.00156), 12: 0.35274 (delta -0.00536), 18: 0.35239 (delta -0.00571). The judge accepts more swaps as the budget grows and the extra ones are wrong. Over all judgements the mean change of a single replacement is -0.083 at slot 1 and -0.002 at slot 10, so a wrong acceptance at the top costs an order of magnitude more than at the tail, while the judge's reliability does not improve with position. A position-aware expected-gain gate fitted on the leak-free folds (delta ~ 1/slot, margin, margin/slot; 1,721 fold actions, 154 helpful) accepts 19 swaps on dev and nets 0.000000: it removes the damage but finds no gain. The value of this stage is the precision of the small CE-sourced pool, not the breadth of the action space.
+
 ## 7. Fold evidence (train split, 969 queries)
 
 | fold | queries | nDCG@10 | delta | 95% CI |
@@ -130,10 +138,6 @@ Official p-MRR (mteb rank_score; negative means documents that should drop under
 | core17 | -0.0260 | -0.0368 | -0.0433 |
 | news21 | -0.0094 | -0.0236 | -0.0208 |
 | robust04 | -0.0449 | -0.0214 | -0.0347 |
-
-## 6b. Where the recoverable gain sits
-
-Of the 4524 non-relevant slots in the 519 dev top-tens, 2497 hold a relevant document inside the dense top-100, and every query improves under its best single replacement. The recoverable gain splits 43.6% / 35.0% / 21.4% across ranks 1-3 / 4-7 / 8-10. A model-assisted label over 100 fixable slots gives temporal 41, entity scope 39, numeric 10, exclusion 4, comparison 3, none 2.
 
 Every cell is negative and no document is promoted, so the positive nDCG deltas measure ranking quality on the changed query text, not instruction-following.
 

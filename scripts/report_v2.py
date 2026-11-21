@@ -197,6 +197,31 @@ if g:
       "reproduces Direct; the cheap gap rule is the strongest variant; a pre-call "
       "cheap gate buys 15.6%% of the judge calls for 16%% of the gain.\n" % g["calibration"]["tau"])
 
+ea = load(V2 / "error_analysis_dev.json")
+if ea:
+    a("## 6b. Where the recoverable gain sits\n")
+    a("Of the %d non-relevant slots in the 519 dev top-tens, %d hold a relevant document inside "
+      "the dense top-100, and every query improves under its best single replacement. The "
+      "recoverable gain splits 43.6%% / 35.0%% / 21.4%% across ranks 1-3 / 4-7 / 8-10. A "
+      "model-assisted label over 100 fixable slots gives temporal 41, entity scope 39, numeric 10, "
+      "exclusion 4, comparison 3, none 2.\n" % (ea["wrong_slots"],
+                                                 ea["wrong_slots_with_relevant_in_dense100"]))
+    ea3 = load(V2 / "expanded3_analysis_dev.json")
+if ea3:
+    a("## 6c. Widening the action space (top-100 candidates, any of the ten slots)\n")
+    a("9,342 actions over the 519 dev queries (18 per query, 18,684 prompts, %d s). "
+      "Dev domain-macro falls monotonically with the budget: %s. The judge accepts more swaps as "
+      "the budget grows and the extra ones are wrong. Over all judgements the mean change of a "
+      "single replacement is %.3f at slot 1 and %.3f at slot 10, so a wrong acceptance at the top "
+      "costs an order of magnitude more than at the tail, while the judge's reliability does not "
+      "improve with position. A position-aware expected-gain gate fitted on the leak-free folds "
+      "(delta ~ 1/slot, margin, margin/slot; 1,721 fold actions, 154 helpful) accepts 19 swaps on "
+      "dev and nets 0.000000: it removes the damage but finds no gain. The value of this stage is "
+      "the precision of the small CE-sourced pool, not the breadth of the action space.\n" % (
+          ea3["seconds"],
+          ", ".join("%s: %.5f (delta %+.5f)" % (k, v["macro_policy"], v["macro_delta"])
+                    for k, v in sorted(ea3["budgets"].items(), key=lambda kv: int(kv[0]))),
+          ea3["by_slot"]["1"]["mean_delta"], ea3["by_slot"]["10"]["mean_delta"]))
 a("## 7. Fold evidence (train split, 969 queries)\n")
 a("| fold | queries | nDCG@10 | delta | 95% CI |")
 a("|---|---:|---:|---:|---|")
@@ -247,16 +272,7 @@ if pm:
         a("| %s | %+.4f | %+.4f | %+.4f |"
           % (name, row["dense"]["p_mrr"], row["ce"]["p_mrr"], row["frozen"]["p_mrr"]))
     a("")
-ea = load(V2 / "error_analysis_dev.json")
-if ea:
-    a("## 6b. Where the recoverable gain sits\n")
-    a("Of the %d non-relevant slots in the 519 dev top-tens, %d hold a relevant document inside "
-      "the dense top-100, and every query improves under its best single replacement. The "
-      "recoverable gain splits 43.6%% / 35.0%% / 21.4%% across ranks 1-3 / 4-7 / 8-10. A "
-      "model-assisted label over 100 fixable slots gives temporal 41, entity scope 39, numeric 10, "
-      "exclusion 4, comparison 3, none 2.\n" % (ea["wrong_slots"],
-                                                 ea["wrong_slots_with_relevant_in_dense100"]))
-    a("Every cell is negative and no document is promoted, so the positive nDCG "
+a("Every cell is negative and no document is promoted, so the positive nDCG "
       "deltas measure ranking quality on the changed query text, not "
       "instruction-following.\n")
 ce = load(V2 / "followir" / "constraint_effect.json")

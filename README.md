@@ -66,6 +66,13 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   replacement. Split by position, the recoverable nDCG@10 gain is 43.6% in
   ranks 1-3, 35.0% in 4-7 and only 21.4% in the 8-10 window the frozen protocol
   can touch - the quantitative reason the capped protocol stops at 0.3769.
+* **Widening the action space does not pay.** Candidates from the dense and CE top-100
+  with any of the ten slots available: 0.35725 / 0.35654 / 0.35274 / 0.35239 at 2 / 6 /
+  12 / 18 judged actions (deltas -0.0009 / -0.0016 / -0.0054 / -0.0057). A wrong swap at
+  rank 1 costs ~40x a wrong swap at rank 10 (mean -0.083 vs -0.002) while the judge is no
+  more reliable at the top; a position-aware expected-gain gate fitted on the leak-free
+  folds accepts 19 dev swaps and nets 0.000000. The precision of the small CE pool, not
+  the breadth of the action space, carries the stage.
 * **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
   the cap stays at 3 because the cap-2 advantage was observed post hoc.
 * **Pair budget (single prediction cache).** Replaying the same Direct

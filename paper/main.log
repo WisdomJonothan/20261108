@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  21 NOV 2026 15:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  21 NOV 2026 16:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -721,35 +721,35 @@ Package hyperref Warning: Suppressing empty link on input line 173.
 
 
 [6]
-Overfull \hbox (7.30167pt too wide) in paragraph at lines 215--224
+Underfull \vbox (badness 1038) has occurred while \output is active []
+
+
+
+
+Overfull \hbox (7.30167pt too wide) in paragraph at lines 217--226
  [][] 
  []
-
-
 
 
 
 [7]
 
 
-Underfull \hbox (badness 1024) in paragraph at lines 251--252
+
+[8]
+Underfull \hbox (badness 1024) in paragraph at lines 253--254
 []\T1/ptm/m/n/9 (+20) Jianlv Chen, Shi-tao Xiao, Peitian Zhang, Kun Luo,
  []
 
 
-Underfull \hbox (badness 2376) in paragraph at lines 251--252
+Underfull \hbox (badness 2376) in paragraph at lines 253--254
 \T1/ptm/m/n/9 (+20) Multi-Lingual, Multi-Functionality, Multi-Granularity
  []
 
 
-Underfull \hbox (badness 5431) in paragraph at lines 252--253
+Underfull \hbox (badness 5431) in paragraph at lines 254--255
 []\T1/ptm/m/n/9 (+20) mixedbread.ai. 2024. mxbai-embed-large-v1 model
  []
-
-
-
-[8]
-Underfull \vbox (badness 3930) has occurred while \output is active []
 
 
 
@@ -784,7 +784,7 @@ Here is how much of TeX's memory you used:
  41367 multiletter control sequences out of 15000+600000
  697198 words of font info for 355 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,93p,2383b,626s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,93p,2383b,616s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <D:/miktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/miktex/fonts/type1/p
 ublic/amsfonts/cm/cmr10.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmr7.pfb>
 <D:/miktex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/miktex/fonts/type1/publi
@@ -793,7 +793,7 @@ c/amsfonts/cm/cmr9.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:
 rier/ucrr8a.pfb><D:/miktex/fonts/type1/urw/helvetic/uhvb8a.pfb><D:/miktex/fonts
 /type1/urw/times/utmb8a.pfb><D:/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/mik
 tex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (11 pages, 214893 bytes).
+Output written on main.pdf (11 pages, 218614 bytes).
 PDF statistics:
  182 PDF objects out of 1000 (max. 8388607)
  60 named destinations out of 1000 (max. 500000)
