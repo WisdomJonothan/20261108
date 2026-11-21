@@ -145,6 +145,10 @@ no-swap), macro 0.362524, delta +0.004426, CI [+0.00118, +0.00851], 9,342 prompt
 [+0.00296, +0.01383], 54 swaps; paired improvement over the relevance arm +0.0015 (CI
 [-0.0001, +0.0044]) at twice the prompt cost, i.e. not established.
 
+Second start. Starting from the dense retriever alone, the same 18-action pool gives
++0.0026 / +0.0012 / +0.0011 / +0.0006 at k = 2/6/12/18 (18,684 prompts, 1,704 s), against +0.0106
+for the bounded tail protocol on that start. Widening costs most of the gain on both systems.
+
 ## 7. Fold evidence (train split, 969 queries)
 
 | fold | queries | nDCG@10 | delta | 95% CI |

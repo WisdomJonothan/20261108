@@ -73,6 +73,8 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   more reliable at the top; a position-aware expected-gain gate fitted on the leak-free
   folds accepts 19 dev swaps and nets 0.000000. The precision of the small CE pool, not
   the breadth of the action space, carries the stage.
+  The same widened pool on the dense-only start gives +0.0026/+0.0012/+0.0011/+0.0006
+  at k = 2/6/12/18, against +0.0106 for the bounded protocol on that start.
 * **Query reasoning is neutral at this scale.** Qwen3-4B wrote an explicit analysis for
   every dev query (entities, time/version conditions, exclusions, evidence type,
   keywords); with the frozen dense encoder the domain-macro nDCG@10 is 0.2933 for the
