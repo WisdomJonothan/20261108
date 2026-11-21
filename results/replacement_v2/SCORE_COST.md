@@ -48,3 +48,22 @@ Every Direct pair was judged in both orders, so the same prediction cache can be
 | oracle order | +0.0075 (519 calls) | +0.0104 (1038 calls) | +0.0115 (1557 calls) | +0.0099 (3114 calls) | +0.0065 (4671 calls) |
 
 The uncertainty ordering is the weakest policy at every budget below the full pool, and a random pair at k=3 is as good as the cheap-gap order: what the stage needs is that *some* pair is judged early, not that the gap or the uncertainty picks it. With the full pool all orderings collapse to the Direct result, and the oracle ordering bounds what pair selection could add ($+0.0075$ at one pair, $+0.0115$ at three).
+
+## Cost accounting: judge stage versus the rest of the system
+
+The deployment cost of the replacement stage is not the judge alone. On the 519 dev queries:
+
+| stage | cost | how measured |
+| --- | --- | --- |
+| dense corpus encode (mxbai-embed-large-v1) | ~113 min GPU, one-off | measured at ~172 docs/s over 1,167,159 docs |
+| dense top-100 search | < 2 s total | brute-force dot products over cached embeddings |
+| CE rerank of the dense top-100 (frozen system, bge-reranker-v2-m3) | ~14 min GPU (estimate) | 133,902 pairs at ~156 pairs/s, the rate measured on the FollowIR run (5,159 pairs / 33 s) |
+| candidate construction (cap 3, one list) | < 1 s CPU | union of two top-20 lists minus the top 10 |
+| Direct judge | 14.5 min GPU (872 s) | 9,342 prompts, 5.31 M tokens, 8.8 prompts/s | 
+| Context judge | 25.3 min GPU (1,519 s) | same prompts, 1.77x tokens |
+| per-document judge | 7.9 min GPU (474 s) | 6,747 prompts |
+
+So the judge roughly doubles the GPU time of the frozen retrieval pipeline on dev, and the retained
+context variant multiplies the judge by 1.77. The corpus encode is amortised over the whole test set
+and is not part of any per-query budget. Any claim about the stage being cheap has to quote the two
+rows together; quoting prompt counts alone hides the CE rerank that produces the pool.
