@@ -154,6 +154,16 @@ Second start. Starting from the dense retriever alone, the same 18-action pool g
 +0.0026 / +0.0012 / +0.0011 / +0.0006 at k = 2/6/12/18 (18,684 prompts, 1,704 s), against +0.0106
 for the bounded tail protocol on that start. Widening costs most of the gain on both systems.
 
+## 6g. Position of the correction: the same pool against ranks 1-3
+
+The recoverable-gain analysis puts 43.6% of the fixable gain in ranks 1-3, so we re-ran the
+bounded protocol with the identical pool, the identical nine pairs per query and the identical
+9,342 prompts, changing only which three slots are compared. Result: 0.353916 (-0.004182, CI
+[-0.021435, +0.013675]), 23 helpful / 33 harmful / 185 neutral / 278 no-swap, points +7.941 /
+-10.609 -- against 0.364609 (+0.006510, CI [+0.002064,+0.011724]) with 32 healthy / 19 harmful
+for the tail window. The candidate pool is held fixed, so the difference must come from the
+incumbent: a doubtful tail document is cheap to overturn, a confident top-ranked one is not.
+
 ## 7. Fold evidence (train split, 969 queries)
 
 | fold | queries | nDCG@10 | delta | 95% CI |

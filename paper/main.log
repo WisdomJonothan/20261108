@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  21 NOV 2026 18:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  21 NOV 2026 18:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -782,7 +782,7 @@ Underfull \hbox (badness 1472) in paragraph at lines 217--219
 
 
 
-Overfull \hbox (7.30167pt too wide) in paragraph at lines 226--235
+Overfull \hbox (7.30167pt too wide) in paragraph at lines 228--237
  [][] 
  []
 
@@ -793,28 +793,29 @@ Overfull \hbox (7.30167pt too wide) in paragraph at lines 226--235
 
 
 [9]
-Underfull \hbox (badness 1024) in paragraph at lines 262--263
+Underfull \hbox (badness 1024) in paragraph at lines 264--265
 []\T1/ptm/m/n/9 (+20) Jianlv Chen, Shi-tao Xiao, Peitian Zhang, Kun Luo,
  []
 
 
-Underfull \hbox (badness 2376) in paragraph at lines 262--263
+Underfull \hbox (badness 2376) in paragraph at lines 264--265
 \T1/ptm/m/n/9 (+20) Multi-Lingual, Multi-Functionality, Multi-Granularity
  []
 
 
-Underfull \hbox (badness 5431) in paragraph at lines 263--264
+Underfull \hbox (badness 5431) in paragraph at lines 265--266
 []\T1/ptm/m/n/9 (+20) mixedbread.ai. 2024. mxbai-embed-large-v1 model
  []
 
 
 
 
-Underfull \vbox (badness 3623) has occurred while \output is active []
-
-
 
 [10]
+
+Package lineno Warning: Line number reference failed, re-run to get it right.
+
+
 
 
 
@@ -829,28 +830,35 @@ L3 programming layer <2025-04-14>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 15220 strings out of 469941
- 236123 string characters out of 5486262
+ 15222 strings out of 469941
+ 236150 string characters out of 5486262
  692289 words of memory out of 5000000
  41370 multiletter control sequences out of 15000+600000
  697423 words of font info for 357 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,93p,2383b,616s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<D:/miktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/miktex/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmr7.pfb>
-<D:/miktex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/miktex/fonts/type1/publi
-c/amsfonts/cm/cmr9.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:
-/miktex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/miktex/fonts/type1/urw/cou
-rier/ucrr8a.pfb><D:/miktex/fonts/type1/urw/helvetic/uhvb8a.pfb><D:/miktex/fonts
-/type1/urw/times/utmb8a.pfb><D:/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/mik
-tex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (12 pages, 227186 bytes).
+ 84i,13n,93p,2383b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{table.caption.29} has been referenced but does not 
+exist, replaced by a fixed one
+
+<D:/miktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/miktex/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D
+:/miktex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/miktex/fonts/type1/public/
+amsfonts/cm/cmr9.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/m
+iktex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/miktex/fonts/type1/urw/couri
+er/ucrr8a.pfb><D:/miktex/fonts/type1/urw/helvetic/uhvb8a.pfb><D:/miktex/fonts/t
+ype1/urw/times/utmb8a.pfb><D:/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/mikte
+x/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (12 pages, 227765 bytes).
 PDF statistics:
- 192 PDF objects out of 1000 (max. 8388607)
- 66 named destinations out of 1000 (max. 500000)
+ 195 PDF objects out of 1000 (max. 8388607)
+ 68 named destinations out of 1000 (max. 500000)
  71681 words of extra memory for PDF output out of 74296 (max. 10000000)
 

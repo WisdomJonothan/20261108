@@ -108,6 +108,10 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   when it fires and the relevance swap otherwise reaches 0.3661 (+0.0080,
   CI [+0.0030, +0.0138]) but the paired gain over the relevance arm is +0.0015
   (CI [-0.0001, +0.0044]) at twice the prompts, so it is not established.
+* **The gain lives where the incumbent is doubtful.** Re-running the bounded protocol against
+  ranks 1-3 with the same pool, same pairs and same 9,342 prompts gives 0.3539 (-0.0042,
+  CI [-0.0214,+0.0137], 23/33 swaps), whereas ranks 8-10 give 0.3646 (+0.0065). The recoverable
+  gain sits in the top ranks, but a pairwise judge cannot cash it in.
 * **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
   the cap stays at 3 because the cap-2 advantage was observed post hoc.
 * **Pair budget (single prediction cache).** Replaying the same Direct
