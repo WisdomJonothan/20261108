@@ -145,6 +145,11 @@ no-swap), macro 0.362524, delta +0.004426, CI [+0.00118, +0.00851], 9,342 prompt
 [-0.0003, +0.0074], 27 / 8), i.e. the precision advantage is a property of the question, not
 of the fused ranking, although the relevance question still gains more on both starts.
 
+A single prompt that asks for both judgements at once (relevance and conditions) behaves like
+the relevance question: 0.362638 (+0.004539, CI [-0.000503, +0.010185]), 31 helpful / 17
+harmful, so the precision of the narrow question is lost when it is merged rather than run
+separately.
+
 Combined rule
 (condition swap when it fires, relevance swap otherwise): 0.366117, delta +0.008018, CI
 [+0.00296, +0.01383], 54 swaps; paired improvement over the relevance arm +0.0015 (CI

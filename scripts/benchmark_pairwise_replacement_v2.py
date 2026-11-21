@@ -74,7 +74,7 @@ def ndcg10(ranked, gold, k=10):
     return dcg / ideal if ideal else 0.0
 
 
-def build_rows(root, cand_path, domains, qrels_split="dev"):
+def build_rows(root, cand_path, domains):
     payload = json.loads(Path(cand_path).read_text(encoding="utf-8"))
     by_domain = {}
     for row in payload["queries"]:
@@ -96,7 +96,7 @@ def build_rows(root, cand_path, domains, qrels_split="dev"):
                     if len(corpus) == len(need):
                         break
         assert not (need - set(corpus)), (domain, len(need - set(corpus)))
-        gold = read_qrels(directory / f"qrels_{qrels_split}.txt")
+        gold = read_qrels(directory / "qrels_dev.txt")
         for row in rows:
             q = row["qid"]
             qt = terms(row["query"])
@@ -105,7 +105,7 @@ def build_rows(root, cand_path, domains, qrels_split="dev"):
             excerpt = {d: passages(corpus[d], qt)[0] for d in set(top) | set(cand_ids)}
             retained_by_slot = {
                 slot: [" ".join(excerpt[d].split()[:32]) for d in top if d != top[slot]]
-                for slot in range(7, 10)
+                for slot in range(10)
             }
             g = gold.get(q, set())
             base = ndcg10(top, g)
@@ -358,15 +358,13 @@ def apply_and_score(rows, threshold=0.0):
     return per_query
 
 
-def domain_macro(per_query, key="policy", domains=None):
-    doms = domains or DOMAINS
-    return float(np.mean([np.mean([r[key] for r in per_query if r["domain"] == d]) for d in doms]))
+def domain_macro(per_query, key="policy"):
+    return float(np.mean([np.mean([r[key] for r in per_query if r["domain"] == d]) for d in DOMAINS]))
 
 
-def paired_bootstrap(per_query, draws=10000, seed=20261120, domains=None):
+def paired_bootstrap(per_query, draws=10000, seed=20261120):
     rng = np.random.default_rng(seed)
-    doms = domains or DOMAINS
-    deltas = {d: np.array([r["delta"] for r in per_query if r["domain"] == d]) for d in doms}
+    deltas = {d: np.array([r["delta"] for r in per_query if r["domain"] == d]) for d in DOMAINS}
     point = float(np.mean([v.mean() for v in deltas.values()]))
     sims = np.empty(draws)
     for i in range(draws):
@@ -389,14 +387,12 @@ def main():
     ap.add_argument("--out", default="results/replacement_v2/exp_direct_context_dev.json")
     ap.add_argument("--runs-dir", default="results/replacement_v2/runs")
     ap.add_argument("--dry-run", action="store_true", help="build prompts only, no model")
-    ap.add_argument("--qrels-split", default="dev")
     ap.add_argument("--simulate", default="", choices=["", "random", "oracle", "ce_gap"],
                     help="replace the judge with a sign oracle / random / CE-gap heuristic")
     args = ap.parse_args()
     root = args.root
     domains = args.domains.split(",") if args.domains else DOMAINS
-    rows, protocol = build_rows(root, root / args.candidates, set(domains),
-                                qrels_split=args.qrels_split)
+    rows, protocol = build_rows(root, root / args.candidates, set(domains))
     if args.limit_queries:
         rows = rows[: args.limit_queries]
     print("queries", len(rows), "pairs", sum(len(r["pairs"]) for r in rows), flush=True)
@@ -437,13 +433,13 @@ def main():
                   "threshold": args.threshold, "n_queries": len(rows), "policies": {}}
         for policy in args.policies.split(","):
             per_query = apply_and_score(rows, args.threshold)
-            macro, macro_base = domain_macro(per_query, domains=domains), domain_macro(per_query, "baseline", domains=domains)
+            macro, macro_base = domain_macro(per_query), domain_macro(per_query, "baseline")
             counts = Counter("no_swap" if r["swap"] is None else
                              "helpful" if r["delta"] > 1e-12 else
                              "harmful" if r["delta"] < -1e-12 else "neutral" for r in per_query)
             result["policies"][policy] = {
                 "macro_policy": macro, "macro_baseline": macro_base, "macro_delta": macro - macro_base,
-                "swap_counts": dict(counts), "bootstrap": paired_bootstrap(per_query, domains=domains),
+                "swap_counts": dict(counts), "bootstrap": paired_bootstrap(per_query),
                 "net_points": sum(r["delta"] for r in per_query)}
             print(policy, json.dumps({k: v for k, v in result["policies"][policy].items()}))
         out = Path(root) / (args.out.replace(".json", f".sim_{args.simulate}.json"))
@@ -472,7 +468,7 @@ def main():
         else:
             stats = score_arm(model, tokenizer, rows, policy, args.batch_size, device, option_ids)
             per_query = apply_and_score(rows, args.threshold)
-        macro, macro_base = domain_macro(per_query, domains=domains), domain_macro(per_query, "baseline", domains=domains)
+        macro, macro_base = domain_macro(per_query), domain_macro(per_query, "baseline")
         per_domain = {}
         for d in DOMAINS:
             sub = [r for r in per_query if r["domain"] == d]
@@ -500,7 +496,7 @@ def main():
             "macro_policy": macro, "macro_baseline": macro_base, "macro_delta": macro - macro_base,
             "swap_counts": dict(counts), "points_gained": gained, "points_lost": lost,
             "net_points": sum(r["delta"] for r in per_query), "per_domain": per_domain,
-            "bootstrap": paired_bootstrap(per_query, domains=domains), "cost": stats,
+            "bootstrap": paired_bootstrap(per_query), "cost": stats,
             "agreement_pairs": int(sum(p.get("agree", False) for r in rows for p in r["pairs"])),
             "eligible_pairs": int(sum(bool(p.get("agree")) and p.get("margin", -1) > args.threshold
                                       for r in rows for p in r["pairs"])),

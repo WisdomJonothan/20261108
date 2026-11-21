@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  21 NOV 2026 18:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  21 NOV 2026 20:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -765,18 +765,82 @@ Underfull \hbox (badness 2837) in paragraph at lines 215--216
 
 
 [7]
-Underfull \hbox (badness 3525) in paragraph at lines 217--219
-\T1/ptm/m/n/10.95 (+20) The widened space is also not spe-cific to
+! Missing $ inserted.
+<inserted text> 
+                $
+l.217 ...nstruction the arm returns 0.3626 (\Delta
+                                                   +0.0045, CI [-0.0005, +0....
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.219 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Underfull \hbox (badness 1796) in paragraph at lines 217--219
+\T1/ptm/m/n/10.95 (+20) raises domain-macro nDCG@10 by $\OT1/cmr/m/n/10.95 +0\O
+ML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0044$
  []
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 217--219
-\T1/ptm/m/n/10.95 (+20) the fused start: start-ing from the dense re-
+Overfull \hbox (1461.87195pt too wide) in paragraph at lines 217--219
+\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0045\OML/cmm/m/it/1
+0.95 ; CI\OT1/cmr/m/n/10.95 [\OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 0\OML/cm
+m/m/it/10.95 :\OT1/cmr/m/n/10.95 0005\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 +
+0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0102])\OML/cmm/m/it/10.95 with\OT1/cmr
+/m/n/10.95 31\OML/cmm/m/it/10.95 helpfuland\OT1/cmr/m/n/10.95 17\OML/cmm/m/it/1
+0.95 harmfulswaps; i:e:itbehavesliketherelevancequestionandlosestheprecisiontha
+tthenarrowquestionbuys:Thetwoframingsarethereforecomplementaryratherthancomposa
+ble; andenforcingbothrequirestwopasses:Thetwoquestionsareclosetocomplementary; 
+soacombinedrulethatappliesthecondition \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
-Underfull \hbox (badness 1472) in paragraph at lines 217--219
-\T1/ptm/m/n/10.95 (+20) triever alone, the same 18-action pool gives
+Overfull \hbox (61.43634pt too wide) in paragraph at lines 217--219
+\OML/cmm/m/it/10.95 basedswapwhentheconditionjudgefiresandtherelevance \OMS/cms
+y/m/n/10.95 ^^@
+ []
+
+
+Overfull \hbox (452.15945pt too wide) in paragraph at lines 217--219
+\OML/cmm/m/it/10.95 basedswapotherwisereaches$\T1/ptm/m/n/10.95 (-20) 0.3661$\O
+T1/cmr/m/n/10.95 ($\T1/ptm/m/n/10.95 (-20) +0.0080$\OML/cmm/m/it/10.95 ; CI$\T1
+/ptm/m/n/10.95 (-20) [+0.0030,+0.0138]$\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95
+ 54\OML/cmm/m/it/10.95 swaps\OT1/cmr/m/n/10.95 ); \OML/cmm/m/it/10.95 thepaired
+improvementovertherelevancearmaloneis$\T1/ptm/m/n/10.95 (-20) +0.0015$\OT1/cmr/
+m/n/10.95 (\OML/cmm/m/it/10.95 CI$\T1/ptm/m/n/10.95 (-20) [-
+ []
+
+
+Overfull \hbox (447.73755pt too wide) in paragraph at lines 217--219
+\T1/ptm/m/n/10.95 (-20) 0.0001,+0.0044]$\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95
+ ; i:e: notestablished; anditcoststwicetheprompts:Wereportbotharmsandkeepthesin
+glequestionasthedeployedconfiguration:[] 
+ []
+
+
+Overfull \hbox (32.33379pt too wide) in paragraph at lines 217--219
+\OML/cmm/m/it/10.95 Thewidenedspaceisalsonotspecifictothefusedstart \OT1/cmr/m/
+n/10.95 :
+ []
+
+
+Overfull \hbox (26.65207pt too wide) in paragraph at lines 217--219
+\OML/cmm/m/it/10.95 startingfromthedenseretrieveralone; thesame\OT1/cmr/m/n/10.
+95 18 \OMS/cmsy/m/n/10.95 ^^@
+ []
+
+
+Overfull \hbox (672.54591pt too wide) in paragraph at lines 217--219
+\OML/cmm/m/it/10.95 actionpoolgives$\T1/ptm/m/n/10.95 (-20) +0.0026,+0.0012,+0.
+0011,+0.0006$\OML/cmm/m/it/10.95 atthefourbudgets; against$\T1/ptm/m/n/10.95 (-
+20) +0.0106$\OML/cmm/m/it/10.95 fortheboundedtailprotocolonthatstart:Wideningco
+stsmostofthegainonbothsystems; whichisthesecond \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
@@ -813,10 +877,6 @@ Underfull \hbox (badness 5431) in paragraph at lines 265--266
 
 [10]
 
-Package lineno Warning: Line number reference failed, re-run to get it right.
-
-
-
 
 
 [11
@@ -830,35 +890,28 @@ L3 programming layer <2025-04-14>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 15222 strings out of 469941
- 236150 string characters out of 5486262
+ 15221 strings out of 469941
+ 236134 string characters out of 5486262
  692289 words of memory out of 5000000
  41370 multiletter control sequences out of 15000+600000
  697423 words of font info for 357 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,93p,2383b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{table.caption.29} has been referenced but does not 
-exist, replaced by a fixed one
-
-<D:/miktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/miktex/fonts/type1/pub
-lic/amsfonts/cm/cmr10.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D
-:/miktex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/miktex/fonts/type1/public/
-amsfonts/cm/cmr9.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/m
-iktex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/miktex/fonts/type1/urw/couri
-er/ucrr8a.pfb><D:/miktex/fonts/type1/urw/helvetic/uhvb8a.pfb><D:/miktex/fonts/t
-ype1/urw/times/utmb8a.pfb><D:/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/mikte
-x/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (12 pages, 227765 bytes).
+ 84i,13n,93p,2383b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<D:/miktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/miktex/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+<D:/miktex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/miktex/fonts/type1/publi
+c/amsfonts/cm/cmr9.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:
+/miktex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/miktex/fonts/type1/urw/cou
+rier/ucrr8a.pfb><D:/miktex/fonts/type1/urw/helvetic/uhvb8a.pfb><D:/miktex/fonts
+/type1/urw/times/utmb8a.pfb><D:/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/mik
+tex/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (12 pages, 234547 bytes).
 PDF statistics:
- 195 PDF objects out of 1000 (max. 8388607)
- 68 named destinations out of 1000 (max. 500000)
+ 194 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
  71681 words of extra memory for PDF output out of 74296 (max. 10000000)
 
