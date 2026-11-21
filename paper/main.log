@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  21 NOV 2026 16:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  21 NOV 2026 17:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -723,7 +723,7 @@ Package hyperref Warning: Suppressing empty link on input line 173.
 [6]
 
 
-Overfull \hbox (7.30167pt too wide) in paragraph at lines 219--228
+Overfull \hbox (7.30167pt too wide) in paragraph at lines 221--230
  [][] 
  []
 
@@ -734,17 +734,17 @@ Overfull \hbox (7.30167pt too wide) in paragraph at lines 219--228
 
 
 [8]
-Underfull \hbox (badness 1024) in paragraph at lines 255--256
+Underfull \hbox (badness 1024) in paragraph at lines 257--258
 []\T1/ptm/m/n/9 (+20) Jianlv Chen, Shi-tao Xiao, Peitian Zhang, Kun Luo,
  []
 
 
-Underfull \hbox (badness 2376) in paragraph at lines 255--256
+Underfull \hbox (badness 2376) in paragraph at lines 257--258
 \T1/ptm/m/n/9 (+20) Multi-Lingual, Multi-Functionality, Multi-Granularity
  []
 
 
-Underfull \hbox (badness 5431) in paragraph at lines 256--257
+Underfull \hbox (badness 5431) in paragraph at lines 258--259
 []\T1/ptm/m/n/9 (+20) mixedbread.ai. 2024. mxbai-embed-large-v1 model
  []
 
@@ -775,15 +775,15 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 15212 strings out of 469941
- 236054 string characters out of 5486262
+ 15213 strings out of 469941
+ 236065 string characters out of 5486262
  692254 words of memory out of 5000000
  41368 multiletter control sequences out of 15000+600000
  697198 words of font info for 355 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,93p,2383b,604s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,93p,2383b,541s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{table.caption.24} has been referenced but does not 
+pdfTeX warning (dest): name{table.caption.26} has been referenced but does not 
 exist, replaced by a fixed one
 
 <D:/miktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/miktex/fonts/type1/pub
@@ -794,9 +794,9 @@ iktex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/miktex/fonts/type1/urw/couri
 er/ucrr8a.pfb><D:/miktex/fonts/type1/urw/helvetic/uhvb8a.pfb><D:/miktex/fonts/t
 ype1/urw/times/utmb8a.pfb><D:/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/mikte
 x/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (11 pages, 219644 bytes).
+Output written on main.pdf (11 pages, 220381 bytes).
 PDF statistics:
- 186 PDF objects out of 1000 (max. 8388607)
- 63 named destinations out of 1000 (max. 500000)
+ 187 PDF objects out of 1000 (max. 8388607)
+ 64 named destinations out of 1000 (max. 500000)
  71681 words of extra memory for PDF output out of 74296 (max. 10000000)
 

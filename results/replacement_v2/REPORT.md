@@ -67,6 +67,10 @@ Points gained by helpful swaps: +4.48; lost by harmful swaps: -2.32 (net +2.16).
 The correction is not specific to the fused start: it gains most where the
 top ten has more clearly wrong slots.
 
+## 3b. Query reasoning as a query transformation
+
+The same 4B judge wrote an explicit analysis for every dev query (entities, time or version conditions, exclusions, evidence type, then search keywords; 519 queries, 499 s). With the frozen dense encoder, domain-macro nDCG@10 is 0.2933 for the original query, 0.2930 with the analysis appended, 0.2546 for the analysis alone and 0.2915 for the short query alone. Appending the analysis is neutral (-0.0003); the analysis alone loses four points; dropping the instruction costs 0.002. The published query-reasoning lift uses GPT-4o analyses with ReasonIR embeddings; at 4B scale with this encoder the transformation adds nothing.
+
 ## 4. Strong controls (Qwen3-Reranker-4B, official template, same passages)
 
 | control | nDCG@10 | delta | 95% CI | docs scored | tokens | s |
@@ -103,6 +107,10 @@ Threshold chosen on the 242 calibration queries: tau = 0.0549. The gate reproduc
 ## 6b. Where the recoverable gain sits
 
 Of the 4524 non-relevant slots in the 519 dev top-tens, 2497 hold a relevant document inside the dense top-100, and every query improves under its best single replacement. The recoverable gain splits 43.6% / 35.0% / 21.4% across ranks 1-3 / 4-7 / 8-10. A model-assisted label over 100 fixable slots gives temporal 41, entity scope 39, numeric 10, exclusion 4, comparison 3, none 2.
+
+## 6d. Constraint-violation filter (absolute judgement)
+
+13 yes/no prompts per query (6,747 prompts, 505 s on one GPU) ask whether each retained document and each frozen candidate satisfies every explicit condition in the query (time period or version, entity or jurisdiction, numeric bounds, exclusions). The verdicts collapse onto relevance: candidates outside the frozen top-ten are rated satisfying by roughly zero percent, so under the relative rule (violating = 0.15 below the query median, candidate at least 0.05 above it, gap at least 0.30) only 3 of 519 queries swap, all neutral, and the macro stays at 0.358099. Direct judgement works because it forces a comparison against the incumbent document; an absolute verdict reproduces the retriever's own bias.
 
 ## 6c. Widening the action space (top-100 candidates, any of the ten slots)
 

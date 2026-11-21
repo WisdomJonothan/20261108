@@ -73,6 +73,13 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   more reliable at the top; a position-aware expected-gain gate fitted on the leak-free
   folds accepts 19 dev swaps and nets 0.000000. The precision of the small CE pool, not
   the breadth of the action space, carries the stage.
+* **Query reasoning is neutral at this scale.** Qwen3-4B wrote an explicit analysis for
+  every dev query (entities, time/version conditions, exclusions, evidence type,
+  keywords); with the frozen dense encoder the domain-macro nDCG@10 is 0.2933 for the
+  original query, 0.2930 with the analysis appended, 0.2546 for the analysis alone and
+  0.2915 for the short query alone. The published query-reasoning gains use GPT-4o
+  analyses with ReasonIR embeddings; with a 4B analyst and this retriever the
+  transformation adds nothing.
 * **Absolute condition checks do not work.** Asking the judge a yes/no question about
   whether a document satisfies every explicit query condition (13 prompts/query, 6,747
   in total) collapses onto relevance: candidates outside the top-10 are rated satisfying

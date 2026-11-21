@@ -142,6 +142,18 @@ a("top ten has more clearly wrong slots.")
 a("")
 
 rr = load(V2 / "reranker_fair_dev.domainmacro.json")
+qr = load(V2 / "query_reason_summary.json")
+if qr:
+    a("## 3b. Query reasoning as a query transformation\n")
+    a("The same 4B judge wrote an explicit analysis for every dev query (entities, time or version "
+      "conditions, exclusions, evidence type, then search keywords; 519 queries, 499 s). With the "
+      "frozen dense encoder, domain-macro nDCG@10 is %.4f for the original query, %.4f with the "
+      "analysis appended, %.4f for the analysis alone and %.4f for the short query alone. Appending "
+      "the analysis is neutral (-0.0003); the analysis alone loses four points; dropping the "
+      "instruction costs 0.002. The published query-reasoning lift uses GPT-4o analyses with "
+      "ReasonIR embeddings; at 4B scale with this encoder the transformation adds nothing.\n"
+      % (qr["orig"]["mean"], qr["reason"]["mean"], qr["analysis"]["mean"],
+         qr["query_only"]["mean"]))
 a("## 4. Strong controls (Qwen3-Reranker-4B, official template, same passages)\n")
 a("| control | nDCG@10 | delta | 95% CI | docs scored | tokens | s |")
 a("|---|---:|---:|---|---:|---:|---:|")
