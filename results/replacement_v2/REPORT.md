@@ -116,6 +116,35 @@ Of the 4524 non-relevant slots in the 519 dev top-tens, 2497 hold a relevant doc
 
 9,342 actions over the 519 dev queries (18 per query, 18,684 prompts, 2090 s). Dev domain-macro falls monotonically with the budget: 2: 0.35725 (delta -0.00085), 6: 0.35654 (delta -0.00156), 12: 0.35274 (delta -0.00536), 18: 0.35239 (delta -0.00571). The judge accepts more swaps as the budget grows and the extra ones are wrong. Over all judgements the mean change of a single replacement is -0.083 at slot 1 and -0.002 at slot 10, so a wrong acceptance at the top costs an order of magnitude more than at the tail, while the judge's reliability does not improve with position. A position-aware expected-gain gate fitted on the leak-free folds (delta ~ 1/slot, margin, margin/slot; 1,721 fold actions, 154 helpful) accepts 19 swaps on dev and nets 0.000000: it removes the damage but finds no gain. The value of this stage is the precision of the small CE-sourced pool, not the breadth of the action space.
 
+## 6e. Allocation versus judgement (matched budgets, one cache)
+
+All 18 actions per query were judged, so each ordering is replayed at matched budgets from one cache.
+Delta versus the frozen 0.3581 at k = 2 / 6 / 12 / 18:
+
+| ordering | k=2 | k=6 | k=12 | k=18 |
+| --- | --- | --- | --- | --- |
+| gap (prior) | -0.0009 | -0.0016 | -0.0054 | -0.0057 |
+| uncertainty (AcuRank-style) | -0.0013 | -0.0048 | -0.0057 | -0.0057 |
+| random | +0.0000 | -0.0006 | -0.0054 | -0.0057 |
+| expected-gain model (5-fold) | -0.0008 | -0.0008 | -0.0008 | -0.0057 |
+| oracle ordering (true delta) | +0.0001 | +0.0003 | +0.0002 | -0.0057 |
+| oracle decision (perfect selection) | +0.0170 | +0.0362 | +0.0496 | +0.0593 |
+| random order, independent run | -0.0010 | -0.0018 | -0.0035 | -0.0109 |
+
+The independent random-order run (18,684 prompts) is -0.0010 / -0.0018 / -0.0035 / -0.0109 at the same budgets and beats the gap order at k=12, so allocation does not order the two consistently. The model's AUC for "this action helps" is 0.532. A perfect allocation over these judgements buys at
+most +0.0003, while perfect selection would buy +0.0170 at k=2. The stage loses its gain at the
+judgement, not at the budget.
+
+## 6f. Condition-focused comparison
+
+Same pool, pairs, orders and rule; the question changes from relevance to "which passage better
+satisfies the conditions the query states". 15 swaps (12 helpful, 3 harmful, 91 neutral, 413
+no-swap), macro 0.362524, delta +0.004426, CI [+0.00118, +0.00851], 9,342 prompts, 5.58 M tokens,
+918 s. Precision 80% versus 63% for the relevance question, but a third of the swaps. Combined rule
+(condition swap when it fires, relevance swap otherwise): 0.366117, delta +0.008018, CI
+[+0.00296, +0.01383], 54 swaps; paired improvement over the relevance arm +0.0015 (CI
+[-0.0001, +0.0044]) at twice the prompt cost, i.e. not established.
+
 ## 7. Fold evidence (train split, 969 queries)
 
 | fold | queries | nDCG@10 | delta | 95% CI |

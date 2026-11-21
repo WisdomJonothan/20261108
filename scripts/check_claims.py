@@ -258,6 +258,26 @@ CLAIMS = [
     ("coverage bound, CE alone", 1.1844, lambda: dom_macro("COVERAGE_CF_BOUND_ce.json")["cov_cf"],
      "COVERAGE_CF_BOUND_ce.json", False),
     # Not our computation: the organisers' published Track 1a dev baseline.
+    # --- widened action space: allocation versus judgement, condition judge ----
+    ("expected-gain model AUC (widened pool)", 0.532,
+     lambda: jload("replacement_v2/expanded3_policies_dev.json")["auc_helpful"],
+     "replacement_v2/expanded3_policies_dev.json", False),
+    ("random-order control, k=18", -0.0109,
+     lambda: jload("replacement_v2/expanded3_random_dev.json")["budgets"]["18"]["macro_delta"],
+     "replacement_v2/expanded3_random_dev.json", False),
+    ("oracle decision, k=18", 0.0593,
+     lambda: jload("replacement_v2/expanded3_policies_dev.json")["oracle_decision"]["18"]["delta"],
+     "replacement_v2/expanded3_policies_dev.json", False),
+    ("oracle ordering, best budget", 0.0003,
+     lambda: max(jload("replacement_v2/expanded3_policies_dev.json")["policies"]["oracle"][k]["delta"]
+                 for k in ("2", "6", "12")),
+     "replacement_v2/expanded3_policies_dev.json", False),
+    ("condition-pair judge dev", 0.3625,
+     lambda: jload("replacement_v2/exp_violation_pair_dev.json")["macro_policy"],
+     "replacement_v2/exp_violation_pair_dev.json", False),
+    ("combined condition+relevance rule", 0.3661,
+     lambda: jload("replacement_v2/hybrid_rules_dev.json")["either"]["macro"],
+     "replacement_v2/hybrid_rules_dev.json", False),
     ("BM25 baseline (organisers)", 0.1147,
      lambda: float(open(R + "PHASE9_PLAN.md", encoding="utf-8").read()
                    .split("official BM25 1a dev baseline (organizers)")[1]

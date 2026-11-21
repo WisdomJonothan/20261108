@@ -86,6 +86,24 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   by ~0%, so only 3 of 519 queries swap (all neutral) and the macro stays at 0.3581.
   The A/B framing is what makes the judge useful - it forces a comparison with the
   incumbent instead of an absolute verdict.
+* **Allocation is not the bottleneck; the judgement is.** Every widened-pool action was
+  judged, so orderings replay at matched budgets from one cache: gap -0.0009/-0.0016/
+  -0.0054/-0.0057, uncertainty -0.0013/-0.0048/-0.0057/-0.0057, random +0.0000/-0.0006/
+  -0.0054/-0.0057, cross-validated expected-gain model -0.0008/-0.0008/-0.0008/-0.0057
+  at k = 2/6/12/18. Ordering the same judgements by true delta buys at most +0.0003,
+  while *perfect selection* among them would buy +0.0170 at k=2 and +0.0593 at k=18.
+  An independent random-subset run gives -0.0010/-0.0018/-0.0035/-0.0109 (18,684 prompts) and
+  beats the gap order at k=12, so allocation does not order the two consistently. The model's
+  AUC for "this action helps" is 0.532. Research effort belongs at the comparison, not at the
+  budget allocation.
+* **A condition-focused comparison is precise but rare.** Keeping the pool, pairs, orders
+  and rule and asking instead which passage better satisfies the conditions the query
+  states (time/version, entity/jurisdiction, numeric bounds, exclusions) yields 15 swaps
+  (12 helpful, 3 harmful; 80% precision vs 63% for the relevance question) and
+  +0.0044 (CI [+0.0012, +0.0085]) at the same 9,342 prompts. Applying the condition swap
+  when it fires and the relevance swap otherwise reaches 0.3661 (+0.0080,
+  CI [+0.0030, +0.0138]) but the paired gain over the relevance arm is +0.0015
+  (CI [-0.0001, +0.0044]) at twice the prompts, so it is not established.
 * **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
   the cap stays at 3 because the cap-2 advantage was observed post hoc.
 * **Pair budget (single prediction cache).** Replaying the same Direct
