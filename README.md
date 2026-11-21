@@ -133,6 +133,10 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
 * **A learned expected-gain model does not transfer.** Ridge on 8,721 leak-free fold pairs
   (AUC 0.66) applied to dev gives 0.3615 (+0.0034, CI [-0.0015,+0.0088]): worse than the
   fixed relevance rule's 0.3646 (+0.0065).
+* **The condition question does not transfer as a constraint filter.** On FollowIR it moves
+  the score by 0.0000/+0.0019/+0.0019 (Core17/News21/Robust04) against +0.0084/+0.0072/
+  +0.0064 for the relevance question, and removes demoted documents in 0/2, 2/7 and 2/7 of
+  its swaps.
 * **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
   the cap stays at 3 because the cap-2 advantage was observed post hoc.
 * **Pair budget (single prediction cache).** Replaying the same Direct

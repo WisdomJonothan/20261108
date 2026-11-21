@@ -1,0 +1,62 @@
+{
+ "core17": {
+  "relevance": {
+   "queries_available": 15,
+   "swaps": 15,
+   "swaps_removing_demoted_doc": 1,
+   "demoted_rate": 0.0667,
+   "ndcg_chg_base": 0.217954,
+   "ndcg_chg_after": 0.226512,
+   "delta_chg": 0.008558
+  },
+  "condition": {
+   "queries_available": 2,
+   "swaps": 2,
+   "swaps_removing_demoted_doc": 0,
+   "demoted_rate": 0.0,
+   "ndcg_chg_base": 0.172649,
+   "ndcg_chg_after": 0.189742,
+   "delta_chg": 0.017093
+  }
+ },
+ "news21": {
+  "relevance": {
+   "queries_available": 21,
+   "swaps": 21,
+   "swaps_removing_demoted_doc": 5,
+   "demoted_rate": 0.2381,
+   "ndcg_chg_base": 0.245677,
+   "ndcg_chg_after": 0.265297,
+   "delta_chg": 0.01962
+  },
+  "condition": {
+   "queries_available": 7,
+   "swaps": 7,
+   "swaps_removing_demoted_doc": 2,
+   "demoted_rate": 0.2857,
+   "ndcg_chg_base": 0.293349,
+   "ndcg_chg_after": 0.336132,
+   "delta_chg": 0.042784
+  }
+ },
+ "robust04": {
+  "relevance": {
+   "queries_available": 28,
+   "swaps": 28,
+   "swaps_removing_demoted_doc": 2,
+   "demoted_rate": 0.0714,
+   "ndcg_chg_base": 0.250555,
+   "ndcg_chg_after": 0.259388,
+   "delta_chg": 0.008833
+  },
+  "condition": {
+   "queries_available": 7,
+   "swaps": 7,
+   "swaps_removing_demoted_doc": 2,
+   "demoted_rate": 0.2857,
+   "ndcg_chg_base": 0.271733,
+   "ndcg_chg_after": 0.271733,
+   "delta_chg": 0.0
+  }
+ }
+}

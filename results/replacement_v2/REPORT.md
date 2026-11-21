@@ -281,6 +281,22 @@ Every cell is negative and no document is promoted, so the positive nDCG deltas 
 
 Applying the judge's swaps under the changed instructions raises graded nDCG@10 from 0.1761 to 0.1825 on Core17, 0.2849 to 0.2978 on News21 and 0.2382 to 0.2430 on Robust04, but only 1, 5 and 2 of the 15, 21 and 28 applied swaps actually remove a document that the instruction change demoted. The stage improves the ranking without explicitly targeting the changed constraint.
 
+## 9b. Does the condition question track the instruction change?
+
+The condition judge was run on all three FollowIR collections with the same candidates,
+orders and threshold (`exp_cond_<collection>_dev.json`, binary-gain harness metric):
+
+| collection | relevance arm | condition arm | condition swaps | demoted removed (rel / cond) |
+| --- | --- | --- | --- | --- |
+| Core17 | +0.0084 [+0.0024,+0.0146] | 0.0000 [-0.0050,+0.0050] | 8 (1H/1X/6N) | 1/15 vs 0/2 |
+| News21 | +0.0072 [-0.0014,+0.0161] | +0.0019 [-0.0041,+0.0084] | 15 (4H/3X/8N) | 5/21 (24%) vs 2/7 (29%) |
+| Robust04 | +0.0064 [+0.0018,+0.0114] | +0.0019 [-0.0007,+0.0046] | 23 (4H/1X/18N) | 2/28 (7%) vs 2/7 (29%) |
+
+Under the changed instructions the condition arm lifts graded nDCG@10 by +0.017 (Core17,
+2 swaps), +0.043 (News21, 7 swaps) and 0.000 (Robust04, 7 swaps), so it fires rarely and
+does not concentrate on the documents the instruction change demoted. The constraint-
+response evidence required by the acceptance criterion is therefore not met.
+
 ## 10. Conclusion (2026-11-21)
 
 The frozen system re-verifies at 0.3580985233 and a bounded local comparison over a three-candidate

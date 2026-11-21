@@ -26,6 +26,7 @@ committed and every claim goes through `scripts/check_claims.py`.
 | Allocation as the bottleneck | oracle ordering +0.0003 vs oracle selection +0.0593; model AUC 0.532 | the judgement is the bottleneck |
 | Absolute condition check | 3/519 swaps, all neutral | abandoned |
 | Held-out error structure | 969 train-fold queries: 5,161/8,518 fixable, band shares 44.7/34.1/21.2 | replicates dev; tail bias is real |
+| Condition judge on FollowIR | deltas 0.0000/+0.0019/+0.0019; demoted removals 0/2, 2/7, 2/7 | no constraint targeting; acceptance criterion unmet |
 | Learned expected-gain model | fold AUC 0.66, dev +0.0034 (CI [-0.0015,+0.0088]) | no transfer; fixed rule stays |
 | Two-judge combination | agreement 0.3612 (+0.0031), veto-best 0.3616 (+0.0035) | precision for recall; no composition beats Direct |
 | Cost-neutral 6/3 split | 0.3647 (+0.0066), 29/13 swaps; paired +0.0001 (CI [-0.0048,+0.0048]) | flat score, better precision |
