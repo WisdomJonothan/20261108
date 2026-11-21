@@ -25,6 +25,8 @@ bge-base 稠密检索、bge-reranker-v2-m3 交叉编码器精排、z 归一化�
 dev TREC run 文件与官方 qrels 重算得到，可复现；fused 的 1000 深 run 未提交，
 可用 `scripts/fuse_scores.py` 从 dense top-1000 + CE 分数重建。
 
+Status after the second review round: [docs/STATUS_20261121.md](docs/STATUS_20261121.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate
