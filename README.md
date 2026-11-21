@@ -122,6 +122,9 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   + 3 condition pairs gives 0.3647 (+0.0066) with 29 helpful/13 harmful swaps, versus 0.3645
   (+0.0064) with 32/19 when all nine pairs go to the relevance question: paired +0.0001
   (CI [-0.0048,+0.0048]). Precision rises (69% vs 63%), score does not.
+* **Combining the two questions does not help.** Requiring both judges to agree gives 0.3612
+  (+0.0031, CI [+0.0008,+0.0061]) with 11 helpful/2 harmful swaps; a condition-question veto
+  cuts harmful swaps from 19 to 4 but also helpful swaps from 32 to 18, leaving +0.0035.
 * **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
   the cap stays at 3 because the cap-2 advantage was observed post hoc.
 * **Pair budget (single prediction cache).** Replaying the same Direct

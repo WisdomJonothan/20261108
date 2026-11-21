@@ -198,6 +198,21 @@ no signal precisely where the relevance judge is uncertain.
 The best split (6/3) is a paired +0.000149 over the all-relevance budget (CI [-0.00484, +0.00484], 12 queries better and 6 worse), i.e. precision improves (69% vs 63% of swaps
 helpful, harmful 19 -> 13) while the score does not move.
 
+## 6k. Combining the two judges
+
+Both judgement sets are cached over the same 4,671 pairs, so the combination rules can be
+replayed without new model calls (`scripts/ensemble_rule.py`, `scripts/veto_rule.py`).
+
+| rule | nDCG@10 | delta | 95% CI | pairs used | helpful | harmful |
+| --- | --- | --- | --- | --- | --- | --- |
+| relevance only (Direct) | 0.364609 | +0.006510 | [+0.00206, +0.01172] | 51 | 32 | 19 |
+| both questions must agree | 0.361234 | +0.003135 | [+0.00075, +0.00611] | 13 | 11 | 2 |
+| condition question vetoes (tau 0.45) | 0.361556 | +0.003457 | [+0.00099, +0.00650] | 22 | 18 | 4 |
+
+Agreement raises swap precision to 85% but keeps only 13 informative swaps; the veto removes
+harmful swaps and beneficial ones in the same proportion (32/19 -> 18/4), so neither
+composition beats asking the relevance question alone.
+
 ## 7. Fold evidence (train split, 969 queries)
 
 | fold | queries | nDCG@10 | delta | 95% CI |
