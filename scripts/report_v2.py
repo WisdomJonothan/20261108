@@ -250,6 +250,13 @@ if pm:
     a("Every cell is negative and no document is promoted, so the positive nDCG "
       "deltas measure ranking quality on the changed query text, not "
       "instruction-following.\n")
+ce = load(V2 / "followir" / "constraint_effect.json")
+if ce:
+    a("Applying the judge's swaps under the changed instructions raises graded nDCG@10 "
+      "from 0.1761 to 0.1825 on Core17, 0.2849 to 0.2978 on News21 and 0.2382 to 0.2430 "
+      "on Robust04, but only 1, 5 and 2 of the 15, 21 and 28 applied swaps actually "
+      "remove a document that the instruction change demoted. The stage improves the "
+      "ranking without explicitly targeting the changed constraint.\n")
 
 out = V2 / "REPORT.md"
 with open(out, "w", encoding="utf-8", newline=chr(10)) as f:

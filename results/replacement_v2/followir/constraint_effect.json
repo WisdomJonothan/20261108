@@ -1,0 +1,32 @@
+{
+  "core17": {
+    "queries": 20,
+    "swaps": 15,
+    "swaps_removing_demoted_doc": 1,
+    "ndcg_chg_base": 0.1760675779590479,
+    "ndcg_chg_after": 0.18248626994423084,
+    "queries_improved": 5,
+    "queries_harmed": 3,
+    "ndcg_chg_delta": 0.006418691985182924
+  },
+  "news21": {
+    "queries": 32,
+    "swaps": 21,
+    "swaps_removing_demoted_doc": 5,
+    "ndcg_chg_base": 0.28489285291367866,
+    "ndcg_chg_after": 0.297768630739719,
+    "queries_improved": 6,
+    "queries_harmed": 4,
+    "ndcg_chg_delta": 0.012875777826040343
+  },
+  "robust04": {
+    "queries": 52,
+    "swaps": 28,
+    "swaps_removing_demoted_doc": 2,
+    "ndcg_chg_base": 0.23819827309272887,
+    "ndcg_chg_after": 0.24295448087282434,
+    "queries_improved": 6,
+    "queries_harmed": 1,
+    "ndcg_chg_delta": 0.0047562077800954745
+  }
+}
