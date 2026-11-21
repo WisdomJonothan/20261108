@@ -247,6 +247,15 @@ if pm:
         a("| %s | %+.4f | %+.4f | %+.4f |"
           % (name, row["dense"]["p_mrr"], row["ce"]["p_mrr"], row["frozen"]["p_mrr"]))
     a("")
+ea = load(V2 / "error_analysis_dev.json")
+if ea:
+    a("## 6b. Where the recoverable gain sits\n")
+    a("Of the %d non-relevant slots in the 519 dev top-tens, %d hold a relevant document inside "
+      "the dense top-100, and every query improves under its best single replacement. The "
+      "recoverable gain splits 43.6%% / 35.0%% / 21.4%% across ranks 1-3 / 4-7 / 8-10. A "
+      "model-assisted label over 100 fixable slots gives temporal 41, entity scope 39, numeric 10, "
+      "exclusion 4, comparison 3, none 2.\n" % (ea["wrong_slots"],
+                                                 ea["wrong_slots_with_relevant_in_dense100"]))
     a("Every cell is negative and no document is promoted, so the positive nDCG "
       "deltas measure ranking quality on the changed query text, not "
       "instruction-following.\n")

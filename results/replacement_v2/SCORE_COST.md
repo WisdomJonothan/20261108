@@ -34,3 +34,17 @@
 | ce_gap_rule | +0.00492 | [+0.00229, +0.00806] | -0.00060 | 2916 |
 | ce_or_dense_gap | +0.00719 | [+0.00296, +0.01231] | -0.00032 | 2916 |
 | precall_cheap_gate | +0.00112 | [+0.00001, +0.00254] | - | 15.6% of pairs |
+
+## Single-cache budget curve (dev, no extra inference)
+
+Every Direct pair was judged in both orders, so the same prediction cache can be replayed under any pair ordering and any budget. Deltas are domain-macro nDCG@10 against the frozen 0.358099; prompts = 2 x judge calls.
+
+| ordering | k=1 | k=2 | k=3 | k=6 | k=9 |
+|---|---:|---:|---:|---:|---:|
+| slot order (8,9,10) | -0.0007 (519 calls) | +0.0007 (1038 calls) | +0.0002 (1557 calls) | +0.0066 (3114 calls) | +0.0065 (4671 calls) |
+| cheap-gap order | +0.0043 (519 calls) | +0.0035 (1038 calls) | +0.0046 (1557 calls) | +0.0059 (3114 calls) | +0.0065 (4671 calls) |
+| uncertainty order (AcuRank-style) | +0.0003 (519 calls) | +0.0000 (1038 calls) | +0.0003 (1557 calls) | -0.0020 (3114 calls) | +0.0065 (4671 calls) |
+| random order | +0.0017 (519 calls) | +0.0041 (1038 calls) | +0.0062 (1557 calls) | +0.0067 (3114 calls) | +0.0065 (4671 calls) |
+| oracle order | +0.0075 (519 calls) | +0.0104 (1038 calls) | +0.0115 (1557 calls) | +0.0099 (3114 calls) | +0.0065 (4671 calls) |
+
+The uncertainty ordering is the weakest policy at every budget below the full pool, and a random pair at k=3 is as good as the cheap-gap order: what the stage needs is that *some* pair is judged early, not that the gap or the uncertainty picks it. With the full pool all orderings collapse to the Direct result, and the oracle ordering bounds what pair selection could add ($+0.0075$ at one pair, $+0.0115$ at three).

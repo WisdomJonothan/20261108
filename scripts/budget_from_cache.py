@@ -13,6 +13,8 @@ Orderings compared
   cheapgap  ascending |dense score delta + cross-encoder z delta| (the frozen
             active-control ordering)
   random    a seeded random permutation
+  uncertain ascending |merged challenger probability - 0.5|, the AcuRank-style
+            uncertainty ordering adapted to our judge
   oracle    pairs sorted by their true nDCG delta (upper bound for that k)
 
 Outcome: results/replacement_v2/budget_cache_dev.json and a markdown table on
@@ -117,10 +119,12 @@ def main():
                      "order": {"fixed": list(range(len(pairs))),
                                "cheapgap": sorted(range(len(pairs)), key=lambda i: pairs[i]["gap"]),
                                "random": shuff,
+                               "uncertain": sorted(range(len(pairs)),
+                                                   key=lambda i: abs(pairs[i]["merged"] - 0.5)),
                                "oracle": sorted(range(len(pairs)), key=lambda i: -pairs[i]["delta"])}})
 
     results = {}
-    for name in ("fixed", "cheapgap", "random", "oracle"):
+    for name in ("fixed", "cheapgap", "uncertain", "random", "oracle"):
         for k in args.k:
             per_query, calls = [], 0
             for r in rows:

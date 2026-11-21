@@ -131,6 +131,10 @@ Official p-MRR (mteb rank_score; negative means documents that should drop under
 | news21 | -0.0094 | -0.0236 | -0.0208 |
 | robust04 | -0.0449 | -0.0214 | -0.0347 |
 
+## 6b. Where the recoverable gain sits
+
+Of the 4524 non-relevant slots in the 519 dev top-tens, 2497 hold a relevant document inside the dense top-100, and every query improves under its best single replacement. The recoverable gain splits 43.6% / 35.0% / 21.4% across ranks 1-3 / 4-7 / 8-10. A model-assisted label over 100 fixable slots gives temporal 41, entity scope 39, numeric 10, exclusion 4, comparison 3, none 2.
+
 Every cell is negative and no document is promoted, so the positive nDCG deltas measure ranking quality on the changed query text, not instruction-following.
 
 Applying the judge's swaps under the changed instructions raises graded nDCG@10 from 0.1761 to 0.1825 on Core17, 0.2849 to 0.2978 on News21 and 0.2382 to 0.2430 on Robust04, but only 1, 5 and 2 of the 15, 21 and 28 applied swaps actually remove a document that the instruction change demoted. The stage improves the ranking without explicitly targeting the changed constraint.

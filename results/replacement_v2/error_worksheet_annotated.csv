@@ -1,0 +1,1079 @@
+domain,qid,query,slot,current,candidate,best_delta,constraint_violation,evidence_span,label,candidate_ok,why,raw
+bitcoin,112021_76,"Is the Bitcoin Blockchain aware of time?
+<p>I recently learned about how the lightning network works, and one particular thing that I found interesting is that, to prevent fraud, the output for each commitment transaction contains a clause for the revocation secret. If a bad actor broadcasts a prior state of the payment channel to the blockchain, the other party can use the revocation secret within 24 hours to claim all the money held by the multi-sig address.</p>
+<p>My question is, how does the bitcoin blockchain know how to &quot;count&quot; 24 hours? Is there anything programmed in the blockchain for tracking time (e.g. UNIX time)?</p>
+",1,bitcoin/97179_4e85cd98e4f3fa6b_1.txt,bitcoin/efbbd80d_15148.txt,0.33916,,,temporal,True,"The document acknowledges that blocks can include timestamps, which addresses the question of how the blockchain tracks time, even if those timestamps can be manipulated or delayed.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document acknowledges that blocks can include timestamps, which addresses the question of how the blockchain tracks time, even if those timestam"
+bitcoin,112193_74,"Will a post-subsidy block with no transactions include a coinbase transaction?
+<p>If a block:</p>
+<ul>
+<li>Is after the last halving, so there is no subsidy</li>
+<li>Includes no non-coinbase transactions, so there are no fees</li>
+</ul>
+<p>Must it include a coinbase transaction? If so, will it simply have no outputs?</p>
+",1,bitcoin/a794529b_153240.txt,bitcoin/a7f226ee_13545.txt,0.39038,,,temporal,False,"The candidate document does not address the temporal condition of being after the last halving or a post-subsidy block with no transactions, which is essential to the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the temporal condition of being after the last halving or a post-subsidy block with no transactions, which "
+bitcoin,112929_69,"Is timestamping needed for anything except difficulty adjustment
+<p><a href=""https://bitcoin.stackexchange.com/q/68653/133124"">This question</a> asks about the role of timestamping and <a href=""https://bitcoin.stackexchange.com/a/68656/133124"">this answer</a> supports the assertion that the main role is block difficulty adjustment.</p>
+<p>On the other hand, the whitepaper claims that ordering blocks/transactions is important. I don't really understand this, but I must be missing something.</p>
+<p>It seems to me that PoW overwrites whatever timestamps there may be, and in effect determines what &quot;time&quot; is for the blockchain.</p>
+<p><strong>Question.</strong> What was the intended role of timestamping in the bitcoin whitepaper and is it still relevant?</p>
+",1,bitcoin/5ede7786_149621.txt,bitcoin/66f84d9c_14043.txt,0.613147,,,temporal,False,"The candidate document fails to address the intended role of timestamping in the Bitcoin whitepaper or its relevance, which is a temporal aspect of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the intended role of timestamping in the Bitcoin whitepaper or its relevance, which is a temporal aspect of"
+bitcoin,112979_68,"Can the mining reward ever go up?
+<p>Can the mining reward ever go up?</p>
+<p>I believe the answer is no, and the only way it will go up is if the miners decide to change the protocol.</p>
+<p>But, I wanted to check with the experts. Thanks!</p>
+",1,bitcoin/93210_4832ef868f8123dd_1.txt,bitcoin/c2c6773d_13865.txt,0.33916,,,temporal,True,"The document explains that the block reward halves every four years, which establishes a clear temporal pattern showing it cannot go up under normal circumstances, satisfying the temporal condition of the question.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document explains that the block reward halves every four years, which establishes a clear temporal pattern showing it cannot go up under normal"
+bitcoin,113500_66,"How can I check the balance for a given date?
+<p>Are there block explorers for Bitcoin that would let me check the balance for a given date/height? Or any other option/tool like an API?</p>
+",1,bitcoin/0da0de4c_13422.txt,bitcoin/39c65f62_12898.txt,0.613147,,,temporal,False,"The candidate document does not mention checking a balance for a specific date, which is a temporal requirement of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not mention checking a balance for a specific date, which is a temporal requirement of the question.""}"
+bitcoin,118364_58,"Automatic force closure and on chain settlement of expired HTLC
+<p>After roughly a month of mostly smooth operation <a href=""https://mempool.space/lightning/node/0315375788cca20f15f32ceaac237d89c656282a573b8aca775eaa9bc2054cf06f"" rel=""nofollow noreferrer"">a lightning node</a> (LND 0.16.2-beta) automatically initiated a force closure of a channel. Two days later an expired HTLC was settled on-chain. In both instances, high fees (~2-3 times the going rate) were automatically paid from the on-chain wallet of the node. Everything happened without any user intervention whatsoever. Here are the two transactions:</p>
+<p><a href=""https://mempool.space/tx/71c18287c075bf3eb9a5083b98701faa87071266e5f0fe33577885fbb1180901"" rel=""nofollow noreferrer"">https://mempool.space/tx/71c18287c075bf3eb9a5083b98701faa87071266e5f0fe33577885fbb1180901</a>
+<a href=""https://mempool.space/tx/2730193b26c2c2be70d20bb1e3f0e0d4eefed5283086320ae2f361af0f58aadf"" rel=""nofollow noreferrer"">https://mempool.space/tx/2730193b26c2c2be70d20bb1e3f0e0d4eefed5283086320ae2f361af0f58aadf</a></p>
+<p>The two transactions seem to be related in the sense that the expired HTLC was caused by the force closure.</p>
+<p>So, I'm trying to find out what caused the force closure. As far as I know the lightning network protocol is designed to have the bad actors bear the cost of their behavior and make everyone else whole, so I suspect that the node was misbehaving somehow?</p>
+<ul>
+<li>Could it be a connection issue (the node is only reachable via TOR)?</li>
+<li>How can the high fees for force closure/expired HTLC be avoided in the future, is this configurable anywhere?</li>
+</ul>
+<p>If you need more info (logs, etc.), I'd be happy to ask the operator to provide them.</p>
+",1,bitcoin/514ef69a_148673.txt,bitcoin/14b37ffa_11228.txt,0.274876,,,numeric,True,The candidate document provides a numeric relationship—more pending HTLCs lead to higher fees—aligning with the numeric condition of the question.,"{""label"": ""numeric"", ""candidate_ok"": true, ""why"": ""The candidate document provides a numeric relationship—more pending HTLCs lead to higher fees—aligning with the numeric condition of the question.""}"
+bitcoin,119507_50,"How did peer discovery work in Bitcoin v0.1?
+<p>Nowadays there are DNS seeds and hardcoded IP addresses, but back in the day when Satoshi released Bitcoin v0.1, how did new nodes connect to the rest of the network? My initial thought was that the first release would have Satoshi's IP address hardcoded, but I couldn't find anything of the sort in the source code.</p>
+",2,bitcoin/df5e7bcb_147872.txt,bitcoin/9b26a79d_9547.txt,0.296082,,,temporal,True,"The candidate document correctly describes the peer discovery method in Bitcoin v0.1, which aligns with the temporal context of the question.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The candidate document correctly describes the peer discovery method in Bitcoin v0.1, which aligns with the temporal context of the question.""}"
+bitcoin,120027_46,"What are the last common blocks of Bitcoin and its hard forks (Bitcoin Cash, Bitcoin SV etc.)?
+<p>What are the last common blocks of Bitcoin and its most popular hard forks like Bitcoin Cash, Bitcoin SV, Bitcoin Gold, Bitcoin Diamond etc.?</p>
+",1,bitcoin/1bb6d472_149973.txt,bitcoin/b7aa62c9_8951.txt,0.252943,,,entity_scope,False,"The candidate document only discusses Bitcoin Gold and does not address the last common blocks of Bitcoin and its hard forks, such as Bitcoin Cash or Bitcoin SV, failing to cover the required scope.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document only discusses Bitcoin Gold and does not address the last common blocks of Bitcoin and its hard forks, such as Bitcoin C"
+bitcoin,120273_40,"What is the logic (if there is) behind linking the nSequence and nLockTime?
+<p>The <code>nSequence</code> transaction field was originally intended for a replacement logic, but since it was never well thought out, it was never implemented. However, it has been implemented since the beginning that if the <code>nSequence</code> of all inputs is <code>0xffffffff</code>, then the <code>nLocktime</code> and the absolute time are not activated. Later, some additional features are added like the relative time lock consensus rule by not setting the 32nd bit and the RBF policy rule by setting the value of some <code>nSequence</code> within a transaction to a value less than <code>0xffffffff-1</code>.</p>
+<p>However, what I don't understand is why nSequence and nLocktime are made to have any relationship at all? If the nSequence was seen to have no original purpose (back in 2009), why wasn't it simply dropped from the transaction or left for some future purpose (as was eventually done through relative time locking and RBF)? Why did they make any connection between <code>nSequence</code> and <code>nLocktime</code>? If you don't want the absolute timelock, then just set it to 0x00000000 and that's it, <strong>why would it be disabled by setting all <code>nSequences</code> to <code>0xffffffff</code></strong>. I can not understand. Is there any logical reason behind linking these two?</p>
+",1,bitcoin/1bc34955_144982.txt,bitcoin/2e2d1414_7537.txt,0.33916,,,temporal,False,"The candidate fails to address the temporal relationship between nSequence and nLockTime as described in the question, particularly the mechanism where setting all nSequence values to 0xffffffff disables absolute nLockTime, which is a key temporal condition.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate fails to address the temporal relationship between nSequence and nLockTime as described in the question, particularly the mechanism w"
+bitcoin,121089_32,"Does hash_count field exists in getheaders/getblocks messages?
+<p><em>Ava Chow</em> said it does not exist (<a href=""https://bitcoin.stackexchange.com/a/121083/146389"">link</a>). If <code>hash_count</code> does not exist, how will the receiving peer know how many locators are in the message?</p>
+<p>I am not sure if he maybe thought that <code>hash_count</code> does not exist for <code>hash_stop</code> or it does not even exist for <code>locators</code>.</p>
+<p>Bitcoin wiki says it exists for both <code>getheaders</code> and <code>getblocks</code>:</p>
+<ul>
+<li><a href=""https://en.bitcoin.it/wiki/Protocol_documentation#getheaders"" rel=""nofollow noreferrer"">https://en.bitcoin.it/wiki/Protocol_documentation#getheaders</a></li>
+<li><a href=""https://en.bitcoin.it/wiki/Protocol_documentation#getblocks"" rel=""nofollow noreferrer"">https://en.bitcoin.it/wiki/Protocol_documentation#getblocks</a></li>
+</ul>
+<p><a href=""https://i.sstatic.net/J3pFt.png"" rel=""nofollow noreferrer""><img src=""https://i.sstatic.net/J3pFt.png"" alt=""enter image description here"" /></a></p>
+<p>Bitcoin for developers also mentions <code>hash_count</code> field:</p>
+<ul>
+<li><a href=""https://developer.bitcoin.org/reference/p2p_networking.html#getblocks"" rel=""nofollow noreferrer"">https://developer.bitcoin.org/reference/p2p_networking.html#getblocks</a></li>
+</ul>
+<p><a href=""https://i.sstatic.net/D5OhN.png"" rel=""nofollow noreferrer""><img src=""https://i.sstatic.net/D5OhN.png"" alt=""enter image description here"" /></a></p>
+<p>If <code>hash_count</code> is no longer used, when did that change in bitcoin core happen and how was compatibility with old nodes maintained?</p>
+",1,bitcoin/112862_fbbcd949245c19b8_14.txt,bitcoin/cb25fa23_6119.txt,0.469279,,,entity_scope,True,"The candidate document correctly describes the 'hash_count' field within the context of getheaders/getblocks messages, satisfying the entity scope condition.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate document correctly describes the 'hash_count' field within the context of getheaders/getblocks messages, satisfying the entity sco"
+bitcoin,122013_25,"What determines the block&#39;s timestamp?
+<p>As a miner, what happens if I propogate a block with a future timestamp, or yesterday's timestamp? What determines the block time? Can I just give any time here or is it okay to change it with 1-2 seconds?</p>
+<p><a href=""https://i.sstatic.net/5kNvH.png"" rel=""nofollow noreferrer""><img src=""https://i.sstatic.net/5kNvH.png"" alt=""enter image description here"" /></a></p>
+",1,bitcoin/a5a169a0_149184.txt,bitcoin/dd9c6358_4766.txt,0.39038,,,temporal,True,"The candidate correctly specifies that the timestamp must be strictly greater than the median time of the previous 11 blocks, which is a temporal condition related to time constraints in the blockchain.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The candidate correctly specifies that the timestamp must be strictly greater than the median time of the previous 11 blocks, which is a temporal co"
+bitcoin,126111_0,"Are Aqua Lightning Invoices and Liquid Addresses Valid for Long Term?
+<p>Using Aqua wallet on my android phone. As anyone familiar with Aqua knows, there is a <em>Savings</em> wallet (on chain) and there is a <em>Spending</em> wallet (liquid and lightning).</p>
+<p>So the question is, if I generate a lightning invoice for a specific number of sats, e.g. like <code>lnbc653...lgr4</code>, how long is it <em>valid</em> to receive funds? Forever, like an on chain address? If I send the invoice to someone today, and they decide to pay me after a week/month using the same invoice? Will I get the money?</p>
+<p>Same question about the liquid address (which do not have a specific amount of sats tied to them) as well. Are they valid forever like on-chain addresses?</p>
+",1,bitcoin/beb7cc2e_143003.txt,bitcoin/2d5676d6_0001.txt,0.469279,,,temporal,True,"The candidate acknowledges that Lightning invoices have time limits, which addresses the temporal validity of the invoice.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The candidate acknowledges that Lightning invoices have time limits, which addresses the temporal validity of the invoice.""}"
+bitcoin,93368_97,"Problem caused by unconfirmed transaction chains
+<p>I want to build a service that requires sending many small bitcoin transactions to multiple wallets (like a faucet). </p>
+
+<p>Since the transactions are small, the fees have to be kept small as well so it takes a while for them to be confirmed. </p>
+
+<p>The system would need to send many transactions, which naturally creates long chains of unconfirmed transactions. If I understand it correctly, after 25 unconfirmed transactions the network starts rejecting new ones, and the system is basically stuck until the previous ones gets confirmed. </p>
+
+<p>This limits the throughput of such a system to 25 transactions per confirmation time (which is at least a few hours given the low fees), making it completely unscalable.  </p>
+
+<p>Given the above, is there a way to build a (somewhat) scalable service that can send many small transactions? (without having to manage many wallets)</p>
+",1,bitcoin/8f6907aa_16781.txt,bitcoin/5ed2537e_20138.txt,0.613147,,,numeric,False,"The candidate document mentions a limit of 25 unconfirmed transactions, which is a numeric value directly relevant to the problem of unconfirmed transaction chains, but it fails to address the core issue of scalability or provide a solution for building a scalable service without managing many wallets, which is essential to the original question.","{""label"": ""numeric"", ""candidate_ok"": false, ""why"": ""The candidate document mentions a limit of 25 unconfirmed transactions, which is a numeric value directly relevant to the problem of unconfirmed tra"
+bitcoin,97135_89,"How to know Block height when a transaction entered Mempool?
+<p>I'm hosting a Listening Bitcoin Node in Capital of Pakistan. I want to know the Block height when Transaction entered the mempool. Right now I'm using the time from the Json format of the Transaction and Checking the Block height against it. Do you guys think that this method is reliable or I fear that transactions in my mempool have more latency than usual node in Europe. Should use an Api to find the Entry Block Height of the transaction?</p>
+<p>Please also suggest an api also?</p>
+",2,bitcoin/5b7af521_0951.txt,bitcoin/19756f30_18301.txt,0.296082,,,entity_scope,False,"The candidate document discusses a dataset of Bitcoin transactions but does not provide information on how to determine the block height when a transaction enters the mempool, failing to address the specific entity scope of the user's query.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses a dataset of Bitcoin transactions but does not provide information on how to determine the block height when a"
+bitcoin,97179_88,"Is there a way to see the precise time of when a transaction was sent out?
+<p>I'm a developer. I'm not really knowledgeable in bitcoin development, yet.</p>
+<p>Say, I'm using Electrum wallet. I share an address with someone. The thing is that I need this someone to pay a certain amount of BTC within a certain time-window, 15-30-60 minutes. It's because I have products that are priced in fiat money.</p>
+<p>That person will send me BTC. I may open my wallet not right away but in 12-30 hours, to check incoming payments. Or, even if I open it sooner, there may also be delays in BTC network and I won't see a payment, right?</p>
+<p><strong>Goal</strong>: to prevent a customer from taking a potential advantage of fluctuation of BTC/FIAT prices.</p>
+<p>I don't consider handling my payments via 3rd-party crypto-coin payment providers or their APIs.</p>
+<p>Is the <strong>precise date and time</strong> of <strong>when</strong> a payment was <strong>sent</strong> attached to a transcaction and can it be retrieved? How, where?</p>
+<p>Can it been seen in Electrum?</p>
+",1,bitcoin/a375a6a8_17985.txt,bitcoin/314fa2f2_17770.txt,0.39038,,,temporal,False,"The candidate document does not address the precise time when a transaction was sent, which is the core temporal requirement of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the precise time when a transaction was sent, which is the core temporal requirement of the question.""}"
+bitcoin,97236_86,"transaction (s) not going through due to low fees selected
+<p>I'm having a problem with a bitcoin transaction (not through btcpay, but i don't know where else to turn to). I sent 0.06btc from my wallet to my father (20 hours ago), and stupid as i am, decided to be a cheap bastard and chose the smallest fees. The transaction hasn't gone through and i don't know what todo...</p>
+<p><a href=""https://bitpay.com/insight/#/BTC/mainnet/tx/ea3536f6fc340a722633525eae720f2814da563fd3ca757c2736e2c92158327f"" rel=""nofollow noreferrer"">https://bitpay.com/insight/#/BTC/mainnet/tx/ea3536f6fc340a722633525eae720f2814da563fd3ca757c2736e2c92158327f</a></p>
+<p>about 4/5 hours ago, my father activated the option from his side saying he would pay the necessary fees (so he says)  but still nothing happens...
+Extra info: my wallet is Copay on iPhone and he's using Bitpay on android phone...</p>
+<p>Please help me get my mind at ease, what is supposed to happen here? and in what time frame?</p>
+<p>much appreciated for any information, even if it's just instruction on where else to go ask this...</p>
+",1,bitcoin/e467f195_7202.txt,bitcoin/c5cfb37a_17398.txt,1.0,,,entity_scope,True,"The candidate discusses CPFP as a method applicable to a receiver's action to accelerate a low-fee transaction, which aligns with the scope of the original question involving a transaction not going through due to low fees.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate discusses CPFP as a method applicable to a receiver's action to accelerate a low-fee transaction, which aligns with the scope of t"
+cardano,11106_102,"Can a smart contract execute itself automatically?
+<p>I was wondering wether a smart contract can execute automatically or not. For example, let's say I have a vesting contract that, when a certain deadline passes, automatically executes and send some funds to the beneficiary. Is this possible? Or this can only happen if there is a transaction that triggers the sending of funds? Do smart contracts on other blockchain have automatic execution?</p>
+",1,cardano/4df4b7af_10443.txt,cardano/ff08e47d_0062.txt,0.469279,,,temporal,True,"The document acknowledges that smart contracts cannot execute automatically on a schedule without external triggers, addressing the temporal condition of self-execution at a future time.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document acknowledges that smart contracts cannot execute automatically on a schedule without external triggers, addressing the temporal conditi"
+cardano,2164_133,"Is there anyway to cancel payment or revert a payment
+<p>Recently I came across a situation: a payment was executed by a customer on a site but then the consumer changed his mind.</p>
+<p>What levels of transaction revert of such activity can be done?</p>
+<p>e.g. X invested a coin into a dubious looking site and now there is no response from the site or site is taken down and site owner disappeared. Now what next can be done?</p>
+<p>Can a smart contract react to such situations where I put a timeline for response to revert payment back?</p>
+",1,cardano/0a2a3349_85632.txt,cardano/4b3c8ac6_6530.txt,0.235046,,,entity_scope,True,"The candidate document addresses the scope of chargebacks, which are relevant to payment reversion, and includes specific procedures and timelines for handling disputes, thus covering the necessary entity scope of payment cancellation or reversion.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate document addresses the scope of chargebacks, which are relevant to payment reversion, and includes specific procedures and timelin"
+cardano,4225_128,"Is there a way for a validator to get the current time?
+<p>Is it possible for a validator to get the current time without it being passed in via the redeemer? My validator is heavily dependent on the time being correct so it would probably be a bad design choice to allow the wallet to pass in the time, as it can lie about the current time.</p>
+",1,cardano/8c8d56e6_3787.txt,cardano/7c471e17_5339.txt,0.613147,,,temporal,True,"The document describes how validators can use validity intervals to check time-based conditions, such as requiring a transaction to occur after a specific date, thus addressing the temporal aspect of getting current time.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document describes how validators can use validity intervals to check time-based conditions, such as requiring a transaction to occur after a sp"
+cardano,4775_121,"Delegation Deposit
+<p>When delegating for the first time there is a 2 ADA deposit being spent.</p>
+<p>Is this 2 ADA ever returned? if yes when is it returned and how?</p>
+",1,cardano/7adcde93_4899.txt,cardano/ff1d1e24_4143.txt,0.613147,,,temporal,False,"The candidate does not specify when the 2 ADA deposit is returned, failing to address the temporal condition of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate does not specify when the 2 ADA deposit is returned, failing to address the temporal condition of the question.""}"
+cardano,6918_119,"How does Cardano execute real time transactions if block time is 20 seconds?
+<p>New to the crypto space, please correct me if I misunderstood the meaning of block time.</p>
+<p>When a cardano node submits a transaction, it goes to a local mempool and submitted on the blockchain for verification. Let's assume this part is instantaneous from the wallet node.</p>
+<p><a href=""https://developers.cardano.org/docs/stake-pool-course/introduction-to-cardano/#slots-and-epochs"" rel=""nofollow noreferrer"">The official docs</a> state that blocks are produced every 20 seconds. In other words, even if the validator nodes receive the transaction immediately, they will wait upto another 20 seconds, and then create a new block to broadcast.</p>
+<p>This implies even a low assurance for block will take atleast 20 seconds. In my experience with cardano wallets (before the dexes were launched), it rarely took more than 10 seconds to get a high assurance for transaction.</p>
+<p>I also read on the forums that 20 seconds block time is configurable, and can't be enforced on a node. So are we relying on SPOs to use a low block creation time interval to solve real time transactions in the long run?</p>
+",1,cardano/63185957_3474.txt,cardano/be2bfebe_3324.txt,0.469279,,,temporal,True,"The document correctly states that blocks are created on average every 20 seconds, aligning with the temporal condition of the question regarding real-time transaction execution in relation to block time.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document correctly states that blocks are created on average every 20 seconds, aligning with the temporal condition of the question regarding re"
+cardano,7564_114,"How to implement Vesting smartcontract with time period longer than 36 hours?
+<h1>Context</h1>
+<p>In third weeks plutus pioneer lecture lars said that Vesting period shouldn't be longer than 36 hours. He argued that this is because time is calculated in slots on-chain and that this parameter might change in the future:</p>
+<blockquote>
+<p>There is one slight complication that Ouroboros, the consensus protocol powering Cardano, does not use POSIX time; it uses slots. Plutus uses real time, so we need to be able to convert back and forth between real time and slots. Right now, the slot length is one second. Knowing that, it is easy to go back and forth between real time and slot numbers. However, this could change in future through a parameter change via a hard fork. And, of course, we can't know that in advance.</p>
+</blockquote>
+<blockquote>
+<p>We do not know right now what the slot length will be in 10 years, for example. This
+means that we must not have a definite upper bound. We know what the slot length will be
+in the next 36 hours because if there's a change in protocol parameters, then we know that at least 36 hours in advance.You can not specify arbitrary time ranges in the transaction interval. It must only be at most 36 hours in the future, or it can be indefinite.</p>
+</blockquote>
+<p>I would like to implement vesting smartcontract but for much longer time periods, for example 9 months.</p>
+<h1>Problem</h1>
+<p>Right now I see two ways to implement restriction by time:</p>
+<ol>
+<li>Use <code>txInfoValidRange</code> by specifying transaction valid range. However I see a huge problem here or maybe I just dont' understand <code>tx valid range</code> correctly. Lets say that validator is of <strong>alwayssucceeds</strong> type but with added <code>tx valid range</code> check. I don't get it how to guarantee that funds are to be locked until specified SLOT, since in this case anyone can build transaction with w/e <code>--invalid-before SLOT</code> parameter they want.</li>
+</ol>
+<pre><code>data VestingDatum = VestingDatum
+   { deadline    :: POSIXTime
+   } deriving Show
+
+{-# INLINABLE mkValidator #-}
+mkValidator :: VestingDatum -&gt; () -&gt; ScriptContext -&gt; Bool
+mkValidator dat () ctx = traceIfFalse &quot;deadline not reached&quot; deadlineReached
+ where
+   info :: TxInfo
+   info = scriptContextTxInfo ctx
+
+   deadlineReached :: Bool
+   deadlineReached = contains (from $ deadline dat) $ txInfoValidRange info
+</code></pre>
+<ol start=""2"">
+<li>Provide some kind of time NFT from oracle.</li>
+</ol>
+<h1>Questions</h1>
+<ol>
+<li>What is currently the best way to implement Vesting with longer than 36 hours time periods?</li>
+<li>How likely is 1 SLOT == 1 Second parameter to change in the future, when and by how much?</li>
+<li>Does universal time NFT oracle exist in Cardano ecosystem?</li>
+<li>Is there a way to provide restriction that for funds to be unlocked from the smartcontract transaction <strong>must</strong> have specific <code>--invalid-before SLOT</code> parameter?</li>
+</ol>
+",2,cardano/94c60674_1831.txt,cardano/5a21aaef_2654.txt,0.296082,,,temporal,False,"The candidate document fails to address the necessary condition that vesting periods must not exceed 36 hours due to on-chain time slot limitations, which is a key temporal constraint in the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the necessary condition that vesting periods must not exceed 36 hours due to on-chain time slot limitations"
+cardano,80_150,"What is the expected ROA (Return of ADA) after all coins are minted?
+<p>After all coins are minted as far as I know the rewards will come from the transactions fees. At the moment we have 4.5 to 6.0% annual return of staked ADAs. When and how this will change after we reach 45 000 000 000 coins in circulation?</p>
+",1,cardano/7599_07cc3e82f6f84567_38.txt,cardano/cf63108c_11186.txt,0.613147,,,numeric,True,"The document specifies a parameterizable rate and mentions a fixed percentage of the reserve being used for rewards, providing a numeric basis for the reward calculation.","{""label"": ""numeric"", ""candidate_ok"": true, ""why"": ""The document specifies a parameterizable rate and mentions a fixed percentage of the reserve being used for rewards, providing a numeric basis for th"
+cardano,9250_104,"Why does staking happen with a delay?
+<p>In Cardano, AFAICU, at the beginning of an epoch a snapshot is taken of the <em>end state</em> of previous epoch to see who staked, how much and where. But it seems that <em>that state</em> is not used as for that current epoch but for the next one instead. Is there a particular reason for this?</p>
+<p>E.g is it because to have time to calculate slot leaders and then let them know that they need to start producing blocks? Are there other reasons?</p>
+<p>It seems somewhat counterintuitive that by the time one is &quot;staking&quot; the actual funds might be long gone, delegated to another pool or not staked at all. Though I understand that this doesn't break the system and that it's just a delay.</p>
+",1,cardano/c073fce2_2662.txt,cardano/78bd1516_0503.txt,0.613147,,,temporal,True,"The document explains that the epoch nonce is derived from the previous epoch's block headers, which introduces a delay in leader selection because the current epoch's leadership is based on the previous epoch's state, satisfying the temporal condition of staking delay.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document explains that the epoch nonce is derived from the previous epoch's block headers, which introduces a delay in leader selection because "
+economics,43952_227,"Why we need to control for the interation of year and industry fixed effects?
+<p>Normally, we control for firm and year fixed effects, but in some case I saw people control for the  firm along with yearxindustry or firm and yearxregion fixed effects.
+Could you please hint me why they need to do so?</p>
+",1,economics/1504ea86_13442.txt,economics/2d6b6de6_13253.txt,0.39038,,,entity_scope,False,"The candidate document does not address the specific interaction of year and industry fixed effects or explain why such control is necessary, failing to meet the entity_scope condition related to the specific entities (year and industry) in the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the specific interaction of year and industry fixed effects or explain why such control is necessary, f"
+economics,45773_222,"Have the deregulation measures that caused the 2007-2008 crisis been rolled back?
+<p>The 2007-2008 financial crisis <a href=""https://www.thebalance.com/what-caused-2008-global-financial-crisis-3306176"" rel=""nofollow noreferrer"">was largely attributed</a> to <a href=""https://en.wikipedia.org/wiki/Financial_crisis_of_2007%E2%80%932008#Deregulation_and_lack_of_regulation"" rel=""nofollow noreferrer"">several deregulation measures</a>, especially the <a href=""https://en.wikipedia.org/wiki/Gramm%E2%80%93Leach%E2%80%93Bliley_Act"" rel=""nofollow noreferrer"">Gramm-Leach-Bliley act</a>. Have any of these measures been rolled back after the crisis, or new ones introduced to prevent a similar crisis?</p>
+",1,economics/45773_45d08609ab47a536_4.txt,economics/23e922bd_12573.txt,0.302602,,,exclusion,False,"The candidate document does not address whether deregulation measures that caused the 2007-2008 crisis have been rolled back, instead discussing potential future deregulation and its risks, thus failing to meet the exclusion condition of the question.","{""label"": ""exclusion"", ""candidate_ok"": false, ""why"": ""The candidate document does not address whether deregulation measures that caused the 2007-2008 crisis have been rolled back, instead discussing p"
+economics,47454_216,"Is there any reason to test Difference-in-Differences if paralell trend is weakly violated?
+<p>Normally when testing the parallel trend assumption in the Difference-in-Differences setting, we normally conduct the joint null test for the coefficients of pre-treatment periods. Normally, while the p-value of this test is higher than 0.1, so the parallel is satisfied. I am wondering if p-value of this test is 0.0979, whether I have any reason to conduct the Difference-in-Differences test?</p>
+",2,economics/815df36d_6968.txt,economics/6f8718e8_10960.txt,0.386853,,,none,True,"The document does not fail to meet any necessary condition related to temporal, exclusion, entity_scope, numeric, comparison, or other aspects of the question.","{""label"": ""none"", ""candidate_ok"": true, ""why"": ""The document does not fail to meet any necessary condition related to temporal, exclusion, entity_scope, numeric, comparison, or other aspects of the qu"
+economics,47636_213,"How to explain the meaning of the coefficient of interest of Difference-in-Differences?
+<p>Considering a Difference-in-Differences (DiD) equation with a dummy variable:</p>
+<p><span class=""math-container"">$$
+y_i = \alpha + \beta D_i + Xit + \varepsilon_i.
+$$</span>
+While <span class=""math-container"">$$Xit$$</span>
+is a set of covariates.
+Let's say the DiD here has the frequency is year and unit level is country. The outcome variable is number of rich people per million (yearly data).</p>
+<p>Can I explain that <span class=""math-container"">$\beta$</span> as below:
+Let's say  <span class=""math-container"">$\beta$</span>= -0.5</p>
+<p><strong>The number of rich people in the treatment group <em>decrease 0.5 per million of people per year (annually average) compared to that of control group</em> after the event date?</strong></p>
+",1,economics/43579_a39b92a8688a2615_0.txt,economics/416765db_10473.txt,0.613147,,,temporal,False,"The candidate document fails to establish a clear temporal interpretation of the coefficient β as a change over time, such as 'decrease per year,' which is essential for explaining the meaning of β in the context of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document fails to establish a clear temporal interpretation of the coefficient β as a change over time, such as 'decrease per year,' "
+economics,47763_212,"Is it a need to test auto-correlation in Difference-in-Difference?
+<p>Sometimes we should put the lag of response variable to a model due to auto-correlation (how to check <strong>auto-correlation</strong> can be seen <a href=""https://www.statalist.org/forums/forum/general-stata-discussion/general/1595478-durbin-watson-d-statistic"" rel=""nofollow noreferrer"">here</a> in Stata (comment #11) by using Durbin Watson test).</p>
+<p>However, sometimes, I did not see the author put the lag variable into the Difference-in-Difference model, for example <a href=""https://academic.oup.com/rfs/article-abstract/32/7/2587/5079300?redirectedFrom=fulltext"" rel=""nofollow noreferrer"">Dasgupta, 2019</a>, that confuses me because I think adding the lag of response variable is almost a must in any research study, especially for the accounting variable that the following year data would be highly correlate to the previous year.</p>
+<p>Many thanks and warm regards.</p>
+",1,economics/20dcf5bf_10470.txt,economics/fdb496f3_10367.txt,0.469279,,,entity_scope,False,"The candidate document discusses general regression practices and LDVs in political science without addressing the specific context of Difference-in-Differences or auto-correlation in that framework, failing to establish the relevant entity scope (DiD models and their error structure).","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses general regression practices and LDVs in political science without addressing the specific context of Differen"
+economics,48548_206,"Should I care about the actual CPI value or just the rate of change?
+<p>I'm trying to understand the Y-axis of the Consumer Price Index for All Urban Consumers: New Vehicles in U.S. City Average:</p>
+<p><a href=""https://fred.stlouisfed.org/series/CUSR0000SETA01"" rel=""nofollow noreferrer"">https://fred.stlouisfed.org/series/CUSR0000SETA01</a></p>
+<p>BLS.gov states that the CPI is derived from the total transaction price of a vehicle.</p>
+<p><a href=""https://www.bls.gov/cpi/factsheets/new-vehicles.htm"" rel=""nofollow noreferrer"">https://www.bls.gov/cpi/factsheets/new-vehicles.htm</a></p>
+<p>However, the value on the Y-axis on the CPI doesn't seem to represent a transaction price.</p>
+<p>So my questions are:</p>
+<ol>
+<li>How may I associate CPI to vehicle cost/price in dollars (USD) for a given year?</li>
+<li>Does the CPI value actually matter or is it the change over time that matters?</li>
+<li>How does one explain this rate of change in terms of dollars?</li>
+<li>Is there a better indicator of change in price of new automobiles?</li>
+</ol>
+",1,economics/45828_7b1162ddbe918fb4_1.txt,economics/8db1da93_9156.txt,0.39038,,,numeric,True,"The document provides a clear numeric example (CPI in 2020 turns out to be 115) that illustrates how CPI values are used to represent price levels over time, satisfying the numeric condition of the question.","{""label"": ""numeric"", ""candidate_ok"": true, ""why"": ""The document provides a clear numeric example (CPI in 2020 turns out to be 115) that illustrates how CPI values are used to represent price levels ov"
+economics,49965_204,"Why does synthetic control not suffer from backdoor confounders?
+<p>From Scott Cunningham in <em>Mixtape</em>, on propensity score matching:</p>
+<blockquote>
+<p>propensity score matching has not seen as wide adoption among
+economists as in other non-experimental methods like regression
+discontinuity or difference-in-differences. The most common reason
+given for this is that economists are oftentimes skeptical that the conditional independence assumption
+can be achieved in any data set—almost as an article of faith. This is
+because for many applications, economists as a group are usually more
+concerned about selection on unobservables than they are selection on
+observables, and as such, they reach for matching methods less often.</p>
+</blockquote>
+<p>Synthetic control seems simply to be a more sophisticated method of matching, where instead of matching each outcome with one observation per treated observation, we are matching based on a weighted average of observations.</p>
+<p>Again, from Cunningham (on synthetic control):</p>
+<blockquote>
+<p>What about unobserved factors? Comparative case studies are
+complicated by unmeasured factors affecting the outcome of interest as
+well as heterogeneity in the effect of observed and unobserved
+factors. Abadie, Diamond, and Hainmueller (2010) note that if the
+number of pre-intervention periods in the data is “large,” then
+matching on pre-intervention outcomes can allow us to control for the
+heterogeneous responses to multiple unobserved factors. The intuition
+here is that <em>only units that are alike on unobservables and
+observables would follow a similar trajectory pre-treatment.</em></p>
+</blockquote>
+<p><strong>However, if I am weighting my observations by training on the pre-treatment period, is it not possible that there is some variable <span class=""math-container"">$X$</span> that will still confound and bias my estimates?</strong></p>
+<p><em><strong>e.g.</strong></em> Say I want to evaluate the effectiveness of a medical intervention on lowering hospital costs. The likelihood of receiving treatment is based on a doctor's subjective assessment of how sick the patient <em>will be</em> in the future (unobserved confounding variable <span class=""math-container"">$X$</span>). Now, I so happen to have 3 covariates on my patients: sex, age, and income. I use that data to select my optimal weights for the post-treatment period.
+So, in this case:</p>
+<ol>
+<li><p>Isn't synthetic control only applicable in this case insofar as my
+covariates are able to roughly approximate <span class=""math-container"">$X$</span>? In this case, is it
+not entirely possible that they will <em>not</em>, even if I achieve a
+tight cross-validated fit in the pre-treatment period? -- i.e. the doctor knows something about the patients' future condition that my 3 variables cannot describe, <em>even if</em> my 3 variables are able to accurately reflect patients' costs pre-treatment.</p>
+</li>
+<li><p>Additionally, how do I know that the relationship between the
+outcome of interest and my covariates do not change across time? Let's say sex, age, and income so happen to not be relevant for
+predicting patient hospital costs in 2022, even though they were
+quite effective in 2019 (potentially because of a confounding
+variable like a global pandemic). Wouldn't synthetic control
+completely misattribute the causal effect of the intervention? Or would this be moot using randomization inference?</p>
+</li>
+</ol>
+",1,economics/f359008a_8897.txt,economics/761148eb_8774.txt,0.39038,,,exclusion,False,"The candidate document fails to address the exclusion of unobserved confounders, which is essential to answering why synthetic control does not suffer from backdoor confounders.","{""label"": ""exclusion"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the exclusion of unobserved confounders, which is essential to answering why synthetic control does not su"
+economics,50570_202,"Why did Allied countries not freeze German and Japanese central bank assets in WWII?
+<p>Supposedly such an action would cause massive turmoil in their domestic markets, cause exchange rates to rise, inflation to rise, and thus prevent them from engaging in meaningful trade. Why did Allied countries not try this in WWII? Was the world simply not as connected then?</p>
+",3,economics/51527_a61a0d00abfba07e_4.txt,economics/ba37851f_8344.txt,0.137438,,,entity_scope,False,"The document does not address Allied countries' decisions regarding German and Japanese central bank assets during WWII, failing to cover the relevant entity scope of central banks in Germany and Japan.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The document does not address Allied countries' decisions regarding German and Japanese central bank assets during WWII, failing to cover the r"
+economics,51330_198,"Do anticipation effects almost always bias the DiD ATE or ATT towards a null result and increase standard errors?
+<p>I am trying to implement a difference in difference model.
+Suppose that some treated units anticipate the treatment.
+Then, that would mean that they respond to the treatment <em>prior</em> to the treatment actually occuring.
+Since the treatment effect would then be present in the &quot;pre&quot; period, it seems like this would almost always bias the relative post-period treatment effect downwards in magnitude.</p>
+<p>In this sense, it never really matters if there is an anticipation effect. If there <em>is</em> an anticipation effect, all it does is decrease my Type 1 error rate and increase my Type 2 error rate. Given publication bias often results in a high Type 1 error rate (I discover some treatment effect that doesn't exist), isn't the &quot;anticipation effect&quot; really a moot point?</p>
+<p>Thanks in advance!</p>
+",1,economics/fe2c266b_89537.txt,economics/24b62045_9747.txt,0.613147,,,comparison,True,"The candidate document explicitly compares the estimated treatment effects with and without accounting for anticipation, satisfying the comparison condition of the question.","{""label"": ""comparison"", ""candidate_ok"": true, ""why"": ""The candidate document explicitly compares the estimated treatment effects with and without accounting for anticipation, satisfying the comparison"
+economics,52071_193,"Can inflation in a context of fixed production of good and services be calculated?
+<p>According to,</p>
+<p><a href=""https://www.stlouisfed.org/education/feducation-video-series/episode-1-money-and-inflation#:%7E:text=To%20summarize%2C%20the%20money%20supply,leading%20to%20increases%20in%20unemployment."" rel=""nofollow noreferrer"">Money and inflation</a></p>
+<blockquote>
+<p>To summarize, the money supply is important because if the money
+supply grows at a faster rate than the economy's ability to produce
+goods and services, then inflation will result.</p>
+</blockquote>
+<p>Suppose you know your production of good and services hasnt grown in a year, suppose the amount of money was in an optimal relation with the amount of good and services (if such thing exists), but your government decides to duplicate the amount of circulating money, can you calculate how much inflation will you have after a period of time? (I believe I heard it takes some months to reflect the impact of money emission in the prices of good and services). Is there an equation or something to calculate this?</p>
+",1,economics/52c6e068_3673.txt,economics/e0219547_6338.txt,0.39038,,,temporal,False,"The candidate document does not address the time lag or duration required for inflation to reflect changes in money supply, which is a key temporal condition in the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the time lag or duration required for inflation to reflect changes in money supply, which is a key temporal"
+economics,55201_179,"Inflation adjustment: CPI less than one
+<p>I need help on how to adjust my figures by inflation.</p>
+<p>I have two pieces of data. The first one is a company's nominal expenditures during the 2015-2020 period:</p>
+<pre><code>2015:$1,177,237
+2016:$1,915,074
+2017:$1,158,556
+2018:$1,730,966
+2019:$2,055,497
+2020:$2,821,883
+</code></pre>
+<p>I need adjust those figures for inflation. I have the yearly Consumer Price Index with 2018 as the base year.</p>
+<pre><code>2015:87.65457
+2016:90.12792
+2017:95.57296
+2018:100
+2019:103.90067
+2020:107.43
+</code></pre>
+<p>How should I adjust the expenditures to 2018 prices?</p>
+<p>Thanks</p>
+",1,economics/065433e0_9158.txt,economics/4c363fd8_4296.txt,0.613147,,,entity_scope,False,"The candidate document fails to address the specific context of adjusting expenditures using CPI with 2018 as the base year, which is required by the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the specific context of adjusting expenditures using CPI with 2018 as the base year, which is required "
+economics,57769_170,"Present Value of Profits Earned From the Discovery of New Ideas in the Romer Model
+<p>Page 127-128 of Romer's Advanced Macroeconomics states that</p>
+<blockquote>
+<p>Equation (3.39) tells us that the profits at t are <span class=""math-container"">$\left[\frac{(1-\phi)}{\phi}\right]\left[\frac{(\bar{L}-L_{A})w(t)}{A(t)}\right]$</span>. These profits grow at the growth rate of <span class=""math-container"">$w$</span>, <span class=""math-container"">$\left[\frac{(1-\phi)}{\phi}\right]BL_{A}$</span>, minus the growth rate of <span class=""math-container"">$A$</span>, <span class=""math-container"">$BL_{A}$</span>. They are discounted at rate <span class=""math-container"">$r$</span>, <span class=""math-container"">$\rho + \left[\frac{(1-\phi)}{\phi}\right]BL_{A}$</span>. The present value of the profits earned from the discovery of a new idea at time <span class=""math-container"">$t$</span> is therefore <span class=""math-container"">$$R(t)=\frac{\frac{(1-\phi)}{\phi} \frac{\bar{L}-L_{A}}{A(t)}w(t)}{\rho + BL_{A}}.$$</span></p>
+</blockquote>
+<p>Note that since <span class=""math-container"">$L_{A}$</span> is constant, the real interest rate is constant.</p>
+<p>However, it is unclear to me how the present value of profits was computed. I understand how the formula for the profits <span class=""math-container"">$\pi(t)$</span>, interest rate <span class=""math-container"">$r(t)$</span>, and the growth rates of wages <span class=""math-container"">$w(t)$</span> and ideas <span class=""math-container"">$A(t)$</span> are derived, but I don't know how they come together to form the equation above.</p>
+<p>This is what I've been able to deduce so far. Since profit is given by <span class=""math-container"">$\pi(t)=\left[\frac{(1-\phi)}{\phi}\right]\left[\frac{(\bar{L}-L_{A})w(t)}{A(t)}\right]$</span>, the growth rate of profits can be expressed as <span class=""math-container"">$\frac{\dot{\pi}(t)}{\pi(t)} = \frac{\dot{w}(t)}{w(t)} - \frac{\dot{A}(t)}{A(t)}$</span> and therefore <span class=""math-container"">$\frac{\dot{\pi}(t)}{\pi(t)} = \left[\frac{(1-\phi)}{\phi}\right]BL_{A}-BL_{A}$</span>. Taking the difference between the interest rate <span class=""math-container"">$r(t) = \rho + \left[\frac{(1-\phi)}{\phi}\right]BL_{A}$</span> and the growth rate of profits yields
+<span class=""math-container"">\begin{equation}
+\begin{split}
+r(t) - \frac{\dot{\pi}(t)}{\pi(t)} &amp; = \rho + \left[\frac{(1-\phi)}{\phi}\right]BL_{A} - \left(\left[\frac{(1-\phi)}{\phi}\right]BL_{A}-BL_{A} \right) \\
+&amp; = \rho + BL_{A},
+\end{split}
+\end{equation}</span>
+and so it follows that the equation for present value of profits can be re-expressed as <span class=""math-container"">$$ R(t) = \frac{\pi(t)}{r(t) - \frac{\dot{\pi}(t)}{\pi(t)}}, $$</span>
+but this equation doesn't make it clear for me in terms of understanding how present value of profits was determined. Why would we need to deduct the growth rate of profits from the interest rate and then divide the profits by this quantity to get the present value?</p>
+",1,economics/45680_e7092497f88afe56_588.txt,economics/f4ccff67_3123.txt,0.469279,,,entity_scope,False,"The candidate document discusses a general concept of growing perpetuity and does not address the specific context of profits from the discovery of new ideas in the Romer model, failing to match the entity scope of the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses a general concept of growing perpetuity and does not address the specific context of profits from the discover"
+economics,58503_167,"Delinquency rate on student loans in the United States
+<p>Why is the delinquency rate (90 days+) on student loans at an all time low in the United States (as illustrated in the last Household debt and credit report of the New York Fed).</p>
+<p>For most borrowers, the first payment after the payment pause ended was due in October 2023 so it seems to me that it should be up by now. Could it be the Federal Student Loan Debt Relief ?</p>
+<p>Thanks !</p>
+",1,economics/b986d9fb_2740.txt,economics/f2cf30ce_2568.txt,0.302602,,,temporal,True,"The candidate document correctly specifies the temporal timeline of the on-ramp period ending and delinquency reporting beginning in January 2025, which aligns with the question's focus on the current state of delinquency rates.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The candidate document correctly specifies the temporal timeline of the on-ramp period ending and delinquency reporting beginning in January 2025, w"
+economics,59178_164,"When will the economic consequences of aging populations level out?
+<p>Unclear if this is purely an economics question.</p>
+<p>It is well known that many Western countries are suffering increasingly from having aging populations. In particular, in the UK, Government projections indicate the Old Age Support Ratio will fall by almost a third between 2022 and 2037.<span class=""math-container"">$^1$</span></p>
+<p>This causes increasing strain in terms of healthcare costs, pension costs, etc, with the fundamental issue seeming to be that these changes are outpacing economic growth (e.g. the UK NHS has seen above inflation funding increases over the last decade, but this is far outpaced by the increase required due to demographic changes).</p>
+<p>My question is this: do we know when it will end? At some point, surely, the population pyramid must level out. Surely at some point the issue must stabilise, at which point economic growth can slowly chip away at the problem, rather than continually going backwards. When is this expected to occur for the UK?</p>
+<p>I should clarify I’m not just purely referring to the demographics, since I’m interested in the economic consequences arising from those demographics - I am assuming fixing one problem will fix the other though.</p>
+<p>¹ <a href=""https://assets.publishing.service.gov.uk/media/5d273adce5274a5862768ff9/future-of-an-ageing-population.pdf"" rel=""nofollow noreferrer"">https://assets.publishing.service.gov.uk/media/5d273adce5274a5862768ff9/future-of-an-ageing-population.pdf</a></p>
+",1,economics/56372_eab9de9c786ddfb9_126.txt,economics/ac7956ca_2105.txt,0.302602,,,temporal,False,"The candidate document does not specify any timeframe or date when the economic consequences of aging populations will level out, failing to address the temporal condition of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not specify any timeframe or date when the economic consequences of aging populations will level out, failing to addres"
+economics,60545_155,"education economics and society effect on educational norms
+<p>I've been looking for a research question, and my research area is education economics. I was looking into how education can accelerate technological change and found logically institutions aren't enough to cause a great education system, and society/culture at large plays a big role in making places that are conducive to technological change and economic development. However, I am struggling to understand what about societies specifically affects educational norms when looking at history. Does anyone know of a good paper to read or any insight into the problem?</p>
+<p>Sincerely,
+Jade</p>
+",1,economics/8981654d_0367.txt,economics/006b65bc_0361.txt,0.613147,,,entity_scope,False,"The candidate document fails to address the specific effect of education, economics, and society on educational norms, focusing instead on cultural changes and institutions in a broad historical context without linking them to educational norms.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the specific effect of education, economics, and society on educational norms, focusing instead on cult"
+economics,60625_152,"Does the business &quot;cycle&quot; imply expansions must end in a recession?
+<p>Can an expansion simply end with a slowdown restoring growth back to trend growth and the economy then staying here for a while and then perhaps expanding again, or does a an expansion have to result in economic activity dropping below trend?</p>
+<p>Does economic activity always alternate back and forth, above and below trend?</p>
+",1,economics/60625_85fae324b4320ec2_1.txt,economics/65f29d47_0094.txt,0.252943,,,comparison,True,"The candidate document compares different types of business cycles and their phases, aligning with the question's inquiry about whether expansions must end in a recession, by describing alternative models where expansions may not necessarily end in recession.","{""label"": ""comparison"", ""candidate_ok"": true, ""why"": ""The candidate document compares different types of business cycles and their phases, aligning with the question's inquiry about whether expansions"
+genealogy,11739_303,"How far back is a mtDNA match of genetic distance 2 likely to be?
+<p>On FamilyTreeDNA, for haplogroup H1, my closest matches are all genetic distance of 2 for HVR1, HVR2, CODING REGIONS.  I don't see any tool to predict the number of generations like we have for yDNA test, so I'm wondering what is the likely number of generations given that mtDNA mutates more slowly than yDNA?</p>
+",1,genealogy/ab90f3e6_7369.txt,genealogy/e88d33be_6993.txt,0.613147,,,entity_scope,False,"The candidate document discusses autosomal DNA testing and ancestry records, not mtDNA matches or genetic distance, thus failing to address the specific entity scope of mtDNA matches with genetic distance 2.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses autosomal DNA testing and ancestry records, not mtDNA matches or genetic distance, thus failing to address the"
+genealogy,11818_301,"Finding who owned/managed Yorkshire Hall Plantation in Demerara (Guyana) in early 19th century?
+<p>This question is related to an earlier one (<a href=""https://genealogy.stackexchange.com/questions/6655/where-to-find-will-of-giles-chichester-from-1820s-probably-in-somerset-or-guyan"">Where to find Will of Giles Chichester from 1820s, probably in Somerset or Guyana?</a>) and more generally to the time that three (possibly four) brothers of my direct ancestors Priscilla (3rd great grandmother) and Robert Chichester (4th great grandfather) spent in Demerara (now Guyana) during the early 19th century.</p>
+
+<p>My current interest is in seeing whether researching Yorkshire Hall plantation might shed some light:</p>
+
+<ul>
+<li>In 1825 William Chichester (Robert's brother) is recorded as being the Proprietor of Plantations Yorkshire Hall and Zealand in</li>
+</ul>
+
+<blockquote>
+  <p>DEMERARA AND ESSEQUIBO VADE-MECUM.  A. Stevenson, at the Guiana
+  Chronicle Office, 1825 - 311 pages.</p>
+</blockquote>
+
+<ul>
+<li>William seems to have been associated with Plantation Zealand since at least 13 Aug 1808 when he was cited as a witness in a defamation dispute conducted in the local newspapers, and this mentions that his house is at Plantation Zealand (<a href=""http://www.vc.id.au/edg/18080813edrg.html"" rel=""nofollow noreferrer"">http://www.vc.id.au/edg/18080813edrg.html</a>)</li>
+<li>William may have acquired Yorkshire Hall soon after the death of Mary Skelton because:</li>
+</ul>
+
+<blockquote>
+  <p>The West Yorkshire Archives Service office at Bradford Library holds
+  the will of Mary Skelton ""late of Little Horton"". In 1823 she leaves
+  her ""three fourth part share"" of the Yorkshire Hall plantation in
+  Demerara to her three sons including ""all the negroes and slaves which
+  may, at the time of my decease, be resident or belong to the said
+  plantation.""
+  <a href=""http://www.bbc.co.uk/bradford/content/articles/2007/02/26/slavery_west_yorkshire_feature.shtml"" rel=""nofollow noreferrer"">http://www.bbc.co.uk/bradford/content/articles/2007/02/26/slavery_west_yorkshire_feature.shtml</a></p>
+</blockquote>
+
+<ul>
+<li>By 1832 Yorkshire Hall appears to be managed (or owned?) by William's nephew Jared (Priscilla's brother):</li>
+</ul>
+
+<blockquote>
+  <p>British Guiana 818 (Yorkshire Hall) Claim Details &amp; Associated
+  Individuals 7th Dec 1835 | 14 Enslaved | £725 0S 1D CLAIM DETAILS
+  Claim Notes Parliamentary Papers p. 122. T71/885: claim from Jared
+  Chichester, as owner-in-fee. T71/429 p. 43: Jared Chichester
+  registered enslaved persons in 1832. Further Information Colony
+  British Guiana Claim No.818 Estate Yorkshire Hall Collected by
+  Chichester, Wm. Uncontested Yes Associated Individuals (1) Jared
+  Chichester Awardee (Owner-in-fee) 
+  <a href=""https://www.ucl.ac.uk/lbs/claim/view/9071"" rel=""nofollow noreferrer"">https://www.ucl.ac.uk/lbs/claim/view/9071</a></p>
+</blockquote>
+
+<p>I have a suspicion that Jared's elder brother Giles (who died before 1830) may have been Jared's predecessor at Yorkshire Hall and to try and eliminate this from my thinking (if it is not correct) I am hoping to trace the owners/managers of Yorkshire Hall from 1823 through until about 1840.</p>
+
+<p>I suspect that the <a href=""http://discovery.nationalarchives.gov.uk/details/r/C2176989"" rel=""nofollow noreferrer"">papers below</a> could be helpful, but it appears that they will be expensive to access from Australia:</p>
+
+<blockquote>
+  <p>Reference: CUST 34/356  </p>
+  
+  <p>Description: Papers relating to plantations </p>
+  
+  <p>Date: 1821 - 1854  </p>
+  
+  <p>Held by: The National Archives, Kew  </p>
+  
+  <p>Legal status: Public Record  </p>
+  
+  <p>Closure status: Open Document, Open Description</p>
+</blockquote>
+
+<p>Are there any more accessible records of the owners/managers/proprietors of Yorkshire Hall Plantation in Demerara (present day Guyana) that I might be able to use to trace its ownership/management from about 1823 to about 1840?</p>
+",1,genealogy/12774_61a3ea381bedfcf5_8.txt,genealogy/b9df7d88_6980.txt,0.613147,,,entity_scope,False,"The candidate document discusses James Chichester's birth and death but does not address ownership or management of Yorkshire Hall Plantation in Demerara during the early 19th century, failing to meet the required entity scope.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses James Chichester's birth and death but does not address ownership or management of Yorkshire Hall Plantation i"
+genealogy,12001_296,"Finding prison records for Bodmin Bridewell in Cornwall?
+<p>In the <a href=""http://discovery.nationalarchives.gov.uk/results/r?_q=%22william+hobbs%22+truro"" rel=""nofollow"">National Archives</a> there is a record that belongs to my 4th great grandfather William Hobbs.  </p>
+
+<p>The Session held at Bodmin names his wife as Jane (nee Courtenay) and also Jane's sister Philippa.  It indicates that William would be spending the next 12 months at <a href=""http://www.genuki.org.uk/big/eng/Cornwall/Bodmin#Correctional"" rel=""nofollow"">Bodmin Bridewell</a> (presumably not the former <a href=""https://www.londonlives.org/static/Bridewell.jsp"" rel=""nofollow"">Bridewell Palace</a> in London).</p>
+
+<blockquote>
+  <p>QS/1/7/190, 191<br>
+  William Hobbs, lab., Philippa Courtenay, spinster,
+  and Jane, wife of W.H., all of Truro, indicted for assault on William
+  Jolly: Jane Hobbs acquitted. P.C. fined 1s. paid in court and one
+  month in house of correction. W.H. fined 1s. paid in court and 12
+  months in bridewell, and to enter into recognizance of £50 to keep the
+  peace, particularly to W.J. for 7 years.</p>
+</blockquote>
+
+<p>Are there prison records available for Bodmin Bridewell for that period (1802-1803)?</p>
+
+<p>Such records seem to be available for 20 years later:</p>
+
+<blockquote>
+  <p><a href=""http://trove.nla.gov.au/work/35124796?selectedversion=NBD42404461"" rel=""nofollow"">Bodmin Bridewell and its inmates, 1821-1848 [electronic resource] /
+  by Sally J. Pocock.</a></p>
+</blockquote>
+",2,genealogy/31363abc_151355.txt,genealogy/a77bea9e_6649.txt,0.213986,,,entity_scope,False,"The document refers to gaol and marshalsea rates in a general context and does not specifically mention Bodmin Bridewell in Cornwall, failing to establish the required geographic and institutional scope.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The document refers to gaol and marshalsea rates in a general context and does not specifically mention Bodmin Bridewell in Cornwall, failing t"
+genealogy,12774_283,"How were absentees recorded on the Protestation Returns?
+<p>The Protestation Returns of 1641/2 are currently being digitised and made freely accessible on the <a href=""https://www.parliament.uk/business/publications/parliamentary-archives/explore-guides-to-documentary-archive-/familyhistory/sources/protestations/"" rel=""noreferrer"">UK Parliament website</a>.</p>
+
+<p>My understanding is that for each parish the oath was performed by everybody on a single day in February or March of 1641/2. Were only inhabitants of the parish recorded on the return for that parish? How were visitors or travellers handled? Did anyone qualified to take the oath take it, regardless of where their permanent abode was? If someone was away at the time of the Protestation, might they have been added at a later date?</p>
+
+<p>When interpreting these returns it seems important to understand precisely who was qualified to take the oath in a parish.</p>
+",4,genealogy/10193_04eb574154fcf24b_23.txt,genealogy/342643a7_4725.txt,0.130324,,,temporal,True,"The document addresses the temporal context of the protestation returns, including the calendar shift and the timing of the oaths, which is relevant to how absentees might be recorded.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document addresses the temporal context of the protestation returns, including the calendar shift and the timing of the oaths, which is relevant"
+genealogy,13056_276,"Parish residency in 19th century Cornwall?
+<p>In 18th and 19th century church parish marriage records in Cornwall, UK, the bride and groom's residences are indicated as one of three things:</p>
+
+<ol>
+<li>of the same parish as the marriage (usually just listing the name of the parish),</li>
+<li>sojourner, or</li>
+<li>""otp,"" (which I assume means 'outside the parish' but could mean 'of the parish'). </li>
+</ol>
+
+<p>In some cases, a person is indicated as being 'of' the same parish as the marriage (1), but I know that they were not born there or grew up there. What was the law/custom for changing/acquiring residency in another parish in 18th-19th century Cornwall?</p>
+",2,genealogy/13899_4d71aee13fe7a13c_2.txt,genealogy/4e8aebb6_4047.txt,0.246302,,,entity_scope,False,"The document discusses the Old Poor Law and settlement rights but does not address parish residency in 19th century Cornwall specifically, failing to meet the geographic and temporal scope of the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The document discusses the Old Poor Law and settlement rights but does not address parish residency in 19th century Cornwall specifically, fail"
+genealogy,13069_275,"Are Orphanages Included in the U.S. Census?
+<p>My third great-grandmother was an orphan, whose mother passed away either during childbirth or shortly after, and whose father passed away January 24, 1880 when she was six years old.</p>
+
+<p>There is a family story that she was interned in an orphanage in Arkansas and that the orphanage burned down, destroying most of the records.</p>
+
+<p>I was wondering if the U.S. Federal Census took count and record of children in orphanages. I would be looking for the 1880 Census, as she was married in 1891 when she was seventeen.</p>
+
+<hr>
+
+<p>By the way, why is there no ""orphan"" tag!?</p>
+",2,genealogy/630586b0_3896.txt,genealogy/fc21732a_3889.txt,0.246302,,,temporal,False,"The candidate document does not address the 1880 U.S. Census, which is the specific time frame relevant to the question about orphanages and the user's family history.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the 1880 U.S. Census, which is the specific time frame relevant to the question about orphanages and the us"
+genealogy,15307_257,"Private baptism in one church followed by baptism in another?
+<p>I have definitively identified my ancestor John Charles Wright born circa 1830, but have two conflicting baptism records for him that I need to reconcile.</p>
+
+<p>John Charles Wright maintained all his life that he was born in Kidderminster (which is where his mother was born and where he lived from the early 1830s until at least 1841).</p>
+
+<p><a href=""https://findmypast.co.uk"" rel=""nofollow noreferrer"">Findmypast</a> (transcription and image) and <a href=""http://www.wolverhamptonhistory.org.uk/resources/indexes"" rel=""nofollow noreferrer"">Wolverhampton History</a> (transcription) show the baptism of John Charles Wright at Wolverhampton St Peter 25 Mar 1830 (a Thursday) with parents John Wright (a druggist) and Maria. Abode is Wolverhampton, and the baptism was carried out by R. Robinson. There is no indication that this was a private baptism.</p>
+
+<p>Another researcher into the same individual was provided several years ago (by a member of the family) with a hand-written transcription of a Copy of Certificate of Baptism for John Charles Wright (annotated by him) that specifies that he was privately baptised in the vestry of St Mary's Parish Church by the Rev Thos. Cook 1830.</p>
+
+<p>The parents are the same, but described as 'of Kidderminster' (or perhaps only his mother is 'of Kidderminster') and associated details confirm that this was the same individual. (I'm not reproducing the transcription in full because it isn't mine to do so; the whereabouts of the original document is not now known).</p>
+
+<p>The copy certificate appears to have been produced in the mid 1860s in support of a property transaction (Worcestershire Archives report that they do not have any deposits from the relevant solicitors, and the solicitors cannot find anything relevant in their own archives.).</p>
+
+<p>There are two witnesses named (which I suspect were witnesses to the baptism and necessary to make it lawful, and not to the production of the certificate copy, as <a href=""https://books.google.co.uk/books?id=OiqoJZrV5yAC&amp;num=29"" rel=""nofollow noreferrer"">The Clergyman's Manual 1842</a> seems to suggest that a clergyman could certify a baptism all by himself). One of the witnesses was definitely resident in Kidderminster from 1829/30 (Trade Directory) to 1841 (census) -- very distinctive spelling of his surname plus occupation and seems to have died in 1841, which supports the assertion that he was witness to the baptism not the certificate copy.</p>
+
+<p>Registers do not start at Wolverhampton St Mary until 1843, so I don't believe that can be the church referred to in the Copy Certificate.  The incumbent at Kidderminster St. Mary in 1830 was not Thos. Cook.  I'm having difficulty finding a list of incumbents for St Peter's (which was an awfully complicated ecclesiastical set up), but can't find any other children baptised by a Thos. Cook in Wolverhampton around that time.</p>
+
+<p>I cannot find any other baptisms for a John Charles Wright in the Midlands in 1830 via the usual search sites (Ancestry, Findmypast, TheGenealogist, FamilySearch, FreeReg).</p>
+
+<p>Is it possible that a private baptism in one church would be followed by a public baptism in another, or rather a public acknowledgement that the child had been baptised (as double-dipping was theoretically disallowed, although there was the 'conditional baptism' loophole -- I baptise this child if it hasn't already been done)?</p>
+
+<p>Or that a copy certificate (presumably hand-copied from a register) could be so wrong? </p>
+
+<p>And if it is possible that the private baptism did not take place in Wolverhampton, how might I track it down? It should surely have appeared in a register somewhere.</p>
+
+<p>Or is there an explanation I haven't thought of? Was he really born in Kidderminster?</p>
+",1,genealogy/de02666b_2639.txt,genealogy/eecff47f_2120.txt,0.469279,,,entity_scope,False,"The candidate document only describes the ecclesiastical and geographical scope of Kidderminster St Mary & All Saints and does not address the specific issue of private baptism in one church followed by public baptism in another, failing to meet the necessary condition of discussing the sequence or context of baptisms across churches.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document only describes the ecclesiastical and geographical scope of Kidderminster St Mary & All Saints and does not address the "
+genealogy,18721_238,"What are the specific characteristics of records destroyed in the US NPRC fire of 1973?
+<p>I know the NPRC website says the percentages and year ranges of discharged military personnel records that were destroyed.</p>
+<p>Is there a way of knowing the probability of destruction by specific dates of discharge or surnames of the Army servicemember?</p>
+",2,genealogy/76104f65_0445.txt,genealogy/bce43159_0299.txt,0.190921,,,numeric,True,"The candidate document provides a specific percentage (80 percent) related to the records destroyed in the fire, which addresses the numeric condition of the question.","{""label"": ""numeric"", ""candidate_ok"": true, ""why"": ""The candidate document provides a specific percentage (80 percent) related to the records destroyed in the fire, which addresses the numeric conditio"
+genealogy,2975_328,"Where do I find information about arranged employment in Australia in the 1850s?
+<p>Many immigrants from England worked for the Hon. Edward Flood M.P. in the 1850s. They were employed mainly as sheep overseers, station hands, bullock drivers etc. Would this type of employment have been arranged prior to departure from England or obtained after arrival in Sydney</p>
+",1,genealogy/2975_c53638ca500aa6fb_240.txt,genealogy/64447a09_9802.txt,0.613147,,,entity_scope,False,"The candidate document does not address employment arrangements in Australia during the 1850s or provide information about arranged employment, failing to meet the required entity scope of the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document does not address employment arrangements in Australia during the 1850s or provide information about arranged employment,"
+genealogy,3224_325,"Was there a special Marriage license for Non-US Citizens in 1925?
+<p>My Great Uncle and Aunt sailed from Belfast, Northern Ireland to New York in August 1925.  They were married on 25th November 1925 in Philadelphia and i have never been able to obtain a wedding certificate.  My Great Aunts sister had been living in Philadelphia since 1921 and I am guessing they lodged with her until they moved onto British Guiana in early 1926.</p>
+
+<p>In my quest to find a wedding certificate</p>
+
+<p><strong>Question:</strong>  As they never became American citizens would they have needed a special type of license to get married in Philadelphia?  I have already contacted the Philadelphia County Marriage Records and they are asking for €35 just for an initial search.  I want to ensure before I authorize this (or be as sure as I can) that the record could be there.  Is there anywhere else  in the State they could be?</p>
+
+<p>I have added more information <a href=""http://pastebin.com/c1NLgREd"" rel=""nofollow"">on this link</a> which may provide clues as  it details everything I have discovered about their movements in the 1920s</p>
+
+<p><strong>Marriage Details</strong></p>
+
+<ul>
+<li>Date of Marriage: 25th November 1925</li>
+<li>Husband:  Thomas Frederick Smith</li>
+<li>Wife: Charlotte Evelyn Silcock</li>
+</ul>
+
+<p><strong>Adage:</strong>  As suggest by GeneJ (comments)  I have reviewed the Philadelphia Marriage Index, for Thomas Smith (Image 129 of 339), Thomas Smyth (Image 137 of 339) without any luck.  I am 100% sure they were married 25th November 1925 in Philadelphia as it states this information on Thomas's WW2 records, his last will and testament and Evelyn Smith probate.</p>
+
+<p>I am guessing because Philadelphia County records want to charge me for a search, then there must be more marriage records than what appears on this index.</p>
+",1,genealogy/3152_98d2ece1ae8a0fbd_43.txt,genealogy/890ad196_9341.txt,1.0,,,temporal,False,The candidate document discusses marriage options in Philadelphia for a general audience without addressing any specific historical context or details about 1925 or non-US citizens' marriage licenses during that time.,"{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document discusses marriage options in Philadelphia for a general audience without addressing any specific historical context or deta"
+history,55800_790,"What percentage of slaves originally brought from Africa were purchased from slave traders as opposed to having been captured by Europeans?
+<p>I was engaged in a debate over slavery in America yesterday and the following proposition I put forward was being contested: a majority of slaves brought to America from Africa were sold to Europeans by slave traders as opposed to having been captured by Europeans without payment. Every source I could find on the matter verified this to be true but I could not find an exact percentage of purchased slaves vs captured slaves and my opponent decided to use this as an out to discard my entire argument. </p>
+
+<p>Here is one example of what I found from a 1995 <a href=""http://edition.cnn.com/WORLD/9510/ghana_slavery/"" rel=""nofollow noreferrer"">CNN article</a>: </p>
+
+<blockquote>
+  <p>Based on her studies, Perbi says that European slave traders, almost without exception, did not themselves capture slaves. They bought them from other Africans, usually kings or chiefs or wealthy merchants.</p>
+</blockquote>
+
+<p>Perbi stating ""almost without exception"" seems to imply a very high percentage or an overwhelming majority (greater than 90%) but as I stated this ambiguity was enough for my opponent to write me off.</p>
+
+<p>Is there any concrete data on this or do we only know it was a majority?  </p>
+
+<p><strong>Edit:</strong> I've rephrased the question and updated the clarification to be more precise.</p>
+",3,history/4f6d90ed_110707.txt,history/49a5af26_110696.txt,0.19519,,,numeric,False,"The candidate document provides a percentage (nearly half) related to captives from specific regions but does not address the percentage of slaves purchased from African traders versus those captured by Europeans, which is the specific query.","{""label"": ""numeric"", ""candidate_ok"": false, ""why"": ""The candidate document provides a percentage (nearly half) related to captives from specific regions but does not address the percentage of slaves p"
+history,55806_789,"Why do historians distinguish two Industrial revolutions, instead of just one?
+<p>There was a 40 year gap between the two revolutions. Ending in 1830 and starting in 1870. However, why did historians distinguish two revolutions, instead of merging them together?</p>
+
+<p><strong>First Industrial Revolution</strong> - 1760 - 1830</p>
+
+<ul>
+<li>Started in Europe</li>
+<li>The start of new technology
+
+<ul>
+<li>Steam engines</li>
+<li>Textile production</li>
+<li>Mass iron production</li>
+</ul></li>
+</ul>
+
+<p><strong>Second Industrial Revolution</strong> - 1870 - 1914</p>
+
+<ul>
+<li>Also started in Europe</li>
+<li>Saw improvements of technology, along with new ones
+
+<ul>
+<li>Improved metal works - steel was mass produced</li>
+<li>New usage of petroleum/oil</li>
+<li>Invention and widespread use of electricity</li>
+</ul></li>
+</ul>
+
+<p>Those were the main revolutions, however, many of the technologies in the second revolution were constantly being developed between the two time periods. Take the iron furnace for example. First it started off as a blast furnace, but then over time, it evolved into a more efficient method, using advanced purifying techniques, and regenerative cooling.</p>
+
+<p>Another example could be synthetic dye - developed din 1850.</p>
+
+<p>And that's only a few examples of how technology developed during the 40 year period.</p>
+
+<p>So why do historians label two revolutions instead of one?</p>
+
+<p>So why the two? Why not just one?</p>
+",1,history/05a12721_110590.txt,history/088b69a2_110515.txt,0.39038,,,temporal,False,"The candidate document fails to specify a clear time frame for the industrial revolutions, which is necessary to answer the question about why historians distinguish two revolutions.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document fails to specify a clear time frame for the industrial revolutions, which is necessary to answer the question about why hist"
+history,55888_782,"Why were the British Union of Fascist outfits so bad compared to the Nazis?
+<p>Looking at Oswald Mosley's fascists ""blackshirts"", it struck me that the tailoring on their costumes was quite bad compared to their German counterparts.</p>
+
+<p>Photos I've seen look like black boiler suits with a gold belt.</p>
+
+<p>Now I know German engineering was supposed to be superior at that time. But was this also true for tailoring? </p>
+
+<p>The Italians are known for good tailoring, so did the Nazis get their uniforms tailored by the Italian tailors who were governed by Mussolini at the time?</p>
+
+<p>Was this simply a lack of funds on the part of the BUF? And if Oswald Mosely was friends with Hitler, why did the Nazis not help in providing better uniforms?</p>
+
+<p>Or was there some other reason, for example trying to not look too ostentatious.</p>
+
+<p>Was this a reason that the blackshirts were not taken very seriously because their uniforms looked so bad?</p>
+",1,history/af6f7576_351228.txt,history/d8a01ab7_109429.txt,0.469279,,,entity_scope,False,"The candidate document discusses the SS and Hugo Boss uniforms, which are unrelated to the British Union of Fascists (BUF) or their blackshirts, failing to address the specific entity scope of the BUF and their uniforms in comparison to the Nazis.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses the SS and Hugo Boss uniforms, which are unrelated to the British Union of Fascists (BUF) or their blackshirts"
+history,56053_773,"How/when did the halo shift from being a solid disk behind the head to being a floating ring above the head?
+<p>In almost all older religious paintings that I've seen, holy figures with halos have gold/glowing disks behind their heads, like this:</p>
+
+<p><a href=""https://i.sstatic.net/ua16a.png"" rel=""noreferrer""><img src=""https://i.sstatic.net/ua16a.png"" alt=""jesus""></a></p>
+
+<p>or sometimes more pronounced, but still clearly behind the head:</p>
+
+<p><a href=""https://i.sstatic.net/HzLTj.png"" rel=""noreferrer""><img src=""https://i.sstatic.net/HzLTj.png"" alt=""virgin mary""></a></p>
+
+<p>However, halos in modern times are almost always portrayed as a yellow ring floating above the head, like this:</p>
+
+<p><a href=""https://i.sstatic.net/tUqB1.png"" rel=""noreferrer""><img src=""https://i.sstatic.net/tUqB1.png"" alt=""modern angel""></a></p>
+
+<p>How, when, and why did this change happen? Was there a specific reason for the change, or did the symbol just shift over time? I could not find any information online, so any help is greatly appreciated.</p>
+",1,history/85d4f8ae_108324.txt,history/33a5ea83_108258.txt,0.613147,,,temporal,False,"The candidate document does not address when or how the halo shifted from a solid disk to a floating ring, failing to meet the temporal condition of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not address when or how the halo shifted from a solid disk to a floating ring, failing to meet the temporal condition o"
+history,56068_771,"Why did the Nazis collaborate with the Ustaše?
+<p>The Croats are linguistically, ethnically and culturally a Slavic people. While the Ustaše did not see themselves as such, why did the Nazis choose to collaborate with what was essentially a nationalist organisation for a Slavic ethnic group?</p>
+",1,history/e145d5d2_349538.txt,history/ecf47326_108131.txt,0.39038,,,entity_scope,True,"The candidate document correctly identifies the Ustaše as a nationalist organization for a Slavic ethnic group, aligning with the entity scope of the question.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate document correctly identifies the Ustaše as a nationalist organization for a Slavic ethnic group, aligning with the entity scope o"
+history,56083_770,"Why didn&#39;t the ancients produce purple dye via admixture?
+<p>A great deal of prestige is attached to the colour <strong>purple</strong> - the hue of bishops and emperors alike - and, if you've read a little about the ancient world, you'll probably have heard the story explaining why this is the case.  The Greeks and Romans - the story goes - knew of only one way of obtaining purple dye: a painstaking and eye-wateringly expensive process involving the extraction of the precious substance from sea snails.</p>
+
+<p>As a boy, I always imagined that the root of this purple business was an inability on the part of the Greeks and the Romans to produce <strong>blue dye</strong>. I know little about dyes, but the colour blue is notable for occurring in the natural world only very rarely. So it makes sense, at least at first glance, that the ancients would have struggled to produce dye of this colour. The colour purple was the closest that they could come to achieving to such a rarity, hence its prestige. In any case, if they <em>could</em> produce blue dye in quantity, they could just have mixed it with red dye - which has always been one of the cheaper pigments - and every Roman and his dog could have strolled across the forum in lurid purple vestments.</p>
+
+<p>This theory took a bit of a knock a couple of years ago, when I read that the colour purple only became available to the non-fabuously wealthy <strong>in 1860 with the invention of magenta pigment</strong> (named for the Battle of Magenta of the previous year). Given that, for centuries before that date, the armies of Britain and France marched into battle wearing vivid red and blue uniforms respectively, it seems unlikely that lack of blue pigment was the main contributor to the rarity of purple.</p>
+
+<p>Given that both red and blue dyes were plentiful pre-1860, what, then, was stopping the ancients (or anyone else for that matter) from mixing the two to create purple? Do clothing dyes not mix the way that acrylic paints do?</p>
+",1,history/64707fbe_349108.txt,history/a3cb8cab_107993.txt,0.469279,,,exclusion,True,"The candidate document does not exclude the possibility of producing purple dye via admixture, which is the central point of the question, thus failing to meet the exclusion condition required by the query.","{""label"": ""exclusion"", ""candidate_ok"": true, ""why"": ""The candidate document does not exclude the possibility of producing purple dye via admixture, which is the central point of the question, thus fai"
+history,56089_769,"Were there any natural disasters that decisively changed the result of a later election by killing the electorate of one side?
+<p>I'm thinking of something similar to this:</p>
+
+<p>Let's say instead of a general election, the UK had decided to hold a second referendum on Brexit. Among the two options Remain &amp; Leave, it's unclear which will win (in the first referendum, the results had been 52% Leave 48% Remain). However, before the referendum, a natural disaster destroys London and kills everyone in it. London's population voted 60-40 to Remain, so without this Remain-voting population, Leave wins the second referendum easily.</p>
+
+<p>Has this ever happened? Wikipedia has a <a href=""https://en.wikipedia.org/wiki/List_of_natural_disasters_by_death_toll"" rel=""nofollow noreferrer"">list of natural disasters</a> that caused a lot of deaths, but moving from that to referendum results is not easy. Presumably we would need 1) a high death toll, and 2) regions of the electorate which are more polarized than others, and the disaster only hits one region. Among the ten deadliest disasters, 6 happened in China (which doesn't have real elections/referendums anyway), 2 of the remainder occurred before modern democracies, and of the final two (the <a href=""https://en.wikipedia.org/wiki/1970_Bhola_cyclone"" rel=""nofollow noreferrer"">1970 Bhola cyclone</a> and <a href=""https://en.wikipedia.org/wiki/2010_Haiti_earthquake"" rel=""nofollow noreferrer"">2010 Haiti earthquake</a>) I can't find any indication of an impact on subsequent elections.</p>
+
+<p>One possibility could be some kind of deadly cyclone in the Caribbean, since some US regions are politically polarized, but death tolls from these cyclones seem too small (e.g. Hurricane Katrina caused billions of dollars in damages, but <a href=""https://en.wikipedia.org/wiki/List_of_deadliest_Atlantic_hurricanes#HURDAT_Era"" rel=""nofollow noreferrer"">killed ""only"" 1,836 people</a>).</p>
+
+<p>It doesn't have to be a deadly natural disaster - if the disaster causes people to move <em>en masse</em>, and that causes a different election/referendum result, I'm also interested in that.</p>
+",1,history/578e59cb_349082.txt,history/250fef99_107867.txt,0.39038,,,entity_scope,False,"The document does not describe a natural disaster that decisively changed an election result by affecting a specific electorate or altering the outcome of a later election; instead, it discusses a general voting tendency near hurricanes without any event causing a shift in election results.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The document does not describe a natural disaster that decisively changed an election result by affecting a specific electorate or altering the"
+history,56254_754,"Was Yahweh a god in a possible Edomite Pantheon?
+<p>I understand from the Bible, from the Wikipedia articles <a href=""https://en.wikipedia.org/wiki/Yahweh"" rel=""nofollow noreferrer"">Yahweh</a> and <a href=""https://en.wikipedia.org/wiki/Yahwism"" rel=""nofollow noreferrer"">Yahwism</a> and from lectures of various scholars that polytheism was practiced by at least some religious leaders, priests, kings and laymen of the allegedly-Canaanite kingdom of Israel and the allegedly-Canaanite Kingdom of Judah:</p>
+
+<p>One opinion is that Yahweh was a war or storm god worshiped by at least one (probably Midianite, probably aniconic) group, and that this group later migrated northern and absorbed into ancient Israeli-Judean society and introduced Yahweh whom was adopted as the national god of the two kingdoms but not necessarily in an aniconic way and often presented with Asherah as his consort.</p>
+
+<p><a href=""https://he.wikipedia.org/wiki/%D7%99%D7%92%D7%90%D7%9C_%D7%91%D7%9F-%D7%A0%D7%95%D7%9F"" rel=""nofollow noreferrer"">Yigal Ben Nun</a> who wrote the book ""<a href=""https://he.wikipedia.org/wiki/%D7%A7%D7%99%D7%A6%D7%95%D7%A8_%D7%AA%D7%95%D7%9C%D7%93%D7%95%D7%AA_%D7%99%D7%94%D7%95%D7%94"" rel=""nofollow noreferrer"">קיצור תולדות יהוה</a>"" (no English name yet) often claims that the first Israelite temple included a statue of Yahweh and possibly of Asherah and that probably was a statue of any other god in its temple (""house"") per wider Canaanite pantheon and that there are numerous clues for that in the Hebrew bible itself;<br>
+Besides that, some allege that a monotheistic <a href=""https://en.wikipedia.org/wiki/Aniconism"" rel=""nofollow noreferrer"">aninconic</a> ""yahwistic"" sect was slowly developing primarily in Judean society, and adopted by aristocracy gradually to remove elements of polytheism until finally consolidated as the sole form of Israelite religion in <a href=""https://en.wikipedia.org/wiki/Babylonian_captivity"" rel=""nofollow noreferrer"">Babylonian captivity</a>.</p>
+
+<p>Many archaeologists and Bible researchers opinionated about a merging of Yahweh, El and Asherah into Yahweh itself in Israel and Judah by that sect:</p>
+
+<blockquote>
+  <ul>
+  <li><strong><a href=""https://en.wikipedia.org/wiki/El_(deity)"" rel=""nofollow noreferrer"">El</a></strong> (a named <code>[Canaanite][supreme]</code> god) →→→ el (""god"" <code>[single]</code>) or eloah (""god"" <code>[single]</code>) or elohim (""god"" <code>[plural]</code>)</li>
+  <li><strong>el's/eloah's/elohim's name</strong> →→→ Yahweh</li>
+  <li><p><strong><a href=""https://en.wikipedia.org/wiki/Asherah"" rel=""nofollow noreferrer"">Asherah</a></strong> (El's consort) →→→ Yahweh's consort and later <a href=""https://en.wikipedia.org/wiki/Shekhinah"" rel=""nofollow noreferrer"">Shekhinah</a> (""presence"" or ""effect"" of god) and/or <a href=""https://en.wikipedia.org/wiki/Menorah_(Temple)"" rel=""nofollow noreferrer"">Menorah</a> (as a religious item) which are feminine terms in Hebrew, adjusted to the fertility of Asherah as a fertility goddess or as being symbolized by a tree fertile with branches (""Menorah branches""), respectively<br>
+  <sub>These Asherah ideas might be supported from findings at <a href=""https://en.wikipedia.org/wiki/Kuntillet_Ajrud"" rel=""nofollow noreferrer"">Kuntillet Ajrud</a>.</sub></p></li>
+  <li><p><strong>Ashdat</strong> →→→ X</p></li>
+  </ul>
+</blockquote>
+
+<p>The bible is allegedly cluing that Yahweh first ""appeared"" or worshiped in areas named:<br>
+<em>Sinai</em>, <em>Horeb</em> <em>Teman</em>, <em>Paran</em>, <em>Seir</em> and <em>Edom</em></p>
+
+<p>These names might describe an area stretching primarily from western Sinai peninsula to the mountains of Edom, while:</p>
+
+<ul>
+<li>Teman might be a general term for that southern area (including further south until <a href=""https://en.wikipedia.org/wiki/Tayma"" rel=""nofollow noreferrer"">Tayma</a>)</li>
+<li>Paran might be the slopes along Edom mountain(s)</li>
+<li>Seir as the mountain (or mountain range) named Edom mountain(s)</li>
+<li>Edom as an inclusion of Paran and Seir</li>
+<li>Horeb might be a specific area within Sinai</li>
+</ul>
+
+<hr>
+
+<p><strong>Deuteronomy 33:2 (KJV)</strong><br>
+<strong>דברים פרק לג פסוק ב</strong></p>
+
+<blockquote>
+  <p>וַיֹּאמַ֗ר יְהוָ֞ה מִסִּינַ֥י בָּא֙ וְזָרַ֤ח מִשֵּׂעִיר֙ לָ֔מוֹ הוֹפִ֙יעַ֙
+  מֵהַ֣ר פָּארָ֔ן וְאָתָ֖ה מֵרִבְבֹ֣ת קֹ֑דֶשׁ מִימִינ֕וֹ אֵ֥שׁדָּ֖ת אֵ֥שׁ דָּ֖ת
+  לָֽמוֹ</p>
+</blockquote>
+
+<p>Which I would translate as:</p>
+
+<p><em>And he said: Yahweh came from Sinai and shined from Seir for them ; (he) appeared from Paran mountain(s?) ; and with him from(among?) tens of thousands of holy ones ; Ashdat from his right ; Ash Dat (?) for them.</em><br>
+<sub><strong>Note:</strong> Ashdat part isn't included in KJV <a href=""https://biblehub.com/text/deuteronomy/33-2.htm"" rel=""nofollow noreferrer"">but is included here</a>.</sub></p>
+
+<hr>
+
+<p><strong>Judges 5:4 (KJV)<br></strong>
+<strong>שופטים פרק ה פסוק ד</strong></p>
+
+<blockquote>
+  <p>יְהוָה בְּצֵאתְךָ מִשֵּׂעִיר בְּצַעְדְּךָ מִשְּׂדֵה אֱדוֹם אֶרֶץ
+  רָעָשָׁה גַּם שָׁמַיִם נָטָפוּ גַּם עָבִים נָטְפוּ מָיִם.</p>
+</blockquote>
+
+<p>Which I would translate as:</p>
+
+<p><em>Yahweh, in your exit from Seir, in your marching from Edom field ; (the) land was noised, also skies fell, also clouds felled water.</em></p>
+
+<hr>
+
+<p><strong>Habakkuk 3:3 (KJV)</strong><br>
+<strong>חבקוק פרק ג פסוק ג</strong></p>
+
+<blockquote>
+  <p>אֱלוֹהַ מִתֵּימָן יָבוֹא וְקָדוֹשׁ מֵהַר פָּארָן סֶלָה כִּסָּה
+  שָׁמַיִם הוֹדוֹ וּתְהִלָּתוֹ מָלְאָה הָאָרֶץ.</p>
+</blockquote>
+
+<p>Which I would translate as:</p>
+
+<p><em>Eloah from Teman would come and a holy one from Paran mountain(s?) ; <a href=""https://en.wikipedia.org/wiki/Selah"" rel=""nofollow noreferrer"">selāh</a> ; his beauty covered the sky and his glory (was) filled (in) the land.</em></p>
+
+<hr>
+
+<h2>My problem</h2>
+
+<p>All of this might clue that Yahweh was not only worshiped in a pantheon of at least some Ancient Israelis and at least some ancient Judeans, but maybe also by ancient Edomites ; Edomites had the national god <a href=""https://en.wikipedia.org/wiki/Qos_(deity)"" rel=""nofollow noreferrer"">Qos</a> and maybe were the closest kingdom in culture and language to Israel and Judea → some researchers <a href=""https://en.wikipedia.org/wiki/Edomite_language#cite_note-Glottolog2-2"" rel=""nofollow noreferrer"">consider Edomite language as a dialect of Hebrew</a>.</p>
+
+<h2>My question</h2>
+
+<p>Was Yahweh a god in a possible Edomite Pantheon?</p>
+",2,history/3f9e6dce_106137.txt,history/aafed9fc_106120.txt,0.246302,,,unparsed,,"�י   אֱלוֹהַ מִתֵּימָן יָבוֹא וְקָדוֹשׁ מֵהַר פָּארָן</p> </blockquote>  <p>Which I would translate as:</p>  <p><em>God from Teman came, holy from Paran mountai","�י
+  אֱלוֹהַ מִתֵּימָן יָבוֹא וְקָדוֹשׁ מֵהַר פָּארָן</p>
+</blockquote>
+
+<p>Which I would translate as:</p>
+
+<p><em>God from Teman came, holy from Paran mountain(s?) ; God from Teman came, holy from P"
+history,56354_746,"Is there a historical source that might explain why so many countries use 35 as a minimum age for the president / the highest office person?
+<p>Reading <a href=""https://en.wikipedia.org/wiki/List_of_presidential_qualifications_by_country"" rel=""nofollow noreferrer"">the list of presidential qualifications by country</a> I have noticed that in many countries the minimum required age is 35 (some countries raise it to 40). I am wondering if there is any historical data related to where this limit comes from.</p>
+<p>My assumption is that there must be a common source for this limit and it is not a coincidence that it is a shared value among so many states.</p>
+<p><strong>Question:</strong> Is there a historical source that might explain why so many countries use 35 as a minimum age for the president / the person holding the highest office?</p>
+",1,history/e562ad9c_345849.txt,history/4fe6ac2d_105406.txt,0.39038,,,entity_scope,True,"The document refers specifically to the U.S. constitutional requirement, which is within the scope of the entity (the United States) and directly addresses the age of 35 for presidential eligibility.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The document refers specifically to the U.S. constitutional requirement, which is within the scope of the entity (the United States) and directl"
+history,56514_736,"What is the original source of this 16th century image of a French town holiday with musicians in a tree?
+<p>Several sites have this image below but none give any information about the original source.</p>
+
+<p><a href=""https://i.sstatic.net/RItzH.jpg"" rel=""nofollow noreferrer""><img src=""https://i.sstatic.net/RItzH.jpg"" alt=""enter image description here""></a></p>
+
+<p><em>Image source: <a href=""https://images.fineartamerica.com/images-medium-large-5/french-town-16th-century-granger.jpg"" rel=""nofollow noreferrer"">fineartamerica</a>. The same image can also be found at <a href=""https://www.granger.com/results.asp?search=1&amp;screenwidth=1024&amp;tnresize=200&amp;pixperpage=40&amp;searchtxtkeys=16th%20century%20and%20french%20town&amp;lastsearchtxtkeys=16th%20century%20and%20french&amp;lstorients=132"" rel=""nofollow noreferrer"">Granger</a> and (on various items such as towels and mugs) at <a href=""https://pixels.com/featured/french-town-16th-century-granger.html"" rel=""nofollow noreferrer"">Pixels</a>.</em></p>
+
+<p>The only <a href=""https://fineartamerica.com/featured/french-town-16th-century-granger.html"" rel=""nofollow noreferrer"">available information</a> is:</p>
+
+<blockquote>
+  <p>FRENCH TOWN, 16th CENTURY. Holiday in a small French town. People
+  dance the farandole and play jeu de mail.</p>
+</blockquote>
+
+<p>The farandole is ""<a href=""https://en.wikipedia.org/wiki/Farandole"" rel=""nofollow noreferrer"">an open-chain community dance</a>"" (<a href=""https://fr.wikipedia.org/wiki/Farandole"" rel=""nofollow noreferrer"">French Wikipedia</a> has a much better article) while <a href=""https://en.wikipedia.org/wiki/Jeu_de_mail"" rel=""nofollow noreferrer"">jeu de mail</a> is</p>
+
+<blockquote>
+  <p>a form of ground billiards, using one or more balls, a stick with a
+  mallet-like head</p>
+</blockquote>
+
+<p><strong>What is the original source of this image?</strong></p>
+
+<p>I'm also curious about the musicians in the tree and have not been able to find any other such depictions, from either the Early Modern or Medieval periods. Knowing the original source of the image above might throw some light on this.</p>
+
+<p><strong>Was this just a bit of artistic license or was it not unusual to have some of the musicians up a tree (assuming there was a 'serviceable' one in the vicinity), or perhaps it was a regional 'tradition'?</strong> Examples (images or written accounts) from Medieval or Early Modern times would be acceptable.</p>
+",1,history/04c4b484_103936.txt,history/6b0425df_103934.txt,0.613147,,,entity_scope,False,"The candidate document discusses May traditions in various French regions but does not address the specific 16th-century image of a French town holiday with musicians in a tree, failing to connect to the entity scope of the original image.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses May traditions in various French regions but does not address the specific 16th-century image of a French town"
+history,56551_731,"What sort of maps did the ancient Greeks make and distribute?
+<p>Context: I am going to be starting a D&amp;D campaign in a world based on ancient Greece, rather than your classic Western European medieval fantasy land. This will probably not be the only question regarding everyday life in that place and period, as I am no historian.</p>
+
+<p>Cartography is a fairly important part of a society, but I'm struggling to grasp how important it could have been for antique civilizations. I've read a bit about <a href=""https://en.wikipedia.org/wiki/History_of_books#Parchment"" rel=""noreferrer"">bookmaking in ancient Greece</a>, but I was wondering if it would have been any different for maps.</p>
+
+<p>Additionally, what sort of maps would they have drawn? How precise would they have been? Greek philosophers are quite well known for their <a href=""https://en.wikipedia.org/wiki/Eratosthenes"" rel=""noreferrer"">mathematical accuracy</a>, so would they have been able to calculate distances from city to city just as accurately?</p>
+
+<hr>
+
+<p><strong>EDIT:</strong> After consulting the <a href=""https://en.wikipedia.org/wiki/History_of_cartography#Ancient_Greece"" rel=""noreferrer"">History of Cartography</a>, here are some additional precisions for the question.</p>
+
+<p>Although the article talks in depths about the Greek's world maps, it never really mentions local / regional maps. Would there have been a handy city map at the Agora to tell you where the nearest <em>taverna</em> is? If you needed to travel from Corinth to Athens, would someone just tell you ""follow the coast then take a left when you can"" or would you be able to purchase a map with topological and political markers?</p>
+
+<p>Apparently Eratosthenes was the first to include precise mathematical precisions in his maps but, once again, the Wikipedia article only mentions world maps. Even if it were just in ""days hiking"" / ""days on horseback"", would distance between cities have been known by / accessible to the general populace?</p>
+",1,history/8169d0fa_103670.txt,history/a19b7e47_103512.txt,0.469279,,,entity_scope,True,"The candidate mentions a specific historical figure and a known geographical concept, aligning with the scope of ancient Greek maps as requested in the question.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate mentions a specific historical figure and a known geographical concept, aligning with the scope of ancient Greek maps as requested"
+history,56655_728,"Are there any examples of recurring payments in ancient times?
+<p>I'm interested in the history of recurring payments. The farthest I could get to is the feudal system, where peasants paid rent to knights once every so often. Obviously the banking system in the late 20th century spearheaded a revolution in monthly subscriptions, but I am interested to find out whether there is a known record of any large-scale recurring mechanism system that had been set in place in ancient times.</p>
+<p>Not necessarily focussed on feudal societies: Anything since the dawn of Babylon.</p>
+<p>Taxes don't count because as far as I know, taxes used to be paid retroactively. That is, the state was collecting them through taxmen who were knocking at each citizen's door, no?</p>
+",2,history/e61486f9_343578.txt,history/21568e69_102813.txt,0.386853,,,temporal,True,"The document references laws from Hammurabi's time (c. 1792–1750 BCE), which falls within the ancient times as specified in the question, satisfying the temporal condition.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document references laws from Hammurabi's time (c. 1792–1750 BCE), which falls within the ancient times as specified in the question, satisfying"
+history,56734_725,"What happened to the cross on the dome of Hagia Sophia?
+<p>There are some images that show the cross on the dome of Hagia Sophia. </p>
+
+<p>For example;</p>
+
+<ul>
+<li><p>Miniature 38 from the Constantine Manasses Chronicle, 14th century: Construction of Hagia Sophia during the reign of emperor Justinian. (<a href=""https://commons.wikimedia.org/wiki/File:38-manasses-chronicle.jpg"" rel=""nofollow noreferrer"">source</a>)</p>
+
+<p><a href=""https://upload.wikimedia.org/wikipedia/commons/7/73/38-manasses-chronicle.jpg"" rel=""nofollow noreferrer""><img src=""https://upload.wikimedia.org/wikipedia/commons/7/73/38-manasses-chronicle.jpg"" alt=""a""></a></p></li>
+<li><p>Mosaic panel depicting the emperor Justinian holding a model of Hagia Sophia in Hagia Sophia (10th century) (<a href=""https://commons.wikimedia.org/wiki/File:Mosaic_panel_depicting_the_emperor_Justinian_holding_a_model_of_Hagia_Sophia,_1,000_AD,_Hagia_Sophia,_Istanbul_(40598052872).jpg"" rel=""nofollow noreferrer"">source</a>)</p>
+
+<p><a href=""https://upload.wikimedia.org/wikipedia/commons/6/61/Mosaic_panel_depicting_the_emperor_Justinian_holding_a_model_of_Hagia_Sophia%2C_1%2C000_AD%2C_Hagia_Sophia%2C_Istanbul_%2840598052872%29.jpg"" rel=""nofollow noreferrer""><img src=""https://upload.wikimedia.org/wikipedia/commons/6/61/Mosaic_panel_depicting_the_emperor_Justinian_holding_a_model_of_Hagia_Sophia%2C_1%2C000_AD%2C_Hagia_Sophia%2C_Istanbul_%2840598052872%29.jpg"" alt=""h""></a></p></li>
+</ul>
+
+<p>After the Ottoman capture of the city, and the conversion of the church to a mosque, the cross is gone. But is it just thrown, or melted away? Or kept by Orthodox Church or local Greeks as a relic somewhere, somehow? Is there any evidence or detail about it? I was unable to find anything with my plebeian investigation…</p>
+",1,history/80ddc6bc_102534.txt,history/e921dbe0_102393.txt,0.469279,,,entity_scope,True,The candidate document correctly describes the presence and later removal of the cross on the dome of Hagia Sophia within the appropriate historical and architectural context.,"{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate document correctly describes the presence and later removal of the cross on the dome of Hagia Sophia within the appropriate histor"
+history,56861_715,"How was the first carpenter&#39;s square made?
+<p>A ""square"" is a tool, typically L or triangle shaped, that gives a craftsperson a quick and accurate 90° angle to use as a baseline in many important trades.  </p>
+
+<p>It's easy to find a right angle if you already have a square, but how was the first square made?  How can someone create a right angle tool ""from scratch""?</p>
+",2,history/68c5948f_341659.txt,history/8c75a47f_101354.txt,0.246302,,,entity_scope,False,"The candidate document does not address how the first carpenter's square was made, only describes a method for creating a right angle, which is unrelated to the origin or construction of the first tool.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document does not address how the first carpenter's square was made, only describes a method for creating a right angle, which is"
+history,57032_706,"Why was there so little information about sex in Eastern Block countries?
+<p><strong>By &quot;Taboo&quot; I meant the lack of widespread access to the information (very few sources, sparse information in biology books etc). I've edited the title for clarification.</strong></p>
+<p>As you all probably know, &quot;<a href=""https://russiapedia.rt.com/on-this-day/july-17/"" rel=""nofollow noreferrer"">there was no sex in Soviet Union</a>&quot; - at least according to famous TV shows that allowed people from Boston and Leningrad to talk about their day-to-day problems. Of course this statement was taken bit out of context - the Russian woman was going to say that &quot;there is no sex in television&quot; - but the truth is, that the whole Eastern Block was treating sex as something that you shouldn't think about at least until you have three kids.</p>
+<p>The sexual education was almost non-existent: I remember the biology book in the primary school that only showing silhouettes of naked man and woman with description &quot;human reproductive organs&quot; (without even pointing at anything). There wasn't any information about contraceptives since the most popular method of birth control was... abortion (even now, Russian Federation has the highest number of abortions per 1000 women) and the condoms (assuming they were available) had horrible quality (in one article I remember one women said that &quot;it was like having sex with a motorbike&quot;).</p>
+<p>It is not like there was no requirement for better information about sex - the famous book &quot;A practical guide to marital bliss&quot; published in 1978 was sold in Poland in over 7 million copies, even while it was more akin to IKEA manual rather than to Kama Sutra - but that was probably the only publication in that time. In similar fashion, there was no access to erotic/pornographic magazines, yet quite a few people were trying to smuggle some &quot;dirty&quot; magazines from West Germany.</p>
+<p>So why, it there was such demand that could be relatively easy fulfilled, the communist governments were doing nothing about?</p>
+<p>To clarify, I'm asking only about the former Eastern Block countries (Soviet Union, Poland, Czechoslovakia, Bulgaria etc), not current ones (China, N. Korea). I'd like also to know if there was any inherent Marxist reason for such behaviour: while many of those countries had strong traditional religious values, Party was usually trying to dismiss religion and instead &quot;be progressive&quot;. So saying that sexual education was ignored because it could offend Christians seems strange if at the same time admitting that you are a churchgoer could lead you to trouble.</p>
+<p>Just to clarify further, I was asking mainly about sex-education and erotic art (books, movies), not pornography (so for example books like <em>Lady Chatterley's Lover</em> or <em>Lolita</em>)</p>
+",2,history/67de241c_340276.txt,history/0d4c523b_100056.txt,0.296082,,,temporal,False,"The candidate document refers to the Brezhnev era and VD policy, but does not address the lack of information about sex in Eastern Block countries, nor does it support the claim that there was little information about sex, which is central to the question's temporal context.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document refers to the Brezhnev era and VD policy, but does not address the lack of information about sex in Eastern Block countries,"
+history,57062_705,"Would League of Nations and U.S. sanctions/trade embargo against 1930&#39;s Germany had notable consequences in Germany?
+<p>My research shows that trade between the U.S., France, and Britain with Germany during the mid 1930's was lower than it had been and was on a decline.  This has lead me to ponder the following question: how notable would have France/British/U.S. sanctions been against Germany?  Would have severe sanctions against Germany during this period resulted in drastic economic consequences for the German people, or would they have been of little note?  Can anyone recommend any research articles or books discussing these issues?</p>
+",1,history/ccb53a28_7050.txt,history/8703fb1f_99995.txt,0.469279,,,entity_scope,False,"The document discusses sanctions against Italy and the League of Nations, not the U.S. or League of Nations sanctions against 1930s Germany, thus failing to address the specific entity scope of the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The document discusses sanctions against Italy and the League of Nations, not the U.S. or League of Nations sanctions against 1930s Germany, th"
+history,57118_700,"How controversial were &quot;updates&quot; of churches in the past?
+<p>Following the disastrous fire of Notre Dame de Paris, heated discussions are taking place in France to decide on how to restore our cathedral. </p>
+
+<p>There are many ideas, with two rough camps: the ones who want an exact replica (or something aligned with the style of the bygone part), and the ones who want a contemporary addition (a glass tower for instance).</p>
+
+<p>When listening to the discussion, people in the latter camp mention that every time there was an update of a church (following an accident (fire, construction), or when making it bigger) the changes were <strong>contemporary for that time</strong>, and raised controversies because traditions were not kept.</p>
+
+<p><strong>Was that indeed the case?</strong> I would mostly be interested in major West European churches first (for the sake of the Notre Dame discussion), but any similar building (that is something which holds a traditional symbol, such as a university for instance) would be fine too.</p>
+",2,history/47f9829a_99271.txt,history/c207e7e3_99169.txt,0.386853,,,temporal,True,"The document describes historical updates to Notre-Dame across different time periods, including the French Wars of Religion, the Revolution, and the 19th-century restoration, clearly establishing a temporal sequence of changes.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document describes historical updates to Notre-Dame across different time periods, including the French Wars of Religion, the Revolution, and th"
+history,57302_688,"What were the global economic consequences of the 1918 flu pandemic?
+<p>What were the global economic (and societal) consequences, assuming there were any, of the 1918 flu pandemic?</p>
+
+<p>I'm just not finding a lot of information out there talking about this particular question. If I were to speculate, I'd take a look at the 1920-1921 economic depression in the United States. The historical sources I've found tend to attribute the 1920-1921 depression to the aftermath of WWI, but it seems to me like the 1918 flu could have been a contributing factor as well.</p>
+",2,history/75fc280b_337451.txt,history/28af9463_97366.txt,0.246302,,,entity_scope,False,"The candidate document focuses on general economic effects without specifying global consequences, only mentioning industries and public venues, thus failing to address the global scope required by the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document focuses on general economic effects without specifying global consequences, only mentioning industries and public venues"
+history,57324_686,"Why did animation become so huge in Japan compared to other countries?
+<p>I'd like a general explanation of the historical/cultural reasons that have made anime in Japan so big.</p>
+
+<p>There's clearly disproportion between the Japanese population (I doubt that at any moment since they started making anime they were more than 2% of world population) and the rest of the world's in the production of animation. For example,some sources estimate that currently they are around the 60% of cartoons, as shown <a href=""https://books.google.es/books?id=cVAtDQAAQBAJ&amp;pg=PA73&amp;lpg=PA73&amp;dq=anime%2060%25%20japan&amp;source=bl&amp;ots=CBSLPb3LLB&amp;sig=ACfU3U2f06j7R9dKg3dWgO4T4wsCQs1-sw&amp;hl=es&amp;sa=X&amp;ved=2ahUKEwig9JuEg6foAhWHEBQKHXFYD9IQ6AEwE3oECAkQAQ#v=onepage&amp;q=60%25&amp;f=false"" rel=""noreferrer"">here</a> for example. That's more than 20 times what they should produce if production were more and less shared among all world population.</p>
+
+<p>What are the reasons animation has ended up being such a big phenomenon in Japan?</p>
+
+<p>Not sure if this goes here or in anime.stackexchange.com, but as I'm asking about the historical/cultural reasons, I think it fits better here.</p>
+",1,history/f095b98f_337170.txt,history/e4cb7e5c_96869.txt,0.39038,,,none,True,"The document does not introduce any new information that fails to meet a necessary condition related to temporal, exclusion, entity_scope, numeric, comparison, or other aspects of the question.","{""label"": ""none"", ""candidate_ok"": true, ""why"": ""The document does not introduce any new information that fails to meet a necessary condition related to temporal, exclusion, entity_scope, numeric, comp"
+history,58540_674,"How did people cut &quot;pieces of eight&quot;?
+<p>The Spanish silver peso was a very common coin consisting of ""fine quality silver, assayed at .931 or .916,"" <a href=""https://coinweek.com/world-coins/history-of-coins-two-bits-four-bits-six-bits-eight/"" rel=""noreferrer"">according to CoinWeek</a>. Under some circumstances one peso coins, worth eight <em>reales</em>, <a href=""https://books.google.com/books?id=mrmWA14x52AC&amp;lpg=PA123&amp;ots=HYxyCfvF5l&amp;dq=cut%20reales%20common&amp;pg=PA123#v=onepage&amp;q&amp;f=false"" rel=""noreferrer"">would be cut into slivers to separate those <em>reales</em> from each other</a>. While some sources downplay the coin cutting, saying it's held to have been more common than it truly was, it clearly happened.</p>
+
+<p>How did people cut the coins? Did this require going to a blacksmith, or were they soft enough to snip or chop up with household tools?</p>
+
+<p><a href=""https://i.sstatic.net/Ps7Ih.jpg"" rel=""noreferrer""><img src=""https://i.sstatic.net/Ps7Ih.jpg"" alt=""4 reales""></a></p>
+",2,history/cd292784_95575.txt,history/73ee31b3_95436.txt,0.386853,,,entity_scope,False,"The candidate document discusses clipping and shaving of silver from edges, which is unrelated to cutting 'pieces of eight' into slivers or separating reales, and fails to address the specific method of cutting coins into pieces as described in the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses clipping and shaving of silver from edges, which is unrelated to cutting 'pieces of eight' into slivers or sep"
+history,58699_662,"Where was Mao Zedong during the Japanese surrender in Zhijiang (芷江) at the end of WWII in 1945?
+<p>Timeline for context:</p>
+
+<ul>
+<li>9 August, 1945: <a href=""https://www.history.com/topics/world-war-ii/bombing-of-hiroshima-and-nagasaki"" rel=""nofollow noreferrer"">atomic bomb on Nagasaki</a>.</li>
+<li>15 August: the Japanese announced their acceptance of the unconditional surrender (<a href=""https://www.britannica.com/topic/Potsdam-Declaration"" rel=""nofollow noreferrer"">Potsdam Proclamation</a>).</li>
+<li><a href=""https://baike.baidu.com/item/%E8%8A%B7%E6%B1%9F%E5%8F%97%E9%99%8D/1745080?fr=aladdin"" rel=""nofollow noreferrer"">21-23 August</a>: the Japanese surrender to the Chinese in the city of Zhijiang (芷江) in Hunan province (湖南省), China.  There's <a href=""https://www.youtube.com/watch?v=ZIAd4_FkCxo"" rel=""nofollow noreferrer"">videos of this surrender on YouTube</a>.</li>
+<li>28 August to 10 October: Chiang Kai-shek and Mao Zedong were in Chongqing (重庆) in Sichuan province (四川省) in a <a href=""https://en.wikipedia.org/wiki/Chinese_Civil_War#Immediate_post-war_clashes_(1945%E2%80%931946)"" rel=""nofollow noreferrer"">post-war peace negotiation</a>.</li>
+<li>2 September: <a href=""https://www.warhistoryonline.com/world-war-ii/surrender-of-japan-aboard-missouri.html"" rel=""nofollow noreferrer"">the Japanese surrendered aboard the USS Missouri</a>.</li>
+</ul>
+
+<p>During WWII, I understand there was a ""coalition government"" between the Nationalist Party and Communist Party, so I'm curious as to where Mao Zedong was during the surrender in Zhijiang, and in particular, if he was in attendance.</p>
+
+<p><strong>Question</strong>: Where was Mao Zedong during the Japanese surrender in Zhijiang?</p>
+
+<p>Prior to all this, on June 19, Mao Zedong was in Yan'an (延安) in Shaanxi province (陕西省) for the <a href=""https://en.wikipedia.org/wiki/7th_Central_Committee_of_the_Communist_Party_of_China"" rel=""nofollow noreferrer"">7th Central Committee of the Communist Party of China</a>.</p>
+",1,history/b2259e0f_94822.txt,history/1b16b6a5_94799.txt,1.0,,,temporal,False,"The candidate document states Mao Zedong arrived in Chongqing on August 28, 1945, but the Japanese surrender in Zhijiang occurred between August 21-23, 1945, making the candidate's timeline inconsistent with the temporal condition of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document states Mao Zedong arrived in Chongqing on August 28, 1945, but the Japanese surrender in Zhijiang occurred between August 21"
+history,58914_650,"Why did the first Safavid Shia become Shia?
+<p>I'm currently reading the history of Safavid Iran (by Roger Savory) which was a Shia ruling. The eponym of Safavid is <a href=""https://en.wikipedia.org/wiki/Safi-ad-din_Ardabili"" rel=""nofollow noreferrer"">Safi-ad-din Ardabili</a> that was a Sunni. We can be sure that his grandson <a href=""https://en.wikipedia.org/wiki/Khvajeh_Ali_Safavi"" rel=""nofollow noreferrer"">Khvajeh Ali Safavi</a> was Shia. </p>
+
+<p>I want to ask the reason for his convert to Shiism and the age at which he converted.</p>
+",3,history/8a01bf06_92908.txt,history/1012f1a6_92907.txt,0.234639,,,entity_scope,False,"The candidate document fails to address the specific conversion of Khvajeh Ali Safavi to Shiism and does not discuss the religious influence or context of his shift, which is central to the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the specific conversion of Khvajeh Ali Safavi to Shiism and does not discuss the religious influence or"
+history,59006_644,"How many naval mines were cleared for D-Day?
+<p>I was interested to read in <a href=""https://history.stackexchange.com/questions/40551/right-before-d-day-how-were-naval-mines-cleared-secretly"">this question</a> about the clearing of naval mines for D-Day in 1944. There are estimates of the frequency of the <a href=""https://www.junobeach.org/beach-obstacles/"" rel=""nofollow noreferrer"">mines on the beach</a> -- <a href=""https://www.history.com/news/d-day-normandy-wwii-facts"" rel=""nofollow noreferrer"">history.com says</a> there were ""4 million landmines along Normandy’s beaches"", but I've not found anything on the number of mines cleared in the water.</p>
+
+<p><strong>Does any source indicate or suggest how many naval mines were cleared by the nighttime minesweeping operation?</strong></p>
+
+<p><a href=""https://i.sstatic.net/zD7Rp.jpg"" rel=""nofollow noreferrer""><img src=""https://i.sstatic.net/zD7Rp.jpg"" alt=""Mine targeting at sea""></a></p>
+
+<p><a href=""https://i.sstatic.net/iwuJn.png"" rel=""nofollow noreferrer""><img src=""https://i.sstatic.net/iwuJn.png"" alt=""Minesweeping map""></a></p>
+",1,history/2dab531c_331397.txt,history/b4478409_92325.txt,0.469279,,,numeric,True,The candidate document provides a specific numeric value—'over 800 mines'—which addresses the required quantity of naval mines cleared for D-Day.,"{""label"": ""numeric"", ""candidate_ok"": true, ""why"": ""The candidate document provides a specific numeric value—'over 800 mines'—which addresses the required quantity of naval mines cleared for D-Day.""}"
+history,59150_637,"How did philosophical and scientific knowledge in Christian Europe in 1085 compare to the body of knowledge contained in the library of Toledo?
+<p>In 1085, Moorish Toledo was <a href=""https://www.britannica.com/event/Siege-of-Toledo"" rel=""nofollow noreferrer"">conquered</a> by <a href=""https://en.wikipedia.org/wiki/Alfonso_VI_of_Le%C3%B3n_and_Castile"" rel=""nofollow noreferrer"">Alfonso VI</a>. </p>
+
+<p>According to prof. Robert Sapolsky (he is a primatologist and neurobiologist, but usually all information he gives is very reliable), at the time of the conquest <a href=""https://youtu.be/_njf8jwEGRo?t=275"" rel=""nofollow noreferrer"">there was more cumulative information in the library of Toledo than in the whole Christendom</a>, especially when it comes to philosophy and science. Could this be correct? How did repositories of knowledge (libraries) in Christian Europe compared with the Toledo library in number of volumes, reputation of authors, breadth and depth of topics covered, or other measures? In particular, how about the Byzantine libraries following the Carolingian Renaissance?</p>
+
+<p>The answer has to contain some objective measure to fit the format of this forum, it could be e.g. the number of prominent antique/Arab philosophers whose works were known in Christian Europe before the conquest vs the books in the library, or some very significant works that were available in the library but not known in Christian Europe at the time, or any other objective measure that is available.</p>
+
+<p>This is indirectly confirmed by the existence of <a href=""https://en.wikipedia.org/wiki/Toledo_School_of_Translators"" rel=""nofollow noreferrer"">Toledo School of Translators</a>, but I could not find any quantitative references.</p>
+",1,history/eaaf8a65_91451.txt,history/9717c674_91450.txt,0.613147,,,comparison,False,"The candidate document fails to provide a direct or objective comparison between philosophical and scientific knowledge in Christian Europe in 1085 and the body of knowledge in the Toledo library, lacking specific metrics or data to support the comparison.","{""label"": ""comparison"", ""candidate_ok"": false, ""why"": ""The candidate document fails to provide a direct or objective comparison between philosophical and scientific knowledge in Christian Europe in 10"
+history,59254_629,"How did Italy and Germany get rubber in WWII?
+<p>Japan invaded Southeast Asia and Indonesia to obtain rubber in WWII.  Germany and Italy clearly used large amounts of rubber in WWII to build vehicles and planes, but in the 1940s rubber was only available in South America, central Africa, and Southeast Asia, which the European Axis lacked access to, and any shipments of rubber would have been stopped by the allies' massive naval superiority.  So how did Germany and Italy have enough rubber to manufacture war equipment?</p>
+",1,history/6fc5fae8_90764.txt,history/90dedfb9_90753.txt,0.39038,,,entity_scope,False,"The candidate document discusses the development of synthetic rubber in the 1930s but does not address how Italy and Germany obtained rubber during WWII, failing to cover the specific entity scope of Italy and Germany's rubber acquisition in the war context.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses the development of synthetic rubber in the 1930s but does not address how Italy and Germany obtained rubber du"
+history,59267_627,"Was the danger of Germany bombing the US East Coast taken seriously and were measures taken to address it?
+<p>In this <a href=""https://edition.cnn.com/2020/05/15/us/iyw-advice-to-seniors-from-seniors-crisis-trnd/index.html"" rel=""noreferrer"">CNN article</a> an old lady from Dillon, South Carolina, recalls her memories from World War II and mentions not just fearing bombs from airplanes, but actual measures being taken against aerial bombardment: blackouts and voluntary spotters.</p>
+
+<blockquote>
+  <p>A few years later, her high school graduation was canceled when a
+  blackout went into effect. World War II was underway, and there was a
+  threat that airplanes would bomb the area.</p>
+  
+  <p>"" (...) and someone told me there was a bomb threat, that airplanes
+  were going to fly over and they didn't want the lights shining.""</p>
+  
+  <p>The blackouts and the war made life challenging, but Shelley rose to
+  the occasion. The teenager became a volunteer spotter, and would spend
+  Sundays on top of the local department store. ""All you had was a
+  telephone, binoculars, and a big chart with pictures of the airplanes
+  underneath so when you looked up you could identify them.""</p>
+</blockquote>
+
+<p>Some of that could suggest just some reasonable mass panic just after Pearl Harbour (""someone told me there was a bomb threat"") but blackouts and spotters seem something more organized as if some authority has taken seriously the danger of air attack. At first sight, the blackout could be to prevent submarine attacks, but Dillon is about 100 km inland and the article clearly states that spotters were given identification charts for airplanes, not for submarines.</p>
+
+<p>We have the benefit of insight and we know that neither Germany nor Japan had the means to air bomb North American mainland, but that might have been seen in a very different light during the war.</p>
+
+<p>Then, my question is <strong>whether the danger of air attack on the East Coast was taken seriously and if measures of defence against it - like widespread blackouts and spotters - were put in place.</strong></p>
+
+<p><a href=""https://history.stackexchange.com/questions/43096/what-kind-of-aa-defenses-did-the-us-east-coast-have-around-the-time-of-paukensch"">This related question</a> just hints that providing AA guns to shore batteries in the East Coast wasn't a priority, but that's just assessing that it was better to send the scarce AA guns to other places which were actually under air attack and it doesn't make clear if the East Coast was seen under threat, even in a lesser degree.</p>
+",2,history/d849bf98_329245.txt,history/e4b18acd_90574.txt,0.246302,,,entity_scope,False,"The document discusses Germany's air defense against Allied bombing, not the danger of Germany bombing the US East Coast, thus failing the entity_scope condition.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The document discusses Germany's air defense against Allied bombing, not the danger of Germany bombing the US East Coast, thus failing the enti"
+history,59289_624,"Why was the Federal Reserve District in the United States so skewed in division?
+<p>I am always wondering why the Federal Reserve district in the United States is so unevenly divided. Is it by the population? Any historic reason?
+<a href=""https://upload.wikimedia.org/wikipedia/commons/8/8a/Federal_Reserve_Districts_Map_-_Banks_%26_Branches.png"" rel=""nofollow noreferrer"">As see on image here</a></p>
+
+<p>I initially thought it was by assets, but in the asset history, it is even more skewed, <a href=""https://upload.wikimedia.org/wikipedia/commons/f/f5/Assets_of_Federal_Reserve_Banks_from_1996-2009.jpg"" rel=""nofollow noreferrer"">St Louis has a big lead over the other districts</a>. 
+Any one know about this district division reason?</p>
+",1,history/d15c6f13_328862.txt,history/e3e7dbde_90383.txt,0.39038,,,temporal,True,"The candidate document references the year 1913, which aligns with the historical context of the Federal Reserve's establishment, satisfying the temporal condition.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The candidate document references the year 1913, which aligns with the historical context of the Federal Reserve's establishment, satisfying the tem"
+history,59309_621,"How many people watched the moon landings after Apollo 11?
+<p>I'm currently writing an essay on the history of Spaceflight. I remember hearing before that interest in the Apollo program waned after Apollo 11, that TV ratings of the moon missions gradually dwindled from public apathy, with the exception of Apollo 13. However, <em>I can't find any contemporary evidence which shows that public interest in Apollo's subsequent missions to the moon faded.</em> I'm having such a hard time proving this in my essay. I know that the Apollo 11 mission had around 600 million viewers when Armstrong and Aldrin touched down. That data is out there and is easy enough to find. And it seems pretty obvious to me that people stopped caring shortly thereafter. But what I'm really interested in is some kind of hard proof which shows that people stopped caring about the moon missions.</p>
+
+<p>So far, my googling hasn't helped, though I've found a number of cool sources. None of the following solved my problem:</p>
+
+<ol>
+<li>A website devoted to classic TV ratings: <a href=""http://www.classictvhits.com/tvratings/"" rel=""noreferrer"">http://www.classictvhits.com/tvratings/</a></li>
+<li>Various television ratings archives: <a href=""https://en.wikipedia.org/wiki/Wikipedia:List_of_U.S._television_ratings_archives"" rel=""noreferrer"">https://en.wikipedia.org/wiki/Wikipedia:List_of_U.S._television_ratings_archives</a></li>
+<li>Apollo by the Numbers - a super cool site showing all kinds of useful stats pertaining to the Apollo missions: <a href=""https://history.nasa.gov/SP-4029/Apollo_00a_Cover.htm"" rel=""noreferrer"">https://history.nasa.gov/SP-4029/Apollo_00a_Cover.htm</a></li>
+<li>Historical Nielson TV ratings: <a href=""https://guides.libraries.psu.edu/nielsen/historical"" rel=""noreferrer"">https://guides.libraries.psu.edu/nielsen/historical</a></li>
+</ol>
+
+<p>Any help would be greatly appreciated.</p>
+",2,history/5d826fdb_328326.txt,history/8468bbab_90008.txt,0.386853,,,numeric,True,"The document provides a numeric claim about public engagement (94 percent of TV viewers tuned in), which is relevant to the question about how many people watched the moon landings after Apollo 11.","{""label"": ""numeric"", ""candidate_ok"": true, ""why"": ""The document provides a numeric claim about public engagement (94 percent of TV viewers tuned in), which is relevant to the question about how many p"
+history,62753_599,"How far did Malcolm X get with taking the United States to the United Nations?
+<p>In Malcolm X's original <a href=""https://en.wikipedia.org/wiki/The_Ballot_or_the_Bullet"" rel=""nofollow noreferrer"">The Ballot or the Bullet</a> speech, delivered <a href=""http://www.edchange.org/multicultural/speeches/malcolm_x_ballot.html"" rel=""nofollow noreferrer"">in Ohio</a> on 3 Apr 1964, just after he left the <a href=""https://en.wikipedia.org/wiki/Nation_of_Islam"" rel=""nofollow noreferrer"">Nation of Islam</a>, he outlines his case for taking the civil rights movement to the United Nations:</p>
+<blockquote>
+<p>We need to expand the civil-rights struggle to a higher level - to the level of human rights. Whenever you are in a civil-rights struggle, whether you know it or not, you are confining yourself to the jurisdiction of Uncle Sam. No one from the outside world can speak out in your behalf as long as your struggle is a civil-rights struggle. Civil rights comes within the domestic affairs of this country. All of our African brothers and our Asian brothers and our Latin-American brothers cannot open their mouths and interfere in the domestic affairs of the United States. And as long as it's civil rights, this comes under the jurisdiction of Uncle Sam.</p>
+<p>But the United Nations has what's known as the charter of human rights; it has a committee that deals in human rights. You may wonder why all of the atrocities that have been committed in Africa and in Hungary and in Asia, and in Latin America are brought before the UN, and the Negro problem is never brought before the UN...</p>
+<p>When you expand the civil-rights struggle to the level of human rights, you can then take the case of the black man in this country before the nations in the UN. You can take it before the General Assembly. You can take Uncle Sam before a world court. But the only level you can do it on is the level of human rights. Civil rights keeps you under his restrictions, under his jurisdiction. Civil rights keeps you in his pocket. Civil rights means you're asking Uncle Sam to treat you right. Human rights are something you were born with. Human rights are your God-given rights. Human rights are the rights that are recognized by all nations of this earth. And any time any one violates your human rights, you can take them to the world court.</p>
+<p>Uncle Sam's hands are dripping with the blood of the black man in this country. He's the earth's number-one hypocrite. He has the audacity - yes, he has - imagine him posing as the leader of the free world. The free world! And you over here singing &quot;We Shall Overcome.&quot; Expand the civil-rights struggle to the level of human rights. Take it into the United Nations, where our African brothers can throw their weight on our side, where our Asian brothers can throw their weight on our side, where our Latin-American brothers can throw their weight on our side, and where 800 million Chinamen are sitting there waiting to throw their weight on our side.</p>
+</blockquote>
+<p>Do we know how much progress he made on this goal before his assassination 10 months later?</p>
+",1,history/823d19ff_322492.txt,history/70126d54_86431.txt,0.39038,,,temporal,False,"The candidate document does not specify when Malcolm X made any progress toward taking the U.S. to the United Nations, failing to address the temporal aspect of the question regarding how far he got before his assassination.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not specify when Malcolm X made any progress toward taking the U.S. to the United Nations, failing to address the tempo"
+history,62765_598,"What is the Thalassic Age?
+<p>What is the Thalassic Age? What exactly happened during that time? This came from reading that Greeks during Hellenistic period conquered some areas in Phoenicia, Mesopotamia and Egypt and developed a lot of mathematics.</p>
+",1,history/7b7d8219_44082.txt,history/8425f4b4_86385.txt,0.469279,,,entity_scope,False,"The candidate document discusses Greek interactions with Egypt and the influence of Egyptian geometry on Greek thought, but it does not address the Thalassic Age at all, failing to meet the required entity scope.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses Greek interactions with Egypt and the influence of Egyptian geometry on Greek thought, but it does not address"
+history,62887_596,"What is the historical origin of the Jewish Sabbath?
+<p>The Jewish Sabbath is presented in the Old Testament:</p>
+<blockquote>
+<p>8 “Remember the Sabbath day by keeping it holy. 9 Six days you shall labor and do all your work, 10 but the seventh day is a sabbath to the Lord your God. On it you shall not do any work, neither you, nor your son or daughter, nor your male or female servant, nor your animals, nor any foreigner residing in your towns. 11 For in six days the Lord made the heavens and the earth, the sea, and all that is in them, but he rested on the seventh day. Therefore the Lord blessed the Sabbath day and made it holy. <a href=""https://www.biblegateway.com/passage/?search=Exodus+20%3A8-11&amp;version=NIV"" rel=""noreferrer"">Exodus 20:8-11</a>.</p>
+</blockquote>
+<p>I would like to know about the historical origins of this practice. Is the practice of having a weekly day of rest and devotion original to Judaism, or can its origins be traced back to a prior non-Jewish source?</p>
+",4,history/23356f81_86191.txt,history/420c9ded_85985.txt,0.118383,,,temporal,True,"The document references a specific historical argument made by Professor Clay in 1923, which is a clear temporal anchor point.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document references a specific historical argument made by Professor Clay in 1923, which is a clear temporal anchor point.""}"
+history,62994_591,"What was the fastest coal-powered ship in a country&#39;s navy?
+<p>The transition from coal to oil fuel as the primary energy source for navy ships took place leading up to and during WWI.  The last British battleship to primarily use coal power was the Iron Duke class.</p>
+<p>Oil-fuelled ships were known for higher temperature and pressure boilers that could produce faster speeds.  There was a transition period, though, in which coal was drenched in oil to allow it to burn hotter.</p>
+<p>My question is, what was the fastest ship part of a country's navy that primarily used coal as its fuel?</p>
+<p>It can have oil too, but mostly relied on coal.  It can also be any class, from corvette and frigate to destroyer, cruiser, or battleship.</p>
+",1,history/fec61610_319538.txt,history/4e6ba34e_84235.txt,0.252943,,,numeric,False,"The candidate document provides speed and horsepower data but does not identify the fastest coal-powered ship in a country's navy, failing to satisfy the necessary numeric condition of specifying the fastest such ship.","{""label"": ""numeric"", ""candidate_ok"": false, ""why"": ""The candidate document provides speed and horsepower data but does not identify the fastest coal-powered ship in a country's navy, failing to satisf"
+history,62997_590,"Why did life expectancy decline sharply in 16th century England?
+<p>I was checking historical life expectancy and found the chart shown below in <a href=""https://ourworldindata.org/life-expectancy"" rel=""nofollow noreferrer"">Roser, Ortiz-Ospina, Ritchie, 2013</a>.</p>
+<p>What was the reason for such a dramatic decline in life expectancy in England in the middle of the 16th century?</p>
+<p>Is this just a data glitch or was there a major war or plague at that time? I could not find anything that would explain such a dramatic decline.</p>
+<p><a href=""https://i.sstatic.net/Ow0ui.jpg"" rel=""nofollow noreferrer""><img src=""https://i.sstatic.net/Ow0ui.jpg"" alt=""Average life expectancy"" /></a></p>
+<ol>
+<li>Roser M., Ortiz-Ospina E., Ritchie H. Life Expectancy:  OurWorldInData.org, 2013. Retrieved from: 'https://ourworldindata.org/life-expectancy' [Online Resource]</li>
+</ol>
+",1,history/41fa0ff1_84184.txt,history/13f1aff4_83923.txt,0.39038,,,temporal,False,"The candidate document discusses events in the 17th century, such as the 1623–24 famine and plague epidemics, which are outside the 16th century context of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document discusses events in the 17th century, such as the 1623–24 famine and plague epidemics, which are outside the 16th century co"
+history,63284_581,"What were paper airplanes called before there were real airplanes? (i.e. untethered winged flyers, not kites or balloons)
+<p>According to the Google Ngram Viewer (<a href=""https://en.wikipedia.org/wiki/Google_Ngram_Viewer"" rel=""nofollow noreferrer"">https://en.wikipedia.org/wiki/Google_Ngram_Viewer</a>) the English word &quot;airplane&quot; was practically unused before the year 1900.  Given that paper is credited with having been invented over two centuries before what we know as the airplane; any paper-based flyers throughout the ages would have had to be called something other than &quot;paper airplanes&quot;.</p>
+<p>Is there documented evidence of the use of alternative names, in any language, and what were they?</p>
+<p><strong>Note</strong>: By paper airplane I'm referring to any invention mostly or exclusively made of flat paper (parchment, etc.) that when thrown stays aloft for longer than the same paper compressed into a ball would.</p>
+",3,history/04d87490_81848.txt,history/5759a929_81622.txt,0.16958,,,exclusion,False,"The candidate document describes 'paper birds' that are bird-shaped gliders weighted with pins, which are not untethered winged flyers made of flat paper and do not meet the definition of paper airplanes as specified in the question, thus violating the exclusion condition.","{""label"": ""exclusion"", ""candidate_ok"": false, ""why"": ""The candidate document describes 'paper birds' that are bird-shaped gliders weighted with pins, which are not untethered winged flyers made of fla"
+history,63331_580,"Did a unit of 40 men hold off Rommel&#39;s &quot;ghost division&quot; for 18 days?
+<p>I found the following baffling claim on a Wikipedia <a href=""https://en.wikipedia.org/wiki/Chasseurs_Ardennais"" rel=""noreferrer"">article</a> regarding the &quot;Chasseurs Ardennais&quot; in World War II:</p>
+<blockquote>
+<p>A unit of only 40 men held off the combined arms of the German forces, including General Rommel's &quot;Ghost Division&quot; for 18 days and only surrendered after running out of ammunition, when asked where the others were, they simply replied 'We are all'.<sup>[citation needed]</sup></p>
+</blockquote>
+<p>As this appears to be quite unlikely, no citation is provided and it does not align with the events as presented by the equivalent German page, I highly doubt it. The edit history is dubious as well: a <a href=""https://en.wikipedia.org/w/index.php?title=Chasseurs_Ardennais&amp;oldid=1013711911"" rel=""noreferrer"">recent edit</a> mocked the claim before being reverted.</p>
+<p>Is it just a myth / an exaggeration, or are there any notable sources to support said claim?</p>
+",1,history/ca5dc35f_81597.txt,history/59a10a31_81574.txt,0.39038,,,numeric,False,"The candidate document states that a unit held off German forces for a full day, not 18 days, which fails to satisfy the required numeric condition of 18 days.","{""label"": ""numeric"", ""candidate_ok"": false, ""why"": ""The candidate document states that a unit held off German forces for a full day, not 18 days, which fails to satisfy the required numeric condition "
+history,63561_567,"Is there any evidence of heterosexual men being sexually attracted to women breasts pre-Victorian history?
+<p>I read some articles which say men's sexual attraction to breasts (during sex or casually) is because culture/society started it. One relevant article is <a href=""https://medium.com/swlh/the-human-body-is-not-inherently-sexual-so-why-do-we-make-it-the-case-for-womens-96efe3c12482#:%7E:text=They%20are%20hyper%20sexualizing%20this,the%20female%20body%20oppresses%20us.&amp;text=Because%20in%20our%20culture%2C%20women%27s,even%20conscious"" rel=""nofollow noreferrer"">this</a>. Women were told to hide breasts and hence men got sexually attracted to them because everyone loves what's hidden (I read answers on Quora and Reddit which wrote all these things).</p>
+<p>I read many discussions by some experience users on Reddit, who commented above things, especially &quot;everyone loves what's hidden&quot; (talking about breasts).</p>
+<p>They gave basically 2 reasons for saying this:</p>
+<ol>
+<li>There are women in Africa who go topless and men <em>don't care</em> about it like everyone else in most other cultures (Read this kind of views on Reddit)</li>
+<li>In Victorian era, <a href=""https://www.bbc.com/news/magazine-30052071"" rel=""nofollow noreferrer"">ankles</a> were considered sexual, because they were hidden and because they were hidden men would get turned on (Read on Quora answers)</li>
+</ol>
+<p>So, I'm just getting curious - Did this sexual attraction to breasts really started when culture/society started to hide breasts and eventually they became sexual attraction?</p>
+<p><strong>Is there any evidence in known history that sexual attraction to breasts (and importance of breasts during sex) was also common in past, especially before Victorian era?</strong></p>
+<p>Note: Most of the things I wrote above I mainly I read on Yahoo answers, Reddit, Quora and few users on StackExchange users in comments of past questions on various SE sites. And I could relate them because I have already read so many articles mentioning similar things about <a href=""https://www.bl.uk/romantics-and-victorians/articles/victorian-sexualities#"" rel=""nofollow noreferrer"">Victoria era</a> and culture/society <a href=""https://arcanelost.com/sexualization-of-breasts/"" rel=""nofollow noreferrer"">sexualized</a> breasts.</p>
+<p>One reference about breasts role in human sexual activity is mentioned in <a href=""https://en.wikipedia.org/wiki/Breast"" rel=""nofollow noreferrer"">this</a> article.</p>
+<p>One answer <a href=""https://www.quora.com/When-and-how-did-breasts-become-sexualized-in-western-culture"" rel=""nofollow noreferrer"">here</a> talks about &quot;not a natural attraction&quot;.</p>
+",1,history/5c10aed3_79962.txt,history/ce9426cb_79936.txt,0.220092,,,temporal,False,"The candidate document discusses modern studies and cultural preferences without addressing evidence from pre-Victorian history, failing to meet the temporal requirement of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document discusses modern studies and cultural preferences without addressing evidence from pre-Victorian history, failing to meet th"
+history,63843_555,"Do we know if Patton ever said &quot;l&#39;audace l&#39;audace toujours l&#39;audace&quot;?
+<p>Do we know if George S. Patton said that even though George C. Scott quoted Frederick the Great in the movie?</p>
+<p>If Patton did, what does the quote actually mean in the situation?</p>
+<p><a href=""https://history.stackexchange.com/questions/63829/what-is-the-meaning-of-george-s-pattons-quote-nobody-ever-defended-anything-su"">Related question</a></p>
+",1,history/50883cc8_308126.txt,history/922944b8_77168.txt,0.39038,,,entity_scope,False,"The candidate document discusses a military strategy resembling Patton's audacity but does not address whether Patton himself ever said the specific quote 'l'audace l'audace toujours l'audace,' failing to establish the entity scope of Patton's actual words.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses a military strategy resembling Patton's audacity but does not address whether Patton himself ever said the spe"
+history,63862_552,"Why did Hitler send Manstein&#39;s army (and not some other) to Leningrad in the summer of 1942?
+<p>In July, 1942, Germany's General von Manstein won the <a href=""https://en.wikipedia.org/wiki/Siege_of_Sevastopol_(1941%E2%80%931942)"" rel=""noreferrer"">siege of Sevastopol</a>. Shortly thereafter, Manstein and his 11th Army were sent to Leningrad, which the Germans were also besieging.</p>
+<p>I don't question why Hitler wanted to reinforce the siege on Leningrad. I do question why Hitler moved the 11th Army all the way from the extreme south to the extreme north for this purpose. (I can understand the transfer of Manstein &quot;personally&quot; to Leningrad.)</p>
+<p>Was it a case of the 11th Army representing &quot;picked&quot; troops, perhaps because of their recent success with at Sevastopol? Was this Hitler's rotating &quot;spare&quot; army? Or was there another reason to use the 11th Army and not another one as reinforcements?</p>
+",1,history/c5d33680_58219.txt,history/feff9403_76597.txt,0.220092,,,temporal,False,"The candidate document fails to address the specific time frame of summer 1942 when Manstein's army was sent to Leningrad, which is a necessary temporal condition of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the specific time frame of summer 1942 when Manstein's army was sent to Leningrad, which is a necessary tem"
+history,63880_549,"Why did the Metall und Lackierwarenfabrik company get asked to bid on the creation of the MG42?
+<p><a href=""https://en.wikipedia.org/wiki/MG_42"" rel=""noreferrer"">The MG42</a>. A very iconic machine gun built during World War 2. Known for its high rate of fire, three man operating squad and its ability to suppress advancing troops, was built by <a href=""https://de.wikipedia.org/wiki/Metall-_und_Lackwarenfabrik_Johannes_Gro%C3%9Ffu%C3%9F"" rel=""noreferrer"">Metall und Lackierwarenfabrik</a>. However, up until this point, Metall und Lackierwarenfabrik was a company that just stamped parts out of sheet metal. They had no prior experience creating weapons and I have been trying to find documentation as to why they were asked by the German government in the late 1930s to submit a design for a new machine gun. Up until this point they basically built nice furnishings for houses.</p>
+<p>I know that Werner Gruner was an engineer, and my thought was that he or the father/son owners of the company were part of the Nazi rank and file, but I can't seem to find anything that even hints at that or how they were even part of the bidding process.</p>
+<p>I do understand how they got the contract in the end. Their operating mechanism was superior, their lack of tight tolerances made for a more reliable machine, and the cheaper stamped parts proved more rugged in testing. I am just at a loss for how they were asked to bid on the project.</p>
+<p>Out of the companies in Germany that produced weapons, how was a non-weapon producing company asked to design a new machine gun?</p>
+",2,history/45adeb93_76226.txt,history/8959b24d_76214.txt,0.173428,,,entity_scope,True,"The candidate correctly identifies Metall und Lackierwarenfabrik Johannes Großfuß as one of the companies invited to bid, aligning with the entity scope of the question.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate correctly identifies Metall und Lackierwarenfabrik Johannes Großfuß as one of the companies invited to bid, aligning with the enti"
+history,63982_544,"Were blue-tinted glasses prevalent in Victorian England and, if so, why?
+<p>Whenever I happen to read Chesterton, Conan-Doyle or some other British writers of the era, there will occasionally be mentioned people wearing blue-tinted spectacles.</p>
+<p>Chesterton especially, in his Father Brown stories, mentions them almost exclusively, and very often.</p>
+<p>It seems to suggest that blue-tinted glasses were very common, but the question is, <strong>whether that's the case and what might've been the reasons for using colored glasses, especially blue ones?</strong></p>
+<p>As I understand, 19th century was the time when spectacles came into general use, so it is natural that many different kinds of glasses were experimented with, and it might've been that blue-tinted glass was supposed (or did in fact) hold some useful properties.</p>
+<p>This seems to be borne out by the fact that rather a lot of blue glasses from the period are available to buy from antiquarians.</p>
+<p>On heritagecostumes site <a href=""https://www.heritagecostumes.com/vintage-victorian-round-spectacles-blue-p1494.html"" rel=""noreferrer"">it is casually mentioned</a> that &quot;Colored glass was used and usually for special reasons. Blue or black, were made for people riding the trains in the 19th century.&quot; without specifying why would that be considered useful.</p>
+",1,history/6288ddfc_302994.txt,history/678227c4_75594.txt,0.274876,,,temporal,False,"The candidate document does not establish that blue-tinted glasses were prevalent in Victorian England during the specific time period, only that steampunk fashion includes them as a fantasy-inspired aesthetic.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not establish that blue-tinted glasses were prevalent in Victorian England during the specific time period, only that s"
+history,64055_538,"Did medieval kingdoms issue health related guidelines?
+<p>Today national health protection agencies around the world such as CDC in  United States often issue health and personal hygiene guidelines during  pandemics or epidemic or where a large population of a nation is under threat from a particular disease.</p>
+<p>Do kingdoms (kings and their ministers, health officials) used to issue  health related guidelines, warnings such as do's and don'ts to the public regularly or in times of epidemics etc. in the medieval period.</p>
+<p>Although the question is not limited to it, but I am especially interested in medieval Europe and Britain.</p>
+<p>I know heralds, pamphlets and posters were some of the mediums to address to mass public back then, so how  such messages  were transmitted to public?</p>
+<p>So is there any record of any public health, personal hygiene guidelines issued by kingdoms, kings in medieval times, especially from Europe and Britain?</p>
+<hr>
+<p><strong>Note</strong> — The question is not mainly about <a href=""https://en.m.wikipedia.org/wiki/Medical_guideline"" rel=""nofollow noreferrer""><strong>medical guidelines</strong></a>(also called a clinical guideline, standard treatment guideline, or clinical practice guideline) but it will be a good supplement to answer about those as well.</p>
+",1,history/1d195a90_74470.txt,history/37ce2f37_74387.txt,0.220092,,,entity_scope,True,"The document refers to the Taccuinum Sanitatis as a medieval handbook used in Europe, addressing health practices within a medieval European context, thus satisfying the entity_scope condition of the question.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The document refers to the Taccuinum Sanitatis as a medieval handbook used in Europe, addressing health practices within a medieval European con"
+history,64072_537,"What was the point of the Babylonian captivity?
+<p>What was the point of the <a href=""https://en.wikipedia.org/wiki/Babylonian_captivity"" rel=""noreferrer"">Babylonian captivity</a>?
+I could understand if a few royalty or nobility were taken hostage, but why tens of thousands? I see no suggestion that they were taken into slavery. What was the advantage to the Babylonians?</p>
+",1,history/3f07e0c7_74320.txt,history/966c0b5e_74258.txt,0.39038,,,temporal,False,"The candidate document fails to address the point or purpose of the Babylonian captivity, instead focusing on the timeline and events of the exile without explaining its intended purpose or rationale.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the point or purpose of the Babylonian captivity, instead focusing on the timeline and events of the exile "
+history,64177_534,"Were Egyptian monarchs referred to by the title &quot;pharaoh&quot; alone, without using their proper names, from around 1500 BCE until the 10th century BCE?
+<p>In his book <a href=""http://www.worldcat.org/oclc/1141421530"" rel=""nofollow noreferrer""><em>Ani Maamin</em></a>, Rabbi Joshua Berman makes a comment about the usage of the term &quot;Pharaoh&quot; in the Book of Exodus, indicating that it was in line with the standard conventions in Egypt c.1200 BCE, which is when he envisions the biblical Exodus narrative having been composed:</p>
+<blockquote>
+<p>In the Exodus account, pharaohs are simply called &quot;Pharaoh,&quot; whereas in later biblical passages, Egyptian monarchs are referred to by their proper name, as in Pharaoh Necho&quot; (II Kings 23:29). This, too, echos usage in Egypt itself, where, from the middle of the second millennium until the tenth century BCE, the title &quot;pharaoh&quot; was used alone. (<em>Ani Maamin</em> p.53)</p>
+</blockquote>
+<p>This statement was made without elaboration, citations, or footnotes.</p>
+<p>Is Rabbi Berman's statement accurate? (In at least some sense? I could not tell if he meant that the proper names of pharaohs in Egypt were consistently absent during that time period, as in the Book of Exodus, or if he meant that it was at least <em>sometimes</em> used alone during that specific time period but not in later ones.) If so, how common would it have been to use &quot;pharaoh&quot; alone during that time compared to a full name such as &quot;Pharaoh Ramesses,&quot; and how much of a shift was there in this convention after the tenth century BCE?</p>
+<p>I tried checking some ancient texts such as the Amarna Letters, statues with inscriptions, and peace treaties, from around the time period in which Berman states the title &quot;pharaoh&quot; was used alone, and the full names of the pharaohs are indeed used in the examples I was able to find. However I don't have such a sufficient breadth and scope of familiarity with ancient references to the Egyptian monarchs to reach much of a conclusion about the accuracy of the above claim.</p>
+",1,history/82bee99b_73844.txt,history/eb718c18_73842.txt,0.469279,,,temporal,False,"The CURRENT document fails to establish the specific time frame of 'from around 1500 BCE until the 10th century BCE' as the period when 'pharaoh' was used alone, instead suggesting a shift around 1000 BCE and earlier developments in the middle of the second millennium BCE, which does not align with the precise temporal scope of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The CURRENT document fails to establish the specific time frame of 'from around 1500 BCE until the 10th century BCE' as the period when 'pharaoh' w"
+history,64203_533,"How did coach service in 18th century America work?
+<p>I know that carriage transportation in the US imitated that of Europe, and I know that in the 18th century <a href=""https://history.stackexchange.com/questions/39999/time-to-travel-around-europe-in-the-18th-century"">coaches could be used to transport goods and people</a> and <a href=""http://umich.edu/%7Eece/student_projects/coaches/index.html"" rel=""noreferrer"">they could also be used as a public transport</a>. However, I can't find any information about the nuances of how people used them (things like how they looked for a carriage, how they told the coachman where they wanted to go, how far the coachman could go, how the coachman collected money, etc...)</p>
+<p>The nuances are very important to me, because I am writing a scene when a character has to use a coach to move away from the town he is currently in (the story is set between 1778 - 1779 America), and I need to plan out his movement (my character is a man of high status so money and status aren't the problem). The things I need to know are:</p>
+<ul>
+<li>What time did a typical 18th century coach without any passenger operate? Were they available 24/24 hours or was there any specific time in the day when no coaches were available?</li>
+<li>How would my character go about finding a coach? Does he just go around the town looking for a random coach? Does he go to a spot similar to today's bus stop? Or does he have to contact someone beforehand and wait for a coach to come pick him up at his place?</li>
+<li>How far could an 18th century coach go? Was there any limit to how far a coach could go?</li>
+</ul>
+",1,history/4332c300_73835.txt,history/499a2a87_73731.txt,0.235046,,,temporal,False,"The candidate document does not address the time period of 18th century America specifically, failing to provide information on how coach service operated during that time.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the time period of 18th century America specifically, failing to provide information on how coach service o"
+history,64282_527,"Did a submarine ever torpedo and sink a destroyer?
+<p>The naval <a href=""http://dubm.de/en/the-bitter-fight/"" rel=""nofollow noreferrer"">battle</a> of <a href=""https://en.wikipedia.org/wiki/German_submarine_U-405"" rel=""nofollow noreferrer"">U-405</a> versus <a href=""https://en.wikipedia.org/wiki/USS_Borie_(DD-215)"" rel=""nofollow noreferrer"">USS Borie</a> sank the Borie, but that was due to its own action of ramming U-405, which had a stronger hull to withstand depth pressures.</p>
+<p>Did a submarine ever sink a destroyer with a torpedo?  Or with a deck gun?</p>
+",1,history/ac8983f7_72642.txt,history/1998a624_72557.txt,0.33916,,,entity_scope,False,"The candidate document states that the USS Harder sank six Japanese destroyers, but it does not specify whether the sinking was caused by torpedoes, which is a necessary condition for the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document states that the USS Harder sank six Japanese destroyers, but it does not specify whether the sinking was caused by torpe"
+history,64346_525,"Did a significant number of women drive in late 1950s/1960s USA?
+<p>During lockdown, I have become addicted to old 1950s/60s Perry Mason series. I am struck by the number of women, from all walks of life - waitresses to wealthy matrons - who owned and drove their own vehicles. I am wondering how authentic this picture is, but hume3bly admit I have <strong>no</strong> idea where to even start looking.</p>
+<p>By contrast, my experience in the UK during the same and later period was that many, if not most, British women did <strong>not</strong> drive. In fact, possession of a car was a key factor in a young man's attracting a girlfriend. I realise with the greater distances travelled in the USA a car would be more desirable/necessary, but does that in itself explain it?</p>
+<p><strong>Edit</strong> The 50s/60s weren't included in my school history course, because they were the present/recent past :-)) ! And I'm not talking about privilege/right/permission, I'm talking about custom, financial resources, and other socio-economic factors.</p>
+<p>Any help from members more conversant with USA social history, even if only where to look, would be great.</p>
+",1,history/e51510d2_72274.txt,history/4cb5c883_72140.txt,0.220092,,,temporal,False,"The candidate document discusses current trends and data from 1995 to 2010, which is outside the temporal scope of the question focusing on the late 1950s and 1960s USA.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document discusses current trends and data from 1995 to 2010, which is outside the temporal scope of the question focusing on the lat"
+history,64604_517,"Was the financial crash of 2008 caused by top graduates of the American Ivy Leagues working at wall street banks?
+<p>From <a href=""https://www.philstar.com/lifestyle/young-star/2013/03/15/919691/why-you-should-take-liberal-arts-course"" rel=""nofollow noreferrer"">this article</a> by Lisandro 'Leloy' Claudio, a Philippine/a Filipino professor of history, politics, South &amp; Southeast Asian Studies (and <strong>not necessarily of finance, economics, mathematics or statistics</strong>)</p>
+<blockquote>
+<p>a country can become a sad place if its most brilliant minds prioritize profit. In the 1990s and 2000s, most of the top graduates of the American Ivy League went to big Wall Street banks, and it was these geniuses who caused the financial crash of 2008. The world would have been better off if they had done something else.</p>
+</blockquote>
+<p><strong>Question 1</strong>: Was the financial crash of 2008 caused by top graduates of the American Ivy Leagues working at wall street banks?</p>
+<p><strong>Question 2 and context</strong>: Ok I'm gonna be explicit here to be clear at the cost of sounding, or even actually being, arrogant or ignorant. When I 1st read this like I was just about to start <a href=""https://quant.stackexchange.com/questions/12729/do-quants-need-to-know-accounting"">grad school in mathematical finance/quantitative finance</a>. No offense or anything, but I actually kinda figured that the prof is not only wrong about this but has no idea what e is talking about. Does the quote make <a href=""https://en.wikipedia.org/wiki/Substantial_truth"" rel=""nofollow noreferrer"">substantial</a> sense?</p>
+",1,history/163cf426_293378.txt,history/916fc520_71409.txt,0.274876,,,entity_scope,False,"The candidate document does not mention top graduates of the American Ivy Leagues working at Wall Street banks, which is the central entity scope of the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document does not mention top graduates of the American Ivy Leagues working at Wall Street banks, which is the central entity sco"
+history,65773_508,"Did Martin Luther King, Sr. change his name as an allusion to the Semitic root M-L-K?
+<p>Martin Luther King, Sr. was given the name Michael King at birth. Shortly after touring the Holy Land, he changed his name to Michael Luther King, and then to Martin Luther King. (<a href=""https://kinginstitute.stanford.edu/encyclopedia/king-martin-luther-sr"" rel=""nofollow noreferrer"">This source seems to be what other sources I've been able to find are based on</a>.) This changes gave him the initials MLK, which is familiar to students of Semitic languages as something of a pun: the root M-L-K means “king” (מלך, ملک; no, Semitic roots are not that straightforward, I'm simplifying). It's possible of course that this was a coincidence, but given that Martin Luther King, Sr. was a minister, and that he had just been on a trip to the Holy Land (where he might have studied some Hebrew, if it hadn't studied it already), it seems like it might have been intentional.</p>
+<p>Are there any documents supporting or refuting this idea?</p>
+<p><strong>Edit:</strong> Based on some of the comments, I believe it may not be clear that I know that Martin Luther the most famous Protestant theologian in history. Undoubtedly the “Martin Luther” part comes from that; that is not a competing hypothesis. The cleverness of any pun comes from its multiple semantic and phonetic associations. The question is whether there are documentary sources, closer to the event, showing that MLK, Sr. was aware of the potential for this pun. Examples would be letters that he wrote, or contemporary sources commenting on the pun, such as might suggest that the pun was understood and/or intended by MLK, Sr.</p>
+<p><strong>Edit 2:</strong> This has been a frustrating experience, but I'll just offer one further clarification for anyone who might be interested. This business about Hebrew/Semitic roots having particular meanings does not require the least expertise in the language. It's the kind of general knowledge feature of the language that would be covered in the first couple chapters of a book on Hebrew, or even in a course that touched only tangentially on Hebrew. (I believe my first exposure to the idea was in a course on Middle Eastern humanities, for instance.) So this doesn't require some obscure knowledge of Hebrew; it's a commonly discussed feature of the language.</p>
+",1,history/edf6027d_69965.txt,history/a91a4028_69963.txt,0.469279,,,temporal,False,"The candidate document does not specify a clear temporal connection between King Sr.'s name change and his visit to Berlin or study of Martin Luther, failing to establish when the name change occurred relative to the trip or exposure to Semitic roots.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not specify a clear temporal connection between King Sr.'s name change and his visit to Berlin or study of Martin Luthe"
+history,66092_501,"What determined which companies went to which post-Soviet republics after the fall of the Soviet Union as everything was centralized in Moscow?
+<p>After the fall of the Soviet Union, all the post-Soviet republics (e.g., Ukraine, Kazakhstan) inherited some state-owned corporations. However, since all the corporations were under the control of the central government in Moscow despite having had operations in republics other than the Russian soviet socialist republic, what determined which corporations and enterprises were given to which republic?</p>
+",1,history/5a4a9d66_110434.txt,history/1a9c5060_68943.txt,0.469279,,,entity_scope,False,"The document focuses on privatization in Russia and does not address what determined which companies went to which post-Soviet republics, failing to cover the entity scope of corporate distribution across republics.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The document focuses on privatization in Russia and does not address what determined which companies went to which post-Soviet republics, faili"
+history,66192_492,"In what countries were plague doctor masks were most common?
+<p>Based on <a href=""https://en.wikipedia.org/wiki/Plague_doctor_costume"" rel=""nofollow noreferrer"">https://en.wikipedia.org/wiki/Plague_doctor_costume</a>:</p>
+<blockquote>
+<p>The clothing worn by plague doctors was intended to protect them from airborne diseases during outbreaks of the Bubonic Plague in Europe.</p>
+</blockquote>
+<blockquote>
+<p>However, the costume was worn by a comparatively small number of medieval and early modern physicians studying and treating plague patients</p>
+</blockquote>
+<p>The Wikipedia article vaguely says Europe, and it also says that the costume, which includes the mask, I'm particularly interested in, was not widespread. The article also mentions France. Do we have any information in which countries the mask was most commonly seen? Is there anything after the use of the costume went out of fashion until modern days that could link the mask to popular culture of particular countries?</p>
+",3,history/fad4117f_67880.txt,history/dda82ce6_67613.txt,0.151301,,,entity_scope,True,"The document specifies countries and regions such as France, Italy, the Netherlands, and Rome and Naples, clearly identifying the geographic scope where the plague doctor masks were common.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The document specifies countries and regions such as France, Italy, the Netherlands, and Rome and Naples, clearly identifying the geographic sco"
