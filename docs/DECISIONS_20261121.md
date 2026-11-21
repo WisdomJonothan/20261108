@@ -60,3 +60,28 @@ signal that is reliable at the top of the ranking, which none of the four prompt
    two independent judges.
 2. Candidate pools whose precision is controlled (CE-sourced, shallow), never top-100.
 3. Distillation only after a comparison exists that beats the judge on dev at fixed budget.
+
+
+## Correction, 2026-11-22: the widened-action experiment
+
+The expanded-action harness differed from the frozen arm in two ways: prompts were
+tokenised as raw text instead of through the chat template, and the reversed
+presentation order stored the two option probabilities under the forward option
+names. The second detail inverted the both-orders agreement rule. Re-running with
+both fixed reproduces the frozen arm on the 1,686 shared comparisons (mean
+|delta p| 0.0130, 98.9% same side) and reverses the result:
+
+* fused start: +0.0082 / +0.0122 / +0.0096 / +0.0112 at 2 / 6 / 12 / 18 actions
+  (4 / 12 / 24 / 36 prompts) against +0.0065 for the bounded protocol at 18 prompts;
+* dense start: +0.0108 / +0.0232 / +0.0203 / +0.0170 against +0.0106 bounded;
+* random subset of the whole action space: +0.0011 / -0.0017 / -0.0058 / -0.0036,
+  so the pool, not the ordering within it, creates the gain;
+* oracle ordering of the same judgements: +0.0258 at k=2 - the remaining headroom
+  is a better prior over which pairs to ask.
+
+Withdrawn: "widening the action space does not pay", "allocation is not the
+bottleneck", the 10x rank-position cost ratio (the same-query metric ratio is
+log2(11) = 3.46), the "80% precision" denominator (neutral swaps counted), the
+AUC 0.532 claim (that model had three constant features), and the p-MRR sentence
+that says the system ignores instruction changes (p-MRR covers dense, CE and
+frozen only; Direct and the condition arm are not measured yet).

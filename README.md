@@ -68,15 +68,23 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   replacement. Split by position, the recoverable nDCG@10 gain is 43.6% in
   ranks 1-3, 35.0% in 4-7 and only 21.4% in the 8-10 window the frozen protocol
   can touch - the quantitative reason the capped protocol stops at 0.3769.
-* **Widening the action space does not pay.** Candidates from the dense and CE top-100
-  with any of the ten slots available: 0.35725 / 0.35654 / 0.35274 / 0.35239 at 2 / 6 /
-  12 / 18 judged actions (deltas -0.0009 / -0.0016 / -0.0054 / -0.0057). A wrong swap at
-  rank 1 costs ~40x a wrong swap at rank 10 (mean -0.083 vs -0.002) while the judge is no
-  more reliable at the top; a position-aware expected-gain gate fitted on the leak-free
-  folds accepts 19 dev swaps and nets 0.000000. The precision of the small CE pool, not
-  the breadth of the action space, carries the stage.
-  The same widened pool on the dense-only start gives +0.0026/+0.0012/+0.0011/+0.0006
-  at k = 2/6/12/18, against +0.0106 for the bounded protocol on that start.
+* **Widening the action space pays, once the inference path is fixed.** Candidates from
+  the union of the dense and full-query CE top-100, any of the ten slots, ordered by the
+  dense+CE score gap: 0.36634 / 0.37025 / 0.36772 / 0.36934 at 2 / 6 / 12 / 18 judged
+  actions (deltas +0.0082 / +0.0122 / +0.0096 / +0.0112, every CI below 0), against
+  +0.0065 for the bounded protocol at 18 prompts. At k=6 the stage costs 12 prompts per
+  query - two thirds of the bounded arm - and roughly doubles its gain. The same pool on
+  the dense-only start gives +0.0108 / +0.0232 / +0.0203 / +0.0170, against +0.0106 for
+  the bounded protocol on that start, so four prompts already match the old arm and
+  twelve prompts more than double it.
+  *Correction (2026-11-22).* The earlier version of this bullet reported the opposite
+  (-0.0009 / -0.0016 / -0.0054 / -0.0057). That run tokenised prompts without the chat
+  template the frozen arm uses and stored the reversed-order challenger probability
+  without swapping the option names, so the "both orders agree" rule was comparing the
+  challenger against the incumbent. Re-running the corrected harness reproduces the
+  frozen arm on the 1,686 identical comparisons (mean |delta p| 0.0130, 92.8% within
+  0.05, 98.9% same side, 415 vs 416 both-order agreements); the numbers above come from
+  the same queries, candidates, slots and rule.
 * **Query reasoning is neutral at this scale.** Qwen3-4B wrote an explicit analysis for
   every dev query (entities, time/version conditions, exclusions, evidence type,
   keywords); with the frozen dense encoder the domain-macro nDCG@10 is 0.2933 for the
@@ -90,28 +98,30 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   by ~0%, so only 3 of 519 queries swap (all neutral) and the macro stays at 0.3581.
   The A/B framing is what makes the judge useful - it forces a comparison with the
   incumbent instead of an absolute verdict.
-* **Allocation is not the bottleneck; the judgement is.** Every widened-pool action was
-  judged, so orderings replay at matched budgets from one cache: gap -0.0009/-0.0016/
-  -0.0054/-0.0057, uncertainty -0.0013/-0.0048/-0.0057/-0.0057, random +0.0000/-0.0006/
-  -0.0054/-0.0057, cross-validated expected-gain model -0.0008/-0.0008/-0.0008/-0.0057
-  at k = 2/6/12/18. Ordering the same judgements by true delta buys at most +0.0003,
-  while *perfect selection* among them would buy +0.0170 at k=2 and +0.0593 at k=18.
-  An independent random-subset run gives -0.0010/-0.0018/-0.0035/-0.0109 (18,684 prompts) and
-  beats the gap order at k=12, so allocation does not order the two consistently. The model's
-  AUC for "this action helps" is 0.532. Research effort belongs at the comparison, not at the
-  budget allocation.
+* **The pool matters; the ordering inside it does not.** Replaying every policy over the
+  corrected 18-action cache (that run judged every candidate it selected): gap ordering
+  +0.0082 / +0.0122 / +0.0096 / +0.0112, uncertainty ordering -0.0005 / +0.0036 /
+  +0.0064 / +0.0112, random *within the judged set* +0.0023 / +0.0132 / +0.0107 /
+  +0.0089 at k = 2/6/12/18. A random *subset of the whole action space* - which changes
+  which pairs are asked, not just their order - gives +0.0011 / -0.0017 / -0.0058 /
+  -0.0036. The gain therefore comes from restricting comparisons to high-gap tail slots;
+  once that pool is fixed, which of its pairs is asked first barely matters. Ordering the
+  same judgements by the true delta (they still have to pass the judge's rule) buys
+  +0.0258 at k=2 and +0.0212 at k=6, so a better prior over *which* pairs to ask is where
+  the remaining headroom is.
 * **A condition-focused comparison is precise but rare.** Keeping the pool, pairs, orders
   and rule and asking instead which passage better satisfies the conditions the query
   states (time/version, entity/jurisdiction, numeric bounds, exclusions) yields 15 swaps
-  (12 helpful, 3 harmful; 80% precision vs 63% for the relevance question) and
-  +0.0044 (CI [+0.0012, +0.0085]) at the same 9,342 prompts; on the dense start +0.0071
-  (CI [+0.0024,+0.0123], 29/10 swaps) and on the reranker start +0.0034 (CI [-0.0003,+0.0074],
-  27/8), so the precision advantage travels across starts. Applying the condition swap
-  Merging both questions into one prompt does not: 0.3626 (+0.0045, CI [-0.0005,+0.0102]),
-  31/17 swaps -- it collapses to relevance behaviour.
-  when it fires and the relevance swap otherwise reaches 0.3661 (+0.0080,
-  CI [+0.0030, +0.0138]) but the paired gain over the relevance arm is +0.0015
-  (CI [-0.0001, +0.0044]) at twice the prompts, so it is not established.
+  (12 helpful and 3 harmful among the 15 swaps that move nDCG, out of 106 swaps made;
+  the relevance question moves nDCG in 51 of its 324 swaps) and +0.0044
+  (CI [+0.0012, +0.0085]) at the same 9,342 prompts; on the dense start +0.0071
+  (CI [+0.0024,+0.0123], 29/10 swaps) and on the reranker start +0.0034
+  (CI [-0.0003,+0.0074], 27/8), so the higher hit rate travels across starts. Merging both
+  questions into one prompt does not: 0.3626 (+0.0045, CI [-0.0005,+0.0102]), 31/17
+  swaps - it collapses to relevance behaviour. Applying the condition swap when it fires
+  and the relevance swap otherwise reaches 0.3661 (+0.0080, CI [+0.0030, +0.0138]) but the
+  paired gain over the relevance arm is +0.0015 (CI [-0.0001, +0.0044]) at twice the
+  prompts, so it is not established.
 * **The gain lives where the incumbent is doubtful.** Re-running the bounded protocol against
   ranks 1-3 with the same pool, same pairs and same 9,342 prompts gives 0.3539 (-0.0042,
   CI [-0.0214,+0.0137], 23/33 swaps), whereas ranks 8-10 give 0.3646 (+0.0065). The recoverable

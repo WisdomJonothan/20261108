@@ -114,33 +114,53 @@ Of the 4524 non-relevant slots in the 519 dev top-tens, 2497 hold a relevant doc
 
 ## 6c. Widening the action space (top-100 candidates, any of the ten slots)
 
-9,342 actions over the 519 dev queries (18 per query, 18,684 prompts, 2090 s). Dev domain-macro falls monotonically with the budget: 2: 0.35725 (delta -0.00085), 6: 0.35654 (delta -0.00156), 12: 0.35274 (delta -0.00536), 18: 0.35239 (delta -0.00571). The judge accepts more swaps as the budget grows and the extra ones are wrong. Over all judgements the mean change of a single replacement is -0.083 at slot 1 and -0.002 at slot 10, so a wrong acceptance at the top costs an order of magnitude more than at the tail, while the judge's reliability does not improve with position. A position-aware expected-gain gate fitted on the leak-free folds (delta ~ 1/slot, margin, margin/slot; 1,721 fold actions, 154 helpful) accepts 19 swaps on dev and nets 0.000000: it removes the damage but finds no gain. The value of this stage is the precision of the small CE-sourced pool, not the breadth of the action space.
+Corrected 2026-11-22. The first version of this section reported losses at every budget; the
+harness that produced it tokenised prompts without the chat template used by the frozen arm and
+stored the reversed-order challenger probability without swapping the option names, so the
+"both orders agree" rule compared the challenger with the incumbent. After the fix the two caches
+agree on the 1,686 identical comparisons (mean |delta p| 0.0130, 92.8% within 0.05, 98.9% same
+side, 415 vs 416 both-order agreements), and the corrected numbers are:
 
-## 6e. Allocation versus judgement (matched budgets, one cache)
-
-All 18 actions per query were judged, so each ordering is replayed at matched budgets from one cache.
-Delta versus the frozen 0.3581 at k = 2 / 6 / 12 / 18:
-
-| ordering | k=2 | k=6 | k=12 | k=18 |
+| start | k=2 (4 prompts) | k=6 (12) | k=12 (24) | k=18 (36) |
 | --- | --- | --- | --- | --- |
-| gap (prior) | -0.0009 | -0.0016 | -0.0054 | -0.0057 |
-| uncertainty (AcuRank-style) | -0.0013 | -0.0048 | -0.0057 | -0.0057 |
-| random | +0.0000 | -0.0006 | -0.0054 | -0.0057 |
-| expected-gain model (5-fold) | -0.0008 | -0.0008 | -0.0008 | -0.0057 |
-| oracle ordering (true delta) | +0.0001 | +0.0003 | +0.0002 | -0.0057 |
-| oracle decision (perfect selection) | +0.0170 | +0.0362 | +0.0496 | +0.0593 |
-| random order, independent run | -0.0010 | -0.0018 | -0.0035 | -0.0109 |
+| fused 0.3581 | +0.0082 [+0.0027,+0.0153] | +0.0122 [+0.0055,+0.0203] | +0.0096 [+0.0021,+0.0182] | +0.0112 [+0.0039,+0.0197] |
+| dense 0.2943 | +0.0108 [+0.0062,+0.0161] | +0.0232 [+0.0146,+0.0330] | +0.0203 [+0.0125,+0.0291] | +0.0170 [+0.0106,+0.0241] |
 
-The independent random-order run (18,684 prompts) is -0.0010 / -0.0018 / -0.0035 / -0.0109 at the same budgets and beats the gap order at k=12, so allocation does not order the two consistently. The model's AUC for "this action helps" is 0.532. A perfect allocation over these judgements buys at
-most +0.0003, while perfect selection would buy +0.0170 at k=2. The stage loses its gain at the
-judgement, not at the budget.
+Each cell is 519 queries, 18,684 prompts at the full budget, one swap per query. The bounded
+protocol (three candidates, ranks 8-10, nine pairs) costs 18 prompts and gains +0.0065 on the
+fused start and +0.0106 on the dense start, so at 12 prompts this arm matches or roughly doubles
+it, and at 4 prompts it already beats it on the fused start. Helpful/harmful at k=6: 31/7 (fused),
+71/8 (dense).
+
+## 6d2. Which pairs are asked (replay over the corrected cache)
+
+Every policy below replays the same 18 judged actions and the same acceptance rule, so only the
+choice of comparisons changes. Deltas versus the frozen 0.3581 at k = 2 / 6 / 12 / 18:
+
+| policy | k=2 | k=6 | k=12 | k=18 |
+| --- | --- | --- | --- | --- |
+| gap prior (registered) | +0.0082 | +0.0122 | +0.0096 | +0.0112 |
+| uncertainty (AcuRank-style) | -0.0005 | +0.0036 | +0.0064 | +0.0112 |
+| random within the judged set | +0.0023 | +0.0132 | +0.0107 | +0.0089 |
+| random subset of the whole space (separate run) | +0.0011 | -0.0017 | -0.0058 | -0.0036 |
+| oracle ordering by true delta, rule applied | +0.0258 | +0.0212 | +0.0185 | +0.0125 |
+| oracle decision (best judged action) | +0.0112 | +0.0112 | +0.0112 | +0.0112 |
+
+Reading: the gain comes from restricting comparisons to high-gap tail slots - a random subset of
+the whole action space, which changes *which* pairs are asked, is flat or negative - while the
+ordering inside that pool matters little (random within the judged set matches the prior at k=6
+and k=12). Uncertainty ordering is the weakest of the orderings. Perfect ordering of the same
+judgements would buy +0.0258 at k=2, so a better prior over which pairs to ask, not a better
+order of the same pairs, is where the remaining headroom is.
 
 ## 6f. Condition-focused comparison
 
 Same pool, pairs, orders and rule; the question changes from relevance to "which passage better
 satisfies the conditions the query states". 15 swaps (12 helpful, 3 harmful, 91 neutral, 413
 no-swap), macro 0.362524, delta +0.004426, CI [+0.00118, +0.00851], 9,342 prompts, 5.58 M tokens,
-918 s. Precision 80% versus 63% for the relevance question, but a third of the swaps. The same question on the other two starts: dense start 0.2943 -> 0.3014 (+0.0071, CI
+918 s. Of the 15 swaps that move nDCG, 12 help; the relevance question moves nDCG in 51
+of its 324 swaps and helps in 32 of those, so the narrow question is the more precise one
+but fires a third as often. The same question on the other two starts: dense start 0.2943 -> 0.3014 (+0.0071, CI
 [+0.0024, +0.0123], 29 helpful / 10 harmful), reranker start 0.2565 -> 0.2598 (+0.0034, CI
 [-0.0003, +0.0074], 27 / 8), i.e. the precision advantage is a property of the question, not
 of the fused ranking, although the relevance question still gains more on both starts.
@@ -296,6 +316,20 @@ Under the changed instructions the condition arm lifts graded nDCG@10 by +0.017 
 2 swaps), +0.043 (News21, 7 swaps) and 0.000 (Robust04, 7 swaps), so it fires rarely and
 does not concentrate on the documents the instruction change demoted. The constraint-
 response evidence required by the acceptance criterion is therefore not met.
+
+## 9c. Correction record (2026-11-22)
+
+The expanded-action experiments of 2026-11-21 were produced by a harness that differed from the
+frozen arm in two ways: prompts were tokenised as raw text instead of through the chat template,
+and the reversed presentation order stored `p[0]`/`p[1]` under the forward option names. The
+second bug inverted the both-orders agreement rule, which is why 400 genuinely helpful actions
+produced only 4 accepted swaps. With both fixed, the same 18,684 prompts produce +0.0122 at 12
+prompts per query instead of -0.0016, and the cache reproduces the frozen arm on every overlapping
+comparison. Claims withdrawn with this correction: "widening the action space does not pay",
+"allocation is not the bottleneck" (the pool is), the 10x cost ratio for a wrong swap at rank 1
+(the metric ratio is log2(11) = 3.46 for the same query), the "80% precision" denominator (swaps
+that do not move nDCG count as neutral), and the AUC 0.532 statement as evidence that a learned
+gate cannot work (that model had three constant features).
 
 ## 10. Conclusion (2026-11-21)
 

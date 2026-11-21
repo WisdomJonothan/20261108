@@ -1,0 +1,5 @@
+direct pairs 4671  fixed actions 9342
+overlap 1686
+merged prob  n=1686 mean|d|=0.0130 median=0.0008 max=0.8952 share<0.05=0.928
+same side    1668/1686 = 0.989
+agree flag   direct 415/1686  fixed 416/1686
