@@ -1,0 +1,30 @@
+{
+ "n_queries": 328,
+ "wrong_slots": 2862,
+ "queries_with_wrong_top10": 328,
+ "wrong_slots_with_relevant_in_dense100": 1786,
+ "queries_improved_by_best_single_fix": 204,
+ "mean_best_single_fix_delta": 0.4029617590179096,
+ "sum_best_single_fix_delta": 82.20419883965356,
+ "wrong_by_band": {
+  "1-3": 774,
+  "4-7": 1168,
+  "8-10": 920
+ },
+ "fixable_by_band": {
+  "1-3": 491,
+  "4-7": 728,
+  "8-10": 567
+ },
+ "gain_by_band": {
+  "1-3": 156.7952,
+  "4-7": 122.7265,
+  "8-10": 76.2413
+ },
+ "note": "relevance is binary (qrels>0); gain = one replacement at that slot, IDCG fixed per query; dense top-100 used as the candidate source.",
+ "gain_share_by_band": {
+  "1-3": 0.4407,
+  "4-7": 0.345,
+  "8-10": 0.2143
+ }
+}

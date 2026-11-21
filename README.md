@@ -125,6 +125,11 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
 * **Combining the two questions does not help.** Requiring both judges to agree gives 0.3612
   (+0.0031, CI [+0.0008,+0.0061]) with 11 helpful/2 harmful swaps; a condition-question veto
   cuts harmful swaps from 19 to 4 but also helpful swaps from 32 to 18, leaving +0.0035.
+* **Held-out replication.** The 969 gate-train queries, ranked by cross-encoders that never
+  saw them, show 8,518 non-relevant top-10 slots, 5,161 with a relevant document in the
+  dense top-100, and gain shares 44.7/34.1/21.2 across ranks 1-3/4-7/8-10 (dev:
+  43.6/35.0/21.4). Constraint labels on 100 stratified held-out slots: temporal 50,
+  entity scope 38, numeric 5, exclusion 4, comparison 1, none 2.
 * **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
   the cap stays at 3 because the cap-2 advantage was observed post hoc.
 * **Pair budget (single prediction cache).** Replaying the same Direct

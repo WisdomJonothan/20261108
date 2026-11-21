@@ -213,6 +213,24 @@ Agreement raises swap precision to 85% but keeps only 13 informative swaps; the 
 harmful swaps and beneficial ones in the same proportion (32/19 -> 18/4), so neither
 composition beats asking the relevance question alone.
 
+### Held-out replication (969 gate-train queries)
+
+The same analysis on the three gate folds, where every query is ranked by a cross-encoder
+that never saw it (`results/replacement_v2/error_analysis_train.json`):
+
+| fold | queries | wrong slots | relevant in dense top-100 | queries improvable |
+| --- | --- | --- | --- | --- |
+| f0 | 328 | 2,862 | 1,786 | 204 |
+| f1 | 323 | 2,861 | 1,779 | 200 |
+| f2 | 318 | 2,795 | 1,596 | 182 |
+| total | 969 | 8,518 | 5,161 (60.6%) | 586 (60.5%) |
+
+Band shares of the recoverable gain are 44.7% (ranks 1-3), 34.1% (4-7) and 21.2% (8-10),
+matching the dev values of 43.6/35.0/21.4, so the tail bias of the protocol is not an
+artefact of the evaluation split. A stratified 100-slot annotation of held-out train
+predictions (`error_worksheet_train_annotated.csv`) gives temporal 50, entity scope 38,
+numeric 5, exclusion 4, comparison 1, none 2, against 41/39/10/4/3/2 on dev.
+
 ## 7. Fold evidence (train split, 969 queries)
 
 | fold | queries | nDCG@10 | delta | 95% CI |

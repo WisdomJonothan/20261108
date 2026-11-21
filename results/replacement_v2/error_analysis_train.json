@@ -1,0 +1,30 @@
+{
+ "n_queries": 969,
+ "wrong_slots": 8518,
+ "wrong_fixable": 5161,
+ "queries_improvable": 586,
+ "sum_best": 244.20343893851663,
+ "band_gain": {
+  "1-3": 471.67910000000006,
+  "4-7": 360.233,
+  "8-10": 223.4212
+ },
+ "band_wrong": {
+  "1-3": 2350,
+  "4-7": 3459,
+  "8-10": 2709
+ },
+ "band_fixable": {
+  "1-3": 1444,
+  "4-7": 2094,
+  "8-10": 1623
+ },
+ "gain_share": {
+  "1-3": 0.4469,
+  "4-7": 0.3413,
+  "8-10": 0.2117
+ },
+ "mean_best_single_fix": 0.252,
+ "fixable_share_of_wrong": 0.6059,
+ "note": "held-out train queries from the three gate folds; same binary-relevance convention as dev"
+}

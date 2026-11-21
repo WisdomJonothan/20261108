@@ -1,0 +1,807 @@
+domain,qid,query,slot,current,candidate,best_delta,constraint_violation,evidence_span,label,candidate_ok,why,raw
+bitcoin,122302_21,"What were the most popular bitcoin mining softwares, services or platforms in or before january 2010?
+<p>My friend who died few weeks back, He claimed that he mined bitcoin using his personal computer</p>
+<blockquote>
+<p>back in the days</p>
+</blockquote>
+<p>he said.</p>
+<p>But i had a glimpse of an archive he named</p>
+<blockquote>
+<p>btc.gz</p>
+</blockquote>
+<p>which had file made or modified last in January end of 2010, which made me wonder whether his claims were true.</p>
+<p>Now i am curious of how he did it, while trying to profile him.</p>
+<p>So were they any free bitcoin mining services, platform or software available by January 2010, please provide possible list?</p>
+",1,bitcoin/f4a533b6_4297.txt,bitcoin/4a2be0b1_4232.txt,0.613147,,,temporal,True,"The candidate document correctly places Bitcoin mining activities in the early period, specifically before or in January 2010, aligning with the temporal scope of the question.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The candidate document correctly places Bitcoin mining activities in the early period, specifically before or in January 2010, aligning with the tem"
+bitcoin,119677_48,"Would a series of reorgs cause Bitcoin to break because of the 2-hour block time difference restriction?
+<p>Imagine there are a series of reorgs happening because of maybe some fee sniping event or something else, doesn't matter.</p>
+<p>If that happens for over than 2 hours, then new blocks will not be able to mined with their current timestamp anymore, otherwise they wouldn't be accepted? In such a case will the chain have to proceed with invalid block times forever after the reorgs end?</p>
+<h3>Example:</h3>
+<pre><code>block 100: 00h00
+block 101: 00h10
+block 102: 00h20
+block 103: 00h30
+  :: reorgs happen for 3 hours, many blocks discarded ::
+block 104: 03h30 # invalid because of the timestamp.
+</code></pre>
+<p>I think the question is if whoever is mining the block 104 at the end will have to <em>fake</em> a timestamp in the past (like <code>01h30</code>) even though  its actual current time is <code>03h30</code>.</p>
+",1,bitcoin/70e31a05_145527.txt,bitcoin/9126500c_3762.txt,0.469279,,,temporal,True,"The candidate document correctly specifies that block timestamps must be within 2 hours of the network-adjusted time, satisfying the temporal condition.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The candidate document correctly specifies that block timestamps must be within 2 hours of the network-adjusted time, satisfying the temporal condit"
+bitcoin,120259_41,"Does the nSequence of the input that consumes the CLTV output have to be different from 0xffffffff?
+<p>Looking at the <a href=""https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki"" rel=""nofollow noreferrer"">BIP65</a>, it says that the CLTV will fail if the nSequence field of the txin is 0xffffffff. It seems logical to me since if the nSequence of all inputs are set to 0xffffffff, the value of nLocktime and absolute time are not taken into consideration. However, does the nSequence of the input that consumes output with CLTV must be != 0xffffffff, or the nSequence of any input inside the transaction can be != 0xffffffff and the input that consumes output with CLTV can stay with nSequence set to <code>0xffffffff</code> and that CLTV still pass? <strong>I am asking because in both cases the locktime and absolute time lock will be taken into consideration, that is, the locktime will be activated.</strong> Thanks.</p>
+",2,bitcoin/4cd16e95_152348.txt,bitcoin/e676f847_7768.txt,0.386853,,,temporal,False,"The document does not address whether the nSequence of the input consuming a CLTV-locked output must be different from 0xffffffff, failing on the temporal condition of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The document does not address whether the nSequence of the input consuming a CLTV-locked output must be different from 0xffffffff, failing on the t"
+bitcoin,121084_33,"Will the majority of miners quit mining next year if the price of bitcoin remains as it is today? Can it harm the network?
+<p>Below are some parameters that apply to the Bitcoin network today</p>
+<ul>
+<li><p>Current price for producing one Bitcoin block is around ~$150,000.</p>
+</li>
+<li><p>Current price for one Bitcoin is ~$45,000.</p>
+</li>
+<li><p>Current reward for producing one Bitcoin block is 6.25 BTC.</p>
+</li>
+</ul>
+<p>It follows from the above that at this moment miners earn per block ($45,000 * 6.25) - $150,000 ~= $280,000 - $150,000 ~= $130,000</p>
+<p>Therefore, it is profitable for them.</p>
+<p>However, in April 2024 the reward per block will reduce to 3.125 BTC per block as a result of the 210,000 block halving.</p>
+<p>If the price per bitcoin remains the same (and price per production of blocks), the calculation is as follows: ($45,000 * 3.125) - $150,000 ~= $140,000 - $150,000 ~= -$10,000</p>
+<p>As you can see, the miners will be losing money.  Even if the price per bitcoin increases a little, the profit is still too small for big players.</p>
+<p>Would this situation lead to most of the big miners leaving the network?  Maybe then the difficulty would be reduced, which would make it possible for smaller miners to come back again, for whom the profit of a few thousand dollars would be significant.</p>
+<p>Can the previously described situation and the exit of big players harm the security of the network?</p>
+<p>I don't expect anyone here to give me an accurate, concrete answer, because we can't know that, we can't predict the future. However, there are people here who have been in the bitcoin world for a long time and follow the developments, I am interested in what they think, what they expect. I assume that during the development of the network, such situations are also considered and how to overcome them.</p>
+",2,bitcoin/112144_13e671ff8ff89296_48.txt,bitcoin/0fd20fb4_6222.txt,0.246302,,,temporal,False,"The candidate document refers to a future price doubling over a four-year period, which is not aligned with the question's focus on the immediate next year if the price remains as it is today, thus failing the temporal condition.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document refers to a future price doubling over a four-year period, which is not aligned with the question's focus on the immediate n"
+bitcoin,126019_1,"Up-to-date statistics about chain reorganizations
+<p>How common are 2, 3 and 4 block reorgs nowadays? This question and similar ones have been asked a couple of times [see for instance <a href=""https://bitcoin.stackexchange.com/questions/97192/how-often-does-temporary-fork-occur-and-how-long-does-it-last/"">here</a>, <a href=""https://bitcoin.stackexchange.com/questions/3343/what-is-the-longest-blockchain-fork-that-has-been-orphaned-to-date/"">here</a> and <a href=""https://bitcoin.stackexchange.com/questions/25505/longest-natural-fork"">here]</a>, but the most up-to-date answer in those dates from 2017 and the state of things has changed substantially since then.</p>
+<p>The closest I could find is <a href=""https://forkmonitor.info/feeds/stale_candidates/btc.rss"" rel=""noreferrer"">this RSS feed</a> which only tracks something relatively similar: points in time where there were two distinct blocks at the chaintip's height.</p>
+",1,bitcoin/f4d334ac_17631.txt,bitcoin/db1c0129_0006.txt,0.469279,,,numeric,False,"The candidate fails to provide up-to-date statistics on the frequency of 2, 3, and 4 block reorgs, only mentioning rare historical events without current data.","{""label"": ""numeric"", ""candidate_ok"": false, ""why"": ""The candidate fails to provide up-to-date statistics on the frequency of 2, 3, and 4 block reorgs, only mentioning rare historical events without cu"
+bitcoin,124874_6,"How to export data from Binance spot chart?
+<p>I need to export data from Binance spot chart: <a href=""https://www.binance.com/en/trade/BTC_USDT?type=spot"" rel=""nofollow noreferrer"">https://www.binance.com/en/trade/BTC_USDT?type=spot</a>.</p>
+<p>I need data like this:</p>
+<ul>
+<li>High price</li>
+<li>Low price</li>
+<li>Open price</li>
+<li>Close price</li>
+</ul>
+<p>I also need MACD indicators:</p>
+<ul>
+<li>9-day</li>
+<li>12-day</li>
+<li>26-day</li>
+</ul>
+<p>Numbers are needed for each week or any other time frame I set. I will also need to export other data like RSI, MFI in the future. And also for other cryptocurrency pairs, not only BTC-USDT. So the solution needs to be scalable.</p>
+<p>I do one research, so need this data. I tried this solution: <a href=""https://www.binance.com/en/support/faq/how-to-download-historical-market-data-on-binance-5810ae42176b4770b880ce1f14932262"" rel=""nofollow noreferrer"">https://www.binance.com/en/support/faq/how-to-download-historical-market-data-on-binance-5810ae42176b4770b880ce1f14932262</a> - downloaded the data, but it was not what I need.</p>
+<p>I need the data in CSV format.</p>
+<p>How can I do this in the fastest and easiest way?
+Do I have to write a new program or is there already a solution?
+<a href=""https://i.sstatic.net/f5NYN2t6.png"" rel=""nofollow noreferrer""><img src=""https://i.sstatic.net/f5NYN2t6.png"" alt=""Binance spot"" /></a></p>
+",1,bitcoin/f7a90eb2_1792.txt,bitcoin/a7cea928_1757.txt,0.39038,,,exclusion,False,"The candidate fails to address the need to export raw price data (high, low, open, close) and MACD indicators in CSV format as required by the question.","{""label"": ""exclusion"", ""candidate_ok"": false, ""why"": ""The candidate fails to address the need to export raw price data (high, low, open, close) and MACD indicators in CSV format as required by the que"
+bitcoin,97009_90,"Time allowed to a node to react to verify a transaction and number of verifications?
+<p>Do the person acting as full nodes have to be active and online around for a particular decided time, like a job where you have to be around your machine because a transaction for verification can pop up anytime and if you are not around what happens then?</p>
+<p>Also, the Bitcoin has more than 30000 nodes, how many verifications it actually need to become a part of ledger because how can you guarantee that this number of people will verify it in this fixed amount of time otherwise the wait could go indefinite?</p>
+",1,bitcoin/112929_34f5840de57bfca4_192.txt,bitcoin/f1e77272_18591.txt,0.302602,,,temporal,False,"The candidate document does not specify any time frame for a node to react to or verify a transaction, failing to address the temporal aspect of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not specify any time frame for a node to react to or verify a transaction, failing to address the temporal aspect of th"
+bitcoin,95324_94,"When did Satoshi Nakamoto release Bitcoin v.0.1 to the public? 08 Jan 09 or 09 Jan 09?
+<p>Many websites say Satoshi Nakamoto released Bitcoin on 09 Jan 2009 (<a href=""https://satoshi.nakamotoinstitute.org/code/"" rel=""nofollow noreferrer"">Source 1</a>) (<a href=""https://medium.com/@IWILLTEACHUCRYPTO/the-complete-history-of-bitcoin-how-satoshi-the-worlds-first-decentralized-came-to-be-d5c0ef1cb067"" rel=""nofollow noreferrer"">Source 2</a>) (<a href=""https://www.mail-archive.com/cryptography@metzdowd.com/msg10142.html"" rel=""nofollow noreferrer"">Source 3</a>).</p>
+
+<p>After looking through the Satoshi Archive, it seems to have been released on 08 Jan 2009 (<a href=""https://satoshi.nakamotoinstitute.org/emails/cryptography/16/"" rel=""nofollow noreferrer"">Source</a>).</p>
+
+<p>Just wondering, when was Bitcoin released to the public? Which of these is correct?</p>
+",1,bitcoin/112979_2ab9b93a16ebeb6b_3.txt,bitcoin/4c2d77c0_19616.txt,0.33916,,,temporal,True,"The document correctly states the release of the Bitcoin network on 3 January 2009, which aligns with the temporal condition of the question regarding the public release of Bitcoin v.0.1.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document correctly states the release of the Bitcoin network on 3 January 2009, which aligns with the temporal condition of the question regardi"
+cardano,9155_105,"Downtime when upgrading or restarting a node
+<p>I run not only Cardano nodes but also Ethereum and other nodes.</p>
+<p>I think the downtime is longer when upgrading or restarting a Cardano node compared to other nodes.<br />
+Downtime here is the time between when a node is restarted and when it starts synchronizing blocks again.<br />
+It took over an hour for Mainnet to start synchronizing.<br />
+It cannot be any other node.</p>
+<p>I have three questions.</p>
+<ol>
+<li>Why does it take so long for the Cardano node?</li>
+<li>Is there any way to reduce the downtime?</li>
+<li>Is there anything the community can do to improve downtime?</li>
+</ol>
+<p>Best Regard!!<br />
+Any advice is welcome.</p>
+<p>The specifications are as follows</p>
+<ul>
+<li>Cardano-node
+<ul>
+<li>CPU: 4</li>
+<li>Memory: 16Gi</li>
+</ul>
+</li>
+<li>Ogmios
+<ul>
+<li>CPU: 500m</li>
+<li>Memory: 16Gi</li>
+</ul>
+</li>
+<li>Postgres
+<ul>
+<li>CPU: 8</li>
+<li>Memory: 32Gi</li>
+</ul>
+</li>
+<li>GraphQL
+<ul>
+<li>CPU: 2</li>
+<li>Memory: 4Gi</li>
+</ul>
+</li>
+<li>DBSync
+<ul>
+<li>CPU: 4</li>
+<li>Memory: 32Gi</li>
+</ul>
+</li>
+<li>Hasura
+<ul>
+<li>CPU: 500m</li>
+<li>Memory: 2Gi</li>
+</ul>
+</li>
+</ul>
+",1,cardano/7235_d7f2f03d0d516c9f_1.txt,cardano/9a63bb4e_0958.txt,0.33916,,,temporal,True,"The candidate document mentions a reduction in bootstrap time to under 20 minutes, which provides a clear temporal reference point for downtime improvement compared to the past when it took several hours.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The candidate document mentions a reduction in bootstrap time to under 20 minutes, which provides a clear temporal reference point for downtime impr"
+cardano,8152_112,"Can chain index be configured to sync from a particular slot?
+<p>The chain-index syncs from genesis all over again, everytime there is a version change or sometimes even for other reasons. Can it be set to sync only from a particular slot to save on the time spent for syncing?</p>
+",2,cardano/eeea4058_3783.txt,cardano/e1d1669b_2123.txt,0.386853,,,entity_scope,False,"The candidate document does not address whether chain index can sync from a particular slot, only mentions a plugin configuration for UTXO filtering and sync start point in a different context, failing to establish the entity scope of chain index syncing.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document does not address whether chain index can sync from a particular slot, only mentions a plugin configuration for UTXO filt"
+cardano,147_148,"What is the maximum timeout for a contract that you can define in Marlowe?
+<p>We know that Marlowe contracts always end mandatorily because a maximum timeout is defined. I wonder what the maximum timeout is, it seems like you can put a huge epoch/slot in which would be practically &quot;infinite&quot;.</p>
+",1,cardano/9204659f_84959.txt,cardano/6916b128_10462.txt,0.469279,,,temporal,False,"The candidate document does not specify the maximum timeout value, which is a temporal requirement directly addressed in the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not specify the maximum timeout value, which is a temporal requirement directly addressed in the question.""}"
+cardano,220_145,"Is the Cardano testnet indefinite and immutable?
+<p>As the Cardano mainnet, will the Cardano testnet be maintained indefinitely and immutably or it will perish at some point in time?</p>
+",1,cardano/1bb07567_85942.txt,cardano/7fa29336_9912.txt,0.469279,,,temporal,False,"The candidate document does not address the indefinite or immutable nature of the testnet over time, failing to satisfy the temporal condition of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the indefinite or immutable nature of the testnet over time, failing to satisfy the temporal condition of t"
+cardano,1942_137,"Create a Native token for voting &amp; burn afterwards
+<p>I am looking to issue voting Tokens.
+The basic idea is that I will send something like 100 tokens to 10 people. Then there will be three wallets that act as ballot box.</p>
+<p>In order to incentivise the people to vote within a certain timeframe I wan’t to burn the tokens after a certain period of time.</p>
+<p>Am I right that I can do so by burning the tokens as token issuer?
+And when burning, what will happen to the ADA used during token minting?</p>
+",1,cardano/e251c5d6_86164.txt,cardano/1edf81b2_7417.txt,0.613147,,,exclusion,False,"The candidate document fails to address the core requirement of burning tokens as a token issuer and does not explain the interaction between token burning and the ADA used during minting, which is essential to the original question.","{""label"": ""exclusion"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the core requirement of burning tokens as a token issuer and does not explain the interaction between toke"
+cardano,12778_100,"Feasibility of Trustless Time-Lock Contracts on Cardano Using Marlowe?
+<p>Is there an existing, security-audited Cardano smart contract that allows anyone to send either ADA or native tokens to it, locks those assets for a predefined duration (e.g., 1 year), and then automatically returns them to the sender’s address (minus transaction fees) once the time has elapsed?</p>
+<p>If such a contract doesn’t already exist, is this functionality feasible to implement reliably using the Marlowe interface — without requiring a costly third-party security audit?</p>
+",1,cardano/3d069e0f_1780.txt,cardano/1bce19ed_0002.txt,0.613147,,,none,True,"The document does not introduce any temporal, exclusion, entity_scope, numeric, comparison, or other necessary condition that is missing from the question; it generally describes Marlowe's capabilities without failing on any specific condition.","{""label"": ""none"", ""candidate_ok"": true, ""why"": ""The document does not introduce any temporal, exclusion, entity_scope, numeric, comparison, or other necessary condition that is missing from the questi"
+cardano,4589_123,"Can I use my ADA at any time while they are staked into a pool or are they frozen?
+<p>Can I send my ADA to another wallet instantly or use them instantly for whatever reason I like while they are delegated(staked) into a pool in Yoroi Wallet or does it take time to undelegate them first etc? I don't mind losing rewards or the fee. I am just asking about the time needed.</p>
+<p>Thank you in advance</p>
+",1,cardano/eec97546_4915.txt,cardano/7adcde93_4899.txt,0.469279,,,temporal,True,"The document states that Cardano’s PoS has no locking period, allowing funds to be moved at any time, which satisfies the temporal condition of the question.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document states that Cardano’s PoS has no locking period, allowing funds to be moved at any time, which satisfies the temporal condition of the "
+cardano,214_146,"What events are kicked off when a transaction is submitted?
+<p>I'm wondering what the exact chain of events looks like once a transaction is submitted.</p>
+",1,cardano/e0202c4e_2251.txt,cardano/2d455dda_10161.txt,0.39038,,,entity_scope,True,"The candidate document describes the general lifecycle of a transaction and how it is verified and included in a block, which aligns with the scope of events triggered by transaction submission, though it does not explicitly mention the specific events 'kicked off' in a transaction submission context.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate document describes the general lifecycle of a transaction and how it is verified and included in a block, which aligns with the sc"
+economics,47876_210,"Do I need to offer 0.89 or 0.90 in the following game?
+<p>I was recently watching <a href=""https://oyc.yale.edu/economics/econ-159"" rel=""nofollow noreferrer"">Yale's open course on game theory</a>. One game presented involved the following: the game starts with 1 dollar &quot;on the table.&quot; In each round, a player offers the other player a certain amount of the dollar, which the other player can either accept or reject. If the game continues another round, the amount on the table decreases by 10% (due to the time preference of the players).</p>
+<p>Each player must offer the other player some of the money in each round. For simplicity, offers are only in whole pennies (no fraction of penny offers permitted). Obviously, they must be at least 1 and at most the amount of money that's currently on the table - so, for example, in the first round Player 1 could offer Player 2 anywhere from 0.01 to the entire dollar. In the second round, there's only 0.90 on the table, so Player 2 could offer Player 1 anywhere from 0.01 to 0.90.</p>
+<p>In a one-round game, player 1 should clearly offer player 2 0.01 and keep 0.99 for themselves.</p>
+<p>In a two-round game, I'm a little more confused about the exact amount to offer. Clearly if Player 1 makes Player 2 a bad offer, the game will go to round 2, in which case player 2 will offer player 1 0.01 and keep 0.89 for themselves. So, player 1 should offer player 2 just enough for them to accept the offer and keep the rest for themselves.</p>
+<p>This may be a nit-picky point, but should Player 1 offer 0.89 or 0.90? Would player 2 accept the 0.89 because 0.89 now is better than 0.89 later, or would offering 0.89 just make player 2 indifferent because the discounting already accounts for time preference? In the first case, clearly Player 1 should offer 0.89; in the second case, they should offer 0.90 to guarantee that Player 2 will accept the offer.</p>
+<p>Can someone set me straight in this area?</p>
+",1,economics/60517_4fadd27567e0a939_136.txt,economics/5bd61483_10140.txt,0.613147,,,numeric,False,"The document fails to specify whether the offer should be 0.89 or 0.90 in the context of a two-round game with time discounting, which is the numeric precision required by the question.","{""label"": ""numeric"", ""candidate_ok"": false, ""why"": ""The document fails to specify whether the offer should be 0.89 or 0.90 in the context of a two-round game with time discounting, which is the numeri"
+economics,56380_175,"US population growth: &quot;natural increase&quot; vs &quot;fertility rate&quot;
+<p>Based on the 2017 <a href=""https://www.census.gov/data/tables/2017/demo/popproj/2017-summary-tables.html"" rel=""nofollow noreferrer"">US Census population projections through 2060</a>, specifically <a href=""https://www2.census.gov/programs-surveys/popproj/tables/2017/2017-summary-tables/np2017-t1.xlsx"" rel=""nofollow noreferrer"">table 1 (Projected population size and births, deaths, and migration)</a>, the &quot;natural increase,&quot; which is US births - US deaths, was positive in 2017 at over 1 million more births than deaths, and was projected to remain positive through 2060, reaching a minimum of 400,000 in 2050 before beginning to increase again.</p>
+<p>On the other hand, the fertility rate per woman for the US was 1.8 in 2017, <a href=""https://data.worldbank.org/indicator/SP.DYN.TFRT.IN?locations=US"" rel=""nofollow noreferrer"">according to the World Bank</a>. This is well below the replacement rate of 2.1.</p>
+<p>How is it possible that the US could have over 1 million more births than deaths, and that a positive natural increase would be projected to continue for 40 years, but be well below replacement fertility rate?</p>
+<p><a href=""https://economics.stackexchange.com/questions/39147/why-is-the-u-s-birth-rate-considered-below-replacement-if-more-people-are-being"">This question</a> is related, but the answers there indicate that it would be temporary situation due to population momentum. However, here the Census Bureau is predicting it will continue for 40 years.</p>
+",1,economics/af238ecb_3934.txt,economics/cb6af27e_4067.txt,0.469279,,,entity_scope,False,"The CANDIDATE document fails to address the specific comparison between natural increase and fertility rate in the U.S. population, and does not discuss the relevant demographic factors like birth rates, death rates, or age structure that are necessary to answer the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The CANDIDATE document fails to address the specific comparison between natural increase and fertility rate in the U.S. population, and does no"
+economics,55752_178,"Why did the pay of CEOs decrease around the year 2000?
+<p>According to the book I'm reading (*), the pay of CEOs tends to increase because the divorce between ownership and control allows for abusive compensation practices by the CEOs. Indeed, in the graph below we can see a near exponential rise in CEO compensation (measured as the ratio between the wage of the CEO and that of the average worker) since the 70s. I've found many sources discussing this topic, but none on the decreasing spikes in the years 1994-95 and the early 2000s. Why did this happen?</p>
+<p><a href=""https://i.sstatic.net/fVUFq.png"" rel=""nofollow noreferrer""><img src=""https://i.sstatic.net/fVUFq.png"" alt=""enter image description here"" /></a></p>
+<p>(*) <em>Economics</em> by Paul Samuelson, William Nordhaus, 19th Edition. Chapter 6, Figure 6-7.</p>
+",1,economics/a10522c5_4258.txt,economics/c6147913_4256.txt,0.613147,,,temporal,False,"The candidate document discusses policy changes in 1993 and their effects, but does not address the specific decrease in CEO pay around the year 2000, which is the temporal focus of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document discusses policy changes in 1993 and their effects, but does not address the specific decrease in CEO pay around the year 20"
+economics,54729_181,"What aspects of Money Creation in the Modern Economy are no longer correct
+<p>It has been suggested in <a href=""https://economics.stackexchange.com/questions/54725/money-creation-confusion#comment89742_54727"">some comments</a> of another question that the well known paper <a href=""https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2416234"" rel=""nofollow noreferrer"">Money Creation in the Modern Economy</a> is no longer fully correct. What aspects of the paper would need to be modified in the light of regulatory changes made since it was published in 2014.</p>
+",1,economics/0503d7c7_4886.txt,economics/6ef04e24_4592.txt,0.613147,,,entity_scope,False,"The candidate document focuses on an FRB system and fiat money without clearly addressing the specific aspects of the paper 'Money Creation in the Modern Economy' that are no longer correct due to regulatory changes since 2014, thus failing to meet the required entity scope.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document focuses on an FRB system and fiat money without clearly addressing the specific aspects of the paper 'Money Creation in "
+economics,60573_154,"Who first argued that market forces alone determine just price?
+<p>Who first argued that market forces alone determine just price?</p>
+<p>Horvat, <a href=""https://isidore.co/calibre/#panel=book_details&amp;book_id=5155"" rel=""nofollow noreferrer""><em>Return to Order</em></a> ch. 32 &quot;An Organic Economic Order: A Passion for Justice&quot;, § &quot;Just Price and Markets&quot; cites Langholm, <a href=""https://isidore.co/calibre/#panel=book_details&amp;book_id=10260"" rel=""nofollow noreferrer""><em>Legacy of Scholasticism in Economic Thought</em></a>, 85:</p>
+<blockquote>
+<p>The modern mechanistic conception of the market as a suprapersonal force setting the terms to which an individual exchanger must submit was foreign to the medieval masters. Their frame of reference was a moral universe that obliged any buyer or seller to act for the common good and agree to terms of exchange accordingly, regardless of the advantage granted him by the forces of the market.</p>
+</blockquote>
+",2,economics/76ab3829_81804.txt,economics/9e273c26_0331.txt,0.246302,,,entity_scope,False,"The candidate document fails to identify any specific individual who first argued that market forces alone determine just price, instead making a broad, negative claim about economists and monks without citing a specific originator.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document fails to identify any specific individual who first argued that market forces alone determine just price, instead making"
+economics,48023_208,"Can economic models predict China overtaking the United States?
+<p>I recently read an article about China's economic progress:
+<a href=""https://www.bbc.com/news/world-asia-china-55454146"" rel=""nofollow noreferrer"">Chinese economy to overtake US 'by 2028' due to Covid</a></p>
+<p>Can models and simulations based on economic data predict when China's economy will overtake that of the United States?</p>
+<p>And what effect did the outbreak of coronavirus have on the predicted outcome?</p>
+<p>Will China take over US economy?</p>
+",4,economics/95695780_89855.txt,economics/534a0bff_9377.txt,0.118383,,,temporal,False,"The candidate document states that the window for China's GDP to surpass the U.S. has closed in 2023 and 2024, contradicting the implied prediction of overtaking by 2028 or soon after, thus failing the temporal condition of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document states that the window for China's GDP to surpass the U.S. has closed in 2023 and 2024, contradicting the implied prediction"
+economics,53713_187,"Is there any graph that shows how the gold and silver content decreased in roman coins?
+<p>I am looking for a graph of at least a table with data that would allow me to make a graph, showing how the gold/silver content was slowly removed from roman coins due to debasement of the currency.</p>
+",1,economics/4a7463f2_5585.txt,economics/555530a6_5499.txt,0.613147,,,entity_scope,False,"The candidate document discusses the decrease in silver content but does not mention any graph or table that could be used to create one, failing to satisfy the necessary condition of providing a visual or data-based representation as requested in the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses the decrease in silver content but does not mention any graph or table that could be used to create one, faili"
+economics,43830_229,"Why GDP is converted to 2010 $US constant in international studies?
+<p>GDP is a widely-used macro control variable in finance-related papers, especially for international studies. I am wondering what is the reason why GDP is converted to $US 2010 as <a href=""https://datacatalog.worldbank.org/gdp-constant-2010-us-0"" rel=""nofollow noreferrer"">noted by WorldBank</a>.</p>
+<p>From my understanding, in international studies, they convert every currency-related variable to the US dollar to be comparable <strong>by using the exchange rate every year</strong>. However, I do not understand why they convert to the US dollar in a fixed year when it comes to GDP, and why the chosen year is 2010 in this case?</p>
+",1,economics/ca0f274a_13741.txt,economics/633ef087_13737.txt,0.302602,,,temporal,False,"The candidate document fails to address the specific temporal reason for converting GDP to 2010 US dollars, such as using a fixed base year to enable consistent real-term comparisons over time.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the specific temporal reason for converting GDP to 2010 US dollars, such as using a fixed base year to enab"
+genealogy,3444_316,"What records exist for survivors of the Spanish Armada?
+<p>In my family, there is a long held verbal history that we were on the Spanish Armada and were stranded in Ireland when the Armada was sunk.</p>
+
+<p>This may be a long shot, but is there anyway to access records of who was on the Armada, and related, who was rescued/imprisoned from the sinking of the fleet?</p>
+",1,genealogy/3444_9ca56ed0f7f15932_27.txt,genealogy/4b95a12c_8850.txt,0.39038,,,entity_scope,True,"The document specifies survivors of La Juliana and mentions Pedro Blanco and Captain Francisco de Cuellar, clearly linking individuals to the Spanish Armada and their survival, satisfying the entity scope of the question.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The document specifies survivors of La Juliana and mentions Pedro Blanco and Captain Francisco de Cuellar, clearly linking individuals to the Sp"
+genealogy,10193_311,"Burial of a person who committed suicide in 18th century England?
+<p>I have an ancestor who committed suicide in 1748 in rural Northamptonshire, England. The burial register of his parish does not record his burial, but it does note that he ""hung humself lying almost prostrate on his own bed."" I know he was not buried in the churchyard because the number of burials are tallied each year.</p>
+
+<p>This man's widow died about seven years later, but was buried in a nearby parish. It is unlikely she had permanently moved to that parish as the burial register still describes her as of the former parish. This makes me wonder whether her husband's suicide affected where the family decided to have her buried.</p>
+
+<p><strong>What would have been the common practice for burial of a person who committed suicide in the eighteenth century? Are there any records that might contain information about where he was buried?</strong></p>
+",3,genealogy/6aaf83d7_154771.txt,genealogy/2bcd70e8_8063.txt,0.137438,,,temporal,False,"The document describes events in the 19th century, specifically 1811, which is after the 18th century, making it temporally irrelevant to a person who committed suicide in 18th century England.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The document describes events in the 19th century, specifically 1811, which is after the 18th century, making it temporally irrelevant to a person "
+genealogy,15210_259,"Are there any online resources to verify death of a inmate at Fort Leavenworth?
+<p>One of my cousins asserts that her Uncle died ""in prison"" at Fort Leavenworth Kansas on 1 Jan 1976. </p>
+
+<p>Are there any online resources that would verify the death of a prisoner (assuming that he was actually a prisoner)?</p>
+
+<p>Would one expect that Kansas would issue a death certificate?</p>
+",1,genealogy/407c02b8_152531.txt,genealogy/7d4f89a3_2357.txt,0.274876,,,entity_scope,True,"The document addresses inmate records at Fort Leavenworth specifically, including access through NARA and the BOP, which aligns with the entity scope of the question.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The document addresses inmate records at Fort Leavenworth specifically, including access through NARA and the BOP, which aligns with the entity "
+genealogy,12684_285,"Seeking Obituaries for Midland, Texas from 1970s and before?
+<p>I am looking for a directory online in which I could view old obituaries from Midland, Texas, USA.</p>
+
+<p>There are plenty of places to view recent ones, but where can I view older ones. </p>
+
+<p>I am particularly looking for ones from around the 1970s. </p>
+",2,genealogy/550ec70b_5195.txt,genealogy/b83827e2_5074.txt,0.246302,,,temporal,False,"The candidate document only mentions death records up to 1976, which does not fully cover '1970s and before' as required in the question, and lacks explicit confirmation of coverage for the 1970s and earlier in Midland, Texas specifically.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document only mentions death records up to 1976, which does not fully cover '1970s and before' as required in the question, and lacks"
+genealogy,18623_240,"Naturalization Record
+<p>This is a follow-up to a <a href=""https://genealogy.stackexchange.com/questions/18616"">Seeking 1945 New Jersey Death Record</a>.</p>
+<p>I am looking for the naturalization record of <em>Jani Keleshi</em> (birth name).</p>
+<p>He was born in Berat, Albania during the 1890s; at that time it was part of the Ottoman Empire.</p>
+<p>Here is what I have so far (chronologically):</p>
+<p>1910 Arrival ???</p>
+<p>1917 U.S., World War I Draft Registration Cards
+Name:   <em>John Keleshi</em>
+Marital Status: Single
+Birth Date: <em>25 Dec 1890</em>
+Birth Place:    Albania
+Residence Place:    Philadelphia, Philadelphia, Pennsylvania, USA</p>
+<p>1930 United States Federal Census
+Name:   <em>John Kalashi</em>
+Birth Year: abt 1894
+Age in 1930:    36
+Birthplace: Albania
+Marital Status: Single
+Home in 1930:   Atlantic City, Atlantic, New Jersey, USA
+Immigration Year:   <em>1910</em>
+Naturalization: <strong>First Papers (Pa)</strong></p>
+<p>1940 United States Federal Census
+Name:   <em>John Kalaski</em>
+Age:    48
+Birthplace: Albania
+Marital Status: Single
+Home in 1940:   Atlantic City, Atlantic, New Jersey
+Residence in 1935:  Atlantic City
+Citizenship:    <strong>Naturalized</strong></p>
+<p>1942 U.S., World War II Draft Registration Cards
+Name:   <em>John Ilia Kalashi</em>
+Gender: Male
+Birth Date: <em>27 Dec 1891</em>
+Birth Place:    Berat, Albania
+Residence Place:    Atl, New Jersey, USA</p>
+<p>1945 Tombstone
+Name:   <em>John Kalashi</em>
+Birth Date: 7 Jan 1891
+Death Date: 15 Oct 1945
+Cemetery:   Atlantic City Cemetery
+Burial or Cremation Place:  Pleasantville, Atlantic County, New Jersey</p>
+<p>1945 U.S., Social Security Applications and Claims Index
+Name:   <em>John Kalashi</em>
+Birth Date: <em>25 Dec 1896</em>
+Birth Place:    Albania
+Death Date: 15 Oct 1945
+Claim Date: 16 Oct 1945
+SSN:    <strong>138 03 0735</strong></p>
+",2,genealogy/ef47b202_0964.txt,genealogy/38ff5256_0615.txt,0.386853,,,entity_scope,False,"The document only references naturalization records from the Eastern District of Pennsylvania, failing to address the relevant entity scope (Atlantic City, New Jersey) where the individual resided and likely naturalized.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The document only references naturalization records from the Eastern District of Pennsylvania, failing to address the relevant entity scope (At"
+genealogy,12623_287,"Finding birth record of American Airman using only full name and service number?
+<p>How do I find the birth record of an American Airman, with only his full name and service number for our family research? </p>
+
+<p>He was born around 1939, and was stationed at RAF Mildenhall (Cambridgeshire, England) during the late 1950's, early 60's.</p>
+",1,genealogy/12623_b680574ef06a5106_14.txt,genealogy/cad74ed3_5583.txt,0.33916,,,entity_scope,False,"The candidate document does not address the specific scenario of finding a birth record using only a full name and service number for an American Airman, failing to meet the required entity scope.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the specific scenario of finding a birth record using only a full name and service number for an Americ"
+genealogy,13331_271,"Where to find Scottish birth records from 1905?
+<p>I'm using family search and also find my past at the moment as they're both free for me to use. I'm looking for the birth certificate of my great granddad Alexander Barclay Ormond born circa 1905 in Angus, Scotland.</p>
+
+<p>I can find his military record from the Tank Corps in 1925, but can't find a birth certificate. I'm assuming this is something to do with the records in Scotland not being available? If so, where can I find the Scottish records, ideally without having to pay?</p>
+",2,genealogy/d7813d3a_153289.txt,genealogy/e7199476_3351.txt,0.246302,,,entity_scope,False,"The candidate document does not specifically address Scottish birth records from 1905, as it mentions records from 1855 to 2017 but lacks clarity on coverage for 1905 specifically in Scotland, and the entity scope is too broad and vague.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document does not specifically address Scottish birth records from 1905, as it mentions records from 1855 to 2017 but lacks clari"
+genealogy,2312_332,"Obtaining details to complete US Military SF-180 information request form?
+<p>From <a href=""https://genealogy.stackexchange.com/questions/23/how-can-i-get-all-the-military-records-available-through-nara-usa-for-an-indiv"">How can I get all the military records available through NARA (USA) for an individual veteran?</a> (or rather, one of its <a href=""https://genealogy.stackexchange.com/a/62"">answers</a>) I filled out and mailed an SF-180 requesting military information for an individual. I received word back from NARA last week that the inquiry could not be fulfilled. The main issue with my inquiry was that it lacked certain details:</p>
+
+<ul>
+<li>Start/End service dates</li>
+<li>Service Number</li>
+<li>Social Security Number</li>
+</ul>
+
+<p>It is a bit of a catch-22 (especially for the first two items) as the reason I am asking NARA for those records is to get this kind of information!</p>
+
+<p>For the above three items, then, where else can I go to find this information so I can try to resubmit my SF-180?</p>
+
+<p>The individual served in the Navy during WWII and is deceased (1899-1947).</p>
+",1,genealogy/69390087_2356.txt,genealogy/e804249e_10154.txt,0.613147,,,entity_scope,False,"The candidate document only addresses Social Security number records and does not provide information on how to obtain start/end service dates or service numbers, which are essential for completing the SF-180 form.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document only addresses Social Security number records and does not provide information on how to obtain start/end service dates "
+history,75992_117,"What were the main components in the Rise of Sunni Islam in the Middle East during the 20th century?
+<p>I am struggling to find articles regarding the rise of Sunni Islam in the Middle East during the 20th century. Frankly, it is most likely because that is a very broad subject. That is why I would like to ask:
+<em>what were the main components of this Sunni awakening?</em></p>
+<p>I know that one of the prominent movements involved in it was the Muslim Brotherhood in Egypt and also the Wahhabis in Saudi Arabia. Are there any other notable movements or perhaps ideologists which I should look up?</p>
+",1,history/4d0d42f7_15750.txt,history/334ec07b_15706.txt,0.274876,,,temporal,False,"The candidate document refers to the Salafi movement developing in the late 19th century, which does not align with the 20th century focus of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document refers to the Salafi movement developing in the late 19th century, which does not align with the 20th century focus of the q"
+history,76642_92,"Where can I find statutory orders made by the Privy Council of England?
+<p>I am researching early 20th century statutory orders made by the Privy Council, namely made under the Local Government Act 1899.</p>
+<p>In the <a href=""https://www.thegazette.co.uk/London/issue/27199/page/3567"" rel=""nofollow noreferrer"">London Gazette</a>, it is mentioned that on 15 May 1900 Orders in Council were passed.</p>
+<p>I found the book Statutory Rules and Orders Other Than Those of a Local, Personal Or Temporary Character (varies Slightly).
+<img src=""https://i.imgur.com/qBor10n.png"" alt=""Book"" /></p>
+<p>I tried to find the order, but it was listed and not published as it was a local order.
+<img src=""https://i.imgur.com/BZilSVn.png"" alt=""Local acts"" /></p>
+<p>I've tried researching but can't find anything online - is there a book or resource that contains local statutory orders?</p>
+",1,history/635145d9_13096.txt,history/b3945ee6_13018.txt,0.39038,,,entity_scope,False,"The candidate document does not address statutory orders made by the Privy Council of England, particularly those under the Local Government Act 1899, and fails to specify the entity scope relevant to the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document does not address statutory orders made by the Privy Council of England, particularly those under the Local Government Ac"
+history,70915_248,"Was the Bohemian Elector part of the Electoral College for purposes of a Reichstag, especially if he was the Emperor of the HRE?
+<p>Nominally, the order of the Electoral college was fixed in 1356 with a golden bull and once more recorded in this combination in 1489. The Bull dictated 7 Electors. One of those Electors was the King of Bohemia, next to the Palatine, Saxony, Brandenburg, Cologne, Trier, and Mainz.<sup>1</sup> Later more electors would appear, but for the longest time, this was the setup.</p>
+<p>When in 1526 the King of Bohemia died, the crown and title of arch-cupbearer fell to the Habsburgs in the person of Archduke Ferdinand of Austria. This Archduke then would become elected Emperor of the Holy Roman Empire in 1531. The crown of Bohemia and the one of the HRE would stay with the Habsburgs for a very long time, and even when Rudolph II was cut to size by his brother and future successor Mathias, he retained Bohemia as the last personal land. Yet again, Mathias would get the crown of Bohemia, then that of Rome and the Imperial crown in quick succession,</p>
+<p>As the Elector for Bohemia and highest ranking person, it would be assumed that the various Habsburg monarchs were present in the election of themselves as Emperor and even should have cast the first vote while the Reichserzkanzler, the Archbishop of Mainz, would cast the last.</p>
+<p>However, I fail to find literature that depicts the role of the Elector for Bohemia <strong>in the setting of a Reichstag</strong>, as in outside of an imperial election. For example, Litzenberger describes vividly how the Archbishops, Palatine, Saxony, and Brandenburg quibble over topics, but never mentions Bohemia - only the imperial crown.<sup>2</sup></p>
+<p><strong>Was the King of Bohemia,</strong> when he was also the Emperor, <strong>actually allowed to take part in the meetings of the Electoral College during a Reichstag?</strong> Or does the position of Emperor result in the seat of the Elector for Bohemia staying vacant? Was there another reason, such as that the Bohemian Crown wasn't vested with part in the Electoral College?</p>
+<hr />
+<p>1 - Wilson, Peter H: From Reich to Revolution – German History 1558-1806 (European History in Perspective, 15), London 2004, p.35 - 43.<br>
+2 - Litzenberger, Andrea: Kurfürst Schweikard von Kronenberg als Erzkanzler: Mainzer Reichspolitik am Vorabend des 30 Jährigen Kriegs (1604-1619), Stuttgart, 1985.</p>
+",1,history/6a3c0fb1_34439.txt,history/c1b3668e_34387.txt,0.613147,,,temporal,False,"The candidate document does not specify any temporal period when the King of Bohemia participated in the Reichstag, failing to address the time frame relevant to the question about the Bohemian Elector's role in Reichstag meetings.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not specify any temporal period when the King of Bohemia participated in the Reichstag, failing to address the time fra"
+history,59399_613,"What do the phone number suffixes J, M, R, W in 1940 New York phone book mean?
+<p>Browsing through the <a href=""https://digitalcollections.nypl.org/items/d4608e80-9ae9-0135-f057-3b2a31113b3a/book#page/13/mode/1up"" rel=""noreferrer"">Staten Island, NY telephone directory of January 1940</a>, I found that certain phone numbers were printed with a suffix J, M, R or W. What do these mean? I've marked a few of them in the image below.</p>
+
+<p>The phone book itself does not define these suffixes -- I checked carefully. These letters do not seem to represent calling rate zones, as Staten Island had only two zones.</p>
+
+<p>Party lines? I'm aware that up to 4 customers could share a phone number and each would get a distinctive ring so the correct party would know to pick up, but I've never known how one would call a particular party on a party line. This phone book mentions that ""party lines are available"" but gives no further information about them.</p>
+
+<p><a href=""https://i.sstatic.net/PHmgl.png"" rel=""noreferrer""><img src=""https://i.sstatic.net/PHmgl.png"" alt=""1940 telephone directory""></a></p>
+",1,history/f040a012_88470.txt,history/878eaf60_88469.txt,1.0,,,entity_scope,False,"The candidate document fails to address the specific context of New York phone book suffixes in 1940 Staten Island, instead generalizing about party lines in rural areas and during WWII without linking the letters J, M, R, W to their function in that specific setting.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the specific context of New York phone book suffixes in 1940 Staten Island, instead generalizing about "
+history,69484_350,"Who are the Cathari in the Canons of the council of Nicaea?
+<p>In Canon 8 of the <a href=""https://en.wikipedia.org/wiki/First_Council_of_Nicaea#Promulgation_of_canon_law"" rel=""nofollow noreferrer"">Council of Nicaea – held in 325</a> – it states that</p>
+<blockquote>
+<p>As for the so-called <em><strong>cathari</strong></em>, if they return to the catholic and apostolic church, the great and holy council decrees that any of them who are ordained may remain among the clergy.</p>
+</blockquote>
+<p>Are these the Donatists? This clearly <a href=""https://en.wikipedia.org/wiki/Catharism"" rel=""nofollow noreferrer"">can't be the 12th/13th century sect.</a> The rest of the canon seems to imply so but it isn't quite clear to me.</p>
+",1,history/47d1a65a_238366.txt,history/bfc28bbb_47729.txt,0.39038,,,temporal,False,"The candidate document refers to a later ecclesiastical arrangement involving clergy ranks and restoration, which does not align with the 4th-century context of the Council of Nicaea and the Cathari mentioned in Canon 8.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document refers to a later ecclesiastical arrangement involving clergy ranks and restoration, which does not align with the 4th-centu"
+history,68801_384,"Molotov-Ribbentrop pact - Where was Hitler?
+<p>Why didn't Hitler attend the negotiations of the pact in August 1939, but Stalin did?</p>
+<p>He was afraid of being assassinated by the Soviets or what?</p>
+",1,history/581d6329_241903.txt,history/b8aea26b_52012.txt,0.469279,,,entity_scope,True,"The document correctly identifies the location of the pact signing as Moscow, which is consistent with the entity scope of the question regarding Hitler's absence from negotiations.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The document correctly identifies the location of the pact signing as Moscow, which is consistent with the entity scope of the question regardin"
+history,71261_227,"Where did Carlson&#39;s Raiders get Boys anti-tank rifles in 1942 and why?
+<p>According to <a href=""https://en.m.wikipedia.org/wiki/Raid_on_Makin_Island"" rel=""nofollow noreferrer"">English Wikipedia</a>, during the 1942 Raid on Makin Atoll (modern-day Butaritari, Kiribati) the Marine Raiders used Boys anti-tank rifles to attack the Japanese flying boats that attempted to land in the lagoon.</p>
+<p>When were they issued (or when did they otherwise acquire) these British weapons and why this particular model?</p>
+<p>I can't find any information on American Marines being supplied with these, other than the small stub of info, nor any evidence they ever used them again.</p>
+",1,history/8ffc9d07_31535.txt,history/8c33b5f7_31461.txt,0.613147,,,entity_scope,True,"The candidate document correctly identifies that Carlson’s Raiders obtained the Boys anti-tank rifles from the Canadian Army, which aligns with the entity scope of the question regarding the source of the rifles in 1942.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate document correctly identifies that Carlson’s Raiders obtained the Boys anti-tank rifles from the Canadian Army, which aligns with "
+history,59225_632,"How were cities administered in the early Byzantine Empire?
+<p>First of all, I would just like to note that I am not looking for an answer concerning Constantinople, but rather how other cities were governed (e.g. Thessaloniki, Adrianapole, Nicaea, Smyrna, Pergamon... or any other city in Anatolia, Thrace or on the Aegean). Some of those cities might have had a special status at some point in history where there were the seat of a local strategos or doux, but I'm interested what are some of the structures of local administration one could expect in more or less every city, primarily:</p>
+
+<ul>
+<li>Was there a city council and who are its members?</li>
+<li>What powers could that council expect to have?</li>
+<li>Was there an elected official in charge, i.e. a mayor? What was the name of that official, how long was the term? </li>
+<li>If not elected, who was the appointed official in charge and who appointed him (I think I can probably assume that it was always a him)?</li>
+<li>What powers did the official in charge have?</li>
+</ul>
+
+<p>By early Byzantine I was thinking of anything from Justinian until the Macedonian dynasty. I am aware that this period might be scarce on resources and I appreciate any extra details up from Diocletian to the 11th century, since some segments of low level administration probably functioned similarly if not the same. </p>
+
+<p>I have done some googling but couldn't find anything directly related to the subject except maybe a passing reference that the judicial power would be in the hands of a <em>praitores</em> or <em>kritai</em>, and a few stuff how Constantinople was administered focused mostly on titles. Therefore any help is appreciated. </p>
+",1,history/3a60c9c0_90932.txt,history/02a74ba7_90922.txt,0.469279,,,entity_scope,False,"The candidate document refers to a Roman model of city governance and generalizes it to the late antique period without addressing the specific context of the early Byzantine Empire or the shift in administrative structures, particularly the role of bishops and the decline of the boule, which is central to the question's focus on early Byzantine city administration.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document refers to a Roman model of city governance and generalizes it to the late antique period without addressing the specific"
+hsm,3065_773,"In which ways has religion helped the progress of science?
+<p>I am writing a research paper on the interplay between science and religion, and need some examples of times when religion has benefited or inspired science and technology. </p>
+",1,hsm/2060_4e71c5c8efabc6d5_455.txt,hsm/e229afde_17795.txt,0.613147,,,entity_scope,True,"The candidate document correctly identifies Christianity and its narratives (Creation, Noah’s Flood) as influencing scientific research in the Western world, which aligns with the question's focus on religion's role in science's progress.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate document correctly identifies Christianity and its narratives (Creation, Noah’s Flood) as influencing scientific research in the W"
+hsm,18894_655,"How long did it take the physics community to accept J. J. Thomson&#39;s electron theory?
+<p>How long did it take the physics community to accept J. J. Thomson's electron theory?</p>
+<p>For example, the anti-atomist <a href=""https://www.encyclopedia.com/people/history/historians-miscellaneous-biographies/pierre-maurice-marie-duhem#1"" rel=""nofollow noreferrer"">Pierre Duhem</a> (d. 1916) never commented on it.</p>
+<p>There are books written on the reception of relativity theory (e.g., Glick, <a href=""https://isidore.co/calibre/#panel=book_details&amp;book_id=4718"" rel=""nofollow noreferrer""><em>The Comparative Reception of Relativity</em></a>), but are there are ones written on the acceptance of the electron theory?</p>
+",1,hsm/dae6367d_207836.txt,hsm/31dd7ed0_0698.txt,0.613147,,,temporal,True,"The document does not specify the duration or time frame it took for the physics community to accept Thomson's electron theory, failing to address the temporal aspect of the question.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document does not specify the duration or time frame it took for the physics community to accept Thomson's electron theory, failing to address t"
+hsm,14438_699,"The abstraction of mathematics from physics
+<p>When and how did mathematics come to be abstracted away from the physical world?</p>
+<p>At first, mathematics would originate in its simplest form of counting and addition as to keep track of certain supplies in ancient civilizations. At some point it came to be used to describe more complex physical situations, such as ancient astronomy or Archimedes' study of force and buoyancy.</p>
+<p>At what point did it come to describe inherently non-physical things; doing math for the sake of math? For example, doing things such as an analytic study of functions, the defining of abstract spaces, or even primitive number theory, etc. The earliest example I can think of is Indian and Greek geometry, but even this had a motivation in engineering and design. And yes, you could argue all of math at its core came from a motivation in physics, but today that's not the case.</p>
+<p>In the modern day, mathematicians do beautiful work with no thought of how it may effect or be used in physics or any other science for that matter. So when did this switch happen? How did it come to be &quot;math&quot; rather than a tool for physics?</p>
+",1,hsm/724811d4_10281.txt,hsm/fc592e4f_6109.txt,0.613147,,,temporal,True,"The document specifies that abstraction flourished from the 19th century onwards, providing a clear temporal marker for when mathematics began to move away from physical motivation.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document specifies that abstraction flourished from the 19th century onwards, providing a clear temporal marker for when mathematics began to mo"
+hsm,17762_687,"What is the history of the Scheme theory before Grothendieck?
+<p>If you read <a href=""https://hsm.stackexchange.com/a/5368/18258"">here</a>, you will be able to read paragraphs like this:</p>
+<blockquote>
+<p>Grothendieck created a synthesis out of these ideas, based in essence on the conceptual presentation of Zariski-Chevalley-Nagata. Schemes are thus a way of encoding systems of equations as well as the transformations to which one may subject them.</p>
+</blockquote>
+<p>So, I first looked into the work of the mathematicians who appear here, Zariski, Chevalley, and Nagata, on their schemes. The references I have referenced are <a href=""https://hsm.stackexchange.com/a/5368/18258"">here1</a> and <a href=""https://www.landsburg.com/grothendieck/mclarty1.pdf"" rel=""nofollow noreferrer"">here2</a>.</p>
+<p><strong>Zariski</strong></p>
+<blockquote>
+<p>The term itself was coined by Chevalley, although accepted in a more restrictive sense than the term as used by Grothendieck. (...) Chevalley wondered what was invariant, in Weil’s sense of variety. The answer, inspired by Zariski’s work, was simple and elegant: the scheme of an algebraic variety is the collection of local rings of the sub-varieties found inside the rational function field. (here1)</p>
+<p>Cartier defines a spectrum <span class=""math-container"">$Ω_A$</span> for each finite type algebra <span class=""math-container"">$A$</span> over a field <span class=""math-container"">$k$</span>, with
+a Zariski topology. This comes close to Grothendieck’s sense of “spectrum”. The
+elements of the algebra <span class=""math-container"">$A$</span> are construed as “functions” from the spectrum to a field
+extension of k as in current scheme theory. Cartier parallels Serre’s use of sheaves
+when he defines “algebraic sets” by pasting together spectra. He proves various
+theorems familiar to anyone who knows current scheme theory, though with the
+restriction that his spectra are all of finite type over a field.(here2)</p>
+</blockquote>
+<p>I don't think Zariski himself put much effort into developing the scheme.</p>
+<p><strong>Chevalley-Nagata</strong></p>
+<blockquote>
+<p>An “affine scheme”, in Chevalley-Nagata’s sense amounts
+to what Cartier called the spectrum of a semi-simple algebra <span class=""math-container"">$A$</span>, only reworded in
+ideal-theoretic terms. That makes a difference. This is Grothendieck’s spectrum.
+Chevalley schemes are gotten by pasting together affines. So they are schemes in
+Grothendieck’s sense, with all the apparatus for the general case, but not stated in
+all generality. This published record well supports what Cartier says about anticipating Grothendieck’s theory of schemes.(here2)</p>
+</blockquote>
+<p>And after researching, I found that in addition to the three mathematicians above, a mathematician named Serre also seems to have influenced the development of scheme theory. So I will write about it additionally.</p>
+<blockquote>
+<p>There is no need for an explicit topology, a point of distinction between Chevalley and Serre, who at roughly the same time introduced his algebraic varieties using Zariski topologies and sheaves. Each of the two approaches had advantages, but also limitations: Serre had an algebraically closed base field; Chevalley had to work only with irreducible varieties. In both cases, the two fundamental problems of products of varieties and base change could only be approached indirectly. All the same, Chevalley’s point of view was better suited to future extensions to arithmetic, as Nagata soon observed.(here1)</p>
+</blockquote>
+<p>I've been researching the work of four mathematicians, Zariski, Chevalley-Nagata, and Serre, who were influential in the development of scheme before Grothendieck developed scheme, but I'm curious about what theorems they specifically studied and discovered, and what it is about those theorems that influenced the emergence of scheme.</p>
+<p><strong>Edit</strong>:</p>
+<blockquote>
+<p>In the past, Mathematicians first created a geometric space and then thought about functions on it. For example, we defined a vector space and then thought about a linear map, defined a topological space and then thought about a continuous map. However, as time passed and functional analysis and category theory developed, the perspective of first thinking about a function space and then reconstructing a geometric space to match it developed. However, Mathematicians in 19th century wondered if it is really a feasible idea to think about a function first and then create a geometric space. Fortunately, if we look at the example of a vector space, it seems that it is really possible. In this case, the function space becomes a dual space, and if we take dual again from the function space, it becomes a double dual, so we get something that is really similar to the original space.</p>
+</blockquote>
+<p>I read that the achievement of Grothendieck, a mathematician in the 20th century, actually mathematically created this idea that was widely spread among mathematicians. Is this true? And if this is true, did mathematicians like Serre and Zariski not know about this?</p>
+",2,hsm/60c79b6e_4587.txt,hsm/d0040f72_4556.txt,0.386853,,,entity_scope,False,"The candidate document discusses Riemann–Zariski spaces and relative morphisms of algebraic spaces, which are topics that come after Grothendieck's scheme theory and do not address the historical development of scheme theory before Grothendieck, thus failing to cover the required historical scope of the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses Riemann–Zariski spaces and relative morphisms of algebraic spaces, which are topics that come after Grothendie"
+hsm,17967_681,"Why was beta-plus decay not discovered at the same time with beta decay?
+<p>Nuclei rich in neutrons tend to undergo beta decay, emitting electrons.</p>
+<p>Nuclei rich in protons tend to undergo beta-plus decay, emitting positrons.</p>
+<p>Why was beta decay discovered far ahead of beta-plus decay? Nuclei rich in neutrons are more common in nature? If people discover beta decay and beta-plus decay simultaneously, people would have discovered positron much earlier!</p>
+",3,hsm/2f8ea054_3866.txt,hsm/4c0a5b99_3621.txt,0.19519,,,entity_scope,False,"The candidate document does not address why beta-plus decay was not discovered at the same time as beta decay, failing to establish the contextual scope of natural abundance or observational bias related to neutron-rich versus proton-rich nuclei.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document does not address why beta-plus decay was not discovered at the same time as beta decay, failing to establish the context"
+hsm,13540_717,"Need quote from early 20th century about humanity probably never being able to control (manipulate, see?) a single quantum system
+<p>I remember having read a statement, I think by one of the founding fathers of quantum mechanics, that we will probably never be able to control (or manipulate or see or isolate...?) a single quantum system (or atom).</p>
+<p>The quote was used to highlight the fast progress experimental quantum physics has made over the last few decades (seeing that single-particle control is routinely achieved in experiments).</p>
+<p>Does anyone know the quote and its source?</p>
+",1,hsm/74c5303b_9102.txt,hsm/2a59bbc6_9004.txt,0.469279,,,temporal,False,"The candidate document cites Schrödinger's statement from 1952, which is outside the 'early 20th century' timeframe specified in the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document cites Schrödinger's statement from 1952, which is outside the 'early 20th century' timeframe specified in the question.""}"
+hsm,2060_789,"Why did 18th century writers think that Mars had 2 satellites?
+<p>At least two 18th century writers wrote that Mars has two satellites: Swift in Gulliver's travels (1726) and Voltaire in Micromégas (1752).</p>
+
+<p>How did they guess this? Was Voltaire repeating Swift's prediction?</p>
+
+<p>It was known at that time that Earth has 1, Jupiter 4 and Saturn has 5 satellites, so simple interpolation does not give a definite result. None of them suggested that Venus
+has any satellites.</p>
+
+<p>The additional 3 satellites of Saturn were discovered only in 1789, and Mars's satellites only in 1877.</p>
+",2,hsm/17737_5cbc4d797ed05070_518.txt,hsm/5c396ced_20409.txt,0.296082,,,temporal,False,"The candidate document discusses Galileo's anagram about Saturn being 'threefold' and Kepler's interpretation, but it does not address the 18th century writers' belief about Mars having two satellites or the temporal context of when that belief existed, thus failing the temporal condition of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document discusses Galileo's anagram about Saturn being 'threefold' and Kepler's interpretation, but it does not address the 18th cen"
+hsm,2669_784,"The history and motivation of eigenvectors
+<p>I want to understand more about <a href=""http://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors"">the history of eigenvectors</a>. Was the discovery of eigenvectors inspired from an application to achieve a result in a historical context, was there a phenomenon which operated in some related way that was observed, was it discovered from the formulation and explored and mentioned till applications were found, or from an indirect usage in some other area of mathematics for solving equations?</p>
+
+<ul>
+<li>Did they solve a problem which was not solvable previously?</li>
+<li>Where can someone read the original track of their derivation from basic principles?</li>
+<li>Who were the main mathematicians to contribute to the development and use of eigenvectors and in which texts are they described?</li>
+</ul>
+",1,hsm/6505d13e_19636.txt,hsm/eeeb593f_19457.txt,0.613147,,,temporal,False,"The candidate document does not specify when eigenvectors were discovered or how their development relates to historical events or time periods, failing to address the temporal aspect of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not specify when eigenvectors were discovered or how their development relates to historical events or time periods, fa"
+iota,367_805,"Why are transactions so slow?
+<p>Right now each transaction takes about 30 minutes or longer. Previously it was said that the increasing number of transactions (even empty spam) are good for the network and are improve the transaction time. However, two weeks ago the developers asked to stop the spamming (due to DDoS?). Is it still a certainty that transaction times will go down over time? What are the caveats of that?</p>
+
+<p>And related: I often read that IOTA is a solution for near-instantaneous transactions. However, this seems only possibly with a <a href=""https://blog.iota.org/instant-feeless-flash-channels-88572d9a4385"" rel=""nofollow noreferrer"">flash channel</a>? Otherwise a transaction will always take many minutes till it is propagated throughout the network, no? Is it possible to reach near-instantaneous transaction time based on the core protocol without using flash channels?</p>
+",1,iota/fe9f911e_0408.txt,iota/a10d5aae_0610.txt,0.469279,,,temporal,False,"The candidate document does not address the current state or recent developments (e.g., two weeks ago developers asked to stop spamming) that are relevant to the present slowdown in transactions.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the current state or recent developments (e.g., two weeks ago developers asked to stop spamming) that are r"
+iota,311_807,"When is a pending transaction technically confirmed?
+<p>I'd like to understand the steps that lead to an eventual confirmation of a transaction. I understand that there are several child transactions required and that the individual weights of each of these need to add up to a certain threshold. </p>
+
+<p>However, what is that threshold? Is it dynamic? And what happens when that threshold is reached? Is it at that point that the node syncs with all the neighbour nodes? Or when does the syncing happen?</p>
+
+<p>Or is a transaction only confirmed when it's available on a certain minimum number of nodes (similar to BTC)?</p>
+",1,iota/0b09095f_0840.txt,iota/22908adb_0844.txt,0.469279,,,temporal,False,"The document does not specify when a pending transaction is technically confirmed, failing to address the temporal condition of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The document does not specify when a pending transaction is technically confirmed, failing to address the temporal condition of the question.""}"
+iota,470_804,"Transactions per second
+<p>Why are transactions at the Tangle Explorer at approximately 1-2 transactions per second? Is that the current transaction rate IOTA is achieving? That seems very low. When should we see the transaction rate increase? Can I help in any way being a total newbie?</p>
+",1,iota/22908adb_0844.txt,iota/f6523e65_0382.txt,0.33916,,,temporal,False,"The candidate document discusses a future upgrade in 2025 but does not address the current transaction rate of 1-2 transactions per second, failing to meet the temporal condition of the question regarding the present state.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document discusses a future upgrade in 2025 but does not address the current transaction rate of 1-2 transactions per second, failing"
+iota,2008_802,"How to get IOTA testnet tokens and who distributes them in the first place?
+<p>I did try <a href=""https://faucet.testnet.iota.org"" rel=""nofollow noreferrer"">https://faucet.testnet.iota.org</a> — its not working currently</p>
+
+<p>Also will all old testnet tokens be compatible with the new devnet's? </p>
+
+<p>Is the testnet still the same since the beginning of IOTA? Did it have a seed transition phase as well?</p>
+",2,iota/9bdacafc_0227.txt,iota/f3fa954e_0228.txt,0.246302,,,entity_scope,False,"The candidate document discusses Shimmer and its testnet, which is not directly related to the IOTA testnet tokens or their distribution as asked in the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses Shimmer and its testnet, which is not directly related to the IOTA testnet tokens or their distribution as ask"
+law,108728_814,"Can a child receive the death penalty?
+<p>Has there ever been a case of the death penalty being given in the USA to a child? Is this currently legal? Has it always been legal, or has this recently changed? What are SCOTUS's views on the matter?</p>
+",1,law/9dcc148a_41259.txt,law/4c733bf5_0674.txt,0.39038,,,temporal,True,"The document refers to the current legal stance and recent trends, including the 5-4 ruling in Roper v. Simmons, which establishes a current prohibition on the death penalty for juveniles.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document refers to the current legal stance and recent trends, including the 5-4 ruling in Roper v. Simmons, which establishes a current prohibi"
+law,103394_836,"Are state and Federal Grand Jury proceedings, testimony and deliberations secret in perpetuity?
+<p>Are state and Federal Grand Jury proceedings, testimony and deliberations secret in perpetuity?</p>
+<p>Reference: Rule 6. The Grand Jury | Federal Rules of Criminal Procedure | US Law LII. <a href=""https://www.law.cornell.edu/rules/frcrmp/rule_6#"" rel=""nofollow noreferrer"">https://www.law.cornell.edu/rules/frcrmp/rule_6#</a></p>
+<p>Are there any well-known cases where the veil of serecy was lifted, i.e. for journalism and/or media, national security or political reasons?</p>
+<p>What about grand jury proceedings in US territorial courts that operated before statehood? I will assume the secrecy law is &quot;inhertied&quot; by the (new) state court, but is that the case?</p>
+<p><em>Followup</em>: how would an individual or media entity go about requesting grand jury testimony for modern state or federal courts? File suit? I assume that winning the release of testimony would be a tall order.</p>
+<p>What about grand jury testimony from 150 years ago given in a territorial court? Where there is no one involved that is still alive and thus no reputation harm or relation to other criminal cases? File suit, too? Or ask a modern court for an opinion and order?</p>
+",2,law/ba375df3_6623.txt,law/98f24cc7_6577.txt,0.296082,,,temporal,False,"The candidate document does not address whether grand jury proceedings, testimony, or deliberations become public after a specific period of time or in perpetuity, which is a key temporal condition in the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not address whether grand jury proceedings, testimony, or deliberations become public after a specific period of time o"
+law,105744_827,"Is it possible for a voter to be rendered ineligible in both their prior and new states while in the process of moving?
+<p>If a person moves in close proximity to the day of the election, is it possible they are rendered legally ineligible to vote in both their new and prior states of residency?</p>
+",1,law/fb2b11eb_42033.txt,law/1a68a303_3199.txt,0.39038,,,temporal,True,"The candidate document specifies a federal limit of 30 days prior to Election Day for residency requirements, which addresses the temporal aspect of eligibility during the move process.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The candidate document specifies a federal limit of 30 days prior to Election Day for residency requirements, which addresses the temporal aspect of"
+law,107582_818,"How has Brexit affected precedent created in European courts?
+<p>I'm interested in learning how Brexit has affected precedent that existed in UK law through EU court decisions. In particular, does this remain binding?</p>
+",2,law/107582_96e424d5a5ddf379_24.txt,law/f9e7ec08_1964.txt,0.296082,,,entity_scope,True,"The document addresses the impact of Brexit on UK law by discussing retained EU law, which directly relates to the scope of legal precedent from European courts in the UK post-Brexit.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The document addresses the impact of Brexit on UK law by discussing retained EU law, which directly relates to the scope of legal precedent from"
+law,107656_817,"GDPR subject access request for short-lived data
+<p>Suppose someone makes a GDPR subject access request for data that is always deleted after less than the required response period, (eg: CCTV footage that gets overwritten every 14 days).  Does this mean the controller can always safely reply that they have nothing because they've already deleted whatever they may have had when the request was made?</p>
+<p>This seems disappointing because they will have also collected more data in the month that they are allowed to take to respond, but if the subject makes another request for that data the controller gets another month by which time it will be deleted again.</p>
+<p>The alternative seems unworkable too, because in order to have the data the the data controller would have to stop their normal deletion routine whenever they get a subject access request.</p>
+<p>Is <a href=""https://law.stackexchange.com/questions/104352/can-one-make-prospective-subject-access-requests"">This answer</a> correct to suggest that the response does not have to include data that was acquired after the request?</p>
+",1,law/726686be_41408.txt,law/ac1435b1_1172.txt,0.613147,,,temporal,True,"The document acknowledges that data may be amended or deleted during the response period but does not claim that the controller can safely reply with nothing because data was already deleted at request time, thus satisfying the temporal condition.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document acknowledges that data may be amended or deleted during the response period but does not claim that the controller can safely reply wit"
+law,106290_825,"In case of a Presidential Pardon covering a period are newly discovered crimes pardoned too?
+<p>Reading <a href=""https://politics.stackexchange.com/questions/89994/can-trump-reverse-president-joe-bidens-pardon-for-his-son"">This law.stackenchange.com question</a> got me thinking but I wasn't able to find any specific references, in it an <a href=""https://www.nbcnews.com/politics/joe-biden/joe-biden-issue-pardon-son-hunter-biden-rcna182369"" rel=""noreferrer"">nbcnews article</a> is referenced that states:</p>
+<blockquote>
+<p>The president issued a &quot;full and unconditional pardon&quot; for any offenses Hunter Biden has “committed or may have committed or taken part in during the period from January 1, 2014 through December 1, 2024,&quot; according to the White House statement.</p>
+</blockquote>
+<p>Disregarding the President who gave the pardon or who received it (this is <strong>NOT</strong> a question about this specific case but about Presidential Pardons in general)</p>
+<p>Does the part</p>
+<blockquote>
+<p>for any offenses Hunter Biden has “committed or may have committed or taken part in during the period from January 1, 2014 through December 1, 2024</p>
+</blockquote>
+<p>Also provides a &quot;full and unconditional pardon&quot; for Federal crimes committed in that period that may have been not yet discovered? Let's say evidence of a completely unrelated crime to the ones known at the time of the pardon is discovered, does that crime get automatically pardoned having been committed in the &quot;Pardoned timeframe&quot;?</p>
+",1,law/106290_82b39e2bb539437c_26.txt,law/6648189d_2826.txt,0.39038,,,exclusion,False,"The candidate document does not address whether newly discovered crimes within the pardoned timeframe are covered by the pardon, failing to meet the necessary condition of excluding or including such crimes.","{""label"": ""exclusion"", ""candidate_ok"": false, ""why"": ""The candidate document does not address whether newly discovered crimes within the pardoned timeframe are covered by the pardon, failing to meet t"
+law,110623_810,"What happens to the taxes already paid when the &quot;Tariffs&quot; are declared unlawful?
+<p>There's a chance that the &quot;Tariffs&quot; imposed by the Trump administration will be declared unlawful by the courts. As we see <a href=""https://law.stackexchange.com/questions/110618/tax-on-social-security-and-presidential-authority"">in this answer</a>, some courts have already ruled in that direction, SCOTUS <em>may</em> come to the same conclusion. (It's very likely this will need to go to the highest court.)</p>
+<p>What will happen with the money already collected by that time? Will the administration have to pay that back?</p>
+",2,law/60ec0608_0542.txt,law/5ec541d1_0385.txt,0.296082,,,entity_scope,False,"The candidate fails to specify that only importers who directly paid the tariff are entitled to refunds, omitting the precise entity scope defined in the current document.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate fails to specify that only importers who directly paid the tariff are entitled to refunds, omitting the precise entity scope defi"
+law,110164_812,"Is This 1927 Book (Originally Published in the U.K.)---Now in the Public Domain in the U.S.?
+<p>I know that in the U.S., a book which has been published prior to January 1, 1929 is in the public domain. I am not too familiar with copyright laws in other countries and, whether or not their laws might prohibit a book from being published in the U.S. which was published in that country more than 95 years ago.</p>
+<p>Consider the following specific example of this book by Msgr. Francois Trochu (who died May 8, 1967) and whose English translation of <em>The Cure of Ars</em> was originally published in England in 1927.</p>
+<p>There is a <a href=""https://ia601601.us.archive.org/13/items/curedarsstjeanma0000stje/curedarsstjeanma0000stje.pdf"" rel=""nofollow noreferrer"">1977 TAN reprint</a> (warning: this Internet Archives link is a lengthy pdf) of the original 1927 Burns &amp; Oates publication, in which what appears on the pages is exactly the same as what appeared in the 1927 publication.</p>
+<p>Can this book now be freely republished in the United States as more than 95 years have lapsed since its original U.K. publication or does the death of the author come into play---thus prolonging the book's entrance into the U.S. public domain?</p>
+",2,law/fdf00091_41095.txt,law/7358976d_0588.txt,0.246302,,,temporal,False,"The candidate document incorrectly states that works published in 2023 enter the public domain on January 1, 2023, which is factually wrong and fails to address the 1927 publication's status in the U.S. public domain.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document incorrectly states that works published in 2023 enter the public domain on January 1, 2023, which is factually wrong and fai"
+monero,7581_880,"What is the relevance of the restore height?
+<p>Still learning this stuff.
+But when restoring a wallet from seed, it gives an option for restore height (date).  </p>
+
+<p>Do/should I set this to just before my first transaction?  Or more on point if I set it to a month ago, will it still show correct balance?</p>
+",1,monero/fb76faca_7871.txt,monero/a975222f_7181.txt,0.469279,,,entity_scope,False,"The candidate document fails to address the relevance of restore height in relation to blockchain transaction scanning and balance accuracy, which is central to the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the relevance of restore height in relation to blockchain transaction scanning and balance accuracy, wh"
+monero,6011_889,"What happens to transactions sent via old software after hard fork?
+<p>If I am using Monero binaries v0.10.3, and try to send transactions after the hard fork on September 15, 2017, will those transactions just be ignored by miners?</p>
+",1,monero/44db8897_83016.txt,monero/eec845f0_10197.txt,0.39038,,,entity_scope,True,"The candidate correctly addresses the scope of old software not being accepted by the new network post-hard fork, aligning with the entity scope of Monero software and its compatibility.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate correctly addresses the scope of old software not being accepted by the new network post-hard fork, aligning with the entity scope"
+monero,5928_890,"A pool didn&#39;t find a block since 4 days, is it normal?
+<p>I've been mining on a pool for more than 24h and my balance didn't increase. It is supposed to increase when the pool find a block.
+I also remarked that the pool didn't find any block since 4 days, is it bad? Is there a way to estimate the required time for the pool to find a block?</p>
+",1,monero/7e88a3ca_83746.txt,monero/42efaba5_10425.txt,0.469279,,,numeric,False,"The candidate document discusses pool luck as a percentage based on share counts but does not address whether it's normal for a pool to not find a block for 4 days, failing to meet the numeric condition relevant to the question.","{""label"": ""numeric"", ""candidate_ok"": false, ""why"": ""The candidate document discusses pool luck as a percentage based on share counts but does not address whether it's normal for a pool to not find a b"
+monero,11882_857,"Duplicate ring members
+<p>A Monero transaction input's ring signature contains a set of one time output keys corresponding to the outputs of some previous transactions. Such a transaction can have multiple inputs, and therefore multiple sets of old outputs. It would not make sense for any one old output to appear more than once in the bunch of inputs, since an output can only be spent once.</p>
+
+<p>Within a single input's ring, does the core Monero implementation allow duplicate ring members? Within all the rings combined, can a member appear more than once? If either of these rules hold, are they held by the protocol or merely by the standard implementation?</p>
+
+<p>This question corresponds to protocol v12. Were the answers above different in previous versions? (this is not necessary to answer, just curious)</p>
+",1,monero/a3549c83_9734.txt,monero/af4d79c2_2739.txt,0.469279,,,entity_scope,False,"The candidate document does not address whether duplicate ring members are allowed within a single input's ring or across all rings combined, which is essential to the question about entity scope in the context of Monero's protocol.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document does not address whether duplicate ring members are allowed within a single input's ring or across all rings combined, w"
+monero,11152_863,"Received monero, how many confirmations do I need to wait before fully confirmed?
+<p>Why do we need to wait for such a long time when receiving monero? I thought it was 2 minutes only, but it seems that is not the case and I have to wait still a good 5+ minutes for a transaction to confirm. </p>
+",1,monero/94ceba44_11945.txt,monero/a2ef9c7c_3869.txt,0.39038,,,numeric,False,"The candidate document does not specify a numeric threshold for confirmations required to fully settle a Monero transaction, which is a necessary condition of the question.","{""label"": ""numeric"", ""candidate_ok"": false, ""why"": ""The candidate document does not specify a numeric threshold for confirmations required to fully settle a Monero transaction, which is a necessary co"
+monero,4634_893,"Do you have to download the entire monero blockchain when using the core wallet? And how big is it?
+<p>As of July 2017, how big is the monero blockchain download and do you have to download the entire thing?</p>
+",1,monero/967ebcfe_84687.txt,monero/e2b50353_11429.txt,0.469279,,,exclusion,False,"The candidate document states that a full-node wallet must download the entire blockchain, which contradicts the question's implication that one does not have to download the entire blockchain, thus failing the exclusion condition.","{""label"": ""exclusion"", ""candidate_ok"": false, ""why"": ""The candidate document states that a full-node wallet must download the entire blockchain, which contradicts the question's implication that one d"
+monero,13070_850,"Time Required for Initial Blockchain Sync
+<p>I am a beginner interested in trading and mining the Monero Cryptocurrency. I am using an Arch based Linux distribution and I have downloaded the <code>monero-gui</code> package from the Arch package repository to use for trading Monero. I chose the advanced option when creating a wallet and began syncing the blockchain. The blockchain began syncing very fast initially, but continually slows as it syncs. At the moment it has been syncing for one day and looks like it will take at least a few more days to finish syncing.</p>
+<p>My internet speed is solid, but it is currently downloading at about 4 kb/s according to the log. My CPU usage is very low, about 2%, and memory usage is 2 out of 8 gigabytes while the daemon is running.</p>
+<p>Is this normal? <a href=""https://www.getmonero.org/resources/user-guides/importing_blockchain.html"" rel=""nofollow noreferrer"">Here</a> it says that downloading the raw blockchain from getmonero.org is much slower than syncing it with the dameon, but the dameon is looking to take at least 4 days to download while downloading it from getmonero took only 10 hours.</p>
+<p>When researching this issue, it seems like most of the posts complaining about a slow blockchain sync are from at least four years ago, so I am not sure if they are still relevant.</p>
+<p>Here is the output from the log in case it is helpful.</p>
+<pre><code>2021-06-08 15:00:01.172 I Monero 'Oxygen Orion' (v0.17.2.0-release)
+Error: Couldn't connect to daemon: 127.0.0.1:18081
+[6/8/21 11:00 AM] 2021-06-08 15:00:40.413 I Monero 'Oxygen Orion' (v0.17.2.0-release)
+Height: 1529589, target: 2378781 (64.3014%)
+Downloading at 4 kB/s
+Next needed pruning seed: 7
+4 peers
+144.217.248.48:4683 8ca421ea1bf0df7b normal 0 1529589 1 kB/s, 0 blocks / 0 MB queued
+92.193.184.167:18080 ca9e6ed33703df47 synchronizing 0 2378781 1 kB/s, 0 blocks / 0 MB queued
+51.89.181.106:6508 913a119dcb7c49b5 normal 0 1529589 1 kB/s, 0 blocks / 0 MB queued
+147.135.178.157:11296 035c429daa3a78f5 normal 0 1529589 1 kB/s, 0 blocks / 0 MB queued
+0 spans, 0 MB
+[]
+</code></pre>
+<p>Thanks,</p>
+<p>Nick</p>
+",1,monero/8a18f0ce_9080.txt,monero/e9261162_13179.txt,0.613147,,,temporal,False,"The CURRENT document provides a specific time estimate for blockchain sync (13 hours for advanced mode), which is a temporal claim that contradicts the user's observation of a sync taking days, thus failing the necessary condition of temporal accuracy.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The CURRENT document provides a specific time estimate for blockchain sync (13 hours for advanced mode), which is a temporal claim that contradicts"
+monero,3761_900,"How can block size grow over time when miners are incentivised to keep size small?
+<p>Miners are penalised if they mine a block that is larger than a threshold.</p>
+
+<p>Miners can make sure that the blocks they mine don't go over that threshold in order to avoid a reward penalty (by adapting the daemon code).</p>
+
+<p>One of Monero's ""selling point"" is the dynamic block size but since the miners have a disincentive to push large blocks, <strong><em>isn't there a chance that the block size will actually never grow, creating transactions backlog issues etc.</em></strong>?</p>
+
+<p>Example: ""normal"" transactions use approximately 13kB, the current median block size is 65kB. Packing 5 transactions is just within the median, and the miner gets the full reward. Packing 6 transactions would cause a reward penalty of 0.34XMR. Assuming an additional transaction fee of maybe 0.02, that's a ""loss"" of 0.32 XMR for the miner.</p>
+",1,monero/23e266d1_3866.txt,monero/ca5292e4_13054.txt,0.39038,,,comparison,False,"The candidate fails to establish a clear comparison between transaction fees and block reward penalties, which is necessary to explain how block size can grow over time despite miner disincentives.","{""label"": ""comparison"", ""candidate_ok"": false, ""why"": ""The candidate fails to establish a clear comparison between transaction fees and block reward penalties, which is necessary to explain how block "
+politics,77201_1035,"What is the current state of the plan to send those seeking asylum in the UK to Rwanda?
+<p>The recent question <a href=""https://politics.stackexchange.com/q/77191/16047"">Is the UK going to abandon asylum for refugees?</a> reminded me of the BBC's April 14, 2022 <a href=""https://www.bbc.com/news/explainers-61782866"" rel=""noreferrer"">One-way ticket to Rwanda for some UK asylum seekers</a>.</p>
+<p>A lot has happened since then.</p>
+<p><strong>Question:</strong> What is the current state of the plan to send those seeking asylum in the UK to Rwanda? Is there a timeframe for when the first deportations will take place?</p>
+",1,politics/77201_4af1c23dc023ed2d_1.txt,politics/402904fc_25817.txt,0.469279,,,temporal,True,"The document provides a clear timeline of events from July 2024 onward, including specific dates for announcements and statements, which satisfies the temporal condition of the question.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The document provides a clear timeline of events from July 2024 onward, including specific dates for announcements and statements, which satisfies t"
+politics,90784_930,"Differences between &quot;snap&quot; and regularly scheduled elections for the electorate and for the politicians?
+<p>A comment below <a href=""https://politics.stackexchange.com/q/90759/16047"">When a coalition government like Germany&#39;s fails, how is a &quot;snap&quot; election supposed to fix it? (Explain it like I&#39;m five)</a></p>
+<blockquote>
+<p>I think you are too hung up on the “snap” part. A snap election is just an election. Do you understand how election in a democracy helps forming the government? Being “snap” just means it happens earlier than originally scheduled, <strong>there is no other difference.</strong></p>
+</blockquote>
+<p>I do understand &quot;how election in a democracy helps forming the government&quot; but I do not feel &quot;hung up&quot; on anything. Rather than use comments for a discussion, I think a new question is the right place to highlight differences between &quot;snap&quot; and scheduled elections.</p>
+<p>In democratic elections, what are the major differences between &quot;snap&quot; federal elections, and regularly scheduled federal elections (e.g. every 4 or 5 years) from the point of view of the electorate, the politicians, and the associated industries (journalism, polling, etc.)?</p>
+<p>Answers might include references to things like time, money, and fatigue.</p>
+",1,politics/ad835257_6141.txt,politics/40ad0c6f_5934.txt,0.469279,,,temporal,False,"The candidate document does not address the temporal differences between snap and regularly scheduled elections from the perspective of the electorate or politicians, only describing election results and projections without explaining when or how snap elections differ in timing from scheduled ones.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the temporal differences between snap and regularly scheduled elections from the perspective of the elector"
+politics,90393_936,"What&#39;s the longest time period between an Executive Order being issued and revoked?
+<p>I'm curious (with the ease that presidents can undo EOs of predecessors): what's the <em>longest</em> period of time that an Executive Order was standing before being revoked by (another) president?</p>
+",1,politics/a4eee345_7256.txt,politics/3cd2e8cb_7225.txt,0.613147,,,temporal,False,"The document does not specify the time period between the issuance and revocation of the executive orders, failing to address the longest time period asked in the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The document does not specify the time period between the issuance and revocation of the executive orders, failing to address the longest time peri"
+politics,74135_1056,"What does &#39;Donbass, whom the Ukrainian army has been bombing for the last 8 years&#39; refer to?
+<p>Russian chess supergrandmaster Sergey Karjakin (Pro-Putin, but Ukrainian-born) says in tweets <a href=""https://twitter.com/SergeyKaryakin/status/1498398663252525068"" rel=""nofollow noreferrer"">here</a> and <a href=""https://twitter.com/SergeyKaryakin/status/1498398853984305160"" rel=""nofollow noreferrer"">here</a> to international master Kostya Kavutskiy:</p>
+<blockquote>
+<p>Have you also collected money for the residents of Donbass, whom the Ukrainian army has been bombing for the last 8 years? You can come there and go, for example, to the Alley of Angels, which was built in honor of the children of Donbass who died from the shelling of Ukrainian criminals. Still funny?</p>
+</blockquote>
+<p>What is the meaning exactly of Ukraine was bombing Donbass for 8 years? In particular, I checked Wikipedia <a href=""https://en.wikipedia.org/wiki/Russo-Ukrainian_War#History"" rel=""nofollow noreferrer"">Russo-Ukrainian War</a>, and it looks like just 1 year: <a href=""https://en.wikipedia.org/wiki/Russo-Ukrainian_War#2014%E2%80%932015_war_in_Donbas"" rel=""nofollow noreferrer"">2014–2015 war in Donbas</a>.</p>
+",1,politics/82104_14dc7b4cb253fa73_1.txt,politics/3653cb1f_30584.txt,0.39038,,,temporal,False,"The candidate document fails to establish the temporal accuracy of the '8 years' claim, as it does not provide evidence or acknowledge the actual duration of the conflict in Donbas, which the question references.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document fails to establish the temporal accuracy of the '8 years' claim, as it does not provide evidence or acknowledge the actual d"
+politics,82020_1010,"Is there a reason why the U.S. didn&#39;t impose the recent financial sanctions on Hamas preemptively before the recent attacks?
+<p><a href=""https://home.treasury.gov/news/press-releases/jy1816"" rel=""nofollow noreferrer"">https://home.treasury.gov/news/press-releases/jy1816</a></p>
+<blockquote>
+<p>October 18, 2023</p>
+<p>WASHINGTON — Today, the U.S. Department of the Treasury’s Office of
+Foreign Assets Control (OFAC) imposed sanctions on ten key Hamas
+terrorist group members, operatives, and financial facilitators in
+Gaza and elsewhere including Sudan, Türkiye, Algeria, and Qatar. This
+action targets members managing assets in a secret Hamas investment
+portfolio, a Qatar-based financial facilitator with close ties to the
+Iranian regime, a key Hamas commander, and a Gaza-based virtual
+currency exchange and its operator. Today’s designations are part of a
+continuous effort by the United States to root out Hamas’s sources of
+revenue in the West Bank and Gaza and across the region and is taken
+in close coordination with regional partners and allies. To date,
+Treasury has targeted nearly 1,000 individuals and entities connected
+to terrorism and terrorist financing by the Iranian regime and its
+proxies, including Hamas, Hizballah, and other Iran-aligned terrorist
+groups in the region.</p>
+</blockquote>
+<p>I know some economic sanctions were imposed in 2006-2007, but I am not sure why the U.S. wouldn't just keep piling on sanctions against Hamas regularly.</p>
+<p><a href=""https://en.wikipedia.org/wiki/2006%E2%80%932007_economic_sanctions_against_the_Palestinian_National_Authority"" rel=""nofollow noreferrer"">https://en.wikipedia.org/wiki/2006%E2%80%932007_economic_sanctions_against_the_Palestinian_National_Authority</a></p>
+<p>Is there a reason why the U.S. didn't impose the recent financial sanctions  on Hamas preemptively before the recent attacks? You would think you'd want to sanction a terrorist group before they are able to do serious damage against another country, especially an American ally, but the U.S. government chose to impose the recent sanctions against Hamas after the attack. <strong>For example, some of the sanctions imposed against China recently were done preemptively before the Chinese military can gain any advantage</strong>, so I am wondering if there's a legitimate reason why it was only done recently against Hamas.</p>
+",1,politics/6a1802db_21799.txt,politics/02d7ba5a_21305.txt,0.613147,,,temporal,False,"The candidate document does not address the timing or rationale for imposing sanctions preemptively before attacks, which is central to the question about why sanctions were not imposed earlier.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the timing or rationale for imposing sanctions preemptively before attacks, which is central to the questio"
+politics,88778_956,"Did polls adjust their methodology after overestimating Democrat&#39;s shares in the 2016 and 2020 presidential elections in the Rust Belt?
+<p>In both the 2016 and 2020 presidential elections, polls generally overestimated Democrat's shares in the Rust Belt. In 2020, Biden won them but still his shares were much lower than what polls predicted especially in the Rust Belt.</p>
+<p>But some claim that now polls have adjusted their methods and now the polls must be correct. Is that true? Then what was the problem with those polling methods in 2016 and 2020, and how did they adjust?</p>
+",1,politics/88778_63b092d00d4c9735_40.txt,politics/b841004f_10996.txt,0.39038,,,entity_scope,True,"The candidate document addresses state-level polls and polling aggregators, which aligns with the entity scope of the question focusing on Rust Belt polls and their methodology adjustments.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate document addresses state-level polls and polling aggregators, which aligns with the entity scope of the question focusing on Rust "
+politics,83639_992,"To what extent has the war on terror in the Somalia achieved its goals?
+<p>Has it been at all effective in getting rid of Al-Shabaab? How has it affected the region?
+Edit: I mean the US-led <a href=""https://en.wikipedia.org/wiki/Operation_Enduring_Freedom_%E2%80%93_Horn_of_Africa"" rel=""nofollow noreferrer"">Operation Enduring Freedom - Horn of Africa</a>.</p>
+",1,politics/88a568a2_18233.txt,politics/8871af2a_18169.txt,0.613147,,,entity_scope,False,"The candidate document discusses al-Shabaab's influence beyond Somalia and its ties to the Houthis in Yemen, which shifts the focus from Somalia-specific goals of the war on terror to broader regional and transnational threats, failing to address the specific context of the war's goals in Somalia.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document discusses al-Shabaab's influence beyond Somalia and its ties to the Houthis in Yemen, which shifts the focus from Somali"
+politics,88189_966,"If Biden decides to step back or is replaced, when is the latest that can happen?
+<p>If Biden steps down, his successor candidate will have a hard time, as they will be less well-known. They will need time to &quot;build up&quot;. That is clearly a disadvantage, and probably it is a strong argument for the Democratic Party to keep him in place.</p>
+<p>Replacing him is a possibility, at least on the level of open communication of the Democratic Party, but as time goes by, so will the successor have a lesser and lesser chance to win over Trump. In this matter, time works for Biden.</p>
+<p>What is the point where we will be able to say with a high probability that Biden will remain?</p>
+",1,politics/06e4db63_8536.txt,politics/7dc99378_13004.txt,0.469279,,,temporal,False,"The candidate document does not specify when Biden might step back or be replaced, failing to address the temporal condition of the latest possible time such an event could occur.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not specify when Biden might step back or be replaced, failing to address the temporal condition of the latest possible"
+quant,76957_1075,"Beta adjusting change in market value
+<p>I’m looking at the change in market cap <span class=""math-container"">$m_{t} - m_{t-i}$</span> for index constituents over a fixed time period (<span class=""math-container"">$i$</span> years). How would you beta adjust this change in market cap? If I take the average <span class=""math-container"">$\beta_{i}$</span> over the <span class=""math-container"">$i$</span> years, how do I then get a beta adjusted market cap change?</p>
+<p>Thanks!</p>
+",1,quant/43f2356c_27732.txt,quant/af656063_2750.txt,1.0,,,none,False,"The candidate document does not address how to beta adjust a change in market cap, which is the core of the question.","{""label"": ""none"", ""candidate_ok"": false, ""why"": ""The candidate document does not address how to beta adjust a change in market cap, which is the core of the question.""}"
+quant,84061_1058,"Should Earned or Received date be used in bond valuation discount factor
+<p>Is there a market convention for which date should be used when calculating time to cash flow in a discount function?</p>
+<p>In practice bond cash flow dates often differ between earned and received dates. Such as Roll conventions on weekends and holidays when interest is calculated up until the scheduled date but payment rolls to the next business day. Or contractual payment delays where interest is not distributed until n days after it is earned.</p>
+<p>e.g. Take the basic yield equation below where <span class=""math-container"">$t_i$</span> is the time to each cash flow <span class=""math-container"">$i$</span> represented as time in years from evaluation date <span class=""math-container"">$t_i = T_i - T_0$</span></p>
+<p><span class=""math-container"">$ p = \sum_{i=1}^n\frac{C_i}{(1+y)^{t_i}}$</span></p>
+<p>I can justify either one in the following ways:</p>
+<ol>
+<li>Earned date represents the time when the cash flow is known and legally obligated to the bond holder</li>
+<li>Received Date is when the cash provides economic value. i.e. Can be reinvested</li>
+</ol>
+",1,quant/78042_fa82b31999d8bb06_397.txt,quant/755f87a3_0002.txt,0.39038,,,entity_scope,False,"The candidate document does not address the specific question about whether earned or received date should be used in bond valuation discount factor, focusing instead on unrelated yield concepts like street convention and current yield.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the specific question about whether earned or received date should be used in bond valuation discount f"
+quant,80694_1063,"P&amp;L Decomposition Expired Trades
+<p>If a trade exists yesterday (T-1) and not today (T) owing to maturity at T, how do you account for the change in P&amp;L between T-1 and T? I think it should be under Theta but are there any cases where you would want to ignore this P&amp;L for a trade maturing today altogether?</p>
+",1,quant/a0422781_1260.txt,quant/50c64516_0992.txt,0.469279,,,entity_scope,False,"The candidate document fails to address the specific context of P&L decomposition for expired trades, particularly those maturing on day T, and does not discuss the accounting treatment or operational implications of such changes in P&L as relevant to the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the specific context of P&L decomposition for expired trades, particularly those maturing on day T, and"
+quant,69659_1090,"Data on historical, cross-country nominal yield curves
+<ol>
+<li>Various central banks publish their fitted <em><strong>nominal</strong></em> yield curve estimates: <a href=""http://www.federalreserve.gov/econresdata/researchdata/feds200628_1.html"" rel=""nofollow noreferrer"">the Fed</a>, <a href=""https://www.bankofengland.co.uk/statistics/yield-curves"" rel=""nofollow noreferrer"">BOE</a>, <a href=""https://data.snb.ch/en/topics/ziredev#!/cube/rendoblid"" rel=""nofollow noreferrer"">SNB</a>, <a href=""https://www.bankofcanada.ca/rates/interest-rates/bond-yield-curves/"" rel=""nofollow noreferrer"">BOC</a>, <a href=""https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/euro_area_yield_curves/html/index.en.html"" rel=""nofollow noreferrer"">ECB</a> (cf: <a href=""https://www.bundesbank.de/dynamic/action/en/statistics/time-series-databases/time-series-databases/743796/743796?treeAnchor=GELD&amp;statisticType=BBK_ITS&amp;openNodeId=GELDZINS"" rel=""nofollow noreferrer"">Bundesbank</a>), <a href=""https://www.rba.gov.au/statistics/tables/#interest-rates"" rel=""nofollow noreferrer"">RBA</a>, <a href=""https://www.cbr.ru/eng/hd_base/zcyc_params/"" rel=""nofollow noreferrer"">Russia</a>, <a href=""https://www.rbi.org.in/Scripts/BS_NSDPDisplay.aspx?param=4#"" rel=""nofollow noreferrer"">RBI</a>.</li>
+</ol>
+<ul>
+<li>(I couldn't find for BOJ; Brazil; BOK; or PBOC. Links for these would be extremely welcome!)</li>
+</ul>
+<ol start=""2"">
+<li>Bloomberg has its own estimates of these zero-coupon nominal curves (e.g. USGG10YR for the US ten-year).</li>
+</ol>
+<p>These estimates are not the same (at least not always), and in particular they differ in their historical availability: Bloomberg has less data. Just to pick one example, the Russian 10y on Bloomberg (GTRUB10Y Govt) has data since 2010; the central bank's website estimates back to 2003.</p>
+<p><em><strong>Does any data source have better (i.e. longer) cross-country coverage for yield curves?</strong></em></p>
+<p>Thank you!</p>
+",1,quant/74291_b39f834a2b9a7854_24.txt,quant/bb2b02d2_4376.txt,0.613147,,,entity_scope,False,"The candidate document only covers a single country (South Korea) and a short-term bond yield, failing to provide cross-country nominal yield curve data as required by the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document only covers a single country (South Korea) and a short-term bond yield, failing to provide cross-country nominal yield c"
+quant,81021_1060,"Using Sharpe ratio as a measure of performance seems misleading
+<p>By defintion, doesn't the Sharpe ratio use a denominator that is the risk, and that is the risk that's taken up until right now, and if only the risk changes and nothing else, the ratio for an investment will change?</p>
+<p>If that is true, can I argue that it is a misleading measure of the investor's competence because the investor can only be expected to know the risk at the time of the purchase? Therefore the risk that should be used in the Sharpe ratio should be the risk at the time of investing and not change afterwards. Do you agree? I mean if we look at a portfolio and the Sharpe ratio is high or low, we draw the conclusion that the investor is good if the Sharpe ratio is high and likewise, but in fact, it will be misleading and the right measure to show who is a good investor would be to use the return in the numerator of the ratio (as usual) and the risk that was taken at the time of the investment in the denominator, which may very well have been in 1987 or 1914 for an investment that was bought and then hold and a long time. It should be the available risk taken for the investor at the original point in time when the investment was made.
+Do you agree?</p>
+",1,quant/81021_11bc818285f29a2b_0.txt,quant/9ff45318_0624.txt,0.39038,,,temporal,False,"The candidate document fails to address the temporal inconsistency in the Sharpe ratio by not acknowledging that risk should be fixed at the time of investment and not updated over time, which is central to the argument in the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the temporal inconsistency in the Sharpe ratio by not acknowledging that risk should be fixed at the time o"
+quant,78659_1069,"Sharpe ratio 1 and probability to lose money
+<p>I came across the following interview problem and I am looking for a possible solution. We have a strategy with risk free return 0 and sharpe ratio 1. What is the probability to lose money over four years ?</p>
+",1,quant/8bb27b90_2338.txt,quant/772e1877_2323.txt,0.613147,,,numeric,False,"The candidate document does not address the specific numeric probability to lose money over four years given a Sharpe ratio of 1, which is required by the question.","{""label"": ""numeric"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the specific numeric probability to lose money over four years given a Sharpe ratio of 1, which is required "
+quant,36059_1091,"Bond ETF Implied Dividends
+<p>What (if one exists) is the standard way for estimating future dividends on bond etfs?</p>
+
+<p>The major challenge in my mind is that the monthly dividend distributions of a bond etf (like HYG) don't necessarily correspond to the interest income received that month from the underlying bonds of the etf. This is because the ETF manager doesn't immediately turn around and pay out all of the interest income immediately.</p>
+
+<p>For the past few months HYG dividends have hovered around the $0.37 mark for every month. In the near-term, you would expect the dividends to continue around there. But what happens 6 months down the line? There's a lot of variation in dividends when you look at historical periods of that length.</p>
+
+<p>Now, somehow the market comes up with estimates for dividends and you can find them in the implied forwards of options on HYG. What's the standard way to do this?</p>
+",1,quant/8048626d_28656.txt,quant/06a288f2_4518.txt,0.33916,,,entity_scope,True,"The document refers to implied dividends in the context of bond ETFs like HYG, aligning with the question's focus on bond ETF implied dividends rather than corporate stocks or general dividends.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The document refers to implied dividends in the context of bond ETFs like HYG, aligning with the question's focus on bond ETF implied dividends "
+quant,77757_1072,"Understanding American option payoff at T+0
+<p><a href=""https://i.sstatic.net/mdyDq.jpg"" rel=""nofollow noreferrer""><img src=""https://i.sstatic.net/mdyDq.jpg"" alt=""enter image description here"" /></a></p>
+<p>The above picture shows the payoff at expiry(in gold) and at current time T+0(in blue) for a bull call spread.</p>
+<p>I am trying to understand American options and to know if it has any significant advantage over the European options in terms of payoff.</p>
+<p>Looking at the payoff, assuming volatility and other factors are constant, if price rises to $120 then we would be earning close to 5 at T+0, but if that was at expiration, we would be earning approximately the max profit potential of the spread which is somewhat above 12.5. This is the case for European options.</p>
+<p>Now my question is, assuming both options that make up the spread are American options, and I exercise the long call and my short call owner(the buyer) exercises at the exact same time(at T+0), is my payoff still going to be a profit of 5(blue payoff) or above 12.5(gold payoff) at T+0?</p>
+",1,quant/9661eac8_2669.txt,quant/e3f05cc0_2646.txt,0.469279,,,temporal,True,"The candidate correctly identifies that American options can be exercised at any time before expiration, which addresses the temporal aspect of early exercise relevant to the question.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The candidate correctly identifies that American options can be exercised at any time before expiration, which addresses the temporal aspect of earl"
+travel,184379_1184,"Where can I find the log of IATA code changes for airports with their dates?
+<p>The IATA code for an airport sometimes change. E.g., IDL was <a href=""https://en.wikipedia.org/w/index.php?title=John_F._Kennedy_International_Airport&amp;oldid=1182704364#Later_operation"" rel=""nofollow noreferrer"">changed</a> to JFK. Where can I find the log of IATA code changes, preferably with the dates of the code changes?</p>
+",1,travel/d13ebac4_23509.txt,travel/fe0fa455_23351.txt,0.469279,,,entity_scope,False,"The candidate document does not address the log of IATA code changes for airports with their dates, which is the core entity scope of the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the log of IATA code changes for airports with their dates, which is the core entity scope of the quest"
+travel,186288_1160,"Is Vientiane&#39;s new Khamsavath train station actually open yet?
+<p>In October 2023, <a href=""https://www.thestar.com.my/aseanplus/aseanplus-news/2023/10/31/lao-and-thai-pms-naugurate-vientiane-khamsavath-railway-station-link-between-two-countries-to-further-boost-trade"" rel=""nofollow noreferrer"">Lao state media announced</a> the &quot;opening&quot; of <a href=""https://en.wikipedia.org/wiki/Khamsavath_railway_station"" rel=""nofollow noreferrer"">Khamsavath train station</a> in Vientiane, which is meant to be the new terminus of trains from Thailand, 8 km closer to the city than the previous railhead at <a href=""https://en.wikipedia.org/wiki/Thanaleng_railway_station"" rel=""nofollow noreferrer"">Thanaleng</a>.</p>
+<p>However, as of February 2024, all train schedules I can find for the Nong Khai-Vientiane shuttles (the only passenger trains across the border) continue to indicate that they still terminate in Thanaleng.  <strong>Is Khamsavath <em>actually</em> open yet?  And if not, when will it open?</strong></p>
+<p>June 2024 update: Trial runs have started, with an opening in &quot;the next few months&quot;. Not holding my breath..</p>
+<p>July 2024 update: <a href=""https://www.bangkokpost.com/thailand/general/2822566/bangkok-vientiane-train-service-begins-july-19"" rel=""nofollow noreferrer"">The first direct train from Bangkok to Vientiane is scheduled to arrive at Khamsavath on the morning of July 20th</a>. Time to start holding my breath?</p>
+",1,travel/4408ca6a_175172.txt,travel/0c90243c_16910.txt,0.469279,,,temporal,False,"The candidate document states that direct trains from Bangkok to Vientiane started on 19 July 2024, but it does not confirm whether the Khamsavath station is actually open or operational, only that trains now run to it, which contradicts the necessary temporal evidence of actual opening.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document states that direct trains from Bangkok to Vientiane started on 19 July 2024, but it does not confirm whether the Khamsavath "
+travel,184528_1182,"T5 Heathrow International Connections
+<p>If the long-haul British Airways international arrival gate is in Heathrow Terminal 5C (T5C), and the long-haul departure is from Terminal 5B (T5B), is there a way to avoid going through huge crowds at Terminal 5A (T5A)? Arrival to departure time-gap is 3 hours.</p>
+<p>And is it possible to do this from T5B arrival to T5B departure, without going to T5A?</p>
+",1,travel/1f92f4ba_23182.txt,travel/d85be09e_23041.txt,0.469279,,,entity_scope,False,"The candidate document does not address the specific terminals (T5C arrival, T5B departure) or the possibility of avoiding T5A during a 3-hour layover, failing to meet the entity scope of the question.","{""label"": ""entity_scope"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the specific terminals (T5C arrival, T5B departure) or the possibility of avoiding T5A during a 3-hour "
+travel,186112_1163,"Should my partner explain UK visa refusal in her cover letter for Schengen visa application?
+<p>My partner and I are applying for a Schengen visa. Previously, she had a UK visitor visa refusal (the visa officer doubted she will leave the UK after her visit). While the Schengen visa application form does not explicitly ask for previous refusal histories of other countries, is there any need to mention the previous UK visa refusal in her cover letter when applying for the Schengen visa?</p>
+<p>It should be noted that when she applied for the UK visa, she was single, studying at college, and did not provide adequate documentation to explain her circumstances at home. It's been five years since then and there has been a change of circumstances like we live together, she has a job, and we traveled to four countries together. This will be her first Schengen visa application. I previously traveled to the Schengen region twice.</p>
+",1,travel/19eb80e0_175477.txt,travel/4551ba36_17469.txt,0.469279,,,temporal,True,"The candidate specifies when and why the previous application was rejected, addressing the temporal aspect of the event.","{""label"": ""temporal"", ""candidate_ok"": true, ""why"": ""The candidate specifies when and why the previous application was rejected, addressing the temporal aspect of the event.""}"
+travel,190046_1139,"These two Qatar flights with slightly different times and different flight number must actually be the same flight, right?
+<p>I am getting two apparently different Qatar flights from Doha to Chennai, QR4788 and Q3528, with very close but ever so slightly timings. Their timing differs by only 5-10 minutes.</p>
+<p>Since I find it very unlikely that Qatar would operate two flights on the same route almost simultaneously, I assume these two actually refer to the same airplane? What is going on here? Why are they showing up as two different flights?</p>
+<p><a href=""https://i.sstatic.net/oTS708xA.png"" rel=""noreferrer""><img src=""https://i.sstatic.net/oTS708xA.png"" alt=""enter image description here"" /></a>
+<a href=""https://i.sstatic.net/Jw84fS2C.png"" rel=""noreferrer""><img src=""https://i.sstatic.net/Jw84fS2C.png"" alt=""enter image description here"" /></a></p>
+",1,travel/0782df5b_172790.txt,travel/75c67cae_12151.txt,0.613147,,,entity_scope,True,"The candidate document explains how flight numbers can differ across airlines due to code-sharing, which directly addresses the scenario of two different flight numbers (QR4788 and Q3528) representing the same flight operation.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate document explains how flight numbers can differ across airlines due to code-sharing, which directly addresses the scenario of two "
+travel,185286_1175,"Xiamen 10-hour layover questions
+<p>I'm flying from Jakarta to Taiwan (TSA airport) with a 10+ hour layover in Xiamen with a US passport. I found out from YouTube that I can join a free city tour there. But there are some unanswered questions:</p>
+<ol>
+<li>How's the paperwork like there? I've done similar thing before with other cities in China (Guangzhou and Chengdu), but before Covid. I assume I need to get a 24-hour visa? How long usually does it take to process now?</li>
+<li>What to do with checked baggage?</li>
+<li>Any other tips? Can't miss? Thanks.</li>
+<li>Any thoughts on arriving on TSA vs TPE?</li>
+</ol>
+<p>Thanks.</p>
+",1,travel/8c79cfca_21536.txt,travel/922b9536_21206.txt,0.613147,,,entity_scope,True,The document correctly describes the entity scope of the 24-hour visa-free transit policy applicable to eligible travellers arriving in Xiamen with a US passport.,"{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The document correctly describes the entity scope of the 24-hour visa-free transit policy applicable to eligible travellers arriving in Xiamen w"
+travel,191336_1131,"Exceeding the duration of stay in Schengen visa, due to longer connecting flight time
+<p>I have been granted 11 days of stay in the Schengen area. I have booked my flight on the 11th day, but I have long layover in Amsterdam. I will be crossing midnight during my layover causing it to be the 12th day during transit at the airport. Will this be an issue at the immigration?</p>
+<p>PS I'm travelling from Iceland to India with a layover at Amsterdam. It's the KLM airlines (both the connections).</p>
+<p>Added in an edit:
+Suggestions on what to do, without cancellation the flight and booking another (financial constraints).</p>
+",1,travel/44486462_11046.txt,travel/07c5aa37_11043.txt,0.469279,,,temporal,False,The candidate document does not address the specific temporal issue of crossing midnight during a layover affecting the duration of stay in the Schengen Area.,"{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not address the specific temporal issue of crossing midnight during a layover affecting the duration of stay in the Sch"
+travel,191685_1128,"What do scheduled flight times refer to?
+<p>Does the scheduled departure time refer to leaving the gate, leaving the ground, or something else?</p>
+<p>Similarly, does the scheduled arrival time refer to the landing, arrival at the gate, or something else?</p>
+<p>Obviously, variations will be common but I presume that the times refer to some event.</p>
+",1,travel/3f3fc48e_10246.txt,travel/fcccab6c_10006.txt,0.39038,,,entity_scope,True,"The candidate document clearly defines the entity scope of 'gate departure time' in relation to specific actions like boarding and closing doors, which aligns with the question about what scheduled flight times refer to.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate document clearly defines the entity scope of 'gate departure time' in relation to specific actions like boarding and closing doors"
+workplace,179871_1213,"Should I apply to developer jobs now with Thanksgiving and Christmas on the horizon
+<p>I want to apply to Junior ASP.NET Core Web Developer Jobs as soon as next week, the week of Nov. 15th. Is this advisable with only 1 week away to Thanksgiving and 1 month away after that to Christmas? Should I wait until January? Thanks.</p>
+",1,workplace/3b280144_8284.txt,workplace/aba40252_8052.txt,0.39038,,,temporal,False,"The candidate suggests hiring during the holidays is advantageous, which contradicts the question's context of applying now with Thanksgiving and Christmas approaching, implying a temporal misalignment.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate suggests hiring during the holidays is advantageous, which contradicts the question's context of applying now with Thanksgiving and C"
+workplace,178602_1216,"What will an occupational therapy assessment during sickness involve?
+<p>I fractured my ankle several months ago and have been absent from work during this time. I’ve had monthly HR welfare meetings / calls during this time.</p>
+<p>In the last call, an Occupational Therapy assessment was mentioned and whether I’d agree to have a call.</p>
+<p>My hospital had an occupational therapist who basically got me home with a bed downstairs etc.</p>
+<p>However I’m wondering what this assessment via HR will involve.</p>
+<p>The HR lady did mention it would determine when I would be able to come back to work.</p>
+<p>But without access to my medical records I’m not sure how that’s possible.</p>
+<p>My main problem at the moment is coping with pain and physiotherapy exercises, which I need to do to get my mobility back.</p>
+<p>I can’t help but think that an OT assessment is designed to force me into something.</p>
+",1,workplace/980e7f0c_64143.txt,workplace/5976e34a_9059.txt,0.33916,,,entity_scope,True,"The candidate document specifies the scope of the assessment in terms of current and alternative work roles, which aligns with the question about what an occupational therapy assessment during sickness involves.","{""label"": ""entity_scope"", ""candidate_ok"": true, ""why"": ""The candidate document specifies the scope of the assessment in terms of current and alternative work roles, which aligns with the question abou"
+workplace,191273_1201,"Is asking for details of a future raise alright even if it&#39;s months away?
+<p>I theoretically had a contract review (salary raise, etc.) on December last year but it was not performed. I was told that it made no sense to do so as for that time I had only been there for half a year. It made sense to me, same initial situation as in <a href=""https://workplace.stackexchange.com/questions/49479/how-to-get-around-the-theres-no-money-in-the-budget-excuse-when-asking-for-a"">here</a>.</p>
+<p>The future contract review is December this year. I want to ask about what will the improved conditions be. Well, probably not an exact thing but an approximation. My main concern is that if the conditions don't meet my expectations (by seeing job market and offers received) I would think on moving somewhere else, and I would not want to wait as long as 8 months to do so. I cannot directly ask for a raise as they will tell me &quot;We'll see that on the annual review on December&quot;. <strong>Is it alright to ask &quot;according to the way things are going</strong> (my performance, etc), <strong>what are the prospects of my annual review?&quot;</strong> or something of the likes? I know an answer can be approximate and in the end be lower than what was first said, but an approximation is still better than nothing at all. This is also similar to the <a href=""https://workplace.stackexchange.com/questions/49479/how-to-get-around-the-theres-no-money-in-the-budget-excuse-when-asking-for-a"">last part</a>.</p>
+",1,workplace/191273_db14a8dba46d2b74_0.txt,workplace/e0665b9f_2993.txt,0.613147,,,temporal,False,"The candidate document does not address a future raise that is months away, as the question specifically concerns asking about prospects of a future review that is scheduled for December, not a current or immediate request for a salary increase.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not address a future raise that is months away, as the question specifically concerns asking about prospects of a futur"
+workplace,178519_1217,"How is a salary package that includes shares at a startup evaluated in the long term, with respect to increases?
+<p>I got an offer from an early-stage tech startup and I'm trying to evaluate the offer in terms of salary and shares.</p>
+<p>To start off, <strong>I know that salary is immediate and generally guaranteed and shares are quite likely to be worthless.</strong> Shares are more of an investment into the future of the company and can potentially give quite a big return, but they're only worth something if the company is successful (which is generally quite unlikely), it ends up being sold or going public or something, and I actually stay with the company until that happens (and there are quite a few terms and conditions and things to look out for with any given offer of shares).</p>
+<p>I am more wondering what I could expect from salary increases or further stock options (or more in terms of how my existing package will be viewed, given that the former is quite variable).</p>
+<p>Let's consider a hypothetical offer of $100k annually (with no shares). Say each share is worth $1000.</p>
+<p>Now they give me an alternative offer of $80k with $20k shares (20 shares vested over 4 years). Based on some research, the 1:1 salary-to-shares trade-off ratio appears to be fairly common in early-stage startups, even if the shares vest over 4 years (but I might be wrong).</p>
+<p>The potential issue I see here is that <strong>the shares seem more like a signing bonus, while salary is permanent</strong> (as long as I work there). On the one hand, they can refrain from giving me large raises to bring my $80k up to a more competitive $100k, because I have received shares. On the other hand, I'm not continuously receiving shares, so as I work there longer, I'd just be continuously losing out more and more from that $20k+ difference (even though the shares will ideally grow faster than what I lose out there).</p>
+<p>How do I make sense of this?</p>
+<p>I would hope for an answer that indirectly addresses the following things I wonder (although I don't expect direct answers to any of these questions):</p>
+<ul>
+<li>Is there some point at which it's reasonable to say the shares aren't relevant to my current package any more, and my salary should be raised to $100k (or whatever is competitive at the time)?</li>
+<li>If so, when will this point be?</li>
+<li>Or, if the shift from $80k to $100k is expected to be more gradual, how quickly should I expect that to happen?</li>
+<li>Or are the shares given on the assumption that they'll (eventually) increase in value at the same rate, or faster, than the $20k difference, so my base salary will always be considered to be $20k more than what it actually is (because of the shares I got once)?</li>
+<li>Or does accepting an offer with shares set some sort of informal precedence about receiving another offer with at least the same amount of shares after some period of time (even if this is in no way legally binding)? And, I'd presumably/possibly have the option of just taking a large raise instead. If so, how long can I expect to wait before something like this?</li>
+<li>Does the current value of the shares I currently own matter? If the original $20k worth of shares I got are now valued at $40k, would this affect any raises I might get (disregarding the implication that the company is now presumably better off and able to pay more)? Or, from a negotiating perspective, would that basically be left in the past as having the $20k value it had when the offer was signed?</li>
+</ul>
+<p>Of course raises and things would heavily depend on what the company can afford, how valuable I am to the company and how well I negotiate, but I'm wondering more in terms of how they'll generally think about my current salary package in the future.</p>
+",1,workplace/ffc0a6e2_9531.txt,workplace/ef0b83a7_9351.txt,0.613147,,,temporal,False,"The document fails to address the long-term evaluation of salary packages with shares in terms of increases over time, particularly how salary and share value evolve across years, which is a necessary temporal condition of the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The document fails to address the long-term evaluation of salary packages with shares in terms of increases over time, particularly how salary and "
+workplace,184333_1208,"While serving notice period, an offer was given and revoked. What now?
+<p>I work in an IT firm in India. I have been serving notice since January 25 to my current organization. Two days ago, they gave me a generous offer and I revoked my notice period based on that. Please note this is the last week of my notice period.</p>
+<p>They wanted me to be available for midnight deployments, but I refused. So they revoked my new offer.</p>
+<p>April 25 will be the last working day. I asked the project manager about the handover, she said she will let me know.</p>
+<p>I am worried about what will happen next?</p>
+<p><strong>Update</strong></p>
+<p>Apologies, for not being clear enough. I am leaving for a new organization. In the resignation acceptance email, HR has written my last working day is April 25.</p>
+<p>The notice period is of 90 days, and I  am leaving after completing my notice period. I have not declined the offer from the new company.</p>
+<p>I had clearly stated that I withdraw my resignation because I have a new offer. When I don't have the offer revoked does my resignation still stands?</p>
+",1,workplace/733f0ecf_6175.txt,workplace/281c78c2_6172.txt,0.469279,,,temporal,False,"The candidate document fails to address the specific timeline of events during the notice period, such as the sequence of offer, revocation, and the final working day in April 25, which is critical to the question.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the specific timeline of events during the notice period, such as the sequence of offer, revocation, and th"
+workplace,189371_1204,"Job research with pending degree validation
+<p>I am currently finishing a masters degree, but I know that my college is <em>extremely</em> slow for diploma validation. Between one or two months between the end of the year and the  deliberation, after wich it takes weeks to get a paper saying you got the degree.</p>
+<p>While I am fairly certain that by the end of the school year I can be about 90% sure of the result of the degree, can that absence of proof for the degree be an issue for job seeking?</p>
+<p>Should I wait for said degree to be validated to start searching for work?</p>
+<p>Edit: as for the timeframe, i am finishing the degree the 31st of august, they deliberate end of september and result are given at the latest mid october.</p>
+<p>it is a master degree as a part time apprentice</p>
+",1,workplace/3d1dd0b0_4663.txt,workplace/46d97458_4387.txt,0.33916,,,temporal,False,"The candidate document fails to address the specific timeframe mentioned in the question (degree completion on August 31, deliberation ending September, results by mid-October), which is a necessary temporal condition for the job search timing.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document fails to address the specific timeframe mentioned in the question (degree completion on August 31, deliberation ending Septe"
+workplace,193475_1198,"How to network with former colleagues after being terminated
+<p>I was terminated without cause from a job that I didn't really like. I found the workplace to be toxic with internal politics. Nevertheless there were some people, in other departments, that I worked well with and got along with fine.</p>
+<ul>
+<li>Should I now add them on LinkedIn?</li>
+<li>Should I ask if I could use them as a reference?</li>
+<li>I have heard that in this day and age finding a job has more to do with networking than it does with merit. Should I ask my former co-workers if they have any suggestions for potential job openings? Should I tell them I'm no longer working there? What if they ask?</li>
+</ul>
+<p>In general, when is the right time to add a colleague on LinkedIn?</p>
+",1,workplace/c9930956_1557.txt,workplace/b7be16d1_1378.txt,0.469279,,,temporal,False,"The candidate suggests delaying the request for a reference until emotions have calmed, which contradicts the question's focus on networking immediately after termination, failing the necessary temporal condition of addressing actions right after being terminated.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate suggests delaying the request for a reference until emotions have calmed, which contradicts the question's focus on networking immedi"
+workplace,185556_1206,"Is there paid family leave if you start a new job AFTER having a baby?
+<p>In New York, if one were to start a job right after having a baby (at a place with enough employees to qualify) would they be able to get paid family leave after working for a few months, or is there no option of leave if you start post baby?</p>
+",1,workplace/355572f1_63525.txt,workplace/27e5ae58_5353.txt,0.469279,,,temporal,False,"The candidate document does not specify whether paid family leave is available if someone starts a new job after having a baby, only that eligibility depends on working long enough with a new employer, which fails to address the specific temporal condition of starting post-baby.","{""label"": ""temporal"", ""candidate_ok"": false, ""why"": ""The candidate document does not specify whether paid family leave is available if someone starts a new job after having a baby, only that eligibili"

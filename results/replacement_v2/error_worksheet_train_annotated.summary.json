@@ -1,0 +1,9 @@
+{
+ "source": "held-out train predictions (three folds, 969 gate-train queries)",
+ "rows": 100,
+ "labels": {
+  "empty": 100
+ },
+ "empty_evidence_span": 100,
+ "annotation": "Qwen3-4B-Instruct-2507, model-assisted (not human adjudication)"
+}
