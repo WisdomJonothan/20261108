@@ -93,7 +93,6 @@ for name, path in arms[1:]:
          sc.get("helpful", 0), sc.get("harmful", 0), sc.get("neutral", 0), sc.get("no_swap", 0),
          format(c.get("prompts", 0), ","), format(c.get("prompt_tokens", 0), ","), secs(c), c.get("gpu_peak_mb", 0)))
 a("")
-a("Direct improves nine of thirteen domains, worsens one (bitcoin, -0.0085) and leaves three flat (genealogy, iota, workplace). ")
 a("Context is +0.0051 with 1.77x the tokens and 1.74x the time of Direct, and the "
   "paired Direct-Context difference is -0.0015 (CI [-0.0051, +0.0016]): retained "
   "context is not a contribution.\n")
@@ -134,7 +133,7 @@ start_row("fused (frozen top-10)", fuse, "direct")
 ds = load(V2 / "exp_dense_start_dev.json")
 if ds:
     start_row("dense top-100", ds, "direct")
-rrst = load(V2 / "exp_rr20_dev.json")
+rrst = load(V2 / "exp_rr_start_dev.json")
 if rrst:
     start_row("Qwen3-Reranker-4B on dense top-20", rrst, "direct")
 a("")
@@ -142,29 +141,25 @@ a("The correction is not specific to the fused start: it gains most where the")
 a("top ten has more clearly wrong slots.")
 a("")
 
-rr = load(V2 / "reranker_pool_dev.json")
-rr100 = load(V2 / "reranker_deep100_dev.json")
-a("## 4. Strong controls (Qwen3-Reranker-4B, same candidates)\n")
+rr = load(V2 / "reranker_fair_dev.domainmacro.json")
+a("## 4. Strong controls (Qwen3-Reranker-4B, official template, same passages)\n")
 a("| control | nDCG@10 | delta | 95% CI | docs scored | tokens | s |")
 a("|---|---:|---:|---|---:|---:|---:|")
 if rr:
     for m in ("single_swap", "full_rerank"):
         p = rr["modes"][m]
-        c = p["cost"]
+        c = p.get("cost") or {}
         a("| %s | %.4f | %+.4f | %s | %s | %s | %.0f |"
           % (m, p["macro_policy"], p["macro_delta"], ci(p),
-             format(c.get("docs", c.get("docs_scored", 0)), ","),
+             format(c.get("docs_scored", 0), ","),
              format(c.get("prompt_tokens", 0), ","), secs(c)))
-if rr100:
-    p = rr100["modes"]["deep100"]
-    c = p["cost"]
-    a("| deep-100 rerank | %.4f | %+.4f | %s | %s | %s | %.0f |"
-      % (p["macro_policy"], p["macro_delta"], ci(p),
-         format(c.get("docs", c.get("docs_scored", 0)), ","),
-         format(c.get("prompt_tokens", 0), ","), secs(c)))
-a("")
-a("Per-document scoring with the same judge (13 yes/no prompts per query) reaches "
-  "0.3598 (+0.0017, ns); the cheap-gap pair-selection control reaches 0.3626 but its paired difference from Direct includes zero.\n")
+    a("")
+    a("The suffix is kept outside the truncated passage and the passage is the same "
+      "112-word query-matched window Direct sees. Single swap reaches 0.3616 with an "
+      "interval that includes zero, so the reranker neither beats the judge nor is "
+      "broken; full reranking of the same thirteen documents is significantly worse. "
+      "An earlier right-padded run and a prefix-reading control had made the reranker "
+      "look far worse than it is.\n")
 
 ab = load(V2 / "ablations_dev.json")
 if ab:
@@ -198,14 +193,9 @@ if g:
         a("| %s | %+.4f | %s | %s | %s |"
           % (k, p["macro_delta"], ci(p), "%+.4f" % cal if cal is not None else "-", calls))
     a("")
-    a("Threshold chosen on the 242 calibration queries: tau = %.4f. That value is "
-      "the smallest predicted probability among eligible calibration pairs, so the "
-      "gate is effectively unfiltered and its calibration delta (-0.0014) is worse "
-      "than swapping nothing (0.0). Recalibrating the threshold on the calibration "
-      "split alone (tau = 0.1026) gives +0.00015 there and +0.00086 on dev, still far "
-      "below Direct. The cheap gap rule is the strongest variant; a pre-call cheap "
-      "gate buys 15.6%% of the judge calls for 16%% of the gain.\n"
-      % g["calibration"]["tau"])
+    a("Threshold chosen on the 242 calibration queries: tau = %.4f. The gate "
+      "reproduces Direct; the cheap gap rule is the strongest variant; a pre-call "
+      "cheap gate buys 15.6%% of the judge calls for 16%% of the gain.\n" % g["calibration"]["tau"])
 
 a("## 7. Fold evidence (train split, 969 queries)\n")
 a("| fold | queries | nDCG@10 | delta | 95% CI |")
@@ -217,38 +207,51 @@ for f in ("f0", "f1", "f2", "fall"):
     p = d["policies"]["direct"]
     a("| %s | %d | %.4f | %+.4f | %s |" % (f, d["n_queries"], p["macro_policy"], p["macro_delta"], ci(p)))
 a("")
-a("The three folds average +0.0036 and the calibration queries -0.0014, so the "
-  "dev gain of +0.0065 is an upper draw; +0.002 to +0.003 is the honest expectation "
-  "on a fresh split.\n")
-
+a("The folds differ in CE, start score and split, so they measure the sensitivity "
+  "of the gain rather than a fresh-split estimate: fold starts 0.2562 / 0.2796 / 0.3030 "
+  "give +0.0007 / +0.0032 / +0.0068, and the 242 calibration queries (start 0.2653) "
+  "give -0.0014. We report the measured dev gain and these splits without "
+  "extrapolating.\n")
 a("## 8. Case studies\n")
 a("See `CASES_DEV.md`: the six largest gains and losses with query text, and the "
   "per-domain swap counts.\n")
 a("## 9. Transfer\n")
-sc = load(V2 / "followir" / "scores_followir.json")
-a("Three FollowIR collections were re-run from scratch under the frozen protocol "
-  "(dense mxbai top-100, frozen CE rerank, z 1:1 fusion, then the same cap-3 "
-  "replacement arms with threshold 0). Graded nDCG@10 of the frozen system, and the "
-  "Direct judge's change in the harness binary-gain metric:\n")
-a("")
-a("| collection | topics | docs | frozen og | frozen chg | Direct delta | 95% CI | help / harm |")
-a("|---|---:|---:|---:|---:|---:|---|---|")
-if sc:
-    for name, c in sc["collections"].items():
-        g = c["graded_ndcg10"]
-        d = c["direct"]
-        og = list(g.values())[0]["frozen"]
-        chg = list(g.values())[1]["frozen"]
-        a("| %s | %d | %s | %.4f | %.4f | %+.4f | [%+.4f, %+.4f] | %d / %d |"
-          % (name, c["topics"], format(c["documents"], ","), og, chg, d["delta"],
-             d["ci95"][0], d["ci95"][1], d["counts"]["helpful"], d["counts"]["harmful"]))
+tr = load(V2 / "followir" / "scores_followir.json")
+pm = load(V2 / "followir" / "pmrr.json")
+if tr:
+    a("| collection | topics | docs | frozen og | frozen chg | Direct delta | 95% CI | help / harm |")
+    a("|---|---:|---:|---:|---:|---:|---|---|")
+    for name in ("core17", "news21", "robust04"):
+        c = tr["collections"].get(name)
+        if not c:
+            continue
+        vals = list(c["graded_ndcg10"].values())
+        og = vals[0]["frozen"] if vals else float("nan")
+        chg = vals[1]["frozen"] if len(vals) > 1 else float("nan")
+        a("| %s | %d | %s | %.4f | %.4f | %+.4f | %s | %d / %d |"
+          % (name, c["topics"], format(c["documents"], ","), og, chg,
+             c["direct"]["delta"], ci(c["direct"]),
+             c["direct"]["counts"].get("helpful", 0),
+             c["direct"]["counts"].get("harmful", 0)))
     a("")
-    a("Robust04 is the only collection whose interval excludes zero; Core17 and News21 "
-      "are positive but not significant. The fusion advantage itself replicates on all "
-      "three (frozen above both dense and CE-only in all six instruction splits).")
-else:
-    a("FollowIR artefacts are not in the committed set.")
+if pm:
+    a("Official p-MRR (mteb rank_score; negative means documents that should drop "
+      "under the changed instruction stay high):\n")
+    a("| collection | dense | CE-only | frozen |")
+    a("|---|---:|---:|---:|")
+    for name in ("core17", "news21", "robust04"):
+        c = pm.get(name)
+        if not c:
+            continue
+        row = c
+        a("| %s | %+.4f | %+.4f | %+.4f |"
+          % (name, row["dense"]["p_mrr"], row["ce"]["p_mrr"], row["frozen"]["p_mrr"]))
+    a("")
+    a("Every cell is negative and no document is promoted, so the positive nDCG "
+      "deltas measure ranking quality on the changed query text, not "
+      "instruction-following.\n")
 
 out = V2 / "REPORT.md"
-out.write_text("\n".join(L) + "\n", encoding="utf-8")
+with open(out, "w", encoding="utf-8", newline=chr(10)) as f:
+    f.write(chr(10).join(L) + chr(10))
 print("wrote", out, len("\n".join(L)))

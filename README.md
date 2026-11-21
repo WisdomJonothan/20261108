@@ -44,11 +44,28 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   1.74x time, so retained context is not a contribution and the project
   continues with Direct.
 * **Controls.** Same-model per-document scoring 0.3598 (+0.0017, ns);
-  cheap-gap pair selection 0.3626 (+0.0045, 2,630 prompts); Qwen3-Reranker-4B
-  single swap 0.3620 (+0.0039, CI [-0.0007, +0.0092], so not significant),
-  reranking the same thirteen documents 0.3049 (-0.0532), dense-100 rerank
-  0.2213 (-0.1368). The reranker numbers are the corrected left-padded values;
-  the first implementation right-padded and read pad tokens.
+  cheap-gap pair selection 0.3626 (+0.0045, 2,630 prompts). Qwen3-Reranker-4B
+  under the model card's official suffix (`<think>...</think>` kept outside the
+  truncated passage, left padding, the same 112-word query-matched window as
+  Direct): single swap 0.3616 (+0.0035, CI [-0.0032, +0.0105]), full rerank of
+  the same thirteen documents 0.3173 (-0.0408, CI [-0.0628, -0.0188]). The
+  interval for single swap includes zero, so the honest claim is that the
+  off-the-shelf reranker is not better, not that it is broken: an earlier
+  right-padded implementation and a control that read document prefixes had
+  made it look far worse.
+* **FollowIR p-MRR (official metric).** 20/32/52 topics, computed with the mteb
+  formula (negative = documents that should drop under the changed instruction
+  stay high): Core17 -0.0260 (dense) / -0.0368 (CE) / -0.0433 (frozen);
+  News21 -0.0094 / -0.0236 / -0.0208; Robust04 -0.0449 / -0.0214 / -0.0347.
+  No cell has a single promoted document, because the instruction pair only
+  removes relevance. The nDCG gains above therefore measure ranking quality on
+  the changed query text, not instruction-following.
+* **Where the recoverable gain is.** Over 519 dev queries there are 4,524
+  non-relevant top-10 slots; 2,497 of them have a relevant document inside the
+  dense top-100 outside the top-10, and every query can be improved by one
+  replacement. Split by position, the recoverable nDCG@10 gain is 43.6% in
+  ranks 1-3, 35.0% in 4-7 and only 21.4% in the 8-10 window the frozen protocol
+  can touch - the quantitative reason the capped protocol stops at 0.3769.
 * **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
   the cap stays at 3 because the cap-2 advantage was observed post hoc.
 * **Pair budget (single prediction cache).** Replaying the same Direct

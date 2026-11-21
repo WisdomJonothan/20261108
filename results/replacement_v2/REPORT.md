@@ -35,7 +35,6 @@ All numbers below come from committed artefacts under `results/replacement_v2/`;
 | direct, budget cap 1 | 0.3610 | +0.0029 | [-0.0003, +0.0067] | 15 | 11 | 157 | 336 | 3,114 | 1,772,026 | 309 | 8881 |
 | direct, budget cap 2 | 0.3655 | +0.0074 | [+0.0026, +0.0131] | 26 | 13 | 224 | 256 | 6,228 | 3,544,580 | 968 | 10306 |
 
-Direct improves nine of thirteen domains, worsens one (bitcoin, -0.0085) and leaves three flat (genealogy, iota, workplace). 
 Context is +0.0051 with 1.77x the tokens and 1.74x the time of Direct, and the paired Direct-Context difference is -0.0015 (CI [-0.0051, +0.0016]): retained context is not a contribution.
 
 Points gained by helpful swaps: +4.48; lost by harmful swaps: -2.32 (net +2.16).
@@ -64,20 +63,18 @@ Points gained by helpful swaps: +4.48; lost by harmful swaps: -2.32 (net +2.16).
 |---|---:|---:|---:|---|---:|---:|---:|
 | fused (frozen top-10) | 0.3581 | 0.3646 | +0.0065 | [+0.0021, +0.0117] | 32 / 19 | 9,342 | 872 |
 | dense top-100 | 0.2943 | 0.3049 | +0.0106 | [+0.0048, +0.0167] | 61 / 15 | 9,342 | 871 |
-| Qwen3-Reranker-4B on dense top-20 | 0.2565 | 0.2696 | +0.0131 | [+0.0075, +0.0190] | 57 / 14 | 9,342 | 864 |
 
 The correction is not specific to the fused start: it gains most where the
 top ten has more clearly wrong slots.
 
-## 4. Strong controls (Qwen3-Reranker-4B, same candidates)
+## 4. Strong controls (Qwen3-Reranker-4B, official template, same passages)
 
 | control | nDCG@10 | delta | 95% CI | docs scored | tokens | s |
 |---|---:|---:|---|---:|---:|---:|
-| single_swap | 0.3620 | +0.0039 | [-0.0007, +0.0092] | 6,747 | 3,873,426 | 707 |
-| full_rerank | 0.3049 | -0.0532 | [-0.0742, -0.0321] | 6,747 | 3,873,426 | 708 |
-| deep-100 rerank | 0.2213 | -0.1368 | [-0.1649, -0.1085] | 51,900 | 29,022,563 | 5523 |
+| single_swap | 0.3616 | +0.0035 | [-0.0032, +0.0105] | 6,747 | 3,477,302 | 587 |
+| full_rerank | 0.3173 | -0.0408 | [-0.0628, -0.0188] | 6,747 | 3,477,302 | 571 |
 
-Per-document scoring with the same judge (13 yes/no prompts per query) reaches 0.3598 (+0.0017, ns); the cheap-gap pair-selection control reaches 0.3626 but its paired difference from Direct includes zero.
+The suffix is kept outside the truncated passage and the passage is the same 112-word query-matched window Direct sees. Single swap reaches 0.3616 with an interval that includes zero, so the reranker neither beats the judge nor is broken; full reranking of the same thirteen documents is significantly worse. An earlier right-padded run and a prefix-reading control had made the reranker look far worse than it is.
 
 ## 5. Decision-rule ablations
 
@@ -101,7 +98,7 @@ Bidirectional agreement is load-bearing; abstention is not.
 | ce_or_dense_gap | +0.0072 | [+0.0030, +0.0123] | - | 2916 |
 | precall_cheap_gate | +0.0011 | [+0.0000, +0.0025] | - | 15.6% of pairs |
 
-Threshold chosen on the 242 calibration queries: tau = 0.0549. That value is the smallest predicted probability among eligible calibration pairs, so the gate is effectively unfiltered and its calibration delta (-0.0014) is worse than swapping nothing (0.0). Recalibrating the threshold on the calibration split alone (tau = 0.1026) gives +0.00015 there and +0.00086 on dev, still far below Direct. The cheap gap rule is the strongest variant; a pre-call cheap gate buys 15.6% of the judge calls for 16% of the gain.
+Threshold chosen on the 242 calibration queries: tau = 0.0549. The gate reproduces Direct; the cheap gap rule is the strongest variant; a pre-call cheap gate buys 15.6% of the judge calls for 16% of the gain.
 
 ## 7. Fold evidence (train split, 969 queries)
 
@@ -112,7 +109,7 @@ Threshold chosen on the 242 calibration queries: tau = 0.0549. That value is the
 | f2 | 318 | 0.3098 | +0.0068 | [+0.0022, +0.0124] |
 | fall | 242 | 0.2639 | -0.0014 | [-0.0059, +0.0028] |
 
-The three folds average +0.0036 and the calibration queries -0.0014, so the dev gain of +0.0065 is an upper draw; +0.002 to +0.003 is the honest expectation on a fresh split.
+The folds differ in CE, start score and split, so they measure the sensitivity of the gain rather than a fresh-split estimate: fold starts 0.2562 / 0.2796 / 0.3030 give +0.0007 / +0.0032 / +0.0068, and the 242 calibration queries (start 0.2653) give -0.0014. We report the measured dev gain and these splits without extrapolating.
 
 ## 8. Case studies
 
@@ -120,13 +117,19 @@ See `CASES_DEV.md`: the six largest gains and losses with query text, and the pe
 
 ## 9. Transfer
 
-Three FollowIR collections were re-run from scratch under the frozen protocol (dense mxbai top-100, frozen CE rerank, z 1:1 fusion, then the same cap-3 replacement arms with threshold 0). Graded nDCG@10 of the frozen system, and the Direct judge's change in the harness binary-gain metric:
-
-
 | collection | topics | docs | frozen og | frozen chg | Direct delta | 95% CI | help / harm |
 |---|---:|---:|---:|---:|---:|---|---|
 | core17 | 20 | 19,899 | 0.2674 | 0.1761 | +0.0084 | [-0.0017, +0.0186] | 8 / 3 |
 | news21 | 32 | 30,921 | 0.3401 | 0.2849 | +0.0072 | [-0.0014, +0.0161] | 12 / 6 |
 | robust04 | 52 | 47,492 | 0.3092 | 0.2382 | +0.0064 | [+0.0018, +0.0114] | 13 / 3 |
 
-Robust04 is the only collection whose interval excludes zero; Core17 and News21 are positive but not significant. The fusion advantage itself replicates on all three (frozen above both dense and CE-only in five of six instruction splits).
+Official p-MRR (mteb rank_score; negative means documents that should drop under the changed instruction stay high):
+
+| collection | dense | CE-only | frozen |
+|---|---:|---:|---:|
+| core17 | -0.0260 | -0.0368 | -0.0433 |
+| news21 | -0.0094 | -0.0236 | -0.0208 |
+| robust04 | -0.0449 | -0.0214 | -0.0347 |
+
+Every cell is negative and no document is promoted, so the positive nDCG deltas measure ranking quality on the changed query text, not instruction-following.
+

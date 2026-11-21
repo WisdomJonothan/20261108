@@ -1,18 +1,18 @@
 {
+  "protocol": "dense mxbai top-100 -> frozen CE v2m3_pool8_e2/best -> z 1:1 fusion; replacement arms cap-3, slots 8-10, one swap, threshold 0",
+  "metric": "graded nDCG@10 over topics (qrels_dev)",
   "collections": {
     "core17": {
-      "topics": 20,
-      "documents": 19899,
       "graded_ndcg10": {
         "fo_og": {
-          "dense": 0.225637,
-          "ce": 0.252271,
-          "frozen": 0.26741
+          "dense": 0.22563660618135256,
+          "ce": 0.25227070140712027,
+          "frozen": 0.26741027544650586
         },
         "fo_chg": {
-          "dense": 0.160849,
-          "ce": 0.15156,
-          "frozen": 0.176068
+          "dense": 0.16084944305151963,
+          "ce": 0.15155985053694926,
+          "frozen": 0.1760675779590479
         }
       },
       "direct": {
@@ -25,78 +25,78 @@
           0.018631931510947074
         ],
         "counts": {
-          "helpful": 8,
-          "harmful": 3,
           "neutral": 18,
-          "no_swap": 11
+          "helpful": 8,
+          "no_swap": 11,
+          "harmful": 3
         }
-      }
+      },
+      "topics": 20,
+      "documents": 19899
     },
     "news21": {
-      "topics": 32,
-      "documents": 30921,
       "graded_ndcg10": {
         "fn21_og": {
-          "dense": 0.323703,
-          "ce": 0.304989,
-          "frozen": 0.340105
+          "dense": 0.3237029884199596,
+          "ce": 0.3049888355791749,
+          "frozen": 0.3401048827994661
         },
         "fn21_chg": {
-          "dense": 0.27793,
-          "ce": 0.263741,
-          "frozen": 0.284893
+          "dense": 0.2779299616815849,
+          "ce": 0.2637409173402059,
+          "frozen": 0.28489285291367866
         }
       },
       "direct": {
         "queries": 64,
-        "baseline": 0.5022,
-        "policy": 0.5094,
-        "delta": 0.0072,
+        "baseline": 0.5021990658925912,
+        "policy": 0.5093627789424934,
+        "delta": 0.007163713049902154,
         "ci95": [
-          -0.0014,
-          0.0161
+          -0.0014333818096473262,
+          0.016068843821967747
         ],
         "counts": {
-          "helpful": 12,
-          "harmful": 6,
           "neutral": 25,
-          "no_swap": 21
+          "no_swap": 21,
+          "harmful": 6,
+          "helpful": 12
         }
-      }
+      },
+      "topics": 32,
+      "documents": 30921
     },
     "robust04": {
-      "topics": 52,
-      "documents": 47492,
       "graded_ndcg10": {
         "frob_og": {
-          "dense": 0.269206,
-          "ce": 0.293066,
-          "frozen": 0.309178
+          "dense": 0.26920566275278585,
+          "ce": 0.29306601377948166,
+          "frozen": 0.309177724446736
         },
         "frob_chg": {
-          "dense": 0.200437,
-          "ce": 0.217032,
-          "frozen": 0.238198
+          "dense": 0.20043721112988683,
+          "ce": 0.21703196673507955,
+          "frozen": 0.23819827309272887
         }
       },
       "direct": {
         "queries": 104,
-        "baseline": 0.3205,
-        "policy": 0.3269,
-        "delta": 0.0064,
+        "baseline": 0.3205414399297529,
+        "policy": 0.3269330950236458,
+        "delta": 0.0063916550938928895,
         "ci95": [
-          0.0018,
-          0.0114
+          0.0017793454890291302,
+          0.011435358431460273
         ],
         "counts": {
-          "helpful": 13,
-          "harmful": 3,
           "neutral": 44,
-          "no_swap": 44
+          "no_swap": 44,
+          "helpful": 13,
+          "harmful": 3
         }
-      }
+      },
+      "topics": 52,
+      "documents": 47492
     }
-  },
-  "protocol": "dense mxbai top-100 -> frozen CE (v2m3_pool8_e2/best) -> z 1:1 fusion -> cap-3 replacement, threshold 0",
-  "note": "graded nDCG@10 from scripts/followir_score.py; Direct deltas from the harness (binary gains), 10k paired bootstrap over system-query pairs"
+  }
 }

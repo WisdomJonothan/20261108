@@ -1,0 +1,184 @@
+{
+ "source": "results/replacement_v2/reranker_fair_dev.json",
+ "domains": [
+  "bitcoin",
+  "cardano",
+  "economics",
+  "genealogy",
+  "history",
+  "hsm",
+  "iota",
+  "law",
+  "monero",
+  "politics",
+  "quant",
+  "travel",
+  "workplace"
+ ],
+ "modes": {
+  "single_swap": {
+   "macro_baseline": 0.35809852326897723,
+   "macro_policy": 0.36161437275596275,
+   "macro_delta": 0.003515849486985523,
+   "swap_counts": {
+    "helpful": 33,
+    "harmful": 23,
+    "neutral": 424,
+    "no_swap": 39
+   },
+   "cost": {
+    "docs_scored": 6747,
+    "prompt_tokens": 3477302,
+    "seconds": 586.5140447616577,
+    "docs_per_s": 11.50356084438146,
+    "gpu_peak_mb": 9591.02685546875
+   },
+   "bootstrap": {
+    "mean": 0.003523274923415884,
+    "ci95": [
+     -0.003237063535846032,
+     0.010496095579904796
+    ],
+    "p_le_0": 0.1576
+   },
+   "per_domain": {
+    "bitcoin": {
+     "baseline": 0.21428273629762323,
+     "policy": 0.2069547938404166
+    },
+    "cardano": {
+     "baseline": 0.22578319338099423,
+     "policy": 0.21416999978593426
+    },
+    "economics": {
+     "baseline": 0.2512374146675322,
+     "policy": 0.2485381447143333
+    },
+    "genealogy": {
+     "baseline": 0.4059614966359517,
+     "policy": 0.41497477882982964
+    },
+    "history": {
+     "baseline": 0.39183678621167434,
+     "policy": 0.3962446111172111
+    },
+    "hsm": {
+     "baseline": 0.46514491847106776,
+     "policy": 0.4629701098966998
+    },
+    "iota": {
+     "baseline": 0.8382954784660104,
+     "policy": 0.8382954784660104
+    },
+    "law": {
+     "baseline": 0.43566637606031233,
+     "policy": 0.43246068724789133
+    },
+    "monero": {
+     "baseline": 0.20687113127651763,
+     "policy": 0.22347454584418755
+    },
+    "politics": {
+     "baseline": 0.4289738867474458,
+     "policy": 0.43324286332327255
+    },
+    "quant": {
+     "baseline": 0.153796286139897,
+     "policy": 0.1650808002747905
+    },
+    "travel": {
+     "baseline": 0.2493604939395154,
+     "policy": 0.2696783472246746
+    },
+    "workplace": {
+     "baseline": 0.38807060420216183,
+     "policy": 0.39490168526226505
+    }
+   },
+   "topic_macro_baseline": 0.36436669567697244,
+   "topic_macro_policy": 0.3683817003380939
+  },
+  "full_rerank": {
+   "macro_baseline": 0.35809852326897723,
+   "macro_policy": 0.3172916822519307,
+   "macro_delta": -0.04080684101704651,
+   "swap_counts": {
+    "helpful": 131,
+    "harmful": 218,
+    "neutral": 170,
+    "no_swap": 0
+   },
+   "cost": {
+    "docs_scored": 6747,
+    "prompt_tokens": 3477302,
+    "seconds": 570.8602108955383,
+    "docs_per_s": 11.81900554851358,
+    "gpu_peak_mb": 9591.02685546875
+   },
+   "bootstrap": {
+    "mean": -0.04083574990527478,
+    "ci95": [
+     -0.06282287121650741,
+     -0.018828149819611343
+    ],
+    "p_le_0": 1.0
+   },
+   "per_domain": {
+    "bitcoin": {
+     "baseline": 0.21428273629762323,
+     "policy": 0.20633143593523748
+    },
+    "cardano": {
+     "baseline": 0.22578319338099423,
+     "policy": 0.25258346636287266
+    },
+    "economics": {
+     "baseline": 0.2512374146675322,
+     "policy": 0.24036609209760698
+    },
+    "genealogy": {
+     "baseline": 0.4059614966359517,
+     "policy": 0.3499513106797075
+    },
+    "history": {
+     "baseline": 0.39183678621167434,
+     "policy": 0.3342439213253915
+    },
+    "hsm": {
+     "baseline": 0.46514491847106776,
+     "policy": 0.33345821972622164
+    },
+    "iota": {
+     "baseline": 0.8382954784660104,
+     "policy": 0.5707100009385535
+    },
+    "law": {
+     "baseline": 0.43566637606031233,
+     "policy": 0.3815853372241982
+    },
+    "monero": {
+     "baseline": 0.20687113127651763,
+     "policy": 0.288568169516331
+    },
+    "politics": {
+     "baseline": 0.4289738867474458,
+     "policy": 0.32539951705220305
+    },
+    "quant": {
+     "baseline": 0.153796286139897,
+     "policy": 0.15847626831955663
+    },
+    "travel": {
+     "baseline": 0.2493604939395154,
+     "policy": 0.31690677030562403
+    },
+    "workplace": {
+     "baseline": 0.38807060420216183,
+     "policy": 0.36621135979159475
+    }
+   },
+   "topic_macro_baseline": 0.36436669567697244,
+   "topic_macro_policy": 0.3171790697611121
+  }
+ }
+}
