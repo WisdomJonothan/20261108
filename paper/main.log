@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  21 NOV 2026 20:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  21 NOV 2026 20:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -665,34 +665,6 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 
 
-Package natbib Warning: Citation `nogueira2019passage' on page 1 undefined on i
-nput line 30.
-
-
-Package natbib Warning: Citation `chen2024m3' on page 1 undefined on input line
- 30.
-
-
-Package natbib Warning: Citation `burges2010lambdarank' on page 1 undefined on 
-input line 30.
-
-
-Package natbib Warning: Citation `wang2018lambdaloss' on page 1 undefined on in
-put line 30.
-
-
-Package natbib Warning: Citation `zhang2022hlatr' on page 1 undefined on input 
-line 30.
-
-
-Package natbib Warning: Citation `mao2021jpr' on page 1 undefined on input line
- 30.
-
-
-Package natbib Warning: Citation `abdallah2026tempo' on page 1 undefined on inp
-ut line 30.
-
-
 
 [1{C:/Users/Lenovo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{D:/miktex/
 fonts/enc/dvips/base/8r.enc}
@@ -736,13 +708,13 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 
-LaTeX Warning: Reference `sec:verif' on page 6 undefined on input line 170.
+Package hyperref Warning: Suppressing empty link on input line 170.
 
 
-LaTeX Warning: Reference `sec:verif' on page 6 undefined on input line 170.
+Package hyperref Warning: Suppressing empty link on input line 170.
 
 
-LaTeX Warning: Reference `sec:verif' on page 6 undefined on input line 173.
+Package hyperref Warning: Suppressing empty link on input line 173.
 
 
 
@@ -793,24 +765,108 @@ Underfull \hbox (badness 2837) in paragraph at lines 215--216
 
 
 [7]
+Underfull \hbox (badness 3525) in paragraph at lines 217--219
+\T1/ptm/m/n/10.95 (+20) The widened space is also not spe-cific to
+ []
+
+
+Underfull \hbox (badness 1762) in paragraph at lines 217--219
+\T1/ptm/m/n/10.95 (+20) the fused start: start-ing from the dense re-
+ []
+
+
+Underfull \hbox (badness 1472) in paragraph at lines 217--219
+\T1/ptm/m/n/10.95 (+20) triever alone, the same 18-action pool gives
+ []
+
+
+
+
+Underfull \hbox (badness 1194) in paragraph at lines 224--225
+\T1/ptm/m/n/10.95 (+20) ques-tion and three to the con-di-tion ques-tion,
+ []
+
+
+
+[8]
+Overfull \hbox (7.30167pt too wide) in paragraph at lines 232--241
+ [][] 
+ []
+
+
+
+
+
+[9]
+Underfull \hbox (badness 1024) in paragraph at lines 268--269
+[]\T1/ptm/m/n/9 (+20) Jianlv Chen, Shi-tao Xiao, Peitian Zhang, Kun Luo,
+ []
+
+
+Underfull \hbox (badness 2376) in paragraph at lines 268--269
+\T1/ptm/m/n/9 (+20) Multi-Lingual, Multi-Functionality, Multi-Granularity
+ []
+
+
+Underfull \hbox (badness 5431) in paragraph at lines 269--270
+[]\T1/ptm/m/n/9 (+20) mixedbread.ai. 2024. mxbai-embed-large-v1 model
+ []
+
+
+
+
+Underfull \vbox (badness 3930) has occurred while \output is active []
+
+
+
+[10]
 
 Package lineno Warning: Line number reference failed, re-run to get it right.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.217 ...nstruction the arm returns 0.3626 (\Delta
-                                                   +0.0045, CI [-0.0005, +0....
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
- 
+
+
+
+[11]
+
+
+
+[12
+
+] [13] (main.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-04-14>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+ ) 
 Here is how much of TeX's memory you used:
- 15051 strings out of 469941
- 233770 string characters out of 5486262
- 691390 words of memory out of 5000000
- 41314 multiletter control sequences out of 15000+600000
- 690123 words of font info for 302 fonts, out of 8000000 for 9000
+ 15225 strings out of 469941
+ 236171 string characters out of 5486262
+ 692318 words of memory out of 5000000
+ 41371 multiletter control sequences out of 15000+600000
+ 697423 words of font info for 357 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,13n,93p,2383b,541s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+<D:/miktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/miktex/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+<D:/miktex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/miktex/fonts/type1/publi
+c/amsfonts/cm/cmr9.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:
+/miktex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/miktex/fonts/type1/urw/cou
+rier/ucrr8a.pfb><D:/miktex/fonts/type1/urw/helvetic/uhvb8a.pfb><D:/miktex/fonts
+/type1/urw/times/utmb8a.pfb><D:/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/mik
+tex/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (13 pages, 229856 bytes).
+PDF statistics:
+ 201 PDF objects out of 1000 (max. 8388607)
+ 70 named destinations out of 1000 (max. 500000)
+ 71681 words of extra memory for PDF output out of 74296 (max. 10000000)
+
