@@ -231,6 +231,21 @@ artefact of the evaluation split. A stratified 100-slot annotation of held-out t
 predictions (`error_worksheet_train_annotated.csv`) gives temporal 50, entity scope 38,
 numeric 5, exclusion 4, comparison 1, none 2, against 41/39/10/4/3/2 on dev.
 
+## 6l. A learned expected-gain model on the bounded pool
+
+Ridge regression of the realised delta on eight features (1/slot, judge margin, margin/slot,
+dense+CE gap, gap/slot, order agreement, incoming rank, dense source), fitted on 8,721
+leak-free fold pairs (365 positive; train AUC 0.66, correlation 0.13) and applied to dev:
+
+| rule | nDCG@10 | delta | 95% CI | swaps | helpful | harmful |
+| --- | --- | --- | --- | --- | --- | --- |
+| fixed relevance rule (Direct) | 0.364609 | +0.006510 | [+0.00206, +0.01172] | 51 | 32 | 19 |
+| learned expected gain, accept if > 0 | 0.361479 | +0.003381 | [-0.00150, +0.00881] | 54 | 31 | 23 |
+
+The model ranks actions better than chance inside the fold pool but does not transfer to the
+frozen model's pairs, and its optimal threshold is not the sign rule, so the negative is
+reported rather than tuned.
+
 ## 7. Fold evidence (train split, 969 queries)
 
 | fold | queries | nDCG@10 | delta | 95% CI |

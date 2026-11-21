@@ -130,6 +130,9 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   dense top-100, and gain shares 44.7/34.1/21.2 across ranks 1-3/4-7/8-10 (dev:
   43.6/35.0/21.4). Constraint labels on 100 stratified held-out slots: temporal 50,
   entity scope 38, numeric 5, exclusion 4, comparison 1, none 2.
+* **A learned expected-gain model does not transfer.** Ridge on 8,721 leak-free fold pairs
+  (AUC 0.66) applied to dev gives 0.3615 (+0.0034, CI [-0.0015,+0.0088]): worse than the
+  fixed relevance rule's 0.3646 (+0.0065).
 * **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
   the cap stays at 3 because the cap-2 advantage was observed post hoc.
 * **Pair budget (single prediction cache).** Replaying the same Direct
