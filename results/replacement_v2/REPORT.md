@@ -140,7 +140,12 @@ judgement, not at the budget.
 Same pool, pairs, orders and rule; the question changes from relevance to "which passage better
 satisfies the conditions the query states". 15 swaps (12 helpful, 3 harmful, 91 neutral, 413
 no-swap), macro 0.362524, delta +0.004426, CI [+0.00118, +0.00851], 9,342 prompts, 5.58 M tokens,
-918 s. Precision 80% versus 63% for the relevance question, but a third of the swaps. Combined rule
+918 s. Precision 80% versus 63% for the relevance question, but a third of the swaps. The same question on the other two starts: dense start 0.2943 -> 0.3014 (+0.0071, CI
+[+0.0024, +0.0123], 29 helpful / 10 harmful), reranker start 0.2565 -> 0.2598 (+0.0034, CI
+[-0.0003, +0.0074], 27 / 8), i.e. the precision advantage is a property of the question, not
+of the fused ranking, although the relevance question still gains more on both starts.
+
+Combined rule
 (condition swap when it fires, relevance swap otherwise): 0.366117, delta +0.008018, CI
 [+0.00296, +0.01383], 54 swaps; paired improvement over the relevance arm +0.0015 (CI
 [-0.0001, +0.0044]) at twice the prompt cost, i.e. not established.

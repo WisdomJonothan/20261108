@@ -102,7 +102,9 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   and rule and asking instead which passage better satisfies the conditions the query
   states (time/version, entity/jurisdiction, numeric bounds, exclusions) yields 15 swaps
   (12 helpful, 3 harmful; 80% precision vs 63% for the relevance question) and
-  +0.0044 (CI [+0.0012, +0.0085]) at the same 9,342 prompts. Applying the condition swap
+  +0.0044 (CI [+0.0012, +0.0085]) at the same 9,342 prompts; on the dense start +0.0071
+  (CI [+0.0024,+0.0123], 29/10 swaps) and on the reranker start +0.0034 (CI [-0.0003,+0.0074],
+  27/8), so the precision advantage travels across starts. Applying the condition swap
   when it fires and the relevance swap otherwise reaches 0.3661 (+0.0080,
   CI [+0.0030, +0.0138]) but the paired gain over the relevance arm is +0.0015
   (CI [-0.0001, +0.0044]) at twice the prompts, so it is not established.
