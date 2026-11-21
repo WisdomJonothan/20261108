@@ -73,6 +73,12 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   more reliable at the top; a position-aware expected-gain gate fitted on the leak-free
   folds accepts 19 dev swaps and nets 0.000000. The precision of the small CE pool, not
   the breadth of the action space, carries the stage.
+* **Absolute condition checks do not work.** Asking the judge a yes/no question about
+  whether a document satisfies every explicit query condition (13 prompts/query, 6,747
+  in total) collapses onto relevance: candidates outside the top-10 are rated satisfying
+  by ~0%, so only 3 of 519 queries swap (all neutral) and the macro stays at 0.3581.
+  The A/B framing is what makes the judge useful - it forces a comparison with the
+  incumbent instead of an absolute verdict.
 * **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
   the cap stays at 3 because the cap-2 advantage was observed post hoc.
 * **Pair budget (single prediction cache).** Replaying the same Direct

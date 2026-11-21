@@ -182,6 +182,13 @@ CLAIMS = [
     ("calibration split delta", -0.0014,
      lambda: jload("replacement_v2/exp_train_fall.json")["policies"]["direct"]["macro_delta"],
      "replacement_v2/exp_train_fall.json", False),
+    ("violation filter swaps", 3,
+     lambda: sum(jload("replacement_v2/exp_violation_dev.json")["swap_counts"][k]
+                 for k in ("helpful", "harmful", "neutral")),
+     "replacement_v2/exp_violation_dev.json", False),
+    ("violation filter dev macro", 0.358099,
+     lambda: jload("replacement_v2/exp_violation_dev.json")["macro_policy"],
+     "replacement_v2/exp_violation_dev.json", False),
     ("expanded actions k=2 delta", -0.000851,
      lambda: jload("replacement_v2/expanded3_analysis_dev.json")["budgets"]["2"]["macro_delta"],
      "replacement_v2/expanded3_analysis_dev.json", False),

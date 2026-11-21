@@ -206,7 +206,20 @@ if ea:
       "model-assisted label over 100 fixable slots gives temporal 41, entity scope 39, numeric 10, "
       "exclusion 4, comparison 3, none 2.\n" % (ea["wrong_slots"],
                                                  ea["wrong_slots_with_relevant_in_dense100"]))
-    ea3 = load(V2 / "expanded3_analysis_dev.json")
+    vf = load(V2 / "exp_violation_dev.json")
+if vf:
+    a("## 6d. Constraint-violation filter (absolute judgement)\n")
+    a("13 yes/no prompts per query (6,747 prompts, %.0f s on one GPU) ask whether each retained "
+      "document and each frozen candidate satisfies every explicit condition in the query (time "
+      "period or version, entity or jurisdiction, numeric bounds, exclusions). The verdicts "
+      "collapse onto relevance: candidates outside the frozen top-ten are rated satisfying by "
+      "roughly zero percent, so under the relative rule (violating = 0.15 below the query median, "
+      "candidate at least 0.05 above it, gap at least 0.30) only %d of %d queries swap, all "
+      "neutral, and the macro stays at %.6f. Direct judgement works because it forces a comparison "
+      "against the incumbent document; an absolute verdict reproduces the retriever's own bias.\n"
+      % (vf["cost"]["seconds_total"], vf["swap_counts"]["helpful"] + vf["swap_counts"]["harmful"]
+         + vf["swap_counts"]["neutral"], vf["n_queries"], vf["macro_policy"]))
+ea3 = load(V2 / "expanded3_analysis_dev.json")
 if ea3:
     a("## 6c. Widening the action space (top-100 candidates, any of the ten slots)\n")
     a("9,342 actions over the 519 dev queries (18 per query, 18,684 prompts, %d s). "
