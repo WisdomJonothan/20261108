@@ -1,0 +1,1 @@
+{"n_queries": 519, "macro_baseline": 0.35809852326897723, "macro_policy": 0.3646087789208584, "macro_delta": 0.0065102556518811805, "bootstrap": {"ci95": [0.0020642841232105585, 0.0117240275823357], "p_le_0": 0.001}, "prompts_per_query": 25.976878612716764, "subset_queries": 230, "rule": "condition swap on the uncertain subset, Direct elsewhere"}

@@ -114,6 +114,10 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   ranks 1-3 with the same pool, same pairs and same 9,342 prompts gives 0.3539 (-0.0042,
   CI [-0.0214,+0.0137], 23/33 swaps), whereas ranks 8-10 give 0.3646 (+0.0065). The recoverable
   gain sits in the top ranks, but a pairwise judge cannot cash it in.
+* **Two further judge variants do not pay.** Evidence-first generation (quote the deciding span,
+  then answer) swaps 4 times on a 39-query sample (2/2, -0.0006) at ~4x cost with 7% unparsable
+  output; a cascade that sends only Direct-uncertain queries (230/519) to the condition judge
+  fires 13 times, all neutral, reproducing Direct at 26.0 prompts/query.
 * **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
   the cap stays at 3 because the cap-2 advantage was observed post hoc.
 * **Pair budget (single prediction cache).** Replaying the same Direct

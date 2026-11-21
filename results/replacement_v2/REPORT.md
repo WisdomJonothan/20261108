@@ -169,6 +169,18 @@ bounded protocol with the identical pool, the identical nine pairs per query and
 for the tail window. The candidate pool is held fixed, so the difference must come from the
 incumbent: a doubtful tail document is cheap to overturn, a confident top-ranked one is not.
 
+## 6i. Two further attempts at a better judge
+
+*Evidence-first generation.* The judge is asked to quote the deciding span before naming A/B/C.
+On a 39-query stratified sample (702 prompts, 310 s): 4 swaps (2 helpful, 2 harmful), delta
+-0.000638, 48/702 unparsable answers. It costs about four times the single-token question and
+swaps far less often (13/39 no-swap vs 5/39 for Direct), so it was not run on the full set.
+
+*Cascade.* Sending only the queries whose Direct margin is below 0.9 (230 of 519) to the
+condition judge, and letting it override Direct there, fires 13 times -- all neutral -- so the
+macro is exactly Direct's 0.364609 at 26.0 prompts per query (1.44x). The condition judge has
+no signal precisely where the relevance judge is uncertain.
+
 ## 7. Fold evidence (train split, 969 queries)
 
 | fold | queries | nDCG@10 | delta | 95% CI |

@@ -25,6 +25,8 @@ committed and every claim goes through `scripts/check_claims.py`.
 | Widened action space | fused -0.0009..-0.0057; dense start +0.0006..+0.0026 | not pursued |
 | Allocation as the bottleneck | oracle ordering +0.0003 vs oracle selection +0.0593; model AUC 0.532 | the judgement is the bottleneck |
 | Absolute condition check | 3/519 swaps, all neutral | abandoned |
+| Evidence-first generation | 39-query sample: -0.0006, 2/2 swaps, ~4x cost, 7% unparsable | rejected on sample |
+| Cascade on Direct-uncertain queries | 13 swaps, all neutral, 0.3646 at 26 prompts/query | no independent signal where Direct is unsure |
 | Top-slot window (same pool, ranks 1-3) | -0.0042 (CI [-0.0214,+0.0137]), 23 helpful / 33 harmful | negative; the judge cannot overturn a confident incumbent |
 | Condition-focused pair judge | fused +0.0044 (CI [+0.0012,+0.0085], 80% precision); dense start +0.0071 (CI [+0.0024,+0.0123]); reranker start +0.0034 (CI [-0.0003,+0.0074]) | kept as evidence on three starts, not deployed alone |
 | Query reasoning (4B analyst) | 0.2933 -> 0.2930 | does not reproduce the published lift |
