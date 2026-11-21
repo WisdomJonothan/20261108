@@ -184,3 +184,14 @@ Every cell is negative and no document is promoted, so the positive nDCG deltas 
 
 Applying the judge's swaps under the changed instructions raises graded nDCG@10 from 0.1761 to 0.1825 on Core17, 0.2849 to 0.2978 on News21 and 0.2382 to 0.2430 on Robust04, but only 1, 5 and 2 of the 15, 21 and 28 applied swaps actually remove a document that the instruction change demoted. The stage improves the ranking without explicitly targeting the changed constraint.
 
+## 10. Conclusion (2026-11-21)
+
+The frozen system re-verifies at 0.3580985233 and a bounded local comparison over a three-candidate
+tail pool improves it to 0.3646 (+0.0065, CI [+0.0021,+0.0117]), 35% of that pool's 0.0188 ceiling,
+and improves two other starting systems (+0.0106 dense, +0.0131 reranker start). Retained context,
+a learned gate, cheap-gap allocation, a widened top-100 action space, absolute condition checks,
+condition-focused pairs, query reasoning and the off-the-shelf reranker control do not add to that:
+each is reported above with its interval. The widened-space failure is located at the judgement
+(AUC 0.532; oracle selection +0.0593 versus oracle allocation +0.0003), which is where any further
+work has to start. FollowIR transfer reproduces the fusion advantage and a small Direct gain but no
+instruction following (p-MRR -0.0208..-0.0433). See docs/DECISIONS_20261121.md.
