@@ -25,7 +25,7 @@ committed and every claim goes through `scripts/check_claims.py`.
 | Widened action space | fused -0.0009..-0.0057; dense start +0.0006..+0.0026 | not pursued |
 | Allocation as the bottleneck | oracle ordering +0.0003 vs oracle selection +0.0593; model AUC 0.532 | the judgement is the bottleneck |
 | Absolute condition check | 3/519 swaps, all neutral | abandoned |
-| Condition-focused pair judge | +0.0044 (CI [+0.0012,+0.0085]) at 80% precision, 15 swaps | kept as evidence, not deployed |
+| Condition-focused pair judge | fused +0.0044 (CI [+0.0012,+0.0085], 80% precision); dense start +0.0071 (CI [+0.0024,+0.0123]); reranker start +0.0034 (CI [-0.0003,+0.0074]) | kept as evidence on three starts, not deployed alone |
 | Query reasoning (4B analyst) | 0.2933 -> 0.2930 | does not reproduce the published lift |
 | Fair Qwen3-Reranker-4B control | single_swap +0.0035 (CI [-0.0032,+0.0105]), full_rerank -0.0408 | "not better", not "worse" |
 | p-MRR on FollowIR | -0.0208..-0.0433, zero promoted documents | no instruction following yet |
