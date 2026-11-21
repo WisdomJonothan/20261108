@@ -181,6 +181,23 @@ condition judge, and letting it override Direct there, fires 13 times -- all neu
 macro is exactly Direct's 0.364609 at 26.0 prompts per query (1.44x). The condition judge has
 no signal precisely where the relevance judge is uncertain.
 
+## 6j. Splitting one budget across the two questions (cost-neutral)
+
+18 prompts per query are split between the relevance question and the condition question
+(k pairs each, both orders, frozen rule). Dev domain-macro:
+
+| k_rel / k_cond | nDCG@10 | delta | 95% CI | swaps | helpful | harmful |
+| --- | --- | --- | --- | --- | --- | --- |
+| 9 / 0 | 0.364530 | +0.006431 | [+0.00203, +0.01161] | 51 | 32 | 19 |
+| 7 / 2 | 0.363129 | +0.005030 | [+0.00141, +0.00925] | 45 | 28 | 17 |
+| 6 / 3 | 0.364672 | +0.006574 | [+0.00276, +0.01109] | 42 | 29 | 13 |
+| 5 / 4 | 0.363621 | +0.005522 | [+0.00152, +0.01009] | 40 | 28 | 12 |
+| 4 / 5 | 0.363951 | +0.005853 | [+0.00175, +0.01046] | 40 | 28 | 12 |
+| 3 / 6 | 0.362681 | +0.004582 | [+0.00180, +0.00785] | 36 | 26 | 10 |
+
+The best split (6/3) is a paired +0.000149 over the all-relevance budget (CI [-0.00484, +0.00484], 12 queries better and 6 worse), i.e. precision improves (69% vs 63% of swaps
+helpful, harmful 19 -> 13) while the score does not move.
+
 ## 7. Fold evidence (train split, 969 queries)
 
 | fold | queries | nDCG@10 | delta | 95% CI |

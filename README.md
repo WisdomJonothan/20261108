@@ -118,6 +118,10 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   then answer) swaps 4 times on a 39-query sample (2/2, -0.0006) at ~4x cost with 7% unparsable
   output; a cascade that sends only Direct-uncertain queries (230/519) to the condition judge
   fires 13 times, all neutral, reproducing Direct at 26.0 prompts/query.
+* **A cost-neutral split between the two questions is flat.** 18 prompts split 6 relevance pairs
+  + 3 condition pairs gives 0.3647 (+0.0066) with 29 helpful/13 harmful swaps, versus 0.3645
+  (+0.0064) with 32/19 when all nine pairs go to the relevance question: paired +0.0001
+  (CI [-0.0048,+0.0048]). Precision rises (69% vs 63%), score does not.
 * **Budget.** 0 / 1 / 2 / 3 candidates: 0.3581 / 0.3610 / 0.3655 / 0.3646;
   the cap stays at 3 because the cap-2 advantage was observed post hoc.
 * **Pair budget (single prediction cache).** Replaying the same Direct

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  21 NOV 2026 20:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  21 NOV 2026 20:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -665,6 +665,34 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 
 
+Package natbib Warning: Citation `nogueira2019passage' on page 1 undefined on i
+nput line 30.
+
+
+Package natbib Warning: Citation `chen2024m3' on page 1 undefined on input line
+ 30.
+
+
+Package natbib Warning: Citation `burges2010lambdarank' on page 1 undefined on 
+input line 30.
+
+
+Package natbib Warning: Citation `wang2018lambdaloss' on page 1 undefined on in
+put line 30.
+
+
+Package natbib Warning: Citation `zhang2022hlatr' on page 1 undefined on input 
+line 30.
+
+
+Package natbib Warning: Citation `mao2021jpr' on page 1 undefined on input line
+ 30.
+
+
+Package natbib Warning: Citation `abdallah2026tempo' on page 1 undefined on inp
+ut line 30.
+
+
 
 [1{C:/Users/Lenovo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{D:/miktex/
 fonts/enc/dvips/base/8r.enc}
@@ -708,13 +736,13 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 
-Package hyperref Warning: Suppressing empty link on input line 170.
+LaTeX Warning: Reference `sec:verif' on page 6 undefined on input line 170.
 
 
-Package hyperref Warning: Suppressing empty link on input line 170.
+LaTeX Warning: Reference `sec:verif' on page 6 undefined on input line 170.
 
 
-Package hyperref Warning: Suppressing empty link on input line 173.
+LaTeX Warning: Reference `sec:verif' on page 6 undefined on input line 173.
 
 
 
@@ -765,6 +793,9 @@ Underfull \hbox (badness 2837) in paragraph at lines 215--216
 
 
 [7]
+
+Package lineno Warning: Line number reference failed, re-run to get it right.
+
 ! Missing $ inserted.
 <inserted text> 
                 $
@@ -773,156 +804,13 @@ l.217 ...nstruction the arm returns 0.3626 (\Delta
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.219 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Underfull \hbox (badness 1796) in paragraph at lines 217--219
-\T1/ptm/m/n/10.95 (+20) raises domain-macro nDCG@10 by $\OT1/cmr/m/n/10.95 +0\O
-ML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0044$
- []
-
-
-Overfull \hbox (1461.87195pt too wide) in paragraph at lines 217--219
-\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0045\OML/cmm/m/it/1
-0.95 ; CI\OT1/cmr/m/n/10.95 [\OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 0\OML/cm
-m/m/it/10.95 :\OT1/cmr/m/n/10.95 0005\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 +
-0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0102])\OML/cmm/m/it/10.95 with\OT1/cmr
-/m/n/10.95 31\OML/cmm/m/it/10.95 helpfuland\OT1/cmr/m/n/10.95 17\OML/cmm/m/it/1
-0.95 harmfulswaps; i:e:itbehavesliketherelevancequestionandlosestheprecisiontha
-tthenarrowquestionbuys:Thetwoframingsarethereforecomplementaryratherthancomposa
-ble; andenforcingbothrequirestwopasses:Thetwoquestionsareclosetocomplementary; 
-soacombinedrulethatappliesthecondition \OMS/cmsy/m/n/10.95 ^^@
- []
-
-
-Overfull \hbox (61.43634pt too wide) in paragraph at lines 217--219
-\OML/cmm/m/it/10.95 basedswapwhentheconditionjudgefiresandtherelevance \OMS/cms
-y/m/n/10.95 ^^@
- []
-
-
-Overfull \hbox (452.15945pt too wide) in paragraph at lines 217--219
-\OML/cmm/m/it/10.95 basedswapotherwisereaches$\T1/ptm/m/n/10.95 (-20) 0.3661$\O
-T1/cmr/m/n/10.95 ($\T1/ptm/m/n/10.95 (-20) +0.0080$\OML/cmm/m/it/10.95 ; CI$\T1
-/ptm/m/n/10.95 (-20) [+0.0030,+0.0138]$\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95
- 54\OML/cmm/m/it/10.95 swaps\OT1/cmr/m/n/10.95 ); \OML/cmm/m/it/10.95 thepaired
-improvementovertherelevancearmaloneis$\T1/ptm/m/n/10.95 (-20) +0.0015$\OT1/cmr/
-m/n/10.95 (\OML/cmm/m/it/10.95 CI$\T1/ptm/m/n/10.95 (-20) [-
- []
-
-
-Overfull \hbox (447.73755pt too wide) in paragraph at lines 217--219
-\T1/ptm/m/n/10.95 (-20) 0.0001,+0.0044]$\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95
- ; i:e: notestablished; anditcoststwicetheprompts:Wereportbotharmsandkeepthesin
-glequestionasthedeployedconfiguration:[] 
- []
-
-
-Overfull \hbox (32.33379pt too wide) in paragraph at lines 217--219
-\OML/cmm/m/it/10.95 Thewidenedspaceisalsonotspecifictothefusedstart \OT1/cmr/m/
-n/10.95 :
- []
-
-
-Overfull \hbox (26.65207pt too wide) in paragraph at lines 217--219
-\OML/cmm/m/it/10.95 startingfromthedenseretrieveralone; thesame\OT1/cmr/m/n/10.
-95 18 \OMS/cmsy/m/n/10.95 ^^@
- []
-
-
-Overfull \hbox (672.54591pt too wide) in paragraph at lines 217--219
-\OML/cmm/m/it/10.95 actionpoolgives$\T1/ptm/m/n/10.95 (-20) +0.0026,+0.0012,+0.
-0011,+0.0006$\OML/cmm/m/it/10.95 atthefourbudgets; against$\T1/ptm/m/n/10.95 (-
-20) +0.0106$\OML/cmm/m/it/10.95 fortheboundedtailprotocolonthatstart:Wideningco
-stsmostofthegainonbothsystems; whichisthesecond \OMS/cmsy/m/n/10.95 ^^@
- []
-
-
-
-
-Overfull \hbox (7.30167pt too wide) in paragraph at lines 230--239
- [][] 
- []
-
-
-
-[8]
-
-
-
-[9]
-Underfull \hbox (badness 1024) in paragraph at lines 266--267
-[]\T1/ptm/m/n/9 (+20) Jianlv Chen, Shi-tao Xiao, Peitian Zhang, Kun Luo,
- []
-
-
-Underfull \hbox (badness 2376) in paragraph at lines 266--267
-\T1/ptm/m/n/9 (+20) Multi-Lingual, Multi-Functionality, Multi-Granularity
- []
-
-
-Underfull \hbox (badness 5431) in paragraph at lines 267--268
-[]\T1/ptm/m/n/9 (+20) mixedbread.ai. 2024. mxbai-embed-large-v1 model
- []
-
-
-
-
-
-[10]
-
-Package lineno Warning: Line number reference failed, re-run to get it right.
-
-
-
-
-
-[11
-
-] [12] (main.aux)
- ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-04-14>
- ***********
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
- ) 
+ 
 Here is how much of TeX's memory you used:
- 15223 strings out of 469941
- 236161 string characters out of 5486262
- 692289 words of memory out of 5000000
- 41370 multiletter control sequences out of 15000+600000
- 697423 words of font info for 357 fonts, out of 8000000 for 9000
+ 15051 strings out of 469941
+ 233770 string characters out of 5486262
+ 691390 words of memory out of 5000000
+ 41314 multiletter control sequences out of 15000+600000
+ 690123 words of font info for 302 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,93p,2383b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{table.caption.30} has been referenced but does not 
-exist, replaced by a fixed one
-
-<D:/miktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/miktex/fonts/type1/pub
-lic/amsfonts/cm/cmr10.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D
-:/miktex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/miktex/fonts/type1/public/
-amsfonts/cm/cmr9.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/m
-iktex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/miktex/fonts/type1/urw/couri
-er/ucrr8a.pfb><D:/miktex/fonts/type1/urw/helvetic/uhvb8a.pfb><D:/miktex/fonts/t
-ype1/urw/times/utmb8a.pfb><D:/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/mikte
-x/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (12 pages, 235074 bytes).
-PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
- 69 named destinations out of 1000 (max. 500000)
- 71681 words of extra memory for PDF output out of 74296 (max. 10000000)
-
+ 84i,13n,93p,2383b,541s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!
