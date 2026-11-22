@@ -209,6 +209,11 @@ per-policy JSONs and TREC runs under `results/replacement_v2/`.
   score with 51 of them against 36 for Llama-3.1-8B, adds a relevant document 31 times
   against 24, and drops a relevant one 19 times against 12. 290 of 519 decisions differ.
 
+- **The labels bound what any of this can claim.** Only 228 of 4,671 candidate pairs (4.9%) have a
+  judged challenger, and all 228 are relevant; 92.1% of slot-8 incumbents are unjudged. Within the
+  judged subset neither judge is ever demonstrably wrong, and all measured harm comes from
+  inserting unjudged documents, so harmful-swap counts are upper bounds, not measurements.
+
 ## Paper
 
 `paper/main.pdf` is the SemEval-2027 system-paper draft, built from

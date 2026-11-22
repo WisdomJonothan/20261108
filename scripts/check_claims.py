@@ -392,6 +392,14 @@ CLAIMS = [
      lambda: jload("replacement_v2/exp_llama31_wide_dev.json")["policies"]["direct"]["swap_counts"]["harmful"],
      "replacement_v2/exp_llama31_wide_dev.json", False),
 
+    # --- label coverage bound (2026-11-22) -----------------------------------
+    ("judged candidate share", 0.0488,
+     lambda: jload("replacement_v2/label_coverage_dev.json")["challenger_judged_share"],
+     "replacement_v2/label_coverage_dev.json", False),
+    ("judged candidate pairs", 228,
+     lambda: jload("replacement_v2/label_coverage_dev.json")["challenger_judged"],
+     "replacement_v2/label_coverage_dev.json", False),
+
 ]
 
 

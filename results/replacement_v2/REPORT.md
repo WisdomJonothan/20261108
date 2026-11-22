@@ -377,6 +377,30 @@ about half in both cases. Neither marginal interval excludes zero, so the honest
 statement is a direction: at this evidence budget the binding constraint is what
 the judge can see, not how strong the judge is.
 
+## 9g. What the labels can and cannot measure
+
+The official dev judgments cover 228 of the 4,671 candidate pairs (4.9 per cent),
+and all 228 judged challengers are relevant; 1,434 of the 1,557 slot-8 incumbents
+(92.1 per cent) are unjudged as well. Every insertion the judges make therefore
+falls into one of two worlds: a document the qrels cover, where the score change
+is real, or a document the qrels do not cover, where the change is by definition
+counted as a loss if a judged-relevant document leaves the list.
+
+That split explains the harm counts. Of the 51 score-changing swaps the 4B judge
+makes, 31 insert a judged-relevant document and 19 insert an unjudged one while
+removing a judged-relevant document (one falls in neither class). Of the 8B
+judge's 36, the split is 24 and 12. Within the judged subset neither judge is ever
+demonstrably wrong; all of the measured degradation comes from insertions the
+official pool does not contain.
+
+Consequences, all of which the paper states: (i) the harmful-swap counts and the
+harmful loss are upper bounds on real damage, not measurements of it; (ii) arms
+cannot be ranked by their harm counts alone, because a judge that abstains on
+unjudged candidates looks safer without being more accurate; (iii) any claim about
+judge precision needs adjudication of the unjudged insertions, which is why the
+next step is a reviewed sample of exactly those cases rather than more prompt
+variants.
+
 ## 10. Conclusion (2026-11-21)
 
 The frozen system re-verifies at 0.3580985233 and a bounded local comparison over a three-candidate

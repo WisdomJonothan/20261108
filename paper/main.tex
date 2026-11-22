@@ -291,6 +291,16 @@ Llama-3.1-8B-Instruct & 400 words & 0.3626 & +0.0045 & 23 & 7 & -1.04 \\
 \label{tab:grid}
 \end{table}
 
+\paragraph{What the labels can measure.} The official dev judgments cover only 228 of the
+4,671 candidate pairs (4.9 per cent), and every judged challenger is relevant; 92.1 per cent of
+the slot-8 incumbents are unjudged. Every accepted insertion therefore either enters the judged
+pool, where the score change is real, or leaves it, where the change is counted as a loss by
+construction: of the 4B judge's 51 score-changing swaps, 31 insert a judged-relevant document
+and 19 insert an unjudged one while removing a judged-relevant document, and the 8B judge
+splits 24 and 12. Neither judge is ever demonstrably wrong inside the judged subset, so the
+harmful-swap counts we report are upper bounds on real damage rather than measurements, and
+the next experiment adjudicates the unjudged insertions instead of adding prompt variants.
+
 \subsection*{9.1 Verification and replay}
 \label{sec:verif}
 Two audits changed what we report. First, the off-the-shelf reranker numbers in the arm table were computed with right-padded batches, so the logit read at the final position belonged to a pad token; a 26-query probe (two per domain) against an unpadded per-document reference gives a mean rank correlation of 0.43 and a maximum score difference of 9.7 before the fix, and 0.998 / 0.07 after it, and the corrected numbers are the ones reported here. The pairwise judge is unaffected: its batches are left-padded, and its predictions reproduce exactly. Second, every number in the replacement tables is now recomputed on a CPU from the committed artefacts (\texttt{scripts/replay\_replacement.py}): the script rebuilds each policy's ranking from \texttt{pair\_details} and the frozen top ten, re-derives the oracle and the four decision-rule ablations from the stored per-order probabilities, and exits non-zero if any value differs from the committed one by more than $10^{-6}$. It reproduces all macros, swap counts, point totals and bootstrap intervals in this section.
