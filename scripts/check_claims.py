@@ -408,7 +408,19 @@ CLAIMS = [
      "replacement_v2/harm_review_verdicts.json", False),
     ("harmful cases at least as useful", 8,
      lambda: jload("replacement_v2/harm_review_verdicts.json")["tally"]["better"],
-     "replacement_v2/harm_review_verdicts.json", False),
+     "replacement_v2/harm_review_verdicts.json", False),    # --- evidence selection at a fixed display budget (2026-11-22) ------------
+    ("condition window nDCG@10", 0.3645,
+     lambda: jload("replacement_v2/exp_cond_win_dev.json")["macro_policy"],
+     "replacement_v2/exp_cond_win_dev.json", False),
+    ("condition window gain", 0.0064,
+     lambda: jload("replacement_v2/exp_cond_win_dev.json")["macro_delta"],
+     "replacement_v2/exp_cond_win_dev.json", False),
+    ("two-window nDCG@10", 0.3613,
+     lambda: jload("replacement_v2/exp_two_win_dev.json")["macro_policy"],
+     "replacement_v2/exp_two_win_dev.json", False),
+    ("two-window gain", 0.0032,
+     lambda: jload("replacement_v2/exp_two_win_dev.json")["macro_delta"],
+     "replacement_v2/exp_two_win_dev.json", False),
 ]
 
 

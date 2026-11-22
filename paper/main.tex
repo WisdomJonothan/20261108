@@ -313,6 +313,20 @@ off-topic drift. Most of the measured harm is therefore a labelling artefact of 
 4.9\% coverage rather than a ranking error, which is why the harmful-loss column is read
 as an upper bound throughout this section.
 
+\paragraph{Same budget, different windows.} The 400-word arm beats the 112-word
+arm, so we ask whether more text or better-chosen text is responsible. Keeping the pool,
+the pairs, the prompt, the model, the 112-word display budget and the decision rule
+fixed, we give the judge either the 112-word window that best covers the question's
+conditions (content terms, numbers/dates quoted in the question, capitalised entities) or
+two 56-word windows (that window plus the best non-adjacent one). The condition window
+scores 0.3645 ($+0.0064$, CI $[+0.0020,+0.0116]$) and the two-window arm 0.3613
+($+0.0032$) against 0.3646 for the frozen overlap window; paired against it the
+intervals are $[+0.0016,-0.0006]$ and $[-0.0038,+0.0020]$, so neither selection rule
+moves the score. Combined with the capability row, the only lever that changes the
+harmful-swap count is the amount of raw text the judge reads (19 to 10 for 400 words),
+and even that paired interval includes zero. We therefore stop the capability/evidence
+programme here and report the frozen 112-word configuration, which is also the cheapest.
+
 \subsection*{9.1 Verification and replay}
 \label{sec:verif}
 Two audits changed what we report. First, the off-the-shelf reranker numbers in the arm table were computed with right-padded batches, so the logit read at the final position belonged to a pad token; a 26-query probe (two per domain) against an unpadded per-document reference gives a mean rank correlation of 0.43 and a maximum score difference of 9.7 before the fix, and 0.998 / 0.07 after it, and the corrected numbers are the ones reported here. The pairwise judge is unaffected: its batches are left-padded, and its predictions reproduce exactly. Second, every number in the replacement tables is now recomputed on a CPU from the committed artefacts (\texttt{scripts/replay\_replacement.py}): the script rebuilds each policy's ranking from \texttt{pair\_details} and the frozen top ten, re-derives the oracle and the four decision-rule ablations from the stored per-order probabilities, and exits non-zero if any value differs from the committed one by more than $10^{-6}$. It reproduces all macros, swap counts, point totals and bootstrap intervals in this section.

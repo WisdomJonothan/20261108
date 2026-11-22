@@ -220,6 +220,14 @@ per-policy JSONs and TREC runs under `results/replacement_v2/`.
   harmful-swap counts are upper bounds, and a document-type filter would remove half of the
   real harm for free.
 
+- **Better-chosen 112 words do not recover the 400-word gain.** With the pool, pairs,
+  prompt, model and decision rule fixed, a window chosen by the question's conditions gives
+  0.3645 (+0.0064) and two 56-word windows 0.3613 (+0.0032), against 0.3646 for the frozen
+  overlap window; paired intervals [-0.0006,+0.0016] and [-0.0038,+0.0020]. Only the amount of
+  raw text moves the harmful-swap count (19 to 10 at 400 words), and that interval also
+  includes zero, so the capability/evidence programme stops here and the frozen 112-word
+  configuration is what we report.
+
 
 ## Paper
 

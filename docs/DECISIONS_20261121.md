@@ -109,3 +109,17 @@ Decision: the binding constraint at this evidence budget is what the judge can
 see, so the next experiment is evidence localisation (which span decides the
 comparison and whether the 112-word query-matched window contains it), not a
 bigger judge and not more prompt permutations.
+
+## Stop condition, 2026-11-22 (evening): evidence selection at a fixed budget
+
+The 400-word arm showed that more text helps (0.3660 vs 0.3646, harmful swaps 19 to 10),
+so we tested whether better-chosen text helps at the same 112-word budget:
+a condition-aware window scored 0.3645 (+0.0064, paired +0.00047 [-0.00064,+0.00157])
+and two 56-word windows 0.3613 (+0.0032, paired -0.00087 [-0.00381,+0.00198]).
+
+Neither selection rule moves the score, and the 400-word arm's paired interval against
+the 112-word rule also includes zero. Combined with the capability rows (Qwen3-4B 0.3646
+vs Llama-3.1-8B 0.3622 at the short window), this satisfies the reviewer's stop
+condition: neither a stronger judge nor smarter evidence selection gives a reproducible
+signal. The local-correction line stops here; Direct (Qwen3-4B, 112-word window, cap 3,
+nine pairs, threshold 0) is the frozen configuration the SemEval system paper reports.
