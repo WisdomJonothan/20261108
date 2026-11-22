@@ -44,6 +44,13 @@ CLAIMS = [
     # --- frozen system, the headline positive result -------------------------
     ("frozen dev nDCG@10", 0.3581, lambda: dom_macro("aggregate_sub_sft_e2bc_dev.json"),
      "aggregate_sub_sft_e2bc_dev.json", True),
+    # --- score-side experiments, 2026-11-22 ----------------------------------
+    ("frozen checkpoint reproduction (dev)", 0.3582,
+     lambda: dom_macro("replacement_v2/aggregate_frozenrepro_dev.json"),
+     "replacement_v2/aggregate_frozenrepro_dev.json", False),
+    ("lambdarank nDCG@10 CE (dev)", 0.3519,
+     lambda: dom_macro("replacement_v2/aggregate_ndcgdev_dev.json"),
+     "replacement_v2/aggregate_ndcgdev_dev.json", False),
     # --- re-verification and bounded-replacement ceiling (2026-11-20) --------
     ("frozen dev nDCG@10, re-verified", 0.3581,
      lambda: jload("FROZEN_BASELINE_20261120.json")["new_reverification"]["domain_macro"],

@@ -27,6 +27,13 @@ dev TREC run 文件与官方 qrels 重算得到，可复现；fused 的 1000 深
 
 Status after the second review round: [docs/STATUS_20261121.md](docs/STATUS_20261121.md)
 
+**Score-side experiments (2026-11-22).** The frozen system reproduces end-to-end from the
+frozen checkpoint through the documented chain (0.3581821 vs recorded 0.3580985, 11/13
+domains equal to four decimals). A lambdarank nDCG@10 retraining of the same CE scores
+0.3519 (-0.0062), and a fusion-weight sweep selected on train (w=0.75) drops dev to 0.3486
+against 0.3582 at the frozen w=1, so neither the loss function nor the fusion weight
+explains the remaining gap.
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate
