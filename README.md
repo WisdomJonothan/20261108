@@ -204,6 +204,11 @@ per-policy JSONs and TREC runs under `results/replacement_v2/`.
   400-word +0.0014 CI [-0.0008,+0.0044], stronger model -0.0024 CI [-0.0061,+0.0009]. Capability
   alone does not help; evidence width halves harmful swaps. Both intervals include zero.
 
+- **The judges differ in what they touch, not only in how often they fire.** Both arms
+  accept about as many swaps (324 vs 330) and both stay positive, but Qwen3-4B changes the
+  score with 51 of them against 36 for Llama-3.1-8B, adds a relevant document 31 times
+  against 24, and drops a relevant one 19 times against 12. 290 of 519 decisions differ.
+
 ## Paper
 
 `paper/main.pdf` is the SemEval-2027 system-paper draft, built from

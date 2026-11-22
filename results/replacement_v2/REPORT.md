@@ -375,6 +375,25 @@ times the prompt tokens and 1.8 times the wall time. Neither interval excludes
 zero, so the reading is a direction: evidence completeness, not model capability,
 is the axis that pays here.
 
+## 9f. What the two judges do differently
+
+The two judges disagree on the decision for 290 of the 519 queries even though both
+see the same nine pairs, and the composition of their accepted swaps explains the
+score difference better than the raw counts do.
+
+| judge | swaps made | change the score | drop a relevant document | add a relevant document | gain | loss |
+| --- | --- | --- | --- | --- | --- | --- |
+| Qwen3-4B / 112 words | 324 | 51 | 19 | 31 | +4.479 | -2.316 |
+| Llama-3.1-8B / 112 words | 330 | 36 | 12 | 24 | +3.429 | -1.532 |
+
+Both arms accept roughly the same number of swaps (324 against 330) and both stay
+positive, but the stronger model converts fewer of them into score changes (36
+against 51) and adds relevant documents half as often (24 against 31) while
+dropping fewer relevant ones (12 against 19). The score difference is therefore
+not "one model is better at this task" but a different trade between how many
+swaps it is willing to make and what those swaps touch, which is why the next
+question is evidence rather than capability.
+
 ## 10. Conclusion (2026-11-21)
 
 The frozen system re-verifies at 0.3580985233 and a bounded local comparison over a three-candidate

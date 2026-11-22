@@ -1,0 +1,18 @@
+{
+ "direct": {
+  "swaps": 324,
+  "score_changing": 51,
+  "drops_relevant": 19,
+  "adds_relevant": 31,
+  "gain": 4.479,
+  "loss": -2.316
+ },
+ "llama": {
+  "swaps": 330,
+  "score_changing": 36,
+  "drops_relevant": 12,
+  "adds_relevant": 24,
+  "gain": 3.429,
+  "loss": -1.532
+ }
+}

@@ -1,0 +1,638 @@
+domain,qid,query,direct_swap,llama_swap,direct_delta,llama_delta,delta_gap
+genealogy,11739_303,"How far back is a mtDNA match of genetic distance 2 likely to be?
+<p>On FamilyTreeDNA, for haplogroup H1, my closest matches are all genetic distance of 2 for H",slot 10 delta +0.000,slot 8 delta -0.193,0.0,-0.1934,0.1934
+history,70693_263,"How did Raphael paint halos?
+<p>Yesterday, I had the pleasure of seeing <a href=""https://en.wikipedia.org/wiki/Raphael_Cartoons"" rel=""nofollow noreferrer"">Rapha",slot 10 delta -0.177,none,-0.1772,0.0,0.1772
+bitcoin,124603_8,"Question about bitcoin mining difficulty adjustment formula in book mastering bitcoin 3rd edtion
+<p>In book &quot;Mastering bitcoin&quot; 3rd, page 278, There i",slot 8 delta -0.148,none,-0.148,0.0,0.148
+history,77154_56,"Why did the Civil Service in the UK become so associated with Oxbridge?
+<p>In the UK there is definitely a perception that the Civil Service is the preserve of ",slot 8 delta -0.148,none,-0.148,0.0,0.148
+cardano,6918_119,"How does Cardano execute real time transactions if block time is 20 seconds?
+<p>New to the crypto space, please correct me if I misunderstood the meaning of blo",slot 9 delta +0.141,none,0.1413,0.0,0.1413
+history,59006_644,"How many naval mines were cleared for D-Day?
+<p>I was interested to read in <a href=""https://history.stackexchange.com/questions/40551/right-before-d-day-how-we",slot 9 delta +0.141,slot 8 delta +0.000,0.1413,0.0,0.1413
+travel,198308_1103,"What do from: and to: mean on a Schengen visa?
+<p>A Schengen visa has from: and to: dates and duration 90 days.</p>
+<p>A person has such a visa, which totals to",slot 9 delta +0.141,none,0.1413,0.0,0.1413
+history,55888_782,"Why were the British Union of Fascist outfits so bad compared to the Nazis?
+<p>Looking at Oswald Mosley's fascists ""blackshirts"", it struck me that the tailorin",none,slot 10 delta +0.136,0.0,0.1357,0.1357
+history,68862_380,"Could the &quot;Taffy&quot; Groups have been reinforced by air during the battle of Leyte Gulf?
+<p>During the <a href=""https://en.wikipedia.org/wiki/Battle_of_L",slot 10 delta -0.136,slot 8 delta +0.000,-0.1357,0.0,0.1357
+history,69226_361,"Why did water stored on premodern ships &quot;go brackish&quot; or &quot;go bad&quot; while at sea?
+<p>I have read in several Napoleonic historical fiction nove",none,slot 10 delta -0.136,0.0,-0.1357,0.1357
+history,72726_139,"Is there a dog in Rembrandt&#39;s &quot;The Night Watch&quot;?
+<p>This, of course, is Rembrandt's <em>The Night Watch</em></p>
+<p><img src=""https://cdn.britanni",slot 10 delta +0.136,none,0.1357,0.0,0.1357
+politics,87499_976,"Did Marx believe that politics is left unchanged by Historical Materialism?
+<p>Recently, I've been reading the works of Marx and Engels to understand the meanin",slot 10 delta +0.136,slot 10 delta +0.000,0.1357,0.0,0.1357
+history,56068_771,"Why did the Nazis collaborate with the Ustaše?
+<p>The Croats are linguistically, ethnically and culturally a Slavic people. While the Ustaše did not see themsel",slot 8 delta +0.123,slot 10 delta +0.000,0.1232,0.0,0.1232
+history,56254_754,"Was Yahweh a god in a possible Edomite Pantheon?
+<p>I understand from the Bible, from the Wikipedia articles <a href=""https://en.wikipedia.org/wiki/Yahweh"" rel=",slot 8 delta +0.123,slot 8 delta +0.000,0.1232,0.0,0.1232
+history,56861_715,"How was the first carpenter&#39;s square made?
+<p>A ""square"" is a tool, typically L or triangle shaped, that gives a craftsperson a quick and accurate 90° angle",slot 8 delta -0.123,none,-0.1232,0.0,0.1232
+history,76952_71,"Why did German typewriters not use Fraktur?
+<p><a href=""https://en.wikipedia.org/wiki/Fraktur"" rel=""noreferrer"">Fraktur</a> was the dominant typeface in Germany",slot 8 delta -0.123,none,-0.1232,0.0,0.1232
+quant,69707_1089,"Implied volatilities for different options that track the same stock
+<p>I have a somewhat basic question regarding option prices.</p>
+<p>Suppose we have an unde",slot 8 delta +0.123,slot 10 delta +0.000,0.1232,0.0,0.1232
+hsm,5627_754,"When was it discovered that the Earth wasn&#39;t round?
+<p>We know the Earth isn't a sphere: that is, the equatorial circumference isn't equal to the polar circ",slot 9 delta +0.118,slot 9 delta +0.000,0.1175,0.0,0.1175
+history,70695_262,"Was there really a whale skeleton in Jaffa?
+<p>Was there really a whale skeleton in <a href=""https://en.wikipedia.org/wiki/Jaffa"" rel=""noreferrer"">Jaffa</a> or ",slot 10 delta +0.113,none,0.1128,0.0,0.1128
+law,101678_842,"Public Access to Records of Criminal Proceedings
+<p>Follow-up to <a href=""https://law.stackexchange.com/questions/101675/victim-anonymity-in-criminal-proceeding",none,slot 10 delta -0.113,0.0,-0.1128,0.1128
+bitcoin,120273_40,"What is the logic (if there is) behind linking the nSequence and nLockTime?
+<p>The <code>nSequence</code> transaction field was originally intended for a replac",slot 8 delta -0.107,slot 10 delta +0.000,-0.107,0.0,0.107
+history,71924_189,"Did Diaochan really love L&#252; Bu?
+<p>I am watching a series on Three kingdoms (2010), were it is shown that, <a href=""https://en.wikipedia.org/wiki/Diaochan""",slot 8 delta -0.107,slot 10 delta +0.000,-0.107,0.0,0.107
+history,62736_601,"How much did Didius Julianus pay to become emperor of Rome?
+<p><a href=""https://en.wikipedia.org/wiki/Didius_Julianus"" rel=""noreferrer"">According to Wikipedia</",slot 10 delta -0.098,none,-0.098,0.0,0.098
+law,103498_834,"Could a Ban on Chinese Investments be Retroactive?
+<p>I just read that the U.S. government is planning on banning investments in Chinese companies that are asso",slot 10 delta +0.000,slot 10 delta +0.098,0.0,0.098,0.098
+politics,88683_957,"MPs assuming office on the day of the election
+<p>I have lately found that many seem to be of the opinion that UK MPs assume office on the day of the election, ",none,slot 10 delta +0.098,0.0,0.098,0.098
+economics,59178_164,"When will the economic consequences of aging populations level out?
+<p>Unclear if this is purely an economics question.</p>
+<p>It is well known that many Wester",slot 8 delta +0.000,slot 10 delta -0.087,0.0,-0.0875,0.0875
+history,69544_344,"What would people have been smoking in 700 AD Central / Eastern Asia?
+<p>The question here is what would people have been smoking in Central and Eastern Asia in",slot 10 delta +0.087,none,0.0875,0.0,0.0875
+history,69879_320,"What&#39;s the reason behind the 17th century tradition of British monarchs being depicted on coins facing in the opposite direction to their predecessor?
+<p>I ",slot 10 delta +0.087,none,0.0875,0.0,0.0875
+history,64604_517,"Was the financial crash of 2008 caused by top graduates of the American Ivy Leagues working at wall street banks?
+<p>From <a href=""https://www.philstar.com/life",slot 8 delta +0.000,slot 8 delta +0.087,0.0,0.0867,0.0867
+history,69881_319,"Did Hannibal make coins while campaigning using captured precious metals, Roman coins and perhaps bronze statues?
+<p>The process of minting coins at the time wo",slot 8 delta -0.074,slot 10 delta +0.000,-0.0741,0.0,0.0741
+history,68426_409,"When did the Royal Navy start to fill a given rank of admiral with more than one officer?
+<p>Admirals in the Royal Navy used to follow the <a href=""https://en.w",slot 10 delta -0.068,slot 9 delta +0.000,-0.0679,0.0,0.0679
+history,58699_662,"Where was Mao Zedong during the Japanese surrender in Zhijiang (芷江) at the end of WWII in 1945?
+<p>Timeline for context:</p>
+
+<ul>
+<li>9 August, 1945: <a href=""",slot 9 delta +0.301,slot 8 delta +0.315,0.301,0.3155,0.0144
+politics,82153_1005,"Why were some important countries such as Japan, Britain, and India absent from the recent UNGA?
+<p>This question may not be answerable but I am curious to know",slot 8 delta +0.107,slot 10 delta +0.098,0.107,0.098,0.009
+law,106440_824,"Could a husband force a paternity test and divorce in 1940s New York?
+<p>My question is inspired by the Hitchcock film <em>Strangers on a Train.</em></p>
+<p>Our",slot 8 delta +0.193,slot 9 delta +0.185,0.1934,0.1846,0.0089
+history,70364_290,"What is &quot;chaud melee&quot;?
+<p>I believe this question could be asked in either the English Language, Legal, or History stack, but I believe the historical",slot 10 delta +0.087,slot 8 delta +0.095,0.0875,0.0955,0.008
+history,57118_700,"How controversial were &quot;updates&quot; of churches in the past?
+<p>Following the disastrous fire of Notre Dame de Paris, heated discussions are taking place",slot 9 delta +0.185,slot 10 delta +0.177,0.1846,0.1772,0.0073
+travel,188098_1152,"Can a D visa of Switzerland with valid time exactly 90 days be regarded as a long term national visa to Visit Norway?
+<p>I am a visiting student from China. I h",slot 10 delta +0.177,slot 9 delta +0.185,0.1772,0.1846,0.0073
+economics,52071_193,"Can inflation in a context of fixed production of good and services be calculated?
+<p>According to,</p>
+<p><a href=""https://www.stlouisfed.org/education/feducat",slot 8 delta +0.123,slot 9 delta +0.118,0.1232,0.1175,0.0056
+history,70565_272,"Where is this map of Scandinavia (Nicolaus Germanus, 1467)
+<p>Does anybody recognise this map?</p>
+<p><a href=""https://i.sstatic.net/83Zuw.png"" rel=""nofollow no",slot 10 delta +0.136,slot 9 delta +0.141,0.1357,0.1413,0.0056
+history,71301_223,"Why did Germany decide not to restore the Hohenzollern dynasty to the throne of a German Empire after the defeat of Hitler in World War Two?
+<p>During World War",slot 9 delta +0.118,slot 8 delta +0.123,0.1175,0.1232,0.0056
+politics,74930_1045,"Has Russia, as of August 21st, violated any gas contracts with Germany?
+<p>With the looming winter, the question of Russia <a href=""https://www.tagesschau.de/au",slot 9 delta +0.141,slot 10 delta +0.136,0.1413,0.1357,0.0056
+history,68328_416,"How did the Palace of Poitiers change from its depiction in Tres Riches Heures to now?
+<p>They seem completely different so I'm really confused how they could b",slot 9 delta +0.083,slot 10 delta +0.079,0.0827,0.0795,0.0033
+history,68604_398,"Is there a formal ontology for documenting historical timelines?
+<p>Is there a common process/system/platform that researchers use to document historical timeli",slot 9 delta -0.083,slot 10 delta -0.079,-0.0827,-0.0795,0.0033
+bitcoin,110742_80,"How to identify Taproot transaction using big query?
+<p>From <a href=""https://bitcoinmagazine.com/technical/bitcoin-taproot-explainer"" rel=""nofollow noreferrer""",slot 9 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+bitcoin,112021_76,"Is the Bitcoin Blockchain aware of time?
+<p>I recently learned about how the lightning network works, and one particular thing that I found interesting is that,",slot 10 delta +0.000,none,0.0,0.0,0.0
+bitcoin,112193_74,"Will a post-subsidy block with no transactions include a coinbase transaction?
+<p>If a block:</p>
+<ul>
+<li>Is after the last halving, so there is no subsidy</li",slot 8 delta +0.000,none,0.0,0.0,0.0
+bitcoin,112359_73,"Why were some BIPs marked as Rejected before expiry deadline defined in BIP-2?
+<p><a href=""https://github.com/bitcoin/bips/blob/master/bip-0002.mediawiki"" rel=""",slot 9 delta +0.000,none,0.0,0.0,0.0
+bitcoin,112862_71,"alertnotify: how long is long?
+<pre><code>  -alertnotify=&lt;cmd&gt;
+       Execute command when a relevant alert is received or we see a really
+       long for",slot 10 delta +0.000,none,0.0,0.0,0.0
+bitcoin,112979_68,"Can the mining reward ever go up?
+<p>Can the mining reward ever go up?</p>
+<p>I believe the answer is no, and the only way it will go up is if the miners decide",none,slot 9 delta +0.000,0.0,0.0,0.0
+bitcoin,113938_64,"Question about Bitcoin&#39;s Median Time Past
+<p>I was currently reading the book Mastering Bitcoin written by Andreas and was pretty confused about the concept",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+bitcoin,118364_58,"Automatic force closure and on chain settlement of expired HTLC
+<p>After roughly a month of mostly smooth operation <a href=""https://mempool.space/lightning/nod",none,slot 9 delta +0.000,0.0,0.0,0.0
+bitcoin,118421_57,"In the Lightning Network, what risks if any are associated with allowing a remote node to be offline for too long?
+<p>In a given lightning channel what are the ",slot 8 delta +0.000,none,0.0,0.0,0.0
+bitcoin,119010_55,"At what height exactly can a relative time-locked output be spent?
+<p>Assume a UTXO created in block <code>n</code> with the output using a relative timelock of",slot 9 delta +0.000,none,0.0,0.0,0.0
+bitcoin,119507_50,"How did peer discovery work in Bitcoin v0.1?
+<p>Nowadays there are DNS seeds and hardcoded IP addresses, but back in the day when Satoshi released Bitcoin v0.1,",slot 10 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+bitcoin,120027_46,"What are the last common blocks of Bitcoin and its hard forks (Bitcoin Cash, Bitcoin SV etc.)?
+<p>What are the last common blocks of Bitcoin and its most popula",slot 10 delta +0.000,none,0.0,0.0,0.0
+bitcoin,121089_32,"Does hash_count field exists in getheaders/getblocks messages?
+<p><em>Ava Chow</em> said it does not exist (<a href=""https://bitcoin.stackexchange.com/a/121083/",none,slot 10 delta +0.000,0.0,0.0,0.0
+bitcoin,122143_23,"What was Bitcoin&#39;s Supply in the Pre-Alpha Release? (posted by Cryddit on Bitcointalk in 2013)
+<p>So I'm doing some research into this Bitcoin code that app",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+bitcoin,124510_9,"Can I use Relative Locktime (BIP 68) to send funds to myself that can only be spent after a specific time in Bitcoin?
+<p>Context: I want to send funds to myself",slot 9 delta +0.000,none,0.0,0.0,0.0
+bitcoin,93150_99,"When will my Lightning channel be closed?
+<p>I have a force closed channel from lnbig.com and it has been pending in closing state for over 2 weeks (42600+ bloc",none,slot 9 delta +0.000,0.0,0.0,0.0
+bitcoin,93368_97,"Problem caused by unconfirmed transaction chains
+<p>I want to build a service that requires sending many small bitcoin transactions to multiple wallets (like a ",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+bitcoin,97135_89,"How to know Block height when a transaction entered Mempool?
+<p>I'm hosting a Listening Bitcoin Node in Capital of Pakistan. I want to know the Block height whe",none,slot 8 delta +0.000,0.0,0.0,0.0
+bitcoin,97236_86,"transaction (s) not going through due to low fees selected
+<p>I'm having a problem with a bitcoin transaction (not through btcpay, but i don't know where else t",none,slot 9 delta +0.000,0.0,0.0,0.0
+cardano,2057_135,"Catalyst voting power not including staking rewards?
+<p>Why did my voting power not include all of my staking rewards during Fund3 or Fund4 voting?</p>
+<p>My ca",slot 10 delta +0.000,none,0.0,0.0,0.0
+cardano,2164_133,"Is there anyway to cancel payment or revert a payment
+<p>Recently I came across a situation: a payment was executed by a customer on a site but then the consume",slot 9 delta +0.000,none,0.0,0.0,0.0
+cardano,2221_131,"How to permanently persist an arbitrary hash string in the blockchain?
+<p>I have an interesting use case for permanently storing an arbitrary hash string somewh",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+cardano,4225_128,"Is there a way for a validator to get the current time?
+<p>Is it possible for a validator to get the current time without it being passed in via the redeemer? M",none,slot 10 delta +0.000,0.0,0.0,0.0
+cardano,560_141,"What is the relationship between addresses and stake addresses?
+<p>Can anyone tell me if an address can change its stake address? If so when does this happen?</",none,slot 9 delta +0.000,0.0,0.0,0.0
+cardano,7235_117,"Plutus script execution at every end of epoch
+<p>I would like to develop a Plutus script that executes each time an epoch ends.</p>
+<p>What's the best way to ac",none,slot 10 delta +0.000,0.0,0.0,0.0
+cardano,7564_114,"How to implement Vesting smartcontract with time period longer than 36 hours?
+<h1>Context</h1>
+<p>In third weeks plutus pioneer lecture lars said that Vesting p",slot 10 delta +0.000,none,0.0,0.0,0.0
+cardano,840_139,"When will all 45 billion coins be in circulation?
+<p>I cannot find any accurate information with what speed and based on what formula the coins which are not in",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+economics,43853_228,"What are the justification of using 1990 or 2010 as benchmark in studies?
+<p>Normally, many international studies and documents using multiple-of-10 years (for ",none,slot 8 delta +0.000,0.0,0.0,0.0
+economics,45680_223,"What should we do if the subsample have the opposite results to the general results?
+<p>In my replication study, I examine whether a law (a law implemented stag",none,slot 9 delta +0.000,0.0,0.0,0.0
+economics,45828_221,"Does the goods part of the GDP only include goods produce during the last calendar year?
+<p>My textbook says this:</p>
+<blockquote>
+<p>The quantity of goods and",slot 10 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+economics,47454_216,"Is there any reason to test Difference-in-Differences if paralell trend is weakly violated?
+<p>Normally when testing the parallel trend assumption in the Differ",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+economics,47763_212,"Is it a need to test auto-correlation in Difference-in-Difference?
+<p>Sometimes we should put the lag of response variable to a model due to auto-correlation (h",slot 10 delta +0.000,none,0.0,0.0,0.0
+economics,48548_206,"Should I care about the actual CPI value or just the rate of change?
+<p>I'm trying to understand the Y-axis of the Consumer Price Index for All Urban Consumers:",slot 9 delta +0.000,none,0.0,0.0,0.0
+economics,50570_202,"Why did Allied countries not freeze German and Japanese central bank assets in WWII?
+<p>Supposedly such an action would cause massive turmoil in their domestic ",slot 9 delta +0.000,none,0.0,0.0,0.0
+economics,55201_179,"Inflation adjustment: CPI less than one
+<p>I need help on how to adjust my figures by inflation.</p>
+<p>I have two pieces of data. The first one is a company's ",slot 9 delta +0.000,none,0.0,0.0,0.0
+economics,57699_171,"Have governments ever defaulted on its public domestic debt or treasury bonds?
+<p>Recently, some countries have experienced hyperinflation such as Lebanon, Zimb",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+economics,57769_170,"Present Value of Profits Earned From the Discovery of New Ideas in the Romer Model
+<p>Page 127-128 of Romer's Advanced Macroeconomics states that</p>
+<blockquot",none,slot 9 delta +0.000,0.0,0.0,0.0
+economics,60545_155,"education economics and society effect on educational norms
+<p>I've been looking for a research question, and my research area is education economics. I was loo",slot 10 delta +0.000,none,0.0,0.0,0.0
+genealogy,10043_313,"What records might survive of nautical assessor who died on London Docks in second half of 18th century?
+<p>In <a href=""https://genealogy.stackexchange.com/ques",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+genealogy,10385_309,"How to locate 1860 United States census pages by address?
+<p>I'm not able to locate a Catherine Stanley, widow, last name now Mundy in the 1860 census records b",slot 9 delta +0.000,none,0.0,0.0,0.0
+genealogy,10634_305,"Determining the location of No. 47 Casualty Clearing Station in March 1917?
+<p>A British soldier I am researching died at No. 47 Casualty Clearing Station on 25",slot 9 delta +0.000,none,0.0,0.0,0.0
+genealogy,11823_300,"No trace of grandfather in 1891 or 1901 census?
+<p>My grandfather Charles Thomas Gigg was born in Kensington, London in 1887. He appears to be illegitimate -- n",none,slot 9 delta +0.000,0.0,0.0,0.0
+genealogy,12001_296,"Finding prison records for Bodmin Bridewell in Cornwall?
+<p>In the <a href=""http://discovery.nationalarchives.gov.uk/results/r?_q=%22william+hobbs%22+truro"" rel",slot 8 delta +0.000,none,0.0,0.0,0.0
+genealogy,12774_283,"How were absentees recorded on the Protestation Returns?
+<p>The Protestation Returns of 1641/2 are currently being digitised and made freely accessible on the <",slot 9 delta +0.000,none,0.0,0.0,0.0
+genealogy,12798_282,"Identifying parents of John &amp; William Milman who were baptised 1800 &amp; 1805 at Okehampton, Devon, England?
+<p>Susanna Millman was my 3rd great grandmothe",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+genealogy,13056_276,"Parish residency in 19th century Cornwall?
+<p>In 18th and 19th century church parish marriage records in Cornwall, UK, the bride and groom's residences are indi",slot 8 delta +0.000,none,0.0,0.0,0.0
+genealogy,13596_269,"An explanation for unusual birth record
+<p>I'm trying to find an explanation for why Jane Ann Parry, born in 1857, was born in Kent.</p>
+
+<p>Jane Ann Parry's pa",none,slot 10 delta +0.000,0.0,0.0,0.0
+genealogy,13778_266,"Recording dates from old documents?
+<p>This is a follow-up to: <a href=""https://genealogy.stackexchange.com/questions/13771/interpreting-17th-century-german-dat",none,slot 9 delta +0.000,0.0,0.0,0.0
+genealogy,13822_265,"Is Unregistered Death possible after 1900 in U.S.?
+<p>I am researching my great uncle, James Barton (no middle initial), trying to find a death record. I believ",slot 8 delta +0.000,none,0.0,0.0,0.0
+genealogy,14620_261,"Finding military record of B F Ervin of 2nd Indiana Cavalry?
+<p>Find A Grave Memorial 22835373 includes <a href=""https://www.findagrave.com/memorial/22835373/b-",none,slot 9 delta +0.000,0.0,0.0,0.0
+genealogy,15729_253,"Run away marriage: why did people go to Maryland?
+<p>I am tracking the marriage certificate of a couple who lived in NYC and who reportedly ran away in Maryland",slot 10 delta +0.000,none,0.0,0.0,0.0
+genealogy,19348_236,"British India records for Native Indians and Pakistanis
+<p>Where can I find <strong>birth</strong>, <strong>death</strong>, and <strong>marriage records</strong",none,slot 8 delta +0.000,0.0,0.0,0.0
+genealogy,1980_342,"How can I learn more about ancestors who were Baptist Ministers/preachers in 18th-19th century Wales?
+<p>My great (x4) grandfather John James 1771? - 13 July 18",slot 8 delta +0.000,none,0.0,0.0,0.0
+genealogy,20587_234,"Citing a warranty deed: which date to use?
+<p>A 1900 warranty deed contains the date it was drafted and the date it was filed. I find conflicting information ab",slot 8 delta +0.000,none,0.0,0.0,0.0
+genealogy,2061_339,"List of ships arriving in Boston
+<p>One of the people I am researching claims in his naturalization form to have arrived in Boston, Mass on 8 Jun 1891. No ship ",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+genealogy,2182_338,"Determining who died on particular voyage of ship?
+<p>One voyage of the ship William Stetson began the 26th of April, 1855 in Liverpool, England and ended the 2",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+genealogy,2264_333,"Tracing records of Royal Navy personnel who died in World War 2?
+<p>My grandmother's brother was in the Royal Navy during WW2 and was killed. I know very little",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+genealogy,2975_328,"Where do I find information about arranged employment in Australia in the 1850s?
+<p>Many immigrants from England worked for the Hon. Edward Flood M.P. in the 18",none,slot 9 delta +0.000,0.0,0.0,0.0
+genealogy,3224_325,"Was there a special Marriage license for Non-US Citizens in 1925?
+<p>My Great Uncle and Aunt sailed from Belfast, Northern Ireland to New York in August 1925.  ",none,slot 10 delta +0.000,0.0,0.0,0.0
+genealogy,3238_323,"Why was my great-grandfather honorably discharged from the US Army so many times?
+<p>Just this morning I found the military records of my great-grandfather. The",none,slot 9 delta +0.000,0.0,0.0,0.0
+history,55730_797,"Were medieval and renaissance era jesters commonly disabled?
+<p>In Hilary Mantel's famous historical fiction Wolf Hall, she implies more than once that the cour",slot 9 delta +0.000,none,0.0,0.0,0.0
+history,55800_790,"What percentage of slaves originally brought from Africa were purchased from slave traders as opposed to having been captured by Europeans?
+<p>I was engaged in ",slot 8 delta +0.000,none,0.0,0.0,0.0
+history,55806_789,"Why do historians distinguish two Industrial revolutions, instead of just one?
+<p>There was a 40 year gap between the two revolutions. Ending in 1830 and starti",none,slot 8 delta +0.000,0.0,0.0,0.0
+history,55937_780,"How &quot;successful&quot; were WWII pigeon-guided missiles?
+<p>In World War II, a prototype missile guidance system was developed in <a href=""https://en.wikipe",slot 8 delta +0.000,none,0.0,0.0,0.0
+history,56053_773,"How/when did the halo shift from being a solid disk behind the head to being a floating ring above the head?
+<p>In almost all older religious paintings that I'v",none,slot 9 delta +0.000,0.0,0.0,0.0
+history,56083_770,"Why didn&#39;t the ancients produce purple dye via admixture?
+<p>A great deal of prestige is attached to the colour <strong>purple</strong> - the hue of bishops",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+history,56089_769,"Were there any natural disasters that decisively changed the result of a later election by killing the electorate of one side?
+<p>I'm thinking of something simi",none,slot 8 delta +0.000,0.0,0.0,0.0
+history,56713_726,"Who was the last European king to actively engage in combat?
+<p>Specifically, I would like to know who the most recent European monarch (or monarchs, if they li",slot 9 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+history,56734_725,"What happened to the cross on the dome of Hagia Sophia?
+<p>There are some images that show the cross on the dome of Hagia Sophia. </p>
+
+<p>For example;</p>
+
+<ul",slot 9 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+history,56860_716,"How was the Pandidakterion organised?
+<p>How was the <em>Pandidakterion</em> organised?</p>
+
+<p><em><a href=""https://en.wikipedia.org/wiki/University_of_Constan",none,slot 8 delta +0.000,0.0,0.0,0.0
+history,56928_711,"Did the Allies ever seriously contemplate a &quot;Northern Intervention&quot; in Russia during World War II?
+<p>Late in World War I, Britain and America conduct",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,56929_710,"What evidence is there of tank-vs-tank combat in Asia during the second world war?
+<p>It has been known that the Japanese army during the Second World War did n",slot 10 delta +0.000,none,0.0,0.0,0.0
+history,56978_708,"Were Soviets invited to the Marshall Islands to observe the first hydrogen bomb detonations?
+<p>In 1952, did the US invite, or consider inviting, Russian scient",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,57032_706,"Why was there so little information about sex in Eastern Block countries?
+<p><strong>By &quot;Taboo&quot; I meant the lack of widespread access to the informati",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,57063_704,"Is the use by old masters of camera obscura and optics in general a taboo topic in Art History, or was David Hockney&#39;s thesis wrong?
+<p>About 20 years ago, ",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,57075_703,"What exactly is a Tang dynasty 壺 (pot)?
+<blockquote>
+  <p>I have asked this question <a href=""https://chinese.stackexchange.com/questions/37114/what-exactly-is-",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,57176_696,"Where are the Native American primary source documents?
+<p>I am currently looking into Crow Mythology and every website I've seen says essentially ""The Native A",slot 10 delta +0.000,none,0.0,0.0,0.0
+history,58651_665,"Why was the Soviet Marine Infantry disbanded in 1947?
+<p>According to <a href=""http://www.historyofwar.org/articles/weapons_russiannavallong.html"" rel=""nofollow",none,slot 9 delta +0.000,0.0,0.0,0.0
+history,58669_663,"Why were Royal Navy ships forbidden to attack the ARA Veinticinco de Mayo in Argentinian waters?
+<p>I watched <a href=""https://www.youtube.com/watch?v=EvvLxC1rv",slot 10 delta +0.000,none,0.0,0.0,0.0
+history,58823_658,"Were the popes during the Avignon era still considered bishop of Rome?
+<p>The Catholic pope is also the bishop of Rome, since St Peter. However, the Papacy move",slot 9 delta +0.000,none,0.0,0.0,0.0
+history,58914_650,"Why did the first Safavid Shia become Shia?
+<p>I'm currently reading the history of Safavid Iran (by Roger Savory) which was a Shia ruling. The eponym of Safavi",none,slot 8 delta +0.000,0.0,0.0,0.0
+history,58962_648,"What was the first college in an English-speaking country to use Latin in their motto?
+<p>I have looked at many universities and seen how in English speaking co",slot 10 delta +0.000,none,0.0,0.0,0.0
+history,59150_637,"How did philosophical and scientific knowledge in Christian Europe in 1085 compare to the body of knowledge contained in the library of Toledo?
+<p>In 1085, Moor",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,59254_629,"How did Italy and Germany get rubber in WWII?
+<p>Japan invaded Southeast Asia and Indonesia to obtain rubber in WWII.  Germany and Italy clearly used large amou",none,slot 9 delta +0.000,0.0,0.0,0.0
+history,59267_627,"Was the danger of Germany bombing the US East Coast taken seriously and were measures taken to address it?
+<p>In this <a href=""https://edition.cnn.com/2020/05/1",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,62753_599,"How far did Malcolm X get with taking the United States to the United Nations?
+<p>In Malcolm X's original <a href=""https://en.wikipedia.org/wiki/The_Ballot_or_t",none,slot 9 delta +0.000,0.0,0.0,0.0
+history,62765_598,"What is the Thalassic Age?
+<p>What is the Thalassic Age? What exactly happened during that time? This came from reading that Greeks during Hellenistic period co",slot 8 delta +0.000,none,0.0,0.0,0.0
+history,63222_583,"Were titles in the British Peerage ever connected to land grants, and if so, when did they stop being connected to land?
+<p>I have been trying to understand the",none,slot 9 delta +0.000,0.0,0.0,0.0
+history,63982_544,"Were blue-tinted glasses prevalent in Victorian England and, if so, why?
+<p>Whenever I happen to read Chesterton, Conan-Doyle or some other British writers of t",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,64055_538,"Did medieval kingdoms issue health related guidelines?
+<p>Today national health protection agencies around the world such as CDC in  United States often issue h",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+history,64072_537,"What was the point of the Babylonian captivity?
+<p>What was the point of the <a href=""https://en.wikipedia.org/wiki/Babylonian_captivity"" rel=""noreferrer"">Babyl",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,64177_534,"Were Egyptian monarchs referred to by the title &quot;pharaoh&quot; alone, without using their proper names, from around 1500 BCE until the 10th century BCE?
+<p",none,slot 9 delta +0.000,0.0,0.0,0.0
+history,64346_525,"Did a significant number of women drive in late 1950s/1960s USA?
+<p>During lockdown, I have become addicted to old 1950s/60s Perry Mason series. I am struck by ",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+history,64383_523,"What is the reasoning behind these huge numbers for participants in the Battle of Grunwald 1410?
+<p>I was reading about the Battle of Grunwald (Tannenberg) in 1",none,slot 8 delta +0.000,0.0,0.0,0.0
+history,64579_518,"What is the corruption that John Winthrop mentions in &quot;Reasons for the Plantation in New England&quot; (1628)
+<p>In <a href=""https://www.winthropsociety.co",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+history,66161_499,"Where are the relics of Anthony the Great?
+<p><a href=""https://en.wikipedia.org/wiki/Anthony_the_Great#Veneration"" rel=""nofollow noreferrer"">Anthony the Great</",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,66273_481,"When and why did garum disappear?
+<p><a href=""https://en.wikipedia.org/wiki/Garum"" rel=""noreferrer"">Garum or liquamen</a> was, apparently, extremely popular in ",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,66417_468,"Was garlic an Egyptian deity, based on Pliny the Elder&#39;s &quot;Natural History&quot; (Book XIX, Ch 32)?
+<p>What historical evidence can validate <a href=""ht",none,slot 8 delta +0.000,0.0,0.0,0.0
+history,66498_462,"How to understand the geography of Napoleon&#39;s military campaigns?
+<p>I am currently reading Napoleon The Great by Andrew Roberts and I am facing a few issue",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+history,66663_452,"What percentage of US households had electricity and telephones in 1940?
+<p>I'm trying to find a published source giving the percent of U.S. households having e",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+history,66814_442,"What is the explanation of president Gen. Yahya Khan&#39;s role in the general election of 1970?
+<p>It is widely agreed upon that the 1970's election was a fair",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+history,67963_434,"What does this source &quot;IAA iii&quot; mean? Which book?
+<p>I've been reading a book about Genghis Khan by Frank McLynn and, going through its notes, I saw s",none,slot 8 delta +0.000,0.0,0.0,0.0
+history,68107_426,"The situation in nazi Germany of a Jewish male married to an &quot;aryan&quot; female vs Jewish female married to an &quot;aryan&quot; male?
+<p>For some reason,",slot 10 delta +0.000,none,0.0,0.0,0.0
+history,68211_423,"What was the ethnic identity of first class sergeant Patrick Joseph Cleary?
+<p>Recently, I saw <a href=""https://www.youtube.com/watch?v=rlywR2PNwCg"" rel=""nofoll",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,68358_414,"Why did the Balfour Declaration of 1926 and Statute of Westminster (1931) only deal with Dominions?
+<p>I have been reading about the <a href=""https://en.wikiped",none,slot 8 delta +0.000,0.0,0.0,0.0
+history,68574_399,"Did anyone ever escape Nazi Germany through KdF trips?
+<p>I'm studying Nazi Germany in school and am learning about the <a href=""https://en.wikipedia.org/wiki/S",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,68627_396,"What is the origin of the Danish dough whisk?
+<p>Recently I've been trying to find more information on the <a href=""https://utensil.org/dough-whisk/"" rel=""nofol",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,68630_395,"Is it known if Yeltsin was planning to give up power peacefully if he lost the 1996 election?
+<p>In 1995 Yeltsin <a href=""https://www.washingtonpost.com/archive",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,69077_371,"What was the calendar used by ancient Palmyrenes?
+<p>An inscription found on one column in Palmyra, dated on April 252 AD, reads</p>
+<blockquote>
+<p>&quot;To Se",slot 10 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+history,69389_354,"What sorts of people were popular celebrities in 17th to 19th century Europe?
+<p>I'm writing fiction set in a world similar to pre-modern Europe, and there need",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+history,69644_340,"When was the ligature (&#230;) removed from daemon and replaced with &quot;ae&quot;?
+<p>A lot of older books, white papers, and even kernels used the word dæmon",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,69758_331,"What is the exact meaning of England vs. Britain before/during/after the formation of the Kingdom of England in the Middle Ages?
+<p>I have been reading for the ",slot 9 delta +0.000,none,0.0,0.0,0.0
+history,69791_330,"How did the Crusades change medieval Islamic culture?
+<p><strong>Background:</strong> It's well known that the crusades initiated an east-west contact that led ",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,69940_313,"Is there any evidence that the US strategy at Midway was deliberate?
+<p>The Battle of Midway was a crushing US victory over the Empire of Japan that, at face va",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,70076_305,"What is the association of the 4 playing card suits and the Mamluks?
+<p>As I understand it, playing cards made their way to Europe perhaps via China (paper) but",slot 9 delta +0.000,none,0.0,0.0,0.0
+history,70131_301,"What were the historical antecedents of Russia BTG-based military organization?
+<p>It is very easy, now that we are observing the results of Russia's BTG system",none,slot 8 delta +0.000,0.0,0.0,0.0
+history,70188_298,"How possible was it for Japan to convert her naval aircraft to land uses?
+<p>Some years ago, I created a World War II computer game in which I obtained interest",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,70431_286,"Why didn&#39;t Royal Navy (columns of) ships turn outwards, rather than inwards?
+<p><a href=""https://en.wikipedia.org/wiki/File:Victoria_collision_sequence.gif""",slot 10 delta +0.000,none,0.0,0.0,0.0
+history,70544_278,"Why was uranium mined in the 1500s, but only &quot;discovered&quot; in 1789?
+<p><a href=""https://www.theguardian.com/environment/2022/dec/15/dismantling-sellafi",none,slot 9 delta +0.000,0.0,0.0,0.0
+history,70594_270,"Did the Ottomans conquer Poland-Lithuania?
+<p><a href=""https://www.youtube.com/watch?v=BwQINDPHbFk"" rel=""nofollow noreferrer"">Türk Tarihi | History of Turks</a>",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,70668_264,"Who presided over the election and swearing in of the first Speaker of the House?
+<p>The <a href=""https://en.wikipedia.org/wiki/Speaker_of_the_United_States_Hou",none,slot 9 delta +0.000,0.0,0.0,0.0
+history,70746_260,"How did German racial laws affect people who weren&#39;t Jewish but one of their parents wasn&#39;t German?
+<p>It's a bit strange question but I can't find anyt",slot 10 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+history,70850_254,"Why did Canada retain the rank of Brigadier General? But not Australia, New Zealand, or UK?
+<p>Why did the UK, Australia, and New Zealand abolish <a href=""https",none,slot 8 delta +0.000,0.0,0.0,0.0
+history,71155_236,"What is the origin of the expression &quot;I&#39;m the culture they&#39;re dying for&quot;?
+<p>There is an anecdote about a young man (a poet) being berated by ",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,71333_221,"In the days of slavery, were heterosexual interracial pairings more common with black men and white women, or black women and white men?
+<p>Of course, the anti ",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,71352_218,"How long did it take arriving passengers to become indentured servants and where did they stay until then?
+<p>In colonial times just prior to the Revolution, wh",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,71494_212,"Why didn&#39;t Semmelweis perform a simpler experiment, to stop all the anatomical work?
+<p>Levy wrote in his paper criticizing <a href=""https://en.wikipedia.or",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+history,71509_210,"Who was Christophorus Uveida?
+<p>In Tycho Brahe’s book <em>De mundi aetherei recentioribus phaenomenis</em>, we can read that it was typeset by a certain Christ",slot 10 delta +0.000,none,0.0,0.0,0.0
+history,71693_200,"Why does the M61 Vulcan have a flash suppressor?
+<p>In most pictures of an <a href=""https://en.wikipedia.org/wiki/M61_Vulcan"" rel=""nofollow noreferrer"">M61 Vulc",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,71889_192,"When and how did the concept of posthumous reward and punishment enter ancient Judaism?
+<p>Throughout the Jewish Bible / Christian Old Testament, it's pretty co",slot 9 delta +0.000,none,0.0,0.0,0.0
+history,71985_188,"What is the origin of oak leaves in military insignia and decorations?
+<p>Several military insignia and decorations use an &quot;oak leaf&quot; motif:</p>
+<ul>
+",none,slot 9 delta +0.000,0.0,0.0,0.0
+history,72096_183,"Was there a British Royal tradition associated with the name Elizabeth?
+<p>My high school history teacher once told me that apperently there was a tradition (su",slot 9 delta +0.000,none,0.0,0.0,0.0
+history,72115_181,"Which date is true?
+<p>I was looking at <a href=""https://en.m.wikipedia.org/wiki/Battle_of_Karbala"" rel=""nofollow noreferrer"">this</a> article about Battle of K",slot 10 delta +0.000,none,0.0,0.0,0.0
+history,72216_173,"Why did China and some other communist countries boycot the 1980 Summer Olympics?
+<p>The 1980 Summer Olympics was held in Moscow, Soviet Union.</p>
+<p>Many coun",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,72370_163,"At the beginning of the 20th century, how did Austria-Hungary and Russia&#39;s foreign policies conflict in the Balkans?
+<p>I'm reading <em>The Sleepwalkers: Ho",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,72472_158,"Why would people join a bloc party?
+<p>In the former Soviet Union satellite states in Central and Eastern Europe, apart from the ruling Communist Party, there w",none,slot 8 delta +0.000,0.0,0.0,0.0
+history,72518_156,"Is Wikipedia&#39;s identification of Lebed an error?
+<p>Speaking of the Alexander Yakovlev's conflict with the hardcore communists, <a href=""https://en.wikipedi",slot 10 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+history,72588_152,"Who denounced Alexander Schmorell?
+<p><a href=""https://en.wikipedia.org/wiki/Alexander_Schmorell"" rel=""nofollow noreferrer"">Alexander Schmorell</a> was a member",slot 10 delta +0.000,none,0.0,0.0,0.0
+history,72655_149,"Why do some ancient languages become widespread across cultures, while others don&#39;t?
+<p>At first glance, I don't see any strong interconnections between the",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+history,72822_137,"What was Iceland officially &amp; commonly called before 1918 (1874~)?
+<p>In 1918, The Kingdom of Iceland was founded. In 1944, it changed to just Iceland.</p>
+",none,slot 8 delta +0.000,0.0,0.0,0.0
+history,74426_129,"Were any U.S. founding fathers present at the storming of the Bastille?
+<p>Were any U.S. founding fathers present at the storming of the Bastille?</p>
+<p>I hear",slot 10 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+history,76250_114,"What was the Nuclear Boy Scout&#39;s Eagle Scout Project?
+<p>My kids recently came across the story of <a href=""https://en.wikipedia.org/wiki/David_Hahn"" rel=""n",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,76262_113,"What federal statutes defined aliens (in)eligibility to US citizenship in 1913?
+<p>According to a recent <a href=""https://us.cnn.com/2024/06/17/homes/florida-la",slot 10 delta +0.000,none,0.0,0.0,0.0
+history,76264_112,"Was Croatia the first country to recognize the sovereignity of the USA? Was Croatia expecting military help from USA that didn&#39;t come?
+<p>I remember being t",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,76499_99,"Did ancient Greco-Roman people think their thoughts/feelings came from spirits or gods?
+<p>So I know this question probably sounds a bit odd. But I was told by ",none,slot 9 delta +0.000,0.0,0.0,0.0
+history,76516_97,"(Why) didn&#39;t the &quot;fountain of justice&quot; flow through Governors-General?
+<p>Nowadays both the <a href=""https://www.aph.gov.au/About_Parliament/House",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,76608_94,"Did the United States have consent from Texas to cede a piece of land that was part of Texas?
+<p>The <a href=""https://en.wikipedia.org/wiki/Boundary_Treaty_of_1",slot 10 delta +0.000,none,0.0,0.0,0.0
+history,76661_90,"When were U.S. political parties realigned?
+<p>Robert F. Kennedy, Jr., in <a href=""https://tuckercarlson.com/tucker-show-rfk-jr"" rel=""nofollow noreferrer"">his i",none,slot 9 delta +0.000,0.0,0.0,0.0
+history,76697_85,"When citation of other author started to be formalized?
+<p>A question here about Ptolemy made me wonder when the authors started to cross-reference to give stre",none,slot 8 delta +0.000,0.0,0.0,0.0
+history,76737_81,"Have metal ships ever used ramming as a regular tactic?
+<p>Have metal ships ever used ramming as a regular tactic, as wooden ships used to?</p>
+<p>A one-off inc",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,76925_72,"What is the academic perspective on the origin time frames of rope/string or the tying of things with primitive fibers and such?
+<p>So far I have read that the ",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,76967_70,"What&#39;s the name of the oily greasy stuff they put on artillery shells to preserve them?
+<p>Someone in a youtube video was talking about it, and they didn't ",slot 10 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+history,77095_63,"What usually happens to a country&#39;s leadership when a dictator dies?
+<p>I don't know how succession happened in Soviet Russia, but I remember a succession o",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,77151_58,"Were the tallboy bombs launched at the Tirpitz re-fuzed as impact weapons?
+<p>Were the tallboy bombs used to attack and (finally) sink the Tirpitz re-fuzed as i",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,77203_51,"Would the poulterer&#39;s be open on Christmas Day for Scrooge to buy their prize turkey?
+<p>The last chapter of Dickens' <em>A Christmas Carol</em> famously st",none,slot 8 delta +0.000,0.0,0.0,0.0
+history,77221_49,"What was Jimmy Carter looking for Soviet Union to do as a prerequisite to restore normal trade relations?
+<p>Question: What human rights was Jimmy Carter lookin",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,77270_48,"Is there an error in this picture of ancient Rome?
+<p>Somewhere on the internet I found this picture, purporting to show what a part of the city of Rome looked ",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,77295_46,"What did students write on in the 17th century?
+<p>What did school children and university students write <strong>on</strong> in the 17th century?
+Did they have",none,slot 10 delta +0.000,0.0,0.0,0.0
+history,77362_45,"What was the prehistoric human impact of the Vela supernova?
+<p>With some rough back of the envelope calculations, one can estimate that the supernova responsib",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,77769_24,"How come an FBI agent like Robert Hanssen had access to spy lists?
+<p>Just watched the movie <a href=""https://en.wikipedia.org/wiki/Breach_(2007_film)"" rel=""nof",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,79114_14,"Why didn&#39;t Germany request the extradition of Eichmann from Israel?
+<p>Since Eichmann was a German citizen, one would expect a German government to request ",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+history,79485_7,"When did people start using open bookshelves or bookcases without doors?
+<p>I'm interested in how books have been stored throughout European history, specifical",none,slot 9 delta +0.000,0.0,0.0,0.0
+history,79523_3,"Did PM Curtin actually say &quot;...from one hour ago, Australia has been at war with the Japanese Empire&quot;?
+<blockquote>
+<p>One hour after Japanese bombers",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+history,79533_1,"What kind of knife did people use to cut open cows?
+<p>I'm writing a fantastical story and one of the characters needs to cut open a cow equivalent. What kind o",none,slot 8 delta +0.000,0.0,0.0,0.0
+hsm,12878_739,"What are the earliest known proofs that planimeters &#39;work&#39;?
+<p>The dates of various physical implementations of planimeters are pretty well known.  I'm ",slot 10 delta +0.000,none,0.0,0.0,0.0
+hsm,13022_735,"Who discovered the wave equation?
+<p><a href=""https://link.springer.com/chapter/10.1007/978-1-4684-5772-8_2"" rel=""nofollow noreferrer"">https://link.springer.com",slot 8 delta +0.000,none,0.0,0.0,0.0
+hsm,13118_729,"How long have people been debunking the P value (statistical significance) as commonly used in the human sciences: medicine, psychology and so on?
+<p>I have bee",slot 8 delta +0.000,none,0.0,0.0,0.0
+hsm,13304_724,"When was the concept of “Power” defined?
+<p>I know the Watt, as a unit of measuring power was defined somewhere in early 1900's.</p>
+<p>But who was the first ph",slot 8 delta +0.000,none,0.0,0.0,0.0
+hsm,13520_718,"History of poster sessions
+<p>Just curious: when (approximately) was the first scientific conference which contained a poster session? Wikipedia does not give a",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+hsm,13594_714,"What is the History of Coordinates?
+<p>Can someone give a history of coordinates? When did coordinates first appear, which was the first ever coordinate system?",slot 10 delta +0.000,none,0.0,0.0,0.0
+hsm,13664_712,"When were cephalopods assigned to the taxonomic phylum Mollusca?
+<p>I am fascinated to read about the evolution of cephalopod intelligence while I understand wh",slot 9 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+hsm,13846_707,"Ideas about the speed of light between Galileo and Romer?
+<p>I know that the great Galileo made no real progress measuring the speed of light -- he disappointin",slot 9 delta +0.000,none,0.0,0.0,0.0
+hsm,17543_694,"Why Isaac Newton published his discoveries so much later than he discovered them?
+<p>Principia was completed in 1686 and published in 1687, but he discovered ca",slot 10 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+hsm,17703_690,"Regula Pigri: How far does it date back?
+<p><em>Regula pigri</em>, or rule of the lazy, is a method of multiplication of single-digit numbers.  If one is to mul",slot 9 delta +0.000,none,0.0,0.0,0.0
+hsm,17828_685,"In the 1800s, what did they think caused the northern lights?
+<p>I watched an excellent documentary about the <a href=""https://en.wikipedia.org/wiki/Franklin%27",slot 9 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+hsm,18057_676,"Does the earliest known use of an &quot;average&quot; occur after the invention of calculus?
+<p>When making a broader point about how humans find it difficult t",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+hsm,18235_671,"Before logarithms, were tables of half trigonometric functions published so multiplications could be calculated by addition using prosthaphaeresis?
+<p>When trig",none,slot 8 delta +0.000,0.0,0.0,0.0
+hsm,18314_669,"Has there been controversy about the existence/location of some organ/bone in the history of medicine?
+<p>My question is a bit vague but I was wondering whether",slot 10 delta +0.000,none,0.0,0.0,0.0
+hsm,18573_661,"Who is the first to use $\approx$ to denote &quot;approximately equal&quot;?
+<p><strong>Question</strong></p>
+<p>Nowadays many people use <span class=""math-cont",slot 8 delta +0.000,none,0.0,0.0,0.0
+hsm,18737_659,"When was thermal expansion in solids first described?
+<p>There are various observations of thermal expansion of gases and liquids in history. Early examples are",none,slot 10 delta +0.000,0.0,0.0,0.0
+hsm,2057_790,"When was the first true Gregorian telescope built?
+<p>I know that James Gregory came up with the idea of using a parabolic mirror to eliminate spherical aberrat",slot 9 delta +0.000,none,0.0,0.0,0.0
+hsm,3035_775,"History of Mac Lane&#39;s dissertation on abbreviated proving
+<p>Saunders Mac Lane published his thesis (<em>Abgekuerzte Beweise in Logikkalkul</em>) which anti",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+hsm,3184_770,"What came first? The Schr&#246;dinger equation or commutation relation between $p$ and $x$
+<p>Some books like Griffith's begin quantum mechanics with the Schröd",slot 9 delta +0.000,none,0.0,0.0,0.0
+hsm,3206_767,"What vaccines did infants receive in late nineteenth century England?
+<p>I came across a WWI service record for a relative which includes his medical history. I",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+hsm,3215_766,"Sources of early modern atomic theory of matter?
+<p>Modern atomic theory of matter is often attributed to Dalton in 1803, with roots going all the way back to D",slot 10 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+hsm,5514_757,"When did mathematicians start to draw figures from equations?
+<p>I know that when solving geometric problems, Descartes used the variables <span class=""math-con",slot 10 delta +0.000,none,0.0,0.0,0.0
+hsm,5572_755,"When did the Bayer designation Gamma Sagittarii become Gamma1 &amp; Gamma2 Sagittarii?
+<p>Some authors talk about <em>Gamma Sagittarii</em> as a single star, wh",none,slot 10 delta +0.000,0.0,0.0,0.0
+hsm,5674_752,"First appearance of the sine function
+<p>I was wondering when was the sine function (I suppose cosine too) first introduced or defined and what was the need for",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+hsm,7363_743,"Who discovered the Virial Theorem?
+<p>Who first discovered the Virial Theorem? Who first wrote it down? When? Where?</p>
+
+<p><sup>My guess: a 19<sup>th</sup> ce",none,slot 8 delta +0.000,0.0,0.0,0.0
+iota,314_806,"When do nodes sync their subtangle with the neighbours?
+<p>Does this happen after every transaction? In discrete steps? </p>
+
+<p>Is it always synced with neighb",none,slot 9 delta +0.000,0.0,0.0,0.0
+law,102419_841,"How do U.S. state laws requiring something from the past interact with U.S. state laws that legally change the past?
+<p>In the U.S., state laws can require that",none,slot 10 delta +0.000,0.0,0.0,0.0
+law,103233_838,"Is the Day of arrival included in a stay?
+<p>Unless otherwise specified <a href=""https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada",slot 9 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+monero,10054_872,"Is there any way to lower the difficulty in order to mine faster on a testnet?
+<p>I'm searching for a way to mine 60 blocks without the waiting time (or at leas",slot 9 delta +0.000,none,0.0,0.0,0.0
+monero,11753_859,"What pool miners exist that can mine RandomX?
+<p>In a couple weeks from now, Monero will start using the RandomX PoW algorithm, replacing the current Cryptonigh",none,slot 9 delta +0.000,0.0,0.0,0.0
+monero,12479_853,"Solutions to the Monero EABE attack?
+<p><a href=""https://github.com/monero-project/monero/issues/1673#issuecomment-312968452"" rel=""nofollow noreferrer"">https://",none,slot 9 delta +0.000,0.0,0.0,0.0
+monero,3515_904,"Has the testnet been reset with a new genesis block?
+<p>I mined some testnet monero using version 0.10.0.0  a few months ago. Now, when I restore from my testne",none,slot 8 delta +0.000,0.0,0.0,0.0
+monero,4083_898,"How would a transition from cryptonight PoW to cuckoo cycle work?
+<p>What would be the smoothest transition for changing the PoW? Miners would need to be given ",slot 9 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+monero,4155_896,"Number of confirmations and node location
+<p>How many number of confirmations before a Monero can be spent? Also, if there are two or more users opening the sam",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+monero,7072_882,"Block height and notification procedure for v7+ forks
+<p>Has the block height for the v7 fork been decided upon yet? What procedure will be used to provide noti",slot 9 delta +0.000,none,0.0,0.0,0.0
+monero,7335_881,"What happened at Monero difficulty from Nov 2017 to Jan 2018?
+<p>During latest days of November 2017 <strong>Monero</strong> difficulty, according to <a href=""h",slot 10 delta +0.000,none,0.0,0.0,0.0
+monero,7854_878,"Am I understanding PPLNS correctly in this example?
+<p>I want to be sure I understand how the PPLNS pool payment system works.  As I understand it, the theory i",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+monero,7922_877,"Is the high transaction fees problem addressed in the upcoming monero v7 upgrade?
+<p>I've read the official release notes for Lithium Luna but there is no menti",slot 10 delta +0.000,none,0.0,0.0,0.0
+politics,74084_1057,"How does the Mississippi Gestational Age Act (2018) differ from the older 2007 &quot;trigger&quot; law, in terms of restrictions?
+<p>From Wikipedia's <em>Dobbs<",slot 10 delta +0.000,none,0.0,0.0,0.0
+politics,74259_1054,"What is the result of the US China trade war from 2018?
+<p>Trump started a trade war with China in 2018 by imposing tariffs on a broad range of Chinese imports.",none,slot 10 delta +0.000,0.0,0.0,0.0
+politics,74392_1052,"Do Rishi Sunak and Liz Truss (presently) poll poorly against Keir Starmer?
+<p>I recall reading <a href=""https://edition.cnn.com/2022/07/23/uk/boris-johnson-succ",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+politics,77681_1031,"Is there a statute of limitations on crimes by nation states?
+<p>In the past, governments have sanctioned acts that are considered barbaric today. As far as I u",slot 10 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+politics,77716_1030,"What sectors/industries would a General Strike cover in the 21st Century
+<p>The UK experiencing a lot of strikes at the moment (2022/3) and there have been tent",slot 9 delta +0.000,none,0.0,0.0,0.0
+politics,77995_1024,"Why did Poland call up the military reserve in December 2022?
+<p>Why has Poland called up the reserve of 200,000 when their existing manpower is 150,000?</p>
+<p",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+politics,78217_1019,"Did the US and allies ever apologize for their invasion of Iraq?
+<p>In reference to <a href=""https://politics.stackexchange.com/questions/78198/did-soviet-union",slot 10 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+politics,81967_1013,"Has the US president been uninvited to an international event before?
+<p>Is it unprecedented for the US president to be uninvited to an international event like",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+politics,82063_1008,"For countries with a runoff system, how often does the second place candidate end up winning in the second round?
+<p>Countries such as France or Argentina have ",none,slot 9 delta +0.000,0.0,0.0,0.0
+politics,83279_999,"What was the most succesful military dictatorship in the last 200 years in terms of economic growth?
+<p>Military dictatorships are controlled by military office",slot 9 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+politics,83581_996,"How reasonable are fears of Russia attacking any NATO country in the foreseeable future?
+<p>Consider the facts that Article 5 is the cornerstone of NATO allianc",slot 10 delta +0.000,none,0.0,0.0,0.0
+politics,83619_994,"Which is the first government to have monetized government debt in order to fund government debt without paying a high interest rate?
+<blockquote>
+<p>So, how ha",none,slot 9 delta +0.000,0.0,0.0,0.0
+politics,83672_990,"What sources imply that the office of President was deliberately excluded from the 14th amendment?
+<p>The Fourteenth Amendment, as passed by Congress and ratifi",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+politics,83771_988,"Are there many high level political appointees who have served two countries in quick succession?
+<p><a href=""https://en.wikipedia.org/wiki/Stanley_Fischer"" rel",slot 9 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+politics,87402_977,"How many times did California lawmakers introduce a universal health care bill?
+<blockquote>
+<p>California lawmakers have once again introduced a universal heal",none,slot 9 delta +0.000,0.0,0.0,0.0
+politics,87624_975,"Why is the Democratic convention after State ballot deadlines?
+<p>There is <a href=""https://politics.stackexchange.com/q/86877/26455"">an existing question</a> a",slot 10 delta +0.000,none,0.0,0.0,0.0
+politics,87918_970,"How often do snap elections end up in favor of the side that triggered them?
+<p>Both France and the UK are about to head into a snap election. Presumably both M",slot 8 delta +0.000,none,0.0,0.0,0.0
+politics,88090_967,"Who first promoted the idea that the primary purpose of government is to protect its citizens?
+<p>Who first promoted the idea that the primary purpose of govern",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+politics,88444_960,"Why did so few U.S. presidents decide to end a reelection campaign?
+<blockquote>
+<p>(NEXSTAR) – With President Biden dropping out of the 2024 race, he
+becomes o",slot 10 delta +0.000,none,0.0,0.0,0.0
+politics,88829_955,"Are any studies tracking how long it takes Western countries, on average, to deport rejected/ineligible refugees?
+<p>This question is motivated by a current  ev",none,slot 9 delta +0.000,0.0,0.0,0.0
+politics,89482_949,"Are there past polls in the US on whether the current election was then deemed &quot;the most important election of their lifetime&quot;?
+<p><a href=""https://ed",none,slot 8 delta +0.000,0.0,0.0,0.0
+politics,90545_934,"How much sanction lifting and aid assistance has been provided to Syria so far (Feb, 2025), after its December 2024 ousting of Assad?
+<p>Basically, what the tit",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+politics,91586_923,"Recent historical examples of how mineral deals or other resource agreements affected security?
+<p><strong>Are there any recent historical examples of how miner",slot 8 delta +0.000,none,0.0,0.0,0.0
+politics,92743_919,"Which &quot;serious candidate&quot; for US president ca. 2011 could have been characterized as one who &quot;revels in executing the innocent&quot;?
+<p>In the e",slot 10 delta +0.000,none,0.0,0.0,0.0
+politics,93372_915,"It is widely reported that COGAT stopped aid starting from March 2nd. What official statements do we have from the Israeli government to that effect?
+<p>Here's ",none,slot 9 delta +0.000,0.0,0.0,0.0
+quant,75646_1077,"Is the Gittins index useful in determining when to change an investment/trading strategy?
+<p>I've been reading about multi-armed bandits and the explore/exploit",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+quant,77873_1071,"How to get returns when investment capital is changing?
+<p>This question came out of the Kelly rule. Curious how returns are calculated when allocated investmen",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+quant,79564_1066,"Subpar Results of Historical Portfolio Optimization with Few Assets
+<p>Probably a simple question to the P-Quants here, but if you performed portfolio optimizat",slot 10 delta +0.000,none,0.0,0.0,0.0
+quant,83939_1059,"How can we determine the minimum viable holding period given granular data and transaction costs?
+<p>Given assumptions around transaction costs (e.g., slippage,",none,slot 10 delta +0.000,0.0,0.0,0.0
+travel,184615_1180,"Am I allowed to leave Mainland China without using the onward ticket used to get visa-free entry (I&#39;ll leave in due time)? If so must I notify anyone?
+<p>I ",slot 9 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+travel,186051_1165,"Have Aeon ATMs in Thailand ceased accepting foreign/western ATM cards?
+<p>I've always used Aeon ATMs in Thailand because they charge ฿70 less than every other b",none,slot 8 delta +0.000,0.0,0.0,0.0
+travel,188596_1148,"Is it possible to check in one bag in advance and another on the morning of departure?
+<p>If you have an airport/airline that allows checking in bags the day be",slot 10 delta +0.000,none,0.0,0.0,0.0
+travel,188979_1146,"Cyprus &amp; Schengen: 90/180
+<p>Cyprus is not yet in Schengen, but has a similar 90/180 rule.</p>
+<p>Suppose someone visa-exempt spends eighty days in Cyprus, ",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+travel,190042_1140,"My ESTA is set to expire in the middle of an upcoming trip to the US. What should I do?
+<p>An ESTA is valid for two years.</p>
+<p>I am encountering the case whe",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+travel,190846_1134,"90/180 day rule with student resident permit, how strict it is applied
+<p>I have a student residence permit valid for another 2 years from Germany, I am from Tu",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+travel,191493_1129,"Flight search engine that can show the cheapest flight excluding self transfer and third-party deals
+<p>Hi,
+I'm trying to find the cheapest ticket betweentwo ci",slot 8 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+travel,192320_1118,"UK: What happens when the duration of a multi-leg super-off-peak train ticket is longer than the super-off-peak window?
+<p>Rail lines in the UK sell &quot;super",none,slot 10 delta +0.000,0.0,0.0,0.0
+travel,193643_1110,"Verdi DE strike imminent- how are flights affected?
+<p>There is a one-day strike scheduled shortly that  will apparently affect  all the major airports in Germa",none,slot 10 delta +0.000,0.0,0.0,0.0
+travel,200183_1100,"How long does it take to obtain a r&#233;c&#233;piss&#233; for the renewal of a titre de s&#233;jour? (France)
+<p>I have a flight tomorrow from France to a non-",slot 9 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+workplace,168198_1227,"When it is a good time for asking a raise after acquisition?
+<p>I used to work for a small software consulting company (less than 5 people) as a software develo",slot 10 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0
+workplace,169903_1225,"Is a long waiting period for an official offer bad?
+<p>I recently received two internship offers that I'm enthusiastic about. One is with a very large Fortune 5",slot 8 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+workplace,181712_1212,"Negotiating a starting date (one week)
+<p>So I got a GREAT offer and they want me to start in the middle of February (14th).
+I have a very good relationship wit",slot 9 delta +0.000,slot 10 delta +0.000,0.0,0.0,0.0
+workplace,181803_1211,"I received offer proposal but not offer letter yet due to winter holidays. Should I resign now?
+<p>I am from India.</p>
+<p>I recently got a call from recruiter ",none,slot 9 delta +0.000,0.0,0.0,0.0
+workplace,190938_1203,"What is the value of an old reference?
+<p>A little background, I worked at a company for two years out of college. I left this company almost eight years ago no",slot 10 delta +0.000,slot 9 delta +0.000,0.0,0.0,0.0
+workplace,194500_1197,"How can I stay relevant in the Network Engineering space if I took a 2 year gap?
+<p>I’m 23 and have just finished a network engineering apprenticeship where I h",slot 9 delta +0.000,slot 8 delta +0.000,0.0,0.0,0.0

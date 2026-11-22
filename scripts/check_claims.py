@@ -370,6 +370,17 @@ CLAIMS = [
      lambda: jload("replacement_v2/exp_llama31_judge_dev.json")["policies"]["direct"]["swap_counts"]["harmful"],
      "replacement_v2/exp_llama31_judge_dev.json", False),
 
+    # --- swap composition of the two judges (2026-11-22) ---------------------
+    ("Direct drops relevant swaps", 19,
+     lambda: jload("replacement_v2/swap_composition_dev.json")["direct"]["drops_relevant"],
+     "replacement_v2/swap_composition_dev.json", False),
+    ("Llama drops relevant swaps", 12,
+     lambda: jload("replacement_v2/swap_composition_dev.json")["llama"]["drops_relevant"],
+     "replacement_v2/swap_composition_dev.json", False),
+    ("Direct adds relevant swaps", 31,
+     lambda: jload("replacement_v2/swap_composition_dev.json")["direct"]["adds_relevant"],
+     "replacement_v2/swap_composition_dev.json", False),
+
 ]
 
 
