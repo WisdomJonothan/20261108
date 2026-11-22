@@ -39,6 +39,14 @@ dev domains raises recall@100 everywhere (+1.5 to +8.6 points) but the frozen CE
 is mixed: bitcoin 0.2143->0.2199, quant 0.1538->0.1872, law 0.4357->0.4061 (mean +0.0032,
 about +0.0007 on the 13-domain macro), so the full-corpus encode was not run.
 
+**Best dev configuration (2026-11-22).** The corrected widened action space judged at six pairs per
+query (12 prompts) with head-first ordering reaches **0.3735 (+0.0154, CI [+0.0065,+0.0256])**,
+against 0.3646 (+0.0065) for the tail arm at 18 prompts; with the dense+CE prior ordering it is
+0.3703 (+0.0122, CI [+0.0054,+0.0203]). The paired advantage over the tail arm includes zero
+(+0.0056 [−0.0009,+0.0127]), so the honest claim is a stronger and cheaper configuration, not a
+proven replacement for the tail arm. Configuration frozen in
+`configs/competition_config_20261122.json`.
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate

@@ -1,0 +1,59 @@
+{
+  "name": "competition_config_20261122",
+  "frozen_start": "results/aggregate_sub_sft_e2bc_dev.json domain_macro 0.35809852326897723",
+  "candidate_pool": {
+    "rule": "union(dense_mxbai top-100, frozen full-query CE top-100) minus frozen top-10, ordered by best rank in either source (dense first on ties), keep 20",
+    "builder": "scripts/expand_actions3.py build()"
+  },
+  "actions": "slot 1..10 x 20 candidates; judged pairs ordered head-first (slot, then prior)",
+  "prior": "(dense_score_candidate - dense_score_incumbent + ce_z_candidate - ce_z_incumbent) / log2(slot+2)",
+  "budget_pairs": 6,
+  "prompts_per_query": 12,
+  "judge": {
+    "model": "Qwen3-4B-Instruct-2507",
+    "chat_template": true,
+    "orders": [
+      "AB",
+      "BA"
+    ],
+    "option_scoring": "softmax over single-token ids of A/B/C at the last position",
+    "prompt": "Choose which passage is more relevant to the question. Output A or B. Output C if tied."
+  },
+  "decision": "eligible iff the challenger is argmax in BOTH orders and merged challenger prob > 0.5; execute the single eligible swap with the largest merged probability; otherwise keep the frozen ranking",
+  "dev_result": {
+    "macro": 0.3735,
+    "delta": 0.0154,
+    "ci95": [
+      0.0065,
+      0.0256
+    ],
+    "source": "replay of results/replacement_v2/expanded3_fixed_dev.json at k=6, head-first ordering"
+  },
+  "alternatives": {
+    "prior_ordering_k6": {
+      "macro": 0.3703,
+      "delta": 0.0122,
+      "ci95": [
+        0.0054,
+        0.0203
+      ]
+    },
+    "tail_direct_18prompts": {
+      "macro": 0.3646,
+      "delta": 0.0065,
+      "ci95": [
+        0.0021,
+        0.0117
+      ]
+    },
+    "learned_selector_cv": {
+      "delta": 0.0149,
+      "ci95": [
+        0.0061,
+        0.0249
+      ],
+      "note": "5-fold CV over dev queries; +0.0036 [-0.0034,+0.0110] over the frozen rule"
+    }
+  },
+  "caveat": "k=6 was chosen after seeing the budget curve; the gain is significant vs the frozen system but the paired advantage over the tail arm includes zero (+0.0056 [-0.0009,+0.0127])."
+}

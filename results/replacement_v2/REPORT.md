@@ -542,3 +542,25 @@ adopted.
 Together these rule out "the CE was trained for the wrong objective" and "the fusion weight
 was never tuned" as explanations of the remaining gap; the gap sits in the cross-encoder's
 ranking quality itself (pool oracle 0.7446 versus 0.3581 delivered).
+## 13. Widened action space as the competition configuration (2026-11-22)
+
+The corrected widened space (top-100 candidate pool, any of the ten slots, one swap) replayed at
+six judged pairs per query is the strongest configuration measured on dev:
+
+| configuration | prompts/query | nDCG@10 | delta | 95% CI |
+| --- | --- | --- | --- | --- |
+| frozen | 0 | 0.3581 | - | - |
+| tail replacement (Direct), 9 pairs | 18 | 0.3646 | +0.0065 | [+0.0021,+0.0117] |
+| widened, 6 pairs, prior order | 12 | 0.3703 | +0.0122 | [+0.0054,+0.0203] |
+| widened, 6 pairs, head-first order | 12 | 0.3735 | +0.0154 | [+0.0065,+0.0256] |
+
+Head-first ordering (rank by slot, then by the dense+CE prior) is nominally better than the prior
+ordering by +0.0032, but the paired interval spans zero [-0.0015,+0.0094], so the ordering is not
+established; both are reported. A ridge selector over the judged actions, cross-validated over the
+519 dev queries, reaches +0.0149 [+0.0061,+0.0249], i.e. +0.0036 [-0.0034,+0.0110] over the
+frozen decision rule, so learning the selection is promising but not yet established.
+
+Cost: six judged pairs cost 12 prompts per query against 18 for the tail arm, with fewer tokens
+(about 1.8 M against 5.3 M over 519 queries), so the stronger configuration is also the cheaper one.
+The caveat that applies to every dev number stands: k=6 was picked after inspecting the budget
+curve, and the paired advantage over the tail arm includes zero.
