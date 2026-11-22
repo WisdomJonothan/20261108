@@ -1,20 +1,29 @@
 {
-  "python": "Python 3.12.16",
-  "torch": "2.7.0+cu126 12.6 NVIDIA GeForce RTX 3090",
-  "transformers": "5.22.2",
-  "models": {
-    "Qwen3-4B-Instruct-2507": [
-      "3957900840 /tmp/reteco/models/Qwen3-4B-Instruct-2507/model-00001-of-00003.safetensors",
-      "3987450520 /tmp/reteco/models/Qwen3-4B-Instruct-2507/model-00002-of-00003.safetensors",
-      "99630640 /tmp/reteco/models/Qwen3-4B-Instruct-2507/model-00003-of-00003.safetensors"
-    ],
-    "Qwen3-Reranker-4B": [
-      "4058781760 /tmp/reteco/models/Qwen3-Reranker-4B/model-00001-of-00002.safetensors",
-      "3984833200 /tmp/reteco/models/Qwen3-Reranker-4B/model-00002-of-00002.safetensors"
-    ],
-    "bge-reranker-v2-m3": [
-      "2271071852 /homeC/wujiaheng/RETECO/models/bge-reranker-v2-m3/model.safetensors"
-    ]
-  },
-  "gpu": "NVIDIA GeForce RTX 3090, 24576 MiB\nNVIDIA GeForce RTX 3090, 24576 MiB\nNVIDIA GeForce RTX 3090, 24576 MiB\nNVIDIA GeForce RTX 3090, 24576 MiB"
+ "python": "Python 3.12.16",
+ "torch": "2.7.0+cu126 12.6 NVIDIA GeForce RTX 3090",
+ "transformers": "5.22.2",
+ "models": {
+  "Qwen3-4B-Instruct-2507": [
+   "3957900840 /tmp/reteco/models/Qwen3-4B-Instruct-2507/model-00001-of-00003.safetensors",
+   "3987450520 /tmp/reteco/models/Qwen3-4B-Instruct-2507/model-00002-of-00003.safetensors",
+   "99630640 /tmp/reteco/models/Qwen3-4B-Instruct-2507/model-00003-of-00003.safetensors"
+  ],
+  "Qwen3-Reranker-4B": [
+   "4058781760 /tmp/reteco/models/Qwen3-Reranker-4B/model-00001-of-00002.safetensors",
+   "3984833200 /tmp/reteco/models/Qwen3-Reranker-4B/model-00002-of-00002.safetensors"
+  ],
+  "bge-reranker-v2-m3": [
+   "2271071852 /homeC/wujiaheng/RETECO/models/bge-reranker-v2-m3/model.safetensors"
+  ]
+ },
+ "gpu": "NVIDIA GeForce RTX 3090, 24576 MiB\nNVIDIA GeForce RTX 3090, 24576 MiB\nNVIDIA GeForce RTX 3090, 24576 MiB\nNVIDIA GeForce RTX 3090, 24576 MiB",
+ "harness_provenance": {
+  "claim_harness": "scripts/benchmark_pairwise_replacement_v2.py",
+  "first_committed": "c2e4f84 (2026-11-20 14:36:56 +0800)",
+  "headline_artefact_committed": "671cbcc (2026-11-20 02:53:32 +0800)",
+  "note": "The headline artefacts predate the committed harness by 11h43m: they were produced by the same run scripts that were committed later in c2e4f84 and then edited twice (left-padding fix 96c974d, combined-prompt/domains fix 5be34f1). Direct's stored probabilities were re-checked against the HEAD harness by re-scoring bitcoin+cardano (405 overlapping pairs, mean |dp| 0.00176, 99.8% same side) and against the widened harness on 1,686 shared pairs (mean |dp| 0.0130, 92.8% within 0.05, 98.9% same side; results/replacement_v2/cmp_fixed_vs_direct.txt).",
+  "widened_harness": "reteco_server/expand_actions3.py (chat template + symmetric option names)",
+  "widened_probability_cache": "results/replacement_v2/expanded3_fixed_probs_dev.json (gzipped)"
+ },
+ "frozen_run_files_note": "configs/replacement_study_20261120.json names the full dev runs runs/sub_sft_e2bc_<domain>_dev.trec; the repository ships only the *_dev_head10.trec prefixes plus the verified candidates_dev.json, so the candidate builder cannot be re-run from the repo alone. The pool rule itself is re-derived and checked in results/audit/a2_pool_rebuild.py."
 }

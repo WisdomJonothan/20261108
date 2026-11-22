@@ -153,10 +153,12 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
   the cap stays at 3 because the cap-2 advantage was observed post hoc.
 * **Pair budget (single prediction cache).** Replaying the same Direct
   predictions while judging only k pairs: at k=1 the deltas are -0.0007
-  (frozen order), +0.0043 (cheap-gap), +0.0037 (random), +0.0075 (oracle);
-  at k=3 +0.0002 / +0.0046 / +0.0060 / +0.0115; at k=9 every ordering returns
-  +0.0065. Judging some pair early captures most of the gain; the gap order
-  saves calls rather than adding quality.
+  (frozen order), +0.0043 (cheap-gap), +0.0007 (random), +0.0075 (oracle);
+  at k=3 +0.0002 / +0.0046 / -0.0014 / +0.0115; at k=9 every ordering returns
+  +0.0065. Judging some pair early captures most of the gain. The gap order is
+  ahead at k=1 but inside one standard error of a random pair at k=3, so the
+  ordering saves calls rather than adding quality. The random ordering uses a
+  process-stable hash (`zlib.crc32`) and reproduces bit-exactly.
 * **FollowIR transfer (three collections).** Re-running the frozen pipeline on
   Core17, News21 and Robust04 gives graded nDCG@10 (original / changed
   instructions): 0.2674 / 0.1761, 0.3401 / 0.2849, 0.3092 / 0.2382. Fusion

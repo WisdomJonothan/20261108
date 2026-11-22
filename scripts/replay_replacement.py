@@ -78,11 +78,14 @@ def candidates_for(exp):
 
 
 def load_candidates(name):
+    """Key by (domain, qid): FollowIR's two instruction conditions share query ids."""
     rows = load(name)["queries"]
     out = {}
     for row in rows:
         row["gold"] = read_qrels(row["domain"]).get(row["qid"], set())
-        out[row["qid"]] = row
+        key = (row["domain"], str(row["qid"]))
+        assert key not in out, f"duplicate (domain, qid): {key}"
+        out[key] = row
     return out
 
 
@@ -91,26 +94,26 @@ def replay_policy(exp, policy, cand_by_key):
     details = {}
     for rec in exp["pair_details"]:
         for p in rec["pairs"]:
-            details[(rec["qid"], p["slot_rank"], round(p["delta_ndcg"], 9))] = p
+            details[(rec["domain"], str(rec["qid"]), p["slot_rank"], round(p["delta_ndcg"], 9))] = p
     chosen = {}
     for r in pol["pair_records"]:
         if not r.get("chosen"):
             continue
-        key = (r["qid"], r["slot_rank"], round(r["delta_ndcg"], 9))
+        key = (r["domain"], str(r["qid"]), r["slot_rank"], round(r["delta_ndcg"], 9))
         p = details[key]
-        chosen[r["qid"]] = (p["slot_rank"] - 1, p["challenger"])
+        chosen[(r["domain"], str(r["qid"]))] = (p["slot_rank"] - 1, p["challenger"])
     per_query, counts = [], {"helpful": 0, "harmful": 0, "neutral": 0, "no_swap": 0}
     gained = lost = 0.0
-    for qid, row in cand_by_key.items():
+    for key, row in cand_by_key.items():
         top = list(row["frozen_top10"])
         base = ndcg10(top, row["gold"])
         ranking = list(top)
-        if qid in chosen:
-            slot, doc = chosen[qid]
+        if key in chosen:
+            slot, doc = chosen[key]
             ranking[slot] = doc
         nd = ndcg10(ranking, row["gold"])
         delta = nd - base
-        if qid in chosen:
+        if key in chosen:
             if delta > 1e-12:
                 counts["helpful"] += 1
             elif delta < -1e-12:
@@ -119,7 +122,7 @@ def replay_policy(exp, policy, cand_by_key):
                 counts["neutral"] += 1
         gained += max(delta, 0.0)
         lost += min(delta, 0.0)
-        per_query.append({"domain": row["domain"], "qid": qid, "baseline": base,
+        per_query.append({"domain": row["domain"], "qid": row["qid"], "baseline": base,
                           "policy": nd, "delta": delta})
     counts["no_swap"] = len(per_query) - len(chosen)
     return per_query, counts, gained, lost
@@ -177,7 +180,7 @@ def replay_ablation(probs, rule, cand_by_key):
     per_query = []
     counts = {"helpful": 0, "harmful": 0, "neutral": 0, "no_swap": 0}
     for rec in probs["pair_details"]:
-        row = cand_by_key[rec["qid"]]
+        row = cand_by_key[(rec["domain"], str(rec["qid"]))]
         got = choose_pair(rec["pairs"], rule)
         if got is None:
             delta = 0.0

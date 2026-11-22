@@ -1,0 +1,279 @@
+{
+ "baseline_macro": 0.35809852326897723,
+ "ordering_only": {
+  "macro_if_frozen_top10_perfectly_reordered": 0.5036151159280272,
+  "delta_points": 14.551659265904998,
+  "n_queries_improvable_by_reordering": 296,
+  "note": "same 10 documents, ideal order; isolates position error from missing-document error"
+ },
+ "pool_oracle": {
+  "macro_ideal_rerank_of_frozen_pool100": 0.7446226123514619,
+  "delta_points": 38.65240890824847,
+  "zero_class": {
+   "bitcoin": {
+    "n": 13,
+    "n_with_pool_gold": 9,
+    "oracle_points_if_fixed": 0.013357162124582943,
+    "median_of_domain": 0.17856574148655402,
+    "nonzero_mean": 0.3781460052310998,
+    "median_points_if_fixed": 0.005952191382885134,
+    "nonzero_mean_points_if_fixed": 0.01260486684103666
+   },
+   "cardano": {
+    "n": 4,
+    "n_with_pool_gold": 3,
+    "oracle_points_if_fixed": 0.01340075483469466,
+    "median_of_domain": 0.18457569677956817,
+    "nonzero_mean": 0.3078861727922649,
+    "median_points_if_fixed": 0.003786168139068065,
+    "nonzero_mean_points_if_fixed": 0.006315613800866972
+   },
+   "economics": {
+    "n": 9,
+    "n_with_pool_gold": 5,
+    "oracle_points_if_fixed": 0.010853678693177096,
+    "median_of_domain": 0.15130120674940675,
+    "nonzero_mean": 0.39255846041801906,
+    "median_points_if_fixed": 0.004189879571522033,
+    "nonzero_mean_points_if_fixed": 0.010870849673114375
+   },
+   "genealogy": {
+    "n": 10,
+    "n_with_pool_gold": 3,
+    "oracle_points_if_fixed": 0.004576760261073,
+    "median_of_domain": 0.39106560501896365,
+    "nonzero_mean": 0.5683460952903324,
+    "median_points_if_fixed": 0.008594848461955245,
+    "nonzero_mean_points_if_fixed": 0.0124911229734139
+   },
+   "history": {
+    "n": 46,
+    "n_with_pool_gold": 32,
+    "oracle_points_if_fixed": 0.007805161939152639,
+    "median_of_domain": 0.35691477066381655,
+    "nonzero_mean": 0.48474653964330855,
+    "median_points_if_fixed": 0.0052622049520947315,
+    "nonzero_mean_points_if_fixed": 0.007146904110125704
+   },
+   "hsm": {
+    "n": 10,
+    "n_with_pool_gold": 5,
+    "oracle_points_if_fixed": 0.006837606837606838,
+    "median_of_domain": 0.44149241373678083,
+    "nonzero_mean": 0.5980434666056585,
+    "median_points_if_fixed": 0.0075468788672953995,
+    "nonzero_mean_points_if_fixed": 0.010222965241122369
+   },
+   "iota": {
+    "n": 0,
+    "n_with_pool_gold": 0,
+    "oracle_points_if_fixed": 0.0,
+    "median_of_domain": 0.8194270280062366,
+    "nonzero_mean": 0.8382954784660104,
+    "median_points_if_fixed": 0.0,
+    "nonzero_mean_points_if_fixed": 0.0
+   },
+   "law": {
+    "n": 3,
+    "n_with_pool_gold": 2,
+    "oracle_points_if_fixed": 0.013986013986013986,
+    "median_of_domain": 0.44615333764087994,
+    "nonzero_mean": 0.5990412670829294,
+    "median_points_if_fixed": 0.00935986023022825,
+    "nonzero_mean_points_if_fixed": 0.012567299309432085
+   },
+   "monero": {
+    "n": 8,
+    "n_with_pool_gold": 5,
+    "oracle_points_if_fixed": 0.013796907603515261,
+    "median_of_domain": 0.13012668333070054,
+    "nonzero_mean": 0.35732286311398503,
+    "median_points_if_fixed": 0.004214629419617831,
+    "nonzero_mean_points_if_fixed": 0.011573210141343646
+   },
+   "politics": {
+    "n": 14,
+    "n_with_pool_gold": 7,
+    "oracle_points_if_fixed": 0.008813231943556791,
+    "median_of_domain": 0.3903800499921017,
+    "nonzero_mean": 0.6227040291495181,
+    "median_points_if_fixed": 0.009342428546819529,
+    "nonzero_mean_points_if_fixed": 0.014902318646313256
+   },
+   "quant": {
+    "n": 5,
+    "n_with_pool_gold": 3,
+    "oracle_points_if_fixed": 0.0160186609137555,
+    "median_of_domain": 0.06506334166535027,
+    "nonzero_mean": 0.307592572279794,
+    "median_points_if_fixed": 0.0025024362178980874,
+    "nonzero_mean_points_if_fixed": 0.011830483549222845
+   },
+   "travel": {
+    "n": 12,
+    "n_with_pool_gold": 9,
+    "oracle_points_if_fixed": 0.017515632309784392,
+    "median_of_domain": 0.21139491720332515,
+    "nonzero_mean": 0.4156008232325257,
+    "median_points_if_fixed": 0.006504458990871543,
+    "nonzero_mean_points_if_fixed": 0.012787717637923867
+   },
+   "workplace": {
+    "n": 4,
+    "n_with_pool_gold": 3,
+    "oracle_points_if_fixed": 0.01635776367324207,
+    "median_of_domain": 0.46927872602275644,
+    "nonzero_mean": 0.6098252351748258,
+    "median_points_if_fixed": 0.013126677650986194,
+    "nonzero_mean_points_if_fixed": 0.017058048536358762
+   }
+  },
+  "n_zero": 138,
+  "n_zero_with_pool_gold": 86,
+  "zero_class_oracle_macro": 0.5014178583891324,
+  "zero_class_oracle_points": 14.33193351201552,
+  "zero_class_median_points": 8.038266243124205,
+  "zero_class_nonzero_mean_points": 14.037140046027444,
+  "share_of_pool_headroom_in_zero_class": 0.37079017626135763
+ },
+ "union_ladder": {
+  "pool": "union(dense top20, CE top20) minus frozen top10; ideal k-slot replacement",
+  "s17full": {
+   "k1": 0.5103619641669876,
+   "k2": 0.5331341771533334,
+   "k3": 0.5346414698887405,
+   "k3_slots8_10": 0.4218957694828722,
+   "k1_slots8_10": 0.40975356256898093
+  },
+  "sft_e2b": {
+   "k1": 0.48916074642963314,
+   "k2": 0.514203954452821,
+   "k3": 0.5157502771996592,
+   "k3_slots8_10": 0.41700388922038,
+   "k1_slots8_10": 0.40351338426362626
+  },
+  "committed_rungs": {
+   "depth20_k1_any_slot": 0.5103619641669878,
+   "depth100_k1_dense_only": 0.5832534839716328,
+   "depth100_k2_dense_only": 0.6299273518887838,
+   "depth100_full_rerank": 0.7446226123514618
+  }
+ },
+ "depth_curves": {
+  "dense_actual_k10": 0.2942754169514171,
+  "dense_oracle_by_depth": {
+   "10": 0.44367253117316374,
+   "20": 0.5373264814821573,
+   "50": 0.660683927643424,
+   "100": 0.7446226123514619,
+   "200": 0.8150254303739046,
+   "500": 0.893912411509496,
+   "1000": 0.941592367272022
+  },
+  "ce_actual_k10": 0.33095821492630095,
+  "ce_tag": "s17full",
+  "ce_oracle_by_depth": {
+   "10": 0.5035393883430873,
+   "20": 0.5817664820728361,
+   "50": 0.6831434675151246,
+   "100": 0.7446226123514619
+  },
+  "committed_depth_analysis_oracle_column": {
+   "10": 0.3852,
+   "20": 0.4844,
+   "50": 0.6086,
+   "100": 0.7446
+  },
+  "note": "committed results/DEPTH_ANALYSIS.md prints recall@k in the oracle column at k=10/20/50; its k>=100 rows match the official oracle definition"
+ },
+ "per_domain_policy_specialisation": {
+  "policies_measured": {
+   "direct": 0.3646087789208584,
+   "contextual": 0.3631508477223465,
+   "perdoc": 0.3597862133030744,
+   "active": 0.36261533847799243
+  },
+  "best_policy_per_domain": {
+   "bitcoin": {
+    "policy": "contextual",
+    "macro": 0.21428273629762323,
+    "baseline": 0.21428273629762323,
+    "delta": 0.0
+   },
+   "cardano": {
+    "policy": "direct",
+    "macro": 0.23520099157164953,
+    "baseline": 0.22578319338099426,
+    "delta": 0.009417798190655274
+   },
+   "economics": {
+    "policy": "direct",
+    "macro": 0.2522448236212346,
+    "baseline": 0.2512374146675322,
+    "delta": 0.0010074089537024378
+   },
+   "genealogy": {
+    "policy": "active",
+    "macro": 0.40856413672805053,
+    "baseline": 0.40596149663595177,
+    "delta": 0.0026026400920987625
+   },
+   "history": {
+    "policy": "contextual",
+    "macro": 0.3972944878037834,
+    "baseline": 0.3918367862116744,
+    "delta": 0.00545770159210901
+   },
+   "hsm": {
+    "policy": "perdoc",
+    "macro": 0.47418545253993866,
+    "baseline": 0.46514491847106776,
+    "delta": 0.009040534068870898
+   },
+   "iota": {
+    "policy": "direct",
+    "macro": 0.8382954784660104,
+    "baseline": 0.8382954784660104,
+    "delta": 0.0
+   },
+   "law": {
+    "policy": "active",
+    "macro": 0.4621632569192785,
+    "baseline": 0.4356663760603123,
+    "delta": 0.026496880858966232
+   },
+   "monero": {
+    "policy": "direct",
+    "macro": 0.22347454584418755,
+    "baseline": 0.20687113127651763,
+    "delta": 0.016603414567669922
+   },
+   "politics": {
+    "policy": "perdoc",
+    "macro": 0.4399246302231248,
+    "baseline": 0.4289738867474458,
+    "delta": 0.010950743475678981
+   },
+   "quant": {
+    "policy": "direct",
+    "macro": 0.1661114055769335,
+    "baseline": 0.153796286139897,
+    "delta": 0.012315119437036504
+   },
+   "travel": {
+    "policy": "active",
+    "macro": 0.2700725657139435,
+    "baseline": 0.2493604939395154,
+    "delta": 0.020712071774428104
+   },
+   "workplace": {
+    "policy": "active",
+    "macro": 0.4048502130003044,
+    "baseline": 0.38807060420216183,
+    "delta": 0.016779608798142553
+   }
+  },
+  "macro_if_best_policy_per_domain_insample": 0.36820497879277403,
+  "delta_points": 1.0106455523796798
+ }
+}

@@ -28,6 +28,7 @@ import argparse
 import json
 import math
 import random
+import zlib
 from pathlib import Path
 
 import numpy as np
@@ -111,7 +112,9 @@ def main():
             pairs.append({"slot_rank": p["slot_rank"], "challenger": p["incoming_docid"],
                           "gap": abs(cheap_gap(p)), "merged": merged, "agree": agree,
                           "delta": pr["delta_ndcg"]})
-        rng = random.Random(SEED + hash(q["qid"]) % 100000)
+        # zlib.crc32 is stable across processes; the builtin hash() of a str is
+        # salted by PYTHONHASHSEED and made this curve irreproducible (audit 2026-11-22).
+        rng = random.Random(SEED + zlib.crc32(q["qid"].encode("utf-8")) % 100000)
         shuff = list(range(len(pairs)))
         rng.shuffle(shuff)
         rows.append({"domain": q["domain"], "qid": q["qid"], "gold": gold, "top": top,

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  22 NOV 2026 15:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  22 NOV 2026 17:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -703,7 +703,7 @@ Underfull \vbox (badness 7925) has occurred while \output is active []
 
 [5]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-69.
+71.
  (D:\miktex\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
@@ -713,28 +713,30 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 [6]
 
 
-Underfull \hbox (badness 2189) in paragraph at lines 214--215
+
+[7]
+Underfull \hbox (badness 2189) in paragraph at lines 216--217
  []\T1/ptm/b/n/10.95 (+20) Which pairs are asked, not in which or-
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 214--215
+Underfull \hbox (badness 1137) in paragraph at lines 216--217
 \T1/ptm/b/n/10.95 (+20) der.[] \T1/ptm/m/n/10.95 (+20) Ev-ery ac-tion of the wi
 dened pool was
  []
 
 
-Underfull \hbox (badness 3364) in paragraph at lines 214--215
+Underfull \hbox (badness 3364) in paragraph at lines 216--217
 \T1/ptm/m/n/10.95 (+20) judged, so each pol-icy re-plays at matched
  []
 
 
-Underfull \hbox (badness 4505) in paragraph at lines 214--215
+Underfull \hbox (badness 4505) in paragraph at lines 216--217
 \T1/ptm/m/n/10.95 (+20) bud-gets over one cache. The gap or-der
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--215
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
 \T1/ptm/m/n/10.95 (+20) gives $\OT1/cmr/m/n/10.95 +0\OML/cmm/m/it/10.95 :\OT1/c
 mr/m/n/10.95 0082\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 +0\OML/cmm/m/it/10.95
  :\OT1/cmr/m/n/10.95 0122\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 +0\OML/cmm/m/
@@ -743,7 +745,7 @@ L/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0112$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--215
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
 \T1/ptm/m/n/10.95 (+20) or-der $\OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 0\OML
 /cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0005\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.9
 5 +0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0036\OML/cmm/m/it/10.95 ; \OT1/cmr/
@@ -753,13 +755,13 @@ OT1/cmr/m/n/10.95 +0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0112$\T1/ptm/m/n/10
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--215
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
 \T1/ptm/m/n/10.95 (+20) a ran-dom or-der \T1/ptm/m/it/10.95 (+20) within the ju
 dged set
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--215
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
 \OT1/cmr/m/n/10.95 +0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0023\OML/cmm/m/it/
 10.95 ; \OT1/cmr/m/n/10.95 +0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0132\OML/c
 mm/m/it/10.95 ; \OT1/cmr/m/n/10.95 +0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 01
@@ -768,26 +770,24 @@ mm/m/it/10.95 ; \OT1/cmr/m/n/10.95 +0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 01
  []
 
 
-Underfull \hbox (badness 3525) in paragraph at lines 215--217
+Underfull \hbox (badness 3525) in paragraph at lines 217--219
 \T1/ptm/m/n/10.95 (+20) The widened space is also not spe-cific to
  []
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 215--217
+Underfull \hbox (badness 1762) in paragraph at lines 217--219
 \T1/ptm/m/n/10.95 (+20) the fused start: start-ing from the dense re-
  []
 
 
-Underfull \hbox (badness 1472) in paragraph at lines 215--217
+Underfull \hbox (badness 1472) in paragraph at lines 217--219
 \T1/ptm/m/n/10.95 (+20) triever alone, the same 18-action pool gives
  []
 
 
 
-[7]
 
-
-Underfull \hbox (badness 1194) in paragraph at lines 222--223
+Underfull \hbox (badness 1194) in paragraph at lines 224--225
 \T1/ptm/m/n/10.95 (+20) ques-tion and three to the con-di-tion ques-tion,
  []
 
@@ -796,52 +796,52 @@ Underfull \hbox (badness 1194) in paragraph at lines 222--223
 [8]
 
 
-Overfull \hbox (7.30167pt too wide) in paragraph at lines 238--247
+Overfull \hbox (7.30167pt too wide) in paragraph at lines 240--249
  [][] 
  []
 
 
 
 [9]
-Underfull \hbox (badness 1603) in paragraph at lines 257--265
+
+
+Underfull \hbox (badness 1603) in paragraph at lines 259--267
 \T1/ptm/m/n/10.95 (+20) in-struc-tion prop-erly, but the cor-rec-tion stage
  []
 
 
-
-
-Overfull \hbox (131.14832pt too wide) in paragraph at lines 280--290
+Overfull \hbox (131.14832pt too wide) in paragraph at lines 282--292
  [][] 
  []
 
 
-Underfull \hbox (badness 3679) in paragraph at lines 304--315
+
+[10]
+Underfull \hbox (badness 3679) in paragraph at lines 306--317
  []\T1/ptm/b/n/10.95 (+20) What the harm-ful swaps look like.[] \T1/ptm/m/n/10.
 95 (+20) The
  []
 
 
 
-[10]
 
 
-Underfull \hbox (badness 1024) in paragraph at lines 347--348
+[11]
+Underfull \hbox (badness 1024) in paragraph at lines 349--350
 []\T1/ptm/m/n/9 (+20) Jianlv Chen, Shi-tao Xiao, Peitian Zhang, Kun Luo,
  []
 
 
-Underfull \hbox (badness 2376) in paragraph at lines 347--348
+Underfull \hbox (badness 2376) in paragraph at lines 349--350
 \T1/ptm/m/n/9 (+20) Multi-Lingual, Multi-Functionality, Multi-Granularity
  []
 
 
-Underfull \hbox (badness 5431) in paragraph at lines 348--349
+Underfull \hbox (badness 5431) in paragraph at lines 350--351
 []\T1/ptm/m/n/9 (+20) mixedbread.ai. 2024. mxbai-embed-large-v1 model
  []
 
 
-
-[11]
 
 
 
@@ -849,9 +849,7 @@ Underfull \hbox (badness 5431) in paragraph at lines 348--349
 
 
 
-[13
-
-] [14] (main.aux)
+[13] [14] (main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-14>
@@ -864,13 +862,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 997F0968C673EB92177AAAE1D4A8F602;296.
  ) 
 Here is how much of TeX's memory you used:
- 15255 strings out of 469941
- 236445 string characters out of 5486262
- 692624 words of memory out of 5000000
- 41382 multiletter control sequences out of 15000+600000
- 697706 words of font info for 363 fonts, out of 8000000 for 9000
+ 15259 strings out of 469941
+ 236483 string characters out of 5486262
+ 692657 words of memory out of 5000000
+ 41383 multiletter control sequences out of 15000+600000
+ 697931 words of font info for 365 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,93p,2383b,622s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,93p,2383b,541s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <D:/miktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/miktex/fonts/type1/p
 ublic/amsfonts/cm/cmr10.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmr7.pfb>
 <D:/miktex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/miktex/fonts/type1/publi
@@ -879,7 +877,7 @@ c/amsfonts/cm/cmr9.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:
 rier/ucrr8a.pfb><D:/miktex/fonts/type1/urw/helvetic/uhvb8a.pfb><D:/miktex/fonts
 /type1/urw/times/utmb8a.pfb><D:/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/mik
 tex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (14 pages, 243030 bytes).
+Output written on main.pdf (14 pages, 245484 bytes).
 PDF statistics:
  227 PDF objects out of 1000 (max. 8388607)
  80 named destinations out of 1000 (max. 500000)

@@ -453,14 +453,41 @@ zero (-0.0008, +0.0044). At this point neither a stronger model nor smarter sele
 moves the result reproducibly, which is the stop condition of the capability/evidence
 programme; the system paper is written around the frozen Direct configuration.
 
-## 10. Conclusion (2026-11-21)
+## 10. Conclusion (2026-11-22)
 
 The frozen system re-verifies at 0.3580985233 and a bounded local comparison over a three-candidate
-tail pool improves it to 0.3646 (+0.0065, CI [+0.0021,+0.0117]), 35% of that pool's 0.0188 ceiling,
-and improves two other starting systems (+0.0106 dense, +0.0131 reranker start). Retained context,
-a learned gate, cheap-gap allocation, a widened top-100 action space, absolute condition checks,
-condition-focused pairs, query reasoning and the off-the-shelf reranker control do not add to that:
-each is reported above with its interval. The widened-space failure is located at the judgement
-(AUC 0.532; oracle selection +0.0593 versus oracle allocation +0.0003), which is where any further
-work has to start. FollowIR transfer reproduces the fusion advantage and a small Direct gain but no
-instruction following (p-MRR -0.0208..-0.0433). See docs/DECISIONS_20261121.md.
+tail pool improves it to 0.3646 (+0.0065, CI [+0.0021,+0.0117], sign-flip p is uninformative and a
+shuffle test over the same pool gives p = 0.0007), 35% of that pool's 0.0188 ceiling, and improves two
+other starting systems (+0.0106 dense, +0.0131 reranker start).
+
+What does not add to that, each reported above with its interval: retained context (paired -0.0015),
+the learned gate (it reproduces Direct and filters nothing at its calibration threshold), cheap-gap
+allocation (inside one standard error of a random pair at k=3), absolute condition checks (three swaps,
+all neutral), the condition-focused pair question on the fused start (+0.0044 alone, and its merged
+"either" rule only +0.0015 over Direct at twice the prompts), query reasoning as a query
+transformation (0.2933 -> 0.2930), the off-the-shelf reranker control (not better, interval includes
+zero) and a stronger judge or a longer evidence window (2x2 grid: capability -0.0024 at 112 words,
+evidence +0.0014, both marginal).
+
+The one correction that did reverse is the widened action space: once the inference path was made
+identical to the bounded arm (chat template, symmetric option names), 18 judged actions per query give
++0.0082 / +0.0122 / +0.0096 / +0.0112 at k = 2/6/12/18 against Direct's +0.0065 at 18 prompts, and
+reordering the same judgements by their true effect would buy +0.0258 at k = 2. The paired advantage
+over Direct is +0.0056 at k = 6 with CI [-0.0009,+0.0127], so it is a direction, not a result, and
+Direct stays the frozen configuration.
+
+FollowIR transfer reproduces the fusion advantage and a small Direct gain but no instruction
+following (p-MRR -0.0208..-0.0433 for the frozen system, -0.0055..-0.0139 for the judged arms). The
+score is low because 138 of 519 dev queries return nothing relevant in the top ten and 52 of those have
+no relevant document in the delivered top-100 at all, so the line of work reported here operates on the
+381 queries that already retrieve something (docs/SCORE_DIAGNOSIS_20261122.md).
+
+Limitations that a reviewer should weigh: at least 120 dev configurations were evaluated; the
+headline's CI-implied p is 0.0083, which survives a Bonferroni correction only for a family of six or
+fewer; six post-freeze variants on the same start exceed it (hybrid +0.0080, wide400 +0.0079, cap2
++0.0074, ce_or_dense_gap +0.0072, split 6/3 +0.0066, widened k=6 +0.0122) and every paired interval
+against Direct includes zero; the +0.005 acceptance threshold was written into the protocol file after
+the first run (the pool and the ceiling were frozen before it); and the widened-action harness postdates
+its artefacts, with the probability cache shipped so the decisions can be re-derived.
+
+See docs/DECISIONS_20261121.md and results/audit/AUDIT.md.

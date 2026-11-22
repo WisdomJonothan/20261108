@@ -1,8 +1,18 @@
 # Why the dev score is 0.3581
 
-*A diagnosis written before any further experiment. Numbers computed from
-`data/track1_tempo/*/qrels_dev.txt`, `results/replacement_v2/candidates_dev.json` and
-`results/replacement_v2/zero_recall_dev.json` (CPU, no model involved).*
+*A diagnosis of the frozen dev score. All numbers below are recomputed from
+`data/track1_tempo/*/qrels_dev.txt`, the raw TREC runs (`runs/`), and
+`results/replacement_v2/candidates_dev.json`; the machine-readable version is
+`results/analysis/SCORE_DIAGNOSIS.json` (produced by `results/analysis/score_diagnosis.py`,
+CPU only).*
+
+> **Correction note (2026-11-22).** An earlier revision of this document reported that
+> "the dense top-100 contains a relevant document for only 8 of the 138 zero queries".
+> That was a parsing bug: the readers `results/replacement_v2/zero_recall.py` /
+> `zero_depth.py` treated TREC column 3 (the rank) as the score and sorted every list by
+> descending rank, so the "top 100" slice was ranks 901-1000. The correct numbers are in
+> section 3 and replace the retracted ones; the two scripts and their artefacts
+> (`zero_recall_dev.json`, `zero_depth_dev.json`) are withdrawn.
 
 ## 1. The metric is dominated by a class of queries that score zero
 
@@ -41,45 +51,57 @@ the macro by up to 0.026.
 
 Replacing every zero with the mean of the non-zero queries *in the same domain* — an
 upper bound that requires no new information, only a working first stage — gives
-0.3581 → **0.472** (+0.114). The best measured local correction (Direct, tail swaps,
-LLM judging) is +0.0065, i.e. **1.8% of the headroom sits in the class the current
-method cannot see**.
+0.3581 -> **0.4985** (+0.1404). The median variant gives 0.4385 (+0.0804). The best
+measured local correction (Direct, tail swaps, LLM judging) is +0.0065, i.e. **1.8% of
+the zero-class headroom is what the current method captures**.
 
 ## 3. The zero class is a first-stage recall failure, not a reranking failure
 
-For the 138 zero queries, the best rank of any judged-relevant document:
+For the 138 zero queries, the best rank of any judged-relevant document in the dense
+mxbai run:
 
-| run | none | <=20 | 21-50 | 51-100 |
-| --- | --- | --- | --- | --- |
-| dense mxbai top-100 | **130** | 2 | 2 | 4 |
-| frozen CE rerank (fusion pool) | 52 | 4 | 24 | 58 |
+| depth reached | none | <=20 | <=50 | <=100 | <=200 | <=1000 |
+| --- | --- | --- | --- | --- | --- | --- |
+| zero queries (of 138) | **10** | 30 | 63 | **86** | 103 | 128 |
 
-So for 130 of the 138 queries the dense retriever never returns a relevant document in
-its top-100. A reranker, an LLM judge, another swap, or a bigger judge model cannot fix
-that: the document is not in the list. The cross-encoder's own pool does reach 86 of
-them, which means the information is reachable by *some* first stage — just not by this
-dense one.
+So for **52 of the 138** queries the dense retriever does not return a relevant document
+inside its top-100, and for 10 not even inside the top-1000. A reranker, an LLM judge,
+another swap, or a bigger judge model cannot fix that: the document is not in the list.
+The other 86 are recoverable by promoting a document that is already in the delivered
+top-100 — which is exactly the pool the frozen system hands to the reranker.
+
+Consequences for the ceilings:
+
+| intervention | ceiling | note |
+| --- | --- | --- |
+| ideal rerank of the delivered top-100 | 0.7446 (+0.3865) | assumes every pool document can be ranked optimally; 86/138 zero queries have pool gold |
+| ideal reorder of the same ten returned documents | 0.5036 (+0.1455) | 296/519 queries improvable by position alone |
+| the frozen cap-3, tail-slot, one-swap protocol | 0.3769 (+0.0188) | 68/519 queries have a beneficial swap |
+| Direct on that protocol | 0.3646 (+0.0065) | 34.6% of the protocol's ceiling |
+
+So 37.6% of the pool headroom is position error (reordering the same ten documents) and
+62.4% is wrong-document selection inside the pool.
 
 ## 4. What this says about the work done so far
 
 - The bounded-correction line (Direct, +0.0065, CI [+0.0021,+0.0117]) is real but it
   operates on the 381 queries that already retrieve something; with 3 candidates at the
   tail its ceiling is 0.3769, and we captured 34.6% of that.
-- The wide pool ceilings (0.4098 at top-20, 0.5833 at top-100 with any slot) are *also*
-  computed over lists that already contain a relevant document, so they overstate what
-  any reranker can do on the zero class.
+- Every widening of the action space tested so far (top-slot windows, denser candidate
+  pools) stays inside that same 0.3769-style ceiling and moves the macro by ~0.01.
 - Therefore the low score is not evidence that the method family is wrong; it is
-  evidence that the method family was applied to the wrong 73% of the metric.
+  evidence that the method family was applied to a small slice of the metric.
 
 ## 5. Where the next gain has to come from
 
 1. First-stage recall on the zero class: query decomposition / condition extraction,
    hybrid lexical + dense, or a retriever trained on this corpus (the SFT budget that
    went into the cross-encoder could go into the bi-encoder instead).
-2. Depth: the CE pool already reaches 86 of 138, so fusing a deeper or different
-   candidate source into the CE is a cheap prerequisite.
-3. Only then does reranking/judging matter — and there the measured ceiling is the
-   0.5833 ladder, not 0.3769.
+2. Promoting the 86 pool-reachable zero queries (a reranking/selection problem, but with
+   a much larger headroom than the tail protocol).
+3. Reranking and judging generally: the measured same-ten-reorder ceiling is 0.5036 and
+   the pool ceiling 0.7446, both far above the 0.3769 the protocol allows.
 
-Artefacts: `results/replacement_v2/zero_recall_dev.json` (per query, per run, best rank),
+Artefacts: `results/analysis/SCORE_DIAGNOSIS.json` (distribution, zero class, pool
+oracle, ordering-only ceiling, per-domain), `results/analysis/SCORE_DIAGNOSIS_EXTRA.json`,
 `results/replacement_v2/candidates_dev.json` (frozen pool).

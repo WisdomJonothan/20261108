@@ -1,0 +1,27 @@
+{
+ "artefact": "exp_direct_context_dev.json",
+ "draws": 3000,
+ "seed": 20261120,
+ "nulls": {
+  "shuffle": "within-query uniform replacement of the judged pair",
+  "signflip": "within-domain sign flip over moving queries"
+ },
+ "results": {
+  "direct": {
+   "macro": 0.006510255651881167,
+   "swaps": 324,
+   "moving_queries": 51,
+   "n_queries": 519,
+   "p_shuffle": 0.0006664445184938354,
+   "p_signflip": 0.506164611796068
+  },
+  "contextual": {
+   "macro": 0.005052324453369275,
+   "swaps": 253,
+   "moving_queries": 34,
+   "n_queries": 519,
+   "p_shuffle": 0.004665111629456847,
+   "p_signflip": 0.49450183272242587
+  }
+ }
+}

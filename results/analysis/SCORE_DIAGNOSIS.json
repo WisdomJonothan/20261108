@@ -1,0 +1,2544 @@
+{
+ "generated_by": [
+  "results/analysis/score_diagnosis.py",
+  "results/analysis/score_diagnosis_extra.py",
+  "results/analysis/score_diagnosis_specialisation.py",
+  "results/analysis/score_diagnosis_report.py"
+ ],
+ "meta": {
+  "frozen_baseline_macro": 0.35809852326897723,
+  "recomputed_from_head10": 0.35809852326897723,
+  "max_abs_per_query_diff_vs_score_files": 0.0,
+  "n_queries": 519,
+  "n_domains": 13,
+  "metric": "binary nDCG@10, mean within domain, equal weight across 13 domains",
+  "sources": {
+   "per_query_baseline": "results/score_sub_sft_e2bc_<domain>_dev.json:per_query",
+   "frozen_runs": "runs/sub_sft_e2bc_<domain>_dev_head10.trec",
+   "dense": "runs/dense_mxbai_<domain>_dev.trec (depth 1000)",
+   "ce_only": "runs/rerank_sft_e2b_<domain>_dev.trec (depth 100)",
+   "qrels": "data/track1_tempo/<domain>/qrels_dev.txt"
+  }
+ },
+ "headline": {
+  "frozen_dev_domain_macro": 0.35809852326897723,
+  "n_queries": 519,
+  "n_domains": 13,
+  "n_zero_queries": 138,
+  "zero_share": 0.2658959537572254,
+  "nanswerable": 519,
+  "theoretical_perfect_macro": 1.0,
+  "pool_oracle_100": 0.7446226123514619,
+  "ordering_only_ceiling": 0.5036151159280272,
+  "dense_10_oracle": 0.44367253117316374,
+  "dense_1000_oracle": 0.941592367272022
+ },
+ "distribution": {
+  "n": 519,
+  "n_zero": 138,
+  "zero_share": 0.2658959537572254,
+  "mean": 0.36436669567697244,
+  "median": 0.3065735963827292,
+  "mean_nonzero": 0.49634203426863177,
+  "median_nonzero": 0.45560514958746035,
+  "n_nonzero": 381,
+  "n_one": 31,
+  "deciles": [
+   {
+    "lo": 0.0,
+    "hi": 0.1,
+    "n": 145
+   },
+   {
+    "lo": 0.1,
+    "hi": 0.2,
+    "n": 45
+   },
+   {
+    "lo": 0.2,
+    "hi": 0.3,
+    "n": 61
+   },
+   {
+    "lo": 0.3,
+    "hi": 0.4,
+    "n": 57
+   },
+   {
+    "lo": 0.4,
+    "hi": 0.5,
+    "n": 42
+   },
+   {
+    "lo": 0.5,
+    "hi": 0.6,
+    "n": 25
+   },
+   {
+    "lo": 0.6,
+    "hi": 0.7,
+    "n": 57
+   },
+   {
+    "lo": 0.7,
+    "hi": 0.8,
+    "n": 17
+   },
+   {
+    "lo": 0.8,
+    "hi": 0.9,
+    "n": 25
+   },
+   {
+    "lo": 0.9,
+    "hi": 1.0,
+    "n": 45
+   }
+  ],
+  "hist": {
+   "0.0-0.1": 145,
+   "0.1-0.2": 45,
+   "0.2-0.3": 61,
+   "0.3-0.4": 57,
+   "0.4-0.5": 42,
+   "0.5-0.6": 25,
+   "0.6-0.7": 57,
+   "0.7-0.8": 17,
+   "0.8-0.9": 25,
+   "0.9-1.0": 45
+  }
+ },
+ "zero_class": {
+  "n_zero": 138,
+  "macro_if_zeros_at_domain_median": 0.4384811857002192,
+  "macro_if_zeros_at_domain_nonzero_median": 0.4962534730967227,
+  "macro_if_zeros_at_domain_nonzero_mean": 0.49846992372925164,
+  "delta_median_points": 8.038266243124198,
+  "delta_nonzero_mean_points": 14.03714004602744,
+  "per_domain": {
+   "bitcoin": {
+    "n": 30,
+    "n_zero": 13,
+    "share_zero": 0.43333333333333335,
+    "domain_median": 0.17856574148655402,
+    "nonzero_mean": 0.3781460052310998,
+    "points_at_domain_median": 0.005952191382885134,
+    "points_at_nonzero_mean": 0.01260486684103666
+   },
+   "cardano": {
+    "n": 15,
+    "n_zero": 4,
+    "share_zero": 0.26666666666666666,
+    "domain_median": 0.18457569677956817,
+    "nonzero_mean": 0.3078861727922649,
+    "points_at_domain_median": 0.003786168139068065,
+    "points_at_nonzero_mean": 0.006315613800866972
+   },
+   "economics": {
+    "n": 25,
+    "n_zero": 9,
+    "share_zero": 0.36,
+    "domain_median": 0.15130120674940675,
+    "nonzero_mean": 0.39255846041801906,
+    "points_at_domain_median": 0.004189879571522033,
+    "points_at_nonzero_mean": 0.010870849673114375
+   },
+   "genealogy": {
+    "n": 35,
+    "n_zero": 10,
+    "share_zero": 0.2857142857142857,
+    "domain_median": 0.39106560501896365,
+    "nonzero_mean": 0.5683460952903324,
+    "points_at_domain_median": 0.008594848461955245,
+    "points_at_nonzero_mean": 0.0124911229734139
+   },
+   "history": {
+    "n": 240,
+    "n_zero": 46,
+    "share_zero": 0.19166666666666668,
+    "domain_median": 0.35691477066381655,
+    "nonzero_mean": 0.48474653964330855,
+    "points_at_domain_median": 0.0052622049520947315,
+    "points_at_nonzero_mean": 0.007146904110125704
+   },
+   "hsm": {
+    "n": 45,
+    "n_zero": 10,
+    "share_zero": 0.2222222222222222,
+    "domain_median": 0.44149241373678083,
+    "nonzero_mean": 0.5980434666056585,
+    "points_at_domain_median": 0.0075468788672953995,
+    "points_at_nonzero_mean": 0.010222965241122369
+   },
+   "iota": {
+    "n": 3,
+    "n_zero": 0,
+    "share_zero": 0.0,
+    "domain_median": 0.8194270280062366,
+    "nonzero_mean": 0.8382954784660104,
+    "points_at_domain_median": 0.0,
+    "points_at_nonzero_mean": 0.0
+   },
+   "law": {
+    "n": 11,
+    "n_zero": 3,
+    "share_zero": 0.2727272727272727,
+    "domain_median": 0.44615333764087994,
+    "nonzero_mean": 0.5990412670829294,
+    "points_at_domain_median": 0.00935986023022825,
+    "points_at_nonzero_mean": 0.012567299309432085
+   },
+   "monero": {
+    "n": 19,
+    "n_zero": 8,
+    "share_zero": 0.42105263157894735,
+    "domain_median": 0.13012668333070054,
+    "nonzero_mean": 0.35732286311398503,
+    "points_at_domain_median": 0.004214629419617831,
+    "points_at_nonzero_mean": 0.011573210141343646
+   },
+   "politics": {
+    "n": 45,
+    "n_zero": 14,
+    "share_zero": 0.3111111111111111,
+    "domain_median": 0.3903800499921017,
+    "nonzero_mean": 0.6227040291495181,
+    "points_at_domain_median": 0.009342428546819529,
+    "points_at_nonzero_mean": 0.014902318646313256
+   },
+   "quant": {
+    "n": 10,
+    "n_zero": 5,
+    "share_zero": 0.5,
+    "domain_median": 0.06506334166535027,
+    "nonzero_mean": 0.307592572279794,
+    "points_at_domain_median": 0.0025024362178980874,
+    "points_at_nonzero_mean": 0.011830483549222845
+   },
+   "travel": {
+    "n": 30,
+    "n_zero": 12,
+    "share_zero": 0.4,
+    "domain_median": 0.21139491720332515,
+    "nonzero_mean": 0.4156008232325257,
+    "points_at_domain_median": 0.006504458990871543,
+    "points_at_nonzero_mean": 0.012787717637923867
+   },
+   "workplace": {
+    "n": 11,
+    "n_zero": 4,
+    "share_zero": 0.36363636363636365,
+    "domain_median": 0.46927872602275644,
+    "nonzero_mean": 0.6098252351748258,
+    "points_at_domain_median": 0.013126677650986194,
+    "points_at_nonzero_mean": 0.017058048536358762
+   }
+  },
+  "zero_depth_in_dense": {
+   "n_zero": 138,
+   "none_in_dense1000": 10,
+   "le20": 30,
+   "le50": 63,
+   "le100": 86,
+   "le200": 103,
+   "le1000": 128
+  },
+  "zero_probe": [
+   {
+    "domain": "bitcoin",
+    "qid": "112021_76",
+    "best_dense_rank": 55,
+    "n_gold": 5
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "112929_69",
+    "best_dense_rank": 8,
+    "n_gold": 2
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "112979_68",
+    "best_dense_rank": 85,
+    "n_gold": 5
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "113500_66",
+    "best_dense_rank": 34,
+    "n_gold": 2
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "113938_64",
+    "best_dense_rank": 103,
+    "n_gold": 2
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "121089_32",
+    "best_dense_rank": 23,
+    "n_gold": 3
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "122013_25",
+    "best_dense_rank": 19,
+    "n_gold": 4
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "123234_16",
+    "best_dense_rank": 171,
+    "n_gold": 3
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "123461_13",
+    "best_dense_rank": 224,
+    "n_gold": 4
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "124510_9",
+    "best_dense_rank": 207,
+    "n_gold": 2
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "93368_97",
+    "best_dense_rank": 37,
+    "n_gold": 2
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "97179_88",
+    "best_dense_rank": 26,
+    "n_gold": 4
+   },
+   {
+    "domain": "bitcoin",
+    "qid": "97236_86",
+    "best_dense_rank": 62,
+    "n_gold": 1
+   },
+   {
+    "domain": "cardano",
+    "qid": "11106_102",
+    "best_dense_rank": 10,
+    "n_gold": 3
+   },
+   {
+    "domain": "cardano",
+    "qid": "4225_128",
+    "best_dense_rank": 9,
+    "n_gold": 2
+   },
+   {
+    "domain": "cardano",
+    "qid": "80_150",
+    "best_dense_rank": 46,
+    "n_gold": 2
+   },
+   {
+    "domain": "cardano",
+    "qid": "840_139",
+    "best_dense_rank": 470,
+    "n_gold": 2
+   },
+   {
+    "domain": "economics",
+    "qid": "43853_228",
+    "best_dense_rank": 290,
+    "n_gold": 3
+   },
+   {
+    "domain": "economics",
+    "qid": "43952_227",
+    "best_dense_rank": 25,
+    "n_gold": 4
+   },
+   {
+    "domain": "economics",
+    "qid": "45680_223",
+    "best_dense_rank": 744,
+    "n_gold": 3
+   },
+   {
+    "domain": "economics",
+    "qid": "47763_212",
+    "best_dense_rank": 27,
+    "n_gold": 3
+   },
+   {
+    "domain": "economics",
+    "qid": "51330_198",
+    "best_dense_rank": 25,
+    "n_gold": 2
+   },
+   {
+    "domain": "economics",
+    "qid": "52658_189",
+    "best_dense_rank": 133,
+    "n_gold": 4
+   },
+   {
+    "domain": "economics",
+    "qid": "55201_179",
+    "best_dense_rank": 81,
+    "n_gold": 2
+   },
+   {
+    "domain": "economics",
+    "qid": "56372_176",
+    "best_dense_rank": 895,
+    "n_gold": 1
+   },
+   {
+    "domain": "economics",
+    "qid": "60545_155",
+    "best_dense_rank": 11,
+    "n_gold": 2
+   },
+   {
+    "domain": "genealogy",
+    "qid": "10043_313",
+    "best_dense_rank": 142,
+    "n_gold": 5
+   },
+   {
+    "domain": "genealogy",
+    "qid": "11818_301",
+    "best_dense_rank": 48,
+    "n_gold": 2
+   },
+   {
+    "domain": "genealogy",
+    "qid": "11823_300",
+    "best_dense_rank": 621,
+    "n_gold": 1
+   },
+   {
+    "domain": "genealogy",
+    "qid": "13596_269",
+    "best_dense_rank": null,
+    "n_gold": 4
+   },
+   {
+    "domain": "genealogy",
+    "qid": "14960_260",
+    "best_dense_rank": 168,
+    "n_gold": 2
+   },
+   {
+    "domain": "genealogy",
+    "qid": "15307_257",
+    "best_dense_rank": 55,
+    "n_gold": 3
+   },
+   {
+    "domain": "genealogy",
+    "qid": "20551_235",
+    "best_dense_rank": null,
+    "n_gold": 2
+   },
+   {
+    "domain": "genealogy",
+    "qid": "2264_333",
+    "best_dense_rank": null,
+    "n_gold": 1
+   },
+   {
+    "domain": "genealogy",
+    "qid": "3224_325",
+    "best_dense_rank": 49,
+    "n_gold": 1
+   },
+   {
+    "domain": "genealogy",
+    "qid": "3370_319",
+    "best_dense_rank": 298,
+    "n_gold": 1
+   },
+   {
+    "domain": "history",
+    "qid": "56068_771",
+    "best_dense_rank": 28,
+    "n_gold": 4
+   },
+   {
+    "domain": "history",
+    "qid": "56551_731",
+    "best_dense_rank": 5,
+    "n_gold": 3
+   },
+   {
+    "domain": "history",
+    "qid": "56713_726",
+    "best_dense_rank": null,
+    "n_gold": 2
+   },
+   {
+    "domain": "history",
+    "qid": "56734_725",
+    "best_dense_rank": 11,
+    "n_gold": 3
+   },
+   {
+    "domain": "history",
+    "qid": "56978_708",
+    "best_dense_rank": 461,
+    "n_gold": 3
+   },
+   {
+    "domain": "history",
+    "qid": "58699_662",
+    "best_dense_rank": 24,
+    "n_gold": 1
+   },
+   {
+    "domain": "history",
+    "qid": "58962_648",
+    "best_dense_rank": 184,
+    "n_gold": 1
+   },
+   {
+    "domain": "history",
+    "qid": "59289_624",
+    "best_dense_rank": 24,
+    "n_gold": 4
+   },
+   {
+    "domain": "history",
+    "qid": "62574_607",
+    "best_dense_rank": null,
+    "n_gold": 3
+   },
+   {
+    "domain": "history",
+    "qid": "62753_599",
+    "best_dense_rank": 15,
+    "n_gold": 4
+   },
+   {
+    "domain": "history",
+    "qid": "64072_537",
+    "best_dense_rank": 30,
+    "n_gold": 4
+   },
+   {
+    "domain": "history",
+    "qid": "64604_517",
+    "best_dense_rank": 11,
+    "n_gold": 7
+   },
+   {
+    "domain": "history",
+    "qid": "66092_501",
+    "best_dense_rank": 30,
+    "n_gold": 3
+   },
+   {
+    "domain": "history",
+    "qid": "66663_452",
+    "best_dense_rank": 101,
+    "n_gold": 1
+   },
+   {
+    "domain": "history",
+    "qid": "67963_434",
+    "best_dense_rank": 771,
+    "n_gold": 2
+   },
+   {
+    "domain": "history",
+    "qid": "68107_426",
+    "best_dense_rank": 30,
+    "n_gold": 12
+   },
+   {
+    "domain": "history",
+    "qid": "68358_414",
+    "best_dense_rank": 16,
+    "n_gold": 9
+   },
+   {
+    "domain": "history",
+    "qid": "68362_413",
+    "best_dense_rank": 64,
+    "n_gold": 4
+   },
+   {
+    "domain": "history",
+    "qid": "69389_354",
+    "best_dense_rank": 13,
+    "n_gold": 3
+   },
+   {
+    "domain": "history",
+    "qid": "69758_331",
+    "best_dense_rank": 135,
+    "n_gold": 1
+   },
+   {
+    "domain": "history",
+    "qid": "69851_324",
+    "best_dense_rank": 56,
+    "n_gold": 5
+   },
+   {
+    "domain": "history",
+    "qid": "69860_322",
+    "best_dense_rank": 17,
+    "n_gold": 3
+   },
+   {
+    "domain": "history",
+    "qid": "70188_298",
+    "best_dense_rank": 16,
+    "n_gold": 4
+   },
+   {
+    "domain": "history",
+    "qid": "70284_294",
+    "best_dense_rank": null,
+    "n_gold": 37
+   },
+   {
+    "domain": "history",
+    "qid": "70361_291",
+    "best_dense_rank": 79,
+    "n_gold": 4
+   },
+   {
+    "domain": "history",
+    "qid": "70583_271",
+    "best_dense_rank": 24,
+    "n_gold": 1
+   },
+   {
+    "domain": "history",
+    "qid": "70594_270",
+    "best_dense_rank": 60,
+    "n_gold": 4
+   },
+   {
+    "domain": "history",
+    "qid": "70624_268",
+    "best_dense_rank": 23,
+    "n_gold": 4
+   },
+   {
+    "domain": "history",
+    "qid": "70746_260",
+    "best_dense_rank": 25,
+    "n_gold": 4
+   },
+   {
+    "domain": "history",
+    "qid": "71222_231",
+    "best_dense_rank": 134,
+    "n_gold": 3
+   },
+   {
+    "domain": "history",
+    "qid": "71394_215",
+    "best_dense_rank": null,
+    "n_gold": 10
+   },
+   {
+    "domain": "history",
+    "qid": "71551_207",
+    "best_dense_rank": 56,
+    "n_gold": 3
+   },
+   {
+    "domain": "history",
+    "qid": "72255_172",
+    "best_dense_rank": 992,
+    "n_gold": 4
+   },
+   {
+    "domain": "history",
+    "qid": "72370_163",
+    "best_dense_rank": 51,
+    "n_gold": 2
+   },
+   {
+    "domain": "history",
+    "qid": "72552_154",
+    "best_dense_rank": 9,
+    "n_gold": 21
+   },
+   {
+    "domain": "history",
+    "qid": "72564_153",
+    "best_dense_rank": 16,
+    "n_gold": 1
+   },
+   {
+    "domain": "history",
+    "qid": "74058_133",
+    "best_dense_rank": 65,
+    "n_gold": 14
+   },
+   {
+    "domain": "history",
+    "qid": "74426_129",
+    "best_dense_rank": 55,
+    "n_gold": 8
+   },
+   {
+    "domain": "history",
+    "qid": "76250_114",
+    "best_dense_rank": 24,
+    "n_gold": 1
+   },
+   {
+    "domain": "history",
+    "qid": "76410_105",
+    "best_dense_rank": 16,
+    "n_gold": 3
+   },
+   {
+    "domain": "history",
+    "qid": "76671_88",
+    "best_dense_rank": 622,
+    "n_gold": 1
+   },
+   {
+    "domain": "history",
+    "qid": "76697_85",
+    "best_dense_rank": 776,
+    "n_gold": 8
+   },
+   {
+    "domain": "history",
+    "qid": "77144_59",
+    "best_dense_rank": 237,
+    "n_gold": 4
+   },
+   {
+    "domain": "history",
+    "qid": "77270_48",
+    "best_dense_rank": 29,
+    "n_gold": 2
+   },
+   {
+    "domain": "history",
+    "qid": "79114_14",
+    "best_dense_rank": 23,
+    "n_gold": 5
+   },
+   {
+    "domain": "history",
+    "qid": "79485_7",
+    "best_dense_rank": 20,
+    "n_gold": 4
+   },
+   {
+    "domain": "hsm",
+    "qid": "13081_730",
+    "best_dense_rank": null,
+    "n_gold": 1
+   },
+   {
+    "domain": "hsm",
+    "qid": "13304_724",
+    "best_dense_rank": 24,
+    "n_gold": 3
+   },
+   {
+    "domain": "hsm",
+    "qid": "13367_721",
+    "best_dense_rank": 91,
+    "n_gold": 3
+   },
+   {
+    "domain": "hsm",
+    "qid": "13846_707",
+    "best_dense_rank": 31,
+    "n_gold": 3
+   },
+   {
+    "domain": "hsm",
+    "qid": "14467_697",
+    "best_dense_rank": 140,
+    "n_gold": 2
+   },
+   {
+    "domain": "hsm",
+    "qid": "17703_690",
+    "best_dense_rank": 125,
+    "n_gold": 2
+   },
+   {
+    "domain": "hsm",
+    "qid": "276_797",
+    "best_dense_rank": 44,
+    "n_gold": 2
+   },
+   {
+    "domain": "hsm",
+    "qid": "2976_779",
+    "best_dense_rank": 10,
+    "n_gold": 2
+   },
+   {
+    "domain": "hsm",
+    "qid": "5514_757",
+    "best_dense_rank": 449,
+    "n_gold": 3
+   },
+   {
+    "domain": "hsm",
+    "qid": "5709_750",
+    "best_dense_rank": 248,
+    "n_gold": 1
+   },
+   {
+    "domain": "law",
+    "qid": "102419_841",
+    "best_dense_rank": 46,
+    "n_gold": 1
+   },
+   {
+    "domain": "law",
+    "qid": "103373_837",
+    "best_dense_rank": 126,
+    "n_gold": 1
+   },
+   {
+    "domain": "law",
+    "qid": "106440_824",
+    "best_dense_rank": 5,
+    "n_gold": 2
+   },
+   {
+    "domain": "monero",
+    "qid": "10071_871",
+    "best_dense_rank": 11,
+    "n_gold": 3
+   },
+   {
+    "domain": "monero",
+    "qid": "12479_853",
+    "best_dense_rank": 198,
+    "n_gold": 2
+   },
+   {
+    "domain": "monero",
+    "qid": "14078_844",
+    "best_dense_rank": 56,
+    "n_gold": 1
+   },
+   {
+    "domain": "monero",
+    "qid": "3554_903",
+    "best_dense_rank": 125,
+    "n_gold": 2
+   },
+   {
+    "domain": "monero",
+    "qid": "4053_899",
+    "best_dense_rank": 4,
+    "n_gold": 1
+   },
+   {
+    "domain": "monero",
+    "qid": "4083_898",
+    "best_dense_rank": 571,
+    "n_gold": 1
+   },
+   {
+    "domain": "monero",
+    "qid": "5677_892",
+    "best_dense_rank": 71,
+    "n_gold": 3
+   },
+   {
+    "domain": "monero",
+    "qid": "7072_882",
+    "best_dense_rank": 14,
+    "n_gold": 3
+   },
+   {
+    "domain": "politics",
+    "qid": "74259_1054",
+    "best_dense_rank": 46,
+    "n_gold": 2
+   },
+   {
+    "domain": "politics",
+    "qid": "78217_1019",
+    "best_dense_rank": 18,
+    "n_gold": 3
+   },
+   {
+    "domain": "politics",
+    "qid": "81967_1013",
+    "best_dense_rank": 72,
+    "n_gold": 4
+   },
+   {
+    "domain": "politics",
+    "qid": "82825_1003",
+    "best_dense_rank": 242,
+    "n_gold": 4
+   },
+   {
+    "domain": "politics",
+    "qid": "83279_999",
+    "best_dense_rank": 253,
+    "n_gold": 3
+   },
+   {
+    "domain": "politics",
+    "qid": "83771_988",
+    "best_dense_rank": 784,
+    "n_gold": 2
+   },
+   {
+    "domain": "politics",
+    "qid": "86781_983",
+    "best_dense_rank": 104,
+    "n_gold": 3
+   },
+   {
+    "domain": "politics",
+    "qid": "87499_976",
+    "best_dense_rank": 57,
+    "n_gold": 3
+   },
+   {
+    "domain": "politics",
+    "qid": "87918_970",
+    "best_dense_rank": 185,
+    "n_gold": 1
+   },
+   {
+    "domain": "politics",
+    "qid": "88444_960",
+    "best_dense_rank": 43,
+    "n_gold": 3
+   },
+   {
+    "domain": "politics",
+    "qid": "89697_946",
+    "best_dense_rank": 10,
+    "n_gold": 2
+   },
+   {
+    "domain": "politics",
+    "qid": "89978_941",
+    "best_dense_rank": 84,
+    "n_gold": 3
+   },
+   {
+    "domain": "politics",
+    "qid": "91586_923",
+    "best_dense_rank": null,
+    "n_gold": 3
+   },
+   {
+    "domain": "politics",
+    "qid": "92743_919",
+    "best_dense_rank": 968,
+    "n_gold": 2
+   },
+   {
+    "domain": "quant",
+    "qid": "75646_1077",
+    "best_dense_rank": 461,
+    "n_gold": 1
+   },
+   {
+    "domain": "quant",
+    "qid": "77873_1071",
+    "best_dense_rank": 69,
+    "n_gold": 3
+   },
+   {
+    "domain": "quant",
+    "qid": "78710_1068",
+    "best_dense_rank": 66,
+    "n_gold": 1
+   },
+   {
+    "domain": "quant",
+    "qid": "79564_1066",
+    "best_dense_rank": 213,
+    "n_gold": 1
+   },
+   {
+    "domain": "quant",
+    "qid": "83939_1059",
+    "best_dense_rank": 22,
+    "n_gold": 2
+   },
+   {
+    "domain": "travel",
+    "qid": "183966_1189",
+    "best_dense_rank": 7,
+    "n_gold": 3
+   },
+   {
+    "domain": "travel",
+    "qid": "184615_1180",
+    "best_dense_rank": 46,
+    "n_gold": 2
+   },
+   {
+    "domain": "travel",
+    "qid": "185727_1169",
+    "best_dense_rank": 20,
+    "n_gold": 3
+   },
+   {
+    "domain": "travel",
+    "qid": "186482_1157",
+    "best_dense_rank": 15,
+    "n_gold": 2
+   },
+   {
+    "domain": "travel",
+    "qid": "188364_1150",
+    "best_dense_rank": 5,
+    "n_gold": 3
+   },
+   {
+    "domain": "travel",
+    "qid": "188979_1146",
+    "best_dense_rank": 537,
+    "n_gold": 2
+   },
+   {
+    "domain": "travel",
+    "qid": "190667_1135",
+    "best_dense_rank": 15,
+    "n_gold": 2
+   },
+   {
+    "domain": "travel",
+    "qid": "190846_1134",
+    "best_dense_rank": 41,
+    "n_gold": 2
+   },
+   {
+    "domain": "travel",
+    "qid": "191493_1129",
+    "best_dense_rank": 40,
+    "n_gold": 2
+   },
+   {
+    "domain": "travel",
+    "qid": "198471_1102",
+    "best_dense_rank": 10,
+    "n_gold": 3
+   },
+   {
+    "domain": "travel",
+    "qid": "200183_1100",
+    "best_dense_rank": null,
+    "n_gold": 1
+   },
+   {
+    "domain": "travel",
+    "qid": "201562_1094",
+    "best_dense_rank": 656,
+    "n_gold": 2
+   },
+   {
+    "domain": "workplace",
+    "qid": "168198_1227",
+    "best_dense_rank": 57,
+    "n_gold": 2
+   },
+   {
+    "domain": "workplace",
+    "qid": "171543_1222",
+    "best_dense_rank": 72,
+    "n_gold": 5
+   },
+   {
+    "domain": "workplace",
+    "qid": "181803_1211",
+    "best_dense_rank": 28,
+    "n_gold": 1
+   },
+   {
+    "domain": "workplace",
+    "qid": "200148_1194",
+    "best_dense_rank": 104,
+    "n_gold": 1
+   }
+  ]
+ },
+ "pool_oracle_decomposition": {
+  "macro_ideal_rerank_of_frozen_pool100": 0.7446226123514619,
+  "delta_points": 38.65240890824847,
+  "zero_class": {
+   "bitcoin": {
+    "n": 13,
+    "n_with_pool_gold": 9,
+    "oracle_points_if_fixed": 0.013357162124582943,
+    "median_of_domain": 0.17856574148655402,
+    "nonzero_mean": 0.3781460052310998,
+    "median_points_if_fixed": 0.005952191382885134,
+    "nonzero_mean_points_if_fixed": 0.01260486684103666
+   },
+   "cardano": {
+    "n": 4,
+    "n_with_pool_gold": 3,
+    "oracle_points_if_fixed": 0.01340075483469466,
+    "median_of_domain": 0.18457569677956817,
+    "nonzero_mean": 0.3078861727922649,
+    "median_points_if_fixed": 0.003786168139068065,
+    "nonzero_mean_points_if_fixed": 0.006315613800866972
+   },
+   "economics": {
+    "n": 9,
+    "n_with_pool_gold": 5,
+    "oracle_points_if_fixed": 0.010853678693177096,
+    "median_of_domain": 0.15130120674940675,
+    "nonzero_mean": 0.39255846041801906,
+    "median_points_if_fixed": 0.004189879571522033,
+    "nonzero_mean_points_if_fixed": 0.010870849673114375
+   },
+   "genealogy": {
+    "n": 10,
+    "n_with_pool_gold": 3,
+    "oracle_points_if_fixed": 0.004576760261073,
+    "median_of_domain": 0.39106560501896365,
+    "nonzero_mean": 0.5683460952903324,
+    "median_points_if_fixed": 0.008594848461955245,
+    "nonzero_mean_points_if_fixed": 0.0124911229734139
+   },
+   "history": {
+    "n": 46,
+    "n_with_pool_gold": 32,
+    "oracle_points_if_fixed": 0.007805161939152639,
+    "median_of_domain": 0.35691477066381655,
+    "nonzero_mean": 0.48474653964330855,
+    "median_points_if_fixed": 0.0052622049520947315,
+    "nonzero_mean_points_if_fixed": 0.007146904110125704
+   },
+   "hsm": {
+    "n": 10,
+    "n_with_pool_gold": 5,
+    "oracle_points_if_fixed": 0.006837606837606838,
+    "median_of_domain": 0.44149241373678083,
+    "nonzero_mean": 0.5980434666056585,
+    "median_points_if_fixed": 0.0075468788672953995,
+    "nonzero_mean_points_if_fixed": 0.010222965241122369
+   },
+   "iota": {
+    "n": 0,
+    "n_with_pool_gold": 0,
+    "oracle_points_if_fixed": 0.0,
+    "median_of_domain": 0.8194270280062366,
+    "nonzero_mean": 0.8382954784660104,
+    "median_points_if_fixed": 0.0,
+    "nonzero_mean_points_if_fixed": 0.0
+   },
+   "law": {
+    "n": 3,
+    "n_with_pool_gold": 2,
+    "oracle_points_if_fixed": 0.013986013986013986,
+    "median_of_domain": 0.44615333764087994,
+    "nonzero_mean": 0.5990412670829294,
+    "median_points_if_fixed": 0.00935986023022825,
+    "nonzero_mean_points_if_fixed": 0.012567299309432085
+   },
+   "monero": {
+    "n": 8,
+    "n_with_pool_gold": 5,
+    "oracle_points_if_fixed": 0.013796907603515261,
+    "median_of_domain": 0.13012668333070054,
+    "nonzero_mean": 0.35732286311398503,
+    "median_points_if_fixed": 0.004214629419617831,
+    "nonzero_mean_points_if_fixed": 0.011573210141343646
+   },
+   "politics": {
+    "n": 14,
+    "n_with_pool_gold": 7,
+    "oracle_points_if_fixed": 0.008813231943556791,
+    "median_of_domain": 0.3903800499921017,
+    "nonzero_mean": 0.6227040291495181,
+    "median_points_if_fixed": 0.009342428546819529,
+    "nonzero_mean_points_if_fixed": 0.014902318646313256
+   },
+   "quant": {
+    "n": 5,
+    "n_with_pool_gold": 3,
+    "oracle_points_if_fixed": 0.0160186609137555,
+    "median_of_domain": 0.06506334166535027,
+    "nonzero_mean": 0.307592572279794,
+    "median_points_if_fixed": 0.0025024362178980874,
+    "nonzero_mean_points_if_fixed": 0.011830483549222845
+   },
+   "travel": {
+    "n": 12,
+    "n_with_pool_gold": 9,
+    "oracle_points_if_fixed": 0.017515632309784392,
+    "median_of_domain": 0.21139491720332515,
+    "nonzero_mean": 0.4156008232325257,
+    "median_points_if_fixed": 0.006504458990871543,
+    "nonzero_mean_points_if_fixed": 0.012787717637923867
+   },
+   "workplace": {
+    "n": 4,
+    "n_with_pool_gold": 3,
+    "oracle_points_if_fixed": 0.01635776367324207,
+    "median_of_domain": 0.46927872602275644,
+    "nonzero_mean": 0.6098252351748258,
+    "median_points_if_fixed": 0.013126677650986194,
+    "nonzero_mean_points_if_fixed": 0.017058048536358762
+   }
+  },
+  "n_zero": 138,
+  "n_zero_with_pool_gold": 86,
+  "zero_class_oracle_macro": 0.5014178583891324,
+  "zero_class_oracle_points": 14.33193351201552,
+  "zero_class_median_points": 8.038266243124205,
+  "zero_class_nonzero_mean_points": 14.037140046027444,
+  "share_of_pool_headroom_in_zero_class": 0.37079017626135763
+ },
+ "ordering_only": {
+  "macro_if_frozen_top10_perfectly_reordered": 0.5036151159280272,
+  "delta_points": 14.551659265904998,
+  "n_queries_improvable_by_reordering": 296,
+  "note": "same 10 documents, ideal order; isolates position error from missing-document error"
+ },
+ "per_domain": {
+  "bitcoin": {
+   "n": 30,
+   "weight": 0.07692307692307693,
+   "n_zero": 13,
+   "zero_share": 0.43333333333333335,
+   "baseline": 0.21428273629762323,
+   "median": 0.17856574148655402,
+   "nonzero_mean": 0.3781460052310998,
+   "dense_only": 0.18204963333208657,
+   "oracle_cand100": 0.6348882160375343,
+   "oracle_cand_all": 0.8947112044495388,
+   "headroom_to_oracle100": 0.4206054797399111,
+   "recall100": 0.5645634920634921,
+   "recall1000": 0.8561111111111112,
+   "answerable_queries": 30,
+   "queries_with_gold_in_dense1000": 30,
+   "points_contribution": 0.01648328740750948
+  },
+  "cardano": {
+   "n": 15,
+   "weight": 0.07692307692307693,
+   "n_zero": 4,
+   "zero_share": 0.26666666666666666,
+   "baseline": 0.22578319338099426,
+   "median": 0.18457569677956817,
+   "nonzero_mean": 0.3078861727922649,
+   "dense_only": 0.18319061679447046,
+   "oracle_cand100": 0.7818503673566963,
+   "oracle_cand_all": 0.9557249176940273,
+   "headroom_to_oracle100": 0.556067173975702,
+   "recall100": 0.7392592592592593,
+   "recall1000": 0.94,
+   "answerable_queries": 15,
+   "queries_with_gold_in_dense1000": 15,
+   "points_contribution": 0.017367937952384175
+  },
+  "economics": {
+   "n": 25,
+   "weight": 0.07692307692307693,
+   "n_zero": 9,
+   "zero_share": 0.36,
+   "baseline": 0.2512374146675322,
+   "median": 0.15130120674940675,
+   "nonzero_mean": 0.39255846041801906,
+   "dense_only": 0.18903699248838302,
+   "oracle_cand100": 0.6769105268169189,
+   "oracle_cand_all": 0.9214539268634815,
+   "headroom_to_oracle100": 0.4256731121493867,
+   "recall100": 0.6165238095238095,
+   "recall1000": 0.890952380952381,
+   "answerable_queries": 25,
+   "queries_with_gold_in_dense1000": 25,
+   "points_contribution": 0.019325954974425553
+  },
+  "genealogy": {
+   "n": 35,
+   "weight": 0.07692307692307693,
+   "n_zero": 10,
+   "zero_share": 0.2857142857142857,
+   "baseline": 0.40596149663595177,
+   "median": 0.39106560501896365,
+   "nonzero_mean": 0.5683460952903324,
+   "dense_only": 0.32984916839424266,
+   "oracle_cand100": 0.6334344506147023,
+   "oracle_cand_all": 0.8495301739536513,
+   "headroom_to_oracle100": 0.2274729539787505,
+   "recall100": 0.5809523809523809,
+   "recall1000": 0.8252380952380952,
+   "answerable_queries": 35,
+   "queries_with_gold_in_dense1000": 32,
+   "points_contribution": 0.031227807433534753
+  },
+  "history": {
+   "n": 240,
+   "weight": 0.07692307692307693,
+   "n_zero": 46,
+   "zero_share": 0.19166666666666668,
+   "baseline": 0.3918367862116744,
+   "median": 0.35691477066381655,
+   "nonzero_mean": 0.48474653964330855,
+   "dense_only": 0.3050957892833344,
+   "oracle_cand100": 0.8277276283623384,
+   "oracle_cand_all": 0.9503059361671341,
+   "headroom_to_oracle100": 0.435890842150664,
+   "recall100": 0.7804736130563337,
+   "recall1000": 0.9312066701680671,
+   "answerable_queries": 240,
+   "queries_with_gold_in_dense1000": 236,
+   "points_contribution": 0.030141291247051876
+  },
+  "hsm": {
+   "n": 45,
+   "weight": 0.07692307692307693,
+   "n_zero": 10,
+   "zero_share": 0.2222222222222222,
+   "baseline": 0.46514491847106776,
+   "median": 0.44149241373678083,
+   "nonzero_mean": 0.5980434666056585,
+   "dense_only": 0.31251689695727997,
+   "oracle_cand100": 0.7937151145982463,
+   "oracle_cand_all": 0.929338854062614,
+   "headroom_to_oracle100": 0.3285701961271785,
+   "recall100": 0.7588888888888888,
+   "recall1000": 0.9096296296296296,
+   "answerable_queries": 45,
+   "queries_with_gold_in_dense1000": 44,
+   "points_contribution": 0.03578037834392829
+  },
+  "iota": {
+   "n": 3,
+   "weight": 0.07692307692307693,
+   "n_zero": 0,
+   "zero_share": 0.0,
+   "baseline": 0.8382954784660104,
+   "median": 0.8194270280062366,
+   "nonzero_mean": 0.8382954784660104,
+   "dense_only": 0.6485438794897314,
+   "oracle_cand100": 0.9439574879096275,
+   "oracle_cand_all": 1.0,
+   "headroom_to_oracle100": 0.10566200944361714,
+   "recall100": 0.9166666666666666,
+   "recall1000": 1.0,
+   "answerable_queries": 3,
+   "queries_with_gold_in_dense1000": 3,
+   "points_contribution": 0.06448426757430849
+  },
+  "law": {
+   "n": 11,
+   "weight": 0.07692307692307693,
+   "n_zero": 3,
+   "zero_share": 0.2727272727272727,
+   "baseline": 0.4356663760603123,
+   "median": 0.44615333764087994,
+   "nonzero_mean": 0.5990412670829294,
+   "dense_only": 0.3689333975800688,
+   "oracle_cand100": 0.8719564995575101,
+   "oracle_cand_all": 1.0,
+   "headroom_to_oracle100": 0.4362901234971978,
+   "recall100": 0.8545454545454546,
+   "recall1000": 1.0,
+   "answerable_queries": 11,
+   "queries_with_gold_in_dense1000": 11,
+   "points_contribution": 0.03351279815848556
+  },
+  "monero": {
+   "n": 19,
+   "weight": 0.07692307692307693,
+   "n_zero": 8,
+   "zero_share": 0.42105263157894735,
+   "baseline": 0.20687113127651763,
+   "median": 0.13012668333070054,
+   "nonzero_mean": 0.35732286311398503,
+   "dense_only": 0.18264492669870733,
+   "oracle_cand100": 0.6655409979092719,
+   "oracle_cand_all": 0.934579771553061,
+   "headroom_to_oracle100": 0.4586698666327543,
+   "recall100": 0.6140350877192983,
+   "recall1000": 0.9122807017543859,
+   "answerable_queries": 19,
+   "queries_with_gold_in_dense1000": 19,
+   "points_contribution": 0.01591316394434751
+  },
+  "politics": {
+   "n": 45,
+   "weight": 0.07692307692307693,
+   "n_zero": 14,
+   "zero_share": 0.3111111111111111,
+   "baseline": 0.4289738867474458,
+   "median": 0.3903800499921017,
+   "nonzero_mean": 0.6227040291495181,
+   "dense_only": 0.35993745945881966,
+   "oracle_cand100": 0.7016842882368506,
+   "oracle_cand_all": 0.9032860707769781,
+   "headroom_to_oracle100": 0.2727104014894048,
+   "recall100": 0.654074074074074,
+   "recall1000": 0.8777777777777778,
+   "answerable_queries": 45,
+   "queries_with_gold_in_dense1000": 44,
+   "points_contribution": 0.03299799128826506
+  },
+  "quant": {
+   "n": 10,
+   "weight": 0.07692307692307693,
+   "n_zero": 5,
+   "zero_share": 0.5,
+   "baseline": 0.153796286139897,
+   "median": 0.06506334166535027,
+   "nonzero_mean": 0.307592572279794,
+   "dense_only": 0.19543107187767816,
+   "oracle_cand100": 0.5558549935817422,
+   "oracle_cand_all": 0.9765360636988621,
+   "headroom_to_oracle100": 0.4020587074418452,
+   "recall100": 0.4833333333333333,
+   "recall1000": 0.9666666666666666,
+   "answerable_queries": 10,
+   "queries_with_gold_in_dense1000": 10,
+   "points_contribution": 0.011830483549222845
+  },
+  "travel": {
+   "n": 30,
+   "weight": 0.07692307692307693,
+   "n_zero": 12,
+   "zero_share": 0.4,
+   "baseline": 0.2493604939395154,
+   "median": 0.21139491720332515,
+   "nonzero_mean": 0.4156008232325257,
+   "dense_only": 0.23210424898781032,
+   "oracle_cand100": 0.7787272624931052,
+   "oracle_cand_all": 0.9252338553169387,
+   "headroom_to_oracle100": 0.5293667685535898,
+   "recall100": 0.7388888888888889,
+   "recall1000": 0.9111111111111111,
+   "answerable_queries": 30,
+   "queries_with_gold_in_dense1000": 29,
+   "points_contribution": 0.0191815764568858
+  },
+  "workplace": {
+   "n": 11,
+   "weight": 0.07692307692307693,
+   "n_zero": 4,
+   "zero_share": 0.36363636363636365,
+   "baseline": 0.38807060420216183,
+   "median": 0.46927872602275644,
+   "nonzero_mean": 0.6098252351748258,
+   "dense_only": 0.3362463390258097,
+   "oracle_cand100": 0.8138461270944614,
+   "oracle_cand_all": 1.0,
+   "headroom_to_oracle100": 0.42577552289229953,
+   "recall100": 0.7909090909090909,
+   "recall1000": 1.0,
+   "answerable_queries": 11,
+   "queries_with_gold_in_dense1000": 11,
+   "points_contribution": 0.029851584938627832
+  }
+ },
+ "answerability": {
+  "n_answerable": 519,
+  "n_unanswerable": 0,
+  "theoretical_perfect_macro": 1.0,
+  "macro_if_only_dense1000_reachable_gold": 0.9861416361416361,
+  "note": "a query is answerable iff its qrels_dev has >=1 positive doc; the corpus ceiling assumes every such doc can be ranked first."
+ },
+ "depth_curve": {
+  "dense@10": {
+   "macro": 0.44367253117316374,
+   "per_domain": {
+    "bitcoin": 0.3581521929957431,
+    "cardano": 0.35678657324179214,
+    "economics": 0.3029281294597927,
+    "genealogy": 0.44652958367644174,
+    "history": 0.4833981288135799,
+    "hsm": 0.4618349675971605,
+    "iota": 0.8006810252404845,
+    "law": 0.590278819886984,
+    "monero": 0.3255963378138535,
+    "politics": 0.47188771118232475,
+    "quant": 0.26991003543112335,
+    "travel": 0.417017388137639,
+    "workplace": 0.4827420117742094
+   }
+  },
+  "dense@20": {
+   "macro": 0.5373264814821573,
+   "per_domain": {
+    "bitcoin": 0.42992015467012934,
+    "cardano": 0.4635142389628121,
+    "economics": 0.47164839575387224,
+    "genealogy": 0.5144979602951434,
+    "history": 0.610684610503273,
+    "hsm": 0.54728704055998,
+    "iota": 0.8788941462442773,
+    "law": 0.6998699287864909,
+    "monero": 0.4305014461584721,
+    "politics": 0.509838563545732,
+    "quant": 0.26991003543112335,
+    "travel": 0.6407672895612075,
+    "workplace": 0.5179104487955314
+   }
+  },
+  "dense@50": {
+   "macro": 0.660683927643424,
+   "per_domain": {
+    "bitcoin": 0.5430119090815105,
+    "cardano": 0.6929228759493085,
+    "economics": 0.6072055488036693,
+    "genealogy": 0.5899887282068137,
+    "history": 0.7473236237599459,
+    "hsm": 0.7047309915360214,
+    "iota": 0.9439574879096275,
+    "law": 0.8256486894566123,
+    "monero": 0.5779373794345978,
+    "politics": 0.626157065404127,
+    "quant": 0.33122475470766916,
+    "travel": 0.7532152412601512,
+    "workplace": 0.6455667638544574
+   }
+  },
+  "dense@100": {
+   "macro": 0.7446226123514619,
+   "per_domain": {
+    "bitcoin": 0.6348882160375343,
+    "cardano": 0.7818503673566963,
+    "economics": 0.6769105268169189,
+    "genealogy": 0.6334344506147023,
+    "history": 0.8277276283623384,
+    "hsm": 0.7937151145982463,
+    "iota": 0.9439574879096275,
+    "law": 0.8719564995575101,
+    "monero": 0.6655409979092719,
+    "politics": 0.7016842882368506,
+    "quant": 0.5558549935817422,
+    "travel": 0.7787272624931052,
+    "workplace": 0.8138461270944614
+   }
+  },
+  "dense@200": {
+   "macro": 0.8150254303739046,
+   "per_domain": {
+    "bitcoin": 0.7024752792604239,
+    "cardano": 0.8220543485195436,
+    "economics": 0.7495759729045193,
+    "genealogy": 0.7155246556988608,
+    "history": 0.8856003128438498,
+    "hsm": 0.8469244906382914,
+    "iota": 0.9439574879096275,
+    "law": 0.9747933247859047,
+    "monero": 0.7803713015266306,
+    "politics": 0.7568163271646752,
+    "quant": 0.6695573111553673,
+    "travel": 0.8429245644495135,
+    "workplace": 0.9047552180035523
+   }
+  },
+  "dense@300": {
+   "macro": 0.8513249412680862,
+   "per_domain": {
+    "bitcoin": 0.7608154549176546,
+    "cardano": 0.8632680638783913,
+    "economics": 0.7808372266707901,
+    "genealogy": 0.7660263848442501,
+    "history": 0.9097961014756599,
+    "hsm": 0.8691467128605137,
+    "iota": 0.9439574879096275,
+    "law": 0.9747933247859047,
+    "monero": 0.8007319755916065,
+    "politics": 0.8067606921975138,
+    "quant": 0.8082425918788214,
+    "travel": 0.8429245644495135,
+    "workplace": 0.9399236550248742
+   }
+  },
+  "dense@500": {
+   "macro": 0.893912411509496,
+   "per_domain": {
+    "bitcoin": 0.8125064308238897,
+    "cardano": 0.9557249176940273,
+    "economics": 0.8023918349595296,
+    "genealogy": 0.7948362413436919,
+    "history": 0.9245094363322631,
+    "hsm": 0.8885577837865346,
+    "iota": 1.0,
+    "law": 0.9880722656806963,
+    "monero": 0.834893517066513,
+    "politics": 0.8469018479982287,
+    "quant": 0.9469278726022756,
+    "travel": 0.8507458765498926,
+    "workplace": 0.9747933247859047
+   }
+  },
+  "dense@1000": {
+   "macro": 0.941592367272022,
+   "per_domain": {
+    "bitcoin": 0.8947112044495388,
+    "cardano": 0.9557249176940273,
+    "economics": 0.9214539268634815,
+    "genealogy": 0.8495301739536513,
+    "history": 0.9503059361671341,
+    "hsm": 0.929338854062614,
+    "iota": 1.0,
+    "law": 1.0,
+    "monero": 0.934579771553061,
+    "politics": 0.9032860707769781,
+    "quant": 0.9765360636988621,
+    "travel": 0.9252338553169387,
+    "workplace": 1.0
+   }
+  },
+  "ce@10": {
+   "macro": 0.418715038313775,
+   "per_domain": {
+    "bitcoin": 0.37896469812004924,
+    "cardano": 0.3638282480861592,
+    "economics": 0.25876819065715795,
+    "genealogy": 0.3876457977827763,
+    "history": 0.5037421842312282,
+    "hsm": 0.6406244888395278,
+    "iota": 0.9439574879096275,
+    "law": 0.24594389993383325,
+    "monero": 0.2760532577250205,
+    "politics": 0.4548936733987569,
+    "quant": 0.14728059687803166,
+    "travel": 0.3620992274754583,
+    "workplace": 0.4794937470414476
+   }
+  },
+  "ce@20": {
+   "macro": 0.5089314844659406,
+   "per_domain": {
+    "bitcoin": 0.4076199906538778,
+    "cardano": 0.4461375389535844,
+    "economics": 0.4219960520313127,
+    "genealogy": 0.4903014872016564,
+    "history": 0.6330389061985322,
+    "hsm": 0.700882173423646,
+    "iota": 0.9439574879096275,
+    "law": 0.3342281845657262,
+    "monero": 0.4224090524610311,
+    "politics": 0.5688164912700048,
+    "quant": 0.23322555502865047,
+    "travel": 0.44309354040903925,
+    "workplace": 0.5704028379505385
+   }
+  },
+  "ce@50": {
+   "macro": 0.6575344745071843,
+   "per_domain": {
+    "bitcoin": 0.5564926721721075,
+    "cardano": 0.6540120952759108,
+    "economics": 0.5652855832838068,
+    "genealogy": 0.558773102249975,
+    "history": 0.7665562517917995,
+    "hsm": 0.7719591895056623,
+    "iota": 0.9439574879096275,
+    "law": 0.6823472616045189,
+    "monero": 0.4847700967129387,
+    "politics": 0.6756447329982548,
+    "quant": 0.5089271209794666,
+    "travel": 0.598635032517022,
+    "workplace": 0.780587541592305
+   }
+  },
+  "ce@100": {
+   "macro": 0.7446226123514619,
+   "per_domain": {
+    "bitcoin": 0.6348882160375343,
+    "cardano": 0.7818503673566963,
+    "economics": 0.6769105268169189,
+    "genealogy": 0.6334344506147023,
+    "history": 0.8277276283623384,
+    "hsm": 0.7937151145982463,
+    "iota": 0.9439574879096275,
+    "law": 0.8719564995575101,
+    "monero": 0.6655409979092719,
+    "politics": 0.7016842882368506,
+    "quant": 0.5558549935817422,
+    "travel": 0.7787272624931052,
+    "workplace": 0.8138461270944614
+   }
+  }
+ },
+ "depth_curves_local": {
+  "dense_actual_k10": 0.2942754169514171,
+  "dense_oracle_by_depth": {
+   "10": 0.44367253117316374,
+   "20": 0.5373264814821573,
+   "50": 0.660683927643424,
+   "100": 0.7446226123514619,
+   "200": 0.8150254303739046,
+   "500": 0.893912411509496,
+   "1000": 0.941592367272022
+  },
+  "ce_actual_k10": 0.33095821492630095,
+  "ce_tag": "s17full",
+  "ce_oracle_by_depth": {
+   "10": 0.5035393883430873,
+   "20": 0.5817664820728361,
+   "50": 0.6831434675151246,
+   "100": 0.7446226123514619
+  },
+  "committed_depth_analysis_oracle_column": {
+   "10": 0.3852,
+   "20": 0.4844,
+   "50": 0.6086,
+   "100": 0.7446
+  },
+  "note": "committed results/DEPTH_ANALYSIS.md prints recall@k in the oracle column at k=10/20/50; its k>=100 rows match the official oracle definition"
+ },
+ "ce_actual": {
+  "rerank_sft_e2b": {
+   "ndcg10": 0.2752529744564742,
+   "per_domain": {
+    "bitcoin": 0.2091606775956029,
+    "cardano": 0.2071532818078418,
+    "economics": 0.14432967855937814,
+    "genealogy": 0.28787412072132296,
+    "history": 0.37534188949060054,
+    "hsm": 0.4806333020862568,
+    "iota": 0.5745894902451276,
+    "law": 0.19589769154539977,
+    "monero": 0.16242616995582987,
+    "politics": 0.32789677063250483,
+    "quant": 0.0515694575115067,
+    "travel": 0.21916255030872123,
+    "workplace": 0.3422535874740714
+   }
+  },
+  "rerank_lx_ep1b": {
+   "ndcg10": 0.27913242661112253,
+   "per_domain": {
+    "bitcoin": 0.21599454872095306,
+    "cardano": 0.19596128455386314,
+    "economics": 0.1526186640029576,
+    "genealogy": 0.30153664299978844,
+    "history": 0.37548092684950685,
+    "hsm": 0.4779200041513526,
+    "iota": 0.5810403913529772,
+    "law": 0.19545262452318593,
+    "monero": 0.16591714529824256,
+    "politics": 0.35800708409121934,
+    "quant": 0.04984130331333017,
+    "travel": 0.21965479465958365,
+    "workplace": 0.33929613142763226
+   }
+  },
+  "rerank_sft_e2s29": {
+   "ndcg10": 0.27748644746341966,
+   "per_domain": {
+    "bitcoin": 0.1940993896984369,
+    "cardano": 0.19335377660412018,
+    "economics": 0.1487933379055446,
+    "genealogy": 0.3003408156607113,
+    "history": 0.37781044713804407,
+    "hsm": 0.49383689310214623,
+    "iota": 0.5810403913529772,
+    "law": 0.19689853226322326,
+    "monero": 0.16844980178442778,
+    "politics": 0.3592000869913126,
+    "quant": 0.0502754773008656,
+    "travel": 0.19973335590765653,
+    "workplace": 0.3434915113149892
+   }
+  },
+  "fusion100_full_ce_s17_20261115": {
+   "ndcg10": 0.33095821492630095,
+   "per_domain": {
+    "bitcoin": 0.20056228636153708,
+    "cardano": 0.21080997112508298,
+    "economics": 0.22823867921455931,
+    "genealogy": 0.3339396952032189,
+    "history": 0.3827130032922973,
+    "hsm": 0.45370730893773553,
+    "iota": 0.6544607822279556,
+    "law": 0.3552496543819937,
+    "monero": 0.22542627229749193,
+    "politics": 0.4102731952309316,
+    "quant": 0.16932748575935228,
+    "travel": 0.29857163317585567,
+    "workplace": 0.3791768268339009
+   }
+  },
+  "rerank_cx_bf": {
+   "ndcg10": 0.25294013410102506,
+   "per_domain": {
+    "bitcoin": 0.1451418725148706,
+    "cardano": 0.14992558267719197,
+    "economics": 0.13932156214542954,
+    "genealogy": 0.26235485257536545,
+    "history": 0.3727482943328938,
+    "hsm": 0.4192042377492809,
+    "iota": 0.4224826722374287,
+    "law": 0.2889521758324116,
+    "monero": 0.16234844669657564,
+    "politics": 0.26732828532304015,
+    "quant": 0.17201035183036018,
+    "travel": 0.16236805139580615,
+    "workplace": 0.3240353580026713
+   }
+  }
+ },
+ "ladders": {
+  "committed_and_reproduced": {
+   "committed_and_reproduced": {
+    "committed_and_reproduced": {
+     "committed_and_reproduced": {
+      "dense_top100": {
+       "1": {
+        "macro": 0.5832534839716328,
+        "per_domain": {
+         "bitcoin": 0.45050282475604725,
+         "cardano": 0.4872681056135074,
+         "economics": 0.5167457082687936,
+         "genealogy": 0.529863096025221,
+         "history": 0.6163621112295338,
+         "hsm": 0.6668826764605189,
+         "iota": 0.8382954784660104,
+         "law": 0.7127523441264595,
+         "monero": 0.5344094408209861,
+         "politics": 0.573237175306173,
+         "quant": 0.44800475562020425,
+         "travel": 0.5731690323167363,
+         "workplace": 0.6348025426210357
+        }
+       },
+       "2": {
+        "macro": 0.6299273518887838,
+        "per_domain": {
+         "bitcoin": 0.47694633767566036,
+         "cardano": 0.5426835688648778,
+         "economics": 0.585424520475379,
+         "genealogy": 0.5445664893971232,
+         "history": 0.6971163934021575,
+         "hsm": 0.7133666928021657,
+         "iota": 0.8382954784660104,
+         "law": 0.8158193201149182,
+         "monero": 0.556221542137399,
+         "politics": 0.6181706411271488,
+         "quant": 0.4776129467167908,
+         "travel": 0.6182508716545556,
+         "workplace": 0.7045807717200018
+        }
+       },
+       "3": {
+        "macro": 0.6384943659307682,
+        "per_domain": {
+         "bitcoin": 0.4870838882627872,
+         "cardano": 0.5661610447127858,
+         "economics": 0.6053362180151736,
+         "genealogy": 0.5445664893971232,
+         "history": 0.7215991164802978,
+         "hsm": 0.7171028602748571,
+         "iota": 0.8382954784660104,
+         "law": 0.8158193201149182,
+         "monero": 0.556221542137399,
+         "politics": 0.6243322728461499,
+         "quant": 0.4776129467167908,
+         "travel": 0.6417148079556935,
+         "workplace": 0.7045807717200018
+        }
+       },
+       "10": {
+        "macro": 0.64019713182212,
+        "per_domain": {
+         "bitcoin": 0.4870838882627872,
+         "cardano": 0.5729096185936059,
+         "economics": 0.6053362180151736,
+         "genealogy": 0.5445664893971232,
+         "history": 0.7369864991870497,
+         "hsm": 0.7171028602748571,
+         "iota": 0.8382954784660104,
+         "law": 0.8158193201149182,
+         "monero": 0.556221542137399,
+         "politics": 0.6243322728461499,
+         "quant": 0.4776129467167908,
+         "travel": 0.6417148079556935,
+         "workplace": 0.7045807717200018
+        }
+       }
+      },
+      "dense_top20": {
+       "1": {
+        "macro": 0.4352763043117621,
+        "per_domain": {
+         "bitcoin": 0.26532761224560686,
+         "cardano": 0.2979449213002086,
+         "economics": 0.3725125477797061,
+         "genealogy": 0.43969561702439436,
+         "history": 0.48930559782062666,
+         "hsm": 0.514169610352531,
+         "iota": 0.8382954784660104,
+         "law": 0.5669008609694933,
+         "monero": 0.37199085337120835,
+         "politics": 0.47833021969879475,
+         "quant": 0.153796286139897,
+         "travel": 0.4553352093217347,
+         "workplace": 0.41498714156269506
+        }
+       },
+       "2": {
+        "macro": 0.44817131353368533,
+        "per_domain": {
+         "bitcoin": 0.27642817004937803,
+         "cardano": 0.3434739025135691,
+         "economics": 0.3725125477797061,
+         "genealogy": 0.44882215253926655,
+         "history": 0.5015397938146717,
+         "hsm": 0.514169610352531,
+         "iota": 0.8382954784660104,
+         "law": 0.6368069162640556,
+         "monero": 0.37199085337120835,
+         "politics": 0.47833021969879475,
+         "quant": 0.153796286139897,
+         "travel": 0.4750740033861257,
+         "workplace": 0.41498714156269506
+        }
+       },
+       "3": {
+        "macro": 0.44904349639660224,
+        "per_domain": {
+         "bitcoin": 0.27642817004937803,
+         "cardano": 0.3434739025135691,
+         "economics": 0.3725125477797061,
+         "genealogy": 0.44882215253926655,
+         "history": 0.5050568589322125,
+         "hsm": 0.514169610352531,
+         "iota": 0.8382954784660104,
+         "law": 0.6368069162640556,
+         "monero": 0.37199085337120835,
+         "politics": 0.47833021969879475,
+         "quant": 0.153796286139897,
+         "travel": 0.48289531548650494,
+         "workplace": 0.41498714156269506
+        }
+       }
+      },
+      "dense_top100_by_band": {
+       "1-3": {
+        "1": {
+         "macro": 0.5827562597761593,
+         "per_domain": {
+          "bitcoin": 0.45050282475604725,
+          "cardano": 0.4872681056135074,
+          "economics": 0.5167457082687936,
+          "genealogy": 0.5261395598563533,
+          "history": 0.6136217328572457,
+          "hsm": 0.6668826764605189,
+          "iota": 0.8382954784660104,
+          "law": 0.7127523441264595,
+          "monero": 0.5344094408209861,
+          "politics": 0.573237175306173,
+          "quant": 0.44800475562020425,
+          "travel": 0.5731690323167363,
+          "workplace": 0.6348025426210357
+         }
+        },
+        "2": {
+         "macro": 0.6250872140758853,
+         "per_domain": {
+          "bitcoin": 0.47694633767566036,
+          "cardano": 0.5426835688648778,
+          "economics": 0.585424520475379,
+          "genealogy": 0.5360393093347948,
+          "history": 0.6889840765081464,
+          "hsm": 0.7133666928021657,
+          "iota": 0.8382954784660104,
+          "law": 0.8005349986357256,
+          "monero": 0.5473727244389192,
+          "politics": 0.6149246777973109,
+          "quant": 0.4776129467167908,
+          "travel": 0.6126466204455183,
+          "workplace": 0.6913018308252102
+         }
+        },
+        "3": {
+         "macro": 0.6320173943678461,
+         "per_domain": {
+          "bitcoin": 0.4834526718421953,
+          "cardano": 0.5661610447127858,
+          "economics": 0.6053362180151736,
+          "genealogy": 0.5360393093347948,
+          "history": 0.7057169764482598,
+          "hsm": 0.7133666928021657,
+          "iota": 0.8382954784660104,
+          "law": 0.8005349986357256,
+          "monero": 0.5473727244389192,
+          "politics": 0.6149246777973109,
+          "quant": 0.4776129467167908,
+          "travel": 0.6361105567466562,
+          "workplace": 0.6913018308252102
+         }
+        }
+       },
+       "4-7": {
+        "1": {
+         "macro": 0.46220003110776037,
+         "per_domain": {
+          "bitcoin": 0.320304459689115,
+          "cardano": 0.34337140258128135,
+          "economics": 0.37132120912674593,
+          "genealogy": 0.46709963324722664,
+          "history": 0.49944616025706823,
+          "hsm": 0.5603507361700435,
+          "iota": 0.8382954784660104,
+          "law": 0.5743249032761467,
+          "monero": 0.3495301477277263,
+          "politics": 0.4985835652701072,
+          "quant": 0.2805049771317166,
+          "travel": 0.3909338478616719,
+          "workplace": 0.5145338835960248
+         }
+        },
+        "2": {
+         "macro": 0.49290161929478027,
+         "per_domain": {
+          "bitcoin": 0.3365182254026328,
+          "cardano": 0.3773492383096565,
+          "economics": 0.4122110173959224,
+          "genealogy": 0.4788090158466588,
+          "history": 0.5525402319739781,
+          "hsm": 0.5903858964792836,
+          "iota": 0.8382954784660104,
+          "law": 0.6472019127533822,
+          "monero": 0.3654269496464426,
+          "politics": 0.5270598087851147,
+          "quant": 0.2972210226283369,
+          "travel": 0.42017340747424575,
+          "workplace": 0.5645288456704785
+         }
+        },
+        "3": {
+         "macro": 0.49907461798211206,
+         "per_domain": {
+          "bitcoin": 0.34396390586152154,
+          "cardano": 0.3940749295740163,
+          "economics": 0.4258426622696551,
+          "genealogy": 0.4788090158466588,
+          "history": 0.5698106242621404,
+          "hsm": 0.5934760338017453,
+          "iota": 0.8382954784660104,
+          "law": 0.6472019127533822,
+          "monero": 0.3654269496464426,
+          "politics": 0.5324292000162033,
+          "quant": 0.2972210226283369,
+          "travel": 0.436889452970866,
+          "workplace": 0.5645288456704785
+         }
+        }
+       },
+       "8-10": {
+        "1": {
+         "macro": 0.4346142850117063,
+         "per_domain": {
+          "bitcoin": 0.29214591664105055,
+          "cardano": 0.31191499979452464,
+          "economics": 0.3390063177238125,
+          "genealogy": 0.4507024105464085,
+          "history": 0.4715309581269714,
+          "hsm": 0.5362952188590456,
+          "iota": 0.8382954784660104,
+          "law": 0.53617102783247,
+          "monero": 0.31314220098016105,
+          "politics": 0.48013173435190964,
+          "quant": 0.24660872471381995,
+          "travel": 0.3533374350862549,
+          "workplace": 0.48070328202974294
+         }
+        },
+        "2": {
+         "macro": 0.45787581854791143,
+         "per_domain": {
+          "bitcoin": 0.3013594322003549,
+          "cardano": 0.3383548951518898,
+          "economics": 0.36813074264753626,
+          "genealogy": 0.4574176165324901,
+          "history": 0.5131512955537625,
+          "hsm": 0.559667116409154,
+          "iota": 0.8382954784660104,
+          "law": 0.5921425258283914,
+          "monero": 0.3255123172703113,
+          "politics": 0.5022905588493418,
+          "quant": 0.2607354219998029,
+          "travel": 0.3760902349594464,
+          "workplace": 0.519238005254357
+         }
+        },
+        "3": {
+         "macro": 0.4623093182233545,
+         "per_domain": {
+          "bitcoin": 0.3075581648601164,
+          "cardano": 0.35192792010860574,
+          "economics": 0.3726445483014937,
+          "genealogy": 0.4574176165324901,
+          "history": 0.5260710593205834,
+          "hsm": 0.5621747862169081,
+          "iota": 0.8382954784660104,
+          "law": 0.5921425258283914,
+          "monero": 0.3255123172703113,
+          "politics": 0.5066478604418466,
+          "quant": 0.2607354219998029,
+          "travel": 0.3896554323026911,
+          "workplace": 0.519238005254357
+         }
+        }
+       }
+      },
+      "ce_top100": {
+       "1": {
+        "macro": 0.5832534839716328,
+        "per_domain": {
+         "bitcoin": 0.45050282475604725,
+         "cardano": 0.4872681056135074,
+         "economics": 0.5167457082687936,
+         "genealogy": 0.529863096025221,
+         "history": 0.6163621112295338,
+         "hsm": 0.6668826764605189,
+         "iota": 0.8382954784660104,
+         "law": 0.7127523441264595,
+         "monero": 0.5344094408209861,
+         "politics": 0.573237175306173,
+         "quant": 0.44800475562020425,
+         "travel": 0.5731690323167363,
+         "workplace": 0.6348025426210357
+        }
+       },
+       "2": {
+        "macro": 0.6299273518887838,
+        "per_domain": {
+         "bitcoin": 0.47694633767566036,
+         "cardano": 0.5426835688648778,
+         "economics": 0.585424520475379,
+         "genealogy": 0.5445664893971232,
+         "history": 0.6971163934021575,
+         "hsm": 0.7133666928021657,
+         "iota": 0.8382954784660104,
+         "law": 0.8158193201149182,
+         "monero": 0.556221542137399,
+         "politics": 0.6181706411271488,
+         "quant": 0.4776129467167908,
+         "travel": 0.6182508716545556,
+         "workplace": 0.7045807717200018
+        }
+       },
+       "3": {
+        "macro": 0.6384943659307682,
+        "per_domain": {
+         "bitcoin": 0.4870838882627872,
+         "cardano": 0.5661610447127858,
+         "economics": 0.6053362180151736,
+         "genealogy": 0.5445664893971232,
+         "history": 0.7215991164802978,
+         "hsm": 0.7171028602748571,
+         "iota": 0.8382954784660104,
+         "law": 0.8158193201149182,
+         "monero": 0.556221542137399,
+         "politics": 0.6243322728461499,
+         "quant": 0.4776129467167908,
+         "travel": 0.6417148079556935,
+         "workplace": 0.7045807717200018
+        }
+       }
+      }
+     },
+     "union20_ladder": {
+      "pool": "union(dense top20, CE top20) minus frozen top10; ideal k-slot replacement",
+      "s17full": {
+       "k1": 0.5103619641669876,
+       "k2": 0.5331341771533334,
+       "k3": 0.5346414698887405,
+       "k3_slots8_10": 0.4218957694828722,
+       "k1_slots8_10": 0.40975356256898093
+      },
+      "sft_e2b": {
+       "k1": 0.48916074642963314,
+       "k2": 0.514203954452821,
+       "k3": 0.5157502771996592,
+       "k3_slots8_10": 0.41700388922038,
+       "k1_slots8_10": 0.40351338426362626
+      },
+      "committed_rungs": {
+       "depth20_k1_any_slot": 0.5103619641669878,
+       "depth100_k1_dense_only": 0.5832534839716328,
+       "depth100_k2_dense_only": 0.6299273518887838,
+       "depth100_full_rerank": 0.7446226123514618
+      }
+     }
+    },
+    "union20_ladder": {
+     "pool": "union(dense top20, CE top20) minus frozen top10; ideal k-slot replacement",
+     "s17full": {
+      "k1": 0.5103619641669876,
+      "k2": 0.5331341771533334,
+      "k3": 0.5346414698887405,
+      "k3_slots8_10": 0.4218957694828722,
+      "k1_slots8_10": 0.40975356256898093
+     },
+     "sft_e2b": {
+      "k1": 0.48916074642963314,
+      "k2": 0.514203954452821,
+      "k3": 0.5157502771996592,
+      "k3_slots8_10": 0.41700388922038,
+      "k1_slots8_10": 0.40351338426362626
+     },
+     "committed_rungs": {
+      "depth20_k1_any_slot": 0.5103619641669878,
+      "depth100_k1_dense_only": 0.5832534839716328,
+      "depth100_k2_dense_only": 0.6299273518887838,
+      "depth100_full_rerank": 0.7446226123514618
+     }
+    }
+   },
+   "union20_ladder": {
+    "pool": "union(dense top20, CE top20) minus frozen top10; ideal k-slot replacement",
+    "s17full": {
+     "k1": 0.5103619641669876,
+     "k2": 0.5331341771533334,
+     "k3": 0.5346414698887405,
+     "k3_slots8_10": 0.4218957694828722,
+     "k1_slots8_10": 0.40975356256898093
+    },
+    "sft_e2b": {
+     "k1": 0.48916074642963314,
+     "k2": 0.514203954452821,
+     "k3": 0.5157502771996592,
+     "k3_slots8_10": 0.41700388922038,
+     "k1_slots8_10": 0.40351338426362626
+    },
+    "committed_rungs": {
+     "depth20_k1_any_slot": 0.5103619641669878,
+     "depth100_k1_dense_only": 0.5832534839716328,
+     "depth100_k2_dense_only": 0.6299273518887838,
+     "depth100_full_rerank": 0.7446226123514618
+    }
+   }
+  },
+  "union20_ladder": {
+   "pool": "union(dense top20, CE top20) minus frozen top10; ideal k-slot replacement",
+   "s17full": {
+    "k1": 0.5103619641669876,
+    "k2": 0.5331341771533334,
+    "k3": 0.5346414698887405,
+    "k3_slots8_10": 0.4218957694828722,
+    "k1_slots8_10": 0.40975356256898093
+   },
+   "sft_e2b": {
+    "k1": 0.48916074642963314,
+    "k2": 0.514203954452821,
+    "k3": 0.5157502771996592,
+    "k3_slots8_10": 0.41700388922038,
+    "k1_slots8_10": 0.40351338426362626
+   },
+   "committed_rungs": {
+    "depth20_k1_any_slot": 0.5103619641669878,
+    "depth100_k1_dense_only": 0.5832534839716328,
+    "depth100_k2_dense_only": 0.6299273518887838,
+    "depth100_full_rerank": 0.7446226123514618
+   }
+  }
+ },
+ "specialisation": {
+  "at_w1": {
+   "sft_e2b": 0.358341009549468,
+   "lx_ep1b": 0.3560284833025453,
+   "sft_e2s29": 0.3527425123238684,
+   "full_s17": 0.34501578363048285,
+   "cx_bf": 0.3443344110932597
+  },
+  "global_best": {
+   "arm": "full_s17",
+   "w_ce": 2.0,
+   "macro": 0.3632070285886612
+  },
+  "per_domain_oracle_over_arm_and_weight": {
+   "picks": {
+    "bitcoin": {
+     "arm": "lx_ep1b",
+     "w_ce": 1.8,
+     "macro": 0.23839150460112568
+    },
+    "cardano": {
+     "arm": "full_s17",
+     "w_ce": 2.0,
+     "macro": 0.2503486408220931
+    },
+    "economics": {
+     "arm": "full_s17",
+     "w_ce": 1.5,
+     "macro": 0.2506511272228468
+    },
+    "genealogy": {
+     "arm": "lx_ep1b",
+     "w_ce": 1.5,
+     "macro": 0.4219555156271441
+    },
+    "history": {
+     "arm": "cx_bf",
+     "w_ce": 1.3,
+     "macro": 0.4278867972714272
+    },
+    "hsm": {
+     "arm": "lx_ep1b",
+     "w_ce": 2.0,
+     "macro": 0.4832895010700066
+    },
+    "iota": {
+     "arm": "sft_e2b",
+     "w_ce": 1.5,
+     "macro": 0.852959427326315
+    },
+    "law": {
+     "arm": "lx_ep1b",
+     "w_ce": 1.0,
+     "macro": 0.4341711859383087
+    },
+    "monero": {
+     "arm": "sft_e2b",
+     "w_ce": 2.0,
+     "macro": 0.25276171943786907
+    },
+    "politics": {
+     "arm": "full_s17",
+     "w_ce": 2.0,
+     "macro": 0.43532855618764754
+    },
+    "quant": {
+     "arm": "cx_bf",
+     "w_ce": 1.5,
+     "macro": 0.18795325817408334
+    },
+    "travel": {
+     "arm": "full_s17",
+     "w_ce": 2.0,
+     "macro": 0.3075119960867837
+    },
+    "workplace": {
+     "arm": "cx_bf",
+     "w_ce": 2.0,
+     "macro": 0.41418552592444335
+    }
+   },
+   "macro": 0.38133805813000726,
+   "n_distinct_arms": 4,
+   "n_distinct_weights": 5
+  },
+  "per_domain_oracle_over_weight_only": {
+   "picks": {
+    "bitcoin": {
+     "w_ce": 1.8,
+     "macro": 0.2325079051316223
+    },
+    "cardano": {
+     "w_ce": 1.0,
+     "macro": 0.24058129432939915
+    },
+    "economics": {
+     "w_ce": 0.85,
+     "macro": 0.24733615201885573
+    },
+    "genealogy": {
+     "w_ce": 1.5,
+     "macro": 0.4216348634682216
+    },
+    "history": {
+     "w_ce": 1.5,
+     "macro": 0.412664278507025
+    },
+    "hsm": {
+     "w_ce": 1.5,
+     "macro": 0.48050798808524675
+    },
+    "iota": {
+     "w_ce": 1.5,
+     "macro": 0.852959427326315
+    },
+    "law": {
+     "w_ce": 0.85,
+     "macro": 0.42992878858050343
+    },
+    "monero": {
+     "w_ce": 2.0,
+     "macro": 0.25276171943786907
+    },
+    "politics": {
+     "w_ce": 1.15,
+     "macro": 0.4348291345938315
+    },
+    "quant": {
+     "w_ce": 0.5,
+     "macro": 0.156745791154224
+    },
+    "travel": {
+     "w_ce": 0.5,
+     "macro": 0.2603000957093333
+    },
+    "workplace": {
+     "w_ce": 0.85,
+     "macro": 0.38696931581270094
+    }
+   },
+   "macro": 0.3699789810888575
+  },
+  "per_domain_oracle_over_arm_only": {
+   "picks": {
+    "bitcoin": {
+     "arm": "lx_ep1b",
+     "macro": 0.21764941085614492
+    },
+    "cardano": {
+     "arm": "sft_e2b",
+     "macro": 0.24058129432939915
+    },
+    "economics": {
+     "arm": "lx_ep1b",
+     "macro": 0.25011243686342133
+    },
+    "genealogy": {
+     "arm": "sft_e2b",
+     "macro": 0.4074101876922977
+    },
+    "history": {
+     "arm": "cx_bf",
+     "macro": 0.4204555508446225
+    },
+    "hsm": {
+     "arm": "sft_e2b",
+     "macro": 0.4685996561644078
+    },
+    "iota": {
+     "arm": "sft_e2b",
+     "macro": 0.841090573974228
+    },
+    "law": {
+     "arm": "lx_ep1b",
+     "macro": 0.4341711859383087
+    },
+    "monero": {
+     "arm": "lx_ep1b",
+     "macro": 0.20615586469741978
+    },
+    "politics": {
+     "arm": "sft_e2b",
+     "macro": 0.43261277447146673
+    },
+    "quant": {
+     "arm": "full_s17",
+     "macro": 0.17878391794187085
+    },
+    "travel": {
+     "arm": "full_s17",
+     "macro": 0.2925595288153486
+    },
+    "workplace": {
+     "arm": "cx_bf",
+     "macro": 0.3879101215697675
+    }
+   },
+   "macro": 0.36754557724297715
+  }
+ },
+ "levers": {
+  "ranking_rule": "expected dev points = (achievable ceiling) x (capture rate supported by a measured experiment); ceilings are oracle numbers and are never counted as expected gain",
+  "items": [
+   {
+    "rank": 1,
+    "lever": "C. better ranking of the documents already in the frozen top-100 pool",
+    "ceiling_points": 38.65,
+    "ceiling_detail": "pool-oracle nDCG@10 0.7446 vs frozen 0.3581; perfect ordering of the same 10 returned docs alone is worth 14.55 pts (296/519 queries), so 37.6% of the pool headroom is pure position error",
+    "evidence": "dense 0.2943 -> frozen 0.3581 captures 14.2% of the dense->pool gap (results/CAPTURE_CURVE_E2.md); CE-alone (full-query, seed 17) 0.3310 captures 8.2%; best measured policy 0.3646 (Direct, +0.65 pts, CI [+0.21,+1.17])",
+    "expected_points": [
+     2.5,
+     5.8
+    ],
+    "expected_detail": "raises capture from the measured 14.2% to 22-30% of the 45.03-pt dense->pool gap: 0.2943+0.22*45.03=0.3934 (+3.53 pts) to 0.2943+0.30*45.03=0.4294 (+7.13 pts); a policy-only fix is worth +0.5 to +1.0"
+   },
+   {
+    "rank": 2,
+    "lever": "A. promote the zero-class documents that are already in the pool",
+    "ceiling_points": 14.33,
+    "ceiling_detail": "138 zeros, 86 of them have a judged-relevant doc inside the delivered top-100; lifting them to their in-pool oracle is worth 14.33 pts (37.1% of the pool headroom). Lifting them to the domain median instead = 8.04 pts",
+    "evidence": "519/519 queries have identical dense-top100 and frozen Rec@100, so the pool is the dense top-100; the SFT CE reranking from the pool directly scored 0.3049 (-5.3 pts), i.e. the current CE cannot promote them",
+    "expected_points": [
+     0.3,
+     1.5
+    ],
+    "expected_detail": "same mechanism as C, so not additive; a targeted promotion policy at 10-20% precision on 86 queries: 0.10*14.33=+1.43, 0.05*14.33=+0.72"
+   },
+   {
+    "rank": 3,
+    "lever": "E. per-domain specialisation (checkpoint and fusion weight)",
+    "ceiling_points": 2.32,
+    "ceiling_detail": "in-sample per-domain oracle over 5 CE arms x 9 fusion weights = 0.3813; weight-only 0.3700; arm-only 0.3675; single global best (full_s17, w=2.0) 0.3632",
+    "evidence": "committed results/weight_sweep_e2_dev.json: w=1.0 -> 0.3581, w=1.5 -> 0.3592 (+0.11); per-domain selection is fitted on 3-240 queries per domain, so shrink 60-70%",
+    "expected_points": [
+     0.5,
+     1.0
+    ],
+    "expected_detail": "0.35 x 2.32 = +0.81 (weight+arm), 0.35 x 1.19 = +0.42 (weight only)"
+   },
+   {
+    "rank": 4,
+    "lever": "D. more replacement swaps at the tail",
+    "ceiling_points": 1.88,
+    "ceiling_detail": "0.37694 (up to 3 tail replacements from union(dense20,CE20)) vs 0.3581; one unlimited swap restricted to ranks 8-10 = 0.40975, any slot = 0.51036",
+    "evidence": "error_analysis_dev.json: 43.6% of single-fix gain sits at ranks 1-3, only 21.4% at 8-10, so a tail-only policy is structurally capped at about a fifth of the replacement headroom; measured capture of the 1.88-pt ceiling is 34.6% (+0.65 pts)",
+    "expected_points": [
+     0.2,
+     0.6
+    ],
+    "expected_detail": "extending the judge to ranks 1-7 would move the ceiling from 1.88 to 100*(0.51036-BASE)=15.23 pts, but the decision quality measured so far (1 helpful per 1.2 swaps) implies +0.2 to +0.6"
+   },
+   {
+    "rank": 5,
+    "lever": "B. first-stage recall (deeper or additional retrieval)",
+    "ceiling_points": 19.7,
+    "ceiling_detail": "dense@100 pool oracle 0.7446 -> dense@1000 0.9416; 22.5% of dev gold sits between dense rank 100 and 1000; only 10 of the 138 zero queries have no relevant document anywhere in the dense top-1000",
+    "evidence": "measured depth probe (62 queries, 200-deep CE pool): +0.0010 [-0.0009,+0.0036], 3 up / 2 down, zero in 9 of 13 domains; BM25 arms on the only covered domain have lower oracle nDCG@10 than dense (0.5463-0.5822 vs 0.6349) and recover at most 1 of the 4 dense zeros",
+    "expected_points": [
+     0.0,
+     0.5
+    ],
+    "expected_detail": "0.5% of 19.71 pts (measured probe capture) = +0.10; a hybrid stage that adds only new documents cannot pay unless the CE is retrained on them"
+   }
+  ],
+  "largest_ceiling": {
+   "lever": "C (equivalently: ranking, not retrieval)",
+   "ceiling_points": 38.65,
+   "share_of_remaining_metric": 0.6022,
+   "realistic_capture": [
+    0.2,
+    0.35
+   ],
+   "realistic_points": [
+    7.73,
+    13.53
+   ],
+   "why": "the frozen system already sits on top of a pool whose oracle is 0.7446; the documents are there and half the recoverable nDCG is mis-ordering of the ten docs actually returned. Capture above 14.2% has never been demonstrated by any reranker in the tree (CE-alone 0.3310, direct deep rerank 0.2213, full pool rerank 0.3049), so 20-35% is the honest band, not the 60-100% an oracle suggests."
+  }
+ },
+ "verification": {
+  "confirmed": [
+   "baseline 0.3580985233 recomputed from results/score_sub_sft_e2bc_<domain>_dev.json and independently from runs/sub_sft_e2bc_<domain>_dev_head10.trec; max per-query difference 0.0",
+   "138/519 queries (26.59%) score exactly 0.0 - confirmed, and the per-domain split matches the earlier analysis (history 46, politics 14, bitcoin 13, travel 12, genealogy 10, hsm 10, economics 9, monero 8, quant 5, cardano 4, workplace 4, law 3, iota 0)",
+   "519/519 queries are answerable (every qrels_dev query has >=1 positive) and every one of the 1,777 unique (query, document) judged-relevant pairs was found in data/track1_tempo/<domain>/documents.jsonl on the server (0 missing), so the perfect domain-macro is 1.0",
+   "the committed oracle ladders reproduce exactly: union(dense20,CE20) one swap any slot 0.5103619641669876 vs committed 0.5103619641669878; ranks 8-10 0.4097536 vs the quoted 0.4098; dense@100 one swap 0.5833, two swaps 0.6299, full rerank 0.7446"
+  ],
+  "corrected": [
+   "the brief's 'CE-alone 0.3249' is the zero-shot cross-encoder fused z 1:1 with dense (results/weight_sweep_dev.json summary zs=0.3249074); true CE-alone on dev is 0.29237 for title CE and 0.33096 for full-query CE (docs/RESEARCH_UPDATE_20261119.md table, reproduced here as 0.33096)",
+   "results/DEPTH_ANALYSIS.md prints recall@k in the oracle column for k=10/20/50 (0.3852/0.4844/0.6086); the official oracle-by-depth is 0.4437/0.5373/0.6607, i.e. the shallow pool is worth up to +5.9 pts more than that table claims. Its k>=100 rows are correct",
+   "the earlier diagnosis 'the zero class is a first-stage recall failure (130 of 138 unreachable in dense top-100)' is wrong, and its artefact has a parse bug. reteco_server/zero_recall.py reads TREC rows as (docid=p[2], score=float(p[3])) but p[3] is the rank column, so it sorts each run by rank DESCENDING and then keeps the first 100 rows - for a 1000-deep dense run that slice is ranks 901-1000, and inside a 100-deep CE run the reported index is 101-true_rank. Concretely, for bitcoin/112021_76 the gold doc is at dense rank 55 and CE rank 71, yet the artefact records dense best_rank=null and ce best_rank=30 (=101-71). Its frozen column reads runs/sub_sft_e2bc_<d>_dev.trec, which does not exist locally (only the _head10 prefix does), so that column is all null. The correct numbers: gold is inside the dense top-100 for 86 of the 138 zeros (128 inside the top-1000), and 519/519 queries have identical dense-top100 and frozen Rec@100, i.e. the delivered pool holds the same relevant content as the dense top-100. 86 of the zeros are already inside the pool",
+   "the earlier 'zeros -> domain non-zero mean = 0.472' is 0.4985 under the stated rule (each zero replaced by its own domain's non-zero mean, 13-domain macro); the domain-median variant asked for here is 0.4385"
+  ]
+ }
+}
