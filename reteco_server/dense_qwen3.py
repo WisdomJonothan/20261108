@@ -66,8 +66,8 @@ def embed(model, tok, texts, batch, max_len, is_query, device="cuda"):
         enc = tok(chunk, padding=True, truncation=True, max_length=max_len,
                   return_tensors="pt").to(device)
         h = model(**enc).last_hidden_state
-        lengths = enc["attention_mask"].sum(dim=1) - 1
-        vec = h[torch.arange(h.size(0)), lengths]
+        # left padding: the final position is always the true last token (EOS)
+        vec = h[:, -1]
         vec = torch.nn.functional.normalize(vec.float(), dim=-1)
         out.append(vec.cpu().numpy())
     return np.concatenate(out, axis=0)

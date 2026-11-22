@@ -105,3 +105,16 @@ So 37.6% of the pool headroom is position error (reordering the same ten documen
 Artefacts: `results/analysis/SCORE_DIAGNOSIS.json` (distribution, zero class, pool
 oracle, ordering-only ceiling, per-domain), `results/analysis/SCORE_DIAGNOSIS_EXTRA.json`,
 `results/replacement_v2/candidates_dev.json` (frozen pool).
+
+## Correction and next lever (2026-11-22, 20:30)
+
+My first zero-class recall numbers ("only 8 of 138 zero queries have a relevant document in
+the dense top-100") were a parsing bug: the TREC reader took column 3 (the rank) as the
+score, so every list was sorted by descending rank and the "top-100" slice was ranks
+901-1000. The verified numbers are 86 of 138 at depth <=100, 103 at <=200, 128 at <=1000 and
+10 with no judged-relevant document in the top-1000 at all.
+
+Consequence: the zero class is not purely a first-stage reachability problem, it is mostly a
+*ranking* problem over documents the retriever already reaches, which is what the batch
+oracle numbers say too (reorder the same ten: 0.5036; reorder the delivered top-100: 0.7446;
+delivered 0.3581).
