@@ -1,0 +1,2351 @@
+{
+ "n_zero": 138,
+ "per_query": [
+  {
+   "domain": "bitcoin",
+   "qid": "112021_76",
+   "n_rel": 5,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 30
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "112929_69",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 5
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "112979_68",
+   "n_rel": 5,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 70
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "113500_66",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 28
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "113938_64",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "121089_32",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 73
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "122013_25",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 51
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "123234_16",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "123461_13",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "124510_9",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "93368_97",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 87
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "97179_88",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 57
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "97236_86",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 85
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "11106_102",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 40
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "4225_128",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 81
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "80_150",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 88
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "840_139",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "43853_228",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "43952_227",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 69
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "45680_223",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "47763_212",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 31
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "51330_198",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 64
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "52658_189",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "55201_179",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 8
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "56372_176",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "60545_155",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 40
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "10043_313",
+   "n_rel": 5,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "11818_301",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 92
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "11823_300",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "13596_269",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "14960_260",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "15307_257",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 95
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "20551_235",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "2264_333",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "3224_325",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 99
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "3370_319",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56068_771",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 54
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56551_731",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 37
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56713_726",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56734_725",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 35
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56978_708",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": 52
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": 52
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58699_662",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 95
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58962_648",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "59289_624",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 40
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "62574_607",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "62753_599",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 69
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "64072_537",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 79
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "64604_517",
+   "n_rel": 7,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 47
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66092_501",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 1
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66663_452",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "67963_434",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68107_426",
+   "n_rel": 12,
+   "dense": {
+    "depth": 100,
+    "best_rank": 24
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 41
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": 24
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68358_414",
+   "n_rel": 9,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 61
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68362_413",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 79
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69389_354",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 85
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69758_331",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69851_324",
+   "n_rel": 5,
+   "dense": {
+    "depth": 100,
+    "best_rank": 57
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 75
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": 57
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69860_322",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 57
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70188_298",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 72
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70284_294",
+   "n_rel": 37,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70361_291",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 79
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70583_271",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 89
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70594_270",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 32
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70624_268",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 98
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70746_260",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 43
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71222_231",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71394_215",
+   "n_rel": 10,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71551_207",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 83
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72255_172",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": 9
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": 9
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72370_163",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 59
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72552_154",
+   "n_rel": 21,
+   "dense": {
+    "depth": 100,
+    "best_rank": 54
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 43
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": 54
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72564_153",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 90
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "74058_133",
+   "n_rel": 14,
+   "dense": {
+    "depth": 100,
+    "best_rank": 62
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 100
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": 62
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "74426_129",
+   "n_rel": 8,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 29
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76250_114",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 72
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76410_105",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 8
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76671_88",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76697_85",
+   "n_rel": 8,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "77144_59",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "77270_48",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 81
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "79114_14",
+   "n_rel": 5,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 69
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "79485_7",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 55
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "13081_730",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "13304_724",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 33
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "13367_721",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 100
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "13846_707",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": 3
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 25
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": 3
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "14467_697",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "17703_690",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "276_797",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 71
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "2976_779",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 72
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "5514_757",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "5709_750",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "102419_841",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 36
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "103373_837",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "106440_824",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 84
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "10071_871",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 78
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "12479_853",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "14078_844",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 63
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "3554_903",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "4053_899",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 44
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "4083_898",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "5677_892",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 45
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "7072_882",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 66
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "74259_1054",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 66
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "78217_1019",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 69
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "81967_1013",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 51
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "82825_1003",
+   "n_rel": 4,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "83279_999",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "83771_988",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "86781_983",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "87499_976",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 89
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "87918_970",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "88444_960",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 66
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "89697_946",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 73
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "89978_941",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 54
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "91586_923",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "92743_919",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": 33
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": 33
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "75646_1077",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "77873_1071",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 29
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "78710_1068",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 94
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "79564_1066",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "83939_1059",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 93
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "183966_1189",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 78
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "184615_1180",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 66
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "185727_1169",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 25
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "186482_1157",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 64
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "188364_1150",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 98
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "188979_1146",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "190667_1135",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 63
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "190846_1134",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 23
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "191493_1129",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 93
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "198471_1102",
+   "n_rel": 3,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 50
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "200183_1100",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "201562_1094",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "168198_1227",
+   "n_rel": 2,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 75
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "171543_1222",
+   "n_rel": 5,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 91
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "181803_1211",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": 41
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "200148_1194",
+   "n_rel": 1,
+   "dense": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "ce": {
+    "depth": 100,
+    "best_rank": null
+   },
+   "frozen": {
+    "depth": 100,
+    "best_rank": null
+   }
+  }
+ ]
+}
