@@ -381,6 +381,17 @@ CLAIMS = [
      lambda: jload("replacement_v2/swap_composition_dev.json")["direct"]["adds_relevant"],
      "replacement_v2/swap_composition_dev.json", False),
 
+    # --- 8B judge with the wider evidence window (2026-11-22) ---------------
+    ("Llama-3.1-8B wide nDCG@10", 0.3626,
+     lambda: jload("replacement_v2/exp_llama31_wide_dev.json")["policies"]["direct"]["macro_policy"],
+     "replacement_v2/exp_llama31_wide_dev.json", False),
+    ("Llama-3.1-8B wide delta", 0.0045,
+     lambda: jload("replacement_v2/exp_llama31_wide_dev.json")["policies"]["direct"]["macro_delta"],
+     "replacement_v2/exp_llama31_wide_dev.json", False),
+    ("Llama-3.1-8B wide harmful swaps", 7,
+     lambda: jload("replacement_v2/exp_llama31_wide_dev.json")["policies"]["direct"]["swap_counts"]["harmful"],
+     "replacement_v2/exp_llama31_wide_dev.json", False),
+
 ]
 
 

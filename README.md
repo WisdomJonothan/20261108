@@ -197,12 +197,12 @@ per-policy JSONs and TREC runs under `results/replacement_v2/`.
   Robust04 -0.0449/-0.0214/-0.0347/-0.0121/-0.0105. Every system still ignores part of the
   instruction change, but the correction roughly halves the error, which retracts the earlier
   "the new module does not understand instructions" sentence.
-- **A stronger judge does not substitute for more evidence (2026-11-22).** Same candidates,
-  same nine pairs, same rule: Qwen3-4B with 112-word windows 0.3646 (+0.0065, 32 helpful / 19
-  harmful), the same model with 400-word windows 0.3660 (+0.0079, 36 / 10, 1.55x prompt tokens),
-  Llama-3.1-8B-Instruct with 112-word windows 0.3622 (+0.0041, 24 / 12). Paired effects:
-  400-word +0.0014 CI [-0.0008,+0.0044], stronger model -0.0024 CI [-0.0061,+0.0009]. Capability
-  alone does not help; evidence width halves harmful swaps. Both intervals include zero.
+- **Capability does not substitute for evidence (2x2 grid, 2026-11-22).** Same candidates, pairs
+  and rule: Qwen3-4B at 112 words 0.3646 (+0.0065, 32 helpful / 19 harmful), Qwen3-4B at 400 words
+  0.3660 (+0.0079, 36 / 10, 1.55x prompt tokens), Llama-3.1-8B at 112 words 0.3622 (+0.0041,
+  24 / 12), Llama-3.1-8B at 400 words 0.3626 (+0.0045, 23 / 7). Paired: +0.0014 for more evidence
+  (CI [-0.0008,+0.0044]), -0.0024 for the stronger model (CI [-0.0061,+0.0009]). More evidence
+  halves harmful swaps for both judges; a bigger judge does not help at either window.
 
 - **The judges differ in what they touch, not only in how often they fire.** Both arms
   accept about as many swaps (324 vs 330) and both stay positive, but Qwen3-4B changes the

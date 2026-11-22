@@ -263,16 +263,33 @@ No system follows the changed instruction properly, but the correction stage rou
 the error, so the stage improves instruction response without being an instruction-understanding
 method.
 
-\paragraph{Evidence completeness, not capability.} Holding the candidate pool, the
-nine pairs and the decision rule fixed, we change only the judge model or the length of the
-passage it reads. Qwen3-4B-Instruct with 112-word query-matched windows scores 0.364609
-(+0.006510) with 32 helpful and 19 harmful swaps; the same model with 400-word windows scores
-0.365998 (+0.007900) with 36 helpful and 10 harmful swaps, at 1.55 times the prompt tokens;
-Llama-3.1-8B-Instruct with the same 112-word windows scores 0.362195 (+0.004096) with 24 helpful
-and 12 harmful swaps. Paired against the 112-word arm, the 400-word arm is +0.001390
-(CI [-0.00082,+0.00438]) and the stronger model is -0.002414 (CI [-0.00608,+0.00086]). A stronger
-judge at the same short evidence does not help, while more evidence halves the harmful swaps, so
-the axis that pays is evidence completeness rather than model capability.
+\paragraph{Capability against evidence.} Holding the candidate pool, the nine pairs and
+the decision rule fixed, we change only the judge model or the length of the passage it reads
+(Table~\ref{tab:grid}). Qwen3-4B-Instruct with 112-word query-matched windows scores 0.364609
+(+0.006510) with 32 helpful and 19 harmful swaps; with 400-word windows the same model scores
+0.365998 (+0.007900) with 36 helpful and 10 harmful swaps; Llama-3.1-8B-Instruct scores 0.362195
+(+0.004096, 24/12) at 112 words and 0.362623 (+0.004525, 23/7) at 400 words. Paired against the
+112-word 4B arm, more evidence is +0.001390 (CI [-0.00082,+0.00438]) and the stronger model is
+-0.002414 (CI [-0.00608,+0.00086]). A model twice the size does not judge better at the same short
+evidence, while more evidence halves the harmful swaps for both judges, so the binding constraint
+here is what the judge can see rather than how strong it is.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lcrrrrr}
+\toprule
+Judge & Window & nDCG@10 & Delta & Helpful & Harmful & Harmful loss \\
+\midrule
+Qwen3-4B-Instruct & 112 words & 0.3646 & +0.0065 & 32 & 19 & -2.32 \\
+Qwen3-4B-Instruct & 400 words & 0.3660 & +0.0079 & 36 & 10 & -1.28 \\
+Llama-3.1-8B-Instruct & 112 words & 0.3622 & +0.0041 & 24 & 12 & -1.53 \\
+Llama-3.1-8B-Instruct & 400 words & 0.3626 & +0.0045 & 23 & 7 & -1.04 \\
+\bottomrule
+\end{tabular}
+\caption{Frozen pool, nine pairs, one swap; only the judge model and its evidence window change.}
+\label{tab:grid}
+\end{table}
 
 \subsection*{9.1 Verification and replay}
 \label{sec:verif}

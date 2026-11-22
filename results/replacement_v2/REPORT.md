@@ -353,11 +353,11 @@ rises from 0.038 to 0.116 (Core17), 0.083 to 0.139 (News21) and 0.067 to 0.129
 without being an instruction-understanding method, which is what the earlier
 "the new module does not understand instructions" sentence got wrong.
 
-## 9e. Does a longer evidence window or a stronger judge help?
+## 9e. Capability against evidence: the 2x2 grid
 
 Same candidates, same nine pairs, same rule, one swap; only the judge model or the
 length of the passage it reads changes. Coverage-aware accounting is included
-because two arms can return the same score while making very different numbers
+because two arms can return a similar score while making very different numbers
 of swaps.
 
 | judge | passage window | nDCG@10 | delta | swaps made | helpful | harmful | beneficial-action recall | harmful loss |
@@ -365,34 +365,17 @@ of swaps.
 | Qwen3-4B-Instruct | 112 words | 0.364609 | +0.006510 | 324 | 32 | 19 | 0.153 | -2.316 |
 | Qwen3-4B-Instruct | 400 words | 0.365998 | +0.007900 | 331 | 36 | 10 | 0.172 | -1.283 |
 | Llama-3.1-8B-Instruct | 112 words | 0.362195 | +0.004096 | 330 | 24 | 12 | 0.115 | -1.532 |
+| Llama-3.1-8B-Instruct | 400 words | 0.362623 | +0.004525 | 323 | 23 | 7 | 0.110 | -1.042 |
 
-Read against Direct: the 400-word arm is +0.001390 with CI [-0.00082,+0.00438]
-(21 queries better, 11 worse); the Llama arm is -0.002414 with CI
-[-0.00608,+0.00086] (21 better, 22 worse). So a stronger judge model at the same
-short evidence does not help, while more evidence roughly halves the harmful
-swaps (19 to 10) and lowers the summed harmful loss from -2.32 to -1.28 at 1.55
-times the prompt tokens and 1.8 times the wall time. Neither interval excludes
-zero, so the reading is a direction: evidence completeness, not model capability,
-is the axis that pays here.
-
-## 9f. What the two judges do differently
-
-The two judges disagree on the decision for 290 of the 519 queries even though both
-see the same nine pairs, and the composition of their accepted swaps explains the
-score difference better than the raw counts do.
-
-| judge | swaps made | change the score | drop a relevant document | add a relevant document | gain | loss |
-| --- | --- | --- | --- | --- | --- | --- |
-| Qwen3-4B / 112 words | 324 | 51 | 19 | 31 | +4.479 | -2.316 |
-| Llama-3.1-8B / 112 words | 330 | 36 | 12 | 24 | +3.429 | -1.532 |
-
-Both arms accept roughly the same number of swaps (324 against 330) and both stay
-positive, but the stronger model converts fewer of them into score changes (36
-against 51) and adds relevant documents half as often (24 against 31) while
-dropping fewer relevant ones (12 against 19). The score difference is therefore
-not "one model is better at this task" but a different trade between how many
-swaps it is willing to make and what those swaps touch, which is why the next
-question is evidence rather than capability.
+Marginal effects, all paired on the same 519 queries: more evidence is +0.001390
+(CI [-0.00082,+0.00438], 21 better / 11 worse) for the 4B judge and +0.000429 for
+the 8B judge; a stronger model is -0.002414 (CI [-0.00608,+0.00086], 21/22) at 112
+words and -0.003375 at 400 words. Replacing the judge with a model twice the size,
+given the same short evidence, does not help; widening the evidence cuts harmful
+swaps for both judges (19 to 10, 12 to 7) and cuts the summed harmful loss by
+about half in both cases. Neither marginal interval excludes zero, so the honest
+statement is a direction: at this evidence budget the binding constraint is what
+the judge can see, not how strong the judge is.
 
 ## 10. Conclusion (2026-11-21)
 
