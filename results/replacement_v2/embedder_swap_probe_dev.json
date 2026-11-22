@@ -1,0 +1,39 @@
+{
+  "probe_domains": [
+    "bitcoin",
+    "quant",
+    "law"
+  ],
+  "dense_qwen3emb06_ndcg10": {
+    "bitcoin": 0.1824,
+    "quant": 0.1698,
+    "law": 0.386
+  },
+  "dense_mxbai_ndcg10": {
+    "bitcoin": 0.182,
+    "quant": 0.1954,
+    "law": 0.3689
+  },
+  "dense_qwen3emb06_recall100": {
+    "bitcoin": 0.5794,
+    "quant": 0.5167,
+    "law": 0.9409
+  },
+  "dense_mxbai_recall100": {
+    "bitcoin": 0.5646,
+    "quant": 0.4833,
+    "law": 0.8545
+  },
+  "fused_qwen3pool": {
+    "bitcoin": 0.2199,
+    "quant": 0.1872,
+    "law": 0.4061
+  },
+  "fused_frozen": {
+    "bitcoin": 0.2143,
+    "quant": 0.1538,
+    "law": 0.4357
+  },
+  "mean_fused_delta_three_domains": 0.003133,
+  "note": "Same frozen CE checkpoint and z 1:1 fusion; only the first-stage dense run changed. Three of thirteen dev domains, so the implied full-macro effect is one thirteenth of the per-domain mean times three."
+}

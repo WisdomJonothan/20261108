@@ -34,6 +34,11 @@ domains equal to four decimals). A lambdarank nDCG@10 retraining of the same CE 
 against 0.3582 at the frozen w=1, so neither the loss function nor the fusion weight
 explains the remaining gap.
 
+**First-stage embedder probe (2026-11-22).** Swapping mxbai for Qwen3-Embedding-0.6B on three
+dev domains raises recall@100 everywhere (+1.5 to +8.6 points) but the frozen CE + fusion score
+is mixed: bitcoin 0.2143->0.2199, quant 0.1538->0.1872, law 0.4357->0.4061 (mean +0.0032,
+about +0.0007 on the 13-domain macro), so the full-corpus encode was not run.
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate

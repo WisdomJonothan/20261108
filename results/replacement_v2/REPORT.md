@@ -492,6 +492,25 @@ its artefacts, with the probability cache shipped so the decisions can be re-der
 
 See docs/DECISIONS_20261121.md and results/audit/AUDIT.md.
 
+
+## 12. Swapping the first-stage embedder (three-domain probe)
+
+Qwen3-Embedding-0.6B replaced mxbai-embed-large-v1 on three dev domains (bitcoin, quant, law),
+everything downstream unchanged (same frozen CE checkpoint, same z 1:1 fusion, same detie).
+
+| domain | dense nDCG@10 mxbai -> qwen3 | R@100 mxbai -> qwen3 | fused mxbai -> qwen3 | delta |
+| --- | --- | --- | --- | --- |
+| bitcoin | 0.1820 -> 0.1824 | 0.5646 -> 0.5794 | 0.2143 -> 0.2199 | +0.0056 |
+| quant | 0.1954 -> 0.1698 | 0.4833 -> 0.5167 | 0.1538 -> 0.1872 | +0.0334 |
+| law | 0.3689 -> 0.3860 | 0.8545 -> 0.9409 | 0.4357 -> 0.4061 | -0.0295 |
+
+Recall@100 improves in all three domains (+1.5 to +8.6 points) but the fused score is mixed:
+quant gains a third of its score, law loses three points, and the mean over the three domains is
++0.0032, i.e. roughly +0.0007 on the 13-domain macro. Encoding the remaining ten domains takes
+about eight hours on this contended machine, so the expected return does not justify it under the
+current evidence; the probe is recorded as a boundary result (better coverage does not translate
+into a better slate when the cross-encoder is frozen).
+
 ## 11. Score-side experiments (2026-11-22 evening)
 
 Three experiments asked whether the *first stage* rather than the judge is the bottleneck.
