@@ -191,6 +191,17 @@ minus the fused top-10, capped at 3 and paired only against ranks 8-10.
 Tables: `results/replacement_v2/SCORE_COST.md`, `SUMMARY_DEV.md`, `REPORT.md`;
 per-policy JSONs and TREC runs under `results/replacement_v2/`.
 
+- **p-MRR for the judged arms (2026-11-22).** Rebuilt from the frozen top-ten and the cached
+  swap, keyed by domain and instruction condition: Core17 -0.0260 dense, -0.0368 CE, -0.0433
+  frozen, **-0.0055 Direct, -0.0051 condition**; News21 -0.0094/-0.0236/-0.0208/-0.0139/-0.0111;
+  Robust04 -0.0449/-0.0214/-0.0347/-0.0121/-0.0105. Every system still ignores part of the
+  instruction change, but the correction roughly halves the error, which retracts the earlier
+  "the new module does not understand instructions" sentence.
+- **A longer evidence window halves harmful swaps.** 400-word passages instead of 112:
+  nDCG@10 0.365998 (+0.0079, CI [+0.0030,+0.0135]), 36 helpful / 10 harmful, at 8.22M prompt
+  tokens and 1,588 s (1.55x and 1.8x the short-window arm); paired against Direct the interval
+  is [-0.0008,+0.0044], so it is a direction, not a result.
+
 ## Paper
 
 `paper/main.pdf` is the SemEval-2027 system-paper draft, built from

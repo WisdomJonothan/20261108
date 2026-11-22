@@ -254,6 +254,21 @@ Robust04 & 52 & 0.3092 & 0.2382 & +0.0064 & [+0.0018, +0.0114] \\
 
 \textbf{Cost.} Direct issues 18 prompts per query at most (three candidates, three slots, two orders), 9,342 prompts and 5.31M prompt tokens over 519 queries, 873 seconds on one RTX 3090 with 11.2~GB peak, i.e.\ 1.7~s and 10.2k tokens per query - about 8.8 prompts per second. Context costs 1.77x tokens for no gain; per-document scoring costs less than Direct but also buys less.
 
+\paragraph{p-MRR for the judged arms.} Rebuilding each judged arm's post-swap ranking from
+the frozen top ten and the cached decision, keyed by domain and instruction condition, gives
+p-MRR -0.0260 (dense), -0.0368 (CE) and -0.0433 (frozen) on Core17 against -0.0055 for the
+relevance judge and -0.0051 for the condition judge; News21 reads -0.0094/-0.0236/-0.0208
+against -0.0139/-0.0111 and Robust04 -0.0449/-0.0214/-0.0347 against -0.0121/-0.0105.
+No system follows the changed instruction properly, but the correction stage roughly halves
+the error, so the stage improves instruction response without being an instruction-understanding
+method.
+
+\paragraph{Longer evidence.} Replacing the 112-word query-matched window with 400 words, and
+changing nothing else, moves the fused system from +0.0065 to +0.0079 (CI [+0.0030,+0.0135])
+and cuts harmful swaps from 19 to 10, at 1.55 times the prompt tokens and 1.8 times the wall
+time; the paired interval against the frozen arm is [-0.0008,+0.0044], so longer evidence is a
+direction rather than an established gain.
+
 \subsection*{9.1 Verification and replay}
 \label{sec:verif}
 Two audits changed what we report. First, the off-the-shelf reranker numbers in the arm table were computed with right-padded batches, so the logit read at the final position belonged to a pad token; a 26-query probe (two per domain) against an unpadded per-document reference gives a mean rank correlation of 0.43 and a maximum score difference of 9.7 before the fix, and 0.998 / 0.07 after it, and the corrected numbers are the ones reported here. The pairwise judge is unaffected: its batches are left-padded, and its predictions reproduce exactly. Second, every number in the replacement tables is now recomputed on a CPU from the committed artefacts (\texttt{scripts/replay\_replacement.py}): the script rebuilds each policy's ranking from \texttt{pair\_details} and the frozen top ten, re-derives the oracle and the four decision-rule ablations from the stored per-order probabilities, and exits non-zero if any value differs from the committed one by more than $10^{-6}$. It reproduces all macros, swap counts, point totals and bootstrap intervals in this section.

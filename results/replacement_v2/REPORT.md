@@ -331,6 +331,42 @@ comparison. Claims withdrawn with this correction: "widening the action space do
 that do not move nDCG count as neutral), and the AUC 0.532 statement as evidence that a learned
 gate cannot work (that model had three constant features).
 
+## 9d. p-MRR for the judged arms (2026-11-22)
+
+The earlier p-MRR table covered only the retrieval stages. The judged arms are
+now scored the same way: their post-swap ranking is rebuilt from the frozen
+top-ten and the cached swap decision (keyed by domain and query, so the paired
+`og`/`chg` instruction conditions cannot contaminate each other), and mteb's
+`rank_score` is applied to the documents the instruction change demotes.
+
+| collection | dense | CE | frozen | Direct | condition |
+| --- | --- | --- | --- | --- | --- |
+| Core17 | -0.0260 | -0.0368 | -0.0433 | **-0.0055** | **-0.0051** |
+| News21 | -0.0094 | -0.0236 | -0.0208 | **-0.0139** | **-0.0111** |
+| Robust04 | -0.0449 | -0.0214 | -0.0347 | **-0.0121** | **-0.0105** |
+
+Every system is still negative, so none of them follows the instruction change
+properly; but the correction stage roughly halves the error on Core17
+(-0.0433 to -0.0055) and on Robust04 (-0.0347 to -0.0121), and demotion MRR
+rises from 0.038 to 0.116 (Core17), 0.083 to 0.139 (News21) and 0.067 to 0.129
+(Robust04). The honest reading is that the stage improves instruction response
+without being an instruction-understanding method, which is what the earlier
+"the new module does not understand instructions" sentence got wrong.
+
+## 9e. Does a longer evidence window or a stronger judge help?
+
+Same candidates, same nine pairs, same rule; only the judge or its input changes.
+
+| judge | passage window | nDCG@10 | delta | 95% CI | helpful / harmful | prompt tokens | seconds |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Qwen3-4B-Instruct | 112 words | 0.364609 | +0.0065 | [+0.0021,+0.0117] | 32 / 19 | 5.31 M | 872 |
+| Qwen3-4B-Instruct | 400 words | 0.365998 | +0.0079 | [+0.0030,+0.0135] | 36 / 10 | 8.22 M | 1,588 |
+| Llama-3.1-8B-Instruct | 112 words | pending | pending | pending | pending | pending | pending |
+
+Widening the window halves the harmful swaps (19 to 10) for +0.0014 at 1.55x the
+prompt tokens and 1.8x the wall time; the paired interval against the frozen arm
+is [-0.0008,+0.0044], so this is a direction, not a result.
+
 ## 10. Conclusion (2026-11-21)
 
 The frozen system re-verifies at 0.3580985233 and a bounded local comparison over a three-candidate

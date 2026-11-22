@@ -339,6 +339,26 @@ CLAIMS = [
                    .split("official BM25 1a dev baseline (organizers)")[1]
                    .split("|")[1].strip()),
      "PHASE9_PLAN.md (organisers' data page)", True),
+    # --- p-MRR for the judged arms and the wider evidence window (2026-11-22) --
+    ("p-MRR Core17 Direct", -0.0055,
+     lambda: jload("replacement_v2/followir/pmrr_arms.json")["core17"]["direct"]["p_mrr"],
+     "replacement_v2/followir/pmrr_arms.json", False),
+    ("p-MRR Core17 condition", -0.0051,
+     lambda: jload("replacement_v2/followir/pmrr_arms.json")["core17"]["cond"]["p_mrr"],
+     "replacement_v2/followir/pmrr_arms.json", False),
+    ("p-MRR Robust04 Direct", -0.0121,
+     lambda: jload("replacement_v2/followir/pmrr_arms.json")["robust04"]["direct"]["p_mrr"],
+     "replacement_v2/followir/pmrr_arms.json", False),
+    ("p-MRR News21 condition", -0.0111,
+     lambda: jload("replacement_v2/followir/pmrr_arms.json")["news21"]["cond"]["p_mrr"],
+     "replacement_v2/followir/pmrr_arms.json", False),
+    ("wide-window dev nDCG@10", 0.3660,
+     lambda: jload("replacement_v2/exp_wide_win400_dev.json")["policies"]["direct"]["macro_policy"],
+     "replacement_v2/exp_wide_win400_dev.json", False),
+    ("wide-window gain", 0.0079,
+     lambda: jload("replacement_v2/exp_wide_win400_dev.json")["policies"]["direct"]["macro_delta"],
+     "replacement_v2/exp_wide_win400_dev.json", False),
+
 ]
 
 
