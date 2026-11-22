@@ -85,3 +85,27 @@ log2(11) = 3.46), the "80% precision" denominator (neutral swaps counted), the
 AUC 0.532 claim (that model had three constant features), and the p-MRR sentence
 that says the system ignores instruction changes (p-MRR covers dense, CE and
 frozen only; Direct and the condition arm are not measured yet).
+
+## Correction, 2026-11-22 (afternoon): capability vs evidence
+
+The 2x2 grid fixes the candidates, the nine pairs and the rule and varies only the
+judge model and the length of the passage it reads:
+
+| judge | window | nDCG@10 | delta | helpful / harmful |
+| --- | --- | --- | --- | --- |
+| Qwen3-4B-Instruct | 112 words | 0.364609 | +0.006510 | 32 / 19 |
+| Qwen3-4B-Instruct | 400 words | 0.365998 | +0.007900 | 36 / 10 |
+| Llama-3.1-8B-Instruct | 112 words | 0.362195 | +0.004096 | 24 / 12 |
+| Llama-3.1-8B-Instruct | 400 words | 0.362623 | +0.004525 | 23 / 7 |
+
+* more evidence, paired: +0.001390 [-0.00082,+0.00438] (4B) and +0.000429 (8B);
+* stronger model, paired: -0.002414 [-0.00608,+0.00086] (112 words) and -0.003375
+  (400 words), so capability does not help at either window;
+* wider evidence halves the harmful loss for both judges (-2.32 to -1.28,
+  -1.53 to -1.04) while cost rises 1.55x in prompt tokens and 1.8x in wall time;
+* both marginal intervals include zero: this is a direction, not a result.
+
+Decision: the binding constraint at this evidence budget is what the judge can
+see, so the next experiment is evidence localisation (which span decides the
+comparison and whether the 112-word query-matched window contains it), not a
+bigger judge and not more prompt permutations.
