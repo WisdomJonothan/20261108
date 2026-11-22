@@ -359,6 +359,17 @@ CLAIMS = [
      lambda: jload("replacement_v2/exp_wide_win400_dev.json")["policies"]["direct"]["macro_delta"],
      "replacement_v2/exp_wide_win400_dev.json", False),
 
+    # --- 2x2 capability-by-evidence grid (2026-11-22) ------------------------
+    ("Llama-3.1-8B judge nDCG@10", 0.3622,
+     lambda: jload("replacement_v2/exp_llama31_judge_dev.json")["policies"]["direct"]["macro_policy"],
+     "replacement_v2/exp_llama31_judge_dev.json", False),
+    ("Llama-3.1-8B judge delta", 0.0041,
+     lambda: jload("replacement_v2/exp_llama31_judge_dev.json")["policies"]["direct"]["macro_delta"],
+     "replacement_v2/exp_llama31_judge_dev.json", False),
+    ("Llama-3.1-8B harmful swaps", 12,
+     lambda: jload("replacement_v2/exp_llama31_judge_dev.json")["policies"]["direct"]["swap_counts"]["harmful"],
+     "replacement_v2/exp_llama31_judge_dev.json", False),
+
 ]
 
 

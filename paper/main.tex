@@ -263,11 +263,16 @@ No system follows the changed instruction properly, but the correction stage rou
 the error, so the stage improves instruction response without being an instruction-understanding
 method.
 
-\paragraph{Longer evidence.} Replacing the 112-word query-matched window with 400 words, and
-changing nothing else, moves the fused system from +0.0065 to +0.0079 (CI [+0.0030,+0.0135])
-and cuts harmful swaps from 19 to 10, at 1.55 times the prompt tokens and 1.8 times the wall
-time; the paired interval against the frozen arm is [-0.0008,+0.0044], so longer evidence is a
-direction rather than an established gain.
+\paragraph{Evidence completeness, not capability.} Holding the candidate pool, the
+nine pairs and the decision rule fixed, we change only the judge model or the length of the
+passage it reads. Qwen3-4B-Instruct with 112-word query-matched windows scores 0.364609
+(+0.006510) with 32 helpful and 19 harmful swaps; the same model with 400-word windows scores
+0.365998 (+0.007900) with 36 helpful and 10 harmful swaps, at 1.55 times the prompt tokens;
+Llama-3.1-8B-Instruct with the same 112-word windows scores 0.362195 (+0.004096) with 24 helpful
+and 12 harmful swaps. Paired against the 112-word arm, the 400-word arm is +0.001390
+(CI [-0.00082,+0.00438]) and the stronger model is -0.002414 (CI [-0.00608,+0.00086]). A stronger
+judge at the same short evidence does not help, while more evidence halves the harmful swaps, so
+the axis that pays is evidence completeness rather than model capability.
 
 \subsection*{9.1 Verification and replay}
 \label{sec:verif}

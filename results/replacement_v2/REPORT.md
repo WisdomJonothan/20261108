@@ -355,17 +355,25 @@ without being an instruction-understanding method, which is what the earlier
 
 ## 9e. Does a longer evidence window or a stronger judge help?
 
-Same candidates, same nine pairs, same rule; only the judge or its input changes.
+Same candidates, same nine pairs, same rule, one swap; only the judge model or the
+length of the passage it reads changes. Coverage-aware accounting is included
+because two arms can return the same score while making very different numbers
+of swaps.
 
-| judge | passage window | nDCG@10 | delta | 95% CI | helpful / harmful | prompt tokens | seconds |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Qwen3-4B-Instruct | 112 words | 0.364609 | +0.0065 | [+0.0021,+0.0117] | 32 / 19 | 5.31 M | 872 |
-| Qwen3-4B-Instruct | 400 words | 0.365998 | +0.0079 | [+0.0030,+0.0135] | 36 / 10 | 8.22 M | 1,588 |
-| Llama-3.1-8B-Instruct | 112 words | pending | pending | pending | pending | pending | pending |
+| judge | passage window | nDCG@10 | delta | swaps made | helpful | harmful | beneficial-action recall | harmful loss |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Qwen3-4B-Instruct | 112 words | 0.364609 | +0.006510 | 324 | 32 | 19 | 0.153 | -2.316 |
+| Qwen3-4B-Instruct | 400 words | 0.365998 | +0.007900 | 331 | 36 | 10 | 0.172 | -1.283 |
+| Llama-3.1-8B-Instruct | 112 words | 0.362195 | +0.004096 | 330 | 24 | 12 | 0.115 | -1.532 |
 
-Widening the window halves the harmful swaps (19 to 10) for +0.0014 at 1.55x the
-prompt tokens and 1.8x the wall time; the paired interval against the frozen arm
-is [-0.0008,+0.0044], so this is a direction, not a result.
+Read against Direct: the 400-word arm is +0.001390 with CI [-0.00082,+0.00438]
+(21 queries better, 11 worse); the Llama arm is -0.002414 with CI
+[-0.00608,+0.00086] (21 better, 22 worse). So a stronger judge model at the same
+short evidence does not help, while more evidence roughly halves the harmful
+swaps (19 to 10) and lowers the summed harmful loss from -2.32 to -1.28 at 1.55
+times the prompt tokens and 1.8 times the wall time. Neither interval excludes
+zero, so the reading is a direction: evidence completeness, not model capability,
+is the axis that pays here.
 
 ## 10. Conclusion (2026-11-21)
 

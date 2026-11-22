@@ -197,10 +197,12 @@ per-policy JSONs and TREC runs under `results/replacement_v2/`.
   Robust04 -0.0449/-0.0214/-0.0347/-0.0121/-0.0105. Every system still ignores part of the
   instruction change, but the correction roughly halves the error, which retracts the earlier
   "the new module does not understand instructions" sentence.
-- **A longer evidence window halves harmful swaps.** 400-word passages instead of 112:
-  nDCG@10 0.365998 (+0.0079, CI [+0.0030,+0.0135]), 36 helpful / 10 harmful, at 8.22M prompt
-  tokens and 1,588 s (1.55x and 1.8x the short-window arm); paired against Direct the interval
-  is [-0.0008,+0.0044], so it is a direction, not a result.
+- **A stronger judge does not substitute for more evidence (2026-11-22).** Same candidates,
+  same nine pairs, same rule: Qwen3-4B with 112-word windows 0.3646 (+0.0065, 32 helpful / 19
+  harmful), the same model with 400-word windows 0.3660 (+0.0079, 36 / 10, 1.55x prompt tokens),
+  Llama-3.1-8B-Instruct with 112-word windows 0.3622 (+0.0041, 24 / 12). Paired effects:
+  400-word +0.0014 CI [-0.0008,+0.0044], stronger model -0.0024 CI [-0.0061,+0.0009]. Capability
+  alone does not help; evidence width halves harmful swaps. Both intervals include zero.
 
 ## Paper
 
