@@ -564,3 +564,28 @@ Cost: six judged pairs cost 12 prompts per query against 18 for the tail arm, wi
 (about 1.8 M against 5.3 M over 519 queries), so the stronger configuration is also the cheaper one.
 The caveat that applies to every dev number stands: k=6 was picked after inspecting the budget
 curve, and the paired advantage over the tail arm includes zero.
+## 14. Does the configuration transport to the training split? (2026-11-23)
+
+The widened space was rerun on all 969 gate-training queries (three folds, each judged only by a
+cross-encoder that never saw that query: 34,884 prompts, 33 min per fold on one 3090). Judging the
+first six pairs in head-first order and judging all eighteen give:
+
+| split | queries | head-first, 6 pairs | all 18 pairs (max-mp) |
+| --- | --- | --- | --- |
+| fold f0 | 328 | +0.0036 | +0.0038 |
+| fold f1 | 323 | +0.0065 | +0.0114 |
+| fold f2 | 318 | +0.0034 | +0.0019 |
+| pooled train | 969 | **+0.0045** | +0.0057 |
+| dev | 519 | +0.0154 | +0.0112 |
+
+Two honest conclusions follow. First, the dev split is favourable to this method: the pooled
+training estimate is +0.0045, not +0.0154, and on training queries restricting the judge to six
+pairs is not better than judging all eighteen. Second, an expected-gain selector fitted on the
+training folds (ridge on merged probability, agreement, slot weight, prior and the two order
+probabilities; 17,442 actions) scores +0.0042 in grouped cross-validation on training and +0.0086
+on dev, i.e. it does not beat the simple rule once it is fitted on data that does not include the
+evaluation queries. The earlier +0.0149 came from cross-validation inside dev and does not transport.
+
+The submission configuration therefore stays the six-pair head-first variant (12 prompts per query,
+cheaper than the eighteen-prompt tail arm) with the expectation of a **+0.005** gain on unseen
+queries, not the dev number.

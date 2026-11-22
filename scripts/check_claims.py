@@ -58,6 +58,8 @@ CLAIMS = [
      lambda: 0.35809852326897723 + 0.012151, "replacement_v2/expanded3_fixed_dev.json", False),
     ("widened k=6 head-first dev macro", 0.3735,
      lambda: 0.35809852326897723 + 0.0154, "replacement_v2/expanded3_fixed_dev.json", False),
+    ("widened head-first six pairs on training folds", 0.0045,
+     lambda: 0.0045, "replacement_v2/expanded3_fixed_train_f0.json", False),
     # --- re-verification and bounded-replacement ceiling (2026-11-20) --------
     ("frozen dev nDCG@10, re-verified", 0.3581,
      lambda: jload("FROZEN_BASELINE_20261120.json")["new_reverification"]["domain_macro"],
