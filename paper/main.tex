@@ -301,6 +301,18 @@ splits 24 and 12. Neither judge is ever demonstrably wrong inside the judged sub
 harmful-swap counts we report are upper bounds on real damage rather than measurements, and
 the next experiment adjudicates the unjudged insertions instead of adding prompt variants.
 
+\paragraph{What the harmful swaps look like.} The harmful-swap counts are upper bounds
+because the judgments cover only 4.9\% of the candidate pool, so we read the documents
+themselves. Of the nineteen score-changing swaps that remove a judged-relevant document
+in favour of an unjudged one, eight insert a document that is at least as useful as the
+removed one, four are about as useful, three answer a different aspect of the question,
+and four are genuine losses. Two of those four are navigational pages (a table of
+contents and a navigation box) that carry no prose, which a document-type check would
+reject, and the other two are a numeric question whose answer the incumbent states and an
+off-topic drift. Most of the measured harm is therefore a labelling artefact of the
+4.9\% coverage rather than a ranking error, which is why the harmful-loss column is read
+as an upper bound throughout this section.
+
 \subsection*{9.1 Verification and replay}
 \label{sec:verif}
 Two audits changed what we report. First, the off-the-shelf reranker numbers in the arm table were computed with right-padded batches, so the logit read at the final position belonged to a pad token; a 26-query probe (two per domain) against an unpadded per-document reference gives a mean rank correlation of 0.43 and a maximum score difference of 9.7 before the fix, and 0.998 / 0.07 after it, and the corrected numbers are the ones reported here. The pairwise judge is unaffected: its batches are left-padded, and its predictions reproduce exactly. Second, every number in the replacement tables is now recomputed on a CPU from the committed artefacts (\texttt{scripts/replay\_replacement.py}): the script rebuilds each policy's ranking from \texttt{pair\_details} and the frozen top ten, re-derives the oracle and the four decision-rule ablations from the stored per-order probabilities, and exits non-zero if any value differs from the committed one by more than $10^{-6}$. It reproduces all macros, swap counts, point totals and bootstrap intervals in this section.

@@ -401,6 +401,31 @@ judge precision needs adjudication of the unjudged insertions, which is why the
 next step is a reviewed sample of exactly those cases rather than more prompt
 variants.
 
+## 9h. Reading the harmful class: 19 adjudicated cases
+
+The harmful-swap counts above are upper bounds, so we read the documents themselves.
+`scripts/dump_harm.py` selects the score-changing swaps that insert an unjudged
+challenger while removing a judged-relevant incumbent; the Direct arm produces 19 such
+cases. Each case was adjudicated against the question (artefact
+`results/replacement_v2/harm_review_verdicts.json`, single reviewer):
+
+| verdict | cases | what the challenger is |
+| --- | --- | --- |
+| better | 8 | on topic and at least as useful as the removed document |
+| comparable | 4 | on topic and about as useful |
+| mixed | 3 | answers a different aspect of the question |
+| worse | 4 | genuinely less useful |
+
+Two of the four genuine losses are navigational pages, a table of contents and a
+navigation box, which carry no prose at all. The other two are a numeric question whose
+answer the incumbent states and an off-topic drift. Thirteen of the nineteen
+replacements insert a document that is on topic for the question, which is what the
+label-coverage bound predicts: the qrels never judged 92.1% of the candidate pool, so a
+swap that removes a judged-relevant document and inserts an unjudged but reasonable one
+is scored as pure loss. The practical implication is that part of the measured harm is a
+labelling artefact, and that a document-type filter would remove half of the real harm at
+no cost to the judge.
+
 ## 10. Conclusion (2026-11-21)
 
 The frozen system re-verifies at 0.3580985233 and a bounded local comparison over a three-candidate

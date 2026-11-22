@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  22 NOV 2026 14:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.14)  22 NOV 2026 14:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -815,30 +815,33 @@ Overfull \hbox (131.14832pt too wide) in paragraph at lines 280--290
  []
 
 
+Underfull \hbox (badness 3679) in paragraph at lines 304--315
+ []\T1/ptm/b/n/10.95 (+20) What the harm-ful swaps look like.[] \T1/ptm/m/n/10.
+95 (+20) The
+ []
+
+
 
 [10]
 
 
-Underfull \hbox (badness 1024) in paragraph at lines 321--322
+Underfull \hbox (badness 1024) in paragraph at lines 333--334
 []\T1/ptm/m/n/9 (+20) Jianlv Chen, Shi-tao Xiao, Peitian Zhang, Kun Luo,
  []
 
 
-Underfull \hbox (badness 2376) in paragraph at lines 321--322
+Underfull \hbox (badness 2376) in paragraph at lines 333--334
 \T1/ptm/m/n/9 (+20) Multi-Lingual, Multi-Functionality, Multi-Granularity
  []
 
 
-Underfull \hbox (badness 5431) in paragraph at lines 322--323
+Underfull \hbox (badness 5431) in paragraph at lines 334--335
 []\T1/ptm/m/n/9 (+20) mixedbread.ai. 2024. mxbai-embed-large-v1 model
  []
 
 
 
 [11]
-
-
-Package lineno Warning: Line number reference failed, re-run to get it right.
 
 
 
@@ -857,20 +860,17 @@ L3 programming layer <2025-04-14>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 997F0968C673EB92177AAAE1D4A8F602;296.
  ) 
 Here is how much of TeX's memory you used:
- 15251 strings out of 469941
- 236408 string characters out of 5486262
+ 15252 strings out of 469941
+ 236419 string characters out of 5486262
  692586 words of memory out of 5000000
  41380 multiletter control sequences out of 15000+600000
  697706 words of font info for 363 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,93p,2383b,547s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,93p,2383b,541s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <D:/miktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/miktex/fonts/type1/p
 ublic/amsfonts/cm/cmr10.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmr7.pfb>
 <D:/miktex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/miktex/fonts/type1/publi
@@ -879,9 +879,9 @@ c/amsfonts/cm/cmr9.pfb><D:/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:
 rier/ucrr8a.pfb><D:/miktex/fonts/type1/urw/helvetic/uhvb8a.pfb><D:/miktex/fonts
 /type1/urw/times/utmb8a.pfb><D:/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/mik
 tex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (14 pages, 240070 bytes).
+Output written on main.pdf (14 pages, 241339 bytes).
 PDF statistics:
- 224 PDF objects out of 1000 (max. 8388607)
- 78 named destinations out of 1000 (max. 500000)
+ 226 PDF objects out of 1000 (max. 8388607)
+ 79 named destinations out of 1000 (max. 500000)
  71689 words of extra memory for PDF output out of 74296 (max. 10000000)
 

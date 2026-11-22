@@ -213,6 +213,13 @@ per-policy JSONs and TREC runs under `results/replacement_v2/`.
   judged challenger, and all 228 are relevant; 92.1% of slot-8 incumbents are unjudged. Within the
   judged subset neither judge is ever demonstrably wrong, and all measured harm comes from
   inserting unjudged documents, so harmful-swap counts are upper bounds, not measurements.
+- **Most of the measured harm is a label artefact.** Reading the 19 score-changing swaps
+  that remove a judged-relevant document, 8 insert a document at least as useful, 4 are
+  about as useful, 3 answer a different aspect and 4 are genuine losses; two of those four
+  are navigational pages with no prose. With judgments covering 4.9% of the candidate pool,
+  harmful-swap counts are upper bounds, and a document-type filter would remove half of the
+  real harm for free.
+
 
 ## Paper
 

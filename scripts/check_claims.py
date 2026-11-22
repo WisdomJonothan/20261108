@@ -399,7 +399,16 @@ CLAIMS = [
     ("judged candidate pairs", 228,
      lambda: jload("replacement_v2/label_coverage_dev.json")["challenger_judged"],
      "replacement_v2/label_coverage_dev.json", False),
-
+    # --- harmful-case adjudication (2026-11-22) ------------------------------
+    ("harmful cases adjudicated", 19,
+     lambda: sum(jload("replacement_v2/harm_review_verdicts.json")["tally"].values()),
+     "replacement_v2/harm_review_verdicts.json", False),
+    ("harmful cases genuinely worse", 4,
+     lambda: jload("replacement_v2/harm_review_verdicts.json")["tally"]["worse"],
+     "replacement_v2/harm_review_verdicts.json", False),
+    ("harmful cases at least as useful", 8,
+     lambda: jload("replacement_v2/harm_review_verdicts.json")["tally"]["better"],
+     "replacement_v2/harm_review_verdicts.json", False),
 ]
 
 

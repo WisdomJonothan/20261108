@@ -1,0 +1,41 @@
+{
+  "protocol": {
+    "arm": "direct",
+    "selection": "score-changing swaps that insert an unjudged challenger while removing a judged-relevant incumbent",
+    "n_cases": 19,
+    "reviewer": "single adjudication by the assistant (not an independent human annotator); no inter-annotator agreement",
+    "labels": {
+      "better": "challenger is at least as useful as the incumbent for the stated question",
+      "comparable": "challenger is on topic and about as useful",
+      "mixed": "the two documents answer different aspects of the question",
+      "worse": "challenger is genuinely less useful than the incumbent"
+    }
+  },
+  "cases": [
+    {"id": 1, "domain": "bitcoin", "qid": "120273_40", "slot": 8, "delta": -0.107, "verdict": "better", "reason": "states the intended nSequence/nLockTime coupling and the 2^31 rule the question asks about"},
+    {"id": 2, "domain": "bitcoin", "qid": "124603_8", "slot": 8, "delta": -0.148, "verdict": "worse", "reason": "table-of-contents page: 13 section headings, no content"},
+    {"id": 3, "domain": "economics", "qid": "47636_213", "slot": 8, "delta": -0.193, "verdict": "comparable", "reason": "gives the regression form and the coefficient definition; incumbent gives the design intuition"},
+    {"id": 4, "domain": "history", "qid": "55786_792", "slot": 10, "delta": -0.113, "verdict": "better", "reason": "challenger addresses dissent under the Nazi regime; incumbent describes the WWI Schutztruppe"},
+    {"id": 5, "domain": "history", "qid": "56861_715", "slot": 8, "delta": -0.123, "verdict": "better", "reason": "challenger explains how a square is constructed from a straight edge, which is the question"},
+    {"id": 6, "domain": "history", "qid": "59294_622", "slot": 9, "delta": -0.141, "verdict": "worse", "reason": "question asks how many people; incumbent carries the 100,000 estimate, challenger describes the 11th-century wave without a number"},
+    {"id": 7, "domain": "history", "qid": "62736_601", "slot": 10, "delta": -0.098, "verdict": "worse", "reason": "challenger drifts to late-Empire recruitment metrics; incumbent is on the auction of the throne"},
+    {"id": 8, "domain": "history", "qid": "63331_580", "slot": 10, "delta": -0.113, "verdict": "comparable", "reason": "both narrate Chasseurs Ardennais actions in May 1940, different villages"},
+    {"id": 9, "domain": "history", "qid": "64282_527", "slot": 9, "delta": -0.102, "verdict": "better", "reason": "challenger documents a submarine sinking a destroyer, which is the question"},
+    {"id": 10, "domain": "history", "qid": "68426_409", "slot": 10, "delta": -0.068, "verdict": "mixed", "reason": "incumbent tabulates flag ranks in 1812, challenger recounts medieval admirals"},
+    {"id": 11, "domain": "history", "qid": "68604_398", "slot": 9, "delta": -0.083, "verdict": "worse", "reason": "navigation box listing 'history of mathematics' timelines with no prose"},
+    {"id": 12, "domain": "history", "qid": "68862_380", "slot": 10, "delta": -0.136, "verdict": "comparable", "reason": "challenger corrects a claim about Taffy aircraft, incumbent describes the group's situation"},
+    {"id": 13, "domain": "history", "qid": "69881_319", "slot": 8, "delta": -0.074, "verdict": "better", "reason": "challenger states Hannibal issued coins to pay troops in Bruttium and copied Roman types"},
+    {"id": 14, "domain": "history", "qid": "70693_263", "slot": 10, "delta": -0.177, "verdict": "better", "reason": "challenger discusses halo conventions; incumbent describes a Raphael tapestry design"},
+    {"id": 15, "domain": "history", "qid": "71924_189", "slot": 8, "delta": -0.107, "verdict": "comparable", "reason": "both discuss Diaochan and L\u00fc Bu, legend versus record"},
+    {"id": 16, "domain": "history", "qid": "72360_164", "slot": 10, "delta": -0.113, "verdict": "better", "reason": "challenger is about reincarnation in the early church; incumbent is a blog reply about the Big Bang"},
+    {"id": 17, "domain": "history", "qid": "76952_71", "slot": 8, "delta": -0.123, "verdict": "mixed", "reason": "incumbent covers the 1941 Nazi ban, challenger the 18th-19th century Antiqua-Fraktur dispute"},
+    {"id": 18, "domain": "history", "qid": "77003_69", "slot": 8, "delta": -0.148, "verdict": "better", "reason": "challenger lists what Lyushkov supplied (Far East order of battle, radio codes); incumbent covers the defection's consequences"},
+    {"id": 19, "domain": "history", "qid": "77154_56", "slot": 8, "delta": -0.148, "verdict": "mixed", "reason": "incumbent explains the Northcote-Trevelyan merit reform, challenger gives elite-school representation figures"}
+  ],
+  "tally": {"better": 8, "comparable": 4, "mixed": 3, "worse": 4},
+  "notes": [
+    "2 of the 4 genuine losses are navigational pages (table of contents, navigation box) that a document-type check would reject.",
+    "The other 2 are genuine ranking mistakes on numeric or off-topic grounds.",
+    "13 of 19 replacements insert a document that is on topic for the question; the qrels never judged 92.1% of the candidate pool, so their nDCG loss is partly a labelling artefact."
+  ]
+}
