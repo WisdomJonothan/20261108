@@ -63,6 +63,8 @@ against 0.3646 (+0.0065) for the tail arm at 18 prompts; with the dense+CE prior
 proven replacement for the tail arm. Configuration frozen in
 `configs/competition_config_20261122.json`.
 
+**Temporal-misordering ceiling (2026-11-24).** If every *verified* period/direction error above a gold document in the out-of-fold rankings were corrected, the official domain-macro gain would be **+0.0026** (95% CI [+0.0003,+0.0053]) on a stratified 138-query / 533-pair audit — below what the existing six-pair judge already gains out of fold (+0.0045). The automatic screen says +0.0075 but only 5 of its 15 flags survive reading (the rest are page chrome, topical differences, or cases where the document above the gold is better). The audit's larger finding: **14.1% of the documents ranked above gold are boilerplate/navigation fragments**, worth +0.0161 [+0.0099,+0.0228] if demoted — about four times the replacement gain, and no training required. Artefacts `results/analysis/temporal_ceiling_summary.json`, `results/replacement_v2/REPORT.md` section 18.
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate

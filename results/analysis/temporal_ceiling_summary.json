@@ -1,0 +1,61 @@
+{
+  "protocol": {
+    "metric": "official domain-macro nDCG@10",
+    "split": "out-of-fold train rankings (969 queries, 3 folds)",
+    "sample": "138 cases, 533 above-pairs, stratified over 13 domains (c1 rank 2-10, c2 rank 11-100)",
+    "bootstrap": "2000 draws, seed 20261124",
+    "date": "2026-11-24"
+  },
+  "temporal_ceiling": {
+    "automatic_screen": {
+      "pairs": 14,
+      "delta": 0.00746,
+      "ci95": [
+        0.00104,
+        0.01751
+      ]
+    },
+    "automatic_conservative": {
+      "pairs": 9,
+      "delta": 0.00642,
+      "ci95": [
+        0.00017,
+        0.01652
+      ]
+    },
+    "manual_audit_verified": {
+      "pairs": 5,
+      "delta": 0.00256,
+      "ci95": [
+        0.00034,
+        0.00529
+      ]
+    },
+    "manual_audit_with_borderline": {
+      "pairs": 7,
+      "delta": 0.00326,
+      "ci95": [
+        0.00075,
+        0.0063
+      ]
+    },
+    "manual_precision_of_automatic_flag": 0.3333333333333333
+  },
+  "boilerplate_ceiling": {
+    "pairs": 75,
+    "delta": 0.01614,
+    "ci95": [
+      0.00991,
+      0.02283
+    ],
+    "share_of_above_pairs": 0.14071294559099437,
+    "note": "navigation / duplicate / page-chrome fragments sitting above the gold"
+  },
+  "context": {
+    "six_pair_judge_pooled_out_of_fold": 0.0045,
+    "target_delta": 0.2,
+    "share_of_above_docs_that_answer": 0.444,
+    "share_temporal_queries": 0.536
+  },
+  "verdict": "verified temporal misordering is worth about +0.0026 macro (CI up to +0.0053), below what the existing six-pair judge already gains (+0.0045); a temporal-inversion training programme is not justified on score. The larger first-stage defect is boilerplate/navigation text above the gold (+0.0161 ceiling over 14% of blockers)."
+}

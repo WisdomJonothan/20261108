@@ -516,6 +516,31 @@ by eight queries and the frozen reranker converts about a third of them, so it c
 carry a score increase on its own; it is recorded here so the same ground is not
 re-walked.
 
+## 18. How much score is a corrected temporal misordering worth? (2026-11-24)
+
+The question: if every *verified* temporal misordering in the out-of-fold rankings were corrected, how much official nDCG@10 returns? Measured on the 969 out-of-fold train queries (three folds, frozen top-100 fixed), stratified sample of 138 queries / 533 documents ranked above their gold, four order-free Qwen3-4B probes (query is temporal; passage is boilerplate; passage answers; passage is about another period), correction replayed and re-weighted to the frame, 2,000 bootstrap draws.
+
+| rule applied to the replay | corrected pairs | macro delta | 95% CI |
+|---|---:|---:|---|
+| automatic screen (wrong period > 0.6, gold not answering) | 14 | +0.0075 | [+0.0010, +0.0175] |
+| conservative screen (also drops boilerplate and non-answering documents) | 9 | +0.0064 | [+0.0002, +0.0165] |
+| **manual audit, only genuine period/direction errors** | **5** | **+0.0026** | [+0.0003, +0.0053] |
+| manual audit plus the two borderline cases | 7 | +0.0033 | [+0.0008, +0.0063] |
+
+I read all 15 automatically flagged pairs. Five are real period or direction errors (a 2020 article above a 2017 launch date; an 1860 census above an 1840 one when the question asks about pre-1850; pre-1965 background above a document about the 1965 embargo; a fifteenth-century account above a medieval one for a "when did it begin" question; a traveller's forum question above the official rule that answers it). Two are borderline (entity/scope confusions rather than time). Eight are false positives: three are page chrome ("Share this on Twitter", "3 contributors ... Suggest edit"), two are pairs where both documents are on topic, and three are cases where the document ranked above the gold is arguably better than the gold.
+
+So the automatic flag has 33-47% precision, and the **verified temporal ceiling is +0.0026 macro (0.7% relative), at most +0.0053 at the CI upper bound** — below what the existing six-pair judge already captures out of fold (+0.0045), and about 1/75 of the +0.2 target. Per the pre-agreed decision rule, a temporal-inversion training programme is not justified on score grounds; the frozen 0.3735 configuration stands.
+
+The audit also ranks the actual loss classes, which is the useful part:
+
+| class of document ranked above the gold | share of above-pairs | ceiling if fully corrected |
+|---|---:|---:|
+| plain topical difference / plausible but unjudged | 44.4% "answers the question" | not measurable (label incompleteness) |
+| boilerplate, navigation or page-chrome fragments | 14.1% | **+0.0161** [+0.0099, +0.0228] |
+| temporal / period misordering | 2.8% (1.0% verified) | +0.0026 [+0.0003, +0.0053] |
+
+The largest single exploitable defect is not temporal reasoning but web-page chrome sitting above the gold: demoting it is worth about four times the whole replacement gain and does not require training anything. That is the next lever, not a temporal cross-encoder. Caveat on both ceilings: the replay corrects only the sampled pairs and re-weights by stratum, so these are ideal-correction estimates over an audited sample, not exhaustive top-100 oracles; and because RETECO qrels are positive-only, "unjudged but plausible" documents cannot be separated from genuinely better ones.
+
 ## 10. Conclusion (2026-11-22)
 
 The frozen system re-verifies at 0.3580985233 and a bounded local comparison over a three-candidate

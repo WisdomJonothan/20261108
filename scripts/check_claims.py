@@ -42,6 +42,16 @@ def md_number(p, needle):
 
 CLAIMS = [
     # --- review round 3 (2026-11-24) ----------------------------------------
+    # --- temporal ceiling audit (2026-11-24) --------------------------------
+    ("temporal ceiling, verified pairs only", 0.00256,
+     lambda: jload("analysis/temporal_ceiling_summary.json")["temporal_ceiling"]["manual_audit_verified"]["delta"],
+     "analysis/temporal_ceiling_summary.json", False),
+    ("temporal ceiling, automatic screen", 0.00746,
+     lambda: jload("analysis/temporal_ceiling_summary.json")["temporal_ceiling"]["automatic_screen"]["delta"],
+     "analysis/temporal_ceiling_summary.json", False),
+    ("boilerplate demotion ceiling", 0.01614,
+     lambda: jload("analysis/temporal_ceiling_summary.json")["boilerplate_ceiling"]["delta"],
+     "analysis/temporal_ceiling_summary.json", False),
     ("nDCG-loss CE, fixed pair mask (dev)", 0.3514,
      lambda: dom_macro("aggregate_ndcgfix_dev.json"), "aggregate_ndcgfix_dev.json", False),
     ("possum CE on the same 969 groups (dev)", 0.3572,
