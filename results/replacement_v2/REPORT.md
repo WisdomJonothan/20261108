@@ -664,3 +664,12 @@ Four questions from the review were answered with measurements; three are negati
 **16.3 Where the 0.3735 configuration loses.** Replaying the frozen rule over the cached 18 judged actions reproduces 0.373503. The ladder above it is: perfect selection among the actions the judge already accepted **0.380299**; perfect judgement and selection inside the six judged pairs **0.401902**; inside all eighteen **0.417443**. Of the 85 queries that have a beneficial action among the six pairs, 33 end positive, 26 reject every beneficial action and 26 accept one but pick a different action. Six alternative selection rules (prior, product, gain-weighted prior, slot-first, high-confidence prior) replayed over the same judgements reach at most 0.373503, so no selection rule recovers the gap: the accept/reject decision loses the points.
 
 **16.4 Step-level support judgement.** 220 (query, requirement, document) triples from the train split were judged in a single prompt: does the passage contain the specific evidence this requirement asks for. Gold documents score 0.367 mean probability under their own requirement and 0.261 under a sibling requirement of the same query (negatives from dense ranks 21-100: 0.075); the same documents under the global question (does this passage help answer the question) score 0.442 against 0.094. Ranked AUC is 0.8156 for the requirement-conditioned judgement and 0.8025 for the global one, and 136 of the 220 gold documents are scored strictly higher under their own requirement than under a sibling. Requirement conditioning carries some signal, but at 4B it is worth about one AUC point over topical relevance, and the absolute level is low: the model says the gold document contains the required evidence only about a third of the time. That is consistent with 16.3 - the binding constraint is what the judge can verify, not which pair it is asked about.
+
+### 16.2b The pool-100 cascade does not hold up either (65 queries)
+
+The 26-query cascade (keep the best five per 20-document group, rerank the 25 survivors) gave
+0.185133 -> 0.259044 (+0.074). Extended to 65 queries (5 per domain) the same setting gives
+**0.245332 -> 0.232081 (-0.0133)**, zero-score queries 28 -> 25, relevant-in-top-10 55 -> 56.
+Both Diver variants are therefore nDCG-neutral or worse once the query sample is not the first
+two queries of each domain; what it does do, consistently, is move a handful of additional
+relevant documents into the top ten. The specialist-reranker line is closed.

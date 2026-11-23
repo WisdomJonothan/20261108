@@ -268,6 +268,7 @@ per-policy JSONs and TREC runs under `results/replacement_v2/`.
 
 
 - **Review round 3 (2026-11-24):** nDCG loss with the mask fixed scores 0.3514 against a possum control on the same 969 groups 0.3572 (single-factor, so the loss is not the limit); Diver-GroupRank-7B on the dense top-20 is -0.0011 nDCG@10 over 65 queries but moves +7 relevant documents into the top ten; the 0.3735 configuration loses to accept/reject (26 of 85 queries with a reachable beneficial action reject them all) and no selection rule recovers it; step-level support judgement reaches AUC 0.816 against 0.803 for the global question.
+  The pool-100 cascade does not survive more queries either: 0.2453 -> 0.2321 (-0.0133) at 65 queries, so the specialist reranker is nDCG-neutral or worse at every sample size we measured.
 
 ## Paper
 

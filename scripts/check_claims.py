@@ -48,6 +48,8 @@ CLAIMS = [
      lambda: dom_macro("aggregate_fallp_dev.json"), "aggregate_fallp_dev.json", False),
     ("specialist group reranker, 65 queries", 0.2443,
      lambda: jload("analysis/diver_top20_65.json")["diver_macro"], "analysis/diver_top20_65.json", False),
+    ("Diver pool-100 cascade nDCG@10, 65 queries", 0.232081,
+     lambda: jload("analysis/diver_pool100_cascade_65.json")["diver_macro"], "analysis/diver_pool100_cascade_65.json", False),
     ("perfect judgement inside the six judged pairs", 0.4019,
      lambda: jload("replacement_v2/oracle_ladder_dev.json")["perfect_six"],
      "replacement_v2/oracle_ladder_dev.json", False),
