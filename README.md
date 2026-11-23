@@ -268,6 +268,7 @@ per-policy JSONs and TREC runs under `results/replacement_v2/`.
 
 
 - **Review round 3 (2026-11-24):** nDCG loss with the mask fixed scores 0.3514 against a possum control on the same 969 groups 0.3572 (single-factor, so the loss is not the limit); Diver-GroupRank-7B on the dense top-20 is -0.0011 nDCG@10 over 65 queries but moves +7 relevant documents into the top ten; the 0.3735 configuration loses to accept/reject (26 of 85 queries with a reachable beneficial action reject them all) and no selection rule recovers it; step-level support judgement reaches AUC 0.816 against 0.803 for the global question.
+  **Requirement-conditioned evidence (2026-11-24):** on the held-out folds (754 queries) neither selecting passages by the question's requirement (-0.0036 vs the six-pair rule, CI [-0.0074,-0.0003]) nor asking the judge the requirement-conditioned question (-0.0010, ns) helps, and the matched requirement beats a mismatched one by only +0.0010 (CI [-0.0033,+0.0055]). The six-pair configuration stays as the frozen competition entry.
   The pool-100 cascade does not survive more queries either: 0.2453 -> 0.2321 (-0.0133) at 65 queries, so the specialist reranker is nDCG-neutral or worse at every sample size we measured.
 
 ## Paper

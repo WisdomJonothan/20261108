@@ -1,0 +1,41 @@
+{
+ "tally": {
+  "neutral": 799,
+  "missed_swap": 100,
+  "positive": 45,
+  "harmful": 25
+ },
+ "case_summary": {
+  "missed_swap": {
+   "n": 96,
+   "challenger_evidence_outside_window": 2,
+   "share": 0.0208,
+   "requirement_text_elsewhere": 29,
+   "share_requirement_elsewhere": 0.3021,
+   "mean_ch_outside": 0.135,
+   "mean_inc_outside": 0.156,
+   "mean_delta": 0.1987
+  },
+  "positive": {
+   "n": 44,
+   "challenger_evidence_outside_window": 0,
+   "share": 0.0,
+   "requirement_text_elsewhere": 17,
+   "share_requirement_elsewhere": 0.3864,
+   "mean_ch_outside": 0.114,
+   "mean_inc_outside": 0.205,
+   "mean_delta": 0.1611
+  },
+  "harmful": {
+   "n": 23,
+   "challenger_evidence_outside_window": 1,
+   "share": 0.0435,
+   "requirement_text_elsewhere": 9,
+   "share_requirement_elsewhere": 0.3913,
+   "mean_ch_outside": 0.174,
+   "mean_inc_outside": 0.217,
+   "mean_delta": -0.0144
+  }
+ },
+ "note": "Condition units are digits and capitalised tokens from the first step instruction. evidence_outside=True means the challenger's requirement-bearing text lies further outside the shown window than the incumbent's."
+}

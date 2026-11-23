@@ -494,6 +494,15 @@ CLAIMS = [
     ("pool oracle ceiling", 0.7446,
      lambda: jload("analysis/SCORE_DIAGNOSIS.json")["pool_oracle_decomposition"]["macro_ideal_rerank_of_frozen_pool100"],
      "analysis/SCORE_DIAGNOSIS.json", False),
+    ("Requirement-selected text vs the six-pair rule, 754 fold queries", -0.003649,
+     lambda: jload("replacement_v2/req/summary.json")["cells"]["sel"]["delta_vs_cellA"],
+     "replacement_v2/req/summary.json", False),
+    ("Matched minus mismatched requirement, fold queries", 0.001025,
+     lambda: jload("replacement_v2/req/summary.json")["contrasts"]["req_minus_mis"]["delta"],
+     "replacement_v2/req/summary.json", False),
+    ("Six-pair rule macro on the 754 fold queries", 0.307869,
+     lambda: jload("replacement_v2/req/summary.json")["cellA"],
+     "replacement_v2/req/summary.json", False),
 ]
 
 
