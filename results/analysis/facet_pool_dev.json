@@ -1,0 +1,106 @@
+{
+ "bitcoin": {
+  "docs": 76706,
+  "queries": 27,
+  "steps": 56,
+  "pool_gold": 15,
+  "pool_queries_with_gold": 12,
+  "run": "/homeC/wujiaheng/RETECO/runs/facetstep_bitcoin_dev.trec"
+ },
+ "cardano": {
+  "docs": 47509,
+  "queries": 15,
+  "steps": 33,
+  "pool_gold": 14,
+  "pool_queries_with_gold": 8,
+  "run": "/homeC/wujiaheng/RETECO/runs/facetstep_cardano_dev.trec"
+ },
+ "economics": {
+  "docs": 74692,
+  "queries": 22,
+  "steps": 51,
+  "pool_gold": 25,
+  "pool_queries_with_gold": 12,
+  "run": "/homeC/wujiaheng/RETECO/runs/facetstep_economics_dev.trec"
+ },
+ "genealogy": {
+  "docs": 136101,
+  "queries": 32,
+  "steps": 68,
+  "pool_gold": 25,
+  "pool_queries_with_gold": 14,
+  "run": "/homeC/wujiaheng/RETECO/runs/facetstep_genealogy_dev.trec"
+ },
+ "history": {
+  "docs": 200252,
+  "queries": 232,
+  "steps": 636,
+  "pool_gold": 215,
+  "pool_queries_with_gold": 122,
+  "run": "/homeC/wujiaheng/RETECO/runs/facetstep_history_dev.trec"
+ },
+ "hsm": {
+  "docs": 169552,
+  "queries": 40,
+  "steps": 105,
+  "pool_gold": 11,
+  "pool_queries_with_gold": 9,
+  "run": "/homeC/wujiaheng/RETECO/runs/facetstep_hsm_dev.trec"
+ },
+ "iota": {
+  "docs": 9680,
+  "queries": 3,
+  "steps": 8,
+  "pool_gold": 6,
+  "pool_queries_with_gold": 2,
+  "run": "/homeC/wujiaheng/RETECO/runs/facetstep_iota_dev.trec"
+ },
+ "law": {
+  "docs": 36110,
+  "queries": 11,
+  "steps": 23,
+  "pool_gold": 7,
+  "pool_queries_with_gold": 4,
+  "run": "/homeC/wujiaheng/RETECO/runs/facetstep_law_dev.trec"
+ },
+ "monero": {
+  "docs": 53955,
+  "queries": 15,
+  "steps": 28,
+  "pool_gold": 6,
+  "pool_queries_with_gold": 5,
+  "run": "/homeC/wujiaheng/RETECO/runs/facetstep_monero_dev.trec"
+ },
+ "politics": {
+  "docs": 135207,
+  "queries": 44,
+  "steps": 119,
+  "pool_gold": 21,
+  "pool_queries_with_gold": 15,
+  "run": "/homeC/wujiaheng/RETECO/runs/facetstep_politics_dev.trec"
+ },
+ "quant": {
+  "docs": 25040,
+  "queries": 7,
+  "steps": 15,
+  "pool_gold": 3,
+  "pool_queries_with_gold": 3,
+  "run": "/homeC/wujiaheng/RETECO/runs/facetstep_quant_dev.trec"
+ },
+ "travel": {
+  "docs": 158771,
+  "queries": 27,
+  "steps": 52,
+  "pool_gold": 20,
+  "pool_queries_with_gold": 16,
+  "run": "/homeC/wujiaheng/RETECO/runs/facetstep_travel_dev.trec"
+ },
+ "workplace": {
+  "docs": 43584,
+  "queries": 9,
+  "steps": 20,
+  "pool_gold": 12,
+  "pool_queries_with_gold": 8,
+  "run": "/homeC/wujiaheng/RETECO/runs/facetstep_workplace_dev.trec"
+ }
+}

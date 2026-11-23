@@ -41,6 +41,17 @@ def md_number(p, needle):
 
 
 CLAIMS = [
+    # --- negative-label audit and facet recall (2026-11-23) ------------------
+    ("CE without hard negatives", 0.3308,
+     lambda: dom_macro("aggregate_nohard_dev.json"), "aggregate_nohard_dev.json", False),
+    ("CE without dense-top-10 negatives", 0.3409,
+     lambda: dom_macro("aggregate_pu10_dev.json"), "aggregate_pu10_dev.json", False),
+    ("zero queries with gold in dense top-100", 86,
+     lambda: int(jload("analysis/pool_union_dev.json")["total"]["zd"]),
+     "analysis/pool_union_dev.json", False),
+    ("zero queries covered with the facet pool", 94,
+     lambda: int(jload("analysis/pool_union_dev.json")["total"]["zu"]),
+     "analysis/pool_union_dev.json", False),
     # --- frozen system, the headline positive result -------------------------
     ("frozen dev nDCG@10", 0.3581, lambda: dom_macro("aggregate_sub_sft_e2bc_dev.json"),
      "aggregate_sub_sft_e2bc_dev.json", True),

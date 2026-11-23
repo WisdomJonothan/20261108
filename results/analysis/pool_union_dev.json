@@ -1,0 +1,158 @@
+{
+ "per_domain": {
+  "bitcoin": {
+   "q": 30,
+   "dense": 26,
+   "facet": 12,
+   "union": 28,
+   "zero": 13,
+   "zd": 9,
+   "zf": 3,
+   "zu": 11,
+   "new_gold": 4
+  },
+  "cardano": {
+   "q": 15,
+   "dense": 14,
+   "facet": 8,
+   "union": 14,
+   "zero": 4,
+   "zd": 3,
+   "zf": 2,
+   "zu": 3,
+   "new_gold": 2
+  },
+  "economics": {
+   "q": 25,
+   "dense": 21,
+   "facet": 12,
+   "union": 22,
+   "zero": 9,
+   "zd": 5,
+   "zf": 1,
+   "zu": 6,
+   "new_gold": 5
+  },
+  "genealogy": {
+   "q": 35,
+   "dense": 28,
+   "facet": 14,
+   "union": 30,
+   "zero": 10,
+   "zd": 3,
+   "zf": 2,
+   "zu": 5,
+   "new_gold": 4
+  },
+  "history": {
+   "q": 240,
+   "dense": 226,
+   "facet": 122,
+   "union": 227,
+   "zero": 46,
+   "zd": 32,
+   "zf": 16,
+   "zu": 33,
+   "new_gold": 18
+  },
+  "hsm": {
+   "q": 45,
+   "dense": 40,
+   "facet": 9,
+   "union": 40,
+   "zero": 10,
+   "zd": 5,
+   "zf": 0,
+   "zu": 5,
+   "new_gold": 0
+  },
+  "iota": {
+   "q": 3,
+   "dense": 3,
+   "facet": 2,
+   "union": 3,
+   "zero": 0,
+   "zd": 0,
+   "zf": 0,
+   "zu": 0,
+   "new_gold": 0
+  },
+  "law": {
+   "q": 11,
+   "dense": 10,
+   "facet": 4,
+   "union": 11,
+   "zero": 3,
+   "zd": 2,
+   "zf": 1,
+   "zu": 3,
+   "new_gold": 1
+  },
+  "monero": {
+   "q": 19,
+   "dense": 16,
+   "facet": 5,
+   "union": 16,
+   "zero": 8,
+   "zd": 5,
+   "zf": 2,
+   "zu": 5,
+   "new_gold": 1
+  },
+  "politics": {
+   "q": 45,
+   "dense": 38,
+   "facet": 15,
+   "union": 39,
+   "zero": 14,
+   "zd": 7,
+   "zf": 3,
+   "zu": 8,
+   "new_gold": 4
+  },
+  "quant": {
+   "q": 10,
+   "dense": 8,
+   "facet": 3,
+   "union": 8,
+   "zero": 5,
+   "zd": 3,
+   "zf": 0,
+   "zu": 3,
+   "new_gold": 0
+  },
+  "travel": {
+   "q": 30,
+   "dense": 27,
+   "facet": 16,
+   "union": 27,
+   "zero": 12,
+   "zd": 9,
+   "zf": 4,
+   "zu": 9,
+   "new_gold": 2
+  },
+  "workplace": {
+   "q": 11,
+   "dense": 10,
+   "facet": 8,
+   "union": 10,
+   "zero": 4,
+   "zd": 3,
+   "zf": 3,
+   "zu": 3,
+   "new_gold": 1
+  }
+ },
+ "total": {
+  "q": 519,
+  "dense": 467,
+  "facet": 230,
+  "union": 475,
+  "zero": 138,
+  "zd": 86,
+  "zf": 37,
+  "zu": 94,
+  "new_gold": 42
+ }
+}

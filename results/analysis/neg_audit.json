@@ -1,0 +1,118 @@
+{
+ "bitcoin": {
+  "queries": 70,
+  "positives": 119,
+  "neg_judged0": 0,
+  "neg_unjudged": 6881,
+  "hard_total": 898,
+  "hard_unjudged": 898
+ },
+ "cardano": {
+  "queries": 36,
+  "positives": 55,
+  "neg_judged0": 0,
+  "neg_unjudged": 3545,
+  "hard_total": 467,
+  "hard_unjudged": 467
+ },
+ "economics": {
+  "queries": 58,
+  "positives": 122,
+  "neg_judged0": 0,
+  "neg_unjudged": 5678,
+  "hard_total": 727,
+  "hard_unjudged": 727
+ },
+ "genealogy": {
+  "queries": 80,
+  "positives": 148,
+  "neg_judged0": 0,
+  "neg_unjudged": 7852,
+  "hard_total": 1015,
+  "hard_unjudged": 1015
+ },
+ "history": {
+  "queries": 561,
+  "positives": 1700,
+  "neg_judged0": 0,
+  "neg_unjudged": 54400,
+  "hard_total": 6670,
+  "hard_unjudged": 6670
+ },
+ "hsm": {
+  "queries": 105,
+  "positives": 165,
+  "neg_judged0": 0,
+  "neg_unjudged": 10335,
+  "hard_total": 1359,
+  "hard_unjudged": 1359
+ },
+ "iota": {
+  "queries": 7,
+  "positives": 13,
+  "neg_judged0": 0,
+  "neg_unjudged": 687,
+  "hard_total": 90,
+  "hard_unjudged": 90
+ },
+ "law": {
+  "queries": 24,
+  "positives": 63,
+  "neg_judged0": 0,
+  "neg_unjudged": 2337,
+  "hard_total": 289,
+  "hard_unjudged": 289
+ },
+ "monero": {
+  "queries": 46,
+  "positives": 73,
+  "neg_judged0": 0,
+  "neg_unjudged": 4527,
+  "hard_total": 593,
+  "hard_unjudged": 593
+ },
+ "politics": {
+  "queries": 105,
+  "positives": 205,
+  "neg_judged0": 0,
+  "neg_unjudged": 10295,
+  "hard_total": 1334,
+  "hard_unjudged": 1334
+ },
+ "quant": {
+  "queries": 24,
+  "positives": 37,
+  "neg_judged0": 0,
+  "neg_unjudged": 2363,
+  "hard_total": 310,
+  "hard_unjudged": 310
+ },
+ "travel": {
+  "queries": 70,
+  "positives": 122,
+  "neg_judged0": 0,
+  "neg_unjudged": 6878,
+  "hard_total": 895,
+  "hard_unjudged": 895
+ },
+ "workplace": {
+  "queries": 25,
+  "positives": 54,
+  "neg_judged0": 0,
+  "neg_unjudged": 2446,
+  "hard_total": 310,
+  "hard_unjudged": 310
+ },
+ "_total": {
+  "queries": 1211,
+  "positives": 2876,
+  "neg_judged0": 0,
+  "neg_unjudged": 118224,
+  "hard_total": 14957,
+  "hard_unjudged": 14957
+ },
+ "_share": {
+  "neg_unjudged": 1.0,
+  "hard_unjudged": 1.0
+ }
+}

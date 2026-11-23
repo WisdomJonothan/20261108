@@ -1,0 +1,92 @@
+[
+ {
+  "domain": "politics",
+  "qid": "87918_970",
+  "ce_ndcg10": 0.3562,
+  "gold_in_ce_top10": 1
+ },
+ {
+  "domain": "genealogy",
+  "qid": "10043_313",
+  "ce_ndcg10": 0.3392,
+  "gold_in_ce_top10": 1
+ },
+ {
+  "domain": "history",
+  "qid": "70361_291",
+  "ce_ndcg10": 0.2463,
+  "gold_in_ce_top10": 1
+ },
+ {
+  "domain": "history",
+  "qid": "70746_260",
+  "ce_ndcg10": 0.1952,
+  "gold_in_ce_top10": 1
+ },
+ {
+  "domain": "history",
+  "qid": "68107_426",
+  "ce_ndcg10": 0.0784,
+  "gold_in_ce_top10": 1
+ },
+ {
+  "domain": "bitcoin",
+  "qid": "124510_9",
+  "ce_ndcg10": 0.0,
+  "gold_in_ce_top10": 0
+ },
+ {
+  "domain": "bitcoin",
+  "qid": "113938_64",
+  "ce_ndcg10": 0.0,
+  "gold_in_ce_top10": 0
+ },
+ {
+  "domain": "economics",
+  "qid": "56372_176",
+  "ce_ndcg10": 0.0,
+  "gold_in_ce_top10": 0
+ },
+ {
+  "domain": "genealogy",
+  "qid": "13596_269",
+  "ce_ndcg10": 0.0,
+  "gold_in_ce_top10": 0
+ },
+ {
+  "domain": "history",
+  "qid": "77144_59",
+  "ce_ndcg10": 0.0,
+  "gold_in_ce_top10": 0
+ },
+ {
+  "domain": "history",
+  "qid": "68358_414",
+  "ce_ndcg10": 0.0,
+  "gold_in_ce_top10": 0
+ },
+ {
+  "domain": "law",
+  "qid": "103373_837",
+  "ce_ndcg10": 0.0,
+  "gold_in_ce_top10": 0
+ },
+ {
+  "domain": "monero",
+  "qid": "5677_892",
+  "ce_ndcg10": 0.0,
+  "gold_in_ce_top10": 0
+ },
+ {
+  "domain": "travel",
+  "qid": "190846_1134",
+  "ce_ndcg10": 0.0,
+  "gold_in_ce_top10": 0
+ },
+ {
+  "domain": "workplace",
+  "qid": "171543_1222",
+  "ce_ndcg10": 0.0,
+  "gold_in_ce_top10": 0
+ }
+]

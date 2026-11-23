@@ -1,0 +1,113 @@
+{
+ "tag": "frozenrepro",
+ "metric": "nDCG@10",
+ "domains": [
+  {
+   "domain": "bitcoin",
+   "n": 30,
+   "n_in_run": 30,
+   "ndcg10": 0.21428273629762323,
+   "file": "results/frozenrepro/score_bitcoin.json"
+  },
+  {
+   "domain": "cardano",
+   "n": 15,
+   "n_in_run": 15,
+   "ndcg10": 0.22578319338099426,
+   "file": "results/frozenrepro/score_cardano.json"
+  },
+  {
+   "domain": "economics",
+   "n": 25,
+   "n_in_run": 25,
+   "ndcg10": 0.2506428837743176,
+   "file": "results/frozenrepro/score_economics.json"
+  },
+  {
+   "domain": "genealogy",
+   "n": 35,
+   "n_in_run": 35,
+   "ndcg10": 0.40596149663595177,
+   "file": "results/frozenrepro/score_genealogy.json"
+  },
+  {
+   "domain": "history",
+   "n": 240,
+   "n_in_run": 240,
+   "ndcg10": 0.3918367862116744,
+   "file": "results/frozenrepro/score_history.json"
+  },
+  {
+   "domain": "hsm",
+   "n": 45,
+   "n_in_run": 45,
+   "ndcg10": 0.46514491847106776,
+   "file": "results/frozenrepro/score_hsm.json"
+  },
+  {
+   "domain": "iota",
+   "n": 3,
+   "n_in_run": 3,
+   "ndcg10": 0.8382954784660104,
+   "file": "results/frozenrepro/score_iota.json"
+  },
+  {
+   "domain": "law",
+   "n": 11,
+   "n_in_run": 11,
+   "ndcg10": 0.4356663760603123,
+   "file": "results/frozenrepro/score_law.json"
+  },
+  {
+   "domain": "monero",
+   "n": 19,
+   "n_in_run": 19,
+   "ndcg10": 0.20687113127651763,
+   "file": "results/frozenrepro/score_monero.json"
+  },
+  {
+   "domain": "politics",
+   "n": 45,
+   "n_in_run": 45,
+   "ndcg10": 0.4289738867474458,
+   "file": "results/frozenrepro/score_politics.json"
+  },
+  {
+   "domain": "quant",
+   "n": 10,
+   "n_in_run": 10,
+   "ndcg10": 0.153796286139897,
+   "file": "results/frozenrepro/score_quant.json"
+  },
+  {
+   "domain": "travel",
+   "n": 30,
+   "n_in_run": 30,
+   "ndcg10": 0.2493604939395154,
+   "file": "results/frozenrepro/score_travel.json"
+  },
+  {
+   "domain": "workplace",
+   "n": 11,
+   "n_in_run": 11,
+   "ndcg10": 0.3897510699547656,
+   "file": "results/frozenrepro/score_workplace.json"
+  }
+ ],
+ "num_domains": 13,
+ "num_topics": 519,
+ "topic_macro": 0.36437367419517724,
+ "domain_macro": 0.35818205671969944,
+ "topic_macro_n_ge_19": 0.3679973300716828,
+ "domain_macro_n_ge_19": 0.3266342916692642,
+ "domains_n_ge_19": [
+  "bitcoin",
+  "economics",
+  "genealogy",
+  "history",
+  "hsm",
+  "monero",
+  "politics",
+  "travel"
+ ]
+}

@@ -1,0 +1,1570 @@
+{
+ "n": 260,
+ "thresholds": {
+  "0.5": 86,
+  "0.7": 82,
+  "0.9": 76
+ },
+ "records": [
+  {
+   "qid": "98618_84",
+   "docid": "bitcoin/9641bc6d_5451.txt",
+   "dense_rank": 11,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "120320_38",
+   "docid": "bitcoin/df7937a9_145474.txt",
+   "dense_rank": 17,
+   "p_yes": 0.5622
+  },
+  {
+   "qid": "95869_93",
+   "docid": "bitcoin/364c3e6c_19484.txt",
+   "dense_rank": 6,
+   "p_yes": 0.0006
+  },
+  {
+   "qid": "120256_42",
+   "docid": "bitcoin/3ebca5e0_145115.txt",
+   "dense_rank": 15,
+   "p_yes": 0.1067
+  },
+  {
+   "qid": "124874_6",
+   "docid": "bitcoin/f7a90eb2_1792.txt",
+   "dense_rank": 1,
+   "p_yes": 0.8933
+  },
+  {
+   "qid": "123252_15",
+   "docid": "bitcoin/112862_8be7e27974fe271b_50.txt",
+   "dense_rank": 10,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "95869_93",
+   "docid": "bitcoin/8a7d4439_6473.txt",
+   "dense_rank": 7,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "120247_44",
+   "docid": "bitcoin/25f8ca20_15121.txt",
+   "dense_rank": 7,
+   "p_yes": 0.0003
+  },
+  {
+   "qid": "120254_43",
+   "docid": "bitcoin/b8fbaf35_145104.txt",
+   "dense_rank": 9,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "121069_34",
+   "docid": "bitcoin/c4d2d434_146214.txt",
+   "dense_rank": 8,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "122302_21",
+   "docid": "bitcoin/df728787_144627.txt",
+   "dense_rank": 8,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "97192_87",
+   "docid": "bitcoin/2f80b7aa_17616.txt",
+   "dense_rank": 1,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "118297_59",
+   "docid": "bitcoin/44fab0af_153255.txt",
+   "dense_rank": 11,
+   "p_yes": 0.9526
+  },
+  {
+   "qid": "123021_17",
+   "docid": "bitcoin/0d0b9c0c_145494.txt",
+   "dense_rank": 3,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "124849_7",
+   "docid": "bitcoin/94ebdc3d_13435.txt",
+   "dense_rank": 9,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "124849_7",
+   "docid": "bitcoin/3a931625_13397.txt",
+   "dense_rank": 3,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "110557_82",
+   "docid": "bitcoin/4183eed1_150744.txt",
+   "dense_rank": 13,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "97009_90",
+   "docid": "bitcoin/4c18c5b1_13879.txt",
+   "dense_rank": 9,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "120256_42",
+   "docid": "bitcoin/a0c441b5_145484.txt",
+   "dense_rank": 14,
+   "p_yes": 0.148
+  },
+  {
+   "qid": "120254_43",
+   "docid": "bitcoin/03142baa_144984.txt",
+   "dense_rank": 5,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "4659_122",
+   "docid": "cardano/777864d1_85979.txt",
+   "dense_rank": 14,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "241_144",
+   "docid": "cardano/38ff649e_1478.txt",
+   "dense_rank": 9,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "2167_132",
+   "docid": "cardano/a1cd020b_2534.txt",
+   "dense_rank": 16,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "8864_107",
+   "docid": "cardano/3971775d_1500.txt",
+   "dense_rank": 4,
+   "p_yes": 0.0001
+  },
+  {
+   "qid": "147_148",
+   "docid": "cardano/9204659f_84959.txt",
+   "dense_rank": 1,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "9524_103",
+   "docid": "cardano/d31ae572_4471.txt",
+   "dense_rank": 9,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "8864_107",
+   "docid": "cardano/61c36f7a_11084.txt",
+   "dense_rank": 8,
+   "p_yes": 0.0001
+  },
+  {
+   "qid": "220_145",
+   "docid": "cardano/4f62fdb5_85157.txt",
+   "dense_rank": 12,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "9155_105",
+   "docid": "cardano/6955_4435088f7eab4e4c_1.txt",
+   "dense_rank": 2,
+   "p_yes": 0.9999
+  },
+  {
+   "qid": "8152_112",
+   "docid": "cardano/6955_a5c7bfdb9eb9a558_106.txt",
+   "dense_rank": 7,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "8943_106",
+   "docid": "cardano/cceb605e_85409.txt",
+   "dense_rank": 1,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "4455_124",
+   "docid": "cardano/3f51b621_3316.txt",
+   "dense_rank": 16,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "857_138",
+   "docid": "cardano/cf63108c_11186.txt",
+   "dense_rank": 14,
+   "p_yes": 0.982
+  },
+  {
+   "qid": "2167_132",
+   "docid": "cardano/6955_d7ea9e46c6527601_7.txt",
+   "dense_rank": 5,
+   "p_yes": 0.0001
+  },
+  {
+   "qid": "2118_134",
+   "docid": "cardano/eb72740a_11115.txt",
+   "dense_rank": 7,
+   "p_yes": 0.011
+  },
+  {
+   "qid": "4589_123",
+   "docid": "cardano/828dc394_4900.txt",
+   "dense_rank": 5,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "220_145",
+   "docid": "cardano/fa324abb_2953.txt",
+   "dense_rank": 7,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "8943_106",
+   "docid": "cardano/d66fb7e7_1879.txt",
+   "dense_rank": 13,
+   "p_yes": 0.0001
+  },
+  {
+   "qid": "92_149",
+   "docid": "cardano/fa324abb_2953.txt",
+   "dense_rank": 7,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "9524_103",
+   "docid": "cardano/72c7a95b_2656.txt",
+   "dense_rank": 3,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "56380_175",
+   "docid": "economics/7350bc51_83801.txt",
+   "dense_rank": 3,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "48501_207",
+   "docid": "economics/47525_17d459c1be7d3ea9_6.txt",
+   "dense_rank": 9,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "56380_175",
+   "docid": "economics/c0f1c667_83802.txt",
+   "dense_rank": 8,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "48023_208",
+   "docid": "economics/8e159834_89919.txt",
+   "dense_rank": 11,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "60517_157",
+   "docid": "economics/9642a1e2_82156.txt",
+   "dense_rank": 1,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "47488_215",
+   "docid": "economics/6d9e3f1e_91602.txt",
+   "dense_rank": 11,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "47875_211",
+   "docid": "economics/095e031f_90195.txt",
+   "dense_rank": 3,
+   "p_yes": 0.9998
+  },
+  {
+   "qid": "60662_151",
+   "docid": "economics/60203_6a9db1df8d8c6ea7_4.txt",
+   "dense_rank": 3,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "52639_190",
+   "docid": "economics/52071_a4db2b4a56b4710b_37.txt",
+   "dense_rank": 14,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "59375_163",
+   "docid": "economics/7726878d_82595.txt",
+   "dense_rank": 12,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "47525_214",
+   "docid": "economics/ea753ea7_10747.txt",
+   "dense_rank": 11,
+   "p_yes": 0.8355
+  },
+  {
+   "qid": "48023_208",
+   "docid": "economics/54089812_89909.txt",
+   "dense_rank": 10,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "45432_225",
+   "docid": "economics/7ae93a8e_1054.txt",
+   "dense_rank": 12,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "47165_217",
+   "docid": "economics/50799_baf495aecefdeecf_1.txt",
+   "dense_rank": 3,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "60289_158",
+   "docid": "economics/106e9782_82236.txt",
+   "dense_rank": 1,
+   "p_yes": 0.023
+  },
+  {
+   "qid": "59399_162",
+   "docid": "economics/1332e398_82428.txt",
+   "dense_rank": 4,
+   "p_yes": 0.9959
+  },
+  {
+   "qid": "60608_153",
+   "docid": "economics/a592bf1b_92839.txt",
+   "dense_rank": 6,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "51615_195",
+   "docid": "economics/e750cabd_10368.txt",
+   "dense_rank": 11,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "59435_161",
+   "docid": "economics/9c880c29_89611.txt",
+   "dense_rank": 14,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "48013_209",
+   "docid": "economics/69ee1f19_89452.txt",
+   "dense_rank": 14,
+   "p_yes": 0.9948
+  },
+  {
+   "qid": "12525_288",
+   "docid": "genealogy/53b7d0f8_153891.txt",
+   "dense_rank": 14,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "10098_312",
+   "docid": "genealogy/6a2427bf_155057.txt",
+   "dense_rank": 7,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "2021_341",
+   "docid": "genealogy/2191_8ebc2d97a71fb8a2_11.txt",
+   "dense_rank": 12,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "18616_241",
+   "docid": "genealogy/79409664_151552.txt",
+   "dense_rank": 8,
+   "p_yes": 0.0032
+  },
+  {
+   "qid": "3152_326",
+   "docid": "genealogy/1595_32cf27ce0b349eb7_13.txt",
+   "dense_rank": 7,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "16178_250",
+   "docid": "genealogy/3370_c09dd35e4bf954ce_167.txt",
+   "dense_rank": 6,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "17675_247",
+   "docid": "genealogy/70e17b1a_151889.txt",
+   "dense_rank": 14,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "17409_248",
+   "docid": "genealogy/2191_4d8f87c89ba24022_100.txt",
+   "dense_rank": 12,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "10040_314",
+   "docid": "genealogy/694d7db6_155125.txt",
+   "dense_rank": 1,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "3010_327",
+   "docid": "genealogy/014d5d89_151344.txt",
+   "dense_rank": 7,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "12242_291",
+   "docid": "genealogy/a368919c_6918.txt",
+   "dense_rank": 5,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "13721_267",
+   "docid": "genealogy/9808_75002918dda0b602_7.txt",
+   "dense_rank": 8,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "13899_263",
+   "docid": "genealogy/13899_d944260b84fc6802_9.txt",
+   "dense_rank": 11,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "14210_262",
+   "docid": "genealogy/14e95187_2622.txt",
+   "dense_rank": 4,
+   "p_yes": 0.0001
+  },
+  {
+   "qid": "2259_334",
+   "docid": "genealogy/60a3aa3a_155648.txt",
+   "dense_rank": 14,
+   "p_yes": 0.0001
+  },
+  {
+   "qid": "13718_268",
+   "docid": "genealogy/12937_98146201da3b8b5e_40.txt",
+   "dense_rank": 12,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "18759_237",
+   "docid": "genealogy/2e05ee69_151291.txt",
+   "dense_rank": 10,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "3269_322",
+   "docid": "genealogy/12640_31fdee4ab31c3339_169.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "1825_344",
+   "docid": "genealogy/46d63fd8_156025.txt",
+   "dense_rank": 15,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "18702_239",
+   "docid": "genealogy/11831_86ddfbfb921c629d_2.txt",
+   "dense_rank": 6,
+   "p_yes": 0.0004
+  },
+  {
+   "qid": "57279_690",
+   "docid": "history/2b2f5924_337984.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "70915_248",
+   "docid": "history/a0109d5b_208691.txt",
+   "dense_rank": 11,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "71275_225",
+   "docid": "history/fd59321a_205913.txt",
+   "dense_rank": 11,
+   "p_yes": 0.6792
+  },
+  {
+   "qid": "56309_748",
+   "docid": "history/ebfa6b4d_352928.txt",
+   "dense_rank": 5,
+   "p_yes": 0.8933
+  },
+  {
+   "qid": "63366_577",
+   "docid": "history/17ce5f58_29441.txt",
+   "dense_rank": 13,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "71244_229",
+   "docid": "history/99520848_206170.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "68520_403",
+   "docid": "history/6b660a26_250286.txt",
+   "dense_rank": 10,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "71321_222",
+   "docid": "history/0174f5a7_205569.txt",
+   "dense_rank": 5,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "58548_673",
+   "docid": "history/7b2c89e2_335208.txt",
+   "dense_rank": 2,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "69981_309",
+   "docid": "history/bb6ef416_42014.txt",
+   "dense_rank": 1,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "65804_505",
+   "docid": "history/256ac02d_145566.txt",
+   "dense_rank": 13,
+   "p_yes": 0.0041
+  },
+  {
+   "qid": "58998_646",
+   "docid": "history/d5bf44d6_92601.txt",
+   "dense_rank": 7,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "69179_365",
+   "docid": "history/cf95ceda_239644.txt",
+   "dense_rank": 6,
+   "p_yes": 0.9992
+  },
+  {
+   "qid": "59117_638",
+   "docid": "history/8ec5aef1_330672.txt",
+   "dense_rank": 8,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "68396_412",
+   "docid": "history/21624cee_87579.txt",
+   "dense_rank": 5,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "70265_295",
+   "docid": "history/9f45f633_40897.txt",
+   "dense_rank": 3,
+   "p_yes": 0.7549
+  },
+  {
+   "qid": "69718_334",
+   "docid": "history/a873c6b5_234093.txt",
+   "dense_rank": 12,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "72126_178",
+   "docid": "history/8ac8df6f_198316.txt",
+   "dense_rank": 15,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "63763_557",
+   "docid": "history/a5729208_61570.txt",
+   "dense_rank": 13,
+   "p_yes": 0.0004
+  },
+  {
+   "qid": "78941_18",
+   "docid": "history/7f200663_1920.txt",
+   "dense_rank": 1,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "18176_673",
+   "docid": "hsm/c169bde0_208410.txt",
+   "dense_rank": 6,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "2669_784",
+   "docid": "hsm/9482ee88_213284.txt",
+   "dense_rank": 1,
+   "p_yes": 0.8355
+  },
+  {
+   "qid": "14338_702",
+   "docid": "hsm/3a2c9e2a_209431.txt",
+   "dense_rank": 8,
+   "p_yes": 0.3208
+  },
+  {
+   "qid": "18004_679",
+   "docid": "hsm/2035_0d317fab8607af48_431.txt",
+   "dense_rank": 6,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "2435_787",
+   "docid": "hsm/13333_b72efff974036f45_6.txt",
+   "dense_rank": 1,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "17737_688",
+   "docid": "hsm/17737_5cbc4d797ed05070_583.txt",
+   "dense_rank": 9,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "17885_683",
+   "docid": "hsm/17885_ab9a6e77d03c47b5_1.txt",
+   "dense_rank": 1,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "3077_772",
+   "docid": "hsm/0677246d_212377.txt",
+   "dense_rank": 6,
+   "p_yes": 0.7982
+  },
+  {
+   "qid": "17599_693",
+   "docid": "hsm/13333_4d1fa34d53d056bd_0.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "2639_785",
+   "docid": "hsm/068738b0_213581.txt",
+   "dense_rank": 15,
+   "p_yes": 0.0086
+  },
+  {
+   "qid": "18903_654",
+   "docid": "hsm/18903_5d6eead34a93ca6d_0.txt",
+   "dense_rank": 2,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "13619_713",
+   "docid": "hsm/13619_64ffbbb5cffdbe54_67.txt",
+   "dense_rank": 7,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "3214_765",
+   "docid": "hsm/7327cadb_209612.txt",
+   "dense_rank": 6,
+   "p_yes": 0.9987
+  },
+  {
+   "qid": "14287_704",
+   "docid": "hsm/13022_f9e31f5ddf328b04_95.txt",
+   "dense_rank": 3,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "17885_683",
+   "docid": "hsm/17885_ab9a6e77d03c47b5_2.txt",
+   "dense_rank": 10,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "18903_654",
+   "docid": "hsm/17762_025c44ae4844ef61_252.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0076
+  },
+  {
+   "qid": "12947_737",
+   "docid": "hsm/2057_71deb24587fbbe30_253.txt",
+   "dense_rank": 6,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "11097_741",
+   "docid": "hsm/11097_8bc96121d26dfe15_188.txt",
+   "dense_rank": 3,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "18933_651",
+   "docid": "hsm/2035_cf8b9e0971c96393_1023.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "3077_772",
+   "docid": "hsm/3077_93a0a0be4d3364ef_4.txt",
+   "dense_rank": 3,
+   "p_yes": 0.0076
+  },
+  {
+   "qid": "470_804",
+   "docid": "iota/f88ad615_10368.txt",
+   "dense_rank": 6,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "1954_803",
+   "docid": "iota/0b09095f_0840.txt",
+   "dense_rank": 15,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "311_807",
+   "docid": "iota/2194_8ee53355cdd453a0_144.txt",
+   "dense_rank": 6,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "367_805",
+   "docid": "iota/470_dc22b65135901e3e_12.txt",
+   "dense_rank": 7,
+   "p_yes": 0.1824
+  },
+  {
+   "qid": "2008_802",
+   "docid": "iota/920ac882_0404.txt",
+   "dense_rank": 13,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "470_804",
+   "docid": "iota/66c05639_0860.txt",
+   "dense_rank": 14,
+   "p_yes": 0.0002
+  },
+  {
+   "qid": "2497_799",
+   "docid": "iota/c8ba1c83_10214.txt",
+   "dense_rank": 6,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "1954_803",
+   "docid": "iota/2049_526e300a08c3e4ca_75.txt",
+   "dense_rank": 7,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "1954_803",
+   "docid": "iota/470_dc22b65135901e3e_7.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0001
+  },
+  {
+   "qid": "367_805",
+   "docid": "iota/367_dd5a094cfc433050_116.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "2008_802",
+   "docid": "iota/6e0d03f3_10128.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "1954_803",
+   "docid": "iota/50e50f66_10143.txt",
+   "dense_rank": 4,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "311_807",
+   "docid": "iota/311_27038cf3b633068a_279.txt",
+   "dense_rank": 12,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "2008_802",
+   "docid": "iota/6320c646_10225.txt",
+   "dense_rank": 9,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "470_804",
+   "docid": "iota/21a954f7_9707.txt",
+   "dense_rank": 17,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "311_807",
+   "docid": "iota/79e9bdbb_10096.txt",
+   "dense_rank": 10,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "311_807",
+   "docid": "iota/367_2e960dddf8db0644_180.txt",
+   "dense_rank": 14,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "2497_799",
+   "docid": "iota/311_27038cf3b633068a_319.txt",
+   "dense_rank": 7,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "367_805",
+   "docid": "iota/311_27038cf3b633068a_381.txt",
+   "dense_rank": 15,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "2497_799",
+   "docid": "iota/311_27038cf3b633068a_278.txt",
+   "dense_rank": 2,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "105973_826",
+   "docid": "law/103394_2fece98c7ca0ba1b_6.txt",
+   "dense_rank": 12,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "106974_820",
+   "docid": "law/106974_46015155094513ed_17.txt",
+   "dense_rank": 1,
+   "p_yes": 0.9994
+  },
+  {
+   "qid": "107656_817",
+   "docid": "law/de43ab73_41478.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "106974_820",
+   "docid": "law/110238_38913c9b8f34cb14_1079.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "105973_826",
+   "docid": "law/105973_d73478c0d382f15c_60.txt",
+   "dense_rank": 14,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "106441_823",
+   "docid": "law/f9d3b1f5_2757.txt",
+   "dense_rank": 5,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "105973_826",
+   "docid": "law/105973_da257266748f682a_0.txt",
+   "dense_rank": 5,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "106732_821",
+   "docid": "law/48fb0670_2354.txt",
+   "dense_rank": 5,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "107582_818",
+   "docid": "law/107582_96e424d5a5ddf379_24.txt",
+   "dense_rank": 4,
+   "p_yes": 0.023
+  },
+  {
+   "qid": "109946_813",
+   "docid": "law/ee0226a2_41177.txt",
+   "dense_rank": 2,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "105526_828",
+   "docid": "law/62b1f017_3923.txt",
+   "dense_rank": 12,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "107656_817",
+   "docid": "law/a646bb2c_41415.txt",
+   "dense_rank": 7,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "108189_815",
+   "docid": "law/19564641_1005.txt",
+   "dense_rank": 1,
+   "p_yes": 0.0003
+  },
+  {
+   "qid": "108089_816",
+   "docid": "law/108089_9596efebe67dc8ab_5.txt",
+   "dense_rank": 3,
+   "p_yes": 0.0004
+  },
+  {
+   "qid": "106290_825",
+   "docid": "law/106290_82b39e2bb539437c_19.txt",
+   "dense_rank": 20,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "108189_815",
+   "docid": "law/c66cfdee_41311.txt",
+   "dense_rank": 13,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "105408_829",
+   "docid": "law/410153a7_42080.txt",
+   "dense_rank": 6,
+   "p_yes": 0.0001
+  },
+  {
+   "qid": "105526_828",
+   "docid": "law/03d6c1b6_3917.txt",
+   "dense_rank": 8,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "108089_816",
+   "docid": "law/108089_06523e633bb095d9_4.txt",
+   "dense_rank": 1,
+   "p_yes": 0.0086
+  },
+  {
+   "qid": "103723_833",
+   "docid": "law/e5e0df56_42240.txt",
+   "dense_rank": 4,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "11088_864",
+   "docid": "monero/10954_27038cf3b633068a_35.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "10083_870",
+   "docid": "monero/13093_5221ba6b311fa32a_18.txt",
+   "dense_rank": 13,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "6011_889",
+   "docid": "monero/d267353c_82992.txt",
+   "dense_rank": 9,
+   "p_yes": 0.9933
+  },
+  {
+   "qid": "10883_867",
+   "docid": "monero/4089_c79e7670a12f52cc_0.txt",
+   "dense_rank": 11,
+   "p_yes": 0.0001
+  },
+  {
+   "qid": "3761_900",
+   "docid": "monero/e0318916_83521.txt",
+   "dense_rank": 9,
+   "p_yes": 0.9959
+  },
+  {
+   "qid": "10883_867",
+   "docid": "monero/0190d8ed_7647.txt",
+   "dense_rank": 1,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "6528_886",
+   "docid": "monero/f1bd40ec_84854.txt",
+   "dense_rank": 7,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "4089_897",
+   "docid": "monero/7cff924d_81287.txt",
+   "dense_rank": 8,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "3718_901",
+   "docid": "monero/3718_8d67645f17f0d7dd_1.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0046
+  },
+  {
+   "qid": "10781_868",
+   "docid": "monero/6312_fc37975d21e93995_22.txt",
+   "dense_rank": 16,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "10128_869",
+   "docid": "monero/12780_47c1eea2de4bd2b8_2.txt",
+   "dense_rank": 4,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "6113_888",
+   "docid": "monero/bf7f48c3_83506.txt",
+   "dense_rank": 9,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "13611_847",
+   "docid": "monero/eff1895a_84837.txt",
+   "dense_rank": 3,
+   "p_yes": 0.974
+  },
+  {
+   "qid": "4634_893",
+   "docid": "monero/04c77900_84773.txt",
+   "dense_rank": 13,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "3718_901",
+   "docid": "monero/6528_bfd94b61cfe3951e_0.txt",
+   "dense_rank": 13,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "11882_857",
+   "docid": "monero/fa37c2b9_84790.txt",
+   "dense_rank": 4,
+   "p_yes": 0.6225
+  },
+  {
+   "qid": "11931_856",
+   "docid": "monero/b7e692cb_81560.txt",
+   "dense_rank": 8,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "11061_865",
+   "docid": "monero/15733501_82159.txt",
+   "dense_rank": 14,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "6622_885",
+   "docid": "monero/b26280b1_83413.txt",
+   "dense_rank": 15,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "6528_886",
+   "docid": "monero/69a713c7_84825.txt",
+   "dense_rank": 10,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "75028_1042",
+   "docid": "politics/74803_accebcc24ff5eb2a_390.txt",
+   "dense_rank": 8,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "88778_956",
+   "docid": "politics/88778_8f39d2e2010bb3c7_0.txt",
+   "dense_rank": 9,
+   "p_yes": 0.023
+  },
+  {
+   "qid": "82726_1004",
+   "docid": "politics/82726_576dee82b5e48c36_4.txt",
+   "dense_rank": 3,
+   "p_yes": 0.0041
+  },
+  {
+   "qid": "83311_998",
+   "docid": "politics/74803_accebcc24ff5eb2a_377.txt",
+   "dense_rank": 11,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "77123_1037",
+   "docid": "politics/91586_984fe9fb56367113_2.txt",
+   "dense_rank": 1,
+   "p_yes": 0.9994
+  },
+  {
+   "qid": "78127_1021",
+   "docid": "politics/82063_e68a178beb29d5fe_59.txt",
+   "dense_rank": 1,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "74901_1046",
+   "docid": "politics/74901_363841af48b68fe5_2.txt",
+   "dense_rank": 2,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "83311_998",
+   "docid": "politics/bfa28647_19203.txt",
+   "dense_rank": 7,
+   "p_yes": 0.6792
+  },
+  {
+   "qid": "81884_1015",
+   "docid": "politics/83639_73e82bfe8c3efb66_37.txt",
+   "dense_rank": 13,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "89185_952",
+   "docid": "politics/89185_1957dd1c92924067_25.txt",
+   "dense_rank": 12,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "77959_1025",
+   "docid": "politics/00106e3c_24337.txt",
+   "dense_rank": 6,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "74997_1043",
+   "docid": "politics/74997_c81e48446d6606aa_7.txt",
+   "dense_rank": 1,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "81884_1015",
+   "docid": "politics/474dc85e_182593.txt",
+   "dense_rank": 3,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "83650_991",
+   "docid": "politics/128f09c5_18151.txt",
+   "dense_rank": 5,
+   "p_yes": 0.9998
+  },
+  {
+   "qid": "83311_998",
+   "docid": "politics/a44bafe2_10375.txt",
+   "dense_rank": 12,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "81993_1012",
+   "docid": "politics/77784_28abbf09cedf0ab1_43.txt",
+   "dense_rank": 4,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "77948_1026",
+   "docid": "politics/77948_cfdb06432289c055_0.txt",
+   "dense_rank": 5,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "92929_918",
+   "docid": "politics/82153_dcbce894069c2eca_28.txt",
+   "dense_rank": 13,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "82020_1010",
+   "docid": "politics/3ba9b91b_182450.txt",
+   "dense_rank": 15,
+   "p_yes": 0.026
+  },
+  {
+   "qid": "81993_1012",
+   "docid": "politics/74901_8321e6169c97313d_54.txt",
+   "dense_rank": 6,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "76957_1075",
+   "docid": "quant/78042_fa82b31999d8bb06_192.txt",
+   "dense_rank": 11,
+   "p_yes": 0.0001
+  },
+  {
+   "qid": "80274_1064",
+   "docid": "quant/bdbe79ef_1359.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "80694_1063",
+   "docid": "quant/80694_4f13952eb3a217b5_0.txt",
+   "dense_rank": 4,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "78659_1069",
+   "docid": "quant/8bb27b90_2338.txt",
+   "dense_rank": 1,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "77518_1074",
+   "docid": "quant/30c92c2e_3325.txt",
+   "dense_rank": 2,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "75843_1076",
+   "docid": "quant/80937_cefc04f23f421222_734.txt",
+   "dense_rank": 12,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "36059_1091",
+   "docid": "quant/216b0537_28684.txt",
+   "dense_rank": 8,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "36059_1091",
+   "docid": "quant/4659c372_28613.txt",
+   "dense_rank": 12,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "77685_1073",
+   "docid": "quant/80937_cefc04f23f421222_449.txt",
+   "dense_rank": 3,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "75843_1076",
+   "docid": "quant/edf3b0e7_26633.txt",
+   "dense_rank": 14,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "70286_1087",
+   "docid": "quant/76957_d891f23d25658bc4_18.txt",
+   "dense_rank": 9,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "80274_1064",
+   "docid": "quant/0dbf3800_1357.txt",
+   "dense_rank": 2,
+   "p_yes": 0.011
+  },
+  {
+   "qid": "80937_1061",
+   "docid": "quant/80937_cefc04f23f421222_439.txt",
+   "dense_rank": 1,
+   "p_yes": 0.0059
+  },
+  {
+   "qid": "36059_1091",
+   "docid": "quant/fa941fc0_4634.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "81021_1060",
+   "docid": "quant/5d3b974e_26884.txt",
+   "dense_rank": 5,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "70286_1087",
+   "docid": "quant/84061_8bae8251f4d7693b_59.txt",
+   "dense_rank": 7,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "80937_1061",
+   "docid": "quant/80937_cefc04f23f421222_124.txt",
+   "dense_rank": 8,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "81021_1060",
+   "docid": "quant/07ef339b_26877.txt",
+   "dense_rank": 8,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "84061_1058",
+   "docid": "quant/77873_eb2dbeebfd696a7c_128.txt",
+   "dense_rank": 14,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "74291_1081",
+   "docid": "quant/359fffdb_3193.txt",
+   "dense_rank": 2,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "200459_1098",
+   "docid": "travel/28f7e08f_7436.txt",
+   "dense_rank": 3,
+   "p_yes": 0.9978
+  },
+  {
+   "qid": "201523_1095",
+   "docid": "travel/012a34d3_0856.txt",
+   "dense_rank": 3,
+   "p_yes": 0.9998
+  },
+  {
+   "qid": "192052_1124",
+   "docid": "travel/187688_63ff06c9ab013ca4_204.txt",
+   "dense_rank": 7,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "193067_1113",
+   "docid": "travel/fbbe3ff9_171630.txt",
+   "dense_rank": 4,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "201523_1095",
+   "docid": "travel/26e4e0cd_23138.txt",
+   "dense_rank": 5,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "184528_1182",
+   "docid": "travel/56c6aa2a_23187.txt",
+   "dense_rank": 4,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "192426_1117",
+   "docid": "travel/2926d846_2712.txt",
+   "dense_rank": 14,
+   "p_yes": 0.9993
+  },
+  {
+   "qid": "191336_1131",
+   "docid": "travel/190846_6f148f7a636d8ec3_192.txt",
+   "dense_rank": 9,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "201523_1095",
+   "docid": "travel/8363d63e_0957.txt",
+   "dense_rank": 1,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "185556_1172",
+   "docid": "travel/93b54d58_22498.txt",
+   "dense_rank": 5,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "191336_1131",
+   "docid": "travel/185953_2065dd1fe36d9b01_9.txt",
+   "dense_rank": 7,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "189907_1142",
+   "docid": "travel/02a51840_173882.txt",
+   "dense_rank": 13,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "198687_1101",
+   "docid": "travel/206618b8_8682.txt",
+   "dense_rank": 11,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "186496_1156",
+   "docid": "travel/e070e084_174796.txt",
+   "dense_rank": 2,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "187688_1153",
+   "docid": "travel/c72736d3_174451.txt",
+   "dense_rank": 1,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "185604_1171",
+   "docid": "travel/47345a58_20628.txt",
+   "dense_rank": 1,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "185953_1168",
+   "docid": "travel/2a2a4598_177072.txt",
+   "dense_rank": 10,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "184080_1187",
+   "docid": "travel/443de4b5_24126.txt",
+   "dense_rank": 12,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "189530_1144",
+   "docid": "travel/c64e53ba_173933.txt",
+   "dense_rank": 5,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "201507_1096",
+   "docid": "travel/1d9886f8_18140.txt",
+   "dense_rank": 13,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "179871_1213",
+   "docid": "workplace/3b280144_8284.txt",
+   "dense_rank": 1,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "185556_1206",
+   "docid": "workplace/7db87e81_5711.txt",
+   "dense_rank": 5,
+   "p_yes": 0.0001
+  },
+  {
+   "qid": "185556_1206",
+   "docid": "workplace/b1a1a7df_5643.txt",
+   "dense_rank": 9,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "191273_1201",
+   "docid": "workplace/0bf84eef_6696.txt",
+   "dense_rank": 10,
+   "p_yes": 0.0009
+  },
+  {
+   "qid": "192075_1199",
+   "docid": "workplace/1bf9c7de_63273.txt",
+   "dense_rank": 6,
+   "p_yes": 0.9999
+  },
+  {
+   "qid": "170514_1224",
+   "docid": "workplace/11358150_64432.txt",
+   "dense_rank": 13,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "178855_1215",
+   "docid": "workplace/0d216793_64095.txt",
+   "dense_rank": 7,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "170514_1224",
+   "docid": "workplace/0d17f2d0_64446.txt",
+   "dense_rank": 7,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "191273_1201",
+   "docid": "workplace/bb605e64_63325.txt",
+   "dense_rank": 4,
+   "p_yes": 0.0001
+  },
+  {
+   "qid": "179871_1213",
+   "docid": "workplace/4f140604_62793.txt",
+   "dense_rank": 17,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "178519_1217",
+   "docid": "workplace/3b7afb45_9524.txt",
+   "dense_rank": 12,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "191273_1201",
+   "docid": "workplace/191273_db14a8dba46d2b74_0.txt",
+   "dense_rank": 1,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "193475_1198",
+   "docid": "workplace/5d9bccb6_62676.txt",
+   "dense_rank": 3,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "192075_1199",
+   "docid": "workplace/a8a403b8_1664.txt",
+   "dense_rank": 11,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "202473_1192",
+   "docid": "workplace/202473_c9dfd27a693ef7cd_829.txt",
+   "dense_rank": 11,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "172082_1220",
+   "docid": "workplace/171559_903db805bd72f71b_56.txt",
+   "dense_rank": 2,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "192075_1199",
+   "docid": "workplace/f29242b2_63260.txt",
+   "dense_rank": 3,
+   "p_yes": 1.0
+  },
+  {
+   "qid": "178855_1215",
+   "docid": "workplace/e6c50905_64104.txt",
+   "dense_rank": 6,
+   "p_yes": 0.0
+  },
+  {
+   "qid": "179871_1213",
+   "docid": "workplace/37e977c6_64014.txt",
+   "dense_rank": 9,
+   "p_yes": 0.0003
+  },
+  {
+   "qid": "184333_1208",
+   "docid": "workplace/733f0ecf_6175.txt",
+   "dense_rank": 1,
+   "p_yes": 1.0
+  }
+ ]
+}

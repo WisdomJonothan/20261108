@@ -1,0 +1,154 @@
+[
+ {
+  "domain": "bitcoin",
+  "qid": "124510_9",
+  "n_gold": 2,
+  "gold_in_dense": 0,
+  "new_from_facet": [
+   "bitcoin/0d877081_1933.txt"
+  ],
+  "pool_size": 141
+ },
+ {
+  "domain": "bitcoin",
+  "qid": "113938_64",
+  "n_gold": 2,
+  "gold_in_dense": 0,
+  "new_from_facet": [
+   "bitcoin/1d335c70_12448.txt",
+   "bitcoin/a80efe50_12447.txt"
+  ],
+  "pool_size": 130
+ },
+ {
+  "domain": "economics",
+  "qid": "56372_176",
+  "n_gold": 1,
+  "gold_in_dense": 0,
+  "new_from_facet": [
+   "economics/f875c9b4_4122.txt"
+  ],
+  "pool_size": 148
+ },
+ {
+  "domain": "genealogy",
+  "qid": "13596_269",
+  "n_gold": 4,
+  "gold_in_dense": 0,
+  "new_from_facet": [
+   "genealogy/14766e7c_3340.txt"
+  ],
+  "pool_size": 150
+ },
+ {
+  "domain": "genealogy",
+  "qid": "10043_313",
+  "n_gold": 5,
+  "gold_in_dense": 0,
+  "new_from_facet": [
+   "genealogy/6ea38404_8507.txt"
+  ],
+  "pool_size": 149
+ },
+ {
+  "domain": "history",
+  "qid": "77144_59",
+  "n_gold": 4,
+  "gold_in_dense": 0,
+  "new_from_facet": [
+   "history/0baf11e8_7485.txt",
+   "history/2849ad68_7486.txt"
+  ],
+  "pool_size": 146
+ },
+ {
+  "domain": "history",
+  "qid": "70746_260",
+  "n_gold": 4,
+  "gold_in_dense": 2,
+  "new_from_facet": [
+   "history/216ca70c_35727.txt"
+  ],
+  "pool_size": 144
+ },
+ {
+  "domain": "history",
+  "qid": "70361_291",
+  "n_gold": 4,
+  "gold_in_dense": 1,
+  "new_from_facet": [
+   "history/007ea468_39778.txt"
+  ],
+  "pool_size": 142
+ },
+ {
+  "domain": "history",
+  "qid": "68358_414",
+  "n_gold": 9,
+  "gold_in_dense": 3,
+  "new_from_facet": [
+   "history/cad0a221_55385.txt"
+  ],
+  "pool_size": 117
+ },
+ {
+  "domain": "history",
+  "qid": "68107_426",
+  "n_gold": 12,
+  "gold_in_dense": 2,
+  "new_from_facet": [
+   "history/f4e4199a_57187.txt"
+  ],
+  "pool_size": 148
+ },
+ {
+  "domain": "law",
+  "qid": "103373_837",
+  "n_gold": 1,
+  "gold_in_dense": 0,
+  "new_from_facet": [
+   "law/2b8067b1_6698.txt"
+  ],
+  "pool_size": 141
+ },
+ {
+  "domain": "monero",
+  "qid": "5677_892",
+  "n_gold": 3,
+  "gold_in_dense": 1,
+  "new_from_facet": [
+   "monero/68f94d03_10658.txt"
+  ],
+  "pool_size": 144
+ },
+ {
+  "domain": "politics",
+  "qid": "87918_970",
+  "n_gold": 1,
+  "gold_in_dense": 0,
+  "new_from_facet": [
+   "politics/17bfbcbd_13775.txt"
+  ],
+  "pool_size": 145
+ },
+ {
+  "domain": "travel",
+  "qid": "190846_1134",
+  "n_gold": 2,
+  "gold_in_dense": 1,
+  "new_from_facet": [
+   "travel/0eb44b06_11507.txt"
+  ],
+  "pool_size": 139
+ },
+ {
+  "domain": "workplace",
+  "qid": "171543_1222",
+  "n_gold": 5,
+  "gold_in_dense": 1,
+  "new_from_facet": [
+   "workplace/575d5416_10996.txt"
+  ],
+  "pool_size": 149
+ }
+]

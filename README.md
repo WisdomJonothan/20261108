@@ -39,6 +39,17 @@ dev domains raises recall@100 everywhere (+1.5 to +8.6 points) but the frozen CE
 is mixed: bitcoin 0.2143->0.2199, quant 0.1538->0.1872, law 0.4357->0.4061 (mean +0.0032,
 about +0.0007 on the 13-domain macro), so the full-corpus encode was not run.
 
+**Negative-label audit and facet recall (2026-11-23).** Removing the unjudged hard
+negatives from CE training is *worse*, not better: dev 0.3409 when the dense top-10
+negatives are dropped and 0.3308 when all hard negatives are dropped, against
+0.3582 for the frozen recipe — the unjudged documents are where the cross-encoder
+learns the head of the list, even though a model sample says 33%
+of them look relevant. Step-level (facet) BM25 recovers a judged document for
+113 of the 234 queries that whole-query BM25 misses, but at pool level the
+union only lifts zero-query coverage 86 -> 94 and the frozen
+cross-encoder converts 5 of the 15 affected queries, i.e. about +0.0015
+domain-macro. Details in `results/replacement_v2/REPORT.md` §12.
+
 **Transfer check (2026-11-23).** The widened configuration rerun on the 969 training queries
 gives +0.0045 pooled (head-first six pairs), against +0.0154 on dev; the dev split is favourable and
 the expected gain on unseen queries is about +0.005. An expected-gain selector fitted on the training

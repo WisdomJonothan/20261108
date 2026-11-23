@@ -453,6 +453,69 @@ zero (-0.0008, +0.0044). At this point neither a stronger model nor smarter sele
 moves the result reproducibly, which is the stop condition of the capability/evidence
 programme; the system paper is written around the frozen Direct configuration.
 
+## 12. Negative-label audit and facet recall (2026-11-23)
+
+### 12.1 Does treating unlabelled documents as negatives hurt? (experiment A)
+
+The CE is trained with `hard + random` negatives drawn from the dense top-100, and
+62.4% of the dev pool documents that the system gets wrong were never judged. If
+those unjudged documents were often relevant, the training signal would be
+contaminated. Two retrainings test the hypothesis directly, with everything else
+(supervision source, init, budget, evaluation chain) held fixed:
+
+| negative set | dev domain-macro | delta |
+| --- | --- | --- |
+| frozen recipe (hard top-20 + random) | 0.3582 | - |
+| hard negatives with dense rank <= 10 removed | 0.3409 | -0.0173 |
+| no hard negatives (only dense rank 21-100 + random) | 0.3308 | -0.0274 |
+
+Removing the suspicious negatives makes the CE **worse**, monotonically in how much
+is removed (law -0.048, workplace -0.048, hsm -0.034 for the no-hard arm; bitcoin
++0.004 and quant +0.001 are the only gains). The unjudged hard negatives are not
+noise to be cleaned away: they are where the cross-encoder learns to separate the
+top of the list, and the dev pool is drawn from exactly that band.
+
+A blind model sample of 260 hard negatives (two per query, dense ranks 1-20,
+no qrels consulted during sampling) supports the *premise* while contradicting the
+*remedy*: a Qwen3-4B judge assigns p(relevant) >= 0.5 to 86 of 260
+(33.1%) and >= 0.9 to 76, and the rate rises
+towards the head of the list (mean p = 0.658 for dense ranks 1-2, 0.241 for ranks
+11-20). So the labels are indeed noisy, but the documents carrying that noise are
+also the ones the model most needs to see; filtering them out is not a fix. If this
+line is pursued at all it must be re-weighting rather than removal.
+
+### 12.2 Does facet retrieval recover the documents the query misses? (experiment B)
+
+The official train/dev splits ship decomposition steps (`steps_dev.jsonl`,
+`qrels_steps_dev.txt`) and a per-step relevance file. Using each step as its own
+BM25 query over the same corpus, and comparing with the whole-query BM25 retrieval:
+
+| quantity | value |
+| --- | --- |
+| dev queries with steps | 484 |
+| whole-query BM25 finds a judged document in the top-100 | 250 |
+| queries it misses | 234 |
+| of those, at least one step recovers a judged document | 113 (48%) |
+
+Per domain the effect is concentrated where the corpus is large and the questions are
+multi-hop (history 68/132,
+genealogy 10/15,
+travel 9/17) and absent
+for politics/hsm/monero.
+
+At the pool level, however, the dense retriever is much stronger than BM25, so the
+union only adds a little: pool coverage of the 138 zero-score queries goes
+86 -> 94 (+8), and the union adds
+42 judged-relevant documents that dense never returns. Reranking the
+union pool with the frozen cross-encoder converts 5 of the 15 queries that
+gained a new judged document into a non-zero score (mean nDCG@10 0.081 over
+those 15), which is worth about **+0.0015 domain-macro** at best.
+
+Conclusion: step-level retrieval is a real but small lever. It changes pool coverage
+by eight queries and the frozen reranker converts about a third of them, so it cannot
+carry a score increase on its own; it is recorded here so the same ground is not
+re-walked.
+
 ## 10. Conclusion (2026-11-22)
 
 The frozen system re-verifies at 0.3580985233 and a bounded local comparison over a three-candidate
