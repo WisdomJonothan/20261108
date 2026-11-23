@@ -1,0 +1,113 @@
+{
+ "tag": "fallp",
+ "metric": "nDCG@10",
+ "domains": [
+  {
+   "domain": "bitcoin",
+   "n": 30,
+   "n_in_run": 30,
+   "ndcg10": 0.20772608658748065,
+   "file": "results/fallp/score_bitcoin.json"
+  },
+  {
+   "domain": "cardano",
+   "n": 15,
+   "n_in_run": 15,
+   "ndcg10": 0.24295261901093312,
+   "file": "results/fallp/score_cardano.json"
+  },
+  {
+   "domain": "economics",
+   "n": 25,
+   "n_in_run": 25,
+   "ndcg10": 0.24849709751092422,
+   "file": "results/fallp/score_economics.json"
+  },
+  {
+   "domain": "genealogy",
+   "n": 35,
+   "n_in_run": 35,
+   "ndcg10": 0.4094171171488249,
+   "file": "results/fallp/score_genealogy.json"
+  },
+  {
+   "domain": "history",
+   "n": 240,
+   "n_in_run": 240,
+   "ndcg10": 0.38728138833681475,
+   "file": "results/fallp/score_history.json"
+  },
+  {
+   "domain": "hsm",
+   "n": 45,
+   "n_in_run": 45,
+   "ndcg10": 0.46157908671343856,
+   "file": "results/fallp/score_hsm.json"
+  },
+  {
+   "domain": "iota",
+   "n": 3,
+   "n_in_run": 3,
+   "ndcg10": 0.8446686449604336,
+   "file": "results/fallp/score_iota.json"
+  },
+  {
+   "domain": "law",
+   "n": 11,
+   "n_in_run": 11,
+   "ndcg10": 0.42243320643220444,
+   "file": "results/fallp/score_law.json"
+  },
+  {
+   "domain": "monero",
+   "n": 19,
+   "n_in_run": 19,
+   "ndcg10": 0.20529464392832458,
+   "file": "results/fallp/score_monero.json"
+  },
+  {
+   "domain": "politics",
+   "n": 45,
+   "n_in_run": 45,
+   "ndcg10": 0.42767398099553006,
+   "file": "results/fallp/score_politics.json"
+  },
+  {
+   "domain": "quant",
+   "n": 10,
+   "n_in_run": 10,
+   "ndcg10": 0.1546892357579045,
+   "file": "results/fallp/score_quant.json"
+  },
+  {
+   "domain": "travel",
+   "n": 30,
+   "n_in_run": 30,
+   "ndcg10": 0.2522786422380389,
+   "file": "results/fallp/score_travel.json"
+  },
+  {
+   "domain": "workplace",
+   "n": 11,
+   "n_in_run": 11,
+   "ndcg10": 0.3787014973126937,
+   "file": "results/fallp/score_workplace.json"
+  }
+ ],
+ "num_domains": 13,
+ "num_topics": 519,
+ "topic_macro": 0.36174249942956277,
+ "domain_macro": 0.35716871130258043,
+ "topic_macro_n_ge_19": 0.36504624282542614,
+ "domain_macro_n_ge_19": 0.32496850543242206,
+ "domains_n_ge_19": [
+  "bitcoin",
+  "economics",
+  "genealogy",
+  "history",
+  "hsm",
+  "monero",
+  "politics",
+  "travel"
+ ]
+}

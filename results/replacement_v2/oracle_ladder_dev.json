@@ -1,0 +1,32 @@
+{
+ "k": 6,
+ "order": "headfirst",
+ "domains": [
+  "bitcoin",
+  "cardano",
+  "economics",
+  "genealogy",
+  "history",
+  "hsm",
+  "iota",
+  "law",
+  "monero",
+  "politics",
+  "quant",
+  "travel",
+  "workplace"
+ ],
+ "baseline": 0.35809852326897723,
+ "current": 0.373503,
+ "current_gain": 0.015405,
+ "select_accepted": 0.380299,
+ "select_accepted_gain": 0.0222,
+ "perfect_six": 0.401902,
+ "perfect_six_gain": 0.043803,
+ "perfect_eighteen": 0.417443,
+ "perfect_eighteen_gain": 0.059344,
+ "queries": 519,
+ "queries_with_beneficial_in_pairs": 85,
+ "queries_rejecting_all_beneficial": 26,
+ "rejected_best_delta_sum": 5.9974
+}

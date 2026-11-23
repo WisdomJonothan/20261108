@@ -1,0 +1,30 @@
+{
+ "note": "replay of alternative selection rules over the same six judged pairs per query (expanded3_fixed_dev, k=6, threshold 0, one swap)",
+ "baseline": 0.35809852326897723,
+ "rules": {
+  "max_mp": {
+   "macro": 0.373503,
+   "delta": 0.015405
+  },
+  "max_prior": {
+   "macro": 0.372403,
+   "delta": 0.014304
+  },
+  "max_mp_prior": {
+   "macro": 0.372636,
+   "delta": 0.014537
+  },
+  "max_gain_prior": {
+   "macro": 0.372614,
+   "delta": 0.014515
+  },
+  "slot_first": {
+   "macro": 0.372181,
+   "delta": 0.014082
+  },
+  "max_prior_hi_mp": {
+   "macro": 0.373129,
+   "delta": 0.01503
+  }
+ }
+}

@@ -1,0 +1,1952 @@
+[
+ {
+  "domain": "bitcoin",
+  "qid": "118364_58",
+  "baseline": 0.09791292534996782,
+  "best_available_delta": 0.0916254443047636,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 7,
+    "incumbent": "bitcoin/0f10f8bb_148676.txt",
+    "challenger": "bitcoin/ed5cb794_148695.txt",
+    "prior": 0.2052517508866963,
+    "mp": 3.887426908022462e-05,
+    "agree": false,
+    "p_fwd": 7.484622619813308e-05,
+    "p_rev": 2.902311962316162e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "bitcoin/0f10f8bb_148676.txt",
+    "challenger": "bitcoin/35cbbfe6_20820.txt",
+    "prior": 0.14754545262068028,
+    "mp": 0.40330548491328955,
+    "agree": false,
+    "p_fwd": 0.029312221333384514,
+    "p_rev": 0.7772987484931946,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "bitcoin/0f10f8bb_148676.txt",
+    "challenger": "bitcoin/94a1e4ea_153277.txt",
+    "prior": 0.12990963710056305,
+    "mp": 1.5708390144197892e-08,
+    "agree": false,
+    "p_fwd": 1.9555660202286163e-08,
+    "p_rev": 1.1861120086109622e-08,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "bitcoin/0f10f8bb_148676.txt",
+    "challenger": "bitcoin/b148ac54_10665.txt",
+    "prior": 0.12215768515916345,
+    "mp": 0.0035734193515963852,
+    "agree": false,
+    "p_fwd": 0.0052201044745743275,
+    "p_rev": 0.001926734228618443,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "bitcoin/0f10f8bb_148676.txt",
+    "challenger": "bitcoin/e4923397_148699.txt",
+    "prior": 0.0653321313049892,
+    "mp": 0.0003613386570577859,
+    "agree": false,
+    "p_fwd": 0.0007096701883710921,
+    "p_rev": 1.3007125744479708e-05,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "bitcoin/0f10f8bb_148676.txt",
+    "challenger": "bitcoin/510921d9_11227.txt",
+    "prior": 0.05732525021900281,
+    "mp": 0.20256230980157852,
+    "agree": false,
+    "p_fwd": 0.22269941866397858,
+    "p_rev": 0.18242520093917847,
+    "delta": 0.0916254443047636
+   }
+  ]
+ },
+ {
+  "domain": "bitcoin",
+  "qid": "120027_46",
+  "baseline": 0.21657136003619626,
+  "best_available_delta": 0.15958907712489634,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 2,
+    "incumbent": "bitcoin/06afbe85_0351.txt",
+    "challenger": "bitcoin/5cc0e0c8_9154.txt",
+    "prior": 0.6487219660407377,
+    "mp": 0.5054577984847128,
+    "agree": false,
+    "p_fwd": 0.9999287128448486,
+    "p_rev": 0.010986884124577045,
+    "delta": 0.0
+   },
+   {
+    "slot": 2,
+    "incumbent": "bitcoin/06afbe85_0351.txt",
+    "challenger": "bitcoin/b7aa62c9_8951.txt",
+    "prior": 0.6139755072069235,
+    "mp": 0.10597093797277068,
+    "agree": false,
+    "p_fwd": 0.21194157004356384,
+    "p_rev": 3.05901977526446e-07,
+    "delta": 0.15958907712489634
+   },
+   {
+    "slot": 2,
+    "incumbent": "bitcoin/06afbe85_0351.txt",
+    "challenger": "bitcoin/f9f3c328_150691.txt",
+    "prior": 0.5914867154401606,
+    "mp": 0.5000029192278816,
+    "agree": false,
+    "p_fwd": 0.9999957084655762,
+    "p_rev": 1.012999018712435e-05,
+    "delta": 0.0
+   },
+   {
+    "slot": 2,
+    "incumbent": "bitcoin/06afbe85_0351.txt",
+    "challenger": "bitcoin/16dac0d8_9092.txt",
+    "prior": 0.46060213070548117,
+    "mp": 0.46194472358202177,
+    "agree": false,
+    "p_fwd": 0.9238891005516052,
+    "p_rev": 3.4661243830669264e-07,
+    "delta": 0.0
+   },
+   {
+    "slot": 2,
+    "incumbent": "bitcoin/06afbe85_0351.txt",
+    "challenger": "bitcoin/21a0d610_18169.txt",
+    "prior": 0.40636288010490423,
+    "mp": 0.007023716249297429,
+    "agree": false,
+    "p_fwd": 0.01404741033911705,
+    "p_rev": 2.2159477808258998e-08,
+    "delta": 0.0
+   },
+   {
+    "slot": 2,
+    "incumbent": "bitcoin/06afbe85_0351.txt",
+    "challenger": "bitcoin/48bdb35e_147583.txt",
+    "prior": 0.34533625420403874,
+    "mp": 0.49971525303625963,
+    "agree": false,
+    "p_fwd": 0.9994304776191711,
+    "p_rev": 2.8453348122070565e-08,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "economics",
+  "qid": "59178_164",
+  "baseline": 0.20453430723937177,
+  "best_available_delta": 0.10086747116627115,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 7,
+    "incumbent": "economics/43853_08f1976e72e281ca_44.txt",
+    "challenger": "economics/ac7956ca_2105.txt",
+    "prior": 0.6922205648322586,
+    "mp": 5.390850921216384e-07,
+    "agree": false,
+    "p_fwd": 1.0677027830752195e-06,
+    "p_rev": 1.0467401168057222e-08,
+    "delta": 0.10086747116627115
+   },
+   {
+    "slot": 7,
+    "incumbent": "economics/43853_08f1976e72e281ca_44.txt",
+    "challenger": "economics/8abb6d20_82671.txt",
+    "prior": 0.5558593146219872,
+    "mp": 0.00021269071294227615,
+    "agree": false,
+    "p_fwd": 4.539785732049495e-05,
+    "p_rev": 0.00037998356856405735,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "economics/43853_08f1976e72e281ca_44.txt",
+    "challenger": "economics/40edc499_82652.txt",
+    "prior": 0.4963798712843689,
+    "mp": 0.0033499026508252427,
+    "agree": false,
+    "p_fwd": 0.006692843046039343,
+    "p_rev": 6.962255611142609e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "economics/43853_08f1976e72e281ca_44.txt",
+    "challenger": "economics/ff149aed_4034.txt",
+    "prior": 0.4728961631231108,
+    "mp": 0.0009558965357996385,
+    "agree": false,
+    "p_fwd": 0.0019102395744994283,
+    "p_rev": 1.5534970998487552e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "economics/43853_08f1976e72e281ca_44.txt",
+    "challenger": "economics/c46b44e7_2147.txt",
+    "prior": 0.4249627342758501,
+    "mp": 1.1327406980399246e-05,
+    "agree": false,
+    "p_fwd": 2.1444948288262822e-05,
+    "p_rev": 1.2098656725356705e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "economics/43853_08f1976e72e281ca_44.txt",
+    "challenger": "economics/02fb8215_2104.txt",
+    "prior": 0.4230191551699732,
+    "mp": 0.0002885393014366855,
+    "agree": false,
+    "p_fwd": 0.0005527783650904894,
+    "p_rev": 2.4300237782881595e-05,
+    "delta": 0.10086747116627115
+   }
+  ]
+ },
+ {
+  "domain": "genealogy",
+  "qid": "11818_301",
+  "baseline": 0.0,
+  "best_available_delta": 0.21840743681816419,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 6,
+    "incumbent": "genealogy/12774_61a3ea381bedfcf5_245.txt",
+    "challenger": "genealogy/12774_61a3ea381bedfcf5_2.txt",
+    "prior": 0.8924022266577308,
+    "mp": 0.4556821137666702,
+    "agree": false,
+    "p_fwd": 0.05946573615074158,
+    "p_rev": 0.8518984913825989,
+    "delta": 0.0
+   },
+   {
+    "slot": 6,
+    "incumbent": "genealogy/12774_61a3ea381bedfcf5_245.txt",
+    "challenger": "genealogy/12774_61a3ea381bedfcf5_11.txt",
+    "prior": 0.8269226668922762,
+    "mp": 0.500078354467405,
+    "agree": false,
+    "p_fwd": 0.0007096612243913114,
+    "p_rev": 0.9994470477104187,
+    "delta": 0.0
+   },
+   {
+    "slot": 6,
+    "incumbent": "genealogy/12774_61a3ea381bedfcf5_245.txt",
+    "challenger": "genealogy/12774_61a3ea381bedfcf5_234.txt",
+    "prior": 0.6808881008119725,
+    "mp": 0.07764997240155935,
+    "agree": false,
+    "p_fwd": 0.010966001078486443,
+    "p_rev": 0.14433394372463226,
+    "delta": 0.0
+   },
+   {
+    "slot": 6,
+    "incumbent": "genealogy/12774_61a3ea381bedfcf5_245.txt",
+    "challenger": "genealogy/af4e671f_4883.txt",
+    "prior": 0.5623050378890931,
+    "mp": 0.5019331423100084,
+    "agree": false,
+    "p_fwd": 0.004069834481924772,
+    "p_rev": 0.999796450138092,
+    "delta": 0.0
+   },
+   {
+    "slot": 6,
+    "incumbent": "genealogy/12774_61a3ea381bedfcf5_245.txt",
+    "challenger": "genealogy/b9df7d88_6980.txt",
+    "prior": 0.5570967045557599,
+    "mp": 0.5738082975149155,
+    "agree": false,
+    "p_fwd": 0.14804711937904358,
+    "p_rev": 0.9995694756507874,
+    "delta": 0.21840743681816419
+   },
+   {
+    "slot": 7,
+    "incumbent": "genealogy/3444_a2f0478753a9678b_27.txt",
+    "challenger": "genealogy/12774_61a3ea381bedfcf5_2.txt",
+    "prior": 1.0107498999996174,
+    "mp": 0.5102521302178502,
+    "agree": false,
+    "p_fwd": 0.022977078333497047,
+    "p_rev": 0.9975271821022034,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "genealogy",
+  "qid": "2975_328",
+  "baseline": 0.19342640361727081,
+  "best_available_delta": 0.2371977127692962,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 1,
+    "incumbent": "genealogy/2975_c53638ca500aa6fb_240.txt",
+    "challenger": "genealogy/5a43bd78_9815.txt",
+    "prior": 0.6091192257456225,
+    "mp": 0.249999405453032,
+    "agree": false,
+    "p_fwd": 0.4999988079071045,
+    "p_rev": 2.9989595251578294e-09,
+    "delta": 0.0
+   },
+   {
+    "slot": 2,
+    "incumbent": "genealogy/2975_c53638ca500aa6fb_172.txt",
+    "challenger": "genealogy/5a43bd78_9815.txt",
+    "prior": 0.4362437645119293,
+    "mp": 0.49967109741010063,
+    "agree": false,
+    "p_fwd": 0.9992842078208923,
+    "p_rev": 5.798699930892326e-05,
+    "delta": 0.0
+   },
+   {
+    "slot": 5,
+    "incumbent": "genealogy/2975_c53638ca500aa6fb_225.txt",
+    "challenger": "genealogy/5a43bd78_9815.txt",
+    "prior": 0.6072364323689785,
+    "mp": 0.4996286150404785,
+    "agree": false,
+    "p_fwd": 0.9992550015449524,
+    "p_rev": 2.2285360046225833e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 5,
+    "incumbent": "genealogy/2975_c53638ca500aa6fb_225.txt",
+    "challenger": "genealogy/ec36f8e3_155543.txt",
+    "prior": 0.4094542049385045,
+    "mp": 0.05710206014646246,
+    "agree": false,
+    "p_fwd": 0.11419519782066345,
+    "p_rev": 8.922472261474468e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 5,
+    "incumbent": "genealogy/2975_c53638ca500aa6fb_225.txt",
+    "challenger": "genealogy/64447a09_9802.txt",
+    "prior": 0.3657178483444623,
+    "mp": 0.5025631685275584,
+    "agree": false,
+    "p_fwd": 0.999908447265625,
+    "p_rev": 0.005217889789491892,
+    "delta": 0.2371977127692962
+   },
+   {
+    "slot": 5,
+    "incumbent": "genealogy/2975_c53638ca500aa6fb_225.txt",
+    "challenger": "genealogy/2975_c53638ca500aa6fb_444.txt",
+    "prior": 0.3604554258667112,
+    "mp": 0.1343559314539533,
+    "agree": false,
+    "p_fwd": 0.2687114179134369,
+    "p_rev": 4.449944697171304e-07,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "genealogy",
+  "qid": "3224_325",
+  "baseline": 0.0,
+  "best_available_delta": 0.5,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 3,
+    "incumbent": "genealogy/cb30f02e_155903.txt",
+    "challenger": "genealogy/091a8276_11497.txt",
+    "prior": 0.6610136422952226,
+    "mp": 0.007020237779215677,
+    "agree": false,
+    "p_fwd": 0.013944678008556366,
+    "p_rev": 9.579754987498745e-05,
+    "delta": 0.0
+   },
+   {
+    "slot": 3,
+    "incumbent": "genealogy/cb30f02e_155903.txt",
+    "challenger": "genealogy/890ad196_9341.txt",
+    "prior": 0.6455741806939977,
+    "mp": 0.024770865449681878,
+    "agree": false,
+    "p_fwd": 0.04738471657037735,
+    "p_rev": 0.0021570143289864063,
+    "delta": 0.5
+   },
+   {
+    "slot": 4,
+    "incumbent": "genealogy/61bed1c2_10776.txt",
+    "challenger": "genealogy/091a8276_11497.txt",
+    "prior": 0.8308267301661917,
+    "mp": 0.04767412791989045,
+    "agree": false,
+    "p_fwd": 0.09532692283391953,
+    "p_rev": 2.1333005861379206e-05,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "genealogy/61bed1c2_10776.txt",
+    "challenger": "genealogy/890ad196_9341.txt",
+    "prior": 0.8169583202175686,
+    "mp": 0.09126508667395683,
+    "agree": false,
+    "p_fwd": 0.18239519000053406,
+    "p_rev": 0.0001349833473796025,
+    "delta": 0.43067655807339306
+   },
+   {
+    "slot": 4,
+    "incumbent": "genealogy/61bed1c2_10776.txt",
+    "challenger": "genealogy/2182_7d4a2b50eca4a53d_136.txt",
+    "prior": 0.6521247815642487,
+    "mp": 0.5010098507627845,
+    "agree": false,
+    "p_fwd": 0.9996640682220459,
+    "p_rev": 0.0023556333035230637,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "genealogy/61bed1c2_10776.txt",
+    "challenger": "genealogy/1285a26e_11253.txt",
+    "prior": 0.5606528169832822,
+    "mp": 0.49989980834084236,
+    "agree": false,
+    "p_fwd": 0.9997963309288025,
+    "p_rev": 3.2857528822205495e-06,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "history",
+  "qid": "56254_754",
+  "baseline": 0.3903800499921017,
+  "best_available_delta": 0.1390561795107756,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 3,
+    "incumbent": "history/07776c19_346589.txt",
+    "challenger": "history/69813fd1_346569.txt",
+    "prior": 0.5421753482406604,
+    "mp": 9.230879072674725e-06,
+    "agree": false,
+    "p_fwd": 1.670141500653699e-05,
+    "p_rev": 1.760343138812459e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/03d3f481_106138.txt",
+    "challenger": "history/69813fd1_346569.txt",
+    "prior": 0.6072047480564657,
+    "mp": 0.008967184724042454,
+    "agree": false,
+    "p_fwd": 0.01793016865849495,
+    "p_rev": 4.200789589958731e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 6,
+    "incumbent": "history/4c4097f0_137482.txt",
+    "challenger": "history/69813fd1_346569.txt",
+    "prior": 0.8037785729290206,
+    "mp": 9.790813807267207e-09,
+    "agree": false,
+    "p_fwd": 2.5946095966178362e-11,
+    "p_rev": 1.9555681518568235e-08,
+    "delta": 0.0
+   },
+   {
+    "slot": 6,
+    "incumbent": "history/4c4097f0_137482.txt",
+    "challenger": "history/aafed9fc_106120.txt",
+    "prior": 0.565556760278653,
+    "mp": 0.500047931993322,
+    "agree": false,
+    "p_fwd": 9.610240522306412e-05,
+    "p_rev": 0.9999997615814209,
+    "delta": 0.1390561795107756
+   },
+   {
+    "slot": 6,
+    "incumbent": "history/4c4097f0_137482.txt",
+    "challenger": "history/70ace2c5_346576.txt",
+    "prior": 0.5282611927896941,
+    "mp": 0.501236311509274,
+    "agree": false,
+    "p_fwd": 0.0024726230185478926,
+    "p_rev": 1.0,
+    "delta": 0.0
+   },
+   {
+    "slot": 6,
+    "incumbent": "history/4c4097f0_137482.txt",
+    "challenger": "history/fce21e2d_346546.txt",
+    "prior": 0.48329860050630824,
+    "mp": 2.2059680835490036e-09,
+    "agree": false,
+    "p_fwd": 4.8473686869998645e-11,
+    "p_rev": 4.363462480228009e-09,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "history",
+  "qid": "56551_731",
+  "baseline": 0.0,
+  "best_available_delta": 0.18154179253735267,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 5,
+    "incumbent": "history/708aaa15_103622.txt",
+    "challenger": "history/6a77095d_103516.txt",
+    "prior": 0.5033586495551386,
+    "mp": 0.016024897806346416,
+    "agree": false,
+    "p_fwd": 0.017986169084906578,
+    "p_rev": 0.014063626527786255,
+    "delta": 0.0
+   },
+   {
+    "slot": 5,
+    "incumbent": "history/708aaa15_103622.txt",
+    "challenger": "history/600bf759_37817.txt",
+    "prior": 0.41933148865786724,
+    "mp": 0.008976086279295359,
+    "agree": false,
+    "p_fwd": 0.017952170222997665,
+    "p_rev": 2.335593052293916e-09,
+    "delta": 0.0
+   },
+   {
+    "slot": 5,
+    "incumbent": "history/708aaa15_103622.txt",
+    "challenger": "history/983d0a2b_103511.txt",
+    "prior": 0.41348498431410347,
+    "mp": 3.294629621564127e-06,
+    "agree": false,
+    "p_fwd": 6.144174221844878e-06,
+    "p_rev": 4.450850212833757e-07,
+    "delta": 0.18154179253735267
+   },
+   {
+    "slot": 6,
+    "incumbent": "history/974c7030_343935.txt",
+    "challenger": "history/6a77095d_103516.txt",
+    "prior": 0.5543958153734562,
+    "mp": 0.004290022959935413,
+    "agree": false,
+    "p_fwd": 2.561282371971174e-06,
+    "p_rev": 0.008577484637498856,
+    "delta": 0.0
+   },
+   {
+    "slot": 6,
+    "incumbent": "history/974c7030_343935.txt",
+    "challenger": "history/600bf759_37817.txt",
+    "prior": 0.47576446079629564,
+    "mp": 1.2629649999429393e-08,
+    "agree": false,
+    "p_fwd": 2.510999053129126e-08,
+    "p_rev": 1.493094675675266e-10,
+    "delta": 0.0
+   },
+   {
+    "slot": 6,
+    "incumbent": "history/974c7030_343935.txt",
+    "challenger": "history/983d0a2b_103511.txt",
+    "prior": 0.4702933898808636,
+    "mp": 1.7333519874464243e-07,
+    "agree": false,
+    "p_fwd": 3.775134718719819e-11,
+    "p_rev": 3.4663264614209766e-07,
+    "delta": 0.16716045496620227
+   }
+  ]
+ },
+ {
+  "domain": "history",
+  "qid": "65773_508",
+  "baseline": 0.2960819109658652,
+  "best_available_delta": 0.20210734650054762,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 4,
+    "incumbent": "history/f05699a1_289559.txt",
+    "challenger": "history/3a332342_86461.txt",
+    "prior": 0.06108849831778779,
+    "mp": 0.4087658226741837,
+    "agree": false,
+    "p_fwd": 0.8175302743911743,
+    "p_rev": 1.370957193103095e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/f05699a1_289559.txt",
+    "challenger": "history/a91a4028_69963.txt",
+    "prior": 0.056257480461042855,
+    "mp": 0.6886930912733078,
+    "agree": false,
+    "p_fwd": 0.9998512268066406,
+    "p_rev": 0.377534955739975,
+    "delta": 0.20210734650054762
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/f05699a1_289559.txt",
+    "challenger": "history/c53864ff_322468.txt",
+    "prior": -0.08703019803876001,
+    "mp": 0.09215664042858407,
+    "agree": false,
+    "p_fwd": 0.18238654732704163,
+    "p_rev": 0.001926733530126512,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/f05699a1_289559.txt",
+    "challenger": "history/5dcddd72_86528.txt",
+    "prior": -0.08833582626317656,
+    "mp": 0.4993402894160681,
+    "agree": false,
+    "p_fwd": 0.9986591339111328,
+    "p_rev": 2.144492100342177e-05,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/f05699a1_289559.txt",
+    "challenger": "history/fae82b97_86535.txt",
+    "prior": -0.10095788931554335,
+    "mp": 0.06918541332646555,
+    "agree": false,
+    "p_fwd": 0.1383705884218216,
+    "p_rev": 2.3823110950615956e-07,
+    "delta": 0.0
+   },
+   {
+    "slot": 5,
+    "incumbent": "history/ea1cacd7_289556.txt",
+    "challenger": "history/3a332342_86461.txt",
+    "prior": 0.05624920316847941,
+    "mp": 0.365496723375486,
+    "agree": false,
+    "p_fwd": 0.7309926152229309,
+    "p_rev": 8.315280410897685e-07,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "history",
+  "qid": "66499_461",
+  "baseline": 0.20210734650054757,
+  "best_available_delta": 0.1671604549662023,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 6,
+    "incumbent": "history/117321ee_277665.txt",
+    "challenger": "history/a9ef2e40_62976.txt",
+    "prior": 0.11926744698395457,
+    "mp": 0.5033461884595454,
+    "agree": false,
+    "p_fwd": 0.9999997615814209,
+    "p_rev": 0.006692615337669849,
+    "delta": 0.1671604549662023
+   },
+   {
+    "slot": 6,
+    "incumbent": "history/117321ee_277665.txt",
+    "challenger": "history/3006e0dd_346072.txt",
+    "prior": 0.0617480616294687,
+    "mp": 0.49096134493811405,
+    "agree": false,
+    "p_fwd": 0.9819211363792419,
+    "p_rev": 1.5534969861619174e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 6,
+    "incumbent": "history/117321ee_277665.txt",
+    "challenger": "history/ed4327af_346079.txt",
+    "prior": -0.007000635851932335,
+    "mp": 0.4956917409756727,
+    "agree": false,
+    "p_fwd": 0.9913831353187561,
+    "p_rev": 3.466325892986788e-07,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "history/3c05a8b8_277648.txt",
+    "challenger": "history/a9ef2e40_62976.txt",
+    "prior": 0.11496844271900543,
+    "mp": 0.5004553422040772,
+    "agree": false,
+    "p_fwd": 0.9999996423721313,
+    "p_rev": 0.0009110420360229909,
+    "delta": 0.15642624200758548
+   },
+   {
+    "slot": 7,
+    "incumbent": "history/3c05a8b8_277648.txt",
+    "challenger": "history/3006e0dd_346072.txt",
+    "prior": 0.06053240527807422,
+    "mp": 0.4884535646999666,
+    "agree": false,
+    "p_fwd": 0.9769048690795898,
+    "p_rev": 2.2603203433391172e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "history/3c05a8b8_277648.txt",
+    "challenger": "history/ed4327af_346079.txt",
+    "prior": -0.00453099286237433,
+    "mp": 0.476205752113394,
+    "agree": false,
+    "p_fwd": 0.9524112939834595,
+    "p_rev": 2.1024332852448424e-07,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "history",
+  "qid": "66521_459",
+  "baseline": 0.7039180890341347,
+  "best_available_delta": 0.15642624200758537,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 4,
+    "incumbent": "history/4cc33021_277096.txt",
+    "challenger": "history/d4c7e17f_277103.txt",
+    "prior": 0.02472405224027429,
+    "mp": 2.226383692197076e-07,
+    "agree": false,
+    "p_fwd": 4.450850212833757e-07,
+    "p_rev": 1.917171560394948e-10,
+    "delta": 0.0
+   },
+   {
+    "slot": 5,
+    "incumbent": "history/38a36eb6_277086.txt",
+    "challenger": "history/d4c7e17f_277103.txt",
+    "prior": 0.04497125786778623,
+    "mp": 6.855295648887372e-07,
+    "agree": false,
+    "p_fwd": 1.3709565109820687e-06,
+    "p_rev": 1.0261879540562902e-10,
+    "delta": 0.0
+   },
+   {
+    "slot": 6,
+    "incumbent": "history/5a91d853_353320.txt",
+    "challenger": "history/d4c7e17f_277103.txt",
+    "prior": -0.007050440177187626,
+    "mp": 6.380494830399153e-10,
+    "agree": false,
+    "p_fwd": 1.2501528701136522e-09,
+    "p_rev": 2.5946095966178362e-11,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "history/03144f8e_277108.txt",
+    "challenger": "history/d4c7e17f_277103.txt",
+    "prior": 0.15345089337429152,
+    "mp": 5.7730827833779585e-06,
+    "agree": false,
+    "p_fwd": 1.1477909538371023e-05,
+    "p_rev": 6.825602838489431e-08,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "history/03144f8e_277108.txt",
+    "challenger": "history/5a684bff_277105.txt",
+    "prior": -0.01022554592709927,
+    "mp": 0.000354851331534789,
+    "agree": false,
+    "p_fwd": 0.0007096704212017357,
+    "p_rev": 3.224186784223093e-08,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "history/03144f8e_277108.txt",
+    "challenger": "history/7c3fa9f6_62714.txt",
+    "prior": -0.014941264224684768,
+    "mp": 0.18322670596535318,
+    "agree": false,
+    "p_fwd": 0.3661922216415405,
+    "p_rev": 0.00026119028916582465,
+    "delta": 0.15642624200758537
+   }
+  ]
+ },
+ {
+  "domain": "history",
+  "qid": "69226_361",
+  "baseline": 0.13565197343244778,
+  "best_available_delta": 0.23463936301137822,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 3,
+    "incumbent": "history/4cb8fbbc_334790.txt",
+    "challenger": "history/43f331ab_239321.txt",
+    "prior": 0.5330445280461652,
+    "mp": 0.49999824197852405,
+    "agree": false,
+    "p_fwd": 0.9999964237213135,
+    "p_rev": 6.023573462243803e-08,
+    "delta": 0.0
+   },
+   {
+    "slot": 3,
+    "incumbent": "history/4cb8fbbc_334790.txt",
+    "challenger": "history/d5a0d3fc_239294.txt",
+    "prior": 0.47296629345433067,
+    "mp": 0.01398175216911568,
+    "agree": false,
+    "p_fwd": 0.027960943058133125,
+    "p_rev": 2.5612800982344197e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 3,
+    "incumbent": "history/4cb8fbbc_334790.txt",
+    "challenger": "history/6fe85f36_49745.txt",
+    "prior": 0.4580641093237436,
+    "mp": 0.0063698959776683495,
+    "agree": false,
+    "p_fwd": 0.012739750556647778,
+    "p_rev": 4.13986889213902e-08,
+    "delta": 0.23463936301137822
+   },
+   {
+    "slot": 3,
+    "incumbent": "history/4cb8fbbc_334790.txt",
+    "challenger": "history/84a4a303_239296.txt",
+    "prior": 0.44793470762109433,
+    "mp": 7.718215880458956e-05,
+    "agree": false,
+    "p_fwd": 0.00015379281830973923,
+    "p_rev": 5.714992994398926e-07,
+    "delta": 0.0
+   },
+   {
+    "slot": 3,
+    "incumbent": "history/4cb8fbbc_334790.txt",
+    "challenger": "history/076daadd_239319.txt",
+    "prior": 0.3968036923913663,
+    "mp": 0.4888467589262291,
+    "agree": false,
+    "p_fwd": 0.9775974154472351,
+    "p_rev": 9.610240522306412e-05,
+    "delta": 0.0
+   },
+   {
+    "slot": 3,
+    "incumbent": "history/4cb8fbbc_334790.txt",
+    "challenger": "history/0021ee6f_239297.txt",
+    "prior": 0.3596933525097175,
+    "mp": 0.3886380371408933,
+    "agree": false,
+    "p_fwd": 0.7772756814956665,
+    "p_rev": 3.9278612007365155e-07,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "history",
+  "qid": "69879_320",
+  "baseline": 0.6904759031429467,
+  "best_available_delta": 0.10778915452451099,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 3,
+    "incumbent": "history/8b6d7d08_43343.txt",
+    "challenger": "history/e93f5299_43345.txt",
+    "prior": -0.2790966272647275,
+    "mp": 3.354061846039258e-07,
+    "agree": false,
+    "p_fwd": 5.715004363082699e-07,
+    "p_rev": 9.931193289958173e-08,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/deaef796_43344.txt",
+    "challenger": "history/e93f5299_43345.txt",
+    "prior": 0.09191544556421248,
+    "mp": 0.3671000230824575,
+    "agree": false,
+    "p_fwd": 0.0031726814340800047,
+    "p_rev": 0.731027364730835,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/deaef796_43344.txt",
+    "challenger": "history/c1273892_307899.txt",
+    "prior": -0.21964061240357,
+    "mp": 0.07425618264824152,
+    "agree": false,
+    "p_fwd": 0.11920226365327835,
+    "p_rev": 0.02931010164320469,
+    "delta": -0.13032376591037054
+   },
+   {
+    "slot": 5,
+    "incumbent": "history/8ea0c196_43341.txt",
+    "challenger": "history/e93f5299_43345.txt",
+    "prior": 0.04879246496474221,
+    "mp": 0.5216709114611149,
+    "agree": false,
+    "p_fwd": 0.9241390824317932,
+    "p_rev": 0.11920274049043655,
+    "delta": 0.0
+   },
+   {
+    "slot": 5,
+    "incumbent": "history/8ea0c196_43341.txt",
+    "challenger": "history/c1273892_307899.txt",
+    "prior": -0.23808281410718526,
+    "mp": 0.48725588736124337,
+    "agree": false,
+    "p_fwd": 0.9704416394233704,
+    "p_rev": 0.004070135299116373,
+    "delta": -0.11706259313796352
+   },
+   {
+    "slot": 6,
+    "incumbent": "history/e509b999_43348.txt",
+    "challenger": "history/e93f5299_43345.txt",
+    "prior": 0.037579071114157925,
+    "mp": 0.0029965885332785547,
+    "agree": false,
+    "p_fwd": 0.004066444933414459,
+    "p_rev": 0.0019267321331426501,
+    "delta": 0.10778915452451099
+   }
+  ]
+ },
+ {
+  "domain": "history",
+  "qid": "70693_263",
+  "baseline": 0.17723928678404774,
+  "best_available_delta": 0.26406812257259094,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 4,
+    "incumbent": "history/008d7148_108257.txt",
+    "challenger": "history/2ce24c04_210443.txt",
+    "prior": 0.15932955354734638,
+    "mp": 7.645480637474833e-10,
+    "agree": false,
+    "p_fwd": 1.2501493173999734e-09,
+    "p_rev": 2.789468100949932e-10,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/008d7148_108257.txt",
+    "challenger": "history/4fba5819_210359.txt",
+    "prior": 0.11390045097578443,
+    "mp": 1.4896977859280014e-05,
+    "agree": false,
+    "p_fwd": 2.7533631509868428e-05,
+    "p_rev": 2.2603242086915998e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/008d7148_108257.txt",
+    "challenger": "history/cfa0d468_210381.txt",
+    "prior": 0.11084386413947647,
+    "mp": 0.00021527859293968277,
+    "agree": false,
+    "p_fwd": 0.00043048892985098064,
+    "p_rev": 6.825602838489431e-08,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/008d7148_108257.txt",
+    "challenger": "history/1bdc98ce_36204.txt",
+    "prior": 0.09443279111964588,
+    "mp": 6.5057408118462945e-06,
+    "agree": false,
+    "p_fwd": 1.3005878827243578e-05,
+    "p_rev": 5.602796449011294e-09,
+    "delta": 0.26406812257259094
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/008d7148_108257.txt",
+    "challenger": "history/a85d26c5_210362.txt",
+    "prior": 0.08944425694865961,
+    "mp": 0.3380423843561582,
+    "agree": false,
+    "p_fwd": 0.6760847568511963,
+    "p_rev": 1.1861120086109622e-08,
+    "delta": 0.0
+   },
+   {
+    "slot": 8,
+    "incumbent": "history/bebf9f97_210407.txt",
+    "challenger": "history/2ce24c04_210443.txt",
+    "prior": 0.2716725716074847,
+    "mp": 0.0007401641566175954,
+    "agree": false,
+    "p_fwd": 2.2693832590903185e-07,
+    "p_rev": 0.0014801013749092817,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "history",
+  "qid": "70965_244",
+  "baseline": 0.3903800499921017,
+  "best_available_delta": 0.11284514134893525,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 10,
+    "incumbent": "history/e94c31f0_208244.txt",
+    "challenger": "history/e130535a_208183.txt",
+    "prior": 0.9138627000998095,
+    "mp": 0.4004273851169273,
+    "agree": false,
+    "p_fwd": 0.0029787698294967413,
+    "p_rev": 0.7978760004043579,
+    "delta": 0.0
+   },
+   {
+    "slot": 10,
+    "incumbent": "history/e94c31f0_208244.txt",
+    "challenger": "history/14d09e11_6973.txt",
+    "prior": 0.8285388061077119,
+    "mp": 0.3927168268710375,
+    "agree": false,
+    "p_fwd": 0.05467063561081886,
+    "p_rev": 0.7307630181312561,
+    "delta": 0.0
+   },
+   {
+    "slot": 10,
+    "incumbent": "history/e94c31f0_208244.txt",
+    "challenger": "history/319e8dbb_34117.txt",
+    "prior": 0.8231716224963713,
+    "mp": 0.046755076851695776,
+    "agree": false,
+    "p_fwd": 0.008561099879443645,
+    "p_rev": 0.0849490538239479,
+    "delta": 0.11284514134893525
+   },
+   {
+    "slot": 10,
+    "incumbent": "history/e94c31f0_208244.txt",
+    "challenger": "history/6dc726d3_22307.txt",
+    "prior": 0.8189635316123457,
+    "mp": 0.5734236985445023,
+    "agree": false,
+    "p_fwd": 0.14773520827293396,
+    "p_rev": 0.9991121888160706,
+    "delta": 0.0
+   },
+   {
+    "slot": 10,
+    "incumbent": "history/e94c31f0_208244.txt",
+    "challenger": "history/8a66f641_208239.txt",
+    "prior": 0.8185412119926297,
+    "mp": 0.0026045474692182324,
+    "agree": false,
+    "p_fwd": 0.005198989994823933,
+    "p_rev": 1.0104943612532225e-05,
+    "delta": 0.0
+   },
+   {
+    "slot": 10,
+    "incumbent": "history/e94c31f0_208244.txt",
+    "challenger": "history/c3ee2e66_208179.txt",
+    "prior": 0.8141537184004832,
+    "mp": 0.07590208854526281,
+    "agree": false,
+    "p_fwd": 0.004840238019824028,
+    "p_rev": 0.1469639390707016,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "history",
+  "qid": "76348_108",
+  "baseline": 0.1089364926177559,
+  "best_available_delta": 0.1264713513838286,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 2,
+    "incumbent": "history/3d8536e4_156314.txt",
+    "challenger": "history/c9327f3c_14681.txt",
+    "prior": 0.15822321427275338,
+    "mp": 1.1118864717829524e-09,
+    "agree": false,
+    "p_fwd": 9.736200734522527e-10,
+    "p_rev": 1.2501528701136522e-09,
+    "delta": 0.0
+   },
+   {
+    "slot": 3,
+    "incumbent": "history/32021257_156361.txt",
+    "challenger": "history/c9327f3c_14681.txt",
+    "prior": 0.2391067589382936,
+    "mp": 1.5310914652788554e-07,
+    "agree": false,
+    "p_fwd": 3.0590220490012143e-07,
+    "p_rev": 3.16088155649652e-10,
+    "delta": 0.0
+   },
+   {
+    "slot": 3,
+    "incumbent": "history/32021257_156361.txt",
+    "challenger": "history/6945bfd5_156315.txt",
+    "prior": 0.15499253259976606,
+    "mp": 2.2022975998403638e-08,
+    "agree": false,
+    "p_fwd": 2.646573848963385e-09,
+    "p_rev": 4.139937814784389e-08,
+    "delta": 0.0
+   },
+   {
+    "slot": 3,
+    "incumbent": "history/32021257_156361.txt",
+    "challenger": "history/85873ee4_14665.txt",
+    "prior": 0.14672998197246784,
+    "mp": 4.158153299425871e-07,
+    "agree": false,
+    "p_fwd": 8.315280410897685e-07,
+    "p_rev": 1.0261879540562902e-10,
+    "delta": 0.1264713513838286
+   },
+   {
+    "slot": 3,
+    "incumbent": "history/32021257_156361.txt",
+    "challenger": "history/f0d2f302_156805.txt",
+    "prior": 0.14522215817476603,
+    "mp": 1.4957682488436763e-10,
+    "agree": false,
+    "p_fwd": 2.789468100949932e-10,
+    "p_rev": 2.020683967374204e-11,
+    "delta": 0.0
+   },
+   {
+    "slot": 5,
+    "incumbent": "history/b54da827_156807.txt",
+    "challenger": "history/c9327f3c_14681.txt",
+    "prior": 0.13191008239023003,
+    "mp": 0.00029827018443029374,
+    "agree": false,
+    "p_fwd": 0.00026119023095816374,
+    "p_rev": 0.00033535013790242374,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "history",
+  "qid": "77221_49",
+  "baseline": 0.23463936301137822,
+  "best_available_delta": 0.20210734650054757,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 4,
+    "incumbent": "history/61eaf87d_157267.txt",
+    "challenger": "history/16fd4c48_5909.txt",
+    "prior": 0.5726598660734262,
+    "mp": 0.4995447482990869,
+    "agree": false,
+    "p_fwd": 0.9990887641906738,
+    "p_rev": 7.324074999814911e-07,
+    "delta": 0.20210734650054757
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/61eaf87d_157267.txt",
+    "challenger": "history/fcb1725c_138293.txt",
+    "prior": 0.5310100326189374,
+    "mp": 0.5000000342372459,
+    "agree": false,
+    "p_fwd": 0.9999979734420776,
+    "p_rev": 2.0950324142177124e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/61eaf87d_157267.txt",
+    "challenger": "history/a6bd4d00_47147.txt",
+    "prior": 0.5230860691316301,
+    "mp": 0.4984135757866781,
+    "agree": false,
+    "p_fwd": 0.9968270659446716,
+    "p_rev": 8.562868458739104e-08,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/61eaf87d_157267.txt",
+    "challenger": "history/966ad1a5_138240.txt",
+    "prior": 0.5161603581971544,
+    "mp": 0.4999982383486383,
+    "agree": false,
+    "p_fwd": 0.9999961853027344,
+    "p_rev": 2.913945422733377e-07,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/61eaf87d_157267.txt",
+    "challenger": "history/63ba0927_138227.txt",
+    "prior": 0.5046104233476378,
+    "mp": 0.4995445287825504,
+    "agree": false,
+    "p_fwd": 0.9990888833999634,
+    "p_rev": 1.7416513742318784e-07,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "history/61eaf87d_157267.txt",
+    "challenger": "history/c8eff150_138274.txt",
+    "prior": 0.4826482455222071,
+    "mp": 0.4999472070084039,
+    "agree": false,
+    "p_fwd": 0.9998910427093506,
+    "p_rev": 3.3713074572006008e-06,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "hsm",
+  "qid": "13118_729",
+  "baseline": 0.2640681225725909,
+  "best_available_delta": 0.6131471927654584,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 1,
+    "incumbent": "hsm/13118_e7b2679f4528e361_20.txt",
+    "challenger": "hsm/45d1f091_10835.txt",
+    "prior": 1.0092861859584736,
+    "mp": 1.5411889897620767e-07,
+    "agree": false,
+    "p_fwd": 3.0590220490012143e-07,
+    "p_rev": 2.335593052293916e-09,
+    "delta": 0.6131471927654584
+   },
+   {
+    "slot": 1,
+    "incumbent": "hsm/13118_e7b2679f4528e361_20.txt",
+    "challenger": "hsm/13118_e7b2679f4528e361_7.txt",
+    "prior": 0.7106315069911103,
+    "mp": 0.00010171628689015222,
+    "agree": false,
+    "p_fwd": 0.00020342697098385543,
+    "p_rev": 5.602796449011294e-09,
+    "delta": 0.0
+   },
+   {
+    "slot": 1,
+    "incumbent": "hsm/13118_e7b2679f4528e361_20.txt",
+    "challenger": "hsm/13118_e7b2679f4528e361_30.txt",
+    "prior": 0.575207888667118,
+    "mp": 5.996442613287467e-09,
+    "agree": false,
+    "p_fwd": 1.1861120086109622e-08,
+    "p_rev": 1.3176514046531196e-10,
+    "delta": 0.0
+   },
+   {
+    "slot": 1,
+    "incumbent": "hsm/13118_e7b2679f4528e361_20.txt",
+    "challenger": "hsm/dd7c61cb_10864.txt",
+    "prior": 0.3962519323161909,
+    "mp": 5.639066566476281e-08,
+    "agree": false,
+    "p_fwd": 1.1253516163378663e-07,
+    "p_rev": 2.4616969573898473e-10,
+    "delta": 0.0
+   },
+   {
+    "slot": 1,
+    "incumbent": "hsm/13118_e7b2679f4528e361_20.txt",
+    "challenger": "hsm/a898c5f8_10999.txt",
+    "prior": 0.32837619814791363,
+    "mp": 3.1873731241166547e-09,
+    "agree": false,
+    "p_fwd": 6.348800152267131e-09,
+    "p_rev": 2.5946095966178362e-11,
+    "delta": 0.0
+   },
+   {
+    "slot": 2,
+    "incumbent": "hsm/21d13e3a_2952.txt",
+    "challenger": "hsm/45d1f091_10835.txt",
+    "prior": 0.43623840515748136,
+    "mp": 0.49989768812702096,
+    "agree": false,
+    "p_fwd": 0.9997864365577698,
+    "p_rev": 8.939696272136644e-06,
+    "delta": 0.3868528072345417
+   }
+  ]
+ },
+ {
+  "domain": "hsm",
+  "qid": "2976_779",
+  "baseline": 0.0,
+  "best_available_delta": 0.18457569677956817,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 6,
+    "incumbent": "hsm/17543_94c08a9872027b6b_515.txt",
+    "challenger": "hsm/920de838_212946.txt",
+    "prior": 0.27547284935020594,
+    "mp": 1.1046271566783616e-05,
+    "agree": false,
+    "p_fwd": 2.1444948288262822e-05,
+    "p_rev": 6.475948453044111e-07,
+    "delta": 0.0
+   },
+   {
+    "slot": 9,
+    "incumbent": "hsm/18440_239e329ec460a375_16.txt",
+    "challenger": "hsm/920de838_212946.txt",
+    "prior": 0.5975392958237271,
+    "mp": 0.47963349241763353,
+    "agree": false,
+    "p_fwd": 0.9525741338729858,
+    "p_rev": 0.006692850962281227,
+    "delta": 0.0
+   },
+   {
+    "slot": 9,
+    "incumbent": "hsm/18440_239e329ec460a375_16.txt",
+    "challenger": "hsm/18440_239e329ec460a375_1.txt",
+    "prior": 0.5035319292032061,
+    "mp": 2.522189720931267e-07,
+    "agree": false,
+    "p_fwd": 5.04347383412096e-07,
+    "p_rev": 9.056077415747765e-11,
+    "delta": 0.0
+   },
+   {
+    "slot": 9,
+    "incumbent": "hsm/18440_239e329ec460a375_16.txt",
+    "challenger": "hsm/467ee7a0_18449.txt",
+    "prior": 0.465994066549853,
+    "mp": 0.047676003610490625,
+    "agree": false,
+    "p_fwd": 0.09534944593906403,
+    "p_rev": 2.5612819172238233e-06,
+    "delta": 0.18457569677956817
+   },
+   {
+    "slot": 9,
+    "incumbent": "hsm/18440_239e329ec460a375_16.txt",
+    "challenger": "hsm/70c4dfd2_18200.txt",
+    "prior": 0.4562880967014046,
+    "mp": 4.278942797308893e-09,
+    "agree": false,
+    "p_fwd": 8.152020392060422e-09,
+    "p_rev": 4.05865202557365e-10,
+    "delta": 0.0
+   },
+   {
+    "slot": 9,
+    "incumbent": "hsm/18440_239e329ec460a375_16.txt",
+    "challenger": "hsm/83496a63_212935.txt",
+    "prior": 0.44099623814918937,
+    "mp": 0.0010269804042764008,
+    "agree": false,
+    "p_fwd": 0.0015011822106316686,
+    "p_rev": 0.000552778597921133,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "hsm",
+  "qid": "3003_777",
+  "baseline": 0.46927872602275644,
+  "best_available_delta": 0.1815417925373527,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 5,
+    "incumbent": "hsm/646fccfb_212737.txt",
+    "challenger": "hsm/7d4aa2bf_18303.txt",
+    "prior": 0.03879776018686115,
+    "mp": 0.49987098372184846,
+    "agree": false,
+    "p_fwd": 0.9997318387031555,
+    "p_rev": 1.0128740541404113e-05,
+    "delta": 0.1815417925373527
+   },
+   {
+    "slot": 6,
+    "incumbent": "hsm/3a4b2f86_212728.txt",
+    "challenger": "hsm/7d4aa2bf_18303.txt",
+    "prior": 0.03633036100846506,
+    "mp": 0.49964462282991917,
+    "agree": false,
+    "p_fwd": 0.9992855191230774,
+    "p_rev": 3.726536760950694e-06,
+    "delta": 0.16716045496620224
+   },
+   {
+    "slot": 7,
+    "incumbent": "hsm/8e1ca55e_212720.txt",
+    "challenger": "hsm/7d4aa2bf_18303.txt",
+    "prior": 0.009288554975241597,
+    "mp": 1.5027220356955695e-08,
+    "agree": false,
+    "p_fwd": 2.510999053129126e-08,
+    "p_rev": 4.94445018262013e-09,
+    "delta": 0.15642624200758548
+   },
+   {
+    "slot": 8,
+    "incumbent": "hsm/46c9f819_212712.txt",
+    "challenger": "hsm/7d4aa2bf_18303.txt",
+    "prior": 0.08820876013361231,
+    "mp": 0.0001306184112301878,
+    "agree": false,
+    "p_fwd": 0.0002611899108160287,
+    "p_rev": 4.691164434689199e-08,
+    "delta": 0.1480409554829326
+   },
+   {
+    "slot": 8,
+    "incumbent": "hsm/46c9f819_212712.txt",
+    "challenger": "hsm/317378df_212723.txt",
+    "prior": -0.06853613071015047,
+    "mp": 0.0004028863913845271,
+    "agree": false,
+    "p_fwd": 0.0007096703629940748,
+    "p_rev": 9.610241977497935e-05,
+    "delta": 0.0
+   },
+   {
+    "slot": 8,
+    "incumbent": "hsm/46c9f819_212712.txt",
+    "challenger": "hsm/13693_bf79ef6ca8a00b22_4.txt",
+    "prior": -0.07194076620595385,
+    "mp": 1.8463484607877945e-07,
+    "agree": false,
+    "p_fwd": 9.931191158329966e-08,
+    "p_rev": 2.6995778057425923e-07,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "law",
+  "qid": "101678_842",
+  "baseline": 0.35914753008966527,
+  "best_available_delta": 0.19519002499605087,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 1,
+    "incumbent": "law/4e0dd1ae_43181.txt",
+    "challenger": "law/b1ca7de2_6619.txt",
+    "prior": 0.7817803435510936,
+    "mp": 0.004311423552280758,
+    "agree": false,
+    "p_fwd": 0.00857744924724102,
+    "p_rev": 4.539785732049495e-05,
+    "delta": 0.0
+   },
+   {
+    "slot": 2,
+    "incumbent": "law/15c7d77d_8434.txt",
+    "challenger": "law/b1ca7de2_6619.txt",
+    "prior": 0.8120435912127284,
+    "mp": 1.3806518317949212e-05,
+    "agree": false,
+    "p_fwd": 2.7535692424862646e-05,
+    "p_rev": 7.734421103577915e-08,
+    "delta": -0.24630238874073002
+   },
+   {
+    "slot": 3,
+    "incumbent": "law/110238_38913c9b8f34cb14_1145.txt",
+    "challenger": "law/b1ca7de2_6619.txt",
+    "prior": 0.9091242562334634,
+    "mp": 0.011944117926759645,
+    "agree": false,
+    "p_fwd": 0.0009110420360229909,
+    "p_rev": 0.0229771938174963,
+    "delta": 0.0
+   },
+   {
+    "slot": 3,
+    "incumbent": "law/110238_38913c9b8f34cb14_1145.txt",
+    "challenger": "law/125db354_8435.txt",
+    "prior": 0.518861696214698,
+    "mp": 0.41427997406572104,
+    "agree": false,
+    "p_fwd": 0.8175730109214783,
+    "p_rev": 0.010986937209963799,
+    "delta": 0.19519002499605087
+   },
+   {
+    "slot": 4,
+    "incumbent": "law/ad3ccf9c_43180.txt",
+    "challenger": "law/b1ca7de2_6619.txt",
+    "prior": 0.5263750803813653,
+    "mp": 0.0015890507781932683,
+    "agree": false,
+    "p_fwd": 0.003172679338604212,
+    "p_rev": 5.4222177823248785e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 7,
+    "incumbent": "law/54a541b2_43081.txt",
+    "challenger": "law/b1ca7de2_6619.txt",
+    "prior": 0.5745411231028137,
+    "mp": 6.170984521602918e-05,
+    "agree": false,
+    "p_fwd": 0.00012339458044152707,
+    "p_rev": 2.510999053129126e-08,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "law",
+  "qid": "102997_839",
+  "baseline": 0.6366824387328317,
+  "best_available_delta": 0.19519002499605087,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 3,
+    "incumbent": "law/102997_d448dd50c3bd754f_5.txt",
+    "challenger": "law/f9c42919_7742.txt",
+    "prior": 0.23343777093737964,
+    "mp": 6.508280903094743e-08,
+    "agree": false,
+    "p_fwd": 2.646573848963385e-09,
+    "p_rev": 1.2751904421293148e-07,
+    "delta": 0.0
+   },
+   {
+    "slot": 3,
+    "incumbent": "law/102997_d448dd50c3bd754f_5.txt",
+    "challenger": "law/049316d9_7708.txt",
+    "prior": 0.15179804517102696,
+    "mp": 4.9835053847480104e-08,
+    "agree": false,
+    "p_fwd": 3.581747953784742e-10,
+    "p_rev": 9.931193289958173e-08,
+    "delta": 0.19519002499605087
+   },
+   {
+    "slot": 3,
+    "incumbent": "law/102997_d448dd50c3bd754f_5.txt",
+    "challenger": "law/5ea3706c_7717.txt",
+    "prior": 0.08678138028571432,
+    "mp": 6.890756631960926e-07,
+    "agree": false,
+    "p_fwd": 7.194133289090132e-09,
+    "p_rev": 1.370957193103095e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 3,
+    "incumbent": "law/102997_d448dd50c3bd754f_5.txt",
+    "challenger": "law/102997_4b653bc50fb4bc70_7.txt",
+    "prior": 0.08044202323067165,
+    "mp": 2.3938707448545316e-06,
+    "agree": false,
+    "p_fwd": 2.646573848963385e-09,
+    "p_rev": 4.7850949158601e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 3,
+    "incumbent": "law/102997_d448dd50c3bd754f_5.txt",
+    "challenger": "law/102997_13067fe2591f9902_288.txt",
+    "prior": 0.07035492773959509,
+    "mp": 2.3938707448545316e-06,
+    "agree": false,
+    "p_fwd": 2.646573848963385e-09,
+    "p_rev": 4.7850949158601e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 3,
+    "incumbent": "law/102997_d448dd50c3bd754f_5.txt",
+    "challenger": "law/102997_13067fe2591f9902_289.txt",
+    "prior": 0.0378793222291919,
+    "mp": 5.1155446878503597e-08,
+    "agree": false,
+    "p_fwd": 2.998960857425459e-09,
+    "p_rev": 9.931193289958173e-08,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "politics",
+  "qid": "77784_1029",
+  "baseline": 0.3903800499921017,
+  "best_available_delta": 0.1390561795107756,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 6,
+    "incumbent": "politics/77784_28abbf09cedf0ab1_12.txt",
+    "challenger": "politics/03d27ead_24991.txt",
+    "prior": -0.014611891911255484,
+    "mp": 6.223112711722933e-05,
+    "agree": false,
+    "p_fwd": 0.0001233945513376966,
+    "p_rev": 1.0677028967620572e-06,
+    "delta": 0.1390561795107756
+   },
+   {
+    "slot": 6,
+    "incumbent": "politics/77784_28abbf09cedf0ab1_12.txt",
+    "challenger": "politics/77784_dd1f31600e1ee039_1.txt",
+    "prior": -0.01535102251954342,
+    "mp": 0.0026100602159636055,
+    "agree": false,
+    "p_fwd": 0.005220119841396809,
+    "p_rev": 5.905304023556823e-10,
+    "delta": 0.0
+   },
+   {
+    "slot": 6,
+    "incumbent": "politics/77784_28abbf09cedf0ab1_12.txt",
+    "challenger": "politics/b7694c3e_182780.txt",
+    "prior": -0.028094328838262277,
+    "mp": 2.9146092177412264e-05,
+    "agree": false,
+    "p_fwd": 5.8291210734751076e-05,
+    "p_rev": 9.736200734522527e-10,
+    "delta": 0.0
+   },
+   {
+    "slot": 10,
+    "incumbent": "politics/77784_dd1f31600e1ee039_0.txt",
+    "challenger": "politics/03d27ead_24991.txt",
+    "prior": 0.10825257400673272,
+    "mp": 1.3783967146352438e-05,
+    "agree": false,
+    "p_fwd": 2.7535692424862646e-05,
+    "p_rev": 3.224186784223093e-08,
+    "delta": 0.11284514134893525
+   },
+   {
+    "slot": 10,
+    "incumbent": "politics/77784_dd1f31600e1ee039_0.txt",
+    "challenger": "politics/77784_dd1f31600e1ee039_1.txt",
+    "prior": 0.10763404819944249,
+    "mp": 0.0005847546549379579,
+    "agree": false,
+    "p_fwd": 0.0011695087887346745,
+    "p_rev": 5.211412412720051e-10,
+    "delta": 0.0
+   },
+   {
+    "slot": 10,
+    "incumbent": "politics/77784_dd1f31600e1ee039_0.txt",
+    "challenger": "politics/b7694c3e_182780.txt",
+    "prior": 0.0969700819938082,
+    "mp": 7.921789133575989e-05,
+    "agree": false,
+    "p_fwd": 0.0001584357669344172,
+    "p_rev": 1.573710259328287e-11,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "politics",
+  "qid": "87499_976",
+  "baseline": 0.0,
+  "best_available_delta": 0.46927872602275644,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 1,
+    "incumbent": "politics/87499_0faaf7b23c6afa49_14.txt",
+    "challenger": "politics/a0f49947_15228.txt",
+    "prior": 0.8227424345912352,
+    "mp": 1.3499033896160334e-07,
+    "agree": false,
+    "p_fwd": 2.6995778057425923e-07,
+    "p_rev": 2.2897348947448215e-11,
+    "delta": 0.0
+   },
+   {
+    "slot": 1,
+    "incumbent": "politics/87499_0faaf7b23c6afa49_14.txt",
+    "challenger": "politics/4854c5fb_15162.txt",
+    "prior": 0.6799125389082502,
+    "mp": 8.350869185325127e-06,
+    "agree": false,
+    "p_fwd": 1.6701422282494605e-05,
+    "p_rev": 3.16088155649652e-10,
+    "delta": 0.46927872602275644
+   },
+   {
+    "slot": 1,
+    "incumbent": "politics/87499_0faaf7b23c6afa49_14.txt",
+    "challenger": "politics/87499_de40628bdae3aa37_1.txt",
+    "prior": 0.6140071387827325,
+    "mp": 1.4511639633962153e-06,
+    "agree": false,
+    "p_fwd": 2.9023121896898374e-06,
+    "p_rev": 1.573710259328287e-11,
+    "delta": 0.0
+   },
+   {
+    "slot": 1,
+    "incumbent": "politics/87499_0faaf7b23c6afa49_14.txt",
+    "challenger": "politics/87499_b72fa9cd64f42839_27.txt",
+    "prior": 0.5734558362328357,
+    "mp": 1.3362599724647817e-09,
+    "agree": false,
+    "p_fwd": 2.646573848963385e-09,
+    "p_rev": 2.5946095966178362e-11,
+    "delta": 0.0
+   },
+   {
+    "slot": 1,
+    "incumbent": "politics/87499_0faaf7b23c6afa49_14.txt",
+    "challenger": "politics/2b510dbf_15165.txt",
+    "prior": 0.5733857103160133,
+    "mp": 4.957262733987222e-10,
+    "agree": false,
+    "p_fwd": 9.736200734522527e-10,
+    "p_rev": 1.783247334519178e-11,
+    "delta": 0.0
+   },
+   {
+    "slot": 1,
+    "incumbent": "politics/87499_0faaf7b23c6afa49_14.txt",
+    "challenger": "politics/c8608356_15211.txt",
+    "prior": 0.5121360335562753,
+    "mp": 8.188550542319317e-08,
+    "agree": false,
+    "p_fwd": 1.6373769540223293e-07,
+    "p_rev": 3.3315444153414475e-11,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "quant",
+  "qid": "78710_1068",
+  "baseline": 0.0,
+  "best_available_delta": 0.43067655807339306,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 4,
+    "incumbent": "quant/78710_a97c5fcc30b74690_12.txt",
+    "challenger": "quant/78710_0a223f7676d42e6c_4.txt",
+    "prior": 0.6143777644181434,
+    "mp": 0.4093717969954014,
+    "agree": false,
+    "p_fwd": 0.8175740838050842,
+    "p_rev": 0.0011695101857185364,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "quant/78710_a97c5fcc30b74690_12.txt",
+    "challenger": "quant/fd2ff339_2210.txt",
+    "prior": 0.5051617203791086,
+    "mp": 1.2492752148318687e-06,
+    "agree": false,
+    "p_fwd": 2.260313522128854e-06,
+    "p_rev": 2.3823690753488336e-07,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "quant/78710_a97c5fcc30b74690_12.txt",
+    "challenger": "quant/78710_2fb716d3cb6ac2c4_22.txt",
+    "prior": 0.48096438796708185,
+    "mp": 0.0005847684780331264,
+    "agree": false,
+    "p_fwd": 0.0011695047141984105,
+    "p_rev": 3.224186784223093e-08,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "quant/78710_a97c5fcc30b74690_12.txt",
+    "challenger": "quant/1efbda5b_2113.txt",
+    "prior": 0.4797860343162454,
+    "mp": 0.00029827018443029374,
+    "agree": false,
+    "p_fwd": 0.0003353500796947628,
+    "p_rev": 0.00026119028916582465,
+    "delta": 0.43067655807339306
+   },
+   {
+    "slot": 4,
+    "incumbent": "quant/78710_a97c5fcc30b74690_12.txt",
+    "challenger": "quant/35163088_2296.txt",
+    "prior": 0.47103766876113023,
+    "mp": 0.13447419881413225,
+    "agree": false,
+    "p_fwd": 0.2689405083656311,
+    "p_rev": 7.889262633398175e-06,
+    "delta": 0.0
+   },
+   {
+    "slot": 4,
+    "incumbent": "quant/78710_a97c5fcc30b74690_12.txt",
+    "challenger": "quant/78042_fa82b31999d8bb06_35.txt",
+    "prior": 0.46312730255879836,
+    "mp": 1.2833859727834351e-05,
+    "agree": false,
+    "p_fwd": 2.14448864426231e-05,
+    "p_rev": 4.2228330130456015e-06,
+    "delta": 0.0
+   }
+  ]
+ },
+ {
+  "domain": "quant",
+  "qid": "83939_1059",
+  "baseline": 0.0,
+  "best_available_delta": 0.38685280723454163,
+  "macro_weight": 0.07692307692307693,
+  "actions": [
+   {
+    "slot": 2,
+    "incumbent": "quant/f85bb72d_0565.txt",
+    "challenger": "quant/6d7f63e9_0596.txt",
+    "prior": 0.03913286066330951,
+    "mp": 0.31281580531504005,
+    "agree": false,
+    "p_fwd": 0.6224589347839355,
+    "p_rev": 0.003172675846144557,
+    "delta": 0.0
+   },
+   {
+    "slot": 2,
+    "incumbent": "quant/f85bb72d_0565.txt",
+    "challenger": "quant/e5444096_0563.txt",
+    "prior": 0.030540539986262716,
+    "mp": 0.3112346217826598,
+    "agree": false,
+    "p_fwd": 0.6224591135978699,
+    "p_rev": 1.0129967449756805e-05,
+    "delta": 0.38685280723454163
+   },
+   {
+    "slot": 2,
+    "incumbent": "quant/f85bb72d_0565.txt",
+    "challenger": "quant/83939_eb7966e21b155296_34.txt",
+    "prior": -0.00955540932982174,
+    "mp": 0.19211662583984435,
+    "agree": false,
+    "p_fwd": 0.3775404989719391,
+    "p_rev": 0.006692752707749605,
+    "delta": 0.0
+   },
+   {
+    "slot": 5,
+    "incumbent": "quant/77873_fca3ad72fa0bf9d1_694.txt",
+    "challenger": "quant/6d7f63e9_0596.txt",
+    "prior": 0.22297583933833834,
+    "mp": 0.523712670430541,
+    "agree": false,
+    "p_fwd": 0.9999995231628418,
+    "p_rev": 0.04742581769824028,
+    "delta": 0.0
+   },
+   {
+    "slot": 5,
+    "incumbent": "quant/77873_fca3ad72fa0bf9d1_694.txt",
+    "challenger": "quant/e5444096_0563.txt",
+    "prior": 0.21685454658013648,
+    "mp": 0.514656106941402,
+    "agree": false,
+    "p_fwd": 1.0,
+    "p_rev": 0.029312213882803917,
+    "delta": 0.23719771276929622
+   },
+   {
+    "slot": 5,
+    "incumbent": "quant/77873_fca3ad72fa0bf9d1_694.txt",
+    "challenger": "quant/83939_eb7966e21b155296_34.txt",
+    "prior": 0.18828961593951993,
+    "mp": 0.6604094207286835,
+    "agree": false,
+    "p_fwd": 0.9999985694885254,
+    "p_rev": 0.32082027196884155,
+    "delta": 0.0
+   }
+  ]
+ }
+]

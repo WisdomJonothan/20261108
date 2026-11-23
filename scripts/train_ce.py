@@ -181,8 +181,13 @@ def lambdarank_ndcg_loss(logits, labels, k=10):
                  dcg_discounts(torch.arange(ideal_rel.numel(),
                                             device=logits.device), k)).sum().clamp_min(1e-9)
     disc = dcg_discounts(rank, k)
+    # A swap changes nDCG@k when *either* document sits inside the top-k: a
+    # relevant document ranked just below k must still receive gradient, which
+    # is exactly the failure mode of the frozen system.  Requiring both members
+    # inside the top-k (the previous behaviour) silently dropped those pairs,
+    # e.g. a single positive at rank 11 produced no training signal at all.
     pair = ((rel.unsqueeze(1) > rel.unsqueeze(0)) &
-            (rank.unsqueeze(1) < k) & (rank.unsqueeze(0) < k))
+            ((rank.unsqueeze(1) < k) | (rank.unsqueeze(0) < k)))
     if not bool(pair.any()):
         return logits.sum() * 0.0
     delta = (gains.unsqueeze(1) - gains.unsqueeze(0)) * \

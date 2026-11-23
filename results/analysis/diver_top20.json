@@ -1,0 +1,1112 @@
+{
+ "model": "/homeC/wujiaheng/models-diver7b",
+ "split": "train",
+ "group": 20,
+ "doc_words": 180,
+ "decoding": "greedy, answer prefilled",
+ "pool": 20,
+ "zscore_groups": false,
+ "prompts": 26,
+ "seconds": 177.7,
+ "n_queries": 26,
+ "dense_macro": 0.185133,
+ "diver_macro": 0.266999,
+ "zero_dense": 12,
+ "zero_diver": 10,
+ "rel_top10_dense": 21,
+ "rel_top10_diver": 27,
+ "per_query": [
+  {
+   "domain": "bitcoin",
+   "qid": "126019_1",
+   "n_docs": 20,
+   "query": "Up-to-date statistics about chain reorganizations How common are 2, 3 and 4 block reorgs nowadays? This question and similar ones have been asked a couple of times [see for instance here , here and here] , but the most up-to-date answer in those dates from 2017 and the state of things has changed substantially since then. The closest I could find is this RSS feed which only tracks something relati",
+   "dense_ndcg10": 0.20210734650054757,
+   "diver_ndcg10": 0.2960819109658652,
+   "n_relevant_top10_dense": 1,
+   "n_relevant_top10_diver": 1,
+   "ranked_top10": [
+    "bitcoin/2f80b7aa_17616.txt",
+    "bitcoin/b84abb6a_0004.txt",
+    "bitcoin/5282dec6_143069.txt",
+    "bitcoin/d7192cdc_143078.txt",
+    "bitcoin/60978be6_20593.txt",
+    "bitcoin/93210_bb862dc4d7abb626_11.txt",
+    "bitcoin/88f0a79d_16769.txt",
+    "bitcoin/e83118be_151707.txt",
+    "bitcoin/124603_ef723515186fc4cc_97.txt",
+    "bitcoin/88c6529e_143122.txt"
+   ],
+   "dense_top10": [
+    "bitcoin/f4d334ac_17631.txt",
+    "bitcoin/97192_c00e2f9a42883f88_2.txt",
+    "bitcoin/2f80b7aa_17616.txt",
+    "bitcoin/b84abb6a_0004.txt",
+    "bitcoin/db1fde90_16714.txt",
+    "bitcoin/97192_c00e2f9a42883f88_0.txt",
+    "bitcoin/124603_ef723515186fc4cc_97.txt",
+    "bitcoin/5282dec6_143069.txt",
+    "bitcoin/d7192cdc_143078.txt",
+    "bitcoin/88c6529e_143122.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 5,  \"[2]\": 3,  \"[3]\": 8,  \"[4]\": 7,  \"[5]\": 4,  \"[6]\": 5,  \"[7]\": 6,  \"[8]\": 7,  \"[9]\": 7,  \"[10]\": 6,  \"[11]\": 7,  \"[12]\": 6,  \"[13]\": 7,  \"[14]\": 5,  \"[15]\": 3,  \"[16]\": 5,  \"[17]\": 2,  \"[18]\": 7,  \"[19]\": 7,  \"[20]\": 6}\n```\n</answer> <reason>\nThe user is asking for up-to-date statistics "
+    }
+   ]
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "125905_2",
+   "n_docs": 20,
+   "query": "How is the refund transaction in Asymmetric Revocable Commitments constructed? In \"Mastering Bitcoin\" chapter 14 there is a section about Asymmetric Revocable Commitments that mentions the need of a refund transaction. I don't understand how is this refund transaction constructed: Does the refund transaction have a timelock? It mentions \"the first set of commitments (called the refund) that assign",
+   "dense_ndcg10": 0.5543375550857161,
+   "diver_ndcg10": 0.44149241373678083,
+   "n_relevant_top10_dense": 3,
+   "n_relevant_top10_diver": 2,
+   "ranked_top10": [
+    "bitcoin/112862_6c8b904fd136a5be_167.txt",
+    "bitcoin/513eef80_0276.txt",
+    "bitcoin/70d33246_0278.txt",
+    "bitcoin/112862_6c8b904fd136a5be_164.txt",
+    "bitcoin/112862_6c8b904fd136a5be_170.txt",
+    "bitcoin/112862_8be7e27974fe271b_196.txt",
+    "bitcoin/73ae1a67_146816.txt",
+    "bitcoin/93cba048_146819.txt",
+    "bitcoin/29cfda0b_143129.txt",
+    "bitcoin/8eb411c8_143130.txt"
+   ],
+   "dense_top10": [
+    "bitcoin/112862_6c8b904fd136a5be_166.txt",
+    "bitcoin/ca184fbe_0275.txt",
+    "bitcoin/70d33246_0278.txt",
+    "bitcoin/112862_8be7e27974fe271b_198.txt",
+    "bitcoin/112862_6c8b904fd136a5be_170.txt",
+    "bitcoin/112862_8be7e27974fe271b_196.txt",
+    "bitcoin/f74e7f52_14259.txt",
+    "bitcoin/112862_6c8b904fd136a5be_167.txt",
+    "bitcoin/112862_6c8b904fd136a5be_164.txt",
+    "bitcoin/513eef80_0276.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": " \"[1]\": 5, \"[2]\": 3, \"[3]\": 8, \"[4]\": 2, \"[5]\": 7, \"[6]\": 7, \"[7]\": 1, \"[8]\": 9, \"[9]\": 8, \"[10]\": 9, \"[11]\": 7, \"[12]\": 7, \"[13]\": 6, \"[14]\": 6, \"[15]\": 1, \"[16]\": 6, \"[17]\": 5, \"[18]\": 2, \"[19]\": 1, \"[20]\": 2}\n```\n</answer> <reason>\nThe user is asking for clarification on the construction of the r"
+    }
+   ]
+  },
+  {
+   "domain": "cardano",
+   "qid": "12778_100",
+   "n_docs": 20,
+   "query": "Feasibility of Trustless Time-Lock Contracts on Cardano Using Marlowe? Is there an existing, security-audited Cardano smart contract that allows anyone to send either ADA or native tokens to it, locks those assets for a predefined duration (e.g., 1 year), and then automatically returns them to the sender\u2019s address (minus transaction fees) once the time has elapsed? If such a contract doesn\u2019t alrea",
+   "dense_ndcg10": 0.0,
+   "diver_ndcg10": 0.18457569677956817,
+   "n_relevant_top10_dense": 0,
+   "n_relevant_top10_diver": 1,
+   "ranked_top10": [
+    "cardano/e36887ff_85376.txt",
+    "cardano/9bf0d0a5_85374.txt",
+    "cardano/52fe6e73_85369.txt",
+    "cardano/8c8d56e6_3787.txt",
+    "cardano/6763f8d6_1766.txt",
+    "cardano/076b288a_86913.txt",
+    "cardano/d6e7db0e_0778.txt",
+    "cardano/7f4b9602_84976.txt",
+    "cardano/1bce19ed_0002.txt",
+    "cardano/296a09b7_1667.txt"
+   ],
+   "dense_top10": [
+    "cardano/296a09b7_1667.txt",
+    "cardano/3d069e0f_1780.txt",
+    "cardano/6763f8d6_1766.txt",
+    "cardano/ff45d776_0074.txt",
+    "cardano/e36887ff_85376.txt",
+    "cardano/40bdd9ea_9757.txt",
+    "cardano/9bf0d0a5_85374.txt",
+    "cardano/52fe6e73_85369.txt",
+    "cardano/076b288a_86913.txt",
+    "cardano/8eb84abc_0752.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 5,\n  \"[2]\": 3,\n  \"[3]\": 8,\n  \"[4]\": 5,\n  \"[5]\": 9,\n  \"[6]\": 5,\n  \"[7]\": 9,\n  \"[8]\": 9,\n  \"[9]\": 7,\n  \"[10]\": 3,\n  \"[11]\": 5,\n  \"[12]\": 3,\n  \"[13]\": 7,\n  \"[14]\": 5,\n  \"[15]\": 5,\n  \"[16]\": 9,\n  \"[17]\": 7,\n  \"[18]\": 3,\n  \"[19]\": 5,\n  \"[20]\": 7}\n}\n```\n</answer> <reason>\nThe user is asking about"
+    }
+   ]
+  },
+  {
+   "domain": "cardano",
+   "qid": "11465_101",
+   "n_docs": 20,
+   "query": "How does the cardano network handle network latency? I read that when a node receives a block, the node verifies that the slot number is the current one. If the slot changes every second, what if a block is generated by some node A, but some other node B does not receive that block in the same slot (caused by network latency)? Will that block be invalid for node B and not appended in its chain? Is",
+   "dense_ndcg10": 0.46927872602275644,
+   "diver_ndcg10": 0.46927872602275644,
+   "n_relevant_top10_dense": 1,
+   "n_relevant_top10_diver": 1,
+   "ranked_top10": [
+    "cardano/518f86e4_0058.txt",
+    "cardano/63185957_3474.txt",
+    "cardano/6955_9267de8f28631f73_0.txt",
+    "cardano/a9fabe8f_1339.txt",
+    "cardano/be2bfebe_3324.txt",
+    "cardano/e3053940_7088.txt",
+    "cardano/ff65fad4_3146.txt",
+    "cardano/c073fce2_2662.txt",
+    "cardano/6955_860c13ce0c5853df_0.txt",
+    "cardano/d66fb7e7_1879.txt"
+   ],
+   "dense_top10": [
+    "cardano/518f86e4_0058.txt",
+    "cardano/c06d96e8_86265.txt",
+    "cardano/6955_9267de8f28631f73_0.txt",
+    "cardano/575f7226_1877.txt",
+    "cardano/7235_31b1d15a10971633_2.txt",
+    "cardano/e3053940_7088.txt",
+    "cardano/ff65fad4_3146.txt",
+    "cardano/c073fce2_2662.txt",
+    "cardano/a02258f4_11378.txt",
+    "cardano/d66fb7e7_1879.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 9,\n  \"[2]\": 3,\n  \"[3]\": 8,\n  \"[4]\": 5,\n  \"[5]\": 5,\n  \"[6]\": 7,\n  \"[7]\": 7,\n  \"[8]\": 7,\n  \"[9]\": 3,\n  \"[10]\": 6,\n  \"[11]\": 9,\n  \"[12]\": 8,\n  \"[13]\": 8,\n  \"[14]\": 6,\n  \"[15]\": 6,\n  \"[16]\": 7,\n  \"[17]\": 4,\n  \"[18]\": 4,\n  \"[19]\": 5,\n  \"[20]\": 3\n}\n```\n</answer> <reason>\nThe user is asking about "
+    }
+   ]
+  },
+  {
+   "domain": "economics",
+   "qid": "60662_151",
+   "n_docs": 20,
+   "query": "Is an extremely low R-squared a sign I should change my approach in panel regression? I'm a complete newbie on econometrics. I'm working on my undergraduate thesis. My main objective is to quantify the effect of structural change (defined as labor reallocation into sectors with different productivity levels) on income inequality in a certain region during a period of 32 years. To get a more long-t",
+   "dense_ndcg10": 0.0,
+   "diver_ndcg10": 0.0,
+   "n_relevant_top10_dense": 0,
+   "n_relevant_top10_diver": 0,
+   "ranked_top10": [
+    "economics/b929002f_0089.txt",
+    "economics/60203_6a9db1df8d8c6ea7_4.txt",
+    "economics/502cfa01_1107.txt",
+    "economics/357d9a52_1046.txt",
+    "economics/54294_e4a4e3d936798ab3_654.txt",
+    "economics/dc2a4fd1_0998.txt",
+    "economics/60203_6a9db1df8d8c6ea7_24.txt",
+    "economics/2af71db0_0993.txt",
+    "economics/60203_6a9db1df8d8c6ea7_27.txt",
+    "economics/60203_6a9db1df8d8c6ea7_0.txt"
+   ],
+   "dense_top10": [
+    "economics/b929002f_0089.txt",
+    "economics/27d604a1_0992.txt",
+    "economics/60203_6a9db1df8d8c6ea7_4.txt",
+    "economics/60203_6a9db1df8d8c6ea7_21.txt",
+    "economics/54294_e4a4e3d936798ab3_654.txt",
+    "economics/6c640b1a_1033.txt",
+    "economics/ccdcb580_93356.txt",
+    "economics/60203_6a9db1df8d8c6ea7_27.txt",
+    "economics/8b0b9514_93180.txt",
+    "economics/dc2a4fd1_0998.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 9,  \"[2]\": 3,  \"[3]\": 8,  \"[4]\": 3,  \"[5]\": 5,  \"[6]\": 3,  \"[7]\": 1,  \"[8]\": 4,  \"[9]\": 1,  \"[10]\": 5,  \"[11]\": 4,  \"[12]\": 5,  \"[13]\": 6,  \"[14]\": 0,  \"[15]\": 7,  \"[16]\": 5,  \"[17]\": 1,  \"[18]\": 2,  \"[19]\": 0,  \"[20]\": 2}\n```\n</answer> <reason>\nThe user is a beginner in econometrics workin"
+    }
+   ]
+  },
+  {
+   "domain": "economics",
+   "qid": "60608_153",
+   "n_docs": 20,
+   "query": "Unit of measure for Eurostat \"Average remuneration of national civil servants\" I don't understand the unit of measure for Eurostat's prc_rem_avg data . This is the \"Average remuneration of national civil servants in central public administration\". For instance, in the second half of 2024 the data for the European Union equals 3,170 \u20ac (the comma is the thousands separator). 3,170 \u20ac received by whom",
+   "dense_ndcg10": 0.0,
+   "diver_ndcg10": 0.0,
+   "n_relevant_top10_dense": 0,
+   "n_relevant_top10_diver": 0,
+   "ranked_top10": [
+    "economics/a592bf1b_92839.txt",
+    "economics/65e7e6aa_92820.txt",
+    "economics/a4894063_92823.txt",
+    "economics/e77ca25c_13752.txt",
+    "economics/aed80b9e_13753.txt",
+    "economics/8548cfa1_13754.txt",
+    "economics/886f1024_13751.txt",
+    "economics/1a2e0035_13748.txt",
+    "economics/733057d3_13750.txt",
+    "economics/3d98ef7c_89647.txt"
+   ],
+   "dense_top10": [
+    "economics/e77ca25c_13752.txt",
+    "economics/aed80b9e_13753.txt",
+    "economics/8548cfa1_13754.txt",
+    "economics/57498_e179ccf1ee3d24aa_83.txt",
+    "economics/fef482ba_82582.txt",
+    "economics/a592bf1b_92839.txt",
+    "economics/52071_bae95e343d0568bc_73.txt",
+    "economics/886f1024_13751.txt",
+    "economics/b834365e_13745.txt",
+    "economics/65e7e6aa_92820.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 3,  \"[2]\": 3,  \"[3]\": 3,  \"[4]\": 1,  \"[5]\": 1,  \"[6]\": 5,  \"[7]\": 1,  \"[8]\": 3,  \"[9]\": 1,  \"[10]\": 5,  \"[11]\": 1,  \"[12]\": 1,  \"[13]\": 3,  \"[14]\": 4,  \"[15]\": 1,  \"[16]\": 2,  \"[17]\": 3,  \"[18]\": 1,  \"[19]\": 1,  \"[20]\": 2}\n```\n</answer> <reason>\nThe user is asking for clarification on the u"
+    }
+   ]
+  },
+  {
+   "domain": "genealogy",
+   "qid": "18759_237",
+   "n_docs": 20,
+   "query": "Finding details of ancestor's trial at Chester Assizes in 1847 Are there any web-sites with English criminal records from 19th century available?",
+   "dense_ndcg10": 0.4703652827859579,
+   "diver_ndcg10": 0.5730249097309823,
+   "n_relevant_top10_dense": 2,
+   "n_relevant_top10_diver": 3,
+   "ranked_top10": [
+    "genealogy/bb8a850f_0181.txt",
+    "genealogy/efa68c5b_151307.txt",
+    "genealogy/2e05ee69_151291.txt",
+    "genealogy/057b7c5b_154164.txt",
+    "genealogy/09bfd37d_154185.txt",
+    "genealogy/310037a8_0184.txt",
+    "genealogy/d6cb91ba_0182.txt",
+    "genealogy/27dd65f7_154203.txt",
+    "genealogy/1b031369_151345.txt",
+    "genealogy/e9592871_151357.txt"
+   ],
+   "dense_top10": [
+    "genealogy/d6cb91ba_0182.txt",
+    "genealogy/1c5fae4a_154190.txt",
+    "genealogy/27dd65f7_154203.txt",
+    "genealogy/0b2f7fdb_154161.txt",
+    "genealogy/bb8a850f_0181.txt",
+    "genealogy/1b031369_151345.txt",
+    "genealogy/20613535_154189.txt",
+    "genealogy/e9592871_151357.txt",
+    "genealogy/efa68c5b_151307.txt",
+    "genealogy/2e05ee69_151291.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 8,  \"[2]\": 7,  \"[3]\": 8,  \"[4]\": 7,  \"[5]\": 9,  \"[6]\": 8,  \"[7]\": 5,  \"[8]\": 8,  \"[9]\": 9,  \"[10]\": 9,  \"[11]\": 7,  \"[12]\": 7,  \"[13]\": 7,  \"[14]\": 8,  \"[15]\": 6,  \"[16]\": 4,  \"[17]\": 9,  \"[18]\": 0,  \"[19]\": 9,  \"[20]\": 9}\n```\n</answer> <reason>\nThe user is looking for websites containing E"
+    }
+   ]
+  },
+  {
+   "domain": "genealogy",
+   "qid": "18702_239",
+   "n_docs": 20,
+   "query": "Online Canadian immigration info? A woman and three daughters were born in La Crouais, France. A cemetery record, source unknown, says another daughter was born in Plumaugat, France. But the same daughter's immigration-to-USA record says she was born in Saint-Mars-la-Jaille, France. Is there an online source for Canadian records that would help with this? Plumaugat is easier to believe, because it",
+   "dense_ndcg10": 0.0,
+   "diver_ndcg10": 0.31546487678572877,
+   "n_relevant_top10_dense": 0,
+   "n_relevant_top10_diver": 1,
+   "ranked_top10": [
+    "genealogy/2191_4d8f87c89ba24022_106.txt",
+    "genealogy/38ba0cfe_156179.txt",
+    "genealogy/453b9175_156178.txt",
+    "genealogy/7666db4f_156182.txt",
+    "genealogy/3ce8e80c_6901.txt",
+    "genealogy/11831_86ddfbfb921c629d_2.txt",
+    "genealogy/a48d33d0_151538.txt",
+    "genealogy/d0be304e_0613.txt",
+    "genealogy/8d71d312_156170.txt",
+    "genealogy/12937_98146201da3b8b5e_21.txt"
+   ],
+   "dense_top10": [
+    "genealogy/3ce8e80c_6901.txt",
+    "genealogy/24f5007d_156176.txt",
+    "genealogy/38ba0cfe_156179.txt",
+    "genealogy/8d71d312_156170.txt",
+    "genealogy/453b9175_156178.txt",
+    "genealogy/11831_86ddfbfb921c629d_2.txt",
+    "genealogy/a48d33d0_151538.txt",
+    "genealogy/2191_4d8f87c89ba24022_106.txt",
+    "genealogy/8f55425e_156177.txt",
+    "genealogy/12937_98146201da3b8b5e_21.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 5,  \"[2]\": 3,  \"[3]\": 8,  \"[4]\": 4,  \"[5]\": 8,  \"[6]\": 5,  \"[7]\": 5,  \"[8]\": 9,  \"[9]\": 3,  \"[10]\": 4,  \"[11]\": 4,  \"[12]\": 2,  \"[13]\": 4,  \"[14]\": 1,  \"[15]\": 5,  \"[16]\": 2,  \"[17]\": 1,  \"[18]\": 6,  \"[19]\": 3,  \"[20]\": 2}\n}\n```\n</answer> <reason>\nThe user is looking for online Canadian imm"
+    }
+   ]
+  },
+  {
+   "domain": "history",
+   "qid": "79544_0",
+   "n_docs": 20,
+   "query": "Why is the linear model of human history treated as fact, while the cyclic model is dismissed as myth despite evidence of global catastrophes? Modern archaeology follows a linear timeline of human development, with early hominins appearing around 4 million BCE , Homo sapiens around 300 000 BCE , and the rise of agriculture and complex civilizations after roughly 10 000 BCE . In this model, progres",
+   "dense_ndcg10": 0.0,
+   "diver_ndcg10": 0.0,
+   "n_relevant_top10_dense": 0,
+   "n_relevant_top10_diver": 0,
+   "ranked_top10": [
+    "history/00445d36_60988.txt",
+    "history/c37143e8_61717.txt",
+    "history/7f90dfc9_61128.txt",
+    "history/b6fe24fa_60987.txt",
+    "history/2c9def76_64209.txt",
+    "history/a1578fe4_280913.txt",
+    "history/d1354748_280856.txt",
+    "history/ace6130c_280861.txt",
+    "history/68425ddf_280902.txt",
+    "history/096e6fc1_61151.txt"
+   ],
+   "dense_top10": [
+    "history/a1578fe4_280913.txt",
+    "history/2e85f06a_91828.txt",
+    "history/00445d36_60988.txt",
+    "history/096e6fc1_61151.txt",
+    "history/c37143e8_61717.txt",
+    "history/d1354748_280856.txt",
+    "history/23c39c41_91834.txt",
+    "history/59958585_83614.txt",
+    "history/7f90dfc9_61128.txt",
+    "history/2c9def76_64209.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 5,  \"[2]\": 3,  \"[3]\": 8,  \"[4]\": 4,  \"[5]\": 7,  \"[6]\": 5,  \"[7]\": 4,  \"[8]\": 3,  \"[9]\": 7,  \"[10]\": 6,  \"[11]\": 5,  \"[12]\": 7,  \"[13]\": 4,  \"[14]\": 5,  \"[15]\": 3,  \"[16]\": 4,  \"[17]\": 4,  \"[18]\": 3,  \"[19]\": 4,  \"[20]\": 3}\n```\n</answer> <reason>\nThe user's query asks for the reasons why the"
+    }
+   ]
+  },
+  {
+   "domain": "history",
+   "qid": "79528_2",
+   "n_docs": 20,
+   "query": "An online game intended to encourage collecting garbage in an ex-Soviet Republic Sometime after the collapse of the Soviet Union (say, between 2000 and 2010?) I heard a report on the American National Public Radio, describing the work of a man who had emigrated to the States from one of the Soviet Republics, and who chose to return to his homeland (at least temporarily) when it became independent.",
+   "dense_ndcg10": 0.4935232796777482,
+   "diver_ndcg10": 0.419665006636777,
+   "n_relevant_top10_dense": 2,
+   "n_relevant_top10_diver": 2,
+   "ranked_top10": [
+    "history/5b11a0c1_0440.txt",
+    "history/db28a433_113731.txt",
+    "history/e76f3991_113734.txt",
+    "history/edb05344_113732.txt",
+    "history/df74d86f_0441.txt",
+    "history/8825c8d9_113701.txt",
+    "history/2041649d_113700.txt",
+    "history/6864a567_113759.txt",
+    "history/28b1a626_113709.txt",
+    "history/1d61a6b3_113702.txt"
+   ],
+   "dense_top10": [
+    "history/5b11a0c1_0440.txt",
+    "history/df74d86f_0441.txt",
+    "history/db28a433_113731.txt",
+    "history/e76f3991_113734.txt",
+    "history/edb05344_113732.txt",
+    "history/8825c8d9_113701.txt",
+    "history/2041649d_113700.txt",
+    "history/1cdd1633_50071.txt",
+    "history/717ac6a8_15832.txt",
+    "history/af156d30_326218.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 8,  \"[2]\": 7,  \"[3]\": 8,  \"[4]\": 8,  \"[5]\": 8,  \"[6]\": 7,  \"[7]\": 7,  \"[8]\": 0,  \"[9]\": 1,  \"[10]\": 0,  \"[11]\": 7,  \"[12]\": 0,  \"[13]\": 0,  \"[14]\": 7,  \"[15]\": 0,  \"[16]\": 5,  \"[17]\": 4,  \"[18]\": 7,  \"[19]\": 0,  \"[20]\": 2 }\n```\n</answer> <reason>\nThe user is looking for a specific online ga"
+    }
+   ]
+  },
+  {
+   "domain": "hsm",
+   "qid": "19033_648",
+   "n_docs": 20,
+   "query": "Survey of the ether theory as motivation of Maxwell's equations In all the modern textbooks on electromagnetism that I have seen, Maxwell\u2019s equations are introduced in a rather poorly motivated way, in my opinion. It is often left unexplained how one goes from experimental facts to the equations. Sometimes the equations are simply postulated from the very beginning, and only afterward is it shown ",
+   "dense_ndcg10": 0.0,
+   "diver_ndcg10": 0.0,
+   "n_relevant_top10_dense": 0,
+   "n_relevant_top10_diver": 0,
+   "ranked_top10": [
+    "hsm/13038_f896c3f75630a32c_79.txt",
+    "hsm/18565_c1b0d08161be4ae2_14.txt",
+    "hsm/18565_91a906f1130bc7d8_133.txt",
+    "hsm/18565_ac19d90b5c5a5b18_249.txt",
+    "hsm/18346_073e242471eef3e7_172.txt",
+    "hsm/13038_f896c3f75630a32c_59.txt",
+    "hsm/18565_c1b0d08161be4ae2_87.txt",
+    "hsm/18565_b37e25eb9ea6129c_229.txt",
+    "hsm/13038_1a66fdc58491f9be_327.txt",
+    "hsm/11097_9ca8f9f7eab9d017_138.txt"
+   ],
+   "dense_top10": [
+    "hsm/18931_db9c0f2f4b6f960d_3037.txt",
+    "hsm/18565_c1b0d08161be4ae2_121.txt",
+    "hsm/18565_c1b0d08161be4ae2_14.txt",
+    "hsm/19033_88eee4e5a03dcc26_5.txt",
+    "hsm/18565_b37e25eb9ea6129c_229.txt",
+    "hsm/18565_91a906f1130bc7d8_133.txt",
+    "hsm/18565_ac19d90b5c5a5b18_249.txt",
+    "hsm/13038_1a66fdc58491f9be_327.txt",
+    "hsm/13081_6170653856c172d1_8.txt",
+    "hsm/11097_9ca8f9f7eab9d017_138.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 5,  \"[2]\": 3,  \"[3]\": 8,  \"[4]\": 6,  \"[5]\": 7,  \"[6]\": 8,  \"[7]\": 8,  \"[8]\": 7,  \"[9]\": 6,  \"[10]\": 7,  \"[11]\": 5,  \"[12]\": 6,  \"[13]\": 5,  \"[14]\": 8,  \"[15]\": 9,  \"[16]\": 7,  \"[17]\": 8,  \"[18]\": 7,  \"[19]\": 7,  \"[20]\": 8}\n```\n</answer> <reason>\nThe user is looking for a survey or documents"
+    }
+   ]
+  },
+  {
+   "domain": "hsm",
+   "qid": "19010_649",
+   "n_docs": 20,
+   "query": "Historical precedents for multiple independent theories converging on the same dimensionless constant before experimental confirmation? In the history of science, there are cases where disparate theoretical frameworks predicted the same numerical value for a fundamental constant, sometimes years before precise measurements confirmed (or refuted) it. For example: The Greisen\u2013Zatsepin\u2013Kuzmin (GZK) c",
+   "dense_ndcg10": 0.0,
+   "diver_ndcg10": 0.0,
+   "n_relevant_top10_dense": 0,
+   "n_relevant_top10_diver": 0,
+   "ranked_top10": [
+    "hsm/18931_db9c0f2f4b6f960d_0.txt",
+    "hsm/18931_33c4d199fa2059a6_33.txt",
+    "hsm/3215_ba7e25b159ffb346_11.txt",
+    "hsm/18931_33c4d199fa2059a6_79.txt",
+    "hsm/e9bd29d2_21642.txt",
+    "hsm/18931_33c4d199fa2059a6_106.txt",
+    "hsm/18931_db9c0f2f4b6f960d_981.txt",
+    "hsm/2435_d2a06d39bb20dcfc_1258.txt",
+    "hsm/18894_011e6e9249420f99_265.txt",
+    "hsm/18931_33c4d199fa2059a6_80.txt"
+   ],
+   "dense_top10": [
+    "hsm/18931_33c4d199fa2059a6_106.txt",
+    "hsm/18931_db9c0f2f4b6f960d_1285.txt",
+    "hsm/18931_33c4d199fa2059a6_33.txt",
+    "hsm/18931_33c4d199fa2059a6_80.txt",
+    "hsm/18565_b37e25eb9ea6129c_395.txt",
+    "hsm/13540_34b0ba78ddd01800_162.txt",
+    "hsm/18931_db9c0f2f4b6f960d_981.txt",
+    "hsm/e9bd29d2_21642.txt",
+    "hsm/2435_d2a06d39bb20dcfc_1258.txt",
+    "hsm/663e47ea_0197.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 5,  \"[2]\": 3,  \"[3]\": 8,  \"[4]\": 4,  \"[5]\": 1,  \"[6]\": 2,  \"[7]\": 5,  \"[8]\": 6,  \"[9]\": 5,  \"[10]\": 3,  \"[11]\": 7,  \"[12]\": 4,  \"[13]\": 1,  \"[14]\": 2,  \"[15]\": 5,  \"[16]\": 7,  \"[17]\": 1,  \"[18]\": 2,  \"[19]\": 3,  \"[20]\": 9}\n```\n</answer> <reason>\nThe user is looking for historical examples o"
+    }
+   ]
+  },
+  {
+   "domain": "iota",
+   "qid": "2497_799",
+   "n_docs": 20,
+   "query": "How long do Zero Value Transactions last? Let s say we have some critical information stored as Zero Value transactions on the Tangle. How long does it last? Which robust approaches do you recommend to keep a copy of those transactions? I am using the testnet.",
+   "dense_ndcg10": 0.09803928583135704,
+   "diver_ndcg10": 0.5087403079104241,
+   "n_relevant_top10_dense": 1,
+   "n_relevant_top10_diver": 2,
+   "ranked_top10": [
+    "iota/d3459a40_0171.txt",
+    "iota/22908adb_0844.txt",
+    "iota/f3c561ea_0173.txt",
+    "iota/a45aeeae_10355.txt",
+    "iota/bd8c4b46_0841.txt",
+    "iota/311_27038cf3b633068a_278.txt",
+    "iota/2f0afb55_0847.txt",
+    "iota/311_abde77d43fc167ed_5.txt",
+    "iota/c8ba1c83_10214.txt",
+    "iota/311_27038cf3b633068a_319.txt"
+   ],
+   "dense_top10": [
+    "iota/bd8c4b46_0841.txt",
+    "iota/311_27038cf3b633068a_278.txt",
+    "iota/a45aeeae_10355.txt",
+    "iota/2f0afb55_0847.txt",
+    "iota/311_abde77d43fc167ed_5.txt",
+    "iota/c8ba1c83_10214.txt",
+    "iota/311_27038cf3b633068a_319.txt",
+    "iota/311_27038cf3b633068a_426.txt",
+    "iota/22908adb_0844.txt",
+    "iota/f3c561ea_0173.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 5,  \"[2]\": 3,  \"[3]\": 8,  \"[4]\": 3,  \"[5]\": 3,  \"[6]\": 3,  \"[7]\": 3,  \"[8]\": 3,  \"[9]\": 9,  \"[10]\": 9,  \"[11]\": 10,  \"[12]\": 3,  \"[13]\": 3,  \"[14]\": 3,  \"[15]\": 3,  \"[16]\": 3,  \"[17]\": 3,  \"[18]\": 3,  \"[19]\": 3,  \"[20]\": 3}\n```\n</answer> <reason>\nThe user is asking two main questions:\n1.  H"
+    }
+   ]
+  },
+  {
+   "domain": "iota",
+   "qid": "2049_801",
+   "n_docs": 20,
+   "query": "What has been the growth rate of tangle confirmation rate until today? I am curious to understand how the tangle has improved in terms of confirmation rate since its inception. Are there any statistics which show this? A positive growth is definitely a good sign. And if the differential of this growth rate is also positive its an even better sign.",
+   "dense_ndcg10": 0.0,
+   "diver_ndcg10": 0.39806284658828084,
+   "n_relevant_top10_dense": 0,
+   "n_relevant_top10_diver": 2,
+   "ranked_top10": [
+    "iota/5835fd65_0231.txt",
+    "iota/17b83a4d_9748.txt",
+    "iota/540687f8_9664.txt",
+    "iota/bb5c690a_10213.txt",
+    "iota/9054d515_10103.txt",
+    "iota/22908adb_0844.txt",
+    "iota/f3c561ea_0173.txt",
+    "iota/045740a1_0226.txt",
+    "iota/46867ec4_10095.txt",
+    "iota/79e9bdbb_10096.txt"
+   ],
+   "dense_top10": [
+    "iota/bb5c690a_10213.txt",
+    "iota/46867ec4_10095.txt",
+    "iota/815e237a_10321.txt",
+    "iota/449bc1e1_10035.txt",
+    "iota/79e9bdbb_10096.txt",
+    "iota/21a954f7_9707.txt",
+    "iota/9054d515_10103.txt",
+    "iota/17b83a4d_9748.txt",
+    "iota/22908adb_0844.txt",
+    "iota/f3c561ea_0173.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 5,  \"[2]\": 3,  \"[3]\": 1,  \"[4]\": 1,  \"[5]\": 3,  \"[6]\": 2,  \"[7]\": 4,  \"[8]\": 7,  \"[9]\": 4,  \"[10]\": 4,  \"[11]\": 3,  \"[12]\": 1,  \"[13]\": 2,  \"[14]\": 4,  \"[15]\": 3,  \"[16]\": 9,  \"[17]\": 2,  \"[18]\": 2,  \"[19]\": 6,  \"[20]\": 2}\n}\n```\n</answer> <reason>\nThe user is asking for the growth rate of t"
+    }
+   ]
+  },
+  {
+   "domain": "law",
+   "qid": "112346_808",
+   "n_docs": 20,
+   "query": "When do changes to laws come into force - particularly to rented homes? Building regulations relating to rental properties frequently change. When they change do they normally apply from the moment the law is passed, or the start of the next tenancy, or is the enforcement date specified in the law itself? Examples Fire regulations used to specify one smoke detector per property, now they require o",
+   "dense_ndcg10": 0.14606834984270645,
+   "diver_ndcg10": 0.44728873736978103,
+   "n_relevant_top10_dense": 1,
+   "n_relevant_top10_diver": 3,
+   "ranked_top10": [
+    "law/6b1dee42_0039.txt",
+    "law/051ef0b9_0001.txt",
+    "law/a6f8a4c2_0019.txt",
+    "law/746bae9a_0016.txt",
+    "law/1d6d3fd5_0002.txt",
+    "law/09f36441_0014.txt",
+    "law/601ae02f_40644.txt",
+    "law/11db86f3_40621.txt",
+    "law/fcb88a57_0003.txt",
+    "law/cd28c8b3_0013.txt"
+   ],
+   "dense_top10": [
+    "law/cd28c8b3_0013.txt",
+    "law/6f3a8619_0006.txt",
+    "law/6b1dee42_0039.txt",
+    "law/051ef0b9_0001.txt",
+    "law/112346_2b9c2504c50e4218_1.txt",
+    "law/a6f8a4c2_0019.txt",
+    "law/112346_2b9c2504c50e4218_0.txt",
+    "law/fdfc0d81_40597.txt",
+    "law/746bae9a_0016.txt",
+    "law/c6b3e334_0117.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 7,  \"[2]\": 3,  \"[3]\": 8,  \"[4]\": 8,  \"[5]\": 7,  \"[6]\": 8,  \"[7]\": 7,  \"[8]\": 3,  \"[9]\": 8,  \"[10]\": 7,  \"[11]\": 1,  \"[12]\": 8,  \"[13]\": 8,  \"[14]\": 3,  \"[15]\": 2,  \"[16]\": 7,  \"[17]\": 3,  \"[18]\": 8,  \"[19]\": 8,  \"[20]\": 8}\n```\n</answer> <reason>\nThe user's query asks when changes to laws af"
+    }
+   ]
+  },
+  {
+   "domain": "law",
+   "qid": "111149_809",
+   "n_docs": 20,
+   "query": "Can copyright be claimed retroactively on works that went unregistered back when copyright had to be registered? As I understand it, copyright is automatic. Anyone who creates a work has copyright over it, whether they're a big movie studio, or an amateur writer writing short stories in their bedroom. Copyright doesn't have to be registered. But this wasn't always the way. Until recently, big famo",
+   "dense_ndcg10": 0.5531464700081437,
+   "diver_ndcg10": 0.44615333764087994,
+   "n_relevant_top10_dense": 2,
+   "n_relevant_top10_diver": 2,
+   "ranked_top10": [
+    "law/b00e7d14_0296.txt",
+    "law/3c90b882_40800.txt",
+    "law/09021a0a_40783.txt",
+    "law/99c28b3d_40742.txt",
+    "law/231893b1_40738.txt",
+    "law/103412_ff49448da08dc753_5.txt",
+    "law/7a81664a_41114.txt",
+    "law/d4f5f116_0297.txt",
+    "law/e06e5dc3_40743.txt",
+    "law/103412_585ab1a4f9c9845b_1.txt"
+   ],
+   "dense_top10": [
+    "law/d4f5f116_0297.txt",
+    "law/b00e7d14_0296.txt",
+    "law/a086d8a8_41038.txt",
+    "law/99c28b3d_40742.txt",
+    "law/231893b1_40738.txt",
+    "law/71181215_42638.txt",
+    "law/103412_ff49448da08dc753_7.txt",
+    "law/103412_ff49448da08dc753_5.txt",
+    "law/6144d550_40773.txt",
+    "law/ce1efa02_6487.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 7,  \"[2]\": 9,  \"[3]\": 1,  \"[4]\": 8,  \"[5]\": 8,  \"[6]\": 5,  \"[7]\": 3,  \"[8]\": 8,  \"[9]\": 4,  \"[10]\": 5,  \"[11]\": 8,  \"[12]\": 9,  \"[13]\": 9,  \"[14]\": 2,  \"[15]\": 7,  \"[16]\": 3,  \"[17]\": 2,  \"[18]\": 6,  \"[19]\": 6,  \"[20]\": 5}\n}\n```\n</answer> <reason>\nThe user's query asks about the possibility"
+    }
+   ]
+  },
+  {
+   "domain": "monero",
+   "qid": "14461_843",
+   "n_docs": 20,
+   "query": "Stupid and fast question about mining monero with cpu Today I install monerod on Linux vm. It ask me if I want to mine it on idle, I say yes. My question is: suppose I start to mine it, my pc is on for 4 hours, and I don't mine nothing. Then I turn off it, next day when I turn on pc and re-start mining, is \"cumulative\" from the day before?",
+   "dense_ndcg10": 0.0,
+   "diver_ndcg10": 0.0,
+   "n_relevant_top10_dense": 0,
+   "n_relevant_top10_diver": 0,
+   "ranked_top10": [
+    "monero/7e1a7d57_13579.txt",
+    "monero/83c3106d_14314.txt",
+    "monero/cc4d060c_2385.txt",
+    "monero/42900581_81771.txt",
+    "monero/11933_ec54018d3d875853_0.txt",
+    "monero/f392ab46_81803.txt",
+    "monero/a5a59927_3268.txt",
+    "monero/28607cf8_81788.txt",
+    "monero/ead98dcc_81780.txt",
+    "monero/3262_e4ab806c61688ece_17.txt"
+   ],
+   "dense_top10": [
+    "monero/83c3106d_14314.txt",
+    "monero/28607cf8_81788.txt",
+    "monero/7e1a7d57_13579.txt",
+    "monero/ead98dcc_81780.txt",
+    "monero/3262_e4ab806c61688ece_0.txt",
+    "monero/3262_e4ab806c61688ece_17.txt",
+    "monero/3262_e4ab806c61688ece_3.txt",
+    "monero/ec93423b_81768.txt",
+    "monero/7ac699ad_2381.txt",
+    "monero/cc4d060c_2385.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 5,  \"[2]\": 3,  \"[3]\": 8,  \"[4]\": 3,  \"[5]\": 1,  \"[6]\": 3,  \"[7]\": 1,  \"[8]\": 3,  \"[9]\": 3,  \"[10]\": 5,  \"[11]\": 4,  \"[12]\": 2,  \"[13]\": 2,  \"[14]\": 1,  \"[15]\": 4,  \"[16]\": 1,  \"[17]\": 3,  \"[18]\": 4,  \"[19]\": 3,  \"[20]\": 4}\n```\n</answer> <reason>\nThe user's core intent is to understand if th"
+    }
+   ]
+  },
+  {
+   "domain": "monero",
+   "qid": "13968_846",
+   "n_docs": 20,
+   "query": "How does a view only wallet work and what is stored? In relation to blockchain scanning and disk usage, as well as disk space, how does a view only wallet work? Specifically: 1.) does the blockchain need to be scanned? 2.) how much free space is needed for storage? If the view only wallet is offline for an extended period of time and then the GUI is launched again, will it reflect transactions fro",
+   "dense_ndcg10": 0.1480409554829326,
+   "diver_ndcg10": 0.0,
+   "n_relevant_top10_dense": 1,
+   "n_relevant_top10_diver": 0,
+   "ranked_top10": [
+    "monero/90dfa115_9079.txt",
+    "monero/cc75b2d1_84826.txt",
+    "monero/a66c4210_84855.txt",
+    "monero/9111002b_81329.txt",
+    "monero/fc780149_14301.txt",
+    "monero/d474de5b_7447.txt",
+    "monero/0a0c52df_84761.txt",
+    "monero/ebd6f6b3_9078.txt",
+    "monero/560fde8f_81419.txt",
+    "monero/10a094aa_10120.txt"
+   ],
+   "dense_top10": [
+    "monero/162292c1_81349.txt",
+    "monero/a220d30b_83209.txt",
+    "monero/fc780149_14301.txt",
+    "monero/d474de5b_7447.txt",
+    "monero/87a21232_81252.txt",
+    "monero/0b038a42_81238.txt",
+    "monero/afb00fb2_81242.txt",
+    "monero/9fc9a5de_0091.txt",
+    "monero/f9a22bf7_81343.txt",
+    "monero/0a0c52df_84761.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 7,  \"[2]\": 3,  \"[3]\": 8,  \"[4]\": 8,  \"[5]\": 5,  \"[6]\": 5,  \"[7]\": 5,  \"[8]\": 5,  \"[9]\": 7,  \"[10]\": 8,  \"[11]\": 8,  \"[12]\": 8,  \"[13]\": 7,  \"[14]\": 9,  \"[15]\": 8,  \"[16]\": 9,  \"[17]\": 9,  \"[18]\": 9,  \"[19]\": 5,  \"[20]\": 5}\n```\n</answer> <reason>\nThe user is asking for a detailed explanation"
+    }
+   ]
+  },
+  {
+   "domain": "politics",
+   "qid": "93884_908",
+   "n_docs": 20,
+   "query": "When was the last time U.S. Congress overrode a president's veto? The U.S. Constitution gives Congress the ability to override a president's veto with a supermajority (\u2154) vote. What are the recent, say, 10 times the U.S. Congress overrode a president's veto?",
+   "dense_ndcg10": 0.0,
+   "diver_ndcg10": 0.0,
+   "n_relevant_top10_dense": 0,
+   "n_relevant_top10_diver": 0,
+   "ranked_top10": [
+    "politics/3d8008ec_0150.txt",
+    "politics/93884_450ae916f09a1b20_3.txt",
+    "politics/93884_d36c28a6ea3522b0_0.txt",
+    "politics/471be15e_0026.txt",
+    "politics/89753_4d962eade83652fb_16.txt",
+    "politics/2bbc66d7_0117.txt",
+    "politics/93884_e0d984b19d9237d6_4.txt",
+    "politics/93884_450ae916f09a1b20_1.txt",
+    "politics/f3aa147e_0030.txt",
+    "politics/93884_10a48f8d1d561b7d_8.txt"
+   ],
+   "dense_top10": [
+    "politics/93884_450ae916f09a1b20_3.txt",
+    "politics/89753_4d962eade83652fb_16.txt",
+    "politics/3d8008ec_0150.txt",
+    "politics/93884_450ae916f09a1b20_1.txt",
+    "politics/f3aa147e_0030.txt",
+    "politics/93884_10a48f8d1d561b7d_8.txt",
+    "politics/89753_4d962eade83652fb_17.txt",
+    "politics/a9d4b0e3_0027.txt",
+    "politics/93884_d36c28a6ea3522b0_0.txt",
+    "politics/471be15e_0026.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 5,  \"[2]\": 3,  \"[3]\": 8,  \"[4]\": 2,  \"[5]\": 2,  \"[6]\": 2,  \"[7]\": 2,  \"[8]\": 1,  \"[9]\": 4,  \"[10]\": 4,  \"[11]\": 3,  \"[12]\": 3,  \"[13]\": 1,  \"[14]\": 1,  \"[15]\": 1,  \"[16]\": 2,  \"[17]\": 1,  \"[18]\": 1,  \"[19]\": 1,  \"[20]\": 2}\n```\n</answer> <reason>\nThe user is asking for two main things: 1) Th"
+    }
+   ]
+  },
+  {
+   "domain": "politics",
+   "qid": "93839_909",
+   "n_docs": 20,
+   "query": "How do I track a bill that has been passed out of committee? This is a general question about the U.S. House of Representatives, but for specifics I will use HR 1320 of the 119th U.S. Congress. This bill was introduced Feb 13, 2025 and referred to the Committee on Education and Workforce. It passed out of committee on July 23, 2025. My question is, \"Now what?\" The standard answer is, \"It goes to t",
+   "dense_ndcg10": 0.40179981797758046,
+   "diver_ndcg10": 0.43734888382569426,
+   "n_relevant_top10_dense": 2,
+   "n_relevant_top10_diver": 2,
+   "ranked_top10": [
+    "politics/57cdcd40_0465.txt",
+    "politics/ea9fde1b_0159.txt",
+    "politics/93884_025733363b0f7915_2.txt",
+    "politics/b0a232af_0013.txt",
+    "politics/a7598213_0012.txt",
+    "politics/93884_025733363b0f7915_3.txt",
+    "politics/89303_792dd87cf839f3fd_325.txt",
+    "politics/83771_351c2b8f26aa7b2c_51.txt",
+    "politics/0c6ead4c_0157.txt",
+    "politics/83771_351c2b8f26aa7b2c_28.txt"
+   ],
+   "dense_top10": [
+    "politics/57cdcd40_0465.txt",
+    "politics/b0a232af_0013.txt",
+    "politics/ea9fde1b_0159.txt",
+    "politics/a7598213_0012.txt",
+    "politics/93884_025733363b0f7915_3.txt",
+    "politics/0c6ead4c_0157.txt",
+    "politics/83771_351c2b8f26aa7b2c_28.txt",
+    "politics/89303_792dd87cf839f3fd_325.txt",
+    "politics/93884_025733363b0f7915_2.txt",
+    "politics/17e76257_182743.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 9,  \"[2]\": 3,  \"[3]\": 8,  \"[4]\": 3,  \"[5]\": 3,  \"[6]\": 2,  \"[7]\": 2,  \"[8]\": 3,  \"[9]\": 4,  \"[10]\": 1,  \"[11]\": 1,  \"[12]\": 1,  \"[13]\": 1,  \"[14]\": 1,  \"[15]\": 3,  \"[16]\": 1,  \"[17]\": 1,  \"[18]\": 1,  \"[19]\": 1,  \"[20]\": 1}\n```\n</answer> <reason>\nThe user is asking for specific details on ho"
+    }
+   ]
+  },
+  {
+   "domain": "quant",
+   "qid": "84061_1058",
+   "n_docs": 20,
+   "query": "Should Earned or Received date be used in bond valuation discount factor Is there a market convention for which date should be used when calculating time to cash flow in a discount function? In practice bond cash flow dates often differ between earned and received dates. Such as Roll conventions on weekends and holidays when interest is calculated up until the scheduled date but payment rolls to t",
+   "dense_ndcg10": 0.44149241373678083,
+   "diver_ndcg10": 0.5855700749881525,
+   "n_relevant_top10_dense": 2,
+   "n_relevant_top10_diver": 2,
+   "ranked_top10": [
+    "quant/e9ebe564_0001.txt",
+    "quant/80937_cefc04f23f421222_830.txt",
+    "quant/755f87a3_0002.txt",
+    "quant/6548c682_26658.txt",
+    "quant/78042_fa82b31999d8bb06_397.txt",
+    "quant/ca4accdc_3131.txt",
+    "quant/78042_fa82b31999d8bb06_407.txt",
+    "quant/78042_fa82b31999d8bb06_408.txt",
+    "quant/78042_fa82b31999d8bb06_431.txt",
+    "quant/78042_fa82b31999d8bb06_432.txt"
+   ],
+   "dense_top10": [
+    "quant/ca4accdc_3131.txt",
+    "quant/fc29efc2_0004.txt",
+    "quant/e9ebe564_0001.txt",
+    "quant/78042_fa82b31999d8bb06_407.txt",
+    "quant/034f689f_0097.txt",
+    "quant/80937_cefc04f23f421222_209.txt",
+    "quant/78042_fa82b31999d8bb06_408.txt",
+    "quant/78042_fa82b31999d8bb06_431.txt",
+    "quant/80937_cefc04f23f421222_830.txt",
+    "quant/6548c682_26658.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 5,  \"[2]\": 3,  \"[3]\": 8,  \"[4]\": 5,  \"[5]\": 3,  \"[6]\": 3,  \"[7]\": 5,  \"[8]\": 5,  \"[9]\": 7,  \"[10]\": 6,  \"[11]\": 7,  \"[12]\": 5,  \"[13]\": 5,  \"[14]\": 3,  \"[15]\": 4,  \"[16]\": 3,  \"[17]\": 3,  \"[18]\": 4,  \"[19]\": 3,  \"[20]\": 6}\n```\n</answer> <reason>\nThe user is asking about the convention for d"
+    }
+   ]
+  },
+  {
+   "domain": "quant",
+   "qid": "81021_1060",
+   "n_docs": 20,
+   "query": "Using Sharpe ratio as a measure of performance seems misleading By defintion, doesn't the Sharpe ratio use a denominator that is the risk, and that is the risk that's taken up until right now, and if only the risk changes and nothing else, the ratio for an investment will change? If that is true, can I argue that it is a misleading measure of the investor's competence because the investor can only",
+   "dense_ndcg10": 0.24630238874073,
+   "diver_ndcg10": 0.123151194370365,
+   "n_relevant_top10_dense": 1,
+   "n_relevant_top10_diver": 1,
+   "ranked_top10": [
+    "quant/772e1877_2323.txt",
+    "quant/276197f0_26878.txt",
+    "quant/ec3d022c_26890.txt",
+    "quant/76f39e18_27255.txt",
+    "quant/7ab24321_0628.txt",
+    "quant/81021_aeb69d45d82b71db_0.txt",
+    "quant/81021_aeb69d45d82b71db_8.txt",
+    "quant/9ff45318_0624.txt",
+    "quant/81021_aeb69d45d82b71db_12.txt",
+    "quant/33352785_26894.txt"
+   ],
+   "dense_top10": [
+    "quant/81021_11bc818285f29a2b_0.txt",
+    "quant/50bb0f99_0626.txt",
+    "quant/772e1877_2323.txt",
+    "quant/d59a67f8_26876.txt",
+    "quant/5d3b974e_26884.txt",
+    "quant/6e3a54a8_26770.txt",
+    "quant/276197f0_26878.txt",
+    "quant/07ef339b_26877.txt",
+    "quant/97348c36_27248.txt",
+    "quant/81021_aeb69d45d82b71db_12.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 1,\n  \"[2]\": 3,\n  \"[3]\": 8,\n  \"[4]\": 3,\n  \"[5]\": 3,\n  \"[6]\": 3,\n  \"[7]\": 8,\n  \"[8]\": 3,\n  \"[9]\": 3,\n  \"[10]\": 4,\n  \"[11]\": 5,\n  \"[12]\": 6,\n  \"[13]\": 3,\n  \"[14]\": 3,\n  \"[15]\": 7,\n  \"[16]\": 6,\n  \"[17]\": 5,\n  \"[18]\": 3,\n  \"[19]\": 7,\n  \"[20]\": 4}\n}\n```\n</answer> <reason>\nThe user's query questio"
+    }
+   ]
+  },
+  {
+   "domain": "travel",
+   "qid": "201618_1092",
+   "n_docs": 20,
+   "query": "Is 45 min enough time to switch American Airlines flights at Chicago O'Hare? An acquiantance of mine is looking to fly from Boston (BOS) through Chicago O'Hare (ORD) to Omaha Eppley (OMA), with American Airlines. The first flight is AA 4768, landing at 15:13, and the second flight is AA 4433, departing 45 minutes later, at 15:58. We are worried whether this is a sufficient time window for the flig",
+   "dense_ndcg10": 0.0,
+   "diver_ndcg10": 0.0,
+   "n_relevant_top10_dense": 0,
+   "n_relevant_top10_diver": 0,
+   "ranked_top10": [
+    "travel/d88677e0_0139.txt",
+    "travel/185953_bf2b56d9f6718831_1.txt",
+    "travel/f6107576_177069.txt",
+    "travel/08ffb875_177068.txt",
+    "travel/9a753346_16701.txt",
+    "travel/02040fca_16698.txt",
+    "travel/0dc3edc9_16709.txt",
+    "travel/8c671900_23305.txt",
+    "travel/e56ff9fe_0003.txt",
+    "travel/b4dad109_18933.txt"
+   ],
+   "dense_top10": [
+    "travel/d88677e0_0139.txt",
+    "travel/b4dad109_18933.txt",
+    "travel/185953_bf2b56d9f6718831_1.txt",
+    "travel/f6107576_177069.txt",
+    "travel/02040fca_16698.txt",
+    "travel/08ffb875_177068.txt",
+    "travel/0dc3edc9_16709.txt",
+    "travel/fa001ea3_18950.txt",
+    "travel/9a753346_16701.txt",
+    "travel/8c671900_23305.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \n  \"[1]\": 9,  \n  \"[2]\": 3,  \n  \"[3]\": 8,  \n  \"[4]\": 7,  \n  \"[5]\": 5,  \n  \"[6]\": 7,  \n  \"[7]\": 5,  \n  \"[8]\": 2,  \n  \"[9]\": 6,  \n  \"[10]\": 4,  \n  \"[11]\": 1,  \n  \"[12]\": 1,  \n  \"[13]\": 2,  \n  \"[14]\": 2,  \n  \"[15]\": 3,  \n  \"[16]\": 3,  \n  \"[17]\": 3,  \n  \"[18]\": 1,  \n  \"[19]\": 0,  \n  \"[20]\": 4  \n}  \n```"
+    }
+   ]
+  },
+  {
+   "domain": "travel",
+   "qid": "201585_1093",
+   "n_docs": 20,
+   "query": "What can I do with a United travel certificate (ETC) when I don't live in the US? Long story short, I don't live in the US, but United royally messed up a recent flight and gave me a sizable electronic travel certificate (ETC) in compensation. The catches are that it expires in a year and is valid only on \"United, United Express and partner-operated flights\", which per cursory research specificall",
+   "dense_ndcg10": 0.20210734650054757,
+   "diver_ndcg10": 0.2960819109658652,
+   "n_relevant_top10_dense": 1,
+   "n_relevant_top10_diver": 1,
+   "ranked_top10": [
+    "travel/f408f2b0_169992.txt",
+    "travel/22d5469c_0143.txt",
+    "travel/170adc8a_169989.txt",
+    "travel/1423404a_169995.txt",
+    "travel/ead58964_170001.txt",
+    "travel/be155ade_170002.txt",
+    "travel/0f608594_170012.txt",
+    "travel/cf73e440_170006.txt",
+    "travel/e327c80e_0596.txt",
+    "travel/f5ea25c2_170032.txt"
+   ],
+   "dense_top10": [
+    "travel/ead58964_170001.txt",
+    "travel/e327c80e_0596.txt",
+    "travel/f408f2b0_169992.txt",
+    "travel/22d5469c_0143.txt",
+    "travel/4a51f3c4_170030.txt",
+    "travel/e4c0fddc_170008.txt",
+    "travel/0f608594_170012.txt",
+    "travel/0285b944_170000.txt",
+    "travel/719bcd54_170011.txt",
+    "travel/170adc8a_169989.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \n  \"[1]\": 5,  \n  \"[2]\": 3,  \n  \"[3]\": 8,  \n  \"[4]\": 8,  \n  \"[5]\": 2,  \n  \"[6]\": 2,  \n  \"[7]\": 4,  \n  \"[8]\": 2,  \n  \"[9]\": 2,  \n  \"[10]\": 7,  \n  \"[11]\": 7,  \n  \"[12]\": 5,  \n  \"[13]\": 3,  \n  \"[14]\": 1,  \n  \"[15]\": 3,  \n  \"[16]\": 2,  \n  \"[17]\": 2,  \n  \"[18]\": 2,  \n  \"[19]\": 4,  \n  \"[20]\": 3  \n}  \n```"
+    }
+   ]
+  },
+  {
+   "domain": "workplace",
+   "qid": "202473_1192",
+   "n_docs": 20,
+   "query": "How do I push back on an impossible scope? I\u2019m a relatively new developer at my current company. Recently, management decided to cancel a very expensive software license that another department heavily relies on. Instead of renewing it, they\u2019ve tasked us (2 developers) with rebuilding the functionality from scratch. The issue is that the technical documentation we\u2019ve been given is basically non-ex",
+   "dense_ndcg10": 0.0,
+   "diver_ndcg10": 0.0,
+   "n_relevant_top10_dense": 0,
+   "n_relevant_top10_diver": 0,
+   "ranked_top10": [
+    "workplace/f2492a6d_0186.txt",
+    "workplace/202473_02c2f4b3d0be4a87_0.txt",
+    "workplace/202473_c9dfd27a693ef7cd_75.txt",
+    "workplace/202473_c9dfd27a693ef7cd_73.txt",
+    "workplace/1729a12c_0174.txt",
+    "workplace/202473_948283a6011d7579_4.txt",
+    "workplace/d241a503_0018.txt",
+    "workplace/fbd3d510_0152.txt",
+    "workplace/202473_948283a6011d7579_3.txt",
+    "workplace/8d77ff37_0071.txt"
+   ],
+   "dense_top10": [
+    "workplace/f2492a6d_0186.txt",
+    "workplace/cc868489_0003.txt",
+    "workplace/202473_c9dfd27a693ef7cd_75.txt",
+    "workplace/8d77ff37_0071.txt",
+    "workplace/1729a12c_0174.txt",
+    "workplace/202473_948283a6011d7579_4.txt",
+    "workplace/202473_02c2f4b3d0be4a87_6.txt",
+    "workplace/202473_83568cd152014c0d_17.txt",
+    "workplace/3820467d_3259.txt",
+    "workplace/202473_02c2f4b3d0be4a87_0.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 9,\n  \"[2]\": 3,\n  \"[3]\": 8,\n  \"[4]\": 5,\n  \"[5]\": 7,\n  \"[6]\": 7,\n  \"[7]\": 2,\n  \"[8]\": 1,\n  \"[9]\": 2,\n  \"[10]\": 9,\n  \"[11]\": 1,\n  \"[12]\": 7,\n  \"[13]\": 6,\n  \"[14]\": 6,\n  \"[15]\": 4,\n  \"[16]\": 1,\n  \"[17]\": 3,\n  \"[18]\": 5,\n  \"[19]\": 4,\n  \"[20]\": 8}\n}\n```\n</answer> <reason>\nThe user is a new develo"
+    }
+   ]
+  },
+  {
+   "domain": "workplace",
+   "qid": "200292_1193",
+   "n_docs": 20,
+   "query": "Waiting for Background Verification Before Resigning: How to Handle Offer Acceptance and Notice Period Timing? (4 year's exp Capgemini India) I've recently accepted a job offer from a CapG , but I haven't resigned from my current position yet. The reason I'm holding off on resigning is that another recruiter from the CapG informed me that if my background verification isn't successful, the job off",
+   "dense_ndcg10": 0.38685280723454163,
+   "diver_ndcg10": 1.0,
+   "n_relevant_top10_dense": 1,
+   "n_relevant_top10_diver": 1,
+   "ranked_top10": [
+    "workplace/5be016ad_0200.txt",
+    "workplace/cd11e48b_0584.txt",
+    "workplace/5abe9672_0554.txt",
+    "workplace/181803_bc9e7e3f9e6b3f22_2.txt",
+    "workplace/4d81f8e7_6804.txt",
+    "workplace/75746c11_11894.txt",
+    "workplace/020638fd_62522.txt",
+    "workplace/200292_5e1ba9edb0f8550d_0.txt",
+    "workplace/4917d383_64459.txt",
+    "workplace/97635ba1_6222.txt"
+   ],
+   "dense_top10": [
+    "workplace/5abe9672_0554.txt",
+    "workplace/f5803706_6708.txt",
+    "workplace/cd11e48b_0584.txt",
+    "workplace/ee34b7b5_6910.txt",
+    "workplace/5be016ad_0200.txt",
+    "workplace/394c2cc1_6220.txt",
+    "workplace/200292_5e1ba9edb0f8550d_0.txt",
+    "workplace/181803_c6b1c8b9b9cf661a_0.txt",
+    "workplace/181803_bc9e7e3f9e6b3f22_2.txt",
+    "workplace/75746c11_11894.txt"
+   ],
+   "groups": [
+    {
+     "group_start": 0,
+     "n": 20,
+     "parsed": 20,
+     "gen": "  \"[1]\": 7,  \"[2]\": 3,  \"[3]\": 8,  \"[4]\": 2,  \"[5]\": 9,  \"[6]\": 3,  \"[7]\": 5,  \"[8]\": 3,  \"[9]\": 7,  \"[10]\": 6,  \"[11]\": 4,  \"[12]\": 5,  \"[13]\": 2,  \"[14]\": 2,  \"[15]\": 6,  \"[16]\": 2,  \"[17]\": 7,  \"[18]\": 5,  \"[19]\": 2,  \"[20]\": 2}\n```\n</answer> <reason>\nThe user is facing a dilemma about accepting "
+    }
+   ]
+  }
+ ]
+}

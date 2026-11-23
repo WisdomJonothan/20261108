@@ -41,6 +41,25 @@ def md_number(p, needle):
 
 
 CLAIMS = [
+    # --- review round 3 (2026-11-24) ----------------------------------------
+    ("nDCG-loss CE, fixed pair mask (dev)", 0.3514,
+     lambda: dom_macro("aggregate_ndcgfix_dev.json"), "aggregate_ndcgfix_dev.json", False),
+    ("possum CE on the same 969 groups (dev)", 0.3572,
+     lambda: dom_macro("aggregate_fallp_dev.json"), "aggregate_fallp_dev.json", False),
+    ("specialist group reranker, 65 queries", 0.2443,
+     lambda: jload("analysis/diver_top20_65.json")["diver_macro"], "analysis/diver_top20_65.json", False),
+    ("perfect judgement inside the six judged pairs", 0.4019,
+     lambda: jload("replacement_v2/oracle_ladder_dev.json")["perfect_six"],
+     "replacement_v2/oracle_ladder_dev.json", False),
+    ("perfect selection among accepted actions", 0.3803,
+     lambda: jload("replacement_v2/oracle_ladder_dev.json")["select_accepted"],
+     "replacement_v2/oracle_ladder_dev.json", False),
+    ("step support, gold docs under their own requirement", 0.3667,
+     lambda: jload("analysis/step_support_si.json")["summary"]["pos_S_own"],
+     "analysis/step_support_si.json", False),
+    ("step support, gold docs under a sibling requirement", 0.2612,
+     lambda: jload("analysis/step_support_si.json")["summary"]["pos_S_other_step"],
+     "analysis/step_support_si.json", False),
     # --- negative-label audit and facet recall (2026-11-23) ------------------
     ("CE without hard negatives", 0.3308,
      lambda: dom_macro("aggregate_nohard_dev.json"), "aggregate_nohard_dev.json", False),
