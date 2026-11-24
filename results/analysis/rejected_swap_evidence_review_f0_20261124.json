@@ -1,0 +1,120 @@
+{
+ "protocol": "Single analyst read the question, full stored challenger document, exact excerpts, and any step instructions for every rejected challenger-only pair. Qrels and historical decisions were visible. The categories capture support visibility, not corrected labels.",
+ "definitions": {
+  "visible": "The original excerpt already gives useful support for an answer or a specifically annotated sourcing step.",
+  "outside": "The main relevant contribution identified in the stored document lies beyond the selected excerpt.",
+  "mixed": "The excerpt provides useful support and the omitted text supplies additional concrete evidence.",
+  "weak": "The full stored document offers background or related facts and lacks a clear contribution to the specific request."
+ },
+ "pairs": 20,
+ "queries": 19,
+ "counts": {
+  "weak": 8,
+  "visible": 7,
+  "outside": 2,
+  "mixed": 3
+ },
+ "one_order_above_half": 12,
+ "records": [
+  {
+   "case_id": "bitcoin/118297_59/4b3a42e2_11232.txt",
+   "classification": "weak",
+   "reason": "The stored document describes average fees and later fee spikes. It does not identify the first fee-paying transaction or the proposed fee-share milestone."
+  },
+  {
+   "case_id": "bitcoin/97009_90/f1e77272_18591.txt",
+   "classification": "visible",
+   "reason": "The full excerpt explains independent node validation and propagation. The incumbent describes a closely related validation process."
+  },
+  {
+   "case_id": "cardano/11465_101/45863ee3_0059.txt",
+   "classification": "weak",
+   "reason": "The full excerpt establishes one-second slots. It does not specify late-block validity, the tolerance parameter, or how latency is handled."
+  },
+  {
+   "case_id": "economics/56380_175/cb6af27e_4067.txt",
+   "classification": "weak",
+   "reason": "Both the excerpt and its remaining CBO text focus on a later projection. They do not resolve the specified 2017 projection's positive natural increase with subreplacement fertility."
+  },
+  {
+   "case_id": "history/58795_660/409c0b81_94646.txt",
+   "classification": "visible",
+   "reason": "The excerpt gives concrete medieval evidence of merchant wealth and expanding markets. The incumbent provides scholarly references that also address part of the question."
+  },
+  {
+   "case_id": "history/62720_602/5ebe2d0d_86723.txt",
+   "classification": "visible",
+   "reason": "The original window gives specific reasons to locate markets near castles and monasteries. The size or vendor-to-population ratio is absent."
+  },
+  {
+   "case_id": "history/63638_563/af125c22_79072.txt",
+   "classification": "outside",
+   "reason": "The excerpt is dominated by World War I. The omitted section supplies the interwar production and service chronology relevant to one annotated step."
+  },
+  {
+   "case_id": "history/65653_514/6c7bd261_70871.txt",
+   "classification": "weak",
+   "reason": "The stored document explains equal sovereignty upon admission. The application of a federal law to a territory before admission is unresolved."
+  },
+  {
+   "case_id": "history/66169_496/88dc80a8_68385.txt",
+   "classification": "visible",
+   "reason": "The full window identifies the original tour and its NASA report, relevant to the sourcing step. It leaves the omitted capital implicit."
+  },
+  {
+   "case_id": "history/66504_460/f9ef12b4_62870.txt",
+   "classification": "mixed",
+   "reason": "The excerpt contains the timeline and territorial advance. The omitted introduction adds why control of the Volga and transport hub mattered."
+  },
+  {
+   "case_id": "history/68684_393/21a84fe0_53393.txt",
+   "classification": "mixed",
+   "reason": "The excerpt establishes provenance and construction details. The text cuts off at a sentence documenting an actual working-life alteration."
+  },
+  {
+   "case_id": "history/68711_390/006552c6_52957.txt",
+   "classification": "outside",
+   "reason": "The excerpt states the failed Western seigneurial reaction and breaks off before the Eastern outcome. The omitted continuation supplies the East–West institutional explanation."
+  },
+  {
+   "case_id": "history/69718_334/250c9513_45152.txt",
+   "classification": "weak",
+   "reason": "The challenger describes a broad archive and NATO enlargement. The incumbent explicitly discusses opposition to Ukrainian independence in 1991."
+  },
+  {
+   "case_id": "history/71248_228/c76137ae_31538.txt",
+   "classification": "visible",
+   "reason": "The excerpt identifies the arrest narrative and the 1908 source. The incumbent provides a distinct newspaper account and discusses the uncertainty requested in the question."
+  },
+  {
+   "case_id": "history/71248_228/fcd790ad_31537.txt",
+   "classification": "mixed",
+   "reason": "The excerpt has the exact date of the 1908 source and the first stop. The omitted continuation describes the second encounter and being taken to the station."
+  },
+  {
+   "case_id": "history/74386_132/11c805a8_18000.txt",
+   "classification": "weak",
+   "reason": "The stored document discusses early road-sign conventions and a red-edged triangle. It does not establish the origin of the crossed-circle prohibition symbol."
+  },
+  {
+   "case_id": "history/74414_130/08d04599_17503.txt",
+   "classification": "weak",
+   "reason": "The challenger gives a recent defense of the wording. The incumbent contains the 1954 amendment and historical timeline."
+  },
+  {
+   "case_id": "history/79371_10/7b4cd419_1198.txt",
+   "classification": "weak",
+   "reason": "The stored text is about German cipher history. It does not document the meaning of the specific American telegram distribution instruction."
+  },
+  {
+   "case_id": "law/103723_833/ff377cb8_5460.txt",
+   "classification": "visible",
+   "reason": "The excerpt gives named UK law-firm practices, the dated 60-to-62 change, and retirement ages under 60. The incumbent offers a complementary U.S. comparison."
+  },
+  {
+   "case_id": "travel/191336_1131/07c5aa37_11043.txt",
+   "classification": "visible",
+   "reason": "The full excerpt explicitly counts both entry and exit days. Its support is general and leaves the overnight immigration scenario unresolved."
+  }
+ ]
+}

@@ -1,0 +1,7136 @@
+{
+ "reference_arm": "direct",
+ "reports": {
+  "extended_swap_context_f0_20261124.json": {
+   "summary": {
+    "annotated_queries": 308,
+    "annotated_domains": 13,
+    "frozen_coverage": 0.4745998245036937,
+    "arms": {
+     "external6": {
+      "coverage": 0.4774583274523192,
+      "paired_vs_reference": {
+       "point": -0.04220451352300668,
+       "ci95": [
+        -0.08877610569605432,
+        0.004536939468446318
+       ]
+      },
+      "steps_gained_vs_frozen": 6,
+      "steps_lost_vs_frozen": 1
+     },
+     "direct": {
+      "coverage": 0.5196628409753259,
+      "paired_vs_reference": {
+       "point": 0.0,
+       "ci95": [
+        0.0,
+        0.0
+       ]
+      },
+      "steps_gained_vs_frozen": 12,
+      "steps_lost_vs_frozen": 3
+     },
+     "both_long": {
+      "coverage": 0.5197945585727969,
+      "paired_vs_reference": {
+       "point": 0.00013171759747102212,
+       "ci95": [
+        0.0,
+        0.0003951527924130664
+       ]
+      },
+      "steps_gained_vs_frozen": 13,
+      "steps_lost_vs_frozen": 3
+     }
+    }
+   },
+   "per_query": [
+    {
+     "domain": "bitcoin",
+     "qid": "110829_79",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "111734_77",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "112761_72",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "114177_62",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "118997_56",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "119566_49",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "119677_48",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "120256_42",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "120259_41",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "120666_36",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 1,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 1,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "121678_27",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "122291_22",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "122793_19",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "124874_6",
+     "total_steps": 4,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "126019_1",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "bitcoin",
+     "qid": "97009_90",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "cardano",
+     "qid": "11465_101",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "cardano",
+     "qid": "147_148",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "cardano",
+     "qid": "2118_134",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "cardano",
+     "qid": "4248_127",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "cardano",
+     "qid": "4659_122",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "cardano",
+     "qid": "8443_109",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "cardano",
+     "qid": "8478_108",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "cardano",
+     "qid": "8943_106",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "cardano",
+     "qid": "92_149",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "43729_230",
+     "total_steps": 4,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "51451_197",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "51615_195",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "52639_190",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 1,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 1,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "53713_187",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "54052_185",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "55778_177",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "56380_175",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "56750_174",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "58265_169",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "58958_165",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "59375_163",
+     "total_steps": 4,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "59399_162",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "59746_160",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "60289_158",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "economics",
+     "qid": "60517_157",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "10719_304",
+     "total_steps": 4,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "12209_292",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "12242_291",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "12525_288",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "12684_285",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "12865_280",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 1
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 1
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "13314_272",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "13899_263",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "16178_250",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "1635_347",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "1720_345",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "18137_245",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "18759_237",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "3010_327",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "3269_322",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "3376_318",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 2,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 2,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "3444_316",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "genealogy",
+     "qid": "9808_315",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "52252_800",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "55753_796",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "55765_794",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "55779_793",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "55835_786",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "55970_778",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "56031_774",
+     "total_steps": 4,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 1,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 1,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 1,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "56063_772",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "56139_764",
+     "total_steps": 4,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "56165_761",
+     "total_steps": 4,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "56168_760",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "56235_757",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "56426_741",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "56436_737",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "56515_735",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "56535_733",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "56711_727",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "56914_713",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "56942_709",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "57164_697",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "57316_687",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "57364_685",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "57398_684",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "58440_681",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "58446_680",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "58489_677",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "58595_670",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "58785_661",
+     "total_steps": 4,
+     "frozen_steps": 4,
+     "arms": {
+      "external6": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "58795_660",
+     "total_steps": 4,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "58846_655",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "58889_653",
+     "total_steps": 4,
+     "frozen_steps": 4,
+     "arms": {
+      "external6": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "58954_649",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "58998_646",
+     "total_steps": 4,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "59155_636",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "59166_635",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 1
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 1
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 1
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "59365_617",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "59371_616",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "59458_611",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "62487_610",
+     "total_steps": 4,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "62514_608",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "62720_602",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "62740_600",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "62918_595",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "62937_593",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "63257_582",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "63341_578",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "63366_577",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "63369_576",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "63380_574",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "63392_572",
+     "total_steps": 4,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "63474_569",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "63638_563",
+     "total_steps": 4,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "63955_546",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "64103_536",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "64404_522",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "64561_519",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "65653_514",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "65757_509",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "65804_505",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 1,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 1,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 1,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "66169_496",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "66184_493",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "66233_487",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "66243_485",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "66324_474",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "66392_471",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "66457_465",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "66504_460",
+     "total_steps": 4,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "66546_456",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "66707_450",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "66845_438",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "68060_427",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "68338_415",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "68436_408",
+     "total_steps": 4,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "68489_406",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "68520_403",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "68551_401",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "68684_393",
+     "total_steps": 4,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "68708_391",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "68711_390",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "68785_386",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "68800_385",
+     "total_steps": 4,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "68837_381",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "68913_377",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "68947_373",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 1,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "69211_362",
+     "total_steps": 4,
+     "frozen_steps": 4,
+     "arms": {
+      "external6": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "69386_355",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "69395_353",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "69484_350",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 1
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 1
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "69491_349",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 1,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 1,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "69718_334",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "69731_333",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 2,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 2,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 2,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "69896_317",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "69965_311",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "69981_309",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "70025_307",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "70097_304",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "70376_289",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "70497_281",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "70535_280",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "70539_279",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "70545_277",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "70549_276",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "70556_274",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "70626_267",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "70749_259",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "70895_252",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "70904_250",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "70912_249",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "71125_237",
+     "total_steps": 4,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "71248_228",
+     "total_steps": 4,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 4,
+       "gained": 1,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "71264_226",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "71525_209",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "71727_197",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "71739_196",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "71891_191",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "71896_190",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "72098_182",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "72126_178",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "72290_170",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "72295_169",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "72320_166",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "72380_162",
+     "total_steps": 4,
+     "frozen_steps": 4,
+     "arms": {
+      "external6": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "72661_148",
+     "total_steps": 4,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "72811_138",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "72834_136",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "74386_132",
+     "total_steps": 4,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "74414_130",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "75662_126",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "75677_124",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "75847_122",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "75992_117",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "76445_103",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "76455_102",
+     "total_steps": 4,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "76841_76",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "77030_66",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "77043_65",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "77132_60",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "77412_42",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "77420_41",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "77574_32",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "77701_26",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "77708_25",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "77792_23",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "78809_22",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "79371_10",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "history",
+     "qid": "79452_8",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "13056_733",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "13068_732",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "13073_731",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "13333_723",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "13540_717",
+     "total_steps": 4,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "13693_711",
+     "total_steps": 4,
+     "frozen_steps": 4,
+     "arms": {
+      "external6": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "13735_710",
+     "total_steps": 4,
+     "frozen_steps": 4,
+     "arms": {
+      "external6": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "14388_701",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "14438_699",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "17762_687",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "18129_674",
+     "total_steps": 4,
+     "frozen_steps": 4,
+     "arms": {
+      "external6": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "18176_673",
+     "total_steps": 4,
+     "frozen_steps": 4,
+     "arms": {
+      "external6": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "18263_670",
+     "total_steps": 4,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "18473_663",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "18894_655",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "18933_651",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "2435_787",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "2465_786",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "287_796",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "294_794",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "295_793",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "2963_780",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "3040_774",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "3188_769",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "3334_758",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "5723_748",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "hsm",
+     "qid": "7343_744",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "iota",
+     "qid": "311_807",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "iota",
+     "qid": "470_804",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 2,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 2,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "law",
+     "qid": "103723_833",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "law",
+     "qid": "106732_821",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "law",
+     "qid": "106974_820",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "law",
+     "qid": "107582_818",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "law",
+     "qid": "107656_817",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "law",
+     "qid": "108189_815",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "law",
+     "qid": "109946_813",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "monero",
+     "qid": "11061_865",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "monero",
+     "qid": "11284_861",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "monero",
+     "qid": "11379_860",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "monero",
+     "qid": "12180_854",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "monero",
+     "qid": "13070_850",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "monero",
+     "qid": "3287_906",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "monero",
+     "qid": "4235_894",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "monero",
+     "qid": "4634_893",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "monero",
+     "qid": "5928_890",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "monero",
+     "qid": "6899_883",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "74177_1055",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "74387_1053",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "74901_1046",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "75283_1039",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "77497_1032",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "77948_1026",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "77959_1025",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "78079_1022",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "78127_1021",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "78374_1017",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "81918_1014",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "82726_1004",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "82885_1001",
+     "total_steps": 4,
+     "frozen_steps": 4,
+     "arms": {
+      "external6": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "83311_998",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "83755_989",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "86565_984",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "87367_978",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "88363_962",
+     "total_steps": 4,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "88566_958",
+     "total_steps": 4,
+     "frozen_steps": 4,
+     "arms": {
+      "external6": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 4,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "89185_952",
+     "total_steps": 5,
+     "frozen_steps": 5,
+     "arms": {
+      "external6": {
+       "covered": 5,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 5,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 5,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "90116_940",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "90202_938",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "90720_932",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "90784_930",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "91594_922",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "93430_914",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "politics",
+     "qid": "93839_909",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "quant",
+     "qid": "70286_1087",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "quant",
+     "qid": "73742_1083",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "quant",
+     "qid": "75843_1076",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "quant",
+     "qid": "77685_1073",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "quant",
+     "qid": "79879_1065",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "quant",
+     "qid": "80694_1063",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "quant",
+     "qid": "81021_1060",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "184051_1188",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "184080_1187",
+     "total_steps": 3,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "184528_1182",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "185286_1175",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "185604_1171",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "186102_1164",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "186496_1156",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 1,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 1,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 1,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "188309_1151",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "189951_1141",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "190046_1139",
+     "total_steps": 1,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "190437_1137",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "191336_1131",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "192250_1119",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "192684_1115",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "193691_1109",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "200312_1099",
+     "total_steps": 2,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "200459_1098",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "200476_1097",
+     "total_steps": 3,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "travel",
+     "qid": "201618_1092",
+     "total_steps": 1,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "workplace",
+     "qid": "178519_1217",
+     "total_steps": 2,
+     "frozen_steps": 0,
+     "arms": {
+      "external6": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 0,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "workplace",
+     "qid": "184964_1207",
+     "total_steps": 3,
+     "frozen_steps": 3,
+     "arms": {
+      "external6": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 3,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "workplace",
+     "qid": "189371_1204",
+     "total_steps": 2,
+     "frozen_steps": 2,
+     "arms": {
+      "external6": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 2,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    },
+    {
+     "domain": "workplace",
+     "qid": "191273_1201",
+     "total_steps": 3,
+     "frozen_steps": 1,
+     "arms": {
+      "external6": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "direct": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      },
+      "both_long": {
+       "covered": 1,
+       "gained": 0,
+       "lost": 0
+      }
+     }
+    }
+   ]
+  }
+ }
+}

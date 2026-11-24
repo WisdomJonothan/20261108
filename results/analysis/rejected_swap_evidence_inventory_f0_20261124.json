@@ -1,0 +1,632 @@
+{
+ "pairs": 27,
+ "accepted": 7,
+ "rejected": 20,
+ "cases": [
+  {
+   "case_id": "bitcoin/118297_59/4b3a42e2_11232.txt",
+   "domain": "bitcoin",
+   "qid": "118297_59",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "bitcoin/112862_8be7e27974fe271b_78.txt",
+    "challenger": "bitcoin/4b3a42e2_11232.txt",
+    "delta": 0.23719771276929622,
+    "p_fwd": 1.4449801710725296e-07,
+    "p_rev": 2.998960857425459e-09,
+    "mp": 7.374848898233921e-08,
+    "agree": false
+   },
+   "challenger_words": 48,
+   "excerpt_words": 48,
+   "full_text_in_excerpt": true,
+   "labeled_steps": [],
+   "excerpt_sha256": "2b25992ee207a8d0e7fb094fbe30066616105fc3b8212f7ea8aa5ffd0d69ab3c"
+  },
+  {
+   "case_id": "bitcoin/120666_36/d08e6979_5866.txt",
+   "domain": "bitcoin",
+   "qid": "120666_36",
+   "accepted": true,
+   "action": {
+    "slot": 5,
+    "incumbent": "bitcoin/39b4af05_149717.txt",
+    "challenger": "bitcoin/d08e6979_5866.txt",
+    "delta": 0.15101961822780524,
+    "p_fwd": 0.9999998807907104,
+    "p_rev": 1.0,
+    "mp": 0.9999999403953552,
+    "agree": true
+   },
+   "challenger_words": 51,
+   "excerpt_words": 51,
+   "full_text_in_excerpt": true,
+   "labeled_steps": [
+    "1"
+   ],
+   "excerpt_sha256": "5955a1bc0003eee5e17027f2e5081c73c4458dfe735e5cb75f96cef0e6356ccc"
+  },
+  {
+   "case_id": "bitcoin/97009_90/f1e77272_18591.txt",
+   "domain": "bitcoin",
+   "qid": "97009_90",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "bitcoin/112761_82aa3ff89664c6f9_46.txt",
+    "challenger": "bitcoin/f1e77272_18591.txt",
+    "delta": 0.11706259313796355,
+    "p_fwd": 0.003172682598233223,
+    "p_rev": 0.060086626559495926,
+    "mp": 0.031629654578864574,
+    "agree": false
+   },
+   "challenger_words": 65,
+   "excerpt_words": 65,
+   "full_text_in_excerpt": true,
+   "labeled_steps": [
+    "1"
+   ],
+   "excerpt_sha256": "2f2982383f26e7cf2024c74bf0bda6c96fffd2d9fe71ad39b4ba59672dcae3c1"
+  },
+  {
+   "case_id": "cardano/11465_101/45863ee3_0059.txt",
+   "domain": "cardano",
+   "qid": "11465_101",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "cardano/575f7226_1877.txt",
+    "challenger": "cardano/45863ee3_0059.txt",
+    "delta": 0.1815417925373527,
+    "p_fwd": 1.0,
+    "p_rev": 0.009000685065984726,
+    "mp": 0.5045003425329924,
+    "agree": false
+   },
+   "challenger_words": 47,
+   "excerpt_words": 47,
+   "full_text_in_excerpt": true,
+   "labeled_steps": [
+    "1"
+   ],
+   "excerpt_sha256": "65c97cfc76a162f5f0c2f3c28580312e44132bda84583b0e57cf704041e94a3f"
+  },
+  {
+   "case_id": "economics/52639_190/3ed1b391_5700.txt",
+   "domain": "economics",
+   "qid": "52639_190",
+   "accepted": true,
+   "action": {
+    "slot": 5,
+    "incumbent": "economics/b3f1937c_86254.txt",
+    "challenger": "economics/3ed1b391_5700.txt",
+    "delta": 0.23719771276929624,
+    "p_fwd": 0.9999723434448242,
+    "p_rev": 0.9525734782218933,
+    "mp": 0.9762729108333588,
+    "agree": true
+   },
+   "challenger_words": 275,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "1"
+   ],
+   "excerpt_sha256": "6c1b7a6f5df68d5af4ad070a2995f27f917576bed0e97a1d93cef3400f443424"
+  },
+  {
+   "case_id": "economics/56380_175/cb6af27e_4067.txt",
+   "domain": "economics",
+   "qid": "56380_175",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "economics/9eb08ff6_4073.txt",
+    "challenger": "economics/cb6af27e_4067.txt",
+    "delta": 0.18154179253735264,
+    "p_fwd": 2.9023121896898374e-06,
+    "p_rev": 0.00015843614528421313,
+    "mp": 8.066922873695148e-05,
+    "agree": false
+   },
+   "challenger_words": 529,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [],
+   "excerpt_sha256": "6c4365a8abad7eed2dc2b41cf4087198892961114717c7f7c05e5c1764ddf8e4"
+  },
+  {
+   "case_id": "genealogy/3376_318/f6ba1bda_9095.txt",
+   "domain": "genealogy",
+   "qid": "3376_318",
+   "accepted": true,
+   "action": {
+    "slot": 5,
+    "incumbent": "genealogy/39287701_155259.txt",
+    "challenger": "genealogy/f6ba1bda_9095.txt",
+    "delta": 0.23719771276929622,
+    "p_fwd": 1.0,
+    "p_rev": 0.49999988079071045,
+    "mp": 0.7499999403953552,
+    "agree": true
+   },
+   "challenger_words": 550,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "2",
+    "4"
+   ],
+   "excerpt_sha256": "2664875b96f7c91433896daa0769c69fcef92d73e9ca910df6ce38cda22743ef"
+  },
+  {
+   "case_id": "history/58795_660/409c0b81_94646.txt",
+   "domain": "history",
+   "qid": "58795_660",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/263d7b76_333962.txt",
+    "challenger": "history/409c0b81_94646.txt",
+    "delta": 0.15101961822780524,
+    "p_fwd": 0.9999998807907104,
+    "p_rev": 0.32081979513168335,
+    "mp": 0.6604098379611969,
+    "agree": false
+   },
+   "challenger_words": 159,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "1",
+    "2",
+    "5"
+   ],
+   "excerpt_sha256": "7424e4769ef841c3260aadabf58a557ea585fb86ae384cf1bf466c521c1a6051"
+  },
+  {
+   "case_id": "history/62720_602/5ebe2d0d_86723.txt",
+   "domain": "history",
+   "qid": "62720_602",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/c2ee92cd_323032.txt",
+    "challenger": "history/5ebe2d0d_86723.txt",
+    "delta": 0.08514311764162097,
+    "p_fwd": 0.9999315738677979,
+    "p_rev": 2.6464537228321205e-09,
+    "mp": 0.4999657882571258,
+    "agree": false
+   },
+   "challenger_words": 216,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "1"
+   ],
+   "excerpt_sha256": "4533f98dc1d27c86a54ee3bc9e11a9ffb6909853bfc5eb5ea592193ed76fd8ad"
+  },
+  {
+   "case_id": "history/63638_563/af125c22_79072.txt",
+   "domain": "history",
+   "qid": "63638_563",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/548a204b_79292.txt",
+    "challenger": "history/af125c22_79072.txt",
+    "delta": 0.08514311764162097,
+    "p_fwd": 7.99195987166712e-11,
+    "p_rev": 8.315280410897685e-07,
+    "mp": 4.158039803442426e-07,
+    "agree": false
+   },
+   "challenger_words": 229,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "1",
+    "2"
+   ],
+   "excerpt_sha256": "32a0e55cae2f47b6139b87b31bd5f35d8c5537c18c291f01e4c3dc75f481a31c"
+  },
+  {
+   "case_id": "history/65653_514/6c7bd261_70871.txt",
+   "domain": "history",
+   "qid": "65653_514",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/fc7761d9_292713.txt",
+    "challenger": "history/6c7bd261_70871.txt",
+    "delta": 0.08514311764162091,
+    "p_fwd": 0.7306792140007019,
+    "p_rev": 0.00017426651902496815,
+    "mp": 0.36542674025986344,
+    "agree": false
+   },
+   "challenger_words": 273,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [],
+   "excerpt_sha256": "e9a8401c38ce67c8a8531cd3eb923acd87723c660203eb25b3a693dd92494ead"
+  },
+  {
+   "case_id": "history/66169_496/88dc80a8_68385.txt",
+   "domain": "history",
+   "qid": "66169_496",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/5cfae1da_283982.txt",
+    "challenger": "history/88dc80a8_68385.txt",
+    "delta": 0.23719771276929624,
+    "p_fwd": 0.9999998807907104,
+    "p_rev": 0.07050945609807968,
+    "mp": 0.5352546684443951,
+    "agree": false
+   },
+   "challenger_words": 96,
+   "excerpt_words": 96,
+   "full_text_in_excerpt": true,
+   "labeled_steps": [
+    "1",
+    "2"
+   ],
+   "excerpt_sha256": "f8b8478175afadc847b8053dbd284c1063b9dfae6c64fad42e21eb6182a9c98f"
+  },
+  {
+   "case_id": "history/66504_460/f9ef12b4_62870.txt",
+   "domain": "history",
+   "qid": "66504_460",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/a3baf9ae_58225.txt",
+    "challenger": "history/f9ef12b4_62870.txt",
+    "delta": 0.18154179253735267,
+    "p_fwd": 0.9999932050704956,
+    "p_rev": 0.0011694737477228045,
+    "mp": 0.5005813394091092,
+    "agree": false
+   },
+   "challenger_words": 221,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "1",
+    "2",
+    "4"
+   ],
+   "excerpt_sha256": "8b8ff573394bcee52335e6d3830c1bc7c46a3b5192f64abe934c6cae914bc763"
+  },
+  {
+   "case_id": "history/68684_393/21a84fe0_53393.txt",
+   "domain": "history",
+   "qid": "68684_393",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/e9b02a7e_248252.txt",
+    "challenger": "history/21a84fe0_53393.txt",
+    "delta": 0.15101961822780519,
+    "p_fwd": 0.9626715183258057,
+    "p_rev": 0.3205324709415436,
+    "mp": 0.6416019946336746,
+    "agree": false
+   },
+   "challenger_words": 180,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "1",
+    "3"
+   ],
+   "excerpt_sha256": "678de90922376febe32adc0542e52de64640ee810a3cdc40e52bbfa7fc0b9c10"
+  },
+  {
+   "case_id": "history/68711_390/006552c6_52957.txt",
+   "domain": "history",
+   "qid": "68711_390",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/a8ab5f98_52994.txt",
+    "challenger": "history/006552c6_52957.txt",
+    "delta": 0.11706259313796363,
+    "p_fwd": 2.510999053129126e-08,
+    "p_rev": 1.9947297005273867e-06,
+    "mp": 1.009919845529339e-06,
+    "agree": false
+   },
+   "challenger_words": 281,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "3"
+   ],
+   "excerpt_sha256": "020e5ed38e12800cc293a5adfa5c02dc9acf7d2bd1560c808d343b842a634be9"
+  },
+  {
+   "case_id": "history/69491_349/cae9ca70_47549.txt",
+   "domain": "history",
+   "qid": "69491_349",
+   "accepted": true,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/6d70b187_238127.txt",
+    "challenger": "history/cae9ca70_47549.txt",
+    "delta": 0.18154179253735267,
+    "p_fwd": 0.9999992847442627,
+    "p_rev": 0.9615892171859741,
+    "mp": 0.9807942509651184,
+    "agree": true
+   },
+   "challenger_words": 162,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "3"
+   ],
+   "excerpt_sha256": "f11aa9682fffe06fe60f3d612424ced1658b2ccbe49590840bcf9fe0448681a7"
+  },
+  {
+   "case_id": "history/69718_334/250c9513_45152.txt",
+   "domain": "history",
+   "qid": "69718_334",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/0b7982c3_233998.txt",
+    "challenger": "history/250c9513_45152.txt",
+    "delta": 0.18154179253735264,
+    "p_fwd": 3.224186784223093e-08,
+    "p_rev": 4.7850949158601e-06,
+    "mp": 2.4086683918511653e-06,
+    "agree": false
+   },
+   "challenger_words": 239,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "2",
+    "3"
+   ],
+   "excerpt_sha256": "094282693a204356c012f1f78e153a3e8b0b115f07986c0f357b744caf95ff86"
+  },
+  {
+   "case_id": "history/71248_228/c76137ae_31538.txt",
+   "domain": "history",
+   "qid": "71248_228",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/ed63cfb0_206149.txt",
+    "challenger": "history/c76137ae_31538.txt",
+    "delta": 0.18154179253735264,
+    "p_fwd": 0.047425657510757446,
+    "p_rev": 0.9867032766342163,
+    "mp": 0.5170644670724869,
+    "agree": false
+   },
+   "challenger_words": 227,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "2",
+    "5"
+   ],
+   "excerpt_sha256": "13574d344f2a70ba00ccc8ce40250040db2fb39e311763265f7e6eb19976d539"
+  },
+  {
+   "case_id": "history/71248_228/fcd790ad_31537.txt",
+   "domain": "history",
+   "qid": "71248_228",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/ed63cfb0_206149.txt",
+    "challenger": "history/fcd790ad_31537.txt",
+    "delta": 0.18154179253735264,
+    "p_fwd": 0.022977078333497047,
+    "p_rev": 0.999998927116394,
+    "mp": 0.5114880027249455,
+    "agree": false
+   },
+   "challenger_words": 179,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "2",
+    "5"
+   ],
+   "excerpt_sha256": "988b4a7d418ff2482be29334daf56e012102c000e49763bf18065919a0c482a3"
+  },
+  {
+   "case_id": "history/74386_132/11c805a8_18000.txt",
+   "domain": "history",
+   "qid": "74386_132",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/976b7968_173572.txt",
+    "challenger": "history/11c805a8_18000.txt",
+    "delta": 0.085143117641621,
+    "p_fwd": 0.6752110719680786,
+    "p_rev": 0.008572784252464771,
+    "mp": 0.3418919281102717,
+    "agree": false
+   },
+   "challenger_words": 211,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [],
+   "excerpt_sha256": "7ed38cc27aa9a330e321cff4ed51e20621e4ddd708651baec69b92de99e32023"
+  },
+  {
+   "case_id": "history/74414_130/08d04599_17503.txt",
+   "domain": "history",
+   "qid": "74414_130",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/8f7bebd3_17622.txt",
+    "challenger": "history/08d04599_17503.txt",
+    "delta": 0.085143117641621,
+    "p_fwd": 3.16088155649652e-10,
+    "p_rev": 2.789468100949932e-10,
+    "mp": 2.975174828723226e-10,
+    "agree": false
+   },
+   "challenger_words": 224,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [],
+   "excerpt_sha256": "c57536794f1d7f5da39020a1c320a2ad5ae459f2d6eb1f8264c59ae2a9188b91"
+  },
+  {
+   "case_id": "history/79371_10/7b4cd419_1198.txt",
+   "domain": "history",
+   "qid": "79371_10",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "history/a91a5bbd_35959.txt",
+    "challenger": "history/7b4cd419_1198.txt",
+    "delta": 0.11706259313796355,
+    "p_fwd": 0.9999485015869141,
+    "p_rev": 0.11849965155124664,
+    "mp": 0.5592240765690804,
+    "agree": false
+   },
+   "challenger_words": 288,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "1",
+    "3"
+   ],
+   "excerpt_sha256": "61d2f93310bcdbaa84ccd12663b0e298357d8214e14765231614ecde90a485b4"
+  },
+  {
+   "case_id": "hsm/13056_733/13764e8b_11534.txt",
+   "domain": "hsm",
+   "qid": "13056_733",
+   "accepted": true,
+   "action": {
+    "slot": 5,
+    "incumbent": "hsm/13056_4b1f090d7bdaa548_18.txt",
+    "challenger": "hsm/13764e8b_11534.txt",
+    "delta": 0.18154179253735267,
+    "p_fwd": 0.9046505093574524,
+    "p_rev": 0.9999985694885254,
+    "mp": 0.9523245394229889,
+    "agree": true
+   },
+   "challenger_words": 806,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "2",
+    "3"
+   ],
+   "excerpt_sha256": "f61a9992d910135aca9e903c723764e58e9831fa7fdabf79107d7a68e02c3861"
+  },
+  {
+   "case_id": "iota/470_804/f6523e65_0382.txt",
+   "domain": "iota",
+   "qid": "470_804",
+   "accepted": true,
+   "action": {
+    "slot": 5,
+    "incumbent": "iota/66c05639_0860.txt",
+    "challenger": "iota/f6523e65_0382.txt",
+    "delta": 0.13120507751234178,
+    "p_fwd": 0.9999963045120239,
+    "p_rev": 0.6224572658538818,
+    "mp": 0.8112267851829529,
+    "agree": true
+   },
+   "challenger_words": 512,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "1",
+    "3"
+   ],
+   "excerpt_sha256": "8bd207277cb227fb0f8aeb476baaeddede964013d5e5549283a26a6f0fa2d263"
+  },
+  {
+   "case_id": "law/103723_833/ff377cb8_5460.txt",
+   "domain": "law",
+   "qid": "103723_833",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "law/974bbcdc_42251.txt",
+    "challenger": "law/ff377cb8_5460.txt",
+    "delta": 0.15101961822780519,
+    "p_fwd": 0.9859344363212585,
+    "p_rev": 2.2603242086915998e-06,
+    "mp": 0.4929683483227336,
+    "agree": false
+   },
+   "challenger_words": 118,
+   "excerpt_words": 112,
+   "full_text_in_excerpt": false,
+   "labeled_steps": [
+    "2"
+   ],
+   "excerpt_sha256": "b3b16fea6e495d945c68df78232c84440df97814421a35c3c09bdc3ec103ffd3"
+  },
+  {
+   "case_id": "travel/186496_1156/187391f2_15984.txt",
+   "domain": "travel",
+   "qid": "186496_1156",
+   "accepted": true,
+   "action": {
+    "slot": 5,
+    "incumbent": "travel/fdd2da47_4918.txt",
+    "challenger": "travel/187391f2_15984.txt",
+    "delta": 0.23719771276929622,
+    "p_fwd": 1.0,
+    "p_rev": 0.9999971389770508,
+    "mp": 0.9999985694885254,
+    "agree": true
+   },
+   "challenger_words": 34,
+   "excerpt_words": 34,
+   "full_text_in_excerpt": true,
+   "labeled_steps": [
+    "2"
+   ],
+   "excerpt_sha256": "ca37c63a411a7e3646259bbfdbc8b5bb14e45a3cb184b28c8aeb502169135c3e"
+  },
+  {
+   "case_id": "travel/191336_1131/07c5aa37_11043.txt",
+   "domain": "travel",
+   "qid": "191336_1131",
+   "accepted": false,
+   "action": {
+    "slot": 5,
+    "incumbent": "travel/6fb8a7cb_2997.txt",
+    "challenger": "travel/07c5aa37_11043.txt",
+    "delta": 0.18154179253735267,
+    "p_fwd": 1.1032560420787263e-09,
+    "p_rev": 3.581747953784742e-10,
+    "mp": 7.307154187286002e-10,
+    "agree": false
+   },
+   "challenger_words": 100,
+   "excerpt_words": 100,
+   "full_text_in_excerpt": true,
+   "labeled_steps": [
+    "3"
+   ],
+   "excerpt_sha256": "bf4d6019ca623df3bafa5a55069eb4e63fd195bac6837606cdfb60318465d837"
+  }
+ ]
+}

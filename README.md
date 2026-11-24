@@ -109,6 +109,12 @@ official-dev run would raise **0.37154** to **0.37356** while preserving all
 36 helpful swaps. The 12-prompt **0.37350** competition reference remains in use.
 [Matched prompts and evidence-step audit](docs/JOINT_SWAP_SUPPORT_20261124.md)
 
+**Rejected-pair evidence audit (2026-11-24).** The actual excerpts for
+20 rejected positive pairs already contain useful evidence in seven cases
+and cut off useful evidence in five. On all 328 f0 queries, longer
+excerpts move **0.26573 → 0.26582**, despite three more accepted
+beneficial pairs. [Case review and controlled re-scoring](docs/REJECTED_SWAP_EVIDENCE_20261124.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate
