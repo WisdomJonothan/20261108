@@ -41,6 +41,23 @@ def md_number(p, needle):
 
 
 CLAIMS = [
+    # --- three further nulls (2026-11-24) -----------------------------------
+    ("reverse score alone, 969 out-of-fold queries", 0.062374,
+     lambda: jload("analysis/upr_abc_train.json")["B_reverse_only"],
+     "analysis/upr_abc_train.json", False),
+    ("reverse score combined with fused", 0.277983,
+     lambda: jload("analysis/upr_abc_train.json")["C_combined"],
+     "analysis/upr_abc_train.json", False),
+    ("UPR versus fused rank correlation", -0.0048,
+     lambda: jload("analysis/upr_abc_train_diag.json")["mean_spearman_upr_vs_fused"],
+     "analysis/upr_abc_train_diag.json", False),
+    ("chrome demotion on dev at lambda 0.25", 0.357754,
+     lambda: jload("replacement_v2/chrome_dev.json")["chrome_dev_macro"]["0.25"],
+     "replacement_v2/chrome_dev.json", False),
+    ("second swap on dev at the train-chosen margin", 0.01569,
+     lambda: jload("replacement_v2/threshold_transfer.json")["max_swaps2"]["dev"],
+     "replacement_v2/threshold_transfer.json", False),
+    # --- review round 3 (2026-11-24) ---
     # --- review round 3 (2026-11-24) ----------------------------------------
     # --- temporal ceiling audit (2026-11-24) --------------------------------
     ("temporal ceiling, verified pairs only", 0.00256,

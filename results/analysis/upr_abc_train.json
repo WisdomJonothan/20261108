@@ -1,0 +1,36 @@
+{
+  "n_queries": 969,
+  "A_frozen": 0.278869,
+  "B_reverse_only": 0.062374,
+  "C_combined": 0.277983,
+  "delta_B": -0.216495,
+  "delta_C": -0.000886,
+  "weights_picked_per_fold": {
+    "0": 0.1,
+    "1": 0.2,
+    "2": 0.1
+  },
+  "promoted_gold_B": 8368,
+  "displaced_gold_B": 8368,
+  "promoted_gold_A": 0,
+  "displaced_gold_A": 0,
+  "promoted_gold_C": 720,
+  "displaced_gold_C": 720,
+  "dcg_from_promoted_gold": 0.016379,
+  "dcg_lost_to_displaced_gold": 0.010792,
+  "per_domain_B": {
+    "history": 0.073274,
+    "politics": 0.082635,
+    "hsm": 0.063191,
+    "genealogy": 0.094085,
+    "bitcoin": 0.068705,
+    "travel": 0.038935,
+    "economics": 0.063717,
+    "monero": 0.060259,
+    "cardano": 0.110514,
+    "workplace": 0.038268,
+    "law": 0.03347,
+    "quant": 0.044703,
+    "iota": 0.039107
+  }
+}

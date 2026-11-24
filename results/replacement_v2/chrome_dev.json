@@ -1,0 +1,9 @@
+{
+  "chrome_dev_macro": {
+    "0.0": 0.358108,
+    "0.1": 0.357777,
+    "0.25": 0.357754,
+    "0.5": 0.355631
+  },
+  "source": "next_step.py, dev top-100, z(fused)-lambda*z(chrome)"
+}

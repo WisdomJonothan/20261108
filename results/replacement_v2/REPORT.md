@@ -536,10 +536,10 @@ The audit also ranks the actual loss classes, which is the useful part:
 | class of document ranked above the gold | share of above-pairs | ceiling if fully corrected |
 |---|---:|---:|
 | plain topical difference / plausible but unjudged | 44.4% "answers the question" | not measurable (label incompleteness) |
-| boilerplate, navigation or page-chrome fragments | 14.1% | **+0.0161** [+0.0099, +0.0228] |
+| documents the model calls boilerplate/navigation/fragments (a heterogeneous flag: truncated fragments and question copies, not page chrome) | 14.1% | +0.0161 [+0.0099, +0.0228] (in-pipeline: +0.0061) |
 | temporal / period misordering | 2.8% (1.0% verified) | +0.0026 [+0.0003, +0.0053] |
 
-The largest single exploitable defect is not temporal reasoning but web-page chrome sitting above the gold: demoting it is worth about four times the whole replacement gain and does not require training anything. That is the next lever, not a temporal cross-encoder. Caveat on both ceilings: the replay corrects only the sampled pairs and re-weights by stratum, so these are ideal-correction estimates over an audited sample, not exhaustive top-100 oracles; and because RETECO qrels are positive-only, "unjudged but plausible" documents cannot be separated from genuinely better ones.
+The largest single exploitable defect is not temporal reasoning but documents the judge calls boilerplate/navigation/fragments. A follow-up construct-validity audit corrected the label: **none of the 75 flagged documents contains a navigation phrase** — they are truncated fragments (24% under 70 words), question copies, and ordinary answers (67% also score as answering the question), so this is not page chrome and a strict chrome filter cannot capture it. A text-only detector built for the deployable version (`scripts/chrome_detect.py`, 17 lexical/structure/fragment features, no qrels and no LLM) reaches AUC 0.625 against those flags and, applied as `fused_z − 0.25·z(chrome)`, gives **+0.0044 fold-honest macro nDCG@10** (CI [+0.0004,+0.0092]; fixed lambda +0.0054), i.e. 28% of the audited ceiling and about the size of the whole replacement gain. Hard demotion thresholds and a short-document proxy do not work (+0.0003 and −0.0130 respectively). Caveat on both ceilings: the replay corrects only the sampled pairs and re-weights by stratum, so these are ideal-correction estimates over an audited sample, not exhaustive top-100 oracles; and because RETECO qrels are positive-only, "unjudged but plausible" documents cannot be separated from genuinely better ones.
 
 ## 10. Conclusion (2026-11-22)
 
@@ -749,3 +749,44 @@ frozen 0.3735 configuration is unchanged. Per the pre-agreed stopping rule (a
 candidate must beat the six-pair rule out of fold and beat the mismatched
 requirement), this line stops before any dev confirmation, before expanding six
 pairs to eighteen and before allowing a second swap.
+
+## 19. Three more nulls and one marginal variant (2026-11-24)
+
+Three cheap levers were measured after the temporal audit, all on fixed pools and
+all replayed from cached judgements where possible.
+
+**Generative reverse scoring (UPR-style).** Each of the frozen top-100 documents was
+scored by the mean token log-probability of the query given the document, using
+Qwen3-4B-Instruct-2507 with a "write the question this passage answers" prompt
+(400-word excerpts). Over the 969 out-of-fold queries (96,900 pairs):
+frozen fused 0.278869, reverse score alone 0.062374, and the per-fold-weighted
+combination 0.277983 (-0.000886). The reverse score is essentially orthogonal to the
+fused score (mean per-query Spearman -0.0048) but far too weak to help: it repairs
+31 of the 298 zero-score queries while losing more elsewhere, and every domain drops
+when used alone (law -0.346, workplace -0.336, hsm -0.273).
+
+**Predicting where the ranking fails.** Cheap within-query spread features of the
+reverse scores (std, range, coefficient of variation, fused std, pool size) do not
+separate zero-score queries from the rest: AUC 0.44 / 0.45 / 0.48, i.e. at or below
+chance. There is no cheap signal for routing.
+
+**Text-only boilerplate demotion transfers?** No. The detector that gains +0.0044 on
+the out-of-fold training splits (section 18) was applied to the dev pool
+(`z(fused) - lambda * z(chrome)`): 0.358108 at lambda=0, 0.357777 at 0.1, 0.357754 at
+0.25, 0.355631 at 0.5. Bitcoin (+0.0125 at 0.5) and cardano (+0.0076) improve while
+workplace (-0.0133), quant (-0.0302), hsm (-0.0188) and politics (-0.0144) fall, so
+the training-split gain does not replicate on dev. This is the fourth lever whose
+out-of-fold training gain fails to transfer.
+
+**Acceptance margin and multi-swap.** Replaying the cached two-order judgements with
+the six-pair budget: the margin threshold does not matter (every tau from 0.00 to
+0.30 gives +0.0154 on dev because the judge's probabilities are saturated near 1.0),
+and allowing a second or third disjoint swap gives +0.00486 / +0.00478 on the training
+splits against +0.00448 for one swap, and +0.01569 / +0.01575 on dev against +0.0154.
+The direction is consistent but the size is inside noise, so the frozen one-swap rule
+is kept for the competition entry.
+
+Net: the competition configuration stays at 0.3735 (dev), with the pooled training-fold
+expectation of about +0.005. Four pool-level reorderings (BM25 fusion, per-domain
+fusion weight, Qwen3-Embedding-0.6B, UPR reverse scoring) and two ranking-quality
+filters (chrome demotion, learned gate) have now been measured and rejected.

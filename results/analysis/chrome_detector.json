@@ -1,0 +1,765 @@
+{
+ "detector": {
+  "features": [
+   "nav",
+   "chrome_phrase",
+   "links",
+   "html",
+   "pipes",
+   "headlines",
+   "bullets",
+   "footer",
+   "nonprose",
+   "special",
+   "repeat",
+   "short",
+   "fragment",
+   "upper",
+   "digit",
+   "quote",
+   "selfref"
+  ],
+  "weights": {
+   "nav": 2.6,
+   "chrome_phrase": 2.2,
+   "links": 1.4,
+   "html": 1.2,
+   "pipes": 1.3,
+   "headlines": 1.0,
+   "bullets": 0.8,
+   "footer": 1.2,
+   "nonprose": 0.8,
+   "special": 0.7,
+   "repeat": 0.6,
+   "short": 1.6,
+   "fragment": 1.1,
+   "quote": 0.6,
+   "selfref": 0.7,
+   "upper": 0.4,
+   "digit": 0.3
+  },
+  "bias": -4.2,
+  "score": "sigmoid(b + sum(w*f)), f in [0,1]",
+  "z_normalisation": {
+   "chrome_mean": 0.0626,
+   "chrome_sd": 0.10154,
+   "scope": "all 79248 scored candidate documents",
+   "fused": "run scores are already per-query z-units (mean 0, sd ~1.5); used as-is"
+  },
+  "feature_means_on_candidates": {
+   "nav": 0.055,
+   "chrome_phrase": 0.0025,
+   "links": 0.0109,
+   "html": 0.0005,
+   "pipes": 0.0098,
+   "headlines": 0.0058,
+   "bullets": 0.0519,
+   "footer": 0.0072,
+   "nonprose": 0.0408,
+   "special": 0.0331,
+   "repeat": 0.1153,
+   "short": 0.2079,
+   "fragment": 0.2408,
+   "upper": 0.0185,
+   "digit": 0.1478,
+   "quote": 0.0029,
+   "selfref": 0.0028
+  }
+ },
+ "auc": {
+  "n_documents": 533,
+  "n_positive": 75,
+  "positive_rate": 0.1407,
+  "label": "p['DUP'] > 0.5 (4B model, temporal_audit_probe.json)",
+  "auc_global": 0.6248,
+  "average_precision": 0.1914,
+  "ap_lift_over_base": 1.36,
+  "auc_within_case_mean": 0.6149,
+  "n_cases_with_both_classes": 37,
+  "precision_at_k": {
+   "25": 0.12,
+   "50": 0.14,
+   "100": 0.26,
+   "200": 0.215
+  },
+  "pr_at_thresholds": [
+   {
+    "threshold": 0.1,
+    "selected": 45,
+    "tp": 6,
+    "fp": 39,
+    "precision": 0.1333,
+    "recall": 0.08,
+    "f1": 0.1
+   },
+   {
+    "threshold": 0.2,
+    "selected": 20,
+    "tp": 3,
+    "fp": 17,
+    "precision": 0.15,
+    "recall": 0.04,
+    "f1": 0.0632
+   },
+   {
+    "threshold": 0.3,
+    "selected": 12,
+    "tp": 0,
+    "fp": 12,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+   },
+   {
+    "threshold": 0.5,
+    "selected": 9,
+    "tp": 0,
+    "fp": 9,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+   },
+   {
+    "threshold": 0.7,
+    "selected": 3,
+    "tp": 0,
+    "fp": 3,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+   },
+   {
+    "threshold": 0.9,
+    "selected": 2,
+    "tp": 0,
+    "fp": 2,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+   }
+  ]
+ },
+ "impact": {
+  "n_queries": 969,
+  "baseline_macro": 0.27887,
+  "by_lambda": {
+   "0.25": {
+    "macro": 0.28426,
+    "macro_base": 0.27887,
+    "delta": 0.00539,
+    "delta_pp": 0.539,
+    "promoted_queries": 17,
+    "displaced_queries": 11,
+    "top10_churned_slots": 344,
+    "rel_in_top10_base": 1172,
+    "rel_in_top10_policy": 1178,
+    "rel_entered": 18,
+    "rel_left": 12,
+    "nonrel_entered": 326,
+    "nonrel_left": 332,
+    "chrome_docs_demoted_from_top10": 43,
+    "per_domain_delta_pp": {
+     "bitcoin": 0.567,
+     "cardano": 1.442,
+     "economics": 0.688,
+     "genealogy": 0.364,
+     "history": 0.412,
+     "hsm": -0.303,
+     "iota": 0.0,
+     "law": -0.064,
+     "monero": -0.014,
+     "politics": 0.196,
+     "quant": 0.996,
+     "travel": -0.464,
+     "workplace": 3.188
+    },
+    "per_domain_macro": {
+     "bitcoin": 0.18678,
+     "cardano": 0.30545,
+     "economics": 0.21221,
+     "genealogy": 0.28338,
+     "history": 0.34132,
+     "hsm": 0.33303,
+     "iota": 0.25335,
+     "law": 0.3789,
+     "monero": 0.17664,
+     "politics": 0.36347,
+     "quant": 0.23208,
+     "travel": 0.22242,
+     "workplace": 0.40634
+    },
+    "ci95_delta": [
+     0.00134,
+     0.01003
+    ],
+    "ci95_delta_pp": [
+     0.134,
+     1.003
+    ],
+    "p_delta_le_0": 0.0035
+   },
+   "0.5": {
+    "macro": 0.28344,
+    "macro_base": 0.27887,
+    "delta": 0.00457,
+    "delta_pp": 0.457,
+    "promoted_queries": 30,
+    "displaced_queries": 22,
+    "top10_churned_slots": 593,
+    "rel_in_top10_base": 1172,
+    "rel_in_top10_policy": 1179,
+    "rel_entered": 31,
+    "rel_left": 24,
+    "nonrel_entered": 562,
+    "nonrel_left": 569,
+    "chrome_docs_demoted_from_top10": 61,
+    "per_domain_delta_pp": {
+     "bitcoin": -0.537,
+     "cardano": -0.322,
+     "economics": 0.485,
+     "genealogy": 0.886,
+     "history": 0.663,
+     "hsm": -0.669,
+     "iota": 1.634,
+     "law": 0.207,
+     "monero": -0.359,
+     "politics": 0.356,
+     "quant": 1.062,
+     "travel": -0.778,
+     "workplace": 3.31
+    },
+    "per_domain_macro": {
+     "bitcoin": 0.17574,
+     "cardano": 0.2878,
+     "economics": 0.21018,
+     "genealogy": 0.28861,
+     "history": 0.34383,
+     "hsm": 0.32938,
+     "iota": 0.26969,
+     "law": 0.38161,
+     "monero": 0.17319,
+     "politics": 0.36508,
+     "quant": 0.23273,
+     "travel": 0.21928,
+     "workplace": 0.40756
+    },
+    "ci95_delta": [
+     -0.00066,
+     0.01037
+    ],
+    "ci95_delta_pp": [
+     -0.066,
+     1.037
+    ],
+    "p_delta_le_0": 0.049
+   },
+   "1.0": {
+    "macro": 0.27878,
+    "macro_base": 0.27887,
+    "delta": -9e-05,
+    "delta_pp": -0.009,
+    "promoted_queries": 46,
+    "displaced_queries": 34,
+    "top10_churned_slots": 935,
+    "rel_in_top10_base": 1172,
+    "rel_in_top10_policy": 1181,
+    "rel_entered": 51,
+    "rel_left": 42,
+    "nonrel_entered": 884,
+    "nonrel_left": 893,
+    "chrome_docs_demoted_from_top10": 70,
+    "per_domain_delta_pp": {
+     "bitcoin": -1.187,
+     "cardano": -2.484,
+     "economics": 0.268,
+     "genealogy": 0.72,
+     "history": 1.151,
+     "hsm": -0.546,
+     "iota": -0.57,
+     "law": -0.988,
+     "monero": -0.127,
+     "politics": 0.551,
+     "quant": -0.172,
+     "travel": -0.69,
+     "workplace": 3.958
+    },
+    "per_domain_macro": {
+     "bitcoin": 0.16924,
+     "cardano": 0.26619,
+     "economics": 0.20801,
+     "genealogy": 0.28694,
+     "history": 0.3487,
+     "hsm": 0.33061,
+     "iota": 0.24765,
+     "law": 0.36966,
+     "monero": 0.17552,
+     "politics": 0.36702,
+     "quant": 0.2204,
+     "travel": 0.22016,
+     "workplace": 0.41404
+    },
+    "ci95_delta": [
+     -0.00978,
+     0.00873
+    ],
+    "ci95_delta_pp": [
+     -0.978,
+     0.873
+    ],
+    "p_delta_le_0": 0.5145
+   },
+   "2.0": {
+    "macro": 0.27155,
+    "macro_base": 0.27887,
+    "delta": -0.00732,
+    "delta_pp": -0.732,
+    "promoted_queries": 76,
+    "displaced_queries": 61,
+    "top10_churned_slots": 1499,
+    "rel_in_top10_base": 1172,
+    "rel_in_top10_policy": 1183,
+    "rel_entered": 86,
+    "rel_left": 75,
+    "nonrel_entered": 1413,
+    "nonrel_left": 1424,
+    "chrome_docs_demoted_from_top10": 73,
+    "per_domain_delta_pp": {
+     "bitcoin": -1.744,
+     "cardano": -1.706,
+     "economics": 1.565,
+     "genealogy": 0.398,
+     "history": 1.491,
+     "hsm": -1.545,
+     "iota": -7.017,
+     "law": -3.644,
+     "monero": -0.794,
+     "politics": 1.252,
+     "quant": -1.433,
+     "travel": -0.581,
+     "workplace": 4.249
+    },
+    "per_domain_macro": {
+     "bitcoin": 0.16367,
+     "cardano": 0.27396,
+     "economics": 0.22098,
+     "genealogy": 0.28373,
+     "history": 0.35211,
+     "hsm": 0.32062,
+     "iota": 0.18318,
+     "law": 0.3431,
+     "monero": 0.16884,
+     "politics": 0.37404,
+     "quant": 0.20778,
+     "travel": 0.22124,
+     "workplace": 0.41695
+    },
+    "ci95_delta": [
+     -0.02171,
+     0.0064
+    ],
+    "ci95_delta_pp": [
+     -2.171,
+     0.64
+    ],
+    "p_delta_le_0": 0.8545
+   }
+  },
+  "leave_one_fold_out": {
+   "f0": {
+    "lambda_selected": 0.25,
+    "selection_delta_on_train_folds": 0.00624,
+    "selection_table": {
+     "0.25": 0.00624,
+     "0.5": 0.00379,
+     "1.0": 0.00136,
+     "2.0": -0.00851
+    },
+    "macro": 0.25993,
+    "macro_base": 0.25616,
+    "delta": 0.00377,
+    "delta_pp": 0.377,
+    "n_queries": 328,
+    "per_domain_delta_pp": {
+     "bitcoin": 0.523,
+     "cardano": 1.643,
+     "economics": 0.022,
+     "genealogy": -1.999,
+     "history": 0.231,
+     "hsm": -0.771,
+     "iota": 0.0,
+     "law": 0.126,
+     "monero": 0.132,
+     "politics": 0.088,
+     "quant": 0.0,
+     "travel": -0.36,
+     "workplace": 5.272
+    }
+   },
+   "f1": {
+    "lambda_selected": 0.5,
+    "selection_delta_on_train_folds": 0.00367,
+    "selection_table": {
+     "0.25": 0.00352,
+     "0.5": 0.00367,
+     "1.0": -0.00443,
+     "2.0": -0.01289
+    },
+    "macro": 0.28596,
+    "macro_base": 0.27958,
+    "delta": 0.00638,
+    "delta_pp": 0.638,
+    "n_queries": 323,
+    "per_domain_delta_pp": {
+     "bitcoin": -2.062,
+     "cardano": 0.803,
+     "economics": 0.946,
+     "genealogy": 2.251,
+     "history": 0.786,
+     "hsm": -0.136,
+     "iota": 0.0,
+     "law": -1.372,
+     "monero": -0.187,
+     "politics": 0.532,
+     "quant": 3.153,
+     "travel": -0.406,
+     "workplace": 3.988
+    }
+   },
+   "f2": {
+    "lambda_selected": 0.25,
+    "selection_delta_on_train_folds": 0.00639,
+    "selection_table": {
+     "0.25": 0.00639,
+     "0.5": 0.0062,
+     "1.0": 0.00288,
+     "2.0": -0.00052
+    },
+    "macro": 0.30599,
+    "macro_base": 0.30298,
+    "delta": 0.00301,
+    "delta_pp": 0.301,
+    "n_queries": 318,
+    "per_domain_delta_pp": {
+     "bitcoin": 0.324,
+     "cardano": 1.93,
+     "economics": 0.904,
+     "genealogy": 2.097,
+     "history": 0.232,
+     "hsm": -0.034,
+     "iota": 0.0,
+     "law": 0.0,
+     "monero": -1.187,
+     "politics": 0.315,
+     "quant": 0.0,
+     "travel": -0.767,
+     "workplace": 0.101
+    }
+   }
+  },
+  "heldout_pooled": {
+   "macro": 0.2833,
+   "macro_base": 0.27887,
+   "delta": 0.00443,
+   "delta_pp": 0.443,
+   "ci95_delta": [
+    0.00036,
+    0.00917
+   ],
+   "ci95_delta_pp": [
+    0.036,
+    0.917
+   ],
+   "draws": 2000
+  },
+  "in_sample_best_lambda_note": "by_lambda is fully in-sample over all 969 queries; the deployable estimate is heldout_pooled",
+  "primary_lambda_majority": 0.25,
+  "per_domain_at_primary": {
+   "bitcoin": {
+    "macro": 0.18678,
+    "base": 0.18111,
+    "delta_pp": 0.567
+   },
+   "cardano": {
+    "macro": 0.30545,
+    "base": 0.29103,
+    "delta_pp": 1.442
+   },
+   "economics": {
+    "macro": 0.21221,
+    "base": 0.20533,
+    "delta_pp": 0.688
+   },
+   "genealogy": {
+    "macro": 0.28338,
+    "base": 0.27974,
+    "delta_pp": 0.364
+   },
+   "history": {
+    "macro": 0.34132,
+    "base": 0.3372,
+    "delta_pp": 0.412
+   },
+   "hsm": {
+    "macro": 0.33303,
+    "base": 0.33607,
+    "delta_pp": -0.303
+   },
+   "iota": {
+    "macro": 0.25335,
+    "base": 0.25335,
+    "delta_pp": 0.0
+   },
+   "law": {
+    "macro": 0.3789,
+    "base": 0.37954,
+    "delta_pp": -0.064
+   },
+   "monero": {
+    "macro": 0.17664,
+    "base": 0.17678,
+    "delta_pp": -0.014
+   },
+   "politics": {
+    "macro": 0.36347,
+    "base": 0.36152,
+    "delta_pp": 0.196
+   },
+   "quant": {
+    "macro": 0.23208,
+    "base": 0.22212,
+    "delta_pp": 0.996
+   },
+   "travel": {
+    "macro": 0.22242,
+    "base": 0.22706,
+    "delta_pp": -0.464
+   },
+   "workplace": {
+    "macro": 0.40634,
+    "base": 0.37446,
+    "delta_pp": 3.188
+   }
+  },
+  "bootstrap": {
+   "draws": 2000,
+   "seed": 20261124,
+   "resample_unit": "query (all 969, unstratified); 13-domain macro recomputed inside each draw",
+   "source": "D:\\RETECO\\work_chrome\boot_lambda.py"
+  }
+ },
+ "rule_variants": {
+  "cont_l0.25": {
+   "macro": 0.28426,
+   "macro_base": 0.27887,
+   "delta": 0.00539,
+   "delta_pp": 0.539,
+   "promoted_queries": 17,
+   "displaced_queries": 11,
+   "rel_entered": 18,
+   "rel_left": 12
+  },
+  "cont_l0.50": {
+   "macro": 0.28344,
+   "macro_base": 0.27887,
+   "delta": 0.00457,
+   "delta_pp": 0.457,
+   "promoted_queries": 30,
+   "displaced_queries": 22,
+   "rel_entered": 31,
+   "rel_left": 24
+  },
+  "hard_s0.9_pen3": {
+   "macro": 0.27912,
+   "macro_base": 0.27887,
+   "delta": 0.00025,
+   "delta_pp": 0.025,
+   "promoted_queries": 0,
+   "displaced_queries": 1,
+   "rel_entered": 0,
+   "rel_left": 1
+  },
+  "hard_s0.5_pen1.5": {
+   "macro": 0.27936,
+   "macro_base": 0.27887,
+   "delta": 0.00049,
+   "delta_pp": 0.049,
+   "promoted_queries": 1,
+   "displaced_queries": 1,
+   "rel_entered": 1,
+   "rel_left": 1
+  },
+  "gate_s0.3_l0.25": {
+   "macro": 0.27991,
+   "macro_base": 0.27887,
+   "delta": 0.00104,
+   "delta_pp": 0.104,
+   "promoted_queries": 4,
+   "displaced_queries": 2,
+   "rel_entered": 4,
+   "rel_left": 2
+  }
+ },
+ "rule_variants_loo": {
+  "f0": {
+   "chosen": "cont_l0.25",
+   "train_delta": 0.00624,
+   "delta": 0.00377,
+   "n_queries": 328
+  },
+  "f1": {
+   "chosen": "cont_l0.50",
+   "train_delta": 0.00367,
+   "delta": 0.00638,
+   "n_queries": 323
+  },
+  "f2": {
+   "chosen": "cont_l0.25",
+   "train_delta": 0.00639,
+   "delta": 0.00301,
+   "n_queries": 318
+  }
+ },
+ "oracle_dup_demotion": {
+  "macro": 0.28497,
+  "macro_base": 0.27887,
+  "delta": 0.0061,
+  "delta_pp": 0.61,
+  "promoted_queries": 3,
+  "displaced_queries": 0,
+  "rel_entered": 3,
+  "rel_left": 0
+ },
+ "fragment_proxy_nw70": {
+  "macro": 0.26583,
+  "macro_base": 0.27887,
+  "delta": -0.01304,
+  "delta_pp": -1.304,
+  "promoted_queries": 53,
+  "displaced_queries": 79,
+  "rel_entered": 71,
+  "rel_left": 103
+ },
+ "lr_ceiling": {
+  "heldout_auc_by_fold": [
+   0.5101,
+   0.561,
+   0.7657
+  ],
+  "mean_heldout_auc": 0.6123,
+  "coefs_by_fold": [
+   {
+    "nav": 0.064,
+    "chrome_phrase": -0.027,
+    "links": 0.229,
+    "html": -0.131,
+    "pipes": -0.661,
+    "headlines": -0.049,
+    "bullets": -0.55,
+    "footer": -0.205,
+    "nonprose": -0.364,
+    "special": -0.249,
+    "repeat": -0.395,
+    "short": 1.429,
+    "fragment": 0.71,
+    "upper": -0.24,
+    "digit": 0.25,
+    "quote": 0.595,
+    "selfref": 1.945
+   },
+   {
+    "nav": -0.852,
+    "chrome_phrase": -0.221,
+    "links": 0.483,
+    "html": 0.731,
+    "pipes": -0.972,
+    "headlines": -0.018,
+    "bullets": 0.406,
+    "footer": -0.34,
+    "nonprose": 0.891,
+    "special": 0.776,
+    "repeat": -0.172,
+    "short": 0.747,
+    "fragment": 0.43,
+    "upper": -0.207,
+    "digit": -0.889,
+    "quote": 0.645,
+    "selfref": 2.429
+   },
+   {
+    "nav": -0.484,
+    "chrome_phrase": -0.33,
+    "links": 0.726,
+    "html": 0.527,
+    "pipes": -0.801,
+    "headlines": -0.034,
+    "bullets": -0.012,
+    "footer": -0.373,
+    "nonprose": 0.591,
+    "special": 0.365,
+    "repeat": 0.089,
+    "short": 1.107,
+    "fragment": 0.262,
+    "upper": -0.217,
+    "digit": 0.119,
+    "quote": -0.202,
+    "selfref": 1.465
+   }
+  ],
+  "note": "trained on the 4B model's DUP>0.5 labels, not deployable without that audit; upper bound for any document-only linear detector on these features"
+ },
+ "diagnostics": {
+  "candidate_docs_scored": 79248,
+  "chrome_share_pool100": 0.0146,
+  "chrome_share_top10": 0.0075,
+  "chrome_share_gold": 0.0031,
+  "n_gold_scored": 3519,
+  "chrome_in_top10_baseline": 73,
+  "chrome_in_top10_primary_lambda": 30
+ },
+ "construct_validity": {
+  "label": "p['DUP'] > 0.5 from scripts/temporal_audit.py, prompt P_DUP: 'Is this passage mostly a copy of the question text, a navigation or boilerplate block, or a fragment with no actual content?'",
+  "n_pairs": 533,
+  "n_positive": 75,
+  "nav_phrase_rate_positive": 0.0,
+  "nav_phrase_rate_negative": 0.0284,
+  "mean_words_positive": 221.8,
+  "mean_words_negative": 285.5,
+  "frac_positive_under_70_words": 0.24,
+  "frac_positive_under_40_words": 0.08,
+  "frac_positive_ANS_over_0.5": 0.6667,
+  "summary": "The 4B DUP flag is dominated by truncated fragments and copies of the question, not by navigation chrome: 0 of 75 flagged pairs contain any strict nav phrase, while 13 of 458 unflagged pairs do. A document-only chrome detector therefore cannot reproduce the flag (AUC 0.62) even though it does find genuine chrome."
+ },
+ "provenance": {
+  "detector": "scripts/chrome_detect.py (17 bounded features, hand weights, sigmoid; no labels, no LLM, no query text)",
+  "scores_cached": "D:\\RETECO\\work_chrome\\chrome_scores.pkl (79248 candidate docs)",
+  "eval_harness": "D:\\RETECO\\work_chrome\\eval_chrome.py",
+  "runs": "runs/trainfuse_f{0,1,2}_<domain>_train.trec from the server (scores already per-query z-units)",
+  "qrels": "data/track1_tempo/<domain>/qrels_train.txt (binary, rel=1)",
+  "folds": "D:\\RETECO\\work_chrome\\ce_folds.json fold_of, 328/323/318 queries",
+  "metric": "nDCG@10 with (2^r-1)/log2(i+2), binary relevance; macro = equal-weight mean of the 13 per-domain query means (same convention as temporal_audit.ndcg10 and the +0.0161 audit number)",
+  "lambda_grid": [
+   0.25,
+   0.5,
+   1.0,
+   2.0
+  ],
+  "lambda_choice": "leave-one-fold-out over {0.25,0.5,1.0,2.0} (f1 picked 0.5, f0/f2 picked 0.25); pooled held-out delta reported"
+ },
+ "recommendation": {
+  "rule": "fused_z - 0.25 * z(chrome_score), applied to the 100-doc pool",
+  "expected_macro_gain_pp": 0.443,
+  "expected_macro_gain": 0.00443,
+  "ci95": [
+   0.00036,
+   0.00917
+  ],
+  "in_sample_fixed_lambda_0.25_delta": 0.00539,
+  "share_of_audit_extrapolation_0.0161": 0.275,
+  "share_of_in_pipeline_oracle_0.0061": 0.726,
+  "note": "The 0.0044 pp figure is the fold-honest number and the one to quote; the 0.0161 audit figure extrapolates a heterogeneous model flag over all above-gold documents and is not attainable by a text-only detector.",
+  "ci95_fixed_lambda_0.25": [
+   0.00134,
+   0.01003
+  ]
+ }
+}

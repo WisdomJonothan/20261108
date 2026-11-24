@@ -1,0 +1,8 @@
+{
+  "mean_spearman_upr_vs_fused": -0.0048,
+  "source": "upr_diag.py over the three shard files",
+  "zero_queries_A": 298,
+  "zero_fixed_by_B": 31,
+  "macro_A": 0.278869,
+  "macro_B": 0.062374
+}

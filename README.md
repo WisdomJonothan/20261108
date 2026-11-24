@@ -63,7 +63,16 @@ against 0.3646 (+0.0065) for the tail arm at 18 prompts; with the dense+CE prior
 proven replacement for the tail arm. Configuration frozen in
 `configs/competition_config_20261122.json`.
 
-**Temporal-misordering ceiling (2026-11-24).** If every *verified* period/direction error above a gold document in the out-of-fold rankings were corrected, the official domain-macro gain would be **+0.0026** (95% CI [+0.0003,+0.0053]) on a stratified 138-query / 533-pair audit — below what the existing six-pair judge already gains out of fold (+0.0045). The automatic screen says +0.0075 but only 5 of its 15 flags survive reading (the rest are page chrome, topical differences, or cases where the document above the gold is better). The audit's larger finding: **14.1% of the documents ranked above gold are boilerplate/navigation fragments**, worth +0.0161 [+0.0099,+0.0228] if demoted — about four times the replacement gain, and no training required. Artefacts `results/analysis/temporal_ceiling_summary.json`, `results/replacement_v2/REPORT.md` section 18.
+**Temporal-misordering ceiling (2026-11-24).** If every *verified* period/direction error above a gold document in the out-of-fold rankings were corrected, the official domain-macro gain would be **+0.0026** (95% CI [+0.0003,+0.0053]) on a stratified 138-query / 533-pair audit — below what the existing six-pair judge already gains out of fold (+0.0045). The automatic screen says +0.0075 but only 5 of its 15 flags survive reading (the rest are page chrome, topical differences, or cases where the document above the gold is better). The audit's larger finding: **14.1% of the documents ranked above gold are flagged as boilerplate/fragments** (a heterogeneous flag, not page chrome: no flagged document contains a navigation phrase; they are truncated fragments, question copies and ordinary answers). A text-only detector for the deployable version gives **+0.0044 fold-honest** ([+0.0004,+0.0092]) at `fused_z − 0.25·z(chrome)`, versus +0.0161 for the oracle demotion of the flag itself. Artefacts `results/analysis/temporal_ceiling_summary.json`, `results/replacement_v2/REPORT.md` section 18.
+
+**Three further nulls (2026-11-24).** Generative reverse scoring (UPR-style, Qwen3-4B, 969
+out-of-fold queries, 96,900 pairs) is orthogonal to the fused score (mean per-query Spearman
+−0.0048) but far weaker: alone 0.062374, combined −0.000886 against 0.278869. Cheap within-query
+spread features cannot predict which queries fail (AUC 0.44–0.48). The text-only boilerplate
+detector that gains +0.0044 out of fold does not transfer to dev (0.358108 → 0.357754 at λ=0.25,
+λ=0.1 → 0.357777). The acceptance margin is irrelevant below 0.30 and a second or third swap adds
+only +0.0003 (dev 0.0154 → 0.0157), so the frozen one-swap 0.3735 configuration stands. Artefact
+`results/replacement_v2/threshold_transfer.json`, `results/analysis/upr_abc_train.json`.
 
 ## Replacement study (dev, 2026-11-20)
 
