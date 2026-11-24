@@ -1,0 +1,987 @@
+{
+  "protocol": "Scan every selected passage in the fixed official dev depth-100 run. Measure both original and clipped prompt token lengths when a selected passage contains an oversized whitespace-delimited word. This report uses tokenization.",
+  "queries": 519,
+  "words_min_characters": 2048,
+  "word_cap_counterfactual": 256,
+  "outlier_queries": 27,
+  "outlier_windows": 42,
+  "affected_prompts": 84,
+  "original_tokens": 312045,
+  "clipped_word_tokens": 51400,
+  "maximum_original": 62010,
+  "maximum_clipped": 989,
+  "per_query": [
+    {
+      "domain": "history",
+      "qid": "55937_780",
+      "oversized_windows": {
+        "history/6563839e_314466.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 3546,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "history/1a5328ec_314385.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 3546,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/6563839e_314466.txt",
+          "original_tokens": [
+            696,
+            696
+          ],
+          "clipped_word_tokens": [
+            644,
+            644
+          ]
+        },
+        {
+          "challenger": "history/1a5328ec_314385.txt",
+          "original_tokens": [
+            696,
+            696
+          ],
+          "clipped_word_tokens": [
+            644,
+            644
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "56089_769",
+      "oversized_windows": {
+        "history/0eaef7ba_328200.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 3373,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/0eaef7ba_328200.txt",
+          "original_tokens": [
+            765,
+            765
+          ],
+          "clipped_word_tokens": [
+            716,
+            716
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "56929_710",
+      "oversized_windows": {
+        "history/aca30919_340988.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 3841,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/aca30919_340988.txt",
+          "original_tokens": [
+            567,
+            567
+          ],
+          "clipped_word_tokens": [
+            510,
+            510
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "59289_624",
+      "oversized_windows": {
+        "history/b59506e9_226540.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2070,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/b59506e9_226540.txt",
+          "original_tokens": [
+            595,
+            594
+          ],
+          "clipped_word_tokens": [
+            566,
+            565
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "59309_621",
+      "oversized_windows": {
+        "history/e6017465_328358.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2521,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/e6017465_328358.txt",
+          "original_tokens": [
+            714,
+            713
+          ],
+          "clipped_word_tokens": [
+            678,
+            677
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "64208_532",
+      "oversized_windows": {
+        "history/6639025d_225349.txt": {
+          "words_over_threshold": 2,
+          "longest_word_characters": 61096,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/6639025d_225349.txt",
+          "original_tokens": [
+            1762,
+            1762
+          ],
+          "clipped_word_tokens": [
+            645,
+            645
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "64228_530",
+      "oversized_windows": {
+        "history/73d8a51d_353864.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 3901,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "history/89b6659d_198765.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 3470,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/73d8a51d_353864.txt",
+          "original_tokens": [
+            462,
+            462
+          ],
+          "clipped_word_tokens": [
+            404,
+            404
+          ]
+        },
+        {
+          "challenger": "history/89b6659d_198765.txt",
+          "original_tokens": [
+            456,
+            456
+          ],
+          "clipped_word_tokens": [
+            405,
+            405
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "64383_523",
+      "oversized_windows": {
+        "history/f8309b17_296885.txt": {
+          "words_over_threshold": 2,
+          "longest_word_characters": 26594,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/f8309b17_296885.txt",
+          "original_tokens": [
+            1455,
+            1454
+          ],
+          "clipped_word_tokens": [
+            989,
+            988
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "66491_463",
+      "oversized_windows": {
+        "history/a3111562_269988.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 8791,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/a3111562_269988.txt",
+          "original_tokens": [
+            633,
+            633
+          ],
+          "clipped_word_tokens": [
+            499,
+            499
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "67963_434",
+      "oversized_windows": {
+        "history/2401ee98_310820.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 17676,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "history/019d1550_310814.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 13321,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/2401ee98_310820.txt",
+          "original_tokens": [
+            906,
+            906
+          ],
+          "clipped_word_tokens": [
+            634,
+            634
+          ]
+        },
+        {
+          "challenger": "history/019d1550_310814.txt",
+          "original_tokens": [
+            683,
+            683
+          ],
+          "clipped_word_tokens": [
+            478,
+            478
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "68013_430",
+      "oversized_windows": {
+        "history/e504330f_335136.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 4057,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/e504330f_335136.txt",
+          "original_tokens": [
+            533,
+            534
+          ],
+          "clipped_word_tokens": [
+            473,
+            474
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "68362_413",
+      "oversized_windows": {
+        "history/38f58f01_261138.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2877,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "history/d2c12126_261039.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2877,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/38f58f01_261138.txt",
+          "original_tokens": [
+            807,
+            806
+          ],
+          "clipped_word_tokens": [
+            765,
+            764
+          ]
+        },
+        {
+          "challenger": "history/d2c12126_261039.txt",
+          "original_tokens": [
+            807,
+            806
+          ],
+          "clipped_word_tokens": [
+            765,
+            764
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "69860_322",
+      "oversized_windows": {
+        "history/7edc3109_232075.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2884,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/7edc3109_232075.txt",
+          "original_tokens": [
+            580,
+            580
+          ],
+          "clipped_word_tokens": [
+            538,
+            538
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "70382_288",
+      "oversized_windows": {
+        "history/0a03fcca_272971.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2185,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/0a03fcca_272971.txt",
+          "original_tokens": [
+            496,
+            496
+          ],
+          "clipped_word_tokens": [
+            465,
+            465
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "71367_216",
+      "oversized_windows": {
+        "history/bd12f798_314449.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2082,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "history/59e8331c_314352.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2080,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "history/7dac1e7a_197325.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2108,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/bd12f798_314449.txt",
+          "original_tokens": [
+            538,
+            538
+          ],
+          "clipped_word_tokens": [
+            509,
+            509
+          ]
+        },
+        {
+          "challenger": "history/59e8331c_314352.txt",
+          "original_tokens": [
+            537,
+            537
+          ],
+          "clipped_word_tokens": [
+            509,
+            509
+          ]
+        },
+        {
+          "challenger": "history/7dac1e7a_197325.txt",
+          "original_tokens": [
+            539,
+            539
+          ],
+          "clipped_word_tokens": [
+            509,
+            509
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "71507_211",
+      "oversized_windows": {
+        "history/4b03c18f_203538.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2764,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/4b03c18f_203538.txt",
+          "original_tokens": [
+            1027,
+            1027
+          ],
+          "clipped_word_tokens": [
+            988,
+            988
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "71924_189",
+      "oversized_windows": {
+        "history/69ddf731_200068.txt": {
+          "words_over_threshold": 2,
+          "longest_word_characters": 30569,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/69ddf731_200068.txt",
+          "original_tokens": [
+            1054,
+            1054
+          ],
+          "clipped_word_tokens": [
+            525,
+            525
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "72115_181",
+      "oversized_windows": {
+        "history/9cd393df_199106.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2965,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/9cd393df_199106.txt",
+          "original_tokens": [
+            692,
+            692
+          ],
+          "clipped_word_tokens": [
+            649,
+            649
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "72472_158",
+      "oversized_windows": {
+        "history/6ba2e74d_195621.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 21621,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "history/3924f778_195622.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 24519,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/6ba2e74d_195621.txt",
+          "original_tokens": [
+            885,
+            885
+          ],
+          "clipped_word_tokens": [
+            550,
+            550
+          ]
+        },
+        {
+          "challenger": "history/3924f778_195622.txt",
+          "original_tokens": [
+            964,
+            963
+          ],
+          "clipped_word_tokens": [
+            584,
+            583
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "72552_154",
+      "oversized_windows": {
+        "history/69222234_194906.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2579,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "history/f76e33f5_300339.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2653,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "history/b2f1ef99_194893.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2213,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/69222234_194906.txt",
+          "original_tokens": [
+            696,
+            696
+          ],
+          "clipped_word_tokens": [
+            659,
+            659
+          ]
+        },
+        {
+          "challenger": "history/f76e33f5_300339.txt",
+          "original_tokens": [
+            697,
+            697
+          ],
+          "clipped_word_tokens": [
+            659,
+            659
+          ]
+        },
+        {
+          "challenger": "history/b2f1ef99_194893.txt",
+          "original_tokens": [
+            555,
+            554
+          ],
+          "clipped_word_tokens": [
+            524,
+            523
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "76805_79",
+      "oversized_windows": {
+        "history/3b0e76a1_195959.txt": {
+          "words_over_threshold": 2,
+          "longest_word_characters": 1065178,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "history/8f0fccce_264226.txt": {
+          "words_over_threshold": 2,
+          "longest_word_characters": 1065178,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "history/25496147_344889.txt": {
+          "words_over_threshold": 2,
+          "longest_word_characters": 1065178,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/3b0e76a1_195959.txt",
+          "original_tokens": [
+            17853,
+            17853
+          ],
+          "clipped_word_tokens": [
+            792,
+            792
+          ]
+        },
+        {
+          "challenger": "history/8f0fccce_264226.txt",
+          "original_tokens": [
+            17853,
+            17853
+          ],
+          "clipped_word_tokens": [
+            792,
+            792
+          ]
+        },
+        {
+          "challenger": "history/25496147_344889.txt",
+          "original_tokens": [
+            17853,
+            17853
+          ],
+          "clipped_word_tokens": [
+            792,
+            792
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "77151_58",
+      "oversized_windows": {
+        "history/6563839e_314466.txt": {
+          "words_over_threshold": 2,
+          "longest_word_characters": 196363,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "history/1a5328ec_314385.txt": {
+          "words_over_threshold": 2,
+          "longest_word_characters": 196363,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/6563839e_314466.txt",
+          "original_tokens": [
+            3912,
+            3911
+          ],
+          "clipped_word_tokens": [
+            680,
+            679
+          ]
+        },
+        {
+          "challenger": "history/1a5328ec_314385.txt",
+          "original_tokens": [
+            3912,
+            3911
+          ],
+          "clipped_word_tokens": [
+            680,
+            679
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "77270_48",
+      "oversized_windows": {
+        "history/1ef6ff4a_198833.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 8899,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "history/173aa09d_335266.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 8899,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "history/72fb4a1e_244122.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 8899,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/1ef6ff4a_198833.txt",
+          "original_tokens": [
+            589,
+            588
+          ],
+          "clipped_word_tokens": [
+            453,
+            452
+          ]
+        },
+        {
+          "challenger": "history/173aa09d_335266.txt",
+          "original_tokens": [
+            589,
+            588
+          ],
+          "clipped_word_tokens": [
+            453,
+            452
+          ]
+        },
+        {
+          "challenger": "history/72fb4a1e_244122.txt",
+          "original_tokens": [
+            589,
+            588
+          ],
+          "clipped_word_tokens": [
+            453,
+            452
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "history",
+      "qid": "77682_27",
+      "oversized_windows": {
+        "history/3810bc4c_353755.txt": {
+          "words_over_threshold": 2,
+          "longest_word_characters": 12713,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "history/3810bc4c_353755.txt",
+          "original_tokens": [
+            822,
+            822
+          ],
+          "clipped_word_tokens": [
+            581,
+            581
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "hsm",
+      "qid": "13664_712",
+      "oversized_windows": {
+        "hsm/4529d6f6_210275.txt": {
+          "words_over_threshold": 7,
+          "longest_word_characters": 3307683,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "hsm/4529d6f6_210275.txt",
+          "original_tokens": [
+            62010,
+            62009
+          ],
+          "clipped_word_tokens": [
+            749,
+            749
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "politics",
+      "qid": "82039_1009",
+      "oversized_windows": {
+        "politics/1951cd4d_182393.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 15676,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        },
+        "politics/4f380469_182425.txt": {
+          "words_over_threshold": 2,
+          "longest_word_characters": 392888,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "politics/1951cd4d_182393.txt",
+          "original_tokens": [
+            989,
+            990
+          ],
+          "clipped_word_tokens": [
+            747,
+            748
+          ]
+        },
+        {
+          "challenger": "politics/4f380469_182425.txt",
+          "original_tokens": [
+            6726,
+            6727
+          ],
+          "clipped_word_tokens": [
+            546,
+            547
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "politics",
+      "qid": "89753_942",
+      "oversized_windows": {
+        "politics/6e3c0b83_182898.txt": {
+          "words_over_threshold": 1,
+          "longest_word_characters": 2134,
+          "distinct_codepoints_in_longest_word": 1,
+          "most_common_codepoint_category": "Pd",
+          "most_common_codepoint_share": 1.0
+        }
+      },
+      "pairs": [
+        {
+          "challenger": "politics/6e3c0b83_182898.txt",
+          "original_tokens": [
+            534,
+            533
+          ],
+          "clipped_word_tokens": [
+            504,
+            503
+          ]
+        }
+      ]
+    }
+  ]
+}
