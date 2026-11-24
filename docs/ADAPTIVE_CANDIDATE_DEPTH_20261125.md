@@ -44,3 +44,24 @@ On dev, ridge changes the disagreement score by −0.00247 [within-domain paired
 ```bash
 python scripts/fit_candidate_depth_routing.py --runs-root runs --data-root data/track1_tempo --output results/analysis/learned_candidate_depth_replay.json
 ```
+
+
+## Candidate depth and edit limits
+
+Join the same per-query routes with the [exact edit-budget audit](SWAP_EVIDENCE_SPANS_20261125.md). Each column uses optimal choices with respect to the official labels and the six-pair starting list. The single-admission reorder column permits reordering the selected ten, and unrestricted ranking permits any top ten from the chosen pool.
+
+| Candidate depth policy | One in-place replacement | Two in-place replacements | One admission plus reordering | Unrestricted |
+|---|---:|---:|---:|---:|
+| All at depth 100 | 0.58504 | 0.62680 | 0.69850 | 0.74462 |
+| Expand abstentions | 0.62964 | 0.67794 | 0.73585 | 0.79352 |
+| Domain-matched uniform expansion, expectation | 0.63116 | 0.68219 | 0.73705 | 0.79694 |
+| Expand rank disagreement | 0.63798 | 0.69080 | 0.74463 | 0.80864 |
+| All at depth 300 | 0.67603 | 0.73982 | 0.77450 | 0.85132 |
+
+Against a target of 0.60, one in-place replacement at depth 100 is bounded by 0.58504. Under the selective depth-300 route, the same edit allowance has a ceiling of 0.63798. Reordering the selected ten at depth 100 already raises the one-admission ceiling to 0.69850. The two mechanisms provide separate headroom estimates. All table scores are label-based diagnostic ceilings.
+
+[Joined depth and edit-budget estimates](../results/analysis/adaptive_candidate_depth_edit_limits_20261125.json)
+
+```bash
+python scripts/audit_depth_edit_limits.py --ceilings results/analysis/competition_edit_budget_20261125.json --routing results/analysis/adaptive_candidate_depth_dev_20261125.json --output results/analysis/adaptive_candidate_depth_edit_limits_replay.json
+```
