@@ -1,0 +1,57 @@
+{
+ "scope": "Qrels-defined oracle gains conditioned on fixed action sets. The accepted oracle may abstain. Domains are equally weighted.",
+ "summary": {
+  "oof": {
+   "external6": {
+    "oracle_gain": 0.03221883738031392,
+    "accepted_oracle_gain": 0.010180373457500141,
+    "observed_gain": 0.0044829333571556815,
+    "lost_at_acceptance": 0.022038463922813778,
+    "lost_at_selection": 0.00569744010034446,
+    "queries_with_benefit_but_none_accepted": 82
+   },
+   "internal6": {
+    "oracle_gain": 0.046232819138019174,
+    "accepted_oracle_gain": 0.02036598630798962,
+    "observed_gain": 0.007722381772934224,
+    "lost_at_acceptance": 0.025866832830029555,
+    "lost_at_selection": 0.012643604535055395,
+    "queries_with_benefit_but_none_accepted": 163
+   },
+   "mixed3x3": {
+    "oracle_gain": 0.06078232796005462,
+    "accepted_oracle_gain": 0.02174181307777217,
+    "observed_gain": 0.006708899920021257,
+    "lost_at_acceptance": 0.039040514882282454,
+    "lost_at_selection": 0.015032913157750911,
+    "queries_with_benefit_but_none_accepted": 152
+   }
+  },
+  "dev": {
+   "external6": {
+    "oracle_gain": 0.04380334243750139,
+    "accepted_oracle_gain": 0.02220030574397063,
+    "observed_gain": 0.015404709963352253,
+    "lost_at_acceptance": 0.02160303669353076,
+    "lost_at_selection": 0.006795595780618379,
+    "queries_with_benefit_but_none_accepted": 44
+   },
+   "internal6": {
+    "oracle_gain": 0.05226739739370441,
+    "accepted_oracle_gain": 0.02134420048468435,
+    "observed_gain": 0.009509722779119895,
+    "lost_at_acceptance": 0.03092319690902006,
+    "lost_at_selection": 0.011834477705564454,
+    "queries_with_benefit_but_none_accepted": 94
+   },
+   "mixed3x3": {
+    "oracle_gain": 0.06558039414513611,
+    "accepted_oracle_gain": 0.0238977885159579,
+    "observed_gain": 0.0073407682065761565,
+    "lost_at_acceptance": 0.04168260562917821,
+    "lost_at_selection": 0.016557020309381745,
+    "queries_with_benefit_but_none_accepted": 98
+   }
+  }
+ }
+}
