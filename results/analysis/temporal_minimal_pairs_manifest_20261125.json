@@ -1,0 +1,292 @@
+{
+  "protocol": "Selection frozen before scoring. All source document pairs are positive for the same official training query. Each selected span gives specific evidence for one authored time condition. Offsets index whitespace-normalized corpus text.",
+  "selection": "Targeted exploratory sample across five domains.",
+  "cases": [
+    {
+      "id": "second_definition",
+      "domain": "hsm",
+      "source_train_qid": "18988_650",
+      "query_template": "Which passage identifies a formal definition of the second adopted {time} 1964?",
+      "time_values": {
+        "early": "before",
+        "late": "after"
+      },
+      "evidence": {
+        "early": {
+          "doc": "hsm/3a821edf_0216.txt",
+          "start": 191,
+          "end": 360,
+          "visible_evidence": "Ephemeris second defined in 1954 and revised in 1956.",
+          "sha256": "3f85ca6802919bce86cccd20429e9346cf0338d6cb72ad67b625d1f9299461f6"
+        },
+        "late": {
+          "doc": "hsm/52da71e8_0218.txt",
+          "start": 456,
+          "end": 778,
+          "visible_evidence": "CGPM atomic definition adopted in 1967.",
+          "sha256": "ffcb3290129dc8040597a4e9d7f69d82ef572530d988999a1dbead2d05cd62ba"
+        }
+      }
+    },
+    {
+      "id": "hertz_adoption",
+      "domain": "hsm",
+      "source_train_qid": "5552_756",
+      "query_template": "Which passage documents a standards organization formally adopting the name hertz {time} 1963?",
+      "time_values": {
+        "early": "before",
+        "late": "after"
+      },
+      "evidence": {
+        "early": {
+          "doc": "hsm/e611767b_14958.txt",
+          "start": 0,
+          "end": 238,
+          "visible_evidence": "The CGPM adopted hertz in 1960.",
+          "sha256": "596d1afbb65a20564b0c8d4810b8d2b3e7843b1844a6768c4a892c769e6f51f2"
+        },
+        "late": {
+          "doc": "hsm/68ff275a_14959.txt",
+          "start": 0,
+          "end": 212,
+          "visible_evidence": "The IEEE adopted hertz in 1964–1965.",
+          "sha256": "0aa530ba8c9b43501871dbbb255fdadd6f274f0edc8544bc253614e274f0aac5"
+        }
+      }
+    },
+    {
+      "id": "induction_formulation",
+      "domain": "hsm",
+      "source_train_qid": "13038_734",
+      "query_template": "Which passage describes mathematical work on electromagnetic induction {time} 1855?",
+      "time_values": {
+        "early": "before",
+        "late": "after"
+      },
+      "evidence": {
+        "early": {
+          "doc": "hsm/1294c1f5_11592.txt",
+          "start": 0,
+          "end": 202,
+          "visible_evidence": "Neumann formulated induction mathematically in papers of 1845 and 1847.",
+          "sha256": "8fb17a5e39352b5bfd9604ee2c0842774a113d772bd7e4ad049fdb2e57fa0803"
+        },
+        "late": {
+          "doc": "hsm/ccc0e967_11591.txt",
+          "start": 0,
+          "end": 334,
+          "visible_evidence": "Maxwell gave Faraday’s insights a mathematical form in the early 1860s.",
+          "sha256": "61df34ed5b805d9ad4f7926c94bd6d2bb5e72733e706d41e2b024966f91ce563"
+        }
+      }
+    },
+    {
+      "id": "quantum_formulation",
+      "domain": "hsm",
+      "source_train_qid": "17996_680",
+      "query_template": "Which passage identifies an original publication of a formulation of quantum mechanics {time} 1 January 1926?",
+      "time_values": {
+        "early": "before",
+        "late": "after"
+      },
+      "evidence": {
+        "early": {
+          "doc": "hsm/b082e0b2_3489.txt",
+          "start": 2765,
+          "end": 3152,
+          "visible_evidence": "Heisenberg’s cited original paper is dated 1925. The 1968 date belongs to the English translation.",
+          "sha256": "66836630485630576ea3bf288148c575350182424498458d9ed0b642cdc8f9cf"
+        },
+        "late": {
+          "doc": "hsm/b73b7e3a_3488.txt",
+          "start": 314,
+          "end": 635,
+          "visible_evidence": "Schrödinger published his equation in 1926.",
+          "sha256": "b7b71ac82cbf5a4bfa98858483dc98f86677ec322d414f04bab7125abf691367"
+        }
+      }
+    },
+    {
+      "id": "scottish_birth_records",
+      "domain": "genealogy",
+      "source_train_qid": "13331_271",
+      "query_template": "Which passage identifies a type of Scottish birth record with entries from {time}?",
+      "time_values": {
+        "early": "1840",
+        "late": "1860"
+      },
+      "evidence": {
+        "early": {
+          "doc": "genealogy/4d80f4a7_3352.txt",
+          "start": 107,
+          "end": 507,
+          "visible_evidence": "The specified Old Parochial Registers cover births from 1726 to 1854.",
+          "sha256": "1cf5f498ea49c1364062bb8f1ee3f14456bae17a9336ba94605e404d6cc0aa89"
+        },
+        "late": {
+          "doc": "genealogy/c5f46f03_3353.txt",
+          "start": 1173,
+          "end": 1573,
+          "visible_evidence": "Scottish statutory birth records include fields documented for 1855–1918.",
+          "sha256": "5de815138f78a548aaa9b4576ce952b541cf39af8adaa044b5e92fe7610a2bb5"
+        }
+      }
+    },
+    {
+      "id": "us_population_census",
+      "domain": "genealogy",
+      "source_train_qid": "10098_312",
+      "query_template": "Which passage describes the contents of a United States population census taken {time} 1820?",
+      "time_values": {
+        "early": "before",
+        "late": "after"
+      },
+      "evidence": {
+        "early": {
+          "doc": "genealogy/4cc6f777_8357.txt",
+          "start": 226,
+          "end": 436,
+          "visible_evidence": "The 1800 census describes the ages of free white females.",
+          "sha256": "a62d05a34e37b7af2ccf46a496dccde28a7d2654ea1b7204c9ac64654d6ddae4"
+        },
+        "late": {
+          "doc": "genealogy/706dc63f_8358.txt",
+          "start": 0,
+          "end": 441,
+          "visible_evidence": "The 1840 population schedules include people in households and pensioners.",
+          "sha256": "e1d0bb0b2e35d86a5fc0dac91e294d947d9bd5dd2b03579d57e8a31712999f93"
+        }
+      }
+    },
+    {
+      "id": "canadian_private_notes",
+      "domain": "history",
+      "source_train_qid": "72297_168",
+      "query_template": "Which passage describes a restriction or phase-out of Canadian private bank notes {time} 1935?",
+      "time_values": {
+        "early": "before",
+        "late": "after"
+      },
+      "evidence": {
+        "early": {
+          "doc": "history/08beb77b_22607.txt",
+          "start": 0,
+          "end": 370,
+          "visible_evidence": "The 1871 Bank Act restricted the denominations that chartered banks could issue.",
+          "sha256": "add2810348fa38248f99cc24f9abd7d7329ad462ba3566bfc74e37bd8918197e"
+        },
+        "late": {
+          "doc": "history/7e226b00_22606.txt",
+          "start": 971,
+          "end": 1289,
+          "visible_evidence": "The last private notes were issued in 1944 and removed by 1950. The 1817 date describes first issuance.",
+          "sha256": "7d11a63e94542511f521c476d92c111d05323e21d6240194dc651a267d3cfa03"
+        }
+      }
+    },
+    {
+      "id": "india_pakistan_agreement",
+      "domain": "history",
+      "source_train_qid": "69965_311",
+      "query_template": "Which passage identifies a signed instrument concerning the outcome of the 1971 India–Pakistan War {time} 1 January 1972?",
+      "time_values": {
+        "early": "before",
+        "late": "after"
+      },
+      "evidence": {
+        "early": {
+          "doc": "history/034744ef_42168.txt",
+          "start": 0,
+          "end": 261,
+          "visible_evidence": "The instrument of surrender was signed on 16 December 1971.",
+          "sha256": "7dd9f35b4bcd451781867e508521fb58c8d4d5ee3f4e1cdf0273529c31a70c6c"
+        },
+        "late": {
+          "doc": "history/763f101f_42169.txt",
+          "start": 0,
+          "end": 424,
+          "visible_evidence": "The Simla Agreement was signed on 2 July 1972. The 1971 date describes the preceding war.",
+          "sha256": "dde539691ebd5b7ebc1118fa44a0ffffcfc531b29c35af5adbee29012f1687cf"
+        }
+      }
+    },
+    {
+      "id": "punjab_administration",
+      "domain": "history",
+      "source_train_qid": "70172_299",
+      "query_template": "Which passage specifically identifies who administered Punjab {time} the 1853 reorganization?",
+      "time_values": {
+        "early": "before",
+        "late": "after"
+      },
+      "evidence": {
+        "early": {
+          "doc": "history/19e673d4_41245.txt",
+          "start": 0,
+          "end": 680,
+          "visible_evidence": "Following the 1849 annexation, the board consisted of Henry Lawrence, John Lawrence and Charles Mansell.",
+          "sha256": "971316e6c1645f8a5cc5ec87a8cd7418a22b102dbd1bae01f803888246364600"
+        },
+        "late": {
+          "doc": "history/b2a1a275_41242.txt",
+          "start": 476,
+          "end": 662,
+          "visible_evidence": "After the reorganization John Lawrence was chief commissioner and Montgomery was his deputy.",
+          "sha256": "74ddfce8a8e720823c542982a6e40984230a6f73703d9d717c3acd4fdd76158c"
+        }
+      }
+    },
+    {
+      "id": "us_election_response",
+      "domain": "politics",
+      "source_train_qid": "88539_959",
+      "query_template": "Which passage details a congressional response to the disputed 1876 U.S. presidential election {time} 1880?",
+      "time_values": {
+        "early": "before",
+        "late": "after"
+      },
+      "evidence": {
+        "early": {
+          "doc": "politics/b349ef2d_11600.txt",
+          "start": 0,
+          "end": 300,
+          "visible_evidence": "Congress established an electoral commission in 1877.",
+          "sha256": "1207bb4e2163cdab9ae80e58ce786f836feafc3404aeb3bdc690d67fb10847fb"
+        },
+        "late": {
+          "doc": "politics/82b7d4d8_11602.txt",
+          "start": 0,
+          "end": 522,
+          "visible_evidence": "Congress passed the Electoral Count Act in 1887. The 1877 date describes the compromise.",
+          "sha256": "3c725a167cf3ee0267c7f7a4eb4e9aa5cd2a80243bcd16734d3959145cdb9e6f"
+        }
+      }
+    },
+    {
+      "id": "indian_economic_policy",
+      "domain": "economics",
+      "source_train_qid": "47875_211",
+      "query_template": "Which passage describes an Indian government economic policy change {time} 1989?",
+      "time_values": {
+        "early": "before",
+        "late": "after"
+      },
+      "evidence": {
+        "early": {
+          "doc": "economics/38b2de89_10216.txt",
+          "start": 0,
+          "end": 517,
+          "visible_evidence": "The early post-independence government restricted domestic and foreign enterprises.",
+          "sha256": "f7064b8fca1c08f8a15e3c693125c7cfec44e1748b482d6f1bc0d0cb2e116e94"
+        },
+        "late": {
+          "doc": "economics/66d4ec12_10215.txt",
+          "start": 786,
+          "end": 977,
+          "visible_evidence": "The 1991–92 budget reduced the fertilizer subsidy and removed the sugar subsidy.",
+          "sha256": "35b3bff052e74efa918f5e9fac123d28d35c308936ab5a484a7c173af49b03a2"
+        }
+      }
+    }
+  ]
+}

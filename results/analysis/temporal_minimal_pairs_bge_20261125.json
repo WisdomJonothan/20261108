@@ -1,0 +1,769 @@
+{
+  "protocol": "Compare the same two exact source passages under both query conditions. Both source documents are official positives for the originating train topic. A correct flip requires the expected passage to rank strictly first for both variants.",
+  "cases": 11,
+  "domains": 5,
+  "model_paths": {
+    "bge_zero_shot": "bge-reranker-v2-m3",
+    "bge_frozen_ce": "v2m3_pool8_e2"
+  },
+  "results": {
+    "overlap": {
+      "query_variants": 22,
+      "correct_variants": 8,
+      "tied_variants": 6,
+      "correct_flips": 0,
+      "reversed_flips": 0,
+      "mean_temporal_margin_shift": 0.0,
+      "per_case": [
+        {
+          "case": "second_definition",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": 0.25,
+              "late": 0.3333333333333333
+            },
+            "late": {
+              "early": 0.25,
+              "late": 0.3333333333333333
+            }
+          },
+          "correct_document_margins": {
+            "early": -0.08333333333333331,
+            "late": 0.08333333333333331
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "hertz_adoption",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": 0.23076923076923078,
+              "late": 0.23076923076923078
+            },
+            "late": {
+              "early": 0.23076923076923078,
+              "late": 0.23076923076923078
+            }
+          },
+          "correct_document_margins": {
+            "early": 0.0,
+            "late": 0.0
+          },
+          "outcomes": {
+            "early": "tie",
+            "late": "tie"
+          }
+        },
+        {
+          "case": "induction_formulation",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": 0.2,
+              "late": 0.2
+            },
+            "late": {
+              "early": 0.2,
+              "late": 0.2
+            }
+          },
+          "correct_document_margins": {
+            "early": 0.0,
+            "late": 0.0
+          },
+          "outcomes": {
+            "early": "tie",
+            "late": "tie"
+          }
+        },
+        {
+          "case": "quantum_formulation",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": 0.26666666666666666,
+              "late": 0.3333333333333333
+            },
+            "late": {
+              "early": 0.26666666666666666,
+              "late": 0.3333333333333333
+            }
+          },
+          "correct_document_margins": {
+            "early": -0.06666666666666665,
+            "late": 0.06666666666666665
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "scottish_birth_records",
+          "domain": "genealogy",
+          "scores": {
+            "early": {
+              "early": 0.38461538461538464,
+              "late": 0.46153846153846156
+            },
+            "late": {
+              "early": 0.38461538461538464,
+              "late": 0.46153846153846156
+            }
+          },
+          "correct_document_margins": {
+            "early": -0.07692307692307693,
+            "late": 0.07692307692307693
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "us_population_census",
+          "domain": "genealogy",
+          "scores": {
+            "early": {
+              "early": 0.21428571428571427,
+              "late": 0.5
+            },
+            "late": {
+              "early": 0.21428571428571427,
+              "late": 0.5
+            }
+          },
+          "correct_document_margins": {
+            "early": -0.2857142857142857,
+            "late": 0.2857142857142857
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "canadian_private_notes",
+          "domain": "history",
+          "scores": {
+            "early": {
+              "early": 0.26666666666666666,
+              "late": 0.4666666666666667
+            },
+            "late": {
+              "early": 0.26666666666666666,
+              "late": 0.4666666666666667
+            }
+          },
+          "correct_document_margins": {
+            "early": -0.2,
+            "late": 0.2
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "india_pakistan_agreement",
+          "domain": "history",
+          "scores": {
+            "early": {
+              "early": 0.5,
+              "late": 0.5555555555555556
+            },
+            "late": {
+              "early": 0.5555555555555556,
+              "late": 0.6111111111111112
+            }
+          },
+          "correct_document_margins": {
+            "early": -0.05555555555555558,
+            "late": 0.05555555555555558
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "punjab_administration",
+          "domain": "history",
+          "scores": {
+            "early": {
+              "early": 0.2727272727272727,
+              "late": 0.18181818181818182
+            },
+            "late": {
+              "early": 0.2727272727272727,
+              "late": 0.18181818181818182
+            }
+          },
+          "correct_document_margins": {
+            "early": 0.09090909090909088,
+            "late": -0.09090909090909088
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "incorrect"
+          }
+        },
+        {
+          "case": "us_election_response",
+          "domain": "politics",
+          "scores": {
+            "early": {
+              "early": 0.25,
+              "late": 0.375
+            },
+            "late": {
+              "early": 0.25,
+              "late": 0.375
+            }
+          },
+          "correct_document_margins": {
+            "early": -0.125,
+            "late": 0.125
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "indian_economic_policy",
+          "domain": "economics",
+          "scores": {
+            "early": {
+              "early": 0.09090909090909091,
+              "late": 0.09090909090909091
+            },
+            "late": {
+              "early": 0.09090909090909091,
+              "late": 0.09090909090909091
+            }
+          },
+          "correct_document_margins": {
+            "early": 0.0,
+            "late": 0.0
+          },
+          "outcomes": {
+            "early": "tie",
+            "late": "tie"
+          }
+        }
+      ]
+    },
+    "bge_zero_shot": {
+      "query_variants": 22,
+      "correct_variants": 13,
+      "tied_variants": 0,
+      "correct_flips": 2,
+      "reversed_flips": 0,
+      "mean_temporal_margin_shift": 0.4668176241896369,
+      "per_case": [
+        {
+          "case": "second_definition",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": -4.104643821716309,
+              "late": -2.4646477699279785
+            },
+            "late": {
+              "early": -4.565117835998535,
+              "late": -2.6556529998779297
+            }
+          },
+          "correct_document_margins": {
+            "early": -1.63999605178833,
+            "late": 1.9094648361206055
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "hertz_adoption",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": 0.49587929248809814,
+              "late": 0.3064393699169159
+            },
+            "late": {
+              "early": 0.32037249207496643,
+              "late": 0.9893161654472351
+            }
+          },
+          "correct_document_margins": {
+            "early": 0.18943992257118225,
+            "late": 0.6689436733722687
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "induction_formulation",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": -0.9022857546806335,
+              "late": -2.4527482986450195
+            },
+            "late": {
+              "early": -1.2727465629577637,
+              "late": -2.7277073860168457
+            }
+          },
+          "correct_document_margins": {
+            "early": 1.550462543964386,
+            "late": -1.454960823059082
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "incorrect"
+          }
+        },
+        {
+          "case": "quantum_formulation",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": -3.8422060012817383,
+              "late": 1.220534324645996
+            },
+            "late": {
+              "early": -3.7650492191314697,
+              "late": 0.6241612434387207
+            }
+          },
+          "correct_document_margins": {
+            "early": -5.062740325927734,
+            "late": 4.38921046257019
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "scottish_birth_records",
+          "domain": "genealogy",
+          "scores": {
+            "early": {
+              "early": -4.639208793640137,
+              "late": -3.2700259685516357
+            },
+            "late": {
+              "early": -4.590118408203125,
+              "late": -2.9066758155822754
+            }
+          },
+          "correct_document_margins": {
+            "early": -1.369182825088501,
+            "late": 1.6834425926208496
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "us_population_census",
+          "domain": "genealogy",
+          "scores": {
+            "early": {
+              "early": -4.504805564880371,
+              "late": -3.3951568603515625
+            },
+            "late": {
+              "early": -5.025302886962891,
+              "late": -4.081428527832031
+            }
+          },
+          "correct_document_margins": {
+            "early": -1.1096487045288086,
+            "late": 0.9438743591308594
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "canadian_private_notes",
+          "domain": "history",
+          "scores": {
+            "early": {
+              "early": -6.7129034996032715,
+              "late": -1.068913459777832
+            },
+            "late": {
+              "early": -7.2340569496154785,
+              "late": -1.0603580474853516
+            }
+          },
+          "correct_document_margins": {
+            "early": -5.6439900398254395,
+            "late": 6.173698902130127
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "india_pakistan_agreement",
+          "domain": "history",
+          "scores": {
+            "early": {
+              "early": 2.195857524871826,
+              "late": -0.17250390350818634
+            },
+            "late": {
+              "early": 2.2614803314208984,
+              "late": 0.2545825242996216
+            }
+          },
+          "correct_document_margins": {
+            "early": 2.3683614283800125,
+            "late": -2.006897807121277
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "incorrect"
+          }
+        },
+        {
+          "case": "punjab_administration",
+          "domain": "history",
+          "scores": {
+            "early": {
+              "early": 0.3288355767726898,
+              "late": -4.053551197052002
+            },
+            "late": {
+              "early": -0.12026622891426086,
+              "late": -1.8936485052108765
+            }
+          },
+          "correct_document_margins": {
+            "early": 4.382386773824692,
+            "late": -1.7733822762966156
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "incorrect"
+          }
+        },
+        {
+          "case": "us_election_response",
+          "domain": "politics",
+          "scores": {
+            "early": {
+              "early": -4.0086493492126465,
+              "late": -3.101111888885498
+            },
+            "late": {
+              "early": -3.845029354095459,
+              "late": -2.950122356414795
+            }
+          },
+          "correct_document_margins": {
+            "early": -0.9075374603271484,
+            "late": 0.8949069976806641
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "indian_economic_policy",
+          "domain": "economics",
+          "scores": {
+            "early": {
+              "early": -6.751743316650391,
+              "late": -7.535053730010986
+            },
+            "late": {
+              "early": -7.445235729217529,
+              "late": -7.2794084548950195
+            }
+          },
+          "correct_document_margins": {
+            "early": 0.7833104133605957,
+            "late": 0.16582727432250977
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "correct"
+          }
+        }
+      ],
+      "scoring_seconds": 34.996092599933036
+    },
+    "bge_frozen_ce": {
+      "query_variants": 22,
+      "correct_variants": 12,
+      "tied_variants": 0,
+      "correct_flips": 1,
+      "reversed_flips": 0,
+      "mean_temporal_margin_shift": 0.21981559287418018,
+      "per_case": [
+        {
+          "case": "second_definition",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": -1.9199830293655396,
+              "late": -1.1491793394088745
+            },
+            "late": {
+              "early": -2.170992136001587,
+              "late": -1.2284855842590332
+            }
+          },
+          "correct_document_margins": {
+            "early": -0.770803689956665,
+            "late": 0.9425065517425537
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "hertz_adoption",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": 0.18798287212848663,
+              "late": -0.22242489457130432
+            },
+            "late": {
+              "early": 0.10877013206481934,
+              "late": 0.11836376786231995
+            }
+          },
+          "correct_document_margins": {
+            "early": 0.41040776669979095,
+            "late": 0.00959363579750061
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "induction_formulation",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": 0.29219314455986023,
+              "late": -0.3602839708328247
+            },
+            "late": {
+              "early": 0.021696507930755615,
+              "late": -0.5800105333328247
+            }
+          },
+          "correct_document_margins": {
+            "early": 0.6524771153926849,
+            "late": -0.6017070412635803
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "incorrect"
+          }
+        },
+        {
+          "case": "quantum_formulation",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": -2.3886194229125977,
+              "late": 0.797248363494873
+            },
+            "late": {
+              "early": -2.333261013031006,
+              "late": 0.36323532462120056
+            }
+          },
+          "correct_document_margins": {
+            "early": -3.1858677864074707,
+            "late": 2.6964963376522064
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "scottish_birth_records",
+          "domain": "genealogy",
+          "scores": {
+            "early": {
+              "early": -3.135425567626953,
+              "late": -1.8666152954101562
+            },
+            "late": {
+              "early": -3.1289350986480713,
+              "late": -1.6783149242401123
+            }
+          },
+          "correct_document_margins": {
+            "early": -1.2688102722167969,
+            "late": 1.450620174407959
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "us_population_census",
+          "domain": "genealogy",
+          "scores": {
+            "early": {
+              "early": -2.4646236896514893,
+              "late": -1.9936509132385254
+            },
+            "late": {
+              "early": -2.6849591732025146,
+              "late": -2.247352361679077
+            }
+          },
+          "correct_document_margins": {
+            "early": -0.47097277641296387,
+            "late": 0.4376068115234375
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "canadian_private_notes",
+          "domain": "history",
+          "scores": {
+            "early": {
+              "early": -3.4731507301330566,
+              "late": -1.22578763961792
+            },
+            "late": {
+              "early": -3.7403311729431152,
+              "late": -1.3327810764312744
+            }
+          },
+          "correct_document_margins": {
+            "early": -2.2473630905151367,
+            "late": 2.407550096511841
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "india_pakistan_agreement",
+          "domain": "history",
+          "scores": {
+            "early": {
+              "early": 1.204719066619873,
+              "late": 0.03904034197330475
+            },
+            "late": {
+              "early": 1.2934792041778564,
+              "late": 0.42124268412590027
+            }
+          },
+          "correct_document_margins": {
+            "early": 1.1656787246465683,
+            "late": -0.8722365200519562
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "incorrect"
+          }
+        },
+        {
+          "case": "punjab_administration",
+          "domain": "history",
+          "scores": {
+            "early": {
+              "early": 0.7136425375938416,
+              "late": -2.4991211891174316
+            },
+            "late": {
+              "early": 0.38266682624816895,
+              "late": -1.583634376525879
+            }
+          },
+          "correct_document_margins": {
+            "early": 3.212763726711273,
+            "late": -1.9663012027740479
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "incorrect"
+          }
+        },
+        {
+          "case": "us_election_response",
+          "domain": "politics",
+          "scores": {
+            "early": {
+              "early": -2.5680723190307617,
+              "late": -1.4388664960861206
+            },
+            "late": {
+              "early": -2.4929087162017822,
+              "late": -1.3908823728561401
+            }
+          },
+          "correct_document_margins": {
+            "early": -1.1292058229446411,
+            "late": 1.102026343345642
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          }
+        },
+        {
+          "case": "indian_economic_policy",
+          "domain": "economics",
+          "scores": {
+            "early": {
+              "early": -3.8384313583374023,
+              "late": -4.463157653808594
+            },
+            "late": {
+              "early": -4.14240837097168,
+              "late": -4.323622226715088
+            }
+          },
+          "correct_document_margins": {
+            "early": 0.6247262954711914,
+            "late": -0.1812138557434082
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "incorrect"
+          }
+        }
+      ],
+      "scoring_seconds": 36.083494600025006
+    }
+  }
+}

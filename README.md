@@ -140,6 +140,12 @@ from **0.28703 to 0.31986**. Its gain with a fixed-slot single swap is **+0.0025
 [Matched protocols and score breakdown](docs/ANCHOR_EDIT_SCOPE_20261125.md)
 
 
+**Temporal query contrast (2026-11-25).** In 11 fixed evidence pairs from five
+training domains, the zero-shot and task-fine-tuned BGE checkpoints follow
+both sides of the changed time condition in 2 and 1 cases. The default Qwen3
+0.6B reranker flips correctly in 2 cases, and its event-time instruction in 1.
+[Evidence offsets and paired scores](docs/TEMPORAL_QUERY_CONTRAST_20261125.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate
