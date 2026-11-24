@@ -17,6 +17,8 @@ Among the changed-excerpt actions, nine useful actions become acceptable but nin
 
 Keep the competition configuration at 0.373503 on official dev. The f0 result does not justify expanding this selector to the rest of training or to dev. The next scope is recovering judged positives in the 78 pool-reachable zero-score dev queries, with a stage-specific control for candidate prioritization versus actual text-based judging.
 
+The [next candidate-budget follow-up](CE_DISAGREEMENT_FOLLOWUP_20261124.md) evaluates a CE disagreement policy and a fixed-pool retrieval control.
+
 [GPU comparison](../results/analysis/semantic_judge_windows_f0_20261124.json) · [Combined-policy replay](../results/analysis/semantic_judge_window_replay_f0_20261124.json)
 
 ```bash
