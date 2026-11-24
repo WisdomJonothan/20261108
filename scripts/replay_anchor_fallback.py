@@ -21,6 +21,11 @@ def index(report):
     return indexed
 
 
+def protect_first_three(original, reranked):
+    head = original[:3]
+    return head + [doc for doc in reranked if doc not in head][:7]
+
+
 def discounted_changes(before, after, gold):
     old = {doc: rank for rank, doc in enumerate(before, 1) if doc in gold}
     new = {doc: rank for rank, doc in enumerate(after, 1) if doc in gold}
@@ -67,10 +72,7 @@ def replay(reference, source, rankings, data_root, split, protect_head):
             six_ranking[slot] = choice['challenger']
         fallback = choice is None
         gold, all_steps = labels[domain]
-        fallback_ranking = anchor_ranking
-        if protect_head:
-            head = original_ranking[:3]
-            fallback_ranking = head + [doc for doc in anchor_ranking if doc not in head][:7]
+        fallback_ranking = protect_first_three(original_ranking, anchor_ranking) if protect_head else anchor_ranking
         candidate_lists = {
             'frozen_base': original_ranking,
             'external6': six_ranking,

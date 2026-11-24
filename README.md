@@ -88,6 +88,13 @@ thirteen net relevant documents to the top ten, with gains at ranks 4–10 offse
 by losses at ranks 1–3. The 12-prompt **0.3735** configuration remains the
 competition system. See the [same-query comparison and rank accounting](docs/ANCHOR_RERANKER_20261124.md).
 
+**Top-three confirmation (2026-11-24).** A follow-up on the same official-dev queries
+scores **0.37554** for fixed protection of the first three ranks and **0.37526**
+when a fresh two-order comparison can approve one exchange. Confirmation keeps
+19 of 25 helpful and 18 of 23 harmful proposed changes. The score-cost comparison
+retains the 12-prompt **0.3735** competition configuration.
+[Matched head-confirmation experiment](docs/HEAD_AGREEMENT_20261124.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate

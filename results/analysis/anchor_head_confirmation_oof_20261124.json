@@ -1,0 +1,1288 @@
+{
+ "protocol": "Keep accepted external6 decisions. On other queries, start with the first three original documents and the anchor-fused tail. Propose only the first differing head position from the unprotected anchor list. Exchange the two positions if both documents are already present; otherwise replace the incumbent. The direct judge confirms only if the challenger wins in both orders and its mean probability exceeds 0.5. Qrels score outcomes.",
+ "split": "train",
+ "inference": {
+  "prompts": 46,
+  "prompt_tokens": 24169,
+  "batches": 23,
+  "seconds": 5.043424165807664,
+  "seconds_total": 5.058778417762369,
+  "prompts_per_s": 9.093104342835995,
+  "prompt_tokens_per_s": 4777.635627434851,
+  "gpu_peak_mb": 7915.61279296875
+ },
+ "summary": {
+  "queries": 65,
+  "external_abstentions": 30,
+  "proposals": 23,
+  "proposal_types": {
+   "exchange": 23
+  },
+  "proposal_slots": {
+   "3": 8,
+   "1": 9,
+   "2": 6
+  },
+  "arms": {
+   "external6": {
+    "ndcg": 0.2697616380050874,
+    "versus_protected": {
+     "point": -0.004600114046925618,
+     "ci95": [
+      -0.011645445309065765,
+      0.0006040004649471237
+     ]
+    },
+    "proposed_query_effects_vs_protected": {
+     "unchanged": 17,
+     "harmful": 5,
+     "helpful": 1
+    }
+   },
+   "protected": {
+    "ndcg": 0.27436175205201296,
+    "versus_protected": {
+     "point": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "proposed_query_effects_vs_protected": {
+     "unchanged": 23
+    }
+   },
+   "unprotected": {
+    "ndcg": 0.27792833841873443,
+    "versus_protected": {
+     "point": 0.0035665863667214168,
+     "ci95": [
+      0.0010432470032907448,
+      0.006320209629576713
+     ]
+    },
+    "proposed_query_effects_vs_protected": {
+     "unchanged": 19,
+     "helpful": 4
+    }
+   },
+   "always_take_proposal": {
+    "ndcg": 0.2771145038245346,
+    "versus_protected": {
+     "point": 0.0027527517725216342,
+     "ci95": [
+      0.00036171927375540944,
+      0.005282557559237535
+     ]
+    },
+    "proposed_query_effects_vs_protected": {
+     "unchanged": 20,
+     "helpful": 3
+    }
+   },
+   "confirm_in_both_orders": {
+    "ndcg": 0.2771145038245346,
+    "versus_protected": {
+     "point": 0.0027527517725216342,
+     "ci95": [
+      0.00036171927375540944,
+      0.005282557559237535
+     ]
+    },
+    "proposed_query_effects_vs_protected": {
+     "unchanged": 20,
+     "helpful": 3
+    }
+   }
+  },
+  "oracle_delta_vs_protected": {
+   "point": 0.0027527517725216342,
+   "ci95": [
+    0.00036171927375540944,
+    0.005282557559237535
+   ]
+  },
+  "confirmations": 11,
+  "confirmation_vs_always_take": {
+   "point": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "additional_mean_prompts": 0.7076923076923077
+ },
+ "samples": {
+  "anchor_reranker_oof_sample26_20261124.json": {
+   "queries": 26,
+   "external_abstentions": 11,
+   "proposals": 9,
+   "proposal_types": {
+    "exchange": 9
+   },
+   "proposal_slots": {
+    "3": 4,
+    "1": 4,
+    "2": 1
+   },
+   "arms": {
+    "external6": {
+     "ndcg": 0.2594078786935984,
+     "versus_protected": {
+      "point": -0.008494357385697258,
+      "ci95": [
+       -0.018040747709825625,
+       0.0010520329384311104
+      ]
+     },
+     "proposed_query_effects_vs_protected": {
+      "unchanged": 6,
+      "harmful": 3
+     }
+    },
+    "protected": {
+     "ndcg": 0.2679022360792956,
+     "versus_protected": {
+      "point": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ]
+     },
+     "proposed_query_effects_vs_protected": {
+      "unchanged": 9
+     }
+    },
+    "unprotected": {
+     "ndcg": 0.2728207011589982,
+     "versus_protected": {
+      "point": 0.0049184650797025695,
+      "ci95": [
+       0.0026081175082268617,
+       0.007228812651178277
+      ]
+     },
+     "proposed_query_effects_vs_protected": {
+      "unchanged": 7,
+      "helpful": 2
+     }
+    },
+    "always_take_proposal": {
+     "ndcg": 0.27242094058927324,
+     "versus_protected": {
+      "point": 0.004518704509977662,
+      "ci95": [
+       0.0018085963687770473,
+       0.007228812651178277
+      ]
+     },
+     "proposed_query_effects_vs_protected": {
+      "unchanged": 7,
+      "helpful": 2
+     }
+    },
+    "confirm_in_both_orders": {
+     "ndcg": 0.27242094058927324,
+     "versus_protected": {
+      "point": 0.004518704509977662,
+      "ci95": [
+       0.0018085963687770473,
+       0.007228812651178277
+      ]
+     },
+     "proposed_query_effects_vs_protected": {
+      "unchanged": 7,
+      "helpful": 2
+     }
+    }
+   },
+   "oracle_delta_vs_protected": {
+    "point": 0.004518704509977662,
+    "ci95": [
+     0.0018085963687770473,
+     0.007228812651178277
+    ]
+   },
+   "confirmations": 3,
+   "confirmation_vs_always_take": {
+    "point": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "additional_mean_prompts": 0.6923076923076923
+  },
+  "anchor_reranker_oof_replication39_20261124.json": {
+   "queries": 39,
+   "external_abstentions": 19,
+   "proposals": 14,
+   "proposal_types": {
+    "exchange": 14
+   },
+   "proposal_slots": {
+    "1": 5,
+    "2": 5,
+    "3": 4
+   },
+   "arms": {
+    "external6": {
+     "ndcg": 0.2766641442127467,
+     "versus_protected": {
+      "point": -0.002003951821077857,
+      "ci95": [
+       -0.006302913309248645,
+       0.0014076004462308573
+      ]
+     },
+     "proposed_query_effects_vs_protected": {
+      "unchanged": 11,
+      "helpful": 1,
+      "harmful": 2
+     }
+    },
+    "protected": {
+     "ndcg": 0.2786680960338246,
+     "versus_protected": {
+      "point": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ]
+     },
+     "proposed_query_effects_vs_protected": {
+      "unchanged": 14
+     }
+    },
+    "unprotected": {
+     "ndcg": 0.2813334299252252,
+     "versus_protected": {
+      "point": 0.0026653338914006492,
+      "ci95": [
+       0.0,
+       0.005816233786502547
+      ]
+     },
+     "proposed_query_effects_vs_protected": {
+      "unchanged": 12,
+      "helpful": 2
+     }
+    },
+    "always_take_proposal": {
+     "ndcg": 0.2802435459813756,
+     "versus_protected": {
+      "point": 0.001575449947550949,
+      "ci95": [
+       0.0,
+       0.004726349842652846
+      ]
+     },
+     "proposed_query_effects_vs_protected": {
+      "unchanged": 13,
+      "helpful": 1
+     }
+    },
+    "confirm_in_both_orders": {
+     "ndcg": 0.2802435459813756,
+     "versus_protected": {
+      "point": 0.001575449947550949,
+      "ci95": [
+       0.0,
+       0.004726349842652846
+      ]
+     },
+     "proposed_query_effects_vs_protected": {
+      "unchanged": 13,
+      "helpful": 1
+     }
+    }
+   },
+   "oracle_delta_vs_protected": {
+    "point": 0.001575449947550949,
+    "ci95": [
+     0.0,
+     0.004726349842652846
+    ]
+   },
+   "confirmations": 8,
+   "confirmation_vs_always_take": {
+    "point": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "additional_mean_prompts": 0.717948717948718
+  }
+ },
+ "per_query": [
+  {
+   "domain": "bitcoin",
+   "qid": "125174_3",
+   "external6": 0.13012668333070054,
+   "abstained": false,
+   "protected": 0.13012668333070054,
+   "unprotected": 0.13012668333070054,
+   "always_take_proposal": 0.13012668333070054,
+   "treatment": [],
+   "confirm_in_both_orders": 0.13012668333070054
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "98618_84",
+   "external6": 0.0,
+   "abstained": false,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "cardano",
+   "qid": "8478_108",
+   "external6": 0.6309297535714575,
+   "abstained": true,
+   "protected": 0.6309297535714575,
+   "unprotected": 0.6309297535714575,
+   "always_take_proposal": 0.6309297535714575,
+   "treatment": [
+    {
+     "slot": 3,
+     "incumbent": "cardano/9155_056f850d967f256c_74.txt",
+     "challenger": "cardano/9155_056f850d967f256c_80.txt",
+     "type": "exchange",
+     "p_fwd": 0.9998766183853149,
+     "p_rev": 1.0677028967620572e-06,
+     "mp": 0.49993884304410585,
+     "agree": false
+    }
+   ],
+   "confirm_in_both_orders": 0.6309297535714575
+  },
+  {
+   "domain": "cardano",
+   "qid": "857_138",
+   "external6": 0.15642624200758548,
+   "abstained": false,
+   "protected": 0.15642624200758548,
+   "unprotected": 0.15642624200758548,
+   "always_take_proposal": 0.15642624200758548,
+   "treatment": [],
+   "confirm_in_both_orders": 0.15642624200758548
+  },
+  {
+   "domain": "economics",
+   "qid": "53713_187",
+   "external6": 0.0,
+   "abstained": true,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [
+    {
+     "slot": 1,
+     "incumbent": "economics/4a7463f2_5585.txt",
+     "challenger": "economics/e3856cbb_5584.txt",
+     "type": "exchange",
+     "p_fwd": 1.0,
+     "p_rev": 0.9999996423721313,
+     "mp": 0.9999998211860657,
+     "agree": true
+    }
+   ],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "economics",
+   "qid": "52186_192",
+   "external6": 0.44293981265090565,
+   "abstained": false,
+   "protected": 0.44293981265090565,
+   "unprotected": 0.44293981265090565,
+   "always_take_proposal": 0.44293981265090565,
+   "treatment": [],
+   "confirm_in_both_orders": 0.44293981265090565
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12904_279",
+   "external6": 0.3936948167222716,
+   "abstained": false,
+   "protected": 0.3936948167222716,
+   "unprotected": 0.3936948167222716,
+   "always_take_proposal": 0.3936948167222716,
+   "treatment": [],
+   "confirm_in_both_orders": 0.3936948167222716
+  },
+  {
+   "domain": "genealogy",
+   "qid": "16178_250",
+   "external6": 0.0,
+   "abstained": false,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "history",
+   "qid": "62606_606",
+   "external6": 0.34337431936037655,
+   "abstained": false,
+   "protected": 0.34337431936037655,
+   "unprotected": 0.34337431936037655,
+   "always_take_proposal": 0.34337431936037655,
+   "treatment": [],
+   "confirm_in_both_orders": 0.34337431936037655
+  },
+  {
+   "domain": "history",
+   "qid": "70696_261",
+   "external6": 0.0,
+   "abstained": true,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [
+    {
+     "slot": 1,
+     "incumbent": "history/6ec348da_35966.txt",
+     "challenger": "history/7d6db793_79791.txt",
+     "type": "exchange",
+     "p_fwd": 0.999568521976471,
+     "p_rev": 0.00021957713761366904,
+     "mp": 0.4998940495570423,
+     "agree": false
+    }
+   ],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "hsm",
+   "qid": "18004_679",
+   "external6": 0.0,
+   "abstained": true,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [
+    {
+     "slot": 1,
+     "incumbent": "hsm/2035_0d317fab8607af48_195.txt",
+     "challenger": "hsm/18004_4d74211baeb75a57_11.txt",
+     "type": "exchange",
+     "p_fwd": 0.9992678761482239,
+     "p_rev": 0.09524857252836227,
+     "mp": 0.5472582243382931,
+     "agree": false
+    }
+   ],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "hsm",
+   "qid": "17821_684",
+   "external6": 0.9197207891481876,
+   "abstained": false,
+   "protected": 0.9197207891481876,
+   "unprotected": 0.9197207891481876,
+   "always_take_proposal": 0.9197207891481876,
+   "treatment": [],
+   "confirm_in_both_orders": 0.9197207891481876
+  },
+  {
+   "domain": "iota",
+   "qid": "1954_803",
+   "external6": 0.6508205185601091,
+   "abstained": true,
+   "protected": 0.6713860725233041,
+   "unprotected": 0.7653606369886217,
+   "always_take_proposal": 0.7653606369886217,
+   "treatment": [
+    {
+     "slot": 2,
+     "incumbent": "iota/d8c24e32_10232.txt",
+     "challenger": "iota/2cc2443e_0361.txt",
+     "type": "exchange",
+     "p_fwd": 0.9999977350234985,
+     "p_rev": 0.9999898672103882,
+     "mp": 0.9999938011169434,
+     "agree": true
+    }
+   ],
+   "confirm_in_both_orders": 0.7653606369886217
+  },
+  {
+   "domain": "iota",
+   "qid": "2497_799",
+   "external6": 0.2442584792702138,
+   "abstained": true,
+   "protected": 0.26687965254220064,
+   "unprotected": 0.30078518014914984,
+   "always_take_proposal": 0.29039140533630226,
+   "treatment": [
+    {
+     "slot": 3,
+     "incumbent": "iota/311_27038cf3b633068a_278.txt",
+     "challenger": "iota/d3459a40_0171.txt",
+     "type": "exchange",
+     "p_fwd": 1.0,
+     "p_rev": 0.9859265089035034,
+     "mp": 0.9929632544517517,
+     "agree": true
+    }
+   ],
+   "confirm_in_both_orders": 0.29039140533630226
+  },
+  {
+   "domain": "law",
+   "qid": "106290_825",
+   "external6": 0.15101961822780524,
+   "abstained": true,
+   "protected": 0.16812753627111746,
+   "unprotected": 0.16812753627111746,
+   "always_take_proposal": 0.16812753627111746,
+   "treatment": [],
+   "confirm_in_both_orders": 0.16812753627111746
+  },
+  {
+   "domain": "law",
+   "qid": "106974_820",
+   "external6": 0.3010299956639812,
+   "abstained": false,
+   "protected": 0.3010299956639812,
+   "unprotected": 0.3010299956639812,
+   "always_take_proposal": 0.3010299956639812,
+   "treatment": [],
+   "confirm_in_both_orders": 0.3010299956639812
+  },
+  {
+   "domain": "monero",
+   "qid": "7581_880",
+   "external6": 0.2960819109658652,
+   "abstained": false,
+   "protected": 0.2960819109658652,
+   "unprotected": 0.2960819109658652,
+   "always_take_proposal": 0.2960819109658652,
+   "treatment": [],
+   "confirm_in_both_orders": 0.2960819109658652
+  },
+  {
+   "domain": "monero",
+   "qid": "6113_888",
+   "external6": 0.0,
+   "abstained": true,
+   "protected": 0.20438239758848611,
+   "unprotected": 0.20438239758848611,
+   "always_take_proposal": 0.20438239758848611,
+   "treatment": [
+    {
+     "slot": 3,
+     "incumbent": "monero/3262_fa2370eb766e3fad_3.txt",
+     "challenger": "monero/4386c1b2_14338.txt",
+     "type": "exchange",
+     "p_fwd": 1.0,
+     "p_rev": 0.029312225058674812,
+     "mp": 0.5146561125293374,
+     "agree": false
+    }
+   ],
+   "confirm_in_both_orders": 0.20438239758848611
+  },
+  {
+   "domain": "politics",
+   "qid": "74135_1056",
+   "external6": 0.13012668333070054,
+   "abstained": false,
+   "protected": 0.13012668333070054,
+   "unprotected": 0.13012668333070054,
+   "always_take_proposal": 0.13012668333070054,
+   "treatment": [],
+   "confirm_in_both_orders": 0.13012668333070054
+  },
+  {
+   "domain": "politics",
+   "qid": "77123_1037",
+   "external6": 0.0,
+   "abstained": true,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [
+    {
+     "slot": 1,
+     "incumbent": "politics/83628_5a2cfea2bd3568be_260.txt",
+     "challenger": "politics/c2eb5ed5_26433.txt",
+     "type": "exchange",
+     "p_fwd": 0.9999617338180542,
+     "p_rev": 0.014042810536921024,
+     "mp": 0.5070022721774876,
+     "agree": false
+    }
+   ],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "quant",
+   "qid": "81021_1060",
+   "external6": 0.24630238874073,
+   "abstained": false,
+   "protected": 0.24630238874073,
+   "unprotected": 0.24630238874073,
+   "always_take_proposal": 0.24630238874073,
+   "treatment": [],
+   "confirm_in_both_orders": 0.24630238874073
+  },
+  {
+   "domain": "quant",
+   "qid": "36059_1091",
+   "external6": 0.24816574496561808,
+   "abstained": false,
+   "protected": 0.24816574496561808,
+   "unprotected": 0.24816574496561808,
+   "always_take_proposal": 0.24816574496561808,
+   "treatment": [],
+   "confirm_in_both_orders": 0.24816574496561808
+  },
+  {
+   "domain": "travel",
+   "qid": "184986_1178",
+   "external6": 0.7328286204777911,
+   "abstained": false,
+   "protected": 0.7328286204777911,
+   "unprotected": 0.7328286204777911,
+   "always_take_proposal": 0.7328286204777911,
+   "treatment": [],
+   "confirm_in_both_orders": 0.7328286204777911
+  },
+  {
+   "domain": "travel",
+   "qid": "186288_1160",
+   "external6": 0.0,
+   "abstained": false,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "workplace",
+   "qid": "171559_1221",
+   "external6": 0.43067655807339306,
+   "abstained": true,
+   "protected": 0.38685280723454163,
+   "unprotected": 0.38685280723454163,
+   "always_take_proposal": 0.38685280723454163,
+   "treatment": [],
+   "confirm_in_both_orders": 0.38685280723454163
+  },
+  {
+   "domain": "workplace",
+   "qid": "193475_1198",
+   "external6": 0.2960819109658652,
+   "abstained": true,
+   "protected": 0.2960819109658652,
+   "unprotected": 0.2960819109658652,
+   "always_take_proposal": 0.2960819109658652,
+   "treatment": [
+    {
+     "slot": 3,
+     "incumbent": "workplace/5d9bccb6_62676.txt",
+     "challenger": "workplace/92355e3e_62664.txt",
+     "type": "exchange",
+     "p_fwd": 0.6791780591011047,
+     "p_rev": 3.7266393064783188e-06,
+     "mp": 0.3395908928702056,
+     "agree": false
+    }
+   ],
+   "confirm_in_both_orders": 0.2960819109658652
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "126019_1",
+   "external6": 0.23463936301137822,
+   "abstained": true,
+   "protected": 0.23463936301137822,
+   "unprotected": 0.23463936301137822,
+   "always_take_proposal": 0.23463936301137822,
+   "treatment": [
+    {
+     "slot": 1,
+     "incumbent": "bitcoin/f4d334ac_17631.txt",
+     "challenger": "bitcoin/5282dec6_143069.txt",
+     "type": "exchange",
+     "p_fwd": 0.0007096704212017357,
+     "p_rev": 1.6373769540223293e-07,
+     "mp": 0.000354917079448569,
+     "agree": false
+    }
+   ],
+   "confirm_in_both_orders": 0.23463936301137822
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "119019_54",
+   "external6": 0.18154179253735267,
+   "abstained": false,
+   "protected": 0.18154179253735267,
+   "unprotected": 0.18154179253735267,
+   "always_take_proposal": 0.18154179253735267,
+   "treatment": [],
+   "confirm_in_both_orders": 0.18154179253735267
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "124874_6",
+   "external6": 0.44149241373678083,
+   "abstained": true,
+   "protected": 0.44149241373678083,
+   "unprotected": 0.44149241373678083,
+   "always_take_proposal": 0.44149241373678083,
+   "treatment": [],
+   "confirm_in_both_orders": 0.44149241373678083
+  },
+  {
+   "domain": "cardano",
+   "qid": "8864_107",
+   "external6": 0.3065735963827292,
+   "abstained": false,
+   "protected": 0.3065735963827292,
+   "unprotected": 0.3065735963827292,
+   "always_take_proposal": 0.3065735963827292,
+   "treatment": [],
+   "confirm_in_both_orders": 0.3065735963827292
+  },
+  {
+   "domain": "cardano",
+   "qid": "8943_106",
+   "external6": 0.18457569677956817,
+   "abstained": false,
+   "protected": 0.18457569677956817,
+   "unprotected": 0.18457569677956817,
+   "always_take_proposal": 0.18457569677956817,
+   "treatment": [],
+   "confirm_in_both_orders": 0.18457569677956817
+  },
+  {
+   "domain": "cardano",
+   "qid": "839_140",
+   "external6": 0.6131471927654584,
+   "abstained": false,
+   "protected": 0.6131471927654584,
+   "unprotected": 0.6131471927654584,
+   "always_take_proposal": 0.6131471927654584,
+   "treatment": [],
+   "confirm_in_both_orders": 0.6131471927654584
+  },
+  {
+   "domain": "economics",
+   "qid": "54052_185",
+   "external6": 0.0,
+   "abstained": false,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "economics",
+   "qid": "52506_191",
+   "external6": 0.0,
+   "abstained": false,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "economics",
+   "qid": "47525_214",
+   "external6": 0.1208113026994942,
+   "abstained": true,
+   "protected": 0.2090905274901754,
+   "unprotected": 0.2090905274901754,
+   "always_take_proposal": 0.2090905274901754,
+   "treatment": [],
+   "confirm_in_both_orders": 0.2090905274901754
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12209_292",
+   "external6": 0.0,
+   "abstained": false,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12865_280",
+   "external6": 0.5012658353418871,
+   "abstained": true,
+   "protected": 0.46845052016107697,
+   "unprotected": 0.46845052016107697,
+   "always_take_proposal": 0.46845052016107697,
+   "treatment": [
+    {
+     "slot": 2,
+     "incumbent": "genealogy/3440_9b916eb51c4a027a_183.txt",
+     "challenger": "genealogy/3440_9b916eb51c4a027a_259.txt",
+     "type": "exchange",
+     "p_fwd": 0.7594732046127319,
+     "p_rev": 0.006690621376037598,
+     "mp": 0.38308191299438477,
+     "agree": false
+    }
+   ],
+   "confirm_in_both_orders": 0.46845052016107697
+  },
+  {
+   "domain": "genealogy",
+   "qid": "15332_256",
+   "external6": 0.07311683844390995,
+   "abstained": true,
+   "protected": 0.07614334071738352,
+   "unprotected": 0.07614334071738352,
+   "always_take_proposal": 0.07614334071738352,
+   "treatment": [
+    {
+     "slot": 1,
+     "incumbent": "genealogy/a750525b_2638.txt",
+     "challenger": "genealogy/77c9f904_3044.txt",
+     "type": "exchange",
+     "p_fwd": 0.9999978542327881,
+     "p_rev": 0.9999998807907104,
+     "mp": 0.9999988675117493,
+     "agree": true
+    }
+   ],
+   "confirm_in_both_orders": 0.07614334071738352
+  },
+  {
+   "domain": "history",
+   "qid": "62622_605",
+   "external6": 0.2640681225725909,
+   "abstained": true,
+   "protected": 0.2640681225725909,
+   "unprotected": 0.3065735963827292,
+   "always_take_proposal": 0.2640681225725909,
+   "treatment": [
+    {
+     "slot": 1,
+     "incumbent": "history/f763932e_73882.txt",
+     "challenger": "history/1651bec8_87406.txt",
+     "type": "exchange",
+     "p_fwd": 0.9999963045120239,
+     "p_rev": 0.9999996423721313,
+     "mp": 0.9999979734420776,
+     "agree": true
+    }
+   ],
+   "confirm_in_both_orders": 0.2640681225725909
+  },
+  {
+   "domain": "history",
+   "qid": "70819_256",
+   "external6": 0.7668091220635322,
+   "abstained": true,
+   "protected": 0.7757386182436072,
+   "unprotected": 0.7757386182436072,
+   "always_take_proposal": 0.7757386182436072,
+   "treatment": [],
+   "confirm_in_both_orders": 0.7757386182436072
+  },
+  {
+   "domain": "history",
+   "qid": "68520_403",
+   "external6": 0.33657576599847244,
+   "abstained": false,
+   "protected": 0.33657576599847244,
+   "unprotected": 0.33657576599847244,
+   "always_take_proposal": 0.33657576599847244,
+   "treatment": [],
+   "confirm_in_both_orders": 0.33657576599847244
+  },
+  {
+   "domain": "hsm",
+   "qid": "18051_677",
+   "external6": 0.46927872602275644,
+   "abstained": false,
+   "protected": 0.46927872602275644,
+   "unprotected": 0.46927872602275644,
+   "always_take_proposal": 0.46927872602275644,
+   "treatment": [],
+   "confirm_in_both_orders": 0.46927872602275644
+  },
+  {
+   "domain": "hsm",
+   "qid": "17885_683",
+   "external6": 0.0,
+   "abstained": true,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [
+    {
+     "slot": 1,
+     "incumbent": "hsm/c1e44cb8_4052.txt",
+     "challenger": "hsm/17885_ab9a6e77d03c47b5_1.txt",
+     "type": "exchange",
+     "p_fwd": 0.9998764991760254,
+     "p_rev": 0.6791754961013794,
+     "mp": 0.8395259976387024,
+     "agree": true
+    }
+   ],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "hsm",
+   "qid": "14388_701",
+   "external6": 0.6309297535714575,
+   "abstained": false,
+   "protected": 0.6309297535714575,
+   "unprotected": 0.6309297535714575,
+   "always_take_proposal": 0.6309297535714575,
+   "treatment": [],
+   "confirm_in_both_orders": 0.6309297535714575
+  },
+  {
+   "domain": "iota",
+   "qid": "2008_802",
+   "external6": 0.3903800499921017,
+   "abstained": true,
+   "protected": 0.3903800499921017,
+   "unprotected": 0.3903800499921017,
+   "always_take_proposal": 0.3903800499921017,
+   "treatment": [
+    {
+     "slot": 2,
+     "incumbent": "iota/9bdacafc_0227.txt",
+     "challenger": "iota/aace8985_10358.txt",
+     "type": "exchange",
+     "p_fwd": 1.0,
+     "p_rev": 0.06007875129580498,
+     "mp": 0.5300393756479025,
+     "agree": false
+    }
+   ],
+   "confirm_in_both_orders": 0.3903800499921017
+  },
+  {
+   "domain": "iota",
+   "qid": "367_805",
+   "external6": 0.23463936301137822,
+   "abstained": true,
+   "protected": 0.23463936301137822,
+   "unprotected": 0.2960819109658652,
+   "always_take_proposal": 0.2960819109658652,
+   "treatment": [
+    {
+     "slot": 2,
+     "incumbent": "iota/66c05639_0860.txt",
+     "challenger": "iota/4ea3ceaa_0611.txt",
+     "type": "exchange",
+     "p_fwd": 0.9999998807907104,
+     "p_rev": 0.9999982118606567,
+     "mp": 0.9999990463256836,
+     "agree": true
+    }
+   ],
+   "confirm_in_both_orders": 0.2960819109658652
+  },
+  {
+   "domain": "iota",
+   "qid": "311_807",
+   "external6": 0.0,
+   "abstained": true,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [
+    {
+     "slot": 3,
+     "incumbent": "iota/2194_8ee53355cdd453a0_144.txt",
+     "challenger": "iota/d8c24e32_10232.txt",
+     "type": "exchange",
+     "p_fwd": 1.0,
+     "p_rev": 0.9999998807907104,
+     "mp": 0.9999999403953552,
+     "agree": true
+    }
+   ],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "law",
+   "qid": "106441_823",
+   "external6": 0.49456228788854273,
+   "abstained": false,
+   "protected": 0.49456228788854273,
+   "unprotected": 0.49456228788854273,
+   "always_take_proposal": 0.49456228788854273,
+   "treatment": [],
+   "confirm_in_both_orders": 0.49456228788854273
+  },
+  {
+   "domain": "law",
+   "qid": "107582_818",
+   "external6": 0.46927872602275644,
+   "abstained": false,
+   "protected": 0.46927872602275644,
+   "unprotected": 0.46927872602275644,
+   "always_take_proposal": 0.46927872602275644,
+   "treatment": [],
+   "confirm_in_both_orders": 0.46927872602275644
+  },
+  {
+   "domain": "law",
+   "qid": "103394_836",
+   "external6": 0.6257049680303419,
+   "abstained": true,
+   "protected": 0.6364391809889587,
+   "unprotected": 0.6364391809889587,
+   "always_take_proposal": 0.6364391809889587,
+   "treatment": [
+    {
+     "slot": 2,
+     "incumbent": "law/ba375df3_6623.txt",
+     "challenger": "law/2e9b8cab_42715.txt",
+     "type": "exchange",
+     "p_fwd": 0.9999998807907104,
+     "p_rev": 0.9984954595565796,
+     "mp": 0.999247670173645,
+     "agree": true
+    }
+   ],
+   "confirm_in_both_orders": 0.6364391809889587
+  },
+  {
+   "domain": "monero",
+   "qid": "8462_873",
+   "external6": 0.6131471927654584,
+   "abstained": false,
+   "protected": 0.6131471927654584,
+   "unprotected": 0.6131471927654584,
+   "always_take_proposal": 0.6131471927654584,
+   "treatment": [],
+   "confirm_in_both_orders": 0.6131471927654584
+  },
+  {
+   "domain": "monero",
+   "qid": "6528_886",
+   "external6": 0.0,
+   "abstained": false,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "monero",
+   "qid": "11933_855",
+   "external6": 0.0,
+   "abstained": false,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "politics",
+   "qid": "74177_1055",
+   "external6": 1.0,
+   "abstained": true,
+   "protected": 1.0,
+   "unprotected": 1.0,
+   "always_take_proposal": 1.0,
+   "treatment": [
+    {
+     "slot": 3,
+     "incumbent": "politics/6a6aaf29_19418.txt",
+     "challenger": "politics/9d662be2_19440.txt",
+     "type": "exchange",
+     "p_fwd": 0.00015843620349187404,
+     "p_rev": 8.152015951168323e-09,
+     "mp": 7.92221777539126e-05,
+     "agree": false
+    }
+   ],
+   "confirm_in_both_orders": 1.0
+  },
+  {
+   "domain": "politics",
+   "qid": "77201_1035",
+   "external6": 0.41618115554873086,
+   "abstained": true,
+   "protected": 0.41618115554873086,
+   "unprotected": 0.41618115554873086,
+   "always_take_proposal": 0.41618115554873086,
+   "treatment": [
+    {
+     "slot": 1,
+     "incumbent": "politics/77201_4af1c23dc023ed2d_1.txt",
+     "challenger": "politics/77201_4af1c23dc023ed2d_0.txt",
+     "type": "exchange",
+     "p_fwd": 0.9999998807907104,
+     "p_rev": 0.9997387528419495,
+     "mp": 0.99986931681633,
+     "agree": true
+    }
+   ],
+   "confirm_in_both_orders": 0.41618115554873086
+  },
+  {
+   "domain": "politics",
+   "qid": "91024_927",
+   "external6": 0.0,
+   "abstained": true,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [
+    {
+     "slot": 3,
+     "incumbent": "politics/93525_dbcf79c7a536e067_331.txt",
+     "challenger": "politics/93525_dbcf79c7a536e067_639.txt",
+     "type": "exchange",
+     "p_fwd": 0.9496329426765442,
+     "p_rev": 1.4449800289639825e-07,
+     "mp": 0.47481654358727354,
+     "agree": false
+    }
+   ],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "quant",
+   "qid": "69659_1090",
+   "external6": 0.0,
+   "abstained": true,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "quant",
+   "qid": "80274_1064",
+   "external6": 0.0,
+   "abstained": false,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "quant",
+   "qid": "77757_1072",
+   "external6": 0.0,
+   "abstained": true,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [
+    {
+     "slot": 2,
+     "incumbent": "quant/6a87c76e_2659.txt",
+     "challenger": "quant/78042_fa82b31999d8bb06_619.txt",
+     "type": "exchange",
+     "p_fwd": 0.9998891353607178,
+     "p_rev": 0.0006969150272198021,
+     "mp": 0.5002930251939688,
+     "agree": false
+    }
+   ],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "travel",
+   "qid": "185286_1175",
+   "external6": 0.0,
+   "abstained": true,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "travel",
+   "qid": "186567_1155",
+   "external6": 0.5,
+   "abstained": false,
+   "protected": 0.5,
+   "unprotected": 0.5,
+   "always_take_proposal": 0.5,
+   "treatment": [],
+   "confirm_in_both_orders": 0.5
+  },
+  {
+   "domain": "travel",
+   "qid": "185672_1170",
+   "external6": 0.3080351663449861,
+   "abstained": false,
+   "protected": 0.3080351663449861,
+   "unprotected": 0.3080351663449861,
+   "always_take_proposal": 0.3080351663449861,
+   "treatment": [],
+   "confirm_in_both_orders": 0.3080351663449861
+  },
+  {
+   "domain": "workplace",
+   "qid": "172082_1220",
+   "external6": 0.6131471927654584,
+   "abstained": false,
+   "protected": 0.6131471927654584,
+   "unprotected": 0.6131471927654584,
+   "always_take_proposal": 0.6131471927654584,
+   "treatment": [],
+   "confirm_in_both_orders": 0.6131471927654584
+  },
+  {
+   "domain": "workplace",
+   "qid": "202473_1192",
+   "external6": 0.0,
+   "abstained": true,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [
+    {
+     "slot": 3,
+     "incumbent": "workplace/191225_f05911c6fbf61496_53.txt",
+     "challenger": "workplace/1729a12c_0174.txt",
+     "type": "exchange",
+     "p_fwd": 0.9999942779541016,
+     "p_rev": 0.8519434332847595,
+     "mp": 0.9259688556194305,
+     "agree": true
+    }
+   ],
+   "confirm_in_both_orders": 0.0
+  },
+  {
+   "domain": "workplace",
+   "qid": "191225_1202",
+   "external6": 0.0,
+   "abstained": false,
+   "protected": 0.0,
+   "unprotected": 0.0,
+   "always_take_proposal": 0.0,
+   "treatment": [],
+   "confirm_in_both_orders": 0.0
+  }
+ ]
+}
