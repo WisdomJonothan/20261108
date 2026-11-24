@@ -122,6 +122,13 @@ AUCs are both about **0.71**. The specialist Qwen3-Reranker-4B accepts
 **12/27** and **16/77** under its pointwise protocol.
 [Checkpoint comparison](docs/SWAP_JUDGE_CHECKPOINT_20261124.md)
 
+**Extractive evidence and edit budget (2026-11-25).** Selected and first-span
+pointers accept identical pairs even though the inputs differ on 62 of 104
+comparisons. Starting from the **0.37350** competition result, a dense top-100
+oracle reaches **0.58504** with one fixed-position addition, or **0.69850**
+with one addition and free reordering. The protected 20-document pool tops
+out at **0.59250**. [Evidence pilot and edit ceilings](docs/SWAP_EVIDENCE_SPANS_20261125.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate
