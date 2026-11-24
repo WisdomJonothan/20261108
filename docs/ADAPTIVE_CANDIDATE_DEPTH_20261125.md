@@ -65,3 +65,10 @@ Against a target of 0.60, one in-place replacement at depth 100 is bounded by 0.
 ```bash
 python scripts/audit_depth_edit_limits.py --ceilings results/analysis/competition_edit_budget_20261125.json --routing results/analysis/adaptive_candidate_depth_dev_20261125.json --output results/analysis/adaptive_candidate_depth_edit_limits_replay.json
 ```
+
+
+## Remaining zero-score queries after the 8B evaluation
+
+Join the 519 official-dev results to the pre-existing routes by domain and query ID. The six-pair reference, direct depth-100 8B blend and selective 8B replay have 130, 129 and 125 zero-score queries, respectively. Of these, 78, 77 and 73 already have judged positives at depth 100. Each ranking has the same 52 zero-score queries with no judged positive at depth 100. The respective totals describe two targets for the next experiment: improving first-page ranking for queries with retrieved positives and retrieving the first positive for the remaining queries.
+
+At the fixed budget of 263 expansions, rank disagreement makes 16 of the 52 misses reachable, versus nine with the abstention route. Across all 519 queries, perfect ranking of only those newly reachable queries would contribute +0.03168 for disagreement and +0.02163 for abstention. These ceilings sum each selected first-positive query's depth-300 oracle within its original domain and give zero gain to all other queries. [Original per-query depth and routing audit](../results/analysis/adaptive_candidate_depth_dev_20261125.json) · [Audited 8B scores per query](../results/analysis/anchor_official_dev_qwen8b_20261125.json)

@@ -104,7 +104,9 @@ python scripts/replay_anchor_shortlist_sources.py --data-root data/track1_tempo 
 ```
 
 
-## Official-dev protocol prepared for the next run
+## Protocol for the full official-dev run
+
+The full run and the matched score audit are available in the [official-dev report](ANCHOR_OFFICIAL_DEV_20261125.md). The following paragraph records the protocol and runtime estimate set before completion.
 
 Use the frozen 8B checkpoint and the existing 70:30 blend on the entire dense top 100 of the 519 official dev queries. The protected depth-20 comparison can be replayed from the same scores. The primary comparison is domain-macro nDCG@10 against the six-pair competition run on the same queries. The 100-document run requires 102,762 prompts, approximately 4.1 hours at the measured 3090 throughput.
 

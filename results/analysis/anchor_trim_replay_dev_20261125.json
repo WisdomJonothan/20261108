@@ -1,0 +1,1224 @@
+{
+  "protocol": "Score the 84 clipped prompts with the same model and options. Combine their updated scores with the cached direct scores and recompute the fixed fusion. The clipped prompts are batched separately. Candidates and all other document scores come from the direct run.",
+  "inference": {
+    "prompts": 84,
+    "prompt_tokens": 51400,
+    "batches": 27,
+    "seconds": 14.019794348161668,
+    "seconds_total": 14.027419732883573,
+    "prompts_per_s": 5.9882716564817855,
+    "prompt_tokens_per_s": 3664.2519421805214,
+    "gpu_peak_mb": 16117.6982421875
+  },
+  "summary": {
+    "direct_ndcg": 0.3795935222722458,
+    "clipped_replay_ndcg": 0.3795935222722458,
+    "paired_delta": {
+      "point": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "domain_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "per_domain": {
+        "bitcoin": 0.0,
+        "cardano": 0.0,
+        "economics": 0.0,
+        "genealogy": 0.0,
+        "history": 0.0,
+        "hsm": 0.0,
+        "iota": 0.0,
+        "law": 0.0,
+        "monero": 0.0,
+        "politics": 0.0,
+        "quant": 0.0,
+        "travel": 0.0,
+        "workplace": 0.0
+      },
+      "improved_queries": 0,
+      "declined_queries": 0
+    },
+    "changed_top_ten": 1
+  },
+  "per_query": [
+    {
+      "domain": "history",
+      "qid": "55937_780",
+      "old": {
+        "ndcg": 0.5802792108518124,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/cb10de7e_109242.txt",
+          "history/3c5c531c_109205.txt",
+          "history/aec63f43_351054.txt",
+          "history/1b558804_351055.txt",
+          "history/846c7e16_109224.txt",
+          "history/053f360f_351053.txt",
+          "history/c316df61_351052.txt",
+          "history/7453eb06_109204.txt",
+          "history/7db8902f_351066.txt",
+          "history/44dcc34d_22884.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.5802792108518124,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/cb10de7e_109242.txt",
+          "history/3c5c531c_109205.txt",
+          "history/aec63f43_351054.txt",
+          "history/1b558804_351055.txt",
+          "history/846c7e16_109224.txt",
+          "history/053f360f_351053.txt",
+          "history/c316df61_351052.txt",
+          "history/7453eb06_109204.txt",
+          "history/7db8902f_351066.txt",
+          "history/44dcc34d_22884.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/6563839e_314466.txt": -10.249999973331104,
+        "history/1a5328ec_314385.txt": -10.249999973331104
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "56089_769",
+      "old": {
+        "ndcg": 0.5032251913410369,
+        "relevant_top10": 2,
+        "relevant_in": 1,
+        "relevant_out": 0,
+        "ranking": [
+          "history/94fd0840_107866.txt",
+          "history/f7263ef3_349019.txt",
+          "history/578e59cb_349082.txt",
+          "history/24c8da52_349086.txt",
+          "history/63a5cf8b_349085.txt",
+          "history/2e582d0b_349083.txt",
+          "history/4fcd3a31_349081.txt",
+          "history/21c9a1ae_349017.txt",
+          "history/35f9ebae_349018.txt",
+          "history/66e339cf_107865.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.5032251913410369,
+        "relevant_top10": 2,
+        "relevant_in": 1,
+        "relevant_out": 0,
+        "ranking": [
+          "history/94fd0840_107866.txt",
+          "history/f7263ef3_349019.txt",
+          "history/578e59cb_349082.txt",
+          "history/24c8da52_349086.txt",
+          "history/63a5cf8b_349085.txt",
+          "history/2e582d0b_349083.txt",
+          "history/4fcd3a31_349081.txt",
+          "history/21c9a1ae_349017.txt",
+          "history/35f9ebae_349018.txt",
+          "history/66e339cf_107865.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/0eaef7ba_328200.txt": -6.499999891825697
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "56929_710",
+      "old": {
+        "ndcg": 0.6131471927654584,
+        "relevant_top10": 1,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/d64087ac_100488.txt",
+          "history/58298edf_79183.txt",
+          "history/a783e975_340939.txt",
+          "history/8ac9fbe4_340970.txt",
+          "history/cbd055c1_100623.txt",
+          "history/f1d629a7_79307.txt",
+          "history/70366397_340919.txt",
+          "history/a5801c92_100634.txt",
+          "history/6626706d_79229.txt",
+          "history/16f1b642_340906.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.6131471927654584,
+        "relevant_top10": 1,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/d64087ac_100488.txt",
+          "history/58298edf_79183.txt",
+          "history/a783e975_340939.txt",
+          "history/8ac9fbe4_340970.txt",
+          "history/cbd055c1_100623.txt",
+          "history/f1d629a7_79307.txt",
+          "history/70366397_340919.txt",
+          "history/a5801c92_100634.txt",
+          "history/6626706d_79229.txt",
+          "history/16f1b642_340906.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/aca30919_340988.txt": -0.12500000568335845
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "59289_624",
+      "old": {
+        "ndcg": 0.123151194370365,
+        "relevant_top10": 1,
+        "relevant_in": 1,
+        "relevant_out": 0,
+        "ranking": [
+          "history/419b10c9_328823.txt",
+          "history/ebd23402_328834.txt",
+          "history/9b4e20e3_328861.txt",
+          "history/d15c6f13_328862.txt",
+          "history/95063438_328843.txt",
+          "history/ab4532d7_328818.txt",
+          "history/b281021c_328819.txt",
+          "history/e3e7dbde_90383.txt",
+          "history/d806fa4d_328835.txt",
+          "history/8d581a51_328876.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.123151194370365,
+        "relevant_top10": 1,
+        "relevant_in": 1,
+        "relevant_out": 0,
+        "ranking": [
+          "history/419b10c9_328823.txt",
+          "history/ebd23402_328834.txt",
+          "history/9b4e20e3_328861.txt",
+          "history/d15c6f13_328862.txt",
+          "history/95063438_328843.txt",
+          "history/ab4532d7_328818.txt",
+          "history/b281021c_328819.txt",
+          "history/e3e7dbde_90383.txt",
+          "history/d806fa4d_328835.txt",
+          "history/8d581a51_328876.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/b59506e9_226540.txt": -11.90767575478176
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "59309_621",
+      "old": {
+        "ndcg": 0.7903864795495061,
+        "relevant_top10": 2,
+        "relevant_in": 1,
+        "relevant_out": 0,
+        "ranking": [
+          "history/c98c265d_90007.txt",
+          "history/4863cbab_328384.txt",
+          "history/7bebc65c_328374.txt",
+          "history/be8560f2_328350.txt",
+          "history/5d826fdb_328326.txt",
+          "history/83bad3ab_328352.txt",
+          "history/7b9d55a2_328324.txt",
+          "history/2f43cdfe_328311.txt",
+          "history/05f1b4e0_283994.txt",
+          "history/8468bbab_90008.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.7903864795495061,
+        "relevant_top10": 2,
+        "relevant_in": 1,
+        "relevant_out": 0,
+        "ranking": [
+          "history/c98c265d_90007.txt",
+          "history/4863cbab_328384.txt",
+          "history/7bebc65c_328374.txt",
+          "history/be8560f2_328350.txt",
+          "history/5d826fdb_328326.txt",
+          "history/83bad3ab_328352.txt",
+          "history/7b9d55a2_328324.txt",
+          "history/2f43cdfe_328311.txt",
+          "history/05f1b4e0_283994.txt",
+          "history/8468bbab_90008.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/e6017465_328358.txt": -5.874999975678557
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "64208_532",
+      "old": {
+        "ndcg": 0.8451850618939637,
+        "relevant_top10": 3,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/a3a66a8d_73597.txt",
+          "history/20c47c9d_297275.txt",
+          "history/6cb7052b_73598.txt",
+          "history/26d9cd73_297283.txt",
+          "history/50a5c6cf_73702.txt",
+          "history/7f6e0187_31562.txt",
+          "history/64a3047b_297288.txt",
+          "history/158901a9_297280.txt",
+          "history/3c76fb91_73599.txt",
+          "history/2bf0ba55_295340.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.8451850618939637,
+        "relevant_top10": 3,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/a3a66a8d_73597.txt",
+          "history/20c47c9d_297275.txt",
+          "history/6cb7052b_73598.txt",
+          "history/26d9cd73_297283.txt",
+          "history/50a5c6cf_73702.txt",
+          "history/7f6e0187_31562.txt",
+          "history/64a3047b_297288.txt",
+          "history/158901a9_297280.txt",
+          "history/3c76fb91_73599.txt",
+          "history/2bf0ba55_295340.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/6639025d_225349.txt": -7.782717650015836
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "64228_530",
+      "old": {
+        "ndcg": 0.8503449055347546,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/3a32d531_73174.txt",
+          "history/143bc3c8_73419.txt",
+          "history/53811aad_297120.txt",
+          "history/da4f603a_297119.txt",
+          "history/526c554d_73175.txt",
+          "history/468d4fdd_297126.txt",
+          "history/d3180492_297122.txt",
+          "history/72c08bb0_297132.txt",
+          "history/9ebcb749_63419.txt",
+          "history/5dc6f56c_297128.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.8503449055347546,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/3a32d531_73174.txt",
+          "history/143bc3c8_73419.txt",
+          "history/53811aad_297120.txt",
+          "history/da4f603a_297119.txt",
+          "history/526c554d_73175.txt",
+          "history/468d4fdd_297126.txt",
+          "history/d3180492_297122.txt",
+          "history/72c08bb0_297132.txt",
+          "history/9ebcb749_63419.txt",
+          "history/5dc6f56c_297128.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/73d8a51d_353864.txt": -1.6249999248574252,
+        "history/89b6659d_198765.txt": -1.374999927283425
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "64383_523",
+      "old": {
+        "ndcg": 1.0,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/1eaa4350_71936.txt",
+          "history/1434c618_71937.txt",
+          "history/33f74605_295447.txt",
+          "history/43f03b54_295476.txt",
+          "history/5367758c_295442.txt",
+          "history/1db6ceec_295464.txt",
+          "history/5057e898_295495.txt",
+          "history/4a884e68_295431.txt",
+          "history/12b8a62f_295466.txt",
+          "history/46b2fd11_260945.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 1.0,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/1eaa4350_71936.txt",
+          "history/1434c618_71937.txt",
+          "history/33f74605_295447.txt",
+          "history/43f03b54_295476.txt",
+          "history/5367758c_295442.txt",
+          "history/1db6ceec_295464.txt",
+          "history/5057e898_295495.txt",
+          "history/4a884e68_295431.txt",
+          "history/12b8a62f_295466.txt",
+          "history/46b2fd11_260945.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/f8309b17_296885.txt": -2.7500000327456906
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "66491_463",
+      "old": {
+        "ndcg": 0.38685280723454163,
+        "relevant_top10": 1,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/7caad968_63503.txt",
+          "history/ff7f7dc4_63163.txt",
+          "history/a48d6a10_54778.txt",
+          "history/4357bed5_277740.txt",
+          "history/59ec38dd_63514.txt",
+          "history/206ec4d5_277704.txt",
+          "history/e6c0bb7a_277741.txt",
+          "history/7e197f6f_277702.txt",
+          "history/ee7cac4d_277705.txt",
+          "history/5f5f498b_277746.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.38685280723454163,
+        "relevant_top10": 1,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/7caad968_63503.txt",
+          "history/ff7f7dc4_63163.txt",
+          "history/a48d6a10_54778.txt",
+          "history/4357bed5_277740.txt",
+          "history/59ec38dd_63514.txt",
+          "history/206ec4d5_277704.txt",
+          "history/e6c0bb7a_277741.txt",
+          "history/7e197f6f_277702.txt",
+          "history/ee7cac4d_277705.txt",
+          "history/5f5f498b_277746.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/a3111562_269988.txt": -4.999999974765452
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "67963_434",
+      "old": {
+        "ndcg": 0.0,
+        "relevant_top10": 0,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/cce6f2af_310819.txt",
+          "history/86371807_39516.txt",
+          "history/42fb3dd4_72136.txt",
+          "history/0738d84d_310808.txt",
+          "history/b774a082_39551.txt",
+          "history/b3ab44e1_310818.txt",
+          "history/b84eaaec_181362.txt",
+          "history/ec94f969_107004.txt",
+          "history/2bd3c1f7_109982.txt",
+          "history/990b4984_298459.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.0,
+        "relevant_top10": 0,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/cce6f2af_310819.txt",
+          "history/86371807_39516.txt",
+          "history/42fb3dd4_72136.txt",
+          "history/0738d84d_310808.txt",
+          "history/b774a082_39551.txt",
+          "history/b3ab44e1_310818.txt",
+          "history/b84eaaec_181362.txt",
+          "history/ec94f969_107004.txt",
+          "history/2bd3c1f7_109982.txt",
+          "history/990b4984_298459.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/2401ee98_310820.txt": -1.6577371876823275,
+        "history/019d1550_310814.txt": -0.4077540787876819
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "68013_430",
+      "old": {
+        "ndcg": 0.58341868454383,
+        "relevant_top10": 3,
+        "relevant_in": 1,
+        "relevant_out": 0,
+        "ranking": [
+          "history/228a44d9_57943.txt",
+          "history/8430d7bc_271921.txt",
+          "history/ea7e6a77_271954.txt",
+          "history/ff2e5dc9_271967.txt",
+          "history/4630dafb_57944.txt",
+          "history/9bdc00ac_271926.txt",
+          "history/654c2267_57942.txt",
+          "history/db75487b_271927.txt",
+          "history/3fd1e021_271936.txt",
+          "history/770ffe1f_271966.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.58341868454383,
+        "relevant_top10": 3,
+        "relevant_in": 1,
+        "relevant_out": 0,
+        "ranking": [
+          "history/228a44d9_57943.txt",
+          "history/8430d7bc_271921.txt",
+          "history/ea7e6a77_271954.txt",
+          "history/ff2e5dc9_271967.txt",
+          "history/4630dafb_57944.txt",
+          "history/9bdc00ac_271926.txt",
+          "history/654c2267_57942.txt",
+          "history/db75487b_271927.txt",
+          "history/3fd1e021_271936.txt",
+          "history/770ffe1f_271966.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/e504330f_335136.txt": -9.625000004626145
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "68362_413",
+      "old": {
+        "ndcg": 0.0,
+        "relevant_top10": 0,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/07394c1a_67287.txt",
+          "history/2d72738a_7924.txt",
+          "history/cc0a8399_189925.txt",
+          "history/f2d35efc_79099.txt",
+          "history/1710737a_55368.txt",
+          "history/ee46c61b_74239.txt",
+          "history/c0e2dfa5_20936.txt",
+          "history/29e3a000_190146.txt",
+          "history/8c6ea72a_189892.txt",
+          "history/71974fe0_20672.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.0,
+        "relevant_top10": 0,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/07394c1a_67287.txt",
+          "history/2d72738a_7924.txt",
+          "history/cc0a8399_189925.txt",
+          "history/f2d35efc_79099.txt",
+          "history/1710737a_55368.txt",
+          "history/ee46c61b_74239.txt",
+          "history/c0e2dfa5_20936.txt",
+          "history/29e3a000_190146.txt",
+          "history/8c6ea72a_189892.txt",
+          "history/71974fe0_20672.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/38f58f01_261138.txt": 1.7499999992470054,
+        "history/d2c12126_261039.txt": 1.625000005748562
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "69860_322",
+      "old": {
+        "ndcg": 0.0,
+        "relevant_top10": 0,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/85c03bf0_43724.txt",
+          "history/18e9199f_317171.txt",
+          "history/07f28e76_317291.txt",
+          "history/57717370_43752.txt",
+          "history/4d7ef748_43679.txt",
+          "history/8df70b01_43725.txt",
+          "history/c6b31fe1_232058.txt",
+          "history/013862de_43758.txt",
+          "history/7edc3109_232075.txt",
+          "history/07d16000_232036.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.0,
+        "relevant_top10": 0,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/85c03bf0_43724.txt",
+          "history/18e9199f_317171.txt",
+          "history/07f28e76_317291.txt",
+          "history/57717370_43752.txt",
+          "history/4d7ef748_43679.txt",
+          "history/8df70b01_43725.txt",
+          "history/c6b31fe1_232058.txt",
+          "history/013862de_43758.txt",
+          "history/07d16000_232036.txt",
+          "history/d79e7411_25083.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/7edc3109_232075.txt": 2.3749999935219797
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "70382_288",
+      "old": {
+        "ndcg": 0.8829374068620365,
+        "relevant_top10": 5,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/809b4fa9_39553.txt",
+          "history/c7caacd8_39557.txt",
+          "history/5cca54f0_39554.txt",
+          "history/2d3654a7_39556.txt",
+          "history/fa0c5748_213613.txt",
+          "history/6e5bbb41_39552.txt",
+          "history/29c62d9d_213603.txt",
+          "history/75eb5cad_79089.txt",
+          "history/2849ad68_7486.txt",
+          "history/e67923fc_213598.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.8829374068620365,
+        "relevant_top10": 5,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/809b4fa9_39553.txt",
+          "history/c7caacd8_39557.txt",
+          "history/5cca54f0_39554.txt",
+          "history/2d3654a7_39556.txt",
+          "history/fa0c5748_213613.txt",
+          "history/6e5bbb41_39552.txt",
+          "history/29c62d9d_213603.txt",
+          "history/75eb5cad_79089.txt",
+          "history/2849ad68_7486.txt",
+          "history/e67923fc_213598.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/0a03fcca_272971.txt": 0.7499999604307064
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "71367_216",
+      "old": {
+        "ndcg": 0.43067655807339306,
+        "relevant_top10": 1,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/5c976dfb_29635.txt",
+          "history/c0f6a979_90759.txt",
+          "history/28023847_90760.txt",
+          "history/90bc470e_29634.txt",
+          "history/fb58a213_0785.txt",
+          "history/292948cb_197115.txt",
+          "history/e6a4df1c_197169.txt",
+          "history/68b4831a_340085.txt",
+          "history/1f844c47_340105.txt",
+          "history/6abaadcf_102046.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.43067655807339306,
+        "relevant_top10": 1,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/5c976dfb_29635.txt",
+          "history/c0f6a979_90759.txt",
+          "history/28023847_90760.txt",
+          "history/90bc470e_29634.txt",
+          "history/fb58a213_0785.txt",
+          "history/292948cb_197115.txt",
+          "history/e6a4df1c_197169.txt",
+          "history/68b4831a_340085.txt",
+          "history/1f844c47_340105.txt",
+          "history/6abaadcf_102046.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/bd12f798_314449.txt": -2.0654866336149587,
+        "history/59e8331c_314352.txt": -2.0654866336149587,
+        "history/7dac1e7a_197325.txt": -2.0654866336149587
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "71507_211",
+      "old": {
+        "ndcg": 0.4776237035032179,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/037d18ae_29006.txt",
+          "history/55b2114d_29005.txt",
+          "history/0d4cf299_203462.txt",
+          "history/5b2f8721_203379.txt",
+          "history/53dc7c0e_29004.txt",
+          "history/2c8dd6df_203453.txt",
+          "history/b31da4b7_203461.txt",
+          "history/73187b9c_203357.txt",
+          "history/ed0ff9e0_203334.txt",
+          "history/8b17efb1_61003.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.4776237035032179,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/037d18ae_29006.txt",
+          "history/55b2114d_29005.txt",
+          "history/0d4cf299_203462.txt",
+          "history/5b2f8721_203379.txt",
+          "history/53dc7c0e_29004.txt",
+          "history/2c8dd6df_203453.txt",
+          "history/b31da4b7_203461.txt",
+          "history/73187b9c_203357.txt",
+          "history/ed0ff9e0_203334.txt",
+          "history/8b17efb1_61003.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/4b03c18f_203538.txt": -0.8750000393093864
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "71924_189",
+      "old": {
+        "ndcg": 0.21515079688078367,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/7975df7f_200044.txt",
+          "history/85e2fe89_200049.txt",
+          "history/b6cfcae2_200077.txt",
+          "history/451a899f_200071.txt",
+          "history/a10459ae_200081.txt",
+          "history/bbb042a7_200086.txt",
+          "history/43c36295_25886.txt",
+          "history/6e6813db_200111.txt",
+          "history/fb8258c5_25888.txt",
+          "history/d134d56a_200063.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.21515079688078367,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/7975df7f_200044.txt",
+          "history/85e2fe89_200049.txt",
+          "history/b6cfcae2_200077.txt",
+          "history/451a899f_200071.txt",
+          "history/a10459ae_200081.txt",
+          "history/bbb042a7_200086.txt",
+          "history/43c36295_25886.txt",
+          "history/6e6813db_200111.txt",
+          "history/fb8258c5_25888.txt",
+          "history/d134d56a_200063.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/69ddf731_200068.txt": -4.62499998253919
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "72115_181",
+      "old": {
+        "ndcg": 1.0,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/7f96b96f_24942.txt",
+          "history/cd264fba_24943.txt",
+          "history/ec508323_198969.txt",
+          "history/92798126_199024.txt",
+          "history/1a1afa57_198867.txt",
+          "history/9a134218_198874.txt",
+          "history/e4aecb68_199087.txt",
+          "history/7e48aab9_198862.txt",
+          "history/b7f2d1bb_198884.txt",
+          "history/2d9e9ed4_198852.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 1.0,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/7f96b96f_24942.txt",
+          "history/cd264fba_24943.txt",
+          "history/ec508323_198969.txt",
+          "history/92798126_199024.txt",
+          "history/1a1afa57_198867.txt",
+          "history/9a134218_198874.txt",
+          "history/e4aecb68_199087.txt",
+          "history/7e48aab9_198862.txt",
+          "history/b7f2d1bb_198884.txt",
+          "history/2d9e9ed4_198852.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/9cd393df_199106.txt": 1.7172533158151637
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "72472_158",
+      "old": {
+        "ndcg": 0.7844801364718914,
+        "relevant_top10": 3,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/fde7564c_21198.txt",
+          "history/d76af2e3_21547.txt",
+          "history/b523e46e_195574.txt",
+          "history/5174a7cc_195657.txt",
+          "history/1a13dbee_195638.txt",
+          "history/5bbafba6_21199.txt",
+          "history/fd566c4e_195658.txt",
+          "history/138dd1c2_21197.txt",
+          "history/14311b41_195577.txt",
+          "history/7e3f5c60_208485.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.7844801364718914,
+        "relevant_top10": 3,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/fde7564c_21198.txt",
+          "history/d76af2e3_21547.txt",
+          "history/b523e46e_195574.txt",
+          "history/5174a7cc_195657.txt",
+          "history/1a13dbee_195638.txt",
+          "history/5bbafba6_21199.txt",
+          "history/fd566c4e_195658.txt",
+          "history/138dd1c2_21197.txt",
+          "history/14311b41_195577.txt",
+          "history/7e3f5c60_208485.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/6ba2e74d_195621.txt": -0.6249999073835983,
+        "history/3924f778_195622.txt": -2.000000099018127
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "72552_154",
+      "old": {
+        "ndcg": 0.06362078819895171,
+        "relevant_top10": 1,
+        "relevant_in": 1,
+        "relevant_out": 0,
+        "ranking": [
+          "history/d151bb0e_190095.txt",
+          "history/f76e33f5_300339.txt",
+          "history/69222234_194906.txt",
+          "history/e5af8291_194873.txt",
+          "history/25faf001_21049.txt",
+          "history/7d276247_190096.txt",
+          "history/d0740097_190100.txt",
+          "history/20d03139_190273.txt",
+          "history/9cc8a9ef_276827.txt",
+          "history/5fef650a_20671.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.06362078819895171,
+        "relevant_top10": 1,
+        "relevant_in": 1,
+        "relevant_out": 0,
+        "ranking": [
+          "history/d151bb0e_190095.txt",
+          "history/f76e33f5_300339.txt",
+          "history/69222234_194906.txt",
+          "history/e5af8291_194873.txt",
+          "history/25faf001_21049.txt",
+          "history/7d276247_190096.txt",
+          "history/d0740097_190100.txt",
+          "history/20d03139_190273.txt",
+          "history/9cc8a9ef_276827.txt",
+          "history/5fef650a_20671.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/69222234_194906.txt": 2.7499999676465703,
+        "history/f76e33f5_300339.txt": 2.7499999676465703,
+        "history/b2f1ef99_194893.txt": 0.9999999944122839
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "76805_79",
+      "old": {
+        "ndcg": 0.2765732350040718,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/abf23c24_75753.txt",
+          "history/16aa4d9e_146132.txt",
+          "history/69389b9b_11033.txt",
+          "history/b4d52491_146138.txt",
+          "history/7cd7babe_44577.txt",
+          "history/2150b255_146286.txt",
+          "history/42cef586_17940.txt",
+          "history/e8b9139f_11034.txt",
+          "history/7e857351_146141.txt",
+          "history/9dad37fc_146137.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.2765732350040718,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/abf23c24_75753.txt",
+          "history/16aa4d9e_146132.txt",
+          "history/69389b9b_11033.txt",
+          "history/b4d52491_146138.txt",
+          "history/7cd7babe_44577.txt",
+          "history/2150b255_146286.txt",
+          "history/42cef586_17940.txt",
+          "history/e8b9139f_11034.txt",
+          "history/7e857351_146141.txt",
+          "history/9dad37fc_146137.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/3b0e76a1_195959.txt": -7.3749999495504515,
+        "history/8f0fccce_264226.txt": -7.3749999495504515,
+        "history/25496147_344889.txt": -7.3749999495504515
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "77151_58",
+      "old": {
+        "ndcg": 0.8318724637288826,
+        "relevant_top10": 3,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/d6b2160c_7468.txt",
+          "history/4949d241_7469.txt",
+          "history/191cc7b1_7467.txt",
+          "history/b57ceeef_141574.txt",
+          "history/985d4e7b_141545.txt",
+          "history/149ecb2c_141350.txt",
+          "history/dc6baf02_7478.txt",
+          "history/617b5d20_141337.txt",
+          "history/e6c98191_141318.txt",
+          "history/797ed25e_141349.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.8318724637288826,
+        "relevant_top10": 3,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/d6b2160c_7468.txt",
+          "history/4949d241_7469.txt",
+          "history/191cc7b1_7467.txt",
+          "history/b57ceeef_141574.txt",
+          "history/985d4e7b_141545.txt",
+          "history/149ecb2c_141350.txt",
+          "history/dc6baf02_7478.txt",
+          "history/617b5d20_141337.txt",
+          "history/e6c98191_141318.txt",
+          "history/797ed25e_141349.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/6563839e_314466.txt": -0.37500001724074083,
+        "history/1a5328ec_314385.txt": -0.37500001724074083
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "77270_48",
+      "old": {
+        "ndcg": 0.0,
+        "relevant_top10": 0,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/bd055a27_97260.txt",
+          "history/a1441a85_138176.txt",
+          "history/decd3373_68067.txt",
+          "history/a8a77723_138206.txt",
+          "history/9a191514_103614.txt",
+          "history/8c577138_68081.txt",
+          "history/1302d18b_138182.txt",
+          "history/e5a9beb3_138178.txt",
+          "history/f0270b74_0588.txt",
+          "history/9d1ca346_93101.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.0,
+        "relevant_top10": 0,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/bd055a27_97260.txt",
+          "history/a1441a85_138176.txt",
+          "history/decd3373_68067.txt",
+          "history/a8a77723_138206.txt",
+          "history/9a191514_103614.txt",
+          "history/8c577138_68081.txt",
+          "history/1302d18b_138182.txt",
+          "history/e5a9beb3_138178.txt",
+          "history/f0270b74_0588.txt",
+          "history/9d1ca346_93101.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/1ef6ff4a_198833.txt": -1.7500000067575812,
+        "history/173aa09d_335266.txt": -1.6250000234945836,
+        "history/72fb4a1e_244122.txt": -1.7500000067575812
+      }
+    },
+    {
+      "domain": "history",
+      "qid": "77682_27",
+      "old": {
+        "ndcg": 0.6309297535714575,
+        "relevant_top10": 1,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/12e79b7e_2725.txt",
+          "history/f162b7d9_2724.txt",
+          "history/f0178c74_117690.txt",
+          "history/fef23501_65071.txt",
+          "history/ca9154ed_4725.txt",
+          "history/69a9db4e_2735.txt",
+          "history/5b00f33d_69644.txt",
+          "history/49ba3c22_65072.txt",
+          "history/15e0bcfb_4671.txt",
+          "history/a5847f98_4672.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.6309297535714575,
+        "relevant_top10": 1,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "history/12e79b7e_2725.txt",
+          "history/f162b7d9_2724.txt",
+          "history/f0178c74_117690.txt",
+          "history/fef23501_65071.txt",
+          "history/ca9154ed_4725.txt",
+          "history/69a9db4e_2735.txt",
+          "history/5b00f33d_69644.txt",
+          "history/49ba3c22_65072.txt",
+          "history/15e0bcfb_4671.txt",
+          "history/a5847f98_4672.txt"
+        ]
+      },
+      "clipped_scores": {
+        "history/3810bc4c_353755.txt": -1.815500864944486
+      }
+    },
+    {
+      "domain": "hsm",
+      "qid": "13664_712",
+      "old": {
+        "ndcg": 0.553486104522623,
+        "relevant_top10": 3,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "hsm/13664_feb5de7c4558e582_1.txt",
+          "hsm/b406d6db_8482.txt",
+          "hsm/3e6371d6_8505.txt",
+          "hsm/ca6d849f_8484.txt",
+          "hsm/13664_feb5de7c4558e582_0.txt",
+          "hsm/2074b749_8483.txt",
+          "hsm/13664_0cd26d5f0f8a5571_24.txt",
+          "hsm/13664_0cd26d5f0f8a5571_15.txt",
+          "hsm/13664_0cd26d5f0f8a5571_14.txt",
+          "hsm/f332244d_8511.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.553486104522623,
+        "relevant_top10": 3,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "hsm/13664_feb5de7c4558e582_1.txt",
+          "hsm/b406d6db_8482.txt",
+          "hsm/3e6371d6_8505.txt",
+          "hsm/ca6d849f_8484.txt",
+          "hsm/13664_feb5de7c4558e582_0.txt",
+          "hsm/2074b749_8483.txt",
+          "hsm/13664_0cd26d5f0f8a5571_24.txt",
+          "hsm/13664_0cd26d5f0f8a5571_15.txt",
+          "hsm/13664_0cd26d5f0f8a5571_14.txt",
+          "hsm/f332244d_8511.txt"
+        ]
+      },
+      "clipped_scores": {
+        "hsm/4529d6f6_210275.txt": 0.750000003145364
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "82039_1009",
+      "old": {
+        "ndcg": 0.8529278650606567,
+        "relevant_top10": 3,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "politics/f05f7155_21220.txt",
+          "politics/4517e768_21291.txt",
+          "politics/87757_472bbd14730058c0_1.txt",
+          "politics/53fb9cf3_21221.txt",
+          "politics/3f8a2974_21222.txt",
+          "politics/63b6b0cf_25244.txt",
+          "politics/94fe8111_21301.txt",
+          "politics/78371_e3c938fb85633fcb_0.txt",
+          "politics/5129b1b1_22721.txt",
+          "politics/90625_f3e65cc62db39f71_1.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.8529278650606567,
+        "relevant_top10": 3,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "politics/f05f7155_21220.txt",
+          "politics/4517e768_21291.txt",
+          "politics/87757_472bbd14730058c0_1.txt",
+          "politics/53fb9cf3_21221.txt",
+          "politics/3f8a2974_21222.txt",
+          "politics/63b6b0cf_25244.txt",
+          "politics/94fe8111_21301.txt",
+          "politics/78371_e3c938fb85633fcb_0.txt",
+          "politics/5129b1b1_22721.txt",
+          "politics/90625_f3e65cc62db39f71_1.txt"
+        ]
+      },
+      "clipped_scores": {
+        "politics/1951cd4d_182393.txt": -0.37499995374376116,
+        "politics/4f380469_182425.txt": -0.3750000239861597
+      }
+    },
+    {
+      "domain": "politics",
+      "qid": "89753_942",
+      "old": {
+        "ndcg": 0.38356636737133565,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "politics/1c2372f0_8664.txt",
+          "politics/e82d4bed_8535.txt",
+          "politics/06e4db63_8536.txt",
+          "politics/89697_f938ff6aa7e58b32_36.txt",
+          "politics/b0213668_8681.txt",
+          "politics/89753_7d1fe890ec06e04b_12.txt",
+          "politics/86333_37e4252a6190e3d2_0.txt",
+          "politics/994eafee_17791.txt",
+          "politics/88683_ab1571ecc7293fe5_48.txt",
+          "politics/89697_f938ff6aa7e58b32_33.txt"
+        ]
+      },
+      "new": {
+        "ndcg": 0.38356636737133565,
+        "relevant_top10": 2,
+        "relevant_in": 0,
+        "relevant_out": 0,
+        "ranking": [
+          "politics/1c2372f0_8664.txt",
+          "politics/e82d4bed_8535.txt",
+          "politics/06e4db63_8536.txt",
+          "politics/89697_f938ff6aa7e58b32_36.txt",
+          "politics/b0213668_8681.txt",
+          "politics/89753_7d1fe890ec06e04b_12.txt",
+          "politics/86333_37e4252a6190e3d2_0.txt",
+          "politics/994eafee_17791.txt",
+          "politics/88683_ab1571ecc7293fe5_48.txt",
+          "politics/89697_f938ff6aa7e58b32_33.txt"
+        ]
+      },
+      "clipped_scores": {
+        "politics/6e3c0b83_182898.txt": 0.749999979287162
+      }
+    }
+  ]
+}

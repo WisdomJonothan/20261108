@@ -146,6 +146,17 @@ both sides of the changed time condition in 2 and 1 cases. The default Qwen3
 0.6B reranker flips correctly in 2 cases, and its event-time instruction in 1.
 [Evidence offsets and paired scores](docs/TEMPORAL_QUERY_CONTRAST_20261125.md)
 
+**Full official-dev Qwen3-8B evaluation (2026-11-25).** With the frozen
+70:30 blend and 100 dense candidates for each of the 519 official dev queries,
+Qwen3-8B scores **0.37959**, compared with **0.37350** for the six-pair
+reference (paired difference **+0.00609**, 95% interval [−0.00803, +0.01987]).
+All thirteen domains improve against the original frozen system (0.35810).
+A secondary replay uses 8B only on the 263 queries where the six-pair method
+abstains and reaches **0.38206**. In the matched edit-scope replay, reordering
+the same ten scores 0.37994. The top-ten audit attributes the largest positive
+component to relevant documents kept in both rankings.
+[Official paired results and reproduction](docs/ANCHOR_OFFICIAL_DEV_20261125.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate

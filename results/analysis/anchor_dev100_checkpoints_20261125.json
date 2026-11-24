@@ -1,0 +1,48 @@
+{
+  "queries": 519,
+  "prompts": 102762,
+  "prompt_tokens": 59314056,
+  "nominal_batch_size": 12,
+  "effective_batch_sizes": {
+    "1": 2,
+    "6": 1,
+    "12": 516
+  },
+  "resumed_queries": 316,
+  "retry_queries": [
+    {
+      "domain": "history",
+      "qid": "76805_79",
+      "fold": "dev",
+      "batch_size": 1,
+      "retries": 3,
+      "prompt_tokens": 251079,
+      "peak_mb": 17455.5771484375
+    },
+    {
+      "domain": "hsm",
+      "qid": "13664_712",
+      "fold": "dev",
+      "batch_size": 1,
+      "retries": 3,
+      "prompt_tokens": 230609,
+      "peak_mb": 21965.10302734375
+    },
+    {
+      "domain": "politics",
+      "qid": "82039_1009",
+      "fold": "dev",
+      "batch_size": 6,
+      "retries": 1,
+      "prompt_tokens": 101841,
+      "peak_mb": 19996.32177734375
+    }
+  ],
+  "torch": "2.7.0+cu126",
+  "transformers": "5.22.2",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "code_sha256": [
+    "031fdc98d575b1ac44bb2c1bd626ab5ac0daa95fa14a314c805bdc7a04ba48b2",
+    "1bc51ac91131d33c70b5ac5dc0aa592996bcdfb2930713b228482331057dd2c6"
+  ]
+}

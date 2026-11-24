@@ -41,6 +41,15 @@ def md_number(p, needle):
 
 
 CLAIMS = [
+    # --- full official-dev 8B and fixed abstention replay (2026-11-25) ------
+    ("Qwen3-8B depth-100 fusion on all official dev queries", 0.37959,
+     lambda: jload("analysis/anchor_official_dev_qwen8b_20261125.json")
+     ["summary"]["ndcg"]["qwen8b_100_fusion"],
+     "analysis/anchor_official_dev_qwen8b_20261125.json", False),
+    ("Qwen3-8B fusion on six-pair abstentions, replay", 0.38206,
+     lambda: jload("analysis/anchor_official_dev_qwen8b_20261125.json")
+     ["summary"]["ndcg"]["qwen8b_100_abstention"],
+     "analysis/anchor_official_dev_qwen8b_20261125.json", False),
     # --- matched candidate admission and reordering (2026-11-25) ----------
     ("one fixed admission on competition-start held-out queries", 0.277232,
      lambda: jload("analysis/anchor_edit_scope_oof100_20261125.json")

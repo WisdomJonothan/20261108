@@ -1,14 +1,17 @@
 """Rank the same dense top 100 by judgments against a shared in-list reference."""
 import argparse
+import hashlib
 import json
 import math
+import os
 import random
+import tempfile
 from collections import Counter, defaultdict
 from pathlib import Path
 
 import numpy as np
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, __version__ as transformers_version
 
 import benchmark_pairwise_replacement_v2 as judge
 from lib_reteco import read_trec_run
@@ -91,14 +94,86 @@ def anchor_score(pair):
                - math.log(max(v['incumbent'], 1e-6)) for v in votes) / 2
 
 
+def document_scores(row):
+    return {row['anchor']: 0.0} | {pair['doc']: anchor_score(pair) for pair in row['pairs']}
+
+
+def checkpointed_score(args, model, tokenizer, rows, options, tokens):
+    checkpoint = args.checkpoint_dir
+    checkpoint.mkdir(parents=True, exist_ok=True)
+    model_files = [
+        (path.name, path.stat().st_size, path.stat().st_mtime_ns)
+        for path in sorted(args.model.iterdir()) if path.is_file()
+    ]
+    code_files = [Path(__file__).resolve(), Path(judge.__file__).resolve()]
+    signature = {
+        'model': str(args.model.resolve()), 'model_files': model_files,
+        'code': [hashlib.sha256(path.read_bytes()).hexdigest() for path in code_files],
+        'torch': str(torch.__version__), 'transformers': transformers_version,
+        'gpu': torch.cuda.get_device_name(), 'tokens': tokens,
+        'batch_size': args.batch_size, 'options': options, 'split': args.split,
+        'rows': [(r['domain'], r['qid'], r['fold']) for r in rows],
+    }
+    manifest = checkpoint / 'manifest.json'
+    if manifest.exists():
+        if load(manifest) != json.loads(json.dumps(signature)):
+            raise ValueError('Checkpoint manifest differs from this evaluation')
+    else:
+        write_checkpoint(manifest, signature)
+
+    additive = ('prompts', 'prompt_tokens', 'batches', 'seconds', 'seconds_total')
+    totals = dict.fromkeys(additive, 0) | {'gpu_peak_mb': 0.0}
+    recovered = 0
+    for i, row in enumerate(rows):
+        path = checkpoint / f'{i:04d}.json'
+        identity = hashlib.sha256(json.dumps(
+            {key: value for key, value in row.items() if key != 'gold'},
+            ensure_ascii=False, sort_keys=True
+        ).encode('utf-8')).hexdigest()
+        if path.exists():
+            result = load(path)
+            if result['input'] != identity or result['scores'].keys() != set(row['pool']):
+                raise ValueError(f'Checkpoint inputs differ for {row["domain"]}/{row["qid"]}')
+            recovered += 1
+        else:
+            stats = judge.score_arm(model, tokenizer, [row], 'direct', args.batch_size,
+                                    'cuda', tokens, template_options=options)
+            result = {'input': identity, 'domain': row['domain'], 'qid': row['qid'],
+                      'scores': document_scores(row), 'inference': stats}
+            write_checkpoint(path, result)
+        row['document_scores'] = result['scores']
+        stats = result['inference']
+        if stats['prompts'] != 2 * len(row['pairs']):
+            raise ValueError(f'Prompt count differs for {row["domain"]}/{row["qid"]}')
+        for key in additive:
+            totals[key] += stats[key]
+        totals['gpu_peak_mb'] = max(totals['gpu_peak_mb'], stats['gpu_peak_mb'])
+        if (i + 1) % 10 == 0 or i + 1 == len(rows):
+            print(f'Scored {i + 1}/{len(rows)} queries, {totals["prompts"]} prompts, '
+                  f'{totals["seconds_total"]:.1f}s of scoring, {recovered} resumed', flush=True)
+    totals['prompts_per_s'] = totals['prompts'] / max(totals['seconds_total'], 1e-9)
+    totals['prompt_tokens_per_s'] = totals['prompt_tokens'] / max(totals['seconds_total'], 1e-9)
+    totals['resumed_queries'] = recovered
+    return totals
+
+
+def write_checkpoint(path, data):
+    with tempfile.NamedTemporaryFile('w', encoding='utf-8', dir=path.parent, delete=False) as stream:
+        temporary = Path(stream.name)
+        json.dump(data, stream, separators=(',', ':'))
+        stream.flush()
+        os.fsync(stream.fileno())
+    temporary.replace(path)
+
+
+
 def evaluate(rows):
     details = []
     for r in rows:
         pool = r['pool']
         gold = r['gold']
         top = r['top']
-        scores = {r['anchor']: 0.}
-        scores.update({pair['doc']: anchor_score(pair) for pair in r['pairs']})
+        scores = r['document_scores'] if 'document_scores' in r else document_scores(r)
         values = z(np.array([scores[d] for d in pool]))
         old = z(np.array([r['base_scores'][d] for d in pool]))
         rankings = {'base': top, 'anchor_only': [pool[i] for i in np.argsort(-values, kind='stable')[:10]],
@@ -144,6 +219,8 @@ def main():
                         help='Require exact query and fold IDs from an existing report.')
     parser.add_argument('--disable-thinking', action='store_true')
     parser.add_argument('--batch-size', type=int, default=12)
+    parser.add_argument('--checkpoint-dir', type=Path,
+                        help='Save completed queries and reuse them on restart.')
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     if args.output.exists() or min(args.queries_per_domain, args.batch_size) < 1:
@@ -168,8 +245,12 @@ def main():
     token_ids = [tok.encode(s, add_special_tokens=False) for s in 'ABC']
     assert all(len(t) == 1 for t in token_ids)
     template_options = {'enable_thinking': False} if args.disable_thinking else None
-    stats = judge.score_arm(model, tok, rows, 'direct', args.batch_size, 'cuda', [t[0] for t in token_ids],
-                            template_options=template_options)
+    tokens = [t[0] for t in token_ids]
+    if args.checkpoint_dir:
+        stats = checkpointed_score(args, model, tok, rows, template_options, tokens)
+    else:
+        stats = judge.score_arm(model, tok, rows, 'direct', args.batch_size, 'cuda', tokens,
+                                template_options=template_options)
     summary, details = evaluate(rows)
     report = {'protocol': 'Protect the original '
               'top ten and fill the specified pool depth from dense rank. '
@@ -181,8 +262,11 @@ def main():
               'excluded_previous_queries': len(exclude), 'inference': stats,
               'summary': summary, 'per_query': details}
     assert stats['prompts'] == 2 * (args.pool_depth - 1) * len(rows)
-    with args.output.open('x', encoding='utf-8') as stream:
-        json.dump(report, stream, indent=1)
+    if args.checkpoint_dir:
+        write_checkpoint(args.output, report)
+    else:
+        with args.output.open('x', encoding='utf-8') as stream:
+            json.dump(report, stream, indent=1)
     print(json.dumps(summary, indent=1), flush=True)
 
 

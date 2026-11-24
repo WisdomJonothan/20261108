@@ -1,0 +1,555 @@
+{
+  "protocol": "Use the same four matched comparisons per case as the fixed temporal pilot. Score the two passages with the official run's Direct prompt, both orders, Qwen3-8B non-thinking template and averaged log-odds preference.",
+  "model": "Qwen3-8B",
+  "cases": 11,
+  "inference": {
+    "prompts": 44,
+    "prompt_tokens": 10524,
+    "batches": 22,
+    "seconds": 3.7103859297931194,
+    "seconds_total": 3.7321234052069485,
+    "prompts_per_s": 11.789535131290808,
+    "prompt_tokens_per_s": 2819.842448220556,
+    "gpu_peak_mb": 15693.43359375
+  },
+  "results": {
+    "direct_qwen8b": {
+      "query_variants": 22,
+      "correct_variants": 18,
+      "tied_variants": 0,
+      "correct_flips": 7,
+      "reversed_flips": 0,
+      "mean_temporal_margin_shift": 11.643414406240925,
+      "per_case": [
+        {
+          "case": "second_definition",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": 0.0,
+              "late": -7.99999995387532
+            },
+            "late": {
+              "early": 0.0,
+              "late": 9.157755246481244
+            }
+          },
+          "correct_document_margins": {
+            "early": 7.99999995387532,
+            "late": 9.157755246481244
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "correct"
+          },
+          "two_order_predictions": {
+            "early": {
+              "fwd": {
+                "incumbent": 0.37209364771842957,
+                "challenger": 0.014427636750042439,
+                "abstain": 0.6134787201881409
+              },
+              "rev": {
+                "challenger": 2.902311962316162e-06,
+                "incumbent": 0.9999970197677612,
+                "abstain": 2.5109915924304005e-08
+              }
+            },
+            "late": {
+              "fwd": {
+                "incumbent": 3.224186784223093e-08,
+                "challenger": 1.0,
+                "abstain": 9.23744991609965e-09
+              },
+              "rev": {
+                "challenger": 0.9889967441558838,
+                "incumbent": 0.01098676212131977,
+                "abstain": 1.651792808843311e-05
+              }
+            }
+          }
+        },
+        {
+          "case": "hertz_adoption",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": 0.0,
+              "late": -12.15775525436235
+            },
+            "late": {
+              "early": 0.0,
+              "late": -6.157748656829568
+            }
+          },
+          "correct_document_margins": {
+            "early": 12.15775525436235,
+            "late": -6.157748656829568
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "incorrect"
+          },
+          "two_order_predictions": {
+            "early": {
+              "fwd": {
+                "incumbent": 0.9999724626541138,
+                "challenger": 2.7535692424862646e-05,
+                "abstain": 2.789391218005477e-10
+              },
+              "rev": {
+                "challenger": 2.5946095966178362e-11,
+                "incumbent": 1.0,
+                "abstain": 1.879528650772233e-12
+              }
+            },
+            "late": {
+              "fwd": {
+                "incumbent": 0.18242551386356354,
+                "challenger": 0.8175744414329529,
+                "abstain": 9.697348701820374e-09
+              },
+              "rev": {
+                "challenger": 2.3823380956855544e-07,
+                "incumbent": 0.9999867677688599,
+                "abstain": 1.3007125744479708e-05
+              }
+            }
+          }
+        },
+        {
+          "case": "induction_formulation",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": 0.0,
+              "late": -10.657755287023955
+            },
+            "late": {
+              "early": 0.0,
+              "late": 4.624999999351733
+            }
+          },
+          "correct_document_margins": {
+            "early": 10.657755287023955,
+            "late": 4.624999999351733
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "correct"
+          },
+          "two_order_predictions": {
+            "early": {
+              "fwd": {
+                "incumbent": 1.0,
+                "challenger": 1.5229980832032197e-08,
+                "abstain": 1.879528650772233e-12
+              },
+              "rev": {
+                "challenger": 0.000552778597921133,
+                "incumbent": 0.9994471669197083,
+                "abstain": 5.489752055720665e-11
+              }
+            },
+            "late": {
+              "fwd": {
+                "incumbent": 0.00012339458044152707,
+                "challenger": 0.9998766183853149,
+                "abstain": 2.5106892564963346e-08
+              },
+              "rev": {
+                "challenger": 0.5600550770759583,
+                "incumbent": 0.4361713230609894,
+                "abstain": 0.003773621516302228
+              }
+            }
+          }
+        },
+        {
+          "case": "quantum_formulation",
+          "domain": "hsm",
+          "scores": {
+            "early": {
+              "early": 0.0,
+              "late": -11.782755281003293
+            },
+            "late": {
+              "early": 0.0,
+              "late": 1.2500000257227724
+            }
+          },
+          "correct_document_margins": {
+            "early": 11.782755281003293,
+            "late": 1.2500000257227724
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "correct"
+          },
+          "two_order_predictions": {
+            "early": {
+              "fwd": {
+                "incumbent": 1.0,
+                "challenger": 4.139937814784389e-08,
+                "abstain": 5.1090889331695255e-12
+              },
+              "rev": {
+                "challenger": 5.829126530443318e-05,
+                "incumbent": 0.9999417066574097,
+                "abstain": 2.5108526813255594e-08
+              }
+            },
+            "late": {
+              "fwd": {
+                "incumbent": 0.02931223064661026,
+                "challenger": 0.970687747001648,
+                "abstain": 5.4385660419598025e-09
+              },
+              "rev": {
+                "challenger": 0.26894107460975647,
+                "incumbent": 0.7310575842857361,
+                "abstain": 1.2869145393779036e-06
+              }
+            }
+          }
+        },
+        {
+          "case": "scottish_birth_records",
+          "domain": "genealogy",
+          "scores": {
+            "early": {
+              "early": 0.0,
+              "late": -6.999999987569977
+            },
+            "late": {
+              "early": 0.0,
+              "late": -4.625000038854234
+            }
+          },
+          "correct_document_margins": {
+            "early": 6.999999987569977,
+            "late": -4.625000038854234
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "incorrect"
+          },
+          "two_order_predictions": {
+            "early": {
+              "fwd": {
+                "incumbent": 0.9990536570549011,
+                "challenger": 0.0009110190439969301,
+                "abstain": 3.532404298312031e-05
+              },
+              "rev": {
+                "challenger": 0.0009109388338401914,
+                "incumbent": 0.9989657402038574,
+                "abstain": 0.00012328216689638793
+              }
+            },
+            "late": {
+              "fwd": {
+                "incumbent": 0.9195862412452698,
+                "challenger": 0.05878717824816704,
+                "abstain": 0.02162659540772438
+              },
+              "rev": {
+                "challenger": 0.0015009447233751416,
+                "incumbent": 0.9983408451080322,
+                "abstain": 0.0001581984106451273
+              }
+            }
+          }
+        },
+        {
+          "case": "us_population_census",
+          "domain": "genealogy",
+          "scores": {
+            "early": {
+              "early": 0.0,
+              "late": -1.3750000040836448
+            },
+            "late": {
+              "early": 0.0,
+              "late": 11.53275526660262
+            }
+          },
+          "correct_document_margins": {
+            "early": 1.3750000040836448,
+            "late": 11.53275526660262
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "correct"
+          },
+          "two_order_predictions": {
+            "early": {
+              "fwd": {
+                "incumbent": 0.9241418242454529,
+                "challenger": 0.07585817575454712,
+                "abstain": 1.4074662324503606e-08
+              },
+              "rev": {
+                "challenger": 0.43782293796539307,
+                "incumbent": 0.5621757507324219,
+                "abstain": 1.270702455258288e-06
+              }
+            },
+            "late": {
+              "fwd": {
+                "incumbent": 9.610241977497935e-05,
+                "challenger": 0.9999039173126221,
+                "abstain": 4.846903087218912e-11
+              },
+              "rev": {
+                "challenger": 1.0,
+                "incumbent": 1.9555681518568235e-08,
+                "abstain": 4.8473686869998645e-11
+              }
+            }
+          }
+        },
+        {
+          "case": "canadian_private_notes",
+          "domain": "history",
+          "scores": {
+            "early": {
+              "early": 0.0,
+              "late": 10.375000009640681
+            },
+            "late": {
+              "early": 0.0,
+              "late": 13.815510557964274
+            }
+          },
+          "correct_document_margins": {
+            "early": -10.375000009640681,
+            "late": 13.815510557964274
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          },
+          "two_order_predictions": {
+            "early": {
+              "fwd": {
+                "incumbent": 6.1441605794243515e-06,
+                "challenger": 0.9999915361404419,
+                "abstain": 2.2603103388973977e-06
+              },
+              "rev": {
+                "challenger": 0.962526261806488,
+                "incumbent": 0.00015252317825797945,
+                "abstain": 0.037321191281080246
+              }
+            },
+            "late": {
+              "fwd": {
+                "incumbent": 2.5946095966178362e-11,
+                "challenger": 1.0,
+                "abstain": 2.4133626954497833e-12
+              },
+              "rev": {
+                "challenger": 1.0,
+                "incumbent": 1.2501528701136522e-09,
+                "abstain": 2.789468100949932e-10
+              }
+            }
+          }
+        },
+        {
+          "case": "india_pakistan_agreement",
+          "domain": "history",
+          "scores": {
+            "early": {
+              "early": 0.0,
+              "late": -7.250000018277197
+            },
+            "late": {
+              "early": 0.0,
+              "late": 8.74999998121403
+            }
+          },
+          "correct_document_margins": {
+            "early": 7.250000018277197,
+            "late": 8.74999998121403
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "correct"
+          },
+          "two_order_predictions": {
+            "early": {
+              "fwd": {
+                "incumbent": 0.9997965693473816,
+                "challenger": 0.00020342697098385543,
+                "abstain": 5.904102762244179e-10
+              },
+              "rev": {
+                "challenger": 0.0024726232513785362,
+                "incumbent": 0.9975274205207825,
+                "abstain": 1.77883801438794e-11
+              }
+            },
+            "late": {
+              "fwd": {
+                "incumbent": 0.0009110512328334153,
+                "challenger": 0.9990890026092529,
+                "abstain": 6.218473652674916e-11
+              },
+              "rev": {
+                "challenger": 0.9999724626541138,
+                "incumbent": 2.7535692424862646e-05,
+                "abstain": 3.7750306353112606e-11
+              }
+            }
+          }
+        },
+        {
+          "case": "punjab_administration",
+          "domain": "history",
+          "scores": {
+            "early": {
+              "early": 0.0,
+              "late": -10.282755298501607
+            },
+            "late": {
+              "early": 0.0,
+              "late": 13.81551043875497
+            }
+          },
+          "correct_document_margins": {
+            "early": 10.282755298501607,
+            "late": 13.81551043875497
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "correct"
+          },
+          "two_order_predictions": {
+            "early": {
+              "fwd": {
+                "incumbent": 0.9988030195236206,
+                "challenger": 0.0011694780550897121,
+                "abstain": 2.7503490855451673e-05
+              },
+              "rev": {
+                "challenger": 8.423464183116014e-12,
+                "incumbent": 1.0,
+                "abstain": 1.4637784257268138e-12
+              }
+            },
+            "late": {
+              "fwd": {
+                "incumbent": 9.736200734522527e-10,
+                "challenger": 1.0,
+                "abstain": 4.2777878461741636e-11
+              },
+              "rev": {
+                "challenger": 0.9999997615814209,
+                "incumbent": 1.855391076333035e-07,
+                "abstain": 1.6918975942470382e-10
+              }
+            }
+          }
+        },
+        {
+          "case": "us_election_response",
+          "domain": "politics",
+          "scores": {
+            "early": {
+              "early": 0.0,
+              "late": -8.125000008906522
+            },
+            "late": {
+              "early": 0.0,
+              "late": 2.3749999533181385
+            }
+          },
+          "correct_document_margins": {
+            "early": 8.125000008906522,
+            "late": 2.3749999533181385
+          },
+          "outcomes": {
+            "early": "correct",
+            "late": "correct"
+          },
+          "two_order_predictions": {
+            "early": {
+              "fwd": {
+                "incumbent": 0.9994434714317322,
+                "challenger": 0.0005527765606530011,
+                "abstain": 3.724579300978803e-06
+              },
+              "rev": {
+                "challenger": 0.00015843621804378927,
+                "incumbent": 0.999841570854187,
+                "abstain": 3.3310167124600554e-11
+              }
+            },
+            "late": {
+              "fwd": {
+                "incumbent": 0.022885991260409355,
+                "challenger": 0.9731370806694031,
+                "abstain": 0.003976989071816206
+              },
+              "rev": {
+                "challenger": 0.7310185432434082,
+                "incumbent": 0.2689267098903656,
+                "abstain": 5.471807889989577e-05
+              }
+            }
+          }
+        },
+        {
+          "case": "indian_economic_policy",
+          "domain": "economics",
+          "scores": {
+            "early": {
+              "early": 0.0,
+              "late": 5.500000029464639
+            },
+            "late": {
+              "early": 0.0,
+              "late": 12.782754640425662
+            }
+          },
+          "correct_document_margins": {
+            "early": -5.500000029464639,
+            "late": 12.782754640425662
+          },
+          "outcomes": {
+            "early": "incorrect",
+            "late": "correct"
+          },
+          "two_order_predictions": {
+            "early": {
+              "fwd": {
+                "incumbent": 2.254735363749205e-06,
+                "challenger": 0.0024726176634430885,
+                "abstain": 0.997525155544281
+              },
+              "rev": {
+                "challenger": 0.9646630883216858,
+                "incumbent": 0.01766842044889927,
+                "abstain": 0.01766842044889927
+              }
+            },
+            "late": {
+              "fwd": {
+                "incumbent": 7.886616913310718e-06,
+                "challenger": 0.9996567964553833,
+                "abstain": 0.0003353474894538522
+              },
+              "rev": {
+                "challenger": 0.9999986886978149,
+                "incumbent": 2.3823665173949848e-07,
+                "abstain": 1.0677026693883818e-06
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

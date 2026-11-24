@@ -31,7 +31,7 @@ Use the same model weights, exact passages, two query variants, official yes/no 
 | Default relevance instruction | 13 | 2 |
 | Explicit event-time instruction | 12 | 1 |
 
-The default and event-time instructions disagree on one of the 22 variants. The default ranks the 1887 Electoral Count Act correctly for the period after 1880. The targeted instruction instead prefers the 1877 congressional commission on that variant. The hertz pair flips correctly under both instructions and both BGE checkpoints. Simple event-time wording therefore produces a small, mixed change in score margins and leaves the dominant ranking behavior intact in this pilot. The next matched checkpoint of interest is the 8B model used for full ranking, scored with the same evidence and both presentation orders.
+The default and event-time instructions disagree on one of the 22 variants. The default ranks the 1887 Electoral Count Act correctly for the period after 1880. The targeted instruction instead prefers the 1877 congressional commission on that variant. The hertz pair flips correctly under both instructions and both BGE checkpoints. Simple event-time wording therefore produces a small, mixed change in score margins and leaves the dominant ranking behavior intact in this pilot. The full-ranking 8B judge and the matched 4B scoring controls below use the same evidence and both presentation orders in the pairwise arm.
 
 [Qwen scores, instructions and margins](../results/analysis/temporal_minimal_pairs_qwen_20261125.json)
 
@@ -51,6 +51,21 @@ Correct date cues change which case flips. They recover the 1877 commission vers
 [Event date annotations](../results/analysis/temporal_minimal_pairs_event_dates_20261125.json) · [Matched and exchanged date scores](../results/analysis/temporal_minimal_pairs_supplied_dates_20261125.json)
 
 
+## Two-order comparison and independent passage scores
+
+Use the same eleven cases, query variants and verified passages. Pairwise scoring compares the passages in both orders. Independent scoring gives each passage its own relevance prompt and retains the yes/no log-odds and their sigmoid from the same model forward passes. Each model invocation protocol uses 44 prompts. The 4B arms use the same Qwen3-4B-Instruct-2507 checkpoint, native chat template and BF16 model execution. Prompt token counts are 10,348 for two-order 4B and 5,916 for independent 4B.
+
+| Score | Correct variants (22) | Correct flips (11) | Tied variants |
+|---|---:|---:|---:|
+| Qwen3-4B, two-order comparison | 18 | 7 | 0 |
+| Qwen3-8B, two-order comparison | 18 | 7 | 0 |
+| Qwen3-4B, independent relevance probability | 17 | 8 | 5 |
+| Qwen3-4B, independent relevance log-odds | 21 | 10 | 0 |
+
+The probability replay reproduces the original independent scores. Retaining log-odds breaks five probability ties, with four correct decisions and one incorrect decision. Strict flips rise from eight to ten using the same forward passes. Thus score representation affects the measured ability to follow a time contrast on this pilot. Independent 4B log-odds provide a simple baseline for a larger temporal evaluation.
+
+[4B two-order scores](../results/analysis/temporal_minimal_pairs_qwen4b_direct_20261125.json) · [8B two-order scores](../results/analysis/temporal_minimal_pairs_qwen8b_direct_20261125.json) · [Original independent probability scores](../results/analysis/temporal_minimal_pairs_qwen4b_pointwise_20261125.json) · [Matched independent probability and log-odds](../results/analysis/temporal_minimal_pairs_qwen4b_pointwise_logodds_20261125.json)
+
 ## Reproduction
 
 Run with official v1.1 corpus files and existing local model weights. The scorer verifies every source passage against the manifest checksum and scores in CPU float32.
@@ -67,4 +82,14 @@ python scripts/eval_temporal_query_contrast.py --data-root data/track1_tempo --m
 
 ```bash
 python scripts/eval_temporal_query_contrast.py --data-root data/track1_tempo --manifest results/analysis/temporal_minimal_pairs_manifest_20261125.json --qwen-reranker models/qwen3-reranker-0.6b --annotated-event-dates results/analysis/temporal_minimal_pairs_event_dates_20261125.json --output results/analysis/temporal_minimal_pairs_supplied_dates_replay.json
+```
+
+The generative judge arms use CUDA with the supplied local checkpoints.
+
+```bash
+python scripts/eval_temporal_direct_judge.py --data-root data/track1_tempo --manifest results/analysis/temporal_minimal_pairs_manifest_20261125.json --model models/Qwen3-4B-Instruct-2507 --native-template --label direct_qwen4b --output results/analysis/temporal_minimal_pairs_qwen4b_direct_replay.json
+
+python scripts/eval_temporal_direct_judge.py --data-root data/track1_tempo --manifest results/analysis/temporal_minimal_pairs_manifest_20261125.json --model models/Qwen3-8B --output results/analysis/temporal_minimal_pairs_qwen8b_direct_replay.json
+
+python scripts/eval_temporal_pointwise_judge.py --data-root data/track1_tempo --manifest results/analysis/temporal_minimal_pairs_manifest_20261125.json --model models/Qwen3-4B-Instruct-2507 --output results/analysis/temporal_minimal_pairs_qwen4b_pointwise_replay.json
 ```
