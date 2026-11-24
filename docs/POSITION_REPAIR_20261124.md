@@ -58,6 +58,8 @@ On dev the discount priority also falls relative to confidence ranking in all th
 
 The oracle ladder separates the two remaining errors. On dev the mixed policy offers +0.06558 under perfect choice, +0.02390 under perfect choice restricted to pairs accepted by Qwen, and +0.00734 in the actual run. The corresponding gains for the external policy are +0.04380, +0.02220, and +0.01540. Acceptance removes most of the mixed policy's extra opportunity. Within the accepted set, the mixed policy also loses more value in its final selection. [Headroom audit](../results/analysis/position_headroom_20261124.json)
 
+The current 0.3735 system recovers nine zero-score queries from the reference ranking and creates one new zero, leaving 130. Of those, 78 have a judged positive in dense top 100, 42 have their first judged positive at ranks 101–1000, and 10 have none in top 1000. The next score-improvement target is the judged-positive selection problem in the first group. Candidate-pool expansion addresses the second group. Gold labels define these diagnostic buckets. [Competition zero-query audit](../results/analysis/competition_zeroes_20261124.json)
+
 ## Fresh actions on the alternate ranking
 
 A fresh external replacement run uses the fixed 0.7 ensemble and the original head-first action construction. It ranks the 200 possible actions by the original inexpensive score gap, keeps 18, then judges the first six in head-first order. It provides the one-swap effect relative to the ensemble's own 0.36242 starting point. This exploratory arm will also be compared against the original 0.37350 system to account for the changed base ranking and extra CE inference. The GPU run has been launched.
@@ -73,6 +75,7 @@ python scripts/eval_ce_seed_ensemble.py --external-replay results/analysis/posit
 python scripts/eval_position_repair.py --model models/Qwen3-4B-Instruct-2507 --folds f0 f1 f2 --output results/analysis/position_repair_oof_20261124.json
 python scripts/eval_position_repair.py --model models/Qwen3-4B-Instruct-2507 --folds dev --output results/analysis/position_repair_dev_20261124.json
 python scripts/audit_position_headroom.py
+python scripts/audit_competition_zeroes.py --output results/analysis/competition_zeroes_20261124.json
 python scripts/eval_ce_seed_ensemble.py --export-runs runs --output results/analysis/ce_seed_ensemble_base_run_20261124.json
 python scripts/expand_actions3.py --model models/Qwen3-4B-Instruct-2507 --start-tag full3ce70_20261124 --order head_first --max-actions 18 --judge-limit 6 --budgets 6 --out results/analysis/ce_seed_ensemble_fresh_replacement_dev_20261124.json
 ```
