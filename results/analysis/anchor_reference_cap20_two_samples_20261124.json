@@ -1,0 +1,1087 @@
+{
+ "scope": "Matched-query comparison. The reference uses 12 prompts. The anchor method uses 198 on 100 documents or 38 on 20. Replayed cap20 uses cached scores.",
+ "samples": {
+  "anchor_reranker_oof_sample26_20261124.json": {
+   "queries": 26,
+   "scores": {
+    "frozen_base": 0.2588023177731239,
+    "external6": 0.2594078786935984,
+    "anchor_only": 0.2848904560444088,
+    "anchor_fusion": 0.28511733343553686,
+    "cap20_replay": 0.2842591331659182
+   },
+   "anchor_fusion_vs_external6": {
+    "point": 0.025709454741938496,
+    "ci95": [
+     0.00421748971895042,
+     0.04758620914158423
+    ]
+   },
+   "domain_cluster_bootstrap_95": [
+    -0.01517736585195377,
+    0.06924817421451218
+   ],
+   "improved_domains": 8,
+   "worse_domains": 4,
+   "per_domain_delta": {
+    "bitcoin": 0.0,
+    "cardano": -0.004192643262326434,
+    "economics": 0.008767429383036346,
+    "genealogy": 0.00834837565052643,
+    "history": 0.02013740983876186,
+    "hsm": -0.11314719276545837,
+    "iota": 0.08553340965372429,
+    "law": 0.05146536480693632,
+    "monero": 0.20519726391309373,
+    "politics": 0.0044647480900375375,
+    "quant": -0.05848033372663815,
+    "travel": 0.1480409554829326,
+    "workplace": -0.021911875419425714
+   },
+   "cap20_vs_external6": {
+    "point": 0.024851254472319846,
+    "ci95": [
+     0.00897337755211556,
+     0.040673904595402155
+    ]
+   },
+   "step_coverage": {
+    "frozen_base": 0.6180555555555556,
+    "external6": 0.6319444444444444,
+    "anchor_only": 0.6666666666666666,
+    "anchor_fusion": 0.6458333333333334
+   },
+   "step_coverage_annotated_queries": 22,
+   "step_coverage_annotated_domains": 12
+  },
+  "anchor_reranker_oof_replication39_20261124.json": {
+   "queries": 39,
+   "scores": {
+    "frozen_base": 0.2836079573114418,
+    "external6": 0.2766641442127467,
+    "anchor_only": 0.24061059799962378,
+    "anchor_fusion": 0.28830443008458173,
+    "cap20_replay": 0.29810051923072406
+   },
+   "anchor_fusion_vs_external6": {
+    "point": 0.011640285871834953,
+    "ci95": [
+     -0.007013164607537257,
+     0.03123478945336533
+    ]
+   },
+   "domain_cluster_bootstrap_95": [
+    -0.025379297926472172,
+    0.043488248365452245
+   ],
+   "improved_domains": 6,
+   "worse_domains": 4,
+   "per_domain_delta": {
+    "bitcoin": 0.0,
+    "cardano": -0.16008198864130596,
+    "economics": -0.002585966980540718,
+    "genealogy": -0.03018993020634002,
+    "history": 0.011209889135139909,
+    "hsm": 0.05907976226134925,
+    "iota": 0.07821312100379274,
+    "law": -0.021387689431049645,
+    "monero": 0.10526025809730333,
+    "politics": 0.026001468797283322,
+    "quant": 0.0,
+    "travel": 0.08580479229822219,
+    "workplace": 0.0
+   },
+   "cap20_vs_external6": {
+    "point": 0.021436375017977346,
+    "ci95": [
+     0.00794048340452811,
+     0.036270439360730516
+    ]
+   },
+   "step_coverage": {
+    "frozen_base": 0.5608974358974359,
+    "external6": 0.5608974358974359,
+    "anchor_only": 0.47756410256410253,
+    "anchor_fusion": 0.5480769230769231
+   },
+   "step_coverage_annotated_queries": 34,
+   "step_coverage_annotated_domains": 13
+  }
+ },
+ "combined": {
+  "queries": 65,
+  "scores": {
+   "frozen_base": 0.2736857014961147,
+   "external6": 0.2697616380050874,
+   "anchor_only": 0.25832254121753784,
+   "anchor_fusion": 0.28702959142496376,
+   "cap20_replay": 0.2925639648048018
+  },
+  "anchor_fusion_vs_external6": {
+   "point": 0.017267953419876372,
+   "ci95": [
+    0.00040103524949891876,
+    0.034954056579037
+   ]
+  },
+  "domain_cluster_bootstrap_95": [
+   -0.013854168811056973,
+   0.049758577506184266
+  ],
+  "improved_domains": 7,
+  "worse_domains": 5,
+  "per_domain_delta": {
+   "bitcoin": 0.0,
+   "cardano": -0.09772625048971414,
+   "economics": 0.0019553915648901077,
+   "genealogy": -0.014774607863593442,
+   "history": 0.01478089741658869,
+   "hsm": -0.0098110197493738,
+   "iota": 0.08114123646376536,
+   "law": 0.007753532264144741,
+   "monero": 0.14523506042361947,
+   "politics": 0.017386780514385008,
+   "quant": -0.02339213349065526,
+   "travel": 0.11069925757210636,
+   "workplace": -0.008764750167770285
+  },
+  "cap20_vs_external6": {
+   "point": 0.022802326799714348,
+   "ci95": [
+    0.010384160523544702,
+    0.03563051770300674
+   ]
+  },
+  "step_coverage": {
+   "frozen_base": 0.5733974358974359,
+   "external6": 0.578525641025641,
+   "anchor_only": 0.5432692307692307,
+   "anchor_fusion": 0.5778846153846153
+  },
+  "step_coverage_annotated_queries": 56,
+  "step_coverage_annotated_domains": 13
+ },
+ "per_query": [
+  {
+   "domain": "bitcoin",
+   "qid": "125174_3",
+   "frozen_base": 0.13012668333070054,
+   "external6": 0.13012668333070054,
+   "anchor_only": 0.15101961822780524,
+   "anchor_fusion": 0.13012668333070054,
+   "cap20_replay": 0.13012668333070054,
+   "coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_only": 0.5,
+    "anchor_fusion": 0.5
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "98618_84",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 0,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "8478_108",
+   "frozen_base": 0.6309297535714575,
+   "external6": 0.6309297535714575,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.6309297535714575,
+   "cap20_replay": 0.6309297535714575,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 0,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "857_138",
+   "frozen_base": 0.15642624200758548,
+   "external6": 0.15642624200758548,
+   "anchor_only": 0.13565197343244778,
+   "anchor_fusion": 0.1480409554829326,
+   "cap20_replay": 0.15642624200758548,
+   "coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_only": 0.5,
+    "anchor_fusion": 0.5
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "53713_187",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.17723928678404774,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 1,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "52186_192",
+   "frozen_base": 0.44293981265090565,
+   "external6": 0.44293981265090565,
+   "anchor_only": 0.08431423425588572,
+   "anchor_fusion": 0.46047467141697834,
+   "cap20_replay": 0.47401203179625306,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 0.6666666666666666,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12904_279",
+   "frozen_base": 0.5240185826326421,
+   "external6": 0.3936948167222716,
+   "anchor_only": 0.21779548001177887,
+   "anchor_fusion": 0.41039156802332444,
+   "cap20_replay": 0.49456228788854273,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 0.6666666666666666,
+    "anchor_fusion": 0.6666666666666666
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "16178_250",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 0,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "62606_606",
+   "frozen_base": 0.34337431936037655,
+   "external6": 0.34337431936037655,
+   "anchor_only": 0.4525081529734507,
+   "anchor_fusion": 0.38364913903790027,
+   "cap20_replay": 0.38364913903790027,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 1,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70696_261",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 0,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "18004_679",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0
+  },
+  {
+   "domain": "hsm",
+   "qid": "17821_684",
+   "frozen_base": 0.9197207891481876,
+   "external6": 0.9197207891481876,
+   "anchor_only": 0.5012658353418871,
+   "anchor_fusion": 0.6934264036172708,
+   "cap20_replay": 0.6934264036172708,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 1,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "iota",
+   "qid": "1954_803",
+   "frozen_base": 0.6508205185601091,
+   "external6": 0.6508205185601091,
+   "anchor_only": 0.7039180890341347,
+   "anchor_fusion": 0.7653606369886217,
+   "cap20_replay": 0.7653606369886217,
+   "coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_only": 0.5,
+    "anchor_fusion": 0.5
+   }
+  },
+  {
+   "domain": "iota",
+   "qid": "2497_799",
+   "frozen_base": 0.2442584792702138,
+   "external6": 0.2442584792702138,
+   "anchor_only": 0.34519134224686937,
+   "anchor_fusion": 0.30078518014914984,
+   "cap20_replay": 0.30078518014914984,
+   "coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_only": 0.5,
+    "anchor_fusion": 0.5
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "106290_825",
+   "frozen_base": 0.15101961822780524,
+   "external6": 0.15101961822780524,
+   "anchor_only": 0.24630238874073,
+   "anchor_fusion": 0.16812753627111746,
+   "cap20_replay": 0.16812753627111746,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 1,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "106974_820",
+   "frozen_base": 0.3010299956639812,
+   "external6": 0.3010299956639812,
+   "anchor_only": 0.5,
+   "anchor_fusion": 0.38685280723454163,
+   "cap20_replay": 0.38685280723454163,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 1,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "7581_880",
+   "frozen_base": 0.2960819109658652,
+   "external6": 0.2960819109658652,
+   "anchor_only": 0.2960819109658652,
+   "anchor_fusion": 0.46927872602275644,
+   "cap20_replay": 0.46927872602275644,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 1,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "6113_888",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.38685280723454163,
+   "anchor_fusion": 0.23719771276929622,
+   "cap20_replay": 0.20438239758848611
+  },
+  {
+   "domain": "politics",
+   "qid": "74135_1056",
+   "frozen_base": 0.13012668333070054,
+   "external6": 0.13012668333070054,
+   "anchor_only": 0.39399144290744104,
+   "anchor_fusion": 0.13905617951077562,
+   "cap20_replay": 0.25190132085971084,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 1,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "77123_1037",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 0,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "81021_1060",
+   "frozen_base": 0.24630238874073,
+   "external6": 0.24630238874073,
+   "anchor_only": 0.312706129752478,
+   "anchor_fusion": 0.24630238874073,
+   "cap20_replay": 0.24630238874073,
+   "coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_only": 1,
+    "anchor_fusion": 0.5
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "36059_1091",
+   "frozen_base": 0.10209739512291163,
+   "external6": 0.24816574496561808,
+   "anchor_only": 0.2716774977597197,
+   "anchor_fusion": 0.13120507751234178,
+   "cap20_replay": 0.2188505885308512,
+   "coverage": {
+    "frozen_base": 0.3333333333333333,
+    "external6": 0.6666666666666666,
+    "anchor_only": 0.6666666666666666,
+    "anchor_fusion": 0.3333333333333333
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "184986_1178",
+   "frozen_base": 0.7328286204777911,
+   "external6": 0.7328286204777911,
+   "anchor_only": 1.0,
+   "anchor_fusion": 0.7328286204777911,
+   "cap20_replay": 0.7328286204777911,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 1,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "186288_1160",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.6049306994552042,
+   "anchor_fusion": 0.2960819109658652,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 1,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "171559_1221",
+   "frozen_base": 0.43067655807339306,
+   "external6": 0.43067655807339306,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.38685280723454163,
+   "cap20_replay": 0.38685280723454163
+  },
+  {
+   "domain": "workplace",
+   "qid": "193475_1198",
+   "frozen_base": 0.2960819109658652,
+   "external6": 0.2960819109658652,
+   "anchor_only": 0.6257049680303419,
+   "anchor_fusion": 0.2960819109658652,
+   "cap20_replay": 0.2960819109658652
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "126019_1",
+   "frozen_base": 0.23463936301137822,
+   "external6": 0.23463936301137822,
+   "anchor_only": 0.46927872602275644,
+   "anchor_fusion": 0.23463936301137822,
+   "cap20_replay": 0.23463936301137822,
+   "coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_only": 0.5,
+    "anchor_fusion": 0.5
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "119019_54",
+   "frozen_base": 0.18154179253735267,
+   "external6": 0.18154179253735267,
+   "anchor_only": 0.14126697285982898,
+   "anchor_fusion": 0.18154179253735267,
+   "cap20_replay": 0.18154179253735267
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "124874_6",
+   "frozen_base": 0.44149241373678083,
+   "external6": 0.44149241373678083,
+   "anchor_only": 0.5101671483174705,
+   "anchor_fusion": 0.44149241373678083,
+   "cap20_replay": 0.44149241373678083,
+   "coverage": {
+    "frozen_base": 0.75,
+    "external6": 0.75,
+    "anchor_only": 0.75,
+    "anchor_fusion": 0.75
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "8864_107",
+   "frozen_base": 0.3065735963827292,
+   "external6": 0.3065735963827292,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.23719771276929622,
+   "cap20_replay": 0.23719771276929622,
+   "coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_only": 0,
+    "anchor_fusion": 0.5
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "8943_106",
+   "frozen_base": 0.18457569677956817,
+   "external6": 0.18457569677956817,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.17723928678404774,
+   "coverage": {
+    "frozen_base": 0.3333333333333333,
+    "external6": 0.3333333333333333,
+    "anchor_only": 0,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "839_140",
+   "frozen_base": 0.6131471927654584,
+   "external6": 0.6131471927654584,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.38685280723454163,
+   "cap20_replay": 0.6131471927654584,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 0,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "54052_185",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 0,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "52506_191",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.2960819109658652,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 0.6666666666666666,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "47525_214",
+   "frozen_base": 0.1208113026994942,
+   "external6": 0.1208113026994942,
+   "anchor_only": 0.29039140533630226,
+   "anchor_fusion": 0.11305340175787204,
+   "cap20_replay": 0.2090905274901754,
+   "coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_only": 0.5,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12209_292",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 0,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12865_280",
+   "frozen_base": 0.5012658353418871,
+   "external6": 0.5012658353418871,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.48381288316677695,
+   "cap20_replay": 0.46845052016107697,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 0,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "15332_256",
+   "frozen_base": 0.07311683844390995,
+   "external6": 0.07311683844390995,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.07614334071738352,
+   "coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_only": 0,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "62622_605",
+   "frozen_base": 0.2640681225725909,
+   "external6": 0.2640681225725909,
+   "anchor_only": 0.6131471927654584,
+   "anchor_fusion": 0.3065735963827292,
+   "cap20_replay": 0.3065735963827292,
+   "coverage": {
+    "frozen_base": 0.6666666666666666,
+    "external6": 0.6666666666666666,
+    "anchor_only": 0.6666666666666666,
+    "anchor_fusion": 0.6666666666666666
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70819_256",
+   "frozen_base": 0.7668091220635322,
+   "external6": 0.7668091220635322,
+   "anchor_only": 0.19519002499605084,
+   "anchor_fusion": 0.7757386182436072,
+   "cap20_replay": 0.7757386182436072,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 0.25,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68520_403",
+   "frozen_base": 0.4378043742107727,
+   "external6": 0.33657576599847244,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.3187704634136789,
+   "cap20_replay": 0.4974727001278833,
+   "coverage": {
+    "frozen_base": 0.6666666666666666,
+    "external6": 0.6666666666666666,
+    "anchor_only": 0,
+    "anchor_fusion": 0.6666666666666666
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "18051_677",
+   "frozen_base": 0.46927872602275644,
+   "external6": 0.46927872602275644,
+   "anchor_only": 0.20210734650054757,
+   "anchor_fusion": 0.46927872602275644,
+   "cap20_replay": 0.46927872602275644,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 1,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "17885_683",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.18457569677956817,
+   "anchor_fusion": 0.17723928678404774,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 0.5,
+    "anchor_fusion": 0.5
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "14388_701",
+   "frozen_base": 0.6309297535714575,
+   "external6": 0.6309297535714575,
+   "anchor_only": 1.0,
+   "anchor_fusion": 0.6309297535714575,
+   "cap20_replay": 0.6309297535714575,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 1,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "iota",
+   "qid": "2008_802",
+   "frozen_base": 0.3903800499921017,
+   "external6": 0.3903800499921017,
+   "anchor_only": 0.3903800499921017,
+   "anchor_fusion": 0.3903800499921017,
+   "cap20_replay": 0.3903800499921017,
+   "coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_only": 0.5,
+    "anchor_fusion": 0.5
+   }
+  },
+  {
+   "domain": "iota",
+   "qid": "367_805",
+   "frozen_base": 0.23463936301137822,
+   "external6": 0.23463936301137822,
+   "anchor_only": 0.34337431936037655,
+   "anchor_fusion": 0.46927872602275644,
+   "cap20_replay": 0.2960819109658652,
+   "coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_only": 0.5,
+    "anchor_fusion": 0.5
+   }
+  },
+  {
+   "domain": "iota",
+   "qid": "311_807",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 0,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "106441_823",
+   "frozen_base": 0.49456228788854273,
+   "external6": 0.49456228788854273,
+   "anchor_only": 0.34222207292834145,
+   "anchor_fusion": 0.419665006636777,
+   "cap20_replay": 0.5107574098602351,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 0.3333333333333333,
+    "anchor_fusion": 0.3333333333333333
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "107582_818",
+   "frozen_base": 0.46927872602275644,
+   "external6": 0.46927872602275644,
+   "anchor_only": 0.18154179253735267,
+   "anchor_fusion": 0.46927872602275644,
+   "cap20_replay": 0.46927872602275644,
+   "coverage": {
+    "frozen_base": 0.6666666666666666,
+    "external6": 0.6666666666666666,
+    "anchor_only": 0.6666666666666666,
+    "anchor_fusion": 0.6666666666666666
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "103394_836",
+   "frozen_base": 0.6257049680303419,
+   "external6": 0.6257049680303419,
+   "anchor_only": 0.6508205185601091,
+   "anchor_fusion": 0.6364391809889587,
+   "cap20_replay": 0.6364391809889587,
+   "coverage": {
+    "frozen_base": 0.6666666666666666,
+    "external6": 0.6666666666666666,
+    "anchor_only": 0.6666666666666666,
+    "anchor_fusion": 0.6666666666666666
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "8462_873",
+   "frozen_base": 0.6131471927654584,
+   "external6": 0.6131471927654584,
+   "anchor_only": 0.48247555939075504,
+   "anchor_fusion": 0.7977228895450266,
+   "cap20_replay": 0.8175295903539445,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 1,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "6528_886",
+   "frozen_base": 0.16958010263680806,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.13120507751234178,
+   "cap20_replay": 0.1208113026994942
+  },
+  {
+   "domain": "monero",
+   "qid": "11933_855",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0
+  },
+  {
+   "domain": "politics",
+   "qid": "74177_1055",
+   "frozen_base": 1.0,
+   "external6": 1.0,
+   "anchor_only": 0.6131471927654584,
+   "anchor_fusion": 1.0,
+   "cap20_replay": 1.0,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 1,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "77201_1035",
+   "frozen_base": 0.41618115554873086,
+   "external6": 0.41618115554873086,
+   "anchor_only": 0.2960819109658652,
+   "anchor_fusion": 0.49418556194058083,
+   "cap20_replay": 0.41618115554873086,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 0.3333333333333333,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "91024_927",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 0,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "69659_1090",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 0,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "80274_1064",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 0,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "77757_1072",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.14126697285982898,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 0.6666666666666666,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "185286_1175",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.38685280723454163,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0,
+   "coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_only": 1,
+    "anchor_fusion": 0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "186567_1155",
+   "frozen_base": 0.5,
+   "external6": 0.5,
+   "anchor_only": 0.43067655807339306,
+   "anchor_fusion": 0.5,
+   "cap20_replay": 0.5,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 1,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "185672_1170",
+   "frozen_base": 0.3080351663449861,
+   "external6": 0.3080351663449861,
+   "anchor_only": 0.6096199500078984,
+   "anchor_fusion": 0.5654495432396527,
+   "cap20_replay": 0.5363781864793108,
+   "coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_only": 1,
+    "anchor_fusion": 1
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "172082_1220",
+   "frozen_base": 0.6131471927654584,
+   "external6": 0.6131471927654584,
+   "anchor_only": 0.6131471927654584,
+   "anchor_fusion": 0.6131471927654584,
+   "cap20_replay": 0.6131471927654584,
+   "coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_only": 0.5,
+    "anchor_fusion": 0.5
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "202473_1192",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0
+  },
+  {
+   "domain": "workplace",
+   "qid": "191225_1202",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0,
+   "cap20_replay": 0.0
+  }
+ ]
+}

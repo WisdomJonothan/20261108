@@ -1,0 +1,520 @@
+{
+ "scope": "Exploratory replay of the frozen top ten plus ten highest dense outsiders. Use the same anchor and 70:30 normalized fusion. The new ranking uses 19 bidirectional comparisons per query if executed directly. This replay scores only documents available in the existing full cache.",
+ "queries": 26,
+ "prompts_per_query": 38,
+ "scores": {
+  "base": 0.2588023177731239,
+  "full": 0.28511733343553686,
+  "cap20": 0.2842591331659182
+ },
+ "versus_original": {
+  "point": 0.0254568153927943,
+  "ci95": [
+   0.009183718360761666,
+   0.04160111625428686
+  ]
+ },
+ "versus_full": {
+  "point": -0.0008582002696186449,
+  "ci95": [
+   -0.01849686081953703,
+   0.016841423701390853
+  ]
+ },
+ "per_query": [
+  {
+   "domain": "bitcoin",
+   "qid": "125174_3",
+   "base": 0.13012668333070054,
+   "full": 0.13012668333070054,
+   "cap20": 0.13012668333070054,
+   "ranking": [
+    "bitcoin/123252_52dfb855f168fa01_5.txt",
+    "bitcoin/467b1275_151988.txt",
+    "bitcoin/b1908f13_143204.txt",
+    "bitcoin/726f58a1_143205.txt",
+    "bitcoin/123252_52dfb855f168fa01_6.txt",
+    "bitcoin/509b9e66_151986.txt",
+    "bitcoin/5a5c57ce_0299.txt",
+    "bitcoin/66381a57_151968.txt",
+    "bitcoin/123252_52dfb855f168fa01_1.txt",
+    "bitcoin/123252_2bd5c9821a7d8008_8.txt"
+   ]
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "98618_84",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "bitcoin/9230f1b4_17390.txt",
+    "bitcoin/b119edcf_146740.txt",
+    "bitcoin/992cd456_146741.txt",
+    "bitcoin/98618_1b88d1111f664d19_0.txt",
+    "bitcoin/9641bc6d_5451.txt",
+    "bitcoin/121384_de4b6da6bbb0da4b_0.txt",
+    "bitcoin/d4340ff7_16881.txt",
+    "bitcoin/820da7b8_7211.txt",
+    "bitcoin/120496_e1ca3134db1c4579_0.txt",
+    "bitcoin/9aabb1e8_16783.txt"
+   ]
+  },
+  {
+   "domain": "cardano",
+   "qid": "8478_108",
+   "base": 0.6309297535714575,
+   "full": 0.6309297535714575,
+   "cap20": 0.6309297535714575,
+   "ranking": [
+    "cardano/9155_056f850d967f256c_79.txt",
+    "cardano/a36a9b8a_1553.txt",
+    "cardano/9155_056f850d967f256c_80.txt",
+    "cardano/9155_056f850d967f256c_74.txt",
+    "cardano/53fdb7a0_85396.txt",
+    "cardano/43c9e389_3085.txt",
+    "cardano/3834_d1b5239edc104ee1_88.txt",
+    "cardano/cfaaa5dd_3070.txt",
+    "cardano/b105505e_1558.txt",
+    "cardano/968eae0f_0345.txt"
+   ]
+  },
+  {
+   "domain": "cardano",
+   "qid": "857_138",
+   "base": 0.15642624200758548,
+   "full": 0.1480409554829326,
+   "cap20": 0.15642624200758548,
+   "ranking": [
+    "cardano/d041f865_4938.txt",
+    "cardano/6955_6feaa46ecde00df3_0.txt",
+    "cardano/d4c5f3f8_0810.txt",
+    "cardano/4108df0b_4556.txt",
+    "cardano/5d8dabf4_3273.txt",
+    "cardano/aaa82623_11313.txt",
+    "cardano/a5cb1c02_7656.txt",
+    "cardano/0e448cf5_4551.txt",
+    "cardano/db875da8_11107.txt",
+    "cardano/0585168c_0870.txt"
+   ]
+  },
+  {
+   "domain": "economics",
+   "qid": "53713_187",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "economics/e3856cbb_5584.txt",
+    "economics/4a7463f2_5585.txt",
+    "economics/664cee1c_86031.txt",
+    "economics/252e361f_86050.txt",
+    "economics/283c9ece_86024.txt",
+    "economics/1397a476_5545.txt",
+    "economics/53713_03facf602a06cfa3_39.txt",
+    "economics/52071_a4db2b4a56b4710b_4.txt",
+    "economics/d1c4b028_5577.txt",
+    "economics/53713_6a872180d47a3c68_2.txt"
+   ]
+  },
+  {
+   "domain": "economics",
+   "qid": "52186_192",
+   "base": 0.44293981265090565,
+   "full": 0.46047467141697834,
+   "cap20": 0.47401203179625306,
+   "ranking": [
+    "economics/65737e84_6294.txt",
+    "economics/10476d9a_6205.txt",
+    "economics/d1907fc3_6201.txt",
+    "economics/f51ee6f7_86365.txt",
+    "economics/d7121b9d_6202.txt",
+    "economics/08c90611_6199.txt",
+    "economics/60625_c81aa14bf56452e4_3.txt",
+    "economics/c06f13df_86377.txt",
+    "economics/d53cde49_86381.txt",
+    "economics/96a14a7b_6321.txt"
+   ]
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12904_279",
+   "base": 0.5240185826326421,
+   "full": 0.41039156802332444,
+   "cap20": 0.49456228788854273,
+   "ranking": [
+    "genealogy/0b536369_4523.txt",
+    "genealogy/12904_052723a846066671_0.txt",
+    "genealogy/12904_b97c280d16c50c99_15.txt",
+    "genealogy/12904_b6e0724e24b87b30_7.txt",
+    "genealogy/12904_b97c280d16c50c99_45.txt",
+    "genealogy/95e33af3_4637.txt",
+    "genealogy/b4190d74_4518.txt",
+    "genealogy/8f7a9a5a_153619.txt",
+    "genealogy/4576a6fa_4519.txt",
+    "genealogy/1983031b_153620.txt"
+   ]
+  },
+  {
+   "domain": "genealogy",
+   "qid": "16178_250",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "genealogy/13899_4d71aee13fe7a13c_2.txt",
+    "genealogy/13899_4d71aee13fe7a13c_1.txt",
+    "genealogy/12640_31fdee4ab31c3339_70.txt",
+    "genealogy/f86da47d_4721.txt",
+    "genealogy/9808_75002918dda0b602_12.txt",
+    "genealogy/3269_96679cad29d24fd6_81.txt",
+    "genealogy/15332_21ac2c214cfc26c2_359.txt",
+    "genealogy/12640_31fdee4ab31c3339_177.txt",
+    "genealogy/aa320158_4877.txt",
+    "genealogy/12451_a519fdae2593ce29_49.txt"
+   ]
+  },
+  {
+   "domain": "history",
+   "qid": "62606_606",
+   "base": 0.34337431936037655,
+   "full": 0.38364913903790027,
+   "cap20": 0.38364913903790027,
+   "ranking": [
+    "history/ccd24579_87471.txt",
+    "history/5cb38e7d_325038.txt",
+    "history/fe12a704_324871.txt",
+    "history/7950c44c_87437.txt",
+    "history/046739f9_87439.txt",
+    "history/1af95853_325105.txt",
+    "history/0bc5aa1b_325087.txt",
+    "history/5ae11e7e_324864.txt",
+    "history/05a9a8ad_324745.txt",
+    "history/0cd8f503_324741.txt"
+   ]
+  },
+  {
+   "domain": "history",
+   "qid": "70696_261",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "history/7d6db793_79791.txt",
+    "history/6ec348da_35966.txt",
+    "history/53c2e6d4_82143.txt",
+    "history/f8f5dc01_82166.txt",
+    "history/3ce13016_308010.txt",
+    "history/4c7e4e07_316387.txt",
+    "history/28003efe_82171.txt",
+    "history/35c9e6a2_316366.txt",
+    "history/01172215_82110.txt",
+    "history/39ca70c6_308009.txt"
+   ]
+  },
+  {
+   "domain": "hsm",
+   "qid": "18004_679",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "hsm/18004_4d74211baeb75a57_11.txt",
+    "hsm/2035_0d317fab8607af48_195.txt",
+    "hsm/5706_c0c228dc9937be05_486.txt",
+    "hsm/17718_0bb3fb71c7d73812_15.txt",
+    "hsm/18004_ce016b10f03758c2_5.txt",
+    "hsm/13333_b72efff974036f45_340.txt",
+    "hsm/18004_918ff59d902e507a_3.txt",
+    "hsm/13333_b72efff974036f45_317.txt",
+    "hsm/2991_f83c4c96f18fcdb7_27.txt",
+    "hsm/17762_025c44ae4844ef61_237.txt"
+   ]
+  },
+  {
+   "domain": "hsm",
+   "qid": "17821_684",
+   "base": 0.9197207891481876,
+   "full": 0.6934264036172708,
+   "cap20": 0.6934264036172708,
+   "ranking": [
+    "hsm/5b133d51_4214.txt",
+    "hsm/400367a4_4102.txt",
+    "hsm/1fabc1df_4103.txt",
+    "hsm/72adb51b_208684.txt",
+    "hsm/9ae01b68_208678.txt",
+    "hsm/96ce71f0_13186.txt",
+    "hsm/ec050774_208685.txt",
+    "hsm/13894_fd689158b25693ef_3.txt",
+    "hsm/17543_94c08a9872027b6b_609.txt",
+    "hsm/2035_cf8b9e0971c96393_543.txt"
+   ]
+  },
+  {
+   "domain": "iota",
+   "qid": "1954_803",
+   "base": 0.6508205185601091,
+   "full": 0.7653606369886217,
+   "cap20": 0.7653606369886217,
+   "ranking": [
+    "iota/fc973a62_0360.txt",
+    "iota/2cc2443e_0361.txt",
+    "iota/65d7d390_10142.txt",
+    "iota/d8c24e32_10232.txt",
+    "iota/50e50f66_10143.txt",
+    "iota/367_2e960dddf8db0644_180.txt",
+    "iota/1822d984_0174.txt",
+    "iota/80a441f2_10370.txt",
+    "iota/0b09095f_0840.txt",
+    "iota/2049_526e300a08c3e4ca_75.txt"
+   ]
+  },
+  {
+   "domain": "iota",
+   "qid": "2497_799",
+   "base": 0.2442584792702138,
+   "full": 0.30078518014914984,
+   "cap20": 0.30078518014914984,
+   "ranking": [
+    "iota/bd8c4b46_0841.txt",
+    "iota/a45aeeae_10355.txt",
+    "iota/d3459a40_0171.txt",
+    "iota/22908adb_0844.txt",
+    "iota/f3c561ea_0173.txt",
+    "iota/311_27038cf3b633068a_278.txt",
+    "iota/c8ba1c83_10214.txt",
+    "iota/311_27038cf3b633068a_426.txt",
+    "iota/d8c24e32_10232.txt",
+    "iota/50e50f66_10143.txt"
+   ]
+  },
+  {
+   "domain": "law",
+   "qid": "106290_825",
+   "base": 0.15101961822780524,
+   "full": 0.16812753627111746,
+   "cap20": 0.16812753627111746,
+   "ranking": [
+    "law/106290_82b39e2bb539437c_26.txt",
+    "law/8de6f7de_41957.txt",
+    "law/4dbcf7e2_41996.txt",
+    "law/e4477e90_2827.txt",
+    "law/f9b4ecc1_2840.txt",
+    "law/266af351_41892.txt",
+    "law/8dd024b6_41919.txt",
+    "law/a8fff97b_41928.txt",
+    "law/106edf11_41864.txt",
+    "law/86e466ba_41874.txt"
+   ]
+  },
+  {
+   "domain": "law",
+   "qid": "106974_820",
+   "base": 0.3010299956639812,
+   "full": 0.38685280723454163,
+   "cap20": 0.38685280723454163,
+   "ranking": [
+    "law/ed41621b_41882.txt",
+    "law/106974_46015155094513ed_17.txt",
+    "law/5878b8ee_2218.txt",
+    "law/106974_ae9ad8ed6ceb1bd3_34.txt",
+    "law/b14cb787_2058.txt",
+    "law/110238_38913c9b8f34cb14_1060.txt",
+    "law/106974_46015155094513ed_25.txt",
+    "law/110238_38913c9b8f34cb14_1079.txt",
+    "law/82a067e4_2225.txt",
+    "law/b5726c60_41997.txt"
+   ]
+  },
+  {
+   "domain": "monero",
+   "qid": "7581_880",
+   "base": 0.2960819109658652,
+   "full": 0.46927872602275644,
+   "cap20": 0.46927872602275644,
+   "ranking": [
+    "monero/9e077003_0456.txt",
+    "monero/fb76faca_7871.txt",
+    "monero/3e2e2a40_7387.txt",
+    "monero/f1375de7_82798.txt",
+    "monero/b12ed36f_7870.txt",
+    "monero/68e9c055_84842.txt",
+    "monero/462c66ba_81183.txt",
+    "monero/de3eb238_82804.txt",
+    "monero/2a355ee3_82809.txt",
+    "monero/197d21d1_81260.txt"
+   ]
+  },
+  {
+   "domain": "monero",
+   "qid": "6113_888",
+   "base": 0.0,
+   "full": 0.23719771276929622,
+   "cap20": 0.20438239758848611,
+   "ranking": [
+    "monero/6c7a9356_83498.txt",
+    "monero/b3ca0238_10089.txt",
+    "monero/4386c1b2_14338.txt",
+    "monero/5b93515b_83351.txt",
+    "monero/3262_fa2370eb766e3fad_3.txt",
+    "monero/9c1eabb1_14337.txt",
+    "monero/c8cf76c4_9745.txt",
+    "monero/62af5f04_83497.txt",
+    "monero/89d4e427_83499.txt",
+    "monero/bf7f48c3_83506.txt"
+   ]
+  },
+  {
+   "domain": "politics",
+   "qid": "74135_1056",
+   "base": 0.13012668333070054,
+   "full": 0.13905617951077562,
+   "cap20": 0.25190132085971084,
+   "ranking": [
+    "politics/82104_14dc7b4cb253fa73_1.txt",
+    "politics/77995_cebd192d031517d7_115.txt",
+    "politics/74135_491041c560165f9c_1.txt",
+    "politics/82104_14dc7b4cb253fa73_97.txt",
+    "politics/87961_f75054977edc3388_174.txt",
+    "politics/2a49c21f_30587.txt",
+    "politics/97fe6da5_183022.txt",
+    "politics/82104_14dc7b4cb253fa73_2.txt",
+    "politics/ccad8f41_183031.txt",
+    "politics/3653cb1f_30584.txt"
+   ]
+  },
+  {
+   "domain": "politics",
+   "qid": "77123_1037",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "politics/c2eb5ed5_26433.txt",
+    "politics/83628_5a2cfea2bd3568be_260.txt",
+    "politics/4706b331_13193.txt",
+    "politics/77123_6f1f8436e0539f75_123.txt",
+    "politics/ae6ad1d6_0841.txt",
+    "politics/91586_984fe9fb56367113_2.txt",
+    "politics/754c4c66_13151.txt",
+    "politics/83628_5a2cfea2bd3568be_269.txt",
+    "politics/82825_0fdd450bbce7af87_74.txt",
+    "politics/77123_6f1f8436e0539f75_82.txt"
+   ]
+  },
+  {
+   "domain": "quant",
+   "qid": "81021_1060",
+   "base": 0.24630238874073,
+   "full": 0.24630238874073,
+   "cap20": 0.24630238874073,
+   "ranking": [
+    "quant/81021_11bc818285f29a2b_0.txt",
+    "quant/50bb0f99_0626.txt",
+    "quant/3713bb98_26814.txt",
+    "quant/4edf127a_2322.txt",
+    "quant/e624977d_0729.txt",
+    "quant/7ab24321_0628.txt",
+    "quant/5d3b974e_26884.txt",
+    "quant/81021_aeb69d45d82b71db_8.txt",
+    "quant/ec3d022c_26890.txt",
+    "quant/07ef339b_26877.txt"
+   ]
+  },
+  {
+   "domain": "quant",
+   "qid": "36059_1091",
+   "base": 0.10209739512291163,
+   "full": 0.13120507751234178,
+   "cap20": 0.2188505885308512,
+   "ranking": [
+    "quant/216b0537_28684.txt",
+    "quant/8048626d_28656.txt",
+    "quant/fb8f58e2_28632.txt",
+    "quant/4659c372_28613.txt",
+    "quant/29d10eee_28625.txt",
+    "quant/f0fe1a30_4516.txt",
+    "quant/0bd90974_28639.txt",
+    "quant/31e928ed_28669.txt",
+    "quant/d9bf8042_28668.txt",
+    "quant/06a288f2_4518.txt"
+   ]
+  },
+  {
+   "domain": "travel",
+   "qid": "184986_1178",
+   "base": 0.7328286204777911,
+   "full": 0.7328286204777911,
+   "cap20": 0.7328286204777911,
+   "ranking": [
+    "travel/139d73ba_22204.txt",
+    "travel/7df3fd3e_22161.txt",
+    "travel/2b9c22e3_22163.txt",
+    "travel/56b6cc3d_22162.txt",
+    "travel/184986_39c923b5bcb43268_1076.txt",
+    "travel/978abcee_22292.txt",
+    "travel/184986_7bc0aea6b852531e_19.txt",
+    "travel/700ceae1_176545.txt",
+    "travel/f136db1b_22416.txt",
+    "travel/fefa43d9_22374.txt"
+   ]
+  },
+  {
+   "domain": "travel",
+   "qid": "186288_1160",
+   "base": 0.0,
+   "full": 0.2960819109658652,
+   "cap20": 0.0,
+   "ranking": [
+    "travel/4408ca6a_175172.txt",
+    "travel/f8666fca_175258.txt",
+    "travel/c48fd76f_175259.txt",
+    "travel/57acb27c_175166.txt",
+    "travel/156a6ccb_175249.txt",
+    "travel/1040c443_175247.txt",
+    "travel/b65eb0c0_175235.txt",
+    "travel/a5db0778_175197.txt",
+    "travel/b6b05727_175257.txt",
+    "travel/0e216a50_175236.txt"
+   ]
+  },
+  {
+   "domain": "workplace",
+   "qid": "171559_1221",
+   "base": 0.43067655807339306,
+   "full": 0.38685280723454163,
+   "cap20": 0.38685280723454163,
+   "ranking": [
+    "workplace/4eaf7b0c_10564.txt",
+    "workplace/171559_489166413f9d2180_0.txt",
+    "workplace/34c9d038_10565.txt",
+    "workplace/171559_8976f332c22e6faa_12.txt",
+    "workplace/44b1ea16_10222.txt",
+    "workplace/b33d4a6c_64291.txt",
+    "workplace/171559_489166413f9d2180_3.txt",
+    "workplace/171559_8976f332c22e6faa_19.txt",
+    "workplace/181712_30950e4a6f88b71c_119.txt",
+    "workplace/171559_8976f332c22e6faa_35.txt"
+   ]
+  },
+  {
+   "domain": "workplace",
+   "qid": "193475_1198",
+   "base": 0.2960819109658652,
+   "full": 0.2960819109658652,
+   "cap20": 0.2960819109658652,
+   "ranking": [
+    "workplace/c9930956_1557.txt",
+    "workplace/00a10e23_1377.txt",
+    "workplace/92355e3e_62664.txt",
+    "workplace/5d9bccb6_62676.txt",
+    "workplace/3bd78f77_62665.txt",
+    "workplace/199b0a7b_62677.txt",
+    "workplace/2c205a64_62669.txt",
+    "workplace/2fd06a3f_64597.txt",
+    "workplace/ead9a8ee_64579.txt",
+    "workplace/cabe48fd_62657.txt"
+   ]
+  }
+ ]
+}

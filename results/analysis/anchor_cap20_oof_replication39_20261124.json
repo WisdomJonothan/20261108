@@ -1,0 +1,767 @@
+{
+ "scope": "Exploratory replay of the frozen top ten plus ten highest dense outsiders. Use the same anchor and 70:30 normalized fusion. The new ranking uses 19 bidirectional comparisons per query if executed directly. This replay scores only documents available in the existing full cache.",
+ "queries": 39,
+ "prompts_per_query": 38,
+ "scores": {
+  "base": 0.2836079573114418,
+  "full": 0.28830443008458173,
+  "cap20": 0.29810051923072406
+ },
+ "versus_original": {
+  "point": 0.01449256191928226,
+  "ci95": [
+   0.001076002918803871,
+   0.02946138022347883
+  ]
+ },
+ "versus_full": {
+  "point": 0.009796089146142392,
+  "ci95": [
+   -0.007159424694963651,
+   0.026609969895181964
+  ]
+ },
+ "per_query": [
+  {
+   "domain": "bitcoin",
+   "qid": "126019_1",
+   "base": 0.23463936301137822,
+   "full": 0.23463936301137822,
+   "cap20": 0.23463936301137822,
+   "ranking": [
+    "bitcoin/5282dec6_143069.txt",
+    "bitcoin/f4d334ac_17631.txt",
+    "bitcoin/b84abb6a_0004.txt",
+    "bitcoin/2f80b7aa_17616.txt",
+    "bitcoin/88c6529e_143122.txt",
+    "bitcoin/ae576aae_143114.txt",
+    "bitcoin/97192_c00e2f9a42883f88_0.txt",
+    "bitcoin/d7192cdc_143078.txt",
+    "bitcoin/97192_c00e2f9a42883f88_2.txt",
+    "bitcoin/122862_a38de5bd3d96ffea_11.txt"
+   ]
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "119019_54",
+   "base": 0.18154179253735267,
+   "full": 0.18154179253735267,
+   "cap20": 0.18154179253735267,
+   "ranking": [
+    "bitcoin/3fef2138_148599.txt",
+    "bitcoin/1820646d_148601.txt",
+    "bitcoin/119019_2292f7b0fb8baf60_8.txt",
+    "bitcoin/f5d62d6d_148133.txt",
+    "bitcoin/dd31210a_10422.txt",
+    "bitcoin/aeabafe9_147725.txt",
+    "bitcoin/bf76bc0a_147716.txt",
+    "bitcoin/58cfcacb_148596.txt",
+    "bitcoin/118364_27038cf3b633068a_319.txt",
+    "bitcoin/df9b8d81_10430.txt"
+   ]
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "124874_6",
+   "base": 0.44149241373678083,
+   "full": 0.44149241373678083,
+   "cap20": 0.44149241373678083,
+   "ranking": [
+    "bitcoin/f7a90eb2_1792.txt",
+    "bitcoin/256d38fd_1758.txt",
+    "bitcoin/8455e514_1759.txt",
+    "bitcoin/5379219c_143367.txt",
+    "bitcoin/88c0e781_143380.txt",
+    "bitcoin/122143_b4dd4ebe14fa878b_10.txt",
+    "bitcoin/00b94d12_4629.txt",
+    "bitcoin/9a1ec361_143421.txt",
+    "bitcoin/9f344ed5_143483.txt",
+    "bitcoin/cced4209_143488.txt"
+   ]
+  },
+  {
+   "domain": "cardano",
+   "qid": "8864_107",
+   "base": 0.3065735963827292,
+   "full": 0.23719771276929622,
+   "cap20": 0.23719771276929622,
+   "ranking": [
+    "cardano/0134fbea_0872.txt",
+    "cardano/bbe4fc3c_85310.txt",
+    "cardano/c8843907_1477.txt",
+    "cardano/a5ac66a7_1486.txt",
+    "cardano/850b8341_1341.txt",
+    "cardano/f48eb5f0_1539.txt",
+    "cardano/3971775d_1500.txt",
+    "cardano/2acadda5_1541.txt",
+    "cardano/b42e144f_1485.txt",
+    "cardano/61c36f7a_11084.txt"
+   ]
+  },
+  {
+   "domain": "cardano",
+   "qid": "8943_106",
+   "base": 0.18457569677956817,
+   "full": 0.0,
+   "cap20": 0.17723928678404774,
+   "ranking": [
+    "cardano/cfdb2c2f_85425.txt",
+    "cardano/cceb605e_85409.txt",
+    "cardano/518f86e4_0058.txt",
+    "cardano/e0be34af_3794.txt",
+    "cardano/5a21aaef_2654.txt",
+    "cardano/ac54b863_85427.txt",
+    "cardano/1ecf8fd4_2653.txt",
+    "cardano/d66fb7e7_1879.txt",
+    "cardano/694bd484_0730.txt",
+    "cardano/24c85ffc_1338.txt"
+   ]
+  },
+  {
+   "domain": "cardano",
+   "qid": "839_140",
+   "base": 0.6131471927654584,
+   "full": 0.38685280723454163,
+   "cap20": 0.6131471927654584,
+   "ranking": [
+    "cardano/a8bc0682_8275.txt",
+    "cardano/11106_978cd9141d5a6c41_10.txt",
+    "cardano/d9438350_8739.txt",
+    "cardano/ad0e7119_2671.txt",
+    "cardano/7f723051_85681.txt",
+    "cardano/98ed7656_4957.txt",
+    "cardano/c8f792e4_0774.txt",
+    "cardano/e9fd3915_2768.txt",
+    "cardano/ff45d776_0074.txt",
+    "cardano/c05df2f8_86980.txt"
+   ]
+  },
+  {
+   "domain": "economics",
+   "qid": "54052_185",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "economics/a831746f_3546.txt",
+    "economics/03878cc7_3547.txt",
+    "economics/50799_baf495aecefdeecf_43.txt",
+    "economics/c0036ad6_3776.txt",
+    "economics/dc9c44a9_0098.txt",
+    "economics/54052_68fca201f662278d_13.txt",
+    "economics/f5abeba9_5281.txt",
+    "economics/43729_053b6475269cd804_9.txt",
+    "economics/57498_1604a40bfa9fecd8_6.txt",
+    "economics/57498_1604a40bfa9fecd8_33.txt"
+   ]
+  },
+  {
+   "domain": "economics",
+   "qid": "52506_191",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "economics/52506_9e6893d21c0cccde_14.txt",
+    "economics/55778_69bb99aa087e1ddb_140.txt",
+    "economics/52506_2b4071e7133331e5_0.txt",
+    "economics/947d947f_6048.txt",
+    "economics/29497f91_6034.txt",
+    "economics/a72c47ed_86331.txt",
+    "economics/47165_d405d5fd2b2f630f_78.txt",
+    "economics/45559_6228e2ba1205efca_59.txt",
+    "economics/847aefdd_83577.txt",
+    "economics/45559_6228e2ba1205efca_78.txt"
+   ]
+  },
+  {
+   "domain": "economics",
+   "qid": "47525_214",
+   "base": 0.1208113026994942,
+   "full": 0.11305340175787204,
+   "cap20": 0.2090905274901754,
+   "ranking": [
+    "economics/deacb932_10737.txt",
+    "economics/47525_b306ef2369ff1329_0.txt",
+    "economics/47525_d4b636e952435fa5_13.txt",
+    "economics/480f121d_0685.txt",
+    "economics/47525_d4b636e952435fa5_12.txt",
+    "economics/544632b7_10749.txt",
+    "economics/6b2ea69b_10748.txt",
+    "economics/f0dd0e3c_10706.txt",
+    "economics/cd858aff_10707.txt",
+    "economics/54294_e4a4e3d936798ab3_93.txt"
+   ]
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12209_292",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "genealogy/6dc74c99_154011.txt",
+    "genealogy/c8146558_155632.txt",
+    "genealogy/eef67289_154013.txt",
+    "genealogy/12525_e5f65355bb9d28a0_791.txt",
+    "genealogy/d8ac6dd2_155625.txt",
+    "genealogy/28d9241a_154010.txt",
+    "genealogy/e9da6188_7582.txt",
+    "genealogy/f67867b0_154012.txt",
+    "genealogy/4d9c283e_6263.txt",
+    "genealogy/c8f59ce0_153992.txt"
+   ]
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12865_280",
+   "base": 0.5012658353418871,
+   "full": 0.48381288316677695,
+   "cap20": 0.46845052016107697,
+   "ranking": [
+    "genealogy/3440_9b916eb51c4a027a_151.txt",
+    "genealogy/3440_9b916eb51c4a027a_259.txt",
+    "genealogy/3440_9b916eb51c4a027a_183.txt",
+    "genealogy/6b74e302_4685.txt",
+    "genealogy/3440_9b916eb51c4a027a_157.txt",
+    "genealogy/3440_9b916eb51c4a027a_197.txt",
+    "genealogy/f0286f52_4684.txt",
+    "genealogy/f73aa279_2604.txt",
+    "genealogy/3440_9b916eb51c4a027a_225.txt",
+    "genealogy/3440_9b916eb51c4a027a_196.txt"
+   ]
+  },
+  {
+   "domain": "genealogy",
+   "qid": "15332_256",
+   "base": 0.07311683844390995,
+   "full": 0.0,
+   "cap20": 0.07614334071738352,
+   "ranking": [
+    "genealogy/77c9f904_3044.txt",
+    "genealogy/a750525b_2638.txt",
+    "genealogy/15332_7394d93cac1ed51b_10.txt",
+    "genealogy/13721_868d43bbdcc579fa_1.txt",
+    "genealogy/d203e8b9_153046.txt",
+    "genealogy/544c6b64_152757.txt",
+    "genealogy/49985ec0_152680.txt",
+    "genealogy/335c719f_2571.txt",
+    "genealogy/e7456321_2012.txt",
+    "genealogy/15332_7394d93cac1ed51b_37.txt"
+   ]
+  },
+  {
+   "domain": "history",
+   "qid": "62622_605",
+   "base": 0.2640681225725909,
+   "full": 0.3065735963827292,
+   "cap20": 0.3065735963827292,
+   "ranking": [
+    "history/1651bec8_87406.txt",
+    "history/f763932e_73882.txt",
+    "history/54628800_87227.txt",
+    "history/e67b3758_51854.txt",
+    "history/c5b68b79_69891.txt",
+    "history/51fa2ce2_87435.txt",
+    "history/485f72e6_87410.txt",
+    "history/9b5bd76d_298166.txt",
+    "history/27cc5d82_298085.txt",
+    "history/efdcdd67_298305.txt"
+   ]
+  },
+  {
+   "domain": "history",
+   "qid": "70819_256",
+   "base": 0.7668091220635322,
+   "full": 0.7757386182436072,
+   "cap20": 0.7757386182436072,
+   "ranking": [
+    "history/519e44c4_35299.txt",
+    "history/c06e4252_35298.txt",
+    "history/840b1c54_81572.txt",
+    "history/88e0ac34_331975.txt",
+    "history/8b48e4d6_211859.txt",
+    "history/4d8771a0_35297.txt",
+    "history/b7ad3873_330390.txt",
+    "history/e640404c_2806.txt",
+    "history/2f5e854c_2808.txt",
+    "history/941c7cf5_332089.txt"
+   ]
+  },
+  {
+   "domain": "history",
+   "qid": "68520_403",
+   "base": 0.4378043742107727,
+   "full": 0.3187704634136789,
+   "cap20": 0.4974727001278833,
+   "ranking": [
+    "history/6c693dd3_54315.txt",
+    "history/bd57c85d_54322.txt",
+    "history/86d1f85a_54316.txt",
+    "history/4c03dc4d_250335.txt",
+    "history/6b660a26_250286.txt",
+    "history/686087d8_54326.txt",
+    "history/f498cc57_250200.txt",
+    "history/f4774a5b_54321.txt",
+    "history/6ad2ca09_54319.txt",
+    "history/19a4a945_250247.txt"
+   ]
+  },
+  {
+   "domain": "hsm",
+   "qid": "18051_677",
+   "base": 0.46927872602275644,
+   "full": 0.46927872602275644,
+   "cap20": 0.46927872602275644,
+   "ranking": [
+    "hsm/2e9f34a6_3090.txt",
+    "hsm/18051_8893b164eb71f457_6.txt",
+    "hsm/17543_d306589fb370d69a_217.txt",
+    "hsm/ddf7a3f8_3156.txt",
+    "hsm/17543_d306589fb370d69a_188.txt",
+    "hsm/17543_d306589fb370d69a_189.txt",
+    "hsm/17543_eb7d828ac567dd13_601.txt",
+    "hsm/3b2b556b_3125.txt",
+    "hsm/17543_110003b1ff6592eb_516.txt",
+    "hsm/0dd8ff9c_3171.txt"
+   ]
+  },
+  {
+   "domain": "hsm",
+   "qid": "17885_683",
+   "base": 0.0,
+   "full": 0.17723928678404774,
+   "cap20": 0.0,
+   "ranking": [
+    "hsm/17885_ab9a6e77d03c47b5_1.txt",
+    "hsm/c1e44cb8_4052.txt",
+    "hsm/222dc4fa_4054.txt",
+    "hsm/5c23e76b_3977.txt",
+    "hsm/17885_ab9a6e77d03c47b5_3.txt",
+    "hsm/f342575a_4020.txt",
+    "hsm/9a30e2ec_4022.txt",
+    "hsm/17885_ab9a6e77d03c47b5_2.txt",
+    "hsm/17885_548305ad47ef0f4b_2.txt",
+    "hsm/17885_50e1b31e9a3330c5_10.txt"
+   ]
+  },
+  {
+   "domain": "hsm",
+   "qid": "14388_701",
+   "base": 0.6309297535714575,
+   "full": 0.6309297535714575,
+   "cap20": 0.6309297535714575,
+   "ranking": [
+    "hsm/14388_7c28d707c6c37dea_0.txt",
+    "hsm/231168bf_6716.txt",
+    "hsm/13583_3b20adbca854cb5f_63.txt",
+    "hsm/14625bed_209390.txt",
+    "hsm/392b5de4_209375.txt",
+    "hsm/8a81433c_209377.txt",
+    "hsm/2678_4110672abb5ab748_1033.txt",
+    "hsm/f47d58a8_209396.txt",
+    "hsm/6e0d564b_209392.txt",
+    "hsm/adb232a0_209398.txt"
+   ]
+  },
+  {
+   "domain": "iota",
+   "qid": "2008_802",
+   "base": 0.3903800499921017,
+   "full": 0.3903800499921017,
+   "cap20": 0.3903800499921017,
+   "ranking": [
+    "iota/588c313e_0316.txt",
+    "iota/aace8985_10358.txt",
+    "iota/9bdacafc_0227.txt",
+    "iota/a774e166_9927.txt",
+    "iota/6320c646_10225.txt",
+    "iota/1a1a936c_10129.txt",
+    "iota/549568bf_9929.txt",
+    "iota/afc90051_10008.txt",
+    "iota/6e0d03f3_10128.txt",
+    "iota/e9f2d8f5_0001.txt"
+   ]
+  },
+  {
+   "domain": "iota",
+   "qid": "367_805",
+   "base": 0.23463936301137822,
+   "full": 0.46927872602275644,
+   "cap20": 0.2960819109658652,
+   "ranking": [
+    "iota/fe9f911e_0408.txt",
+    "iota/4ea3ceaa_0611.txt",
+    "iota/66c05639_0860.txt",
+    "iota/5835fd65_0231.txt",
+    "iota/21a954f7_9707.txt",
+    "iota/367_2e960dddf8db0644_116.txt",
+    "iota/367_dd5a094cfc433050_117.txt",
+    "iota/470_dc22b65135901e3e_12.txt",
+    "iota/470_44f184507d88c09e_11.txt",
+    "iota/311_abde77d43fc167ed_16.txt"
+   ]
+  },
+  {
+   "domain": "iota",
+   "qid": "311_807",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "iota/0b09095f_0840.txt",
+    "iota/311_abde77d43fc167ed_10.txt",
+    "iota/d8c24e32_10232.txt",
+    "iota/045740a1_0226.txt",
+    "iota/367_dd5a094cfc433050_157.txt",
+    "iota/bb5c690a_10213.txt",
+    "iota/79e9bdbb_10096.txt",
+    "iota/8cb34f41_0853.txt",
+    "iota/c8ba1c83_10214.txt",
+    "iota/21a954f7_9707.txt"
+   ]
+  },
+  {
+   "domain": "law",
+   "qid": "106441_823",
+   "base": 0.49456228788854273,
+   "full": 0.419665006636777,
+   "cap20": 0.5107574098602351,
+   "ranking": [
+    "law/9e0d3539_2739.txt",
+    "law/141b6f69_2747.txt",
+    "law/106441_5bead8ead82ba308_46.txt",
+    "law/106441_e820569f0fef7ab6_0.txt",
+    "law/1790dd9d_2738.txt",
+    "law/106441_e820569f0fef7ab6_37.txt",
+    "law/106441_e820569f0fef7ab6_1.txt",
+    "law/f9d3b1f5_2757.txt",
+    "law/f4a9645f_2742.txt",
+    "law/58d4b55c_2773.txt"
+   ]
+  },
+  {
+   "domain": "law",
+   "qid": "107582_818",
+   "base": 0.46927872602275644,
+   "full": 0.46927872602275644,
+   "cap20": 0.46927872602275644,
+   "ranking": [
+    "law/db88b4b5_1965.txt",
+    "law/53679d64_41520.txt",
+    "law/107582_96e424d5a5ddf379_24.txt",
+    "law/107582_680f4299f3720630_36.txt",
+    "law/5a18ff3b_41560.txt",
+    "law/fe6fb179_41514.txt",
+    "law/04780108_41569.txt",
+    "law/107582_680f4299f3720630_5.txt",
+    "law/af7caa21_41554.txt",
+    "law/b45e2b59_41564.txt"
+   ]
+  },
+  {
+   "domain": "law",
+   "qid": "103394_836",
+   "base": 0.6257049680303419,
+   "full": 0.6364391809889587,
+   "cap20": 0.6364391809889587,
+   "ranking": [
+    "law/1c215310_6575.txt",
+    "law/2e9b8cab_42715.txt",
+    "law/feeb877e_42690.txt",
+    "law/ba375df3_6623.txt",
+    "law/103394_1b5d0734cafe0b79_36.txt",
+    "law/a82de248_6576.txt",
+    "law/fdb7344b_42730.txt",
+    "law/9a1d080c_42705.txt",
+    "law/4a959aed_42791.txt",
+    "law/f113a67a_42788.txt"
+   ]
+  },
+  {
+   "domain": "monero",
+   "qid": "8462_873",
+   "base": 0.6131471927654584,
+   "full": 0.7977228895450266,
+   "cap20": 0.8175295903539445,
+   "ranking": [
+    "monero/cc20a2ad_6407.txt",
+    "monero/34dd9f04_14119.txt",
+    "monero/6e3440c6_14125.txt",
+    "monero/8008_690e2c0f93950315_1.txt",
+    "monero/352d0e7e_5089.txt",
+    "monero/e76af4de_83386.txt",
+    "monero/678fb4cd_6408.txt",
+    "monero/f8463c92_82311.txt",
+    "monero/11b4c4d7_84978.txt",
+    "monero/997ece76_81497.txt"
+   ]
+  },
+  {
+   "domain": "monero",
+   "qid": "6528_886",
+   "base": 0.16958010263680806,
+   "full": 0.13120507751234178,
+   "cap20": 0.1208113026994942,
+   "ranking": [
+    "monero/6528_bfd94b61cfe3951e_0.txt",
+    "monero/f7688d4d_9610.txt",
+    "monero/3bd8e77f_84841.txt",
+    "monero/eea4a540_14290.txt",
+    "monero/164afd0a_14280.txt",
+    "monero/8a18f0ce_9080.txt",
+    "monero/8d2e0f8c_14284.txt",
+    "monero/db0f7c15_7444.txt",
+    "monero/0b2a137b_84821.txt",
+    "monero/eb215cb9_84850.txt"
+   ]
+  },
+  {
+   "domain": "monero",
+   "qid": "11933_855",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "monero/1c8368c1_2065.txt",
+    "monero/7ac699ad_2381.txt",
+    "monero/50552a0d_81880.txt",
+    "monero/daf834f5_13564.txt",
+    "monero/b85d53f2_13408.txt",
+    "monero/541588a3_11840.txt",
+    "monero/ea8eb089_81459.txt",
+    "monero/ee848652_81458.txt",
+    "monero/2864857b_14346.txt",
+    "monero/5b93515b_83351.txt"
+   ]
+  },
+  {
+   "domain": "politics",
+   "qid": "74177_1055",
+   "base": 1.0,
+   "full": 1.0,
+   "cap20": 1.0,
+   "ranking": [
+    "politics/81bf39f0_30482.txt",
+    "politics/91a182da_30481.txt",
+    "politics/9d662be2_19440.txt",
+    "politics/6a6aaf29_19418.txt",
+    "politics/83279_ed18467bdfb0ca0e_20.txt",
+    "politics/88363_e7092497f88afe56_602.txt",
+    "politics/83279_5005f143aa4d0b5a_36.txt",
+    "politics/e6b9e110_17353.txt",
+    "politics/89730_c2acf61b531945a8_3.txt",
+    "politics/1d2dc8bc_6571.txt"
+   ]
+  },
+  {
+   "domain": "politics",
+   "qid": "77201_1035",
+   "base": 0.41618115554873086,
+   "full": 0.49418556194058083,
+   "cap20": 0.41618115554873086,
+   "ranking": [
+    "politics/77201_4af1c23dc023ed2d_0.txt",
+    "politics/77201_4af1c23dc023ed2d_1.txt",
+    "politics/045b7420_25816.txt",
+    "politics/41200dd1_26023.txt",
+    "politics/5c2df73e_25815.txt",
+    "politics/2fc949a2_26036.txt",
+    "politics/ff47519f_26024.txt",
+    "politics/76990c59_26048.txt",
+    "politics/4da6d7c4_26035.txt",
+    "politics/77317_a6dd034c4b157c95_149.txt"
+   ]
+  },
+  {
+   "domain": "politics",
+   "qid": "91024_927",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "politics/d47ef59e_4964.txt",
+    "politics/91024_7eb5d0ae2ecd5924_4.txt",
+    "politics/93525_dbcf79c7a536e067_639.txt",
+    "politics/93525_dbcf79c7a536e067_331.txt",
+    "politics/77995_cebd192d031517d7_44.txt",
+    "politics/93525_dbcf79c7a536e067_149.txt",
+    "politics/77484_12fd3374524a3e72_21.txt",
+    "politics/91024_7eb5d0ae2ecd5924_6.txt",
+    "politics/91024_89400c270b436cd5_0.txt",
+    "politics/93525_dbcf79c7a536e067_364.txt"
+   ]
+  },
+  {
+   "domain": "quant",
+   "qid": "69659_1090",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "quant/74291_b39f834a2b9a7854_24.txt",
+    "quant/74291_b39f834a2b9a7854_1.txt",
+    "quant/77873_eb2dbeebfd696a7c_1.txt",
+    "quant/74291_b39f834a2b9a7854_5.txt",
+    "quant/3587fb81_2980.txt",
+    "quant/6075290c_28081.txt",
+    "quant/74291_b39f834a2b9a7854_23.txt",
+    "quant/55109cc1_3185.txt",
+    "quant/80937_cefc04f23f421222_860.txt",
+    "quant/430c5aeb_0188.txt"
+   ]
+  },
+  {
+   "domain": "quant",
+   "qid": "80274_1064",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "quant/80274_5398707c19bd0310_15.txt",
+    "quant/0dbf3800_1357.txt",
+    "quant/80274_5398707c19bd0310_20.txt",
+    "quant/78042_fa82b31999d8bb06_192.txt",
+    "quant/79564_1a65bf8b9abad6a3_12.txt",
+    "quant/c602be67_1373.txt",
+    "quant/80274_5398707c19bd0310_0.txt",
+    "quant/80274_5398707c19bd0310_5.txt",
+    "quant/74b0cd57_1356.txt",
+    "quant/8bea9ed0_1349.txt"
+   ]
+  },
+  {
+   "domain": "quant",
+   "qid": "77757_1072",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "quant/9661eac8_2669.txt",
+    "quant/78042_fa82b31999d8bb06_619.txt",
+    "quant/6a87c76e_2659.txt",
+    "quant/80937_cefc04f23f421222_298.txt",
+    "quant/451cd447_27469.txt",
+    "quant/80937_09e6f9ad2050aeba_175.txt",
+    "quant/21d5add0_3356.txt",
+    "quant/78042_fa82b31999d8bb06_560.txt",
+    "quant/80937_cefc04f23f421222_368.txt",
+    "quant/80937_09e6f9ad2050aeba_122.txt"
+   ]
+  },
+  {
+   "domain": "travel",
+   "qid": "185286_1175",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "travel/8c79cfca_21536.txt",
+    "travel/185286_0eb790f764c8d6c7_56.txt",
+    "travel/185286_0eb790f764c8d6c7_3.txt",
+    "travel/185286_0eb790f764c8d6c7_55.txt",
+    "travel/185286_0eb790f764c8d6c7_29.txt",
+    "travel/9af88787_2757.txt",
+    "travel/185286_0eb790f764c8d6c7_45.txt",
+    "travel/198471_87d7be901d7780c2_1.txt",
+    "travel/185286_0eb790f764c8d6c7_25.txt",
+    "travel/387f2760_170445.txt"
+   ]
+  },
+  {
+   "domain": "travel",
+   "qid": "186567_1155",
+   "base": 0.5,
+   "full": 0.5,
+   "cap20": 0.5,
+   "ranking": [
+    "travel/0a70b436_174777.txt",
+    "travel/eb710566_174770.txt",
+    "travel/ddd0272b_15981.txt",
+    "travel/660fbb89_174768.txt",
+    "travel/1beeb848_174769.txt",
+    "travel/1fd00444_174783.txt",
+    "travel/ccb4398a_174772.txt",
+    "travel/736c91c6_15982.txt",
+    "travel/d54d3820_174776.txt",
+    "travel/c3c4a8c2_174771.txt"
+   ]
+  },
+  {
+   "domain": "travel",
+   "qid": "185672_1170",
+   "base": 0.3080351663449861,
+   "full": 0.5654495432396527,
+   "cap20": 0.5363781864793108,
+   "ranking": [
+    "travel/e770c6d1_19482.txt",
+    "travel/fd2ab303_19481.txt",
+    "travel/5d53033b_176019.txt",
+    "travel/185672_9d02bcadf3068976_0.txt",
+    "travel/243d3eab_19479.txt",
+    "travel/be727d96_19478.txt",
+    "travel/a298989a_176024.txt",
+    "travel/185672_9d02bcadf3068976_1.txt",
+    "travel/185672_9d02bcadf3068976_2.txt",
+    "travel/7d13c2b7_176020.txt"
+   ]
+  },
+  {
+   "domain": "workplace",
+   "qid": "172082_1220",
+   "base": 0.6131471927654584,
+   "full": 0.6131471927654584,
+   "cap20": 0.6131471927654584,
+   "ranking": [
+    "workplace/e62c36e5_9813.txt",
+    "workplace/171559_903db805bd72f71b_56.txt",
+    "workplace/171559_903db805bd72f71b_6.txt",
+    "workplace/572aff50_63510.txt",
+    "workplace/171559_903db805bd72f71b_57.txt",
+    "workplace/181712_b332e257b519aedc_57.txt",
+    "workplace/d42e87bf_10904.txt",
+    "workplace/1f376984_10888.txt",
+    "workplace/6b7178ce_10860.txt",
+    "workplace/172082_5c250930ac57b7b2_0.txt"
+   ]
+  },
+  {
+   "domain": "workplace",
+   "qid": "202473_1192",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "workplace/f2492a6d_0186.txt",
+    "workplace/cc868489_0003.txt",
+    "workplace/1729a12c_0174.txt",
+    "workplace/202473_c9dfd27a693ef7cd_75.txt",
+    "workplace/3820467d_3259.txt",
+    "workplace/8d77ff37_0071.txt",
+    "workplace/191225_f05911c6fbf61496_53.txt",
+    "workplace/202473_83568cd152014c0d_17.txt",
+    "workplace/202473_948283a6011d7579_3.txt",
+    "workplace/8fa6ad4e_0014.txt"
+   ]
+  },
+  {
+   "domain": "workplace",
+   "qid": "191225_1202",
+   "base": 0.0,
+   "full": 0.0,
+   "cap20": 0.0,
+   "ranking": [
+    "workplace/202473_c9dfd27a693ef7cd_829.txt",
+    "workplace/f2492a6d_0186.txt",
+    "workplace/f8b13107_3246.txt",
+    "workplace/191225_f05911c6fbf61496_42.txt",
+    "workplace/191225_f05911c6fbf61496_56.txt",
+    "workplace/0568e8f4_0053.txt",
+    "workplace/8d77ff37_0071.txt",
+    "workplace/202473_02c2f4b3d0be4a87_0.txt",
+    "workplace/191225_b555eb9dc1435cb2_7.txt",
+    "workplace/cc868489_0003.txt"
+   ]
+  }
+ ]
+}
