@@ -42,9 +42,23 @@ Training-fold inference is complete.
 | Internal only | 0.286591 | 90 / 43 | +0.003239 | [−0.00406, +0.01164] |
 | Three external + three internal | 0.285578 | 73 / 52 | +0.002226 | [−0.00522, +0.01061] |
 
-The Qwen internal judgments averaged about 11 prompts/s over the three folds. Dev inference is pending. The paired intervals resample queries within each domain for these fixed runs.
+The Qwen internal judgments averaged about 11 prompts/s over the three folds. The paired intervals resample queries within each domain for these fixed runs.
+
+| Six-pair policy | Official dev nDCG@10 | Helpful / harmful | Delta vs external-six | 95% paired interval |
+|---|---:|---:|---:|---|
+| External only | 0.373503 | 33 / 10 | — | — |
+| Internal only | 0.367608 | 60 / 22 | −0.005895 | [−0.01711, +0.00449] |
+| Three external + three internal | 0.365439 | 55 / 22 | −0.008064 | [−0.01767, +0.00032] |
+
+The new arms have higher action-level oracle scores and more helpful changes, alongside roughly twice as many harmful changes. Their fold point estimates exceed the external judge, and their dev point estimates are lower. The reference competition configuration stays at 0.3735. [Fold results](../results/analysis/position_repair_oof_20261124.json) · [Dev results](../results/analysis/position_repair_dev_20261124.json)
 
 An exploratory cache replay replaced maximum confidence with a discount-weighted priority on the same accepted pairs. On the folds, mixed falls by 0.00055 and internal-only rises by 0.00034 relative to its confidence control. Of the 270 queries with a beneficial mixed action in the judged set, 152 have no beneficial action accepted, while 39 have one accepted but the discount rule picks a nonbeneficial action. This directs attention to acceptance errors and false positives at retrieved positions. [Rank-discount replay](../results/analysis/position_discount_oof_20261124.json)
+
+On dev the discount priority also falls relative to confidence ranking in all three arms. [Dev discount replay](../results/analysis/position_discount_dev_20261124.json)
+
+## Fresh actions on the alternate ranking
+
+A fresh external replacement run uses the fixed 0.7 ensemble and the original head-first action construction. It ranks the 200 possible actions by the original inexpensive score gap, keeps 18, then judges the first six in head-first order. It provides the one-swap effect relative to the ensemble's own 0.36242 starting point. This exploratory arm will also be compared against the original 0.37350 system to account for the changed base ranking and extra CE inference. The GPU run has been launched.
 
 Run from the project root with the official data, fold CE TREC runs, and the frozen cache described in [the replacement report](../results/replacement_v2/REPORT.md). The training CE runs are generated artifacts.
 
@@ -56,4 +70,6 @@ python scripts/replay_position_fallback.py
 python scripts/eval_ce_seed_ensemble.py --external-replay results/analysis/position_oracle_dev_20261124.json --output results/analysis/ce_seed_ensemble_transfer_20261124.json
 python scripts/eval_position_repair.py --model models/Qwen3-4B-Instruct-2507 --folds f0 f1 f2 --output results/analysis/position_repair_oof_20261124.json
 python scripts/eval_position_repair.py --model models/Qwen3-4B-Instruct-2507 --folds dev --output results/analysis/position_repair_dev_20261124.json
+python scripts/eval_ce_seed_ensemble.py --export-runs runs --output results/analysis/ce_seed_ensemble_base_run_20261124.json
+python scripts/expand_actions3.py --model models/Qwen3-4B-Instruct-2507 --start-tag full3ce70_20261124 --order head_first --max-actions 18 --judge-limit 6 --budgets 6 --out results/analysis/ce_seed_ensemble_fresh_replacement_dev_20261124.json
 ```

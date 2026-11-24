@@ -18,6 +18,14 @@ def z(values):
     return (values - values.mean()) / max(float(values.std()), 1e-8)
 
 
+def write_ranking(folder, domain, ranking):
+    path = folder / f'full3ce70_20261124_{domain}_dev.trec'
+    with path.open('x', encoding='utf-8') as stream:
+        for qid, top in ranking.items():
+            for rank, (doc, score) in enumerate(top, 1):
+                stream.write(f'{qid} Q0 {doc} {rank} {score:.10f} full3ce70_20261124\n')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
@@ -25,6 +33,8 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--external-replay', type=Path,
                         help='Also replay the recorded external-six decisions on full3_ce70.')
+    parser.add_argument('--export-runs', type=Path,
+                        help='Write the fixed 0.7 full-query ensemble to a new run prefix.')
     args = parser.parse_args()
     data_root = args.data_root or args.root / 'data/track1_tempo'
     records = []
@@ -36,12 +46,16 @@ def main():
         assert len(replay) == 519
     for domain in DOMAINS:
         dense = read_trec_run(args.root / 'runs' / f'dense_mxbai_{domain}_dev.trec')
-        baseline = read_trec_run(args.root / 'runs' / f'sub_sft_e2bc_{domain}_dev_head10.trec')
+        baseline_path = args.root / 'runs' / f'sub_sft_e2bc_{domain}_dev_head10.trec'
+        if not baseline_path.exists():
+            baseline_path = args.root / 'runs' / f'sub_sft_e2bc_{domain}_dev.trec'
+        baseline = read_trec_run(baseline_path)
         models = {view: [read_trec_run(args.root / 'runs' /
                                       f'fusion100_{view}_ce_{seed}_{domain}_dev_ce.trec')
                          for seed in SEEDS] for view in ('full', 'title')}
         gold = read_qrels(data_root / domain / 'qrels_dev.txt')
         assert set(dense) == set(gold) == set(baseline)
+        ranking = {}
         for qid, rows in dense.items():
             ids = [doc for _, _, doc in rows[:100]]
             d = z([s for _, s, _ in rows[:100]])
@@ -59,8 +73,11 @@ def main():
             row = {'domain': domain, 'qid': qid,
                    'baseline': ndcg10([doc for _, _, doc in baseline[qid]], gold[qid])}
             for arm, vector in vectors.items():
-                top10 = [ids[i] for i in np.argsort(-vector, kind='stable')[:10]]
+                order = np.argsort(-vector, kind='stable')
+                top10 = [ids[i] for i in order[:10]]
                 row[arm] = ndcg10(top10, gold[qid])
+                if args.export_runs and arm == 'full3_ce70':
+                    ranking[qid] = [(ids[i], vector[i]) for i in order]
                 if replay and arm == 'full3_ce70':
                     decision = replay[domain, qid]
                     row['external6'] = row['baseline'] + decision['delta']
@@ -75,6 +92,8 @@ def main():
                     row['full3_ce70_replay'] = ndcg10(top10, gold[qid])
                     row['transferred_action_applied'] = applied
             records.append(row)
+        if args.export_runs:
+            write_ranking(args.export_runs, domain, ranking)
     assert len(records) == 519
     arms = ('baseline', *ARMS)
     if replay:
