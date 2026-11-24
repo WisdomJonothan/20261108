@@ -1,0 +1,37 @@
+{
+ "queries": 519,
+ "prompts": 6228,
+ "scores": {
+  "old_base": 0.35809852326897723,
+  "old_with_replacement": 0.3735032332323295,
+  "ensemble_base": 0.3624202524996439,
+  "ensemble_with_fresh_replacement": 0.3658323924154363
+ },
+ "fresh_swap_counts": {
+  "helpful": 13,
+  "harmful": 13,
+  "neutral": 157,
+  "no_swap": 336
+ },
+ "paired_diff_new_vs_old": {
+  "point": -0.0076708408168931356,
+  "ci95": [
+   -0.021475957641858074,
+   0.00581807201330929
+  ]
+ },
+ "paired_diff_base_only": {
+  "point": 0.0043217292306666575,
+  "ci95": [
+   -0.00989820110562843,
+   0.01839404453875392
+  ]
+ },
+ "paired_diff_of_replacement_gains": {
+  "point": -0.011992570047559797,
+  "ci95": [
+   -0.021914937035787632,
+   -0.003542335575040496
+  ]
+ }
+}

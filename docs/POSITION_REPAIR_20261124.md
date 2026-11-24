@@ -60,9 +60,17 @@ The oracle ladder separates the two remaining errors. On dev the mixed policy of
 
 The current 0.3735 system recovers nine zero-score queries from the reference ranking and creates one new zero, leaving 130. Of those, 78 have a judged positive in dense top 100, 42 have their first judged positive at ranks 101–1000, and 10 have none in top 1000. The next score-improvement target is the judged-positive selection problem in the first group. Candidate-pool expansion addresses the second group. Gold labels define these diagnostic buckets. [Competition zero-query audit](../results/analysis/competition_zeroes_20261124.json)
 
+Tracing the 78 pool-reachable zeroes gives 51 with a judged positive in the 20 outside candidates, 25 with a positive challenger in the 18-action shortlist, 14 with a beneficial action in the six judged comparisons, and 3 with a beneficial accepted action. These counts describe the fixed system. They show both shortlist losses and judge losses. [Action trace](../results/analysis/competition_zero_action_trace_20261124.json)
+
+Giving distinct challengers priority within the cached 18 actions increases mean distinct challengers per six-pair budget from 4.13 to 5.79 on dev, and raises the fixed-action oracle from 0.40190 to 0.41150. Realized dev nDCG is 0.36940, a change of −0.00410 (95% paired interval [−0.01171, +0.00164]). Out of fold the change is +0.00011, with interval [−0.00180, +0.00190]. The extra candidate exposure gives no reliable final gain. [Diverse-challenger replay](../results/analysis/distinct_challengers_20261124.json)
+
 ## Fresh actions on the alternate ranking
 
-A fresh external replacement run uses the fixed 0.7 ensemble and the original head-first action construction. It ranks the 200 possible actions by the original inexpensive score gap, keeps 18, then judges the first six in head-first order. It provides the one-swap effect relative to the ensemble's own 0.36242 starting point. This exploratory arm will also be compared against the original 0.37350 system to account for the changed base ranking and extra CE inference. The GPU run has been launched.
+The fresh external run uses the fixed 0.7 ensemble and the original action construction. It ranks the 200 possible actions by the inexpensive score gap, keeps 18, then judges the first six in head-first order. Running this construction on the original base reproduces the exact action lists on 519/519 queries.
+
+On the ensemble, 6,228 prompts took 663 seconds of judge scoring. The six-pair policy improves 0.36242 to 0.36583 (+0.00341, 95% interval [−0.00056, +0.00841]), with 13 helpful and 13 harmful replacements. On the same dev queries the ensemble pipeline is 0.00767 below the original 0.37350 configuration, with paired interval [−0.02148, +0.00582]. Its incremental judge gain is 0.01199 lower ([−0.02191, −0.00354]). The better standalone ranking had less measured benefit from the same remedy even after it received fresh actions. [Matched comparison](../results/analysis/ce_seed_ensemble_fresh_comparison_20261124.json)
+
+The next method experiment should diagnose whether supervised relevance judgment can recover missed positive candidates without increasing false replacements. Fit on the training folds, compare at the same six-pair budget, and report both error rates and the final ranking score before changing the competition entry.
 
 Run from the project root with the official data, fold CE TREC runs, and the frozen cache described in [the replacement report](../results/replacement_v2/REPORT.md). The training CE runs are generated artifacts.
 
@@ -76,6 +84,9 @@ python scripts/eval_position_repair.py --model models/Qwen3-4B-Instruct-2507 --f
 python scripts/eval_position_repair.py --model models/Qwen3-4B-Instruct-2507 --folds dev --output results/analysis/position_repair_dev_20261124.json
 python scripts/audit_position_headroom.py
 python scripts/audit_competition_zeroes.py --output results/analysis/competition_zeroes_20261124.json
+python scripts/audit_competition_zeroes.py --trace-actions --output results/analysis/competition_zero_action_trace_20261124.json
+python scripts/replay_distinct_challengers.py --output results/analysis/distinct_challengers_20261124.json
 python scripts/eval_ce_seed_ensemble.py --export-runs runs --output results/analysis/ce_seed_ensemble_base_run_20261124.json
 python scripts/expand_actions3.py --model models/Qwen3-4B-Instruct-2507 --start-tag full3ce70_20261124 --order head_first --max-actions 18 --judge-limit 6 --budgets 6 --out results/analysis/ce_seed_ensemble_fresh_replacement_dev_20261124.json
+python scripts/compare_ensemble_replacement.py
 ```

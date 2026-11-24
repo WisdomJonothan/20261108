@@ -1,0 +1,1423 @@
+{
+ "starting_system": 0.3735032332323295,
+ "scope": "Official dev. Judge outcome replayed from the fixed competition cache. Zero-score queries are classified by the judged-positive ranks in the dense run.",
+ "counts": {
+  "queries": 519,
+  "recovered": 9,
+  "new_zero": 1,
+  "zero": 130,
+  "top100": 78,
+  "candidate20": 51,
+  "prior18_positive_challenger": 25,
+  "judged6_beneficial": 14,
+  "accepted_beneficial": 3,
+  "101_to_1000": 42,
+  "missing_top1000": 10
+ },
+ "per_domain": {
+  "bitcoin": {
+   "queries": 30,
+   "recovered": 0,
+   "new_zero": 0,
+   "zero": 13,
+   "top100": 9,
+   "candidate20": 4,
+   "prior18_positive_challenger": 1,
+   "judged6_beneficial": 0,
+   "accepted_beneficial": 0,
+   "101_to_1000": 4
+  },
+  "cardano": {
+   "queries": 15,
+   "recovered": 0,
+   "new_zero": 0,
+   "zero": 4,
+   "top100": 3,
+   "candidate20": 3,
+   "prior18_positive_challenger": 2,
+   "judged6_beneficial": 0,
+   "accepted_beneficial": 0,
+   "101_to_1000": 1
+  },
+  "economics": {
+   "queries": 25,
+   "recovered": 0,
+   "new_zero": 0,
+   "zero": 9,
+   "101_to_1000": 4,
+   "top100": 5,
+   "candidate20": 1,
+   "prior18_positive_challenger": 1,
+   "judged6_beneficial": 1,
+   "accepted_beneficial": 1
+  },
+  "genealogy": {
+   "queries": 35,
+   "recovered": 0,
+   "new_zero": 0,
+   "zero": 10,
+   "101_to_1000": 4,
+   "top100": 3,
+   "candidate20": 3,
+   "prior18_positive_challenger": 3,
+   "judged6_beneficial": 3,
+   "accepted_beneficial": 0,
+   "missing_top1000": 3
+  },
+  "history": {
+   "queries": 240,
+   "recovered": 4,
+   "new_zero": 1,
+   "zero": 43,
+   "top100": 29,
+   "candidate20": 21,
+   "prior18_positive_challenger": 8,
+   "judged6_beneficial": 4,
+   "accepted_beneficial": 1,
+   "missing_top1000": 4,
+   "101_to_1000": 10
+  },
+  "hsm": {
+   "queries": 45,
+   "recovered": 1,
+   "new_zero": 0,
+   "zero": 9,
+   "missing_top1000": 1,
+   "top100": 4,
+   "candidate20": 3,
+   "prior18_positive_challenger": 3,
+   "judged6_beneficial": 2,
+   "accepted_beneficial": 1,
+   "101_to_1000": 4
+  },
+  "iota": {
+   "queries": 3,
+   "recovered": 0,
+   "new_zero": 0
+  },
+  "law": {
+   "queries": 11,
+   "recovered": 0,
+   "new_zero": 0,
+   "zero": 3,
+   "top100": 2,
+   "candidate20": 1,
+   "prior18_positive_challenger": 1,
+   "judged6_beneficial": 0,
+   "accepted_beneficial": 0,
+   "101_to_1000": 1
+  },
+  "monero": {
+   "queries": 19,
+   "recovered": 0,
+   "new_zero": 0,
+   "zero": 8,
+   "top100": 5,
+   "candidate20": 3,
+   "prior18_positive_challenger": 0,
+   "judged6_beneficial": 0,
+   "accepted_beneficial": 0,
+   "101_to_1000": 3
+  },
+  "politics": {
+   "queries": 45,
+   "recovered": 0,
+   "new_zero": 0,
+   "zero": 14,
+   "top100": 7,
+   "candidate20": 5,
+   "prior18_positive_challenger": 3,
+   "judged6_beneficial": 2,
+   "accepted_beneficial": 0,
+   "101_to_1000": 6,
+   "missing_top1000": 1
+  },
+  "quant": {
+   "queries": 10,
+   "recovered": 0,
+   "new_zero": 0,
+   "zero": 5,
+   "101_to_1000": 2,
+   "top100": 3,
+   "candidate20": 2,
+   "prior18_positive_challenger": 2,
+   "judged6_beneficial": 2,
+   "accepted_beneficial": 0
+  },
+  "travel": {
+   "queries": 30,
+   "recovered": 2,
+   "new_zero": 0,
+   "zero": 10,
+   "top100": 7,
+   "candidate20": 5,
+   "prior18_positive_challenger": 1,
+   "judged6_beneficial": 0,
+   "accepted_beneficial": 0,
+   "101_to_1000": 2,
+   "missing_top1000": 1
+  },
+  "workplace": {
+   "queries": 11,
+   "recovered": 2,
+   "new_zero": 0,
+   "zero": 2,
+   "top100": 1,
+   "candidate20": 0,
+   "prior18_positive_challenger": 0,
+   "judged6_beneficial": 0,
+   "accepted_beneficial": 0,
+   "101_to_1000": 1
+  }
+ },
+ "zero_queries": [
+  {
+   "domain": "bitcoin",
+   "qid": "112021_76",
+   "dense_first_positive_rank": 55,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "112929_69",
+   "dense_first_positive_rank": 8,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "112979_68",
+   "dense_first_positive_rank": 85,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "113500_66",
+   "dense_first_positive_rank": 34,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "113938_64",
+   "dense_first_positive_rank": 103,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "121089_32",
+   "dense_first_positive_rank": 23,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "122013_25",
+   "dense_first_positive_rank": 19,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "123234_16",
+   "dense_first_positive_rank": 171,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "123461_13",
+   "dense_first_positive_rank": 224,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "124510_9",
+   "dense_first_positive_rank": 207,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "93368_97",
+   "dense_first_positive_rank": 37,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "97179_88",
+   "dense_first_positive_rank": 26,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "97236_86",
+   "dense_first_positive_rank": 62,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "11106_102",
+   "dense_first_positive_rank": 10,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "4225_128",
+   "dense_first_positive_rank": 9,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "80_150",
+   "dense_first_positive_rank": 46,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "840_139",
+   "dense_first_positive_rank": 470,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "economics",
+   "qid": "43853_228",
+   "dense_first_positive_rank": 290,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "economics",
+   "qid": "43952_227",
+   "dense_first_positive_rank": 25,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "45680_223",
+   "dense_first_positive_rank": 744,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "economics",
+   "qid": "47763_212",
+   "dense_first_positive_rank": 27,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "51330_198",
+   "dense_first_positive_rank": 25,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "52658_189",
+   "dense_first_positive_rank": 133,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "economics",
+   "qid": "55201_179",
+   "dense_first_positive_rank": 81,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "56372_176",
+   "dense_first_positive_rank": 895,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "economics",
+   "qid": "60545_155",
+   "dense_first_positive_rank": 11,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": true,
+    "accepted_beneficial": true
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "10043_313",
+   "dense_first_positive_rank": 142,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "genealogy",
+   "qid": "11818_301",
+   "dense_first_positive_rank": 48,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": true,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "11823_300",
+   "dense_first_positive_rank": 621,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "genealogy",
+   "qid": "13596_269",
+   "dense_first_positive_rank": null,
+   "bucket": "missing_top1000"
+  },
+  {
+   "domain": "genealogy",
+   "qid": "14960_260",
+   "dense_first_positive_rank": 168,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "genealogy",
+   "qid": "15307_257",
+   "dense_first_positive_rank": 55,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": true,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "20551_235",
+   "dense_first_positive_rank": null,
+   "bucket": "missing_top1000"
+  },
+  {
+   "domain": "genealogy",
+   "qid": "2264_333",
+   "dense_first_positive_rank": null,
+   "bucket": "missing_top1000"
+  },
+  {
+   "domain": "genealogy",
+   "qid": "3224_325",
+   "dense_first_positive_rank": 49,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": true,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "3370_319",
+   "dense_first_positive_rank": 298,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "history",
+   "qid": "56551_731",
+   "dense_first_positive_rank": 5,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": true,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56713_726",
+   "dense_first_positive_rank": null,
+   "bucket": "missing_top1000"
+  },
+  {
+   "domain": "history",
+   "qid": "56734_725",
+   "dense_first_positive_rank": 11,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56978_708",
+   "dense_first_positive_rank": 461,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "history",
+   "qid": "58962_648",
+   "dense_first_positive_rank": 184,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "history",
+   "qid": "59289_624",
+   "dense_first_positive_rank": 24,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "62574_607",
+   "dense_first_positive_rank": null,
+   "bucket": "missing_top1000"
+  },
+  {
+   "domain": "history",
+   "qid": "62753_599",
+   "dense_first_positive_rank": 15,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "64604_517",
+   "dense_first_positive_rank": 11,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": true,
+    "accepted_beneficial": true
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66092_501",
+   "dense_first_positive_rank": 30,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66663_452",
+   "dense_first_positive_rank": 101,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "history",
+   "qid": "67963_434",
+   "dense_first_positive_rank": 771,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "history",
+   "qid": "68107_426",
+   "dense_first_positive_rank": 30,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68358_414",
+   "dense_first_positive_rank": 16,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68362_413",
+   "dense_first_positive_rank": 64,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": true,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69389_354",
+   "dense_first_positive_rank": 13,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69758_331",
+   "dense_first_positive_rank": 135,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "history",
+   "qid": "69851_324",
+   "dense_first_positive_rank": 56,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69860_322",
+   "dense_first_positive_rank": 17,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70188_298",
+   "dense_first_positive_rank": 16,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70284_294",
+   "dense_first_positive_rank": null,
+   "bucket": "missing_top1000"
+  },
+  {
+   "domain": "history",
+   "qid": "70361_291",
+   "dense_first_positive_rank": 79,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70583_271",
+   "dense_first_positive_rank": 24,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70594_270",
+   "dense_first_positive_rank": 60,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70746_260",
+   "dense_first_positive_rank": 25,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71222_231",
+   "dense_first_positive_rank": 134,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "history",
+   "qid": "71394_215",
+   "dense_first_positive_rank": null,
+   "bucket": "missing_top1000"
+  },
+  {
+   "domain": "history",
+   "qid": "71494_212",
+   "dense_first_positive_rank": 14,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71551_207",
+   "dense_first_positive_rank": 56,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72255_172",
+   "dense_first_positive_rank": 992,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "history",
+   "qid": "72370_163",
+   "dense_first_positive_rank": 51,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72552_154",
+   "dense_first_positive_rank": 9,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72564_153",
+   "dense_first_positive_rank": 16,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "74058_133",
+   "dense_first_positive_rank": 65,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": true,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "74426_129",
+   "dense_first_positive_rank": 55,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76250_114",
+   "dense_first_positive_rank": 24,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76410_105",
+   "dense_first_positive_rank": 16,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76671_88",
+   "dense_first_positive_rank": 622,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "history",
+   "qid": "76697_85",
+   "dense_first_positive_rank": 776,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "history",
+   "qid": "77144_59",
+   "dense_first_positive_rank": 237,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "history",
+   "qid": "77270_48",
+   "dense_first_positive_rank": 29,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "79114_14",
+   "dense_first_positive_rank": 23,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "79485_7",
+   "dense_first_positive_rank": 20,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "13081_730",
+   "dense_first_positive_rank": null,
+   "bucket": "missing_top1000"
+  },
+  {
+   "domain": "hsm",
+   "qid": "13304_724",
+   "dense_first_positive_rank": 24,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": true,
+    "accepted_beneficial": true
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "13846_707",
+   "dense_first_positive_rank": 31,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "14467_697",
+   "dense_first_positive_rank": 140,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "hsm",
+   "qid": "17703_690",
+   "dense_first_positive_rank": 125,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "hsm",
+   "qid": "276_797",
+   "dense_first_positive_rank": 44,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "2976_779",
+   "dense_first_positive_rank": 10,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": true,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "5514_757",
+   "dense_first_positive_rank": 449,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "hsm",
+   "qid": "5709_750",
+   "dense_first_positive_rank": 248,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "law",
+   "qid": "102419_841",
+   "dense_first_positive_rank": 46,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "103373_837",
+   "dense_first_positive_rank": 126,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "law",
+   "qid": "106440_824",
+   "dense_first_positive_rank": 5,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "10071_871",
+   "dense_first_positive_rank": 11,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "12479_853",
+   "dense_first_positive_rank": 198,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "monero",
+   "qid": "14078_844",
+   "dense_first_positive_rank": 56,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "3554_903",
+   "dense_first_positive_rank": 125,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "monero",
+   "qid": "4053_899",
+   "dense_first_positive_rank": 4,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "4083_898",
+   "dense_first_positive_rank": 571,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "monero",
+   "qid": "5677_892",
+   "dense_first_positive_rank": 71,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "7072_882",
+   "dense_first_positive_rank": 14,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "74259_1054",
+   "dense_first_positive_rank": 46,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "78217_1019",
+   "dense_first_positive_rank": 18,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": true,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "81967_1013",
+   "dense_first_positive_rank": 72,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "82825_1003",
+   "dense_first_positive_rank": 242,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "politics",
+   "qid": "83279_999",
+   "dense_first_positive_rank": 253,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "politics",
+   "qid": "83771_988",
+   "dense_first_positive_rank": 784,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "politics",
+   "qid": "86781_983",
+   "dense_first_positive_rank": 104,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "politics",
+   "qid": "87499_976",
+   "dense_first_positive_rank": 57,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": true,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "87918_970",
+   "dense_first_positive_rank": 185,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "politics",
+   "qid": "88444_960",
+   "dense_first_positive_rank": 43,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "89697_946",
+   "dense_first_positive_rank": 10,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "89978_941",
+   "dense_first_positive_rank": 84,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "91586_923",
+   "dense_first_positive_rank": null,
+   "bucket": "missing_top1000"
+  },
+  {
+   "domain": "politics",
+   "qid": "92743_919",
+   "dense_first_positive_rank": 968,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "quant",
+   "qid": "75646_1077",
+   "dense_first_positive_rank": 461,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "quant",
+   "qid": "77873_1071",
+   "dense_first_positive_rank": 69,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "78710_1068",
+   "dense_first_positive_rank": 66,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": true,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "79564_1066",
+   "dense_first_positive_rank": 213,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "quant",
+   "qid": "83939_1059",
+   "dense_first_positive_rank": 22,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": true,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "184615_1180",
+   "dense_first_positive_rank": 46,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "185727_1169",
+   "dense_first_positive_rank": 20,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "186482_1157",
+   "dense_first_positive_rank": 15,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "188979_1146",
+   "dense_first_positive_rank": 537,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "travel",
+   "qid": "190667_1135",
+   "dense_first_positive_rank": 15,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "190846_1134",
+   "dense_first_positive_rank": 41,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "191493_1129",
+   "dense_first_positive_rank": 40,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": true,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "198471_1102",
+   "dense_first_positive_rank": 10,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": true,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "200183_1100",
+   "dense_first_positive_rank": null,
+   "bucket": "missing_top1000"
+  },
+  {
+   "domain": "travel",
+   "qid": "201562_1094",
+   "dense_first_positive_rank": 656,
+   "bucket": "101_to_1000"
+  },
+  {
+   "domain": "workplace",
+   "qid": "181803_1211",
+   "dense_first_positive_rank": 28,
+   "bucket": "top100",
+   "stages": {
+    "candidate20": false,
+    "prior18_positive_challenger": false,
+    "judged6_beneficial": false,
+    "accepted_beneficial": false
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "200148_1194",
+   "dense_first_positive_rank": 104,
+   "bucket": "101_to_1000"
+  }
+ ]
+}

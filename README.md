@@ -74,6 +74,12 @@ detector that gains +0.0044 out of fold does not transfer to dev (0.358108 → 0
 only +0.0003 (dev 0.0154 → 0.0157), so the frozen one-swap 0.3735 configuration stands. Artefact
 `results/replacement_v2/threshold_transfer.json`, `results/analysis/upr_abc_train.json`.
 
+**Equal-budget position and replacement audit (2026-11-24).** The six-pair external
+policy stays at **0.3735**. Internal exchanges score 0.3676 and a three-plus-three
+mixture scores 0.3654 on dev. A fixed three-seed CE ensemble with freshly judged
+external actions reaches 0.3658. The [experiment report](docs/POSITION_REPAIR_20261124.md)
+traces the missed opportunities through candidate, comparison, and acceptance stages.
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate
