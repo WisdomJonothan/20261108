@@ -135,28 +135,41 @@ def main():
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--model', type=Path, required=True)
     parser.add_argument('--queries-per-domain', type=int, default=2)
-    parser.add_argument('--pool-depth', type=int, choices=(20, 100), default=100)
+    parser.add_argument('--pool-depth', type=int, choices=(20, 100),
+                        help='Defaults to 100 for train and 20 for dev.')
     parser.add_argument('--split', choices=('train', 'dev'), default='train')
     parser.add_argument('--exclude-report', type=Path,
                         help='Exclude every query previously scored in this report.')
+    parser.add_argument('--match-report', type=Path,
+                        help='Require exact query and fold IDs from an existing report.')
+    parser.add_argument('--disable-thinking', action='store_true')
+    parser.add_argument('--batch-size', type=int, default=12)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
-    if args.output.exists() or args.queries_per_domain < 1:
-        parser.error('Use a new output and a positive query count.')
-    if args.split == 'dev' and (args.exclude_report or args.pool_depth != 20):
-        parser.error('The fixed official-dev protocol evaluates all queries at pool depth 20.')
+    if args.output.exists() or min(args.queries_per_domain, args.batch_size) < 1:
+        parser.error('Use a new output and positive query count and batch size.')
+    if args.split == 'dev' and args.exclude_report:
+        parser.error('Official-dev evaluation uses every query.')
+    if args.pool_depth is None:
+        args.pool_depth = 20 if args.split == 'dev' else 100
     exclude = {(r['domain'], r['qid']) for r in load(args.exclude_report)['per_query']} if args.exclude_report else set()
     rows = build(args.root, args.queries_per_domain, exclude, args.pool_depth, args.split)
     assert len({(r['domain'], r['qid']) for r in rows}) == len(rows)
     assert exclude.isdisjoint((r['domain'], r['qid']) for r in rows)
     if args.split == 'dev':
         assert len(rows) == 519 and len({r['domain'] for r in rows}) == 13
+    if args.match_report:
+        expected = {(r['domain'], r['qid'], r['fold']) for r in load(args.match_report)['per_query']}
+        if expected != {(r['domain'], r['qid'], r['fold']) for r in rows}:
+            raise ValueError('The prepared query and fold IDs disagree with the matched report')
     tok = AutoTokenizer.from_pretrained(args.model, local_files_only=True)
     model = AutoModelForCausalLM.from_pretrained(
         args.model, local_files_only=True, dtype=torch.bfloat16).to('cuda').eval()
     token_ids = [tok.encode(s, add_special_tokens=False) for s in 'ABC']
     assert all(len(t) == 1 for t in token_ids)
-    stats = judge.score_arm(model, tok, rows, 'direct', 12, 'cuda', [t[0] for t in token_ids])
+    template_options = {'enable_thinking': False} if args.disable_thinking else None
+    stats = judge.score_arm(model, tok, rows, 'direct', args.batch_size, 'cuda', [t[0] for t in token_ids],
+                            template_options=template_options)
     summary, details = evaluate(rows)
     report = {'protocol': 'Protect the original '
               'top ten and fill the specified pool depth from dense rank. '
@@ -164,7 +177,7 @@ def main():
               'window and both orders of the Qwen Direct prompt. Normalize log odds by query. '
               'Compare original list to standalone score and fixed 70:30 fusion.',
               'queries': len(rows), 'domains': len({r['domain'] for r in rows}), 'pool_depth': args.pool_depth,
-              'split': args.split,
+              'split': args.split, 'model': args.model.name, 'disable_thinking': args.disable_thinking,
               'excluded_previous_queries': len(exclude), 'inference': stats,
               'summary': summary, 'per_query': details}
     assert stats['prompts'] == 2 * (args.pool_depth - 1) * len(rows)

@@ -129,6 +129,17 @@ oracle reaches **0.58504** with one fixed-position addition, or **0.69850**
 with one addition and free reordering. The protected 20-document pool tops
 out at **0.59250**. [Evidence pilot and edit ceilings](docs/SWAP_EVIDENCE_SPANS_20261125.md)
 
+**Matched admission and ranking (2026-11-25).** On the same 65 held-out
+queries and dense top-100 scores, starting at the six-pair result, admitting one
+document in place gives **0.27723**. Sorting the same ten after admission gives
+**0.28642**, and unrestricted ranking gives **0.28703**. On official dev, editing
+only six-pair abstentions with the protected 20-document pool gives **0.37549**
+for one fixed admission and **0.37453** for the same admission with reordering.
+On the two matched held-out cohorts, Qwen3-8B lifts unrestricted top-100 fusion
+from **0.28703 to 0.31986**. Its gain with a fixed-slot single swap is **+0.00250**.
+[Matched protocols and score breakdown](docs/ANCHOR_EDIT_SCOPE_20261125.md)
+
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate

@@ -41,6 +41,31 @@ def md_number(p, needle):
 
 
 CLAIMS = [
+    # --- matched candidate admission and reordering (2026-11-25) ----------
+    ("one fixed admission on competition-start held-out queries", 0.277232,
+     lambda: jload("analysis/anchor_edit_scope_oof100_20261125.json")
+     ["starts"]["competition"]["summary"]["ndcg"]["one_fixed"],
+     "analysis/anchor_edit_scope_oof100_20261125.json", False),
+    ("one admission and reorder on competition-start held-out queries", 0.286416,
+     lambda: jload("analysis/anchor_edit_scope_oof100_20261125.json")
+     ["starts"]["competition"]["summary"]["ndcg"]["one_reordered"],
+     "analysis/anchor_edit_scope_oof100_20261125.json", False),
+    ("one fixed admission on official-dev competition abstentions", 0.375492,
+     lambda: jload("analysis/anchor_edit_scope_dev20_20261125.json")
+     ["starts"]["abstention"]["summary"]["ndcg"]["one_fixed"],
+     "analysis/anchor_edit_scope_dev20_20261125.json", False),
+    ("official-dev oracle over actual proposed lists on abstentions", 0.384670,
+     lambda: jload("analysis/anchor_edit_scope_dev20_20261125.json")
+     ["starts"]["abstention"]["summary"]["proposal_oracle"],
+     "analysis/anchor_edit_scope_dev20_20261125.json", False),
+    ("8B unrestricted fusion on the matched 65 held-out queries", 0.319859,
+     lambda: jload("analysis/anchor_edit_scope_qwen8b_oof100_20261125.json")
+     ["starts"]["competition"]["summary"]["ndcg"]["unrestricted"],
+     "analysis/anchor_edit_scope_qwen8b_oof100_20261125.json", False),
+    ("8B versus 4B unrestricted fusion on the matched 65 queries", 0.032829,
+     lambda: jload("analysis/anchor_edit_scope_qwen8b_oof100_20261125.json")
+     ["starts"]["competition"]["paired_model_comparison"]["same_policy"]["unrestricted"]["point"],
+     "analysis/anchor_edit_scope_qwen8b_oof100_20261125.json", False),
     # --- three further nulls (2026-11-24) -----------------------------------
     ("reverse score alone, 969 out-of-fold queries", 0.062374,
      lambda: jload("analysis/upr_abc_train.json")["B_reverse_only"],
