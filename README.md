@@ -80,6 +80,14 @@ mixture scores 0.3654 on dev. A fixed three-seed CE ensemble with freshly judged
 external actions reaches 0.3658. The [experiment report](docs/POSITION_REPAIR_20261124.md)
 traces the missed opportunities through candidate, comparison, and acceptance stages.
 
+**Shared-reference follow-up (2026-11-24).** Scoring twenty documents with the same
+Qwen judge and a shared anchor gives **0.3682** on official dev at 38 prompts per
+query. Using it only when the six-pair judge abstains gives **0.3741** at 31.3
+prompts per query, a paired gain of +0.0006 [−0.0079,+0.0086]. The fallback adds
+thirteen net relevant documents to the top ten, with gains at ranks 4–10 offset
+by losses at ranks 1–3. The 12-prompt **0.3735** configuration remains the
+competition system. See the [same-query comparison and rank accounting](docs/ANCHOR_RERANKER_20261124.md).
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate

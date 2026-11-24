@@ -1,0 +1,2884 @@
+{
+ "policy": "Preserve each accepted external6 replacement. If external6 abstains, use the fixed 20-document 70:30 shared-reference fusion. The rule uses no qrels and was evaluated after observing anchor-only and anchor-fusion results on dev. This is an exploratory comparison.",
+ "samples": {
+  "anchor_reranker_oof_sample26_20261124.json": {
+   "queries": 26,
+   "fallback_queries": 11,
+   "mean_prompts": 28.076923076923077,
+   "scores": {
+    "frozen_base": 0.2588023177731239,
+    "external6": 0.2594078786935984,
+    "anchor_fusion": 0.2842591331659182,
+    "fallback": 0.2728207011589982
+   },
+   "delta_vs_external6": {
+    "point": 0.013412822465399828,
+    "ci95": [
+     0.0032084352934517585,
+     0.023617209637347893
+    ]
+   },
+   "domain_cluster_ci95": [
+    -0.0027130609090150245,
+    0.0344326700116838
+   ],
+   "per_domain_delta": {
+    "bitcoin": 0.0,
+    "cardano": 0.0,
+    "economics": 0.0,
+    "genealogy": 0.0,
+    "history": 0.0,
+    "hsm": 0.0,
+    "iota": 0.08553340965372429,
+    "law": 0.008553959021656107,
+    "monero": 0.10219119879424306,
+    "politics": 0.0,
+    "quant": 0.0,
+    "travel": 0.0,
+    "workplace": -0.021911875419425714
+   },
+   "helpful_queries": 4,
+   "harmful_queries": 1,
+   "recovered_zeroes": 1,
+   "new_zeroes": 0,
+   "relevant_gained": 1,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "added_documents": 0.007860861445711005,
+    "removed_documents": 0,
+    "retained_documents": 0.005551961019688824,
+    "per_rank": [
+     0.0,
+     0.011387765806379431,
+     0.006522311639877233,
+     -0.010098039300087522,
+     0.0020881306334378353,
+     0.0,
+     0.0035126536857928506,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "step_coverage_queries": 22,
+   "step_coverage": {
+    "frozen_base": 0.6180555555555556,
+    "external6": 0.6319444444444444,
+    "anchor_fusion": 0.6180555555555556,
+    "fallback": 0.6319444444444444
+   }
+  },
+  "anchor_reranker_oof_replication39_20261124.json": {
+   "queries": 39,
+   "fallback_queries": 19,
+   "mean_prompts": 30.512820512820515,
+   "scores": {
+    "frozen_base": 0.28360795731144184,
+    "external6": 0.27666414421274677,
+    "anchor_fusion": 0.2981005192307241,
+    "fallback": 0.28133342992522525
+   },
+   "delta_vs_external6": {
+    "point": 0.004669285712478506,
+    "ci95": [
+     3.512234972372295e-05,
+     0.009778274227977946
+    ]
+   },
+   "domain_cluster_ci95": [
+    -0.0004885794858646097,
+    0.010753595587791934
+   ],
+   "per_domain_delta": {
+    "bitcoin": 0.0,
+    "cardano": 0.0,
+    "economics": 0.0294264082635604,
+    "genealogy": -0.009929604302445513,
+    "history": 0.017144989996737765,
+    "hsm": 0.0,
+    "iota": 0.020480849318162336,
+    "law": 0.0035780709862055873,
+    "monero": 0.0,
+    "politics": 0.0,
+    "quant": 0.0,
+    "travel": 0.0,
+    "workplace": 0.0
+   },
+   "helpful_queries": 6,
+   "harmful_queries": 1,
+   "recovered_zeroes": 0,
+   "new_zeroes": 0,
+   "relevant_gained": 1,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "added_documents": 0.0026178819262285035,
+    "removed_documents": 0,
+    "retained_documents": 0.0020514037862500068,
+    "per_rank": [
+     0.0,
+     0.007591843870919621,
+     0.001844467522342332,
+     -0.006770977501861304,
+     -0.0060819926351101585,
+     0.004753982866089326,
+     -0.0021069366089692286,
+     0.0027434136504426608,
+     0.004570275277956286,
+     -0.0018747907293310243
+    ]
+   },
+   "step_coverage_queries": 34,
+   "step_coverage": {
+    "frozen_base": 0.5608974358974359,
+    "external6": 0.5608974358974359,
+    "anchor_fusion": 0.5737179487179487,
+    "fallback": 0.5737179487179487
+   }
+  }
+ },
+ "combined": {
+  "queries": 65,
+  "fallback_queries": 30,
+  "mean_prompts": 29.53846153846154,
+  "scores": {
+   "frozen_base": 0.27368570149611465,
+   "external6": 0.2697616380050874,
+   "anchor_fusion": 0.29256396480480173,
+   "fallback": 0.27792833841873443
+  },
+  "delta_vs_external6": {
+   "point": 0.008166700413647034,
+   "ci95": [
+    0.001984557865300341,
+    0.01574427906873697
+   ]
+  },
+  "domain_cluster_ci95": [
+   0.00017407969323773653,
+   0.01773281659289143
+  ],
+  "per_domain_delta": {
+   "bitcoin": 0.0,
+   "cardano": 0.0,
+   "economics": 0.01765584495813624,
+   "genealogy": -0.005957762581467308,
+   "history": 0.01028699399804266,
+   "hsm": 0.0,
+   "iota": 0.04650187345238711,
+   "law": 0.005568426200385795,
+   "monero": 0.040876479517697226,
+   "politics": 0.0,
+   "quant": 0.0,
+   "travel": 0.0,
+   "workplace": -0.008764750167770285
+  },
+  "helpful_queries": 10,
+  "harmful_queries": 2,
+  "recovered_zeroes": 1,
+  "new_zeroes": 0,
+  "relevant_gained": 2,
+  "relevant_lost": 0,
+  "discounted_changes": {
+   "added_documents": 0.004715073734021504,
+   "removed_documents": 0,
+   "retained_documents": 0.0034516266796255335,
+   "per_rank": [
+    0.0,
+    0.009110212645103545,
+    0.0037156051693562927,
+    -0.008101802221151791,
+    -0.0028139433276909618,
+    0.0028523897196535957,
+    0.00014089950893560242,
+    0.0016460481902655967,
+    0.0027421651667737714,
+    -0.0011248744375986148
+   ]
+  },
+  "step_coverage_queries": 56,
+  "step_coverage": {
+   "frozen_base": 0.5733974358974359,
+   "external6": 0.578525641025641,
+   "anchor_fusion": 0.5810897435897436,
+   "fallback": 0.5862179487179487
+  }
+ },
+ "per_query": [
+  {
+   "domain": "bitcoin",
+   "qid": "125174_3",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.13012668333070054,
+    "external6": 0.13012668333070054,
+    "anchor_fusion": 0.13012668333070054,
+    "fallback": 0.13012668333070054
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_fusion": 0.5,
+    "fallback": 0.5
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "98618_84",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "8478_108",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.6309297535714575,
+    "external6": 0.6309297535714575,
+    "anchor_fusion": 0.6309297535714575,
+    "fallback": 0.6309297535714575
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "857_138",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.15642624200758548,
+    "external6": 0.15642624200758548,
+    "anchor_fusion": 0.15642624200758548,
+    "fallback": 0.15642624200758548
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_fusion": 0.5,
+    "fallback": 0.5
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "53713_187",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "52186_192",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.44293981265090565,
+    "external6": 0.44293981265090565,
+    "anchor_fusion": 0.47401203179625306,
+    "fallback": 0.44293981265090565
+   },
+   "relevant_counts": {
+    "frozen_base": 4,
+    "external6": 4,
+    "anchor_fusion": 4,
+    "fallback": 4
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12904_279",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.5240185826326421,
+    "external6": 0.3936948167222716,
+    "anchor_fusion": 0.49456228788854273,
+    "fallback": 0.3936948167222716
+   },
+   "relevant_counts": {
+    "frozen_base": 3,
+    "external6": 2,
+    "anchor_fusion": 3,
+    "fallback": 2
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 0.6666666666666666,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "16178_250",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "62606_606",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.34337431936037655,
+    "external6": 0.34337431936037655,
+    "anchor_fusion": 0.38364913903790027,
+    "fallback": 0.34337431936037655
+   },
+   "relevant_counts": {
+    "frozen_base": 2,
+    "external6": 2,
+    "anchor_fusion": 2,
+    "fallback": 2
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70696_261",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "18004_679",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "17821_684",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.9197207891481876,
+    "external6": 0.9197207891481876,
+    "anchor_fusion": 0.6934264036172708,
+    "fallback": 0.9197207891481876
+   },
+   "relevant_counts": {
+    "frozen_base": 2,
+    "external6": 2,
+    "anchor_fusion": 2,
+    "fallback": 2
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "iota",
+   "qid": "1954_803",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.6508205185601091,
+    "external6": 0.6508205185601091,
+    "anchor_fusion": 0.7653606369886217,
+    "fallback": 0.7653606369886217
+   },
+   "relevant_counts": {
+    "frozen_base": 2,
+    "external6": 2,
+    "anchor_fusion": 2,
+    "fallback": 2
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.2960819109658652,
+     0.0,
+     0.0,
+     -0.18154179253735267,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.11454011842851256
+   },
+   "step_coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_fusion": 0.5,
+    "fallback": 0.5
+   }
+  },
+  {
+   "domain": "iota",
+   "qid": "2497_799",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.2442584792702138,
+    "external6": 0.2442584792702138,
+    "anchor_fusion": 0.30078518014914984,
+    "fallback": 0.30078518014914984
+   },
+   "relevant_counts": {
+    "frozen_base": 2,
+    "external6": 2,
+    "anchor_fusion": 2,
+    "fallback": 2
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.16958010263680806,
+     0.0,
+     0.0,
+     0.0,
+     -0.11305340175787203,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.056526700878936034
+   },
+   "step_coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_fusion": 0.5,
+    "fallback": 0.5
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "106290_825",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.15101961822780524,
+    "external6": 0.15101961822780524,
+    "anchor_fusion": 0.16812753627111746,
+    "fallback": 0.16812753627111746
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.16812753627111748,
+     -0.15101961822780524,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.017107918043312242
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "106974_820",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.3010299956639812,
+    "external6": 0.3010299956639812,
+    "anchor_fusion": 0.38685280723454163,
+    "fallback": 0.3010299956639812
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "7581_880",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.2960819109658652,
+    "external6": 0.2960819109658652,
+    "anchor_fusion": 0.46927872602275644,
+    "fallback": 0.2960819109658652
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "6113_888",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.20438239758848611,
+    "fallback": 0.20438239758848611
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 1,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.20438239758848614,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0.20438239758848614,
+    "removed_documents": 0,
+    "retained_documents": 0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "74135_1056",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.13012668333070054,
+    "external6": 0.13012668333070054,
+    "anchor_fusion": 0.25190132085971084,
+    "fallback": 0.13012668333070054
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 2,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "77123_1037",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "81021_1060",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.24630238874073,
+    "external6": 0.24630238874073,
+    "anchor_fusion": 0.24630238874073,
+    "fallback": 0.24630238874073
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_fusion": 0.5,
+    "fallback": 0.5
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "36059_1091",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.10209739512291163,
+    "external6": 0.24816574496561808,
+    "anchor_fusion": 0.2188505885308512,
+    "fallback": 0.24816574496561808
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 2,
+    "anchor_fusion": 2,
+    "fallback": 2
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 0.3333333333333333,
+    "external6": 0.6666666666666666,
+    "anchor_fusion": 0.6666666666666666,
+    "fallback": 0.6666666666666666
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "184986_1178",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.7328286204777911,
+    "external6": 0.7328286204777911,
+    "anchor_fusion": 0.7328286204777911,
+    "fallback": 0.7328286204777911
+   },
+   "relevant_counts": {
+    "frozen_base": 3,
+    "external6": 3,
+    "anchor_fusion": 3,
+    "fallback": 3
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "186288_1160",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "171559_1221",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.43067655807339306,
+    "external6": 0.43067655807339306,
+    "anchor_fusion": 0.38685280723454163,
+    "fallback": 0.38685280723454163
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     -0.43067655807339306,
+     0.38685280723454163,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": -0.04382375083885143
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "193475_1198",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.2960819109658652,
+    "external6": 0.2960819109658652,
+    "anchor_fusion": 0.2960819109658652,
+    "fallback": 0.2960819109658652
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "126019_1",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.23463936301137822,
+    "external6": 0.23463936301137822,
+    "anchor_fusion": 0.23463936301137822,
+    "fallback": 0.23463936301137822
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_fusion": 0.5,
+    "fallback": 0.5
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "119019_54",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.18154179253735267,
+    "external6": 0.18154179253735267,
+    "anchor_fusion": 0.18154179253735267,
+    "fallback": 0.18154179253735267
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "124874_6",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.44149241373678083,
+    "external6": 0.44149241373678083,
+    "anchor_fusion": 0.44149241373678083,
+    "fallback": 0.44149241373678083
+   },
+   "relevant_counts": {
+    "frozen_base": 2,
+    "external6": 2,
+    "anchor_fusion": 2,
+    "fallback": 2
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 0.75,
+    "external6": 0.75,
+    "anchor_fusion": 0.75,
+    "fallback": 0.75
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "8864_107",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.3065735963827292,
+    "external6": 0.3065735963827292,
+    "anchor_fusion": 0.23719771276929622,
+    "fallback": 0.3065735963827292
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_fusion": 0.5,
+    "fallback": 0.5
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "8943_106",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.18457569677956817,
+    "external6": 0.18457569677956817,
+    "anchor_fusion": 0.17723928678404774,
+    "fallback": 0.18457569677956817
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 0.3333333333333333,
+    "external6": 0.3333333333333333,
+    "anchor_fusion": 0.3333333333333333,
+    "fallback": 0.3333333333333333
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "839_140",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.6131471927654584,
+    "external6": 0.6131471927654584,
+    "anchor_fusion": 0.6131471927654584,
+    "fallback": 0.6131471927654584
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "54052_185",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "52506_191",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "47525_214",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.1208113026994942,
+    "external6": 0.1208113026994942,
+    "anchor_fusion": 0.2090905274901754,
+    "fallback": 0.2090905274901754
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 2,
+    "fallback": 2
+   },
+   "relevant_gained": 1,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     -0.12081130269949418,
+     0.0,
+     0.10699313236726378,
+     0.10209739512291163,
+     0.0
+    ],
+    "added_documents": 0.10209739512291163,
+    "removed_documents": 0,
+    "retained_documents": -0.0138181703322304
+   },
+   "step_coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12209_292",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12865_280",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.5012658353418871,
+    "external6": 0.5012658353418871,
+    "anchor_fusion": 0.46845052016107697,
+    "fallback": 0.46845052016107697
+   },
+   "relevant_counts": {
+    "frozen_base": 2,
+    "external6": 2,
+    "anchor_fusion": 2,
+    "fallback": 2
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     -0.2371977127692962,
+     0.0,
+     0.20438239758848614,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": -0.032815315180810045
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "15332_256",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.07311683844390995,
+    "external6": 0.07311683844390995,
+    "anchor_fusion": 0.07614334071738352,
+    "fallback": 0.07614334071738352
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.07614334071738352,
+     -0.07311683844390995
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0030265022734735636
+   },
+   "step_coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_fusion": 0.5,
+    "fallback": 0.5
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "62622_605",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.2640681225725909,
+    "external6": 0.2640681225725909,
+    "anchor_fusion": 0.3065735963827292,
+    "fallback": 0.3065735963827292
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.3065735963827292,
+     -0.2640681225725909,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.042505473810138306
+   },
+   "step_coverage": {
+    "frozen_base": 0.6666666666666666,
+    "external6": 0.6666666666666666,
+    "anchor_fusion": 0.6666666666666666,
+    "fallback": 0.6666666666666666
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70819_256",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.7668091220635322,
+    "external6": 0.7668091220635322,
+    "anchor_fusion": 0.7757386182436072,
+    "fallback": 0.7757386182436072
+   },
+   "relevant_counts": {
+    "frozen_base": 3,
+    "external6": 3,
+    "anchor_fusion": 3,
+    "fallback": 3
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.13905617951077562,
+     -0.13012668333070057,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.008929496180075047
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68520_403",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.4378043742107727,
+    "external6": 0.33657576599847244,
+    "anchor_fusion": 0.4974727001278833,
+    "fallback": 0.33657576599847244
+   },
+   "relevant_counts": {
+    "frozen_base": 4,
+    "external6": 3,
+    "anchor_fusion": 4,
+    "fallback": 3
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 0.6666666666666666,
+    "external6": 0.6666666666666666,
+    "anchor_fusion": 0.6666666666666666,
+    "fallback": 0.6666666666666666
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "18051_677",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.46927872602275644,
+    "external6": 0.46927872602275644,
+    "anchor_fusion": 0.46927872602275644,
+    "fallback": 0.46927872602275644
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "17885_683",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "14388_701",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.6309297535714575,
+    "external6": 0.6309297535714575,
+    "anchor_fusion": 0.6309297535714575,
+    "fallback": 0.6309297535714575
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "iota",
+   "qid": "2008_802",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.3903800499921017,
+    "external6": 0.3903800499921017,
+    "anchor_fusion": 0.3903800499921017,
+    "fallback": 0.3903800499921017
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_fusion": 0.5,
+    "fallback": 0.5
+   }
+  },
+  {
+   "domain": "iota",
+   "qid": "367_805",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.23463936301137822,
+    "external6": 0.23463936301137822,
+    "anchor_fusion": 0.2960819109658652,
+    "fallback": 0.2960819109658652
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.2960819109658652,
+     -0.23463936301137822,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.061442547954487
+   },
+   "step_coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_fusion": 0.5,
+    "fallback": 0.5
+   }
+  },
+  {
+   "domain": "iota",
+   "qid": "311_807",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "106441_823",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.49456228788854273,
+    "external6": 0.49456228788854273,
+    "anchor_fusion": 0.5107574098602351,
+    "fallback": 0.49456228788854273
+   },
+   "relevant_counts": {
+    "frozen_base": 3,
+    "external6": 3,
+    "anchor_fusion": 3,
+    "fallback": 3
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "107582_818",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.46927872602275644,
+    "external6": 0.46927872602275644,
+    "anchor_fusion": 0.46927872602275644,
+    "fallback": 0.46927872602275644
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 0.6666666666666666,
+    "external6": 0.6666666666666666,
+    "anchor_fusion": 0.6666666666666666,
+    "fallback": 0.6666666666666666
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "103394_836",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.6257049680303419,
+    "external6": 0.6257049680303419,
+    "anchor_fusion": 0.6364391809889587,
+    "fallback": 0.6364391809889587
+   },
+   "relevant_counts": {
+    "frozen_base": 2,
+    "external6": 2,
+    "anchor_fusion": 2,
+    "fallback": 2
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.16716045496620227,
+     -0.15642624200758548,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.01073421295861679
+   },
+   "step_coverage": {
+    "frozen_base": 0.6666666666666666,
+    "external6": 0.6666666666666666,
+    "anchor_fusion": 0.6666666666666666,
+    "fallback": 0.6666666666666666
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "8462_873",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.6131471927654584,
+    "external6": 0.6131471927654584,
+    "anchor_fusion": 0.8175295903539445,
+    "fallback": 0.6131471927654584
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 2,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "6528_886",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.16958010263680806,
+    "external6": 0.0,
+    "anchor_fusion": 0.1208113026994942,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 0,
+    "anchor_fusion": 1,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "11933_855",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "74177_1055",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 1.0,
+    "external6": 1.0,
+    "anchor_fusion": 1.0,
+    "fallback": 1.0
+   },
+   "relevant_counts": {
+    "frozen_base": 2,
+    "external6": 2,
+    "anchor_fusion": 2,
+    "fallback": 2
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "77201_1035",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.41618115554873086,
+    "external6": 0.41618115554873086,
+    "anchor_fusion": 0.41618115554873086,
+    "fallback": 0.41618115554873086
+   },
+   "relevant_counts": {
+    "frozen_base": 2,
+    "external6": 2,
+    "anchor_fusion": 2,
+    "fallback": 2
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "91024_927",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "69659_1090",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "80274_1064",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "77757_1072",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "185286_1175",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   },
+   "step_coverage": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "186567_1155",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_fusion": 0.5,
+    "fallback": 0.5
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "185672_1170",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.3080351663449861,
+    "external6": 0.3080351663449861,
+    "anchor_fusion": 0.5363781864793108,
+    "fallback": 0.3080351663449861
+   },
+   "relevant_counts": {
+    "frozen_base": 2,
+    "external6": 2,
+    "anchor_fusion": 3,
+    "fallback": 2
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "172082_1220",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.6131471927654584,
+    "external6": 0.6131471927654584,
+    "anchor_fusion": 0.6131471927654584,
+    "fallback": 0.6131471927654584
+   },
+   "relevant_counts": {
+    "frozen_base": 1,
+    "external6": 1,
+    "anchor_fusion": 1,
+    "fallback": 1
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0.0
+   },
+   "step_coverage": {
+    "frozen_base": 0.5,
+    "external6": 0.5,
+    "anchor_fusion": 0.5,
+    "fallback": 0.5
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "202473_1192",
+   "used_fallback": true,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "191225_1202",
+   "used_fallback": false,
+   "scores": {
+    "frozen_base": 0.0,
+    "external6": 0.0,
+    "anchor_fusion": 0.0,
+    "fallback": 0.0
+   },
+   "relevant_counts": {
+    "frozen_base": 0,
+    "external6": 0,
+    "anchor_fusion": 0,
+    "fallback": 0
+   },
+   "relevant_gained": 0,
+   "relevant_lost": 0,
+   "discounted_changes": {
+    "rank_delta": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "added_documents": 0,
+    "removed_documents": 0,
+    "retained_documents": 0
+   }
+  }
+ ]
+}
