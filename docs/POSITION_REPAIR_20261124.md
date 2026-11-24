@@ -70,7 +70,7 @@ The fresh external run uses the fixed 0.7 ensemble and the original action const
 
 On the ensemble, 6,228 prompts took 663 seconds of judge scoring. The six-pair policy improves 0.36242 to 0.36583 (+0.00341, 95% interval [−0.00056, +0.00841]), with 13 helpful and 13 harmful replacements. On the same dev queries the ensemble pipeline is 0.00767 below the original 0.37350 configuration, with paired interval [−0.02148, +0.00582]. Its incremental judge gain is 0.01199 lower ([−0.02191, −0.00354]). The better standalone ranking had less measured benefit from the same remedy even after it received fresh actions. [Matched comparison](../results/analysis/ce_seed_ensemble_fresh_comparison_20261124.json)
 
-The next method experiment should diagnose whether supervised relevance judgment can recover missed positive candidates without increasing false replacements. Fit on the training folds, compare at the same six-pair budget, and report both error rates and the final ranking score before changing the competition entry.
+The [supervised selection follow-up](SWAP_RISK_FOLLOWUP_20261124.md) tests separate benefit and harm probabilities and a train-fitted candidate shortlist. Both leave the original competition entry in place.
 
 Run from the project root with the official data, fold CE TREC runs, and the frozen cache described in [the replacement report](../results/replacement_v2/REPORT.md). The training CE runs are generated artifacts.
 
