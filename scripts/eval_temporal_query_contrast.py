@@ -100,7 +100,7 @@ def cross_encoder(path, pairs, threads):
     return values, time.perf_counter() - started
 
 
-def qwen_reranker(path, pairs, threads):
+def qwen_reranker(path, pairs, threads, dated_pairs=None):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -111,6 +111,10 @@ def qwen_reranker(path, pairs, threads):
                    'record, or state being asked about. Distinguish it from unrelated dates and '
                    'the date of a later discussion or translation.')
     instructions = {'qwen_default': INSTRUCT, 'qwen_event_time': instruction}
+    variants = {name: pairs for name in instructions}
+    if dated_pairs is not None:
+        instructions = dict.fromkeys(dated_pairs, instruction)
+        variants = dated_pairs
     torch.set_num_threads(threads)
     token = AutoTokenizer.from_pretrained(path, local_files_only=True, padding_side='left')
     model = AutoModelForCausalLM.from_pretrained(path, local_files_only=True, dtype=torch.float32).eval()
@@ -123,6 +127,7 @@ def qwen_reranker(path, pairs, threads):
     results = {}
     with torch.inference_mode():
         for name, task in instructions.items():
+            pairs = variants[name]
             started = time.perf_counter()
             values = []
             for start in range(0, len(pairs), 8):
@@ -138,6 +143,22 @@ def qwen_reranker(path, pairs, threads):
 
 
 
+def add_event_dates(examples, annotations):
+    if annotations.keys() != {case['id'] for case, _, _ in examples}:
+        raise ValueError('Event date annotations must cover every diagnostic case')
+    variants = {'qwen_matched_dates': [], 'qwen_exchanged_dates': []}
+    for case, queries, docs in examples:
+        dates = annotations[case['id']]
+        if dates.keys() != set(SIDES) or not all(dates.values()):
+            raise ValueError(f'Missing event date for {case["id"]}')
+        for query in (queries[q] for q in SIDES):
+            for side, other in (('early', 'late'), ('late', 'early')):
+                variants['qwen_matched_dates'].append((query, docs[side] + '\nEvent time: ' + dates[side]))
+                variants['qwen_exchanged_dates'].append((query, docs[side] + '\nEvent time: ' + dates[other]))
+    return variants
+
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--data-root', type=Path, required=True)
@@ -145,6 +166,8 @@ def main():
     parser.add_argument('--zero-shot', type=Path)
     parser.add_argument('--frozen-ce', type=Path)
     parser.add_argument('--qwen-reranker', type=Path)
+    parser.add_argument('--annotated-event-dates', type=Path,
+                        help='Compare matched and exchanged event dates with the explicit Qwen instruction.')
     parser.add_argument('--threads', type=int, default=4)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
@@ -152,6 +175,8 @@ def main():
         parser.error('Use a positive thread count and a new output.')
     if bool(args.zero_shot) != bool(args.frozen_ce) or not (args.zero_shot or args.qwen_reranker):
         parser.error('Supply the two BGE checkpoints, a Qwen reranker, or both.')
+    if args.annotated_event_dates and not args.qwen_reranker:
+        parser.error('The supplied-date probe needs a Qwen reranker.')
     examples = prepare(load(args.manifest)['cases'], args.data_root)
     pairs = [[(queries[q], docs[d]) for q in SIDES for d in SIDES]
              for _, queries, docs in examples]
@@ -163,7 +188,9 @@ def main():
             raw[name] = cross_encoder(path, flat, args.threads)
         model_paths.update(bge_zero_shot=args.zero_shot.name, bge_frozen_ce=args.frozen_ce.parent.name)
     if args.qwen_reranker:
-        extra, instructions = qwen_reranker(args.qwen_reranker, flat, args.threads)
+        variants = (add_event_dates(examples, load(args.annotated_event_dates)['times'])
+                    if args.annotated_event_dates else None)
+        extra, instructions = qwen_reranker(args.qwen_reranker, flat, args.threads, variants)
         raw.update(extra)
         model_paths.update({name: args.qwen_reranker.name for name in extra})
     for name, (values, seconds) in raw.items():
@@ -180,6 +207,8 @@ def main():
         'model_paths': model_paths, 'qwen_instructions': instructions,
         'results': results,
     }
+    if args.annotated_event_dates:
+        report['event_date_annotations'] = args.annotated_event_dates.name
     with args.output.open('x', encoding='utf-8') as stream:
         json.dump(report, stream, indent=2)
         stream.write('\n')

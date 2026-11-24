@@ -2,7 +2,7 @@
 
 The [zero-query audit](POSITION_REPAIR_20261124.md) locates remaining relevant material beyond dense depth 100. The [depth oracle](SWAP_EVIDENCE_SPANS_20261125.md) shows that depth 300 increases the ideal ranking score. This audit tests where to allocate that additional depth when the number of expansions is fixed.
 
-Keep the dense top 100 and extend selected queries to top 300. Match the number of expanded queries within every domain to the number of times the six-pair judge abstained. This allocates 263 expansions across 519 queries and scores a mean of 201.35 candidate documents if the rule is executed. Compare the existing abstentions with the same-budget queries having smallest dense top-ten margin or smallest overlap between the frozen-fusion and dense top tens. Use the gap between dense ranks one and ten divided by the score standard deviation over the first 100 documents. Higher rank disagreement breaks ties using the denser score margin, then query ID. Each selected candidate list is nested within the corresponding dense run.
+Keep the dense top 100 and extend selected queries to top 300. Match the number of expanded queries within every domain to the number of times the six-pair judge abstained. This allocates 263 expansions across 519 queries and scores a mean of 201.35 candidate documents if the rule is executed. Compare the existing abstentions with the same-budget queries having smallest dense top-ten margin or smallest overlap between the frozen-fusion and dense top tens. Use the gap between dense ranks one and ten divided by the score standard deviation over the first 100 documents. Higher rank disagreement breaks ties using the dense-score margin, then query ID. Each selected candidate list is nested within the corresponding dense run.
 
 ## Results on the 519 official dev queries
 
@@ -23,4 +23,24 @@ At this matched budget, disagreement finds seven more newly reachable zeroes tha
 
 ```bash
 python scripts/audit_adaptive_candidate_depth.py --ceilings results/analysis/competition_edit_budget_20261125.json --reference results/analysis/position_oracle_dev_20261124.json --output results/analysis/adaptive_candidate_depth_dev_replay.json
+```
+
+
+## Train-only supervised routing control
+
+Cross-fit on the 969 existing training-fold queries. Each fit uses two folds for learning and the third for evaluation. A pooled fit from the training folds then scores all 519 official dev queries. The five features are dense rank-one to rank-ten score margin, the dense head-to-tail score gap, dense/fused top-ten overlap, mean dense rank of the fused top ten, and the six-pair abstention indicator. Normalize features using only the fit sample and weight domains equally. Ridge regression predicts the ideal nDCG gain. Logistic regression predicts the first judged positive becoming reachable between depth 100 and 300. Fix the two regularization settings and use the same expansion quota per domain for all methods. The OOF quota is 553 queries and the official dev quota is 263.
+
+| Rule | OOF ideal gain | OOF newly reachable zeroes | Dev ideal gain | Dev newly reachable zeroes |
+|---|---:|---:|---:|---:|
+| Six-pair abstention | +0.06808 | 35 | +0.04889 | 9 |
+| Dense/fused rank disagreement | **+0.06858** | 35 | **+0.06401** | 16 |
+| Ridge estimate of ideal gain | +0.06501 | 28 | +0.06154 | 13 |
+| Logistic estimate of first-positive recovery | +0.06614 | 32 | +0.05411 | 12 |
+
+On dev, ridge changes the disagreement score by −0.00247 [within-domain paired 95% interval −0.01866, +0.01685]. Logistic regression changes it by −0.00991 [−0.03323, +0.01341]. Rank disagreement gives the best point estimate of ideal gain in both splits among these measured routing rules. It is the straightforward candidate for a later same-judge test. The training-fold sample contains 52 zeroes with a first positive appearing between depths 100 and 300, compared with 26 in official dev.
+
+[Train-fold and official-dev paired results](../results/analysis/learned_candidate_depth_20261125.json)
+
+```bash
+python scripts/fit_candidate_depth_routing.py --runs-root runs --data-root data/track1_tempo --output results/analysis/learned_candidate_depth_replay.json
 ```

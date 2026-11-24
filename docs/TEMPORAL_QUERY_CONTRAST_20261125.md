@@ -36,6 +36,21 @@ The default and event-time instructions disagree on one of the 22 variants. The 
 [Qwen scores, instructions and margins](../results/analysis/temporal_minimal_pairs_qwen_20261125.json)
 
 
+## Supplied event dates with matched format control
+
+Provide one reviewed event-time line after each original passage. Compare its correct annotation with an exchanged annotation from the other passage while keeping the same model, query variants, source text, instruction and format. The supplied dates are diagnostic annotations. They test the scorer given a normalized time cue.
+
+| Input under the explicit event-time instruction | Correct variants (22) | Correct flips (11) |
+|---|---:|---:|
+| Original source passage | 12 | 1 |
+| Passage plus its matched event dates | 12 | 1 |
+| Passage plus the other passage's dates | 11 | 0 |
+
+Correct date cues change which case flips. They recover the 1877 commission versus 1887 election-law contrast, while the hertz pair loses its correct early selection. The aggregate strict-flip count stays at one with correct supplied dates. The exchanged-date control changes eleven variants across six cases relative to the unannotated instruction and gives zero correct flips. The model responds to date cues, while the consistent ranking response remains rare on this fixed pilot.
+
+[Event date annotations](../results/analysis/temporal_minimal_pairs_event_dates_20261125.json) · [Matched and exchanged date scores](../results/analysis/temporal_minimal_pairs_supplied_dates_20261125.json)
+
+
 ## Reproduction
 
 Run with official v1.1 corpus files and existing local model weights. The scorer verifies every source passage against the manifest checksum and scores in CPU float32.
@@ -47,4 +62,9 @@ python scripts/eval_temporal_query_contrast.py --data-root data/track1_tempo --m
 
 ```bash
 python scripts/eval_temporal_query_contrast.py --data-root data/track1_tempo --manifest results/analysis/temporal_minimal_pairs_manifest_20261125.json --qwen-reranker models/qwen3-reranker-0.6b --output results/analysis/temporal_minimal_pairs_qwen_replay.json
+```
+
+
+```bash
+python scripts/eval_temporal_query_contrast.py --data-root data/track1_tempo --manifest results/analysis/temporal_minimal_pairs_manifest_20261125.json --qwen-reranker models/qwen3-reranker-0.6b --annotated-event-dates results/analysis/temporal_minimal_pairs_event_dates_20261125.json --output results/analysis/temporal_minimal_pairs_supplied_dates_replay.json
 ```

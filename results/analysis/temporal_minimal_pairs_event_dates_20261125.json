@@ -1,0 +1,49 @@
+{
+  "protocol": "Annotate the evidence event dates using the fixed source excerpts. These dates are supplied test annotations. The matching and exchanged-date inputs use the same document texts and event-time instruction.",
+  "times": {
+    "second_definition": {
+      "early": "1954 and 1956",
+      "late": "1967"
+    },
+    "hertz_adoption": {
+      "early": "1960",
+      "late": "1964–1965"
+    },
+    "induction_formulation": {
+      "early": "1845 and 1847",
+      "late": "early 1860s"
+    },
+    "quantum_formulation": {
+      "early": "1925",
+      "late": "1926"
+    },
+    "scottish_birth_records": {
+      "early": "1726–1854",
+      "late": "1855–1918"
+    },
+    "us_population_census": {
+      "early": "1800",
+      "late": "1840"
+    },
+    "canadian_private_notes": {
+      "early": "1871",
+      "late": "1944–1950"
+    },
+    "india_pakistan_agreement": {
+      "early": "16 December 1971",
+      "late": "2 July 1972"
+    },
+    "punjab_administration": {
+      "early": "1849",
+      "late": "1853"
+    },
+    "us_election_response": {
+      "early": "1877",
+      "late": "1887"
+    },
+    "indian_economic_policy": {
+      "early": "post-independence 1947",
+      "late": "1991–1992"
+    }
+  }
+}
