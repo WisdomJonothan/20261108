@@ -115,6 +115,13 @@ and cut off useful evidence in five. On all 328 f0 queries, longer
 excerpts move **0.26573 → 0.26582**, despite three more accepted
 beneficial pairs. [Case review and controlled re-scoring](docs/REJECTED_SWAP_EVIDENCE_20261124.md)
 
+**Matched judge checkpoints.** On the same 104 labeled f0 pairs,
+Qwen3-8B accepts **4/27** beneficial and **2/77** harmful pairs; the
+original 4B Direct judge accepts **7/27** and **4/77**. Their pair-level
+AUCs are both about **0.71**. The specialist Qwen3-Reranker-4B accepts
+**12/27** and **16/77** under its pointwise protocol.
+[Checkpoint comparison](docs/SWAP_JUDGE_CHECKPOINT_20261124.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate

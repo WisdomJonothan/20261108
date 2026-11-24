@@ -150,10 +150,12 @@ def prompt(row, pair, contextual, reverse):
 
 @torch.inference_mode()
 def score_arm(model, tokenizer, rows, policy, batch_size, device, option_ids, *,
-              prompt_builder=prompt, option_names=("incumbent", "challenger", "abstain")):
+              prompt_builder=prompt, option_names=("incumbent", "challenger", "abstain"),
+              template_options=None):
     if len(option_ids) != len(option_names):
         raise ValueError("Each answer token needs an identity-aligned label")
     tokenizer.padding_side = "left"
+    template_options = template_options or {}
     stats = {"prompts": 0, "prompt_tokens": 0, "batches": 0, "seconds": 0.0}
     if device.startswith("cuda"):
         torch.cuda.reset_peak_memory_stats()
@@ -164,7 +166,7 @@ def score_arm(model, tokenizer, rows, policy, batch_size, device, option_ids, *,
             for reverse in (False, True):
                 chats.append(tokenizer.apply_chat_template(
                     [{"role": "user", "content": prompt_builder(row, pair, policy == "contextual", reverse)}],
-                    tokenize=False, add_generation_prompt=True))
+                    tokenize=False, add_generation_prompt=True, **template_options))
                 meta.append((pi, reverse))
         probs = []
         for s in range(0, len(chats), batch_size):

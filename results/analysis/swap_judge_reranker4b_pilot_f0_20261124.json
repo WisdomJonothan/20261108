@@ -1,0 +1,2014 @@
+{
+ "protocol": "Keep the Direct question, original 112-word snippets and exact pairs. Score each distinct document using the Qwen3-Reranker yes/no logit protocol. Accept a positive challenger-minus-incumbent probability difference. The judge changes only in the routed supervised suffix. The pilot includes every suffix pair with exactly one positive qrel. The full-fold protocol scores every suffix pair and preserves the prefix and routing.",
+ "model": "Qwen/Qwen3-Reranker-4B",
+ "dtype": "bfloat16",
+ "disable_thinking": false,
+ "scoring_protocol": "reranker",
+ "folds": [
+  "f0"
+ ],
+ "inference": {
+  "prompts": 157,
+  "prompt_tokens": 70026,
+  "seconds_total": 16.085755974054337,
+  "gpu_peak_mb": 8589.669921875
+ },
+ "pair_diagnostics": {
+  "challenger": {
+   "pairs": 27,
+   "direct_accepted": 7,
+   "teacher_accepted": 12,
+   "new_accepted": 7,
+   "lost_accepted": 2
+  },
+  "incumbent": {
+   "pairs": 77,
+   "direct_accepted": 4,
+   "teacher_accepted": 16,
+   "new_accepted": 14,
+   "lost_accepted": 2
+  },
+  "exclusive_pair_auc": {
+   "direct_worst_order": 0.7094757094757095,
+   "teacher_document_score_gap": 0.695045695045695
+  }
+ },
+ "pairs": [
+  {
+   "domain": "bitcoin",
+   "qid": "118297_59",
+   "incumbent": "bitcoin/112862_8be7e27974fe271b_78.txt",
+   "challenger": "bitcoin/4b3a42e2_11232.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.23719771276929622,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    1.4449801710725296e-07,
+    2.998960857425459e-09
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9688562154769897,
+     "challenger": 0.7549149990081787
+    }
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "119019_54",
+   "incumbent": "bitcoin/dd31210a_10422.txt",
+   "challenger": "bitcoin/df9b8d81_10430.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.18154179253735267,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.999987006187439,
+    0.32082128524780273
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9724147915840149,
+     "challenger": 0.985042929649353
+    }
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "119019_54",
+   "incumbent": "bitcoin/dd31210a_10422.txt",
+   "challenger": "bitcoin/685bcb49_7285.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.18154179253735267,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.02931218035519123,
+    2.646573848963385e-09
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9724147915840149,
+     "challenger": 0.9465966820716858
+    }
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "119019_54",
+   "incumbent": "bitcoin/dd31210a_10422.txt",
+   "challenger": "bitcoin/118364_27038cf3b633068a_319.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.18154179253735267,
+   "historical_accepted": true,
+   "historical_probabilities": [
+    0.9999963045120239,
+    0.9975274205207825
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9724147915840149,
+     "challenger": 0.9924227595329285
+    }
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "120666_36",
+   "incumbent": "bitcoin/39b4af05_149717.txt",
+   "challenger": "bitcoin/d08e6979_5866.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.15101961822780524,
+   "historical_accepted": true,
+   "historical_probabilities": [
+    0.9999998807907104,
+    1.0
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.016914913430809975,
+     "challenger": 0.9996849298477173
+    }
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "97009_90",
+   "incumbent": "bitcoin/112761_82aa3ff89664c6f9_46.txt",
+   "challenger": "bitcoin/f1e77272_18591.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.11706259313796355,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.003172682598233223,
+    0.060086626559495926
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.5926666259765625,
+     "challenger": 0.2689414322376251
+    }
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "11465_101",
+   "incumbent": "cardano/575f7226_1877.txt",
+   "challenger": "cardano/45863ee3_0059.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.1815417925373527,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    1.0,
+    0.009000685065984726
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.3775406777858734,
+     "challenger": 0.562176525592804
+    }
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "52639_190",
+   "incumbent": "economics/b3f1937c_86254.txt",
+   "challenger": "economics/3ed1b391_5700.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.23719771276929624,
+   "historical_accepted": true,
+   "historical_probabilities": [
+    0.9999723434448242,
+    0.9525734782218933
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9840936064720154,
+     "challenger": 0.6513549089431763
+    }
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "56380_175",
+   "incumbent": "economics/9eb08ff6_4073.txt",
+   "challenger": "economics/cb6af27e_4067.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.18154179253735264,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    2.9023121896898374e-06,
+    0.00015843614528421313
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9796676635742188,
+     "challenger": 0.014957087114453316
+    }
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "56750_174",
+   "incumbent": "economics/96d803e6_3808.txt",
+   "challenger": "economics/945d27cd_83693.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1510196182278052,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.022977370768785477,
+    0.9990890026092529
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9908744096755981,
+     "challenger": 0.8872045874595642
+    }
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "56750_174",
+   "incumbent": "economics/96d803e6_3808.txt",
+   "challenger": "economics/90bbd17c_83715.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1510196182278052,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.0019267346942797303,
+    0.04742587357759476
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9908744096755981,
+     "challenger": 0.9099069833755493
+    }
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "56750_174",
+   "incumbent": "economics/96d803e6_3808.txt",
+   "challenger": "economics/50254_596e604fd829ae8b_110.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1510196182278052,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    4.539786823443137e-05,
+    0.0031726830638945103
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9908744096755981,
+     "challenger": 0.43782350420951843
+    }
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12865_280",
+   "incumbent": "genealogy/6b74e302_4685.txt",
+   "challenger": "genealogy/f73aa279_2604.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.2371977127692962,
+   "historical_accepted": true,
+   "historical_probabilities": [
+    0.6791784763336182,
+    0.996825098991394
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9648551344871521,
+     "challenger": 0.531209409236908
+    }
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12865_280",
+   "incumbent": "genealogy/6b74e302_4685.txt",
+   "challenger": "genealogy/3440_9b916eb51c4a027a_225.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.2371977127692962,
+   "historical_accepted": true,
+   "historical_probabilities": [
+    0.6217122673988342,
+    0.5064803957939148
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9648551344871521,
+     "challenger": 0.14033624529838562
+    }
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12865_280",
+   "incumbent": "genealogy/6b74e302_4685.txt",
+   "challenger": "genealogy/79401224_2018.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.2371977127692962,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.000996540067717433,
+    4.450590722626657e-07
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9648551344871521,
+     "challenger": 0.00912563782185316
+    }
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "3376_318",
+   "incumbent": "genealogy/39287701_155259.txt",
+   "challenger": "genealogy/f6ba1bda_9095.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.23719771276929622,
+   "historical_accepted": true,
+   "historical_probabilities": [
+    1.0,
+    0.49999988079071045
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.027585284784436226,
+     "challenger": 0.04742587357759476
+    }
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "9808_315",
+   "incumbent": "genealogy/fa7e0311_8731.txt",
+   "challenger": "genealogy/cadc9a6a_8799.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.10633668103022986,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    4.7850949158601e-06,
+    1.012999018712435e-05
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9626730680465698,
+     "challenger": 0.562176525592804
+    }
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "9808_315",
+   "incumbent": "genealogy/fa7e0311_8731.txt",
+   "challenger": "genealogy/e2d1a111_155151.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.10633668103022986,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    6.475948453044111e-07,
+    9.422445828022319e-07
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9626730680465698,
+     "challenger": 0.6513549089431763
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56711_727",
+   "incumbent": "history/6c3b35a8_102613.txt",
+   "challenger": "history/51a90f13_343048.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1510196182278052,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    4.7850949158601e-06,
+    0.9995692372322083
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9796676635742188,
+     "challenger": 0.9840936064720154
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56711_727",
+   "incumbent": "history/6c3b35a8_102613.txt",
+   "challenger": "history/ce333483_344353.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1510196182278052,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.22269879281520844,
+    0.9999921321868896
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9796676635742188,
+     "challenger": 0.7310585379600525
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56711_727",
+   "incumbent": "history/6c3b35a8_102613.txt",
+   "challenger": "history/f057200b_343067.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1510196182278052,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    3.535499854478985e-05,
+    0.9999250173568726
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9796676635742188,
+     "challenger": 0.9840936064720154
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56914_713",
+   "incumbent": "history/23a5c572_101000.txt",
+   "challenger": "history/b4028c57_341474.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.15101961822780519,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.00040417362470179796,
+    6.691584508722315e-10
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.7057850360870361,
+     "challenger": 0.2568320035934448
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56914_713",
+   "incumbent": "history/23a5c572_101000.txt",
+   "challenger": "history/e8f7f581_341493.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.15101961822780519,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.029221950098872185,
+    1.456505196983926e-05
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.7057850360870361,
+     "challenger": 0.006289901677519083
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58489_677",
+   "incumbent": "history/61852e11_95667.txt",
+   "challenger": "history/046a60a1_14932.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.23719771276929622,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.022977039217948914,
+    4.94445018262013e-09
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.1259227693080902,
+     "challenger": 0.0446808747947216
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58489_677",
+   "incumbent": "history/61852e11_95667.txt",
+   "challenger": "history/c83b5e1f_335750.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.23719771276929622,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    6.023573462243803e-08,
+    8.315280410897685e-07
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.1259227693080902,
+     "challenger": 0.2120688110589981
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58489_677",
+   "incumbent": "history/61852e11_95667.txt",
+   "challenger": "history/d90580d8_335776.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.23719771276929622,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    8.764247638737288e-08,
+    1.760343138812459e-06
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.1259227693080902,
+     "challenger": 0.14804719388484955
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58795_660",
+   "incumbent": "history/263d7b76_333962.txt",
+   "challenger": "history/409c0b81_94646.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.15101961822780524,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.9999998807907104,
+    0.32081979513168335
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9924227595329285,
+     "challenger": 0.949669361114502
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "62720_602",
+   "incumbent": "history/c2ee92cd_323032.txt",
+   "challenger": "history/5ebe2d0d_86723.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.08514311764162097,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.9999315738677979,
+    2.6464537228321205e-09
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9149009585380554,
+     "challenger": 0.28140559792518616
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63341_578",
+   "incumbent": "history/fd4f6e91_80961.txt",
+   "challenger": "history/04409875_314976.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.10633668103022986,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    1.4449801710725296e-07,
+    0.000552778597921133
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9890130758285522,
+     "challenger": 0.9937100410461426
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63341_578",
+   "incumbent": "history/fd4f6e91_80961.txt",
+   "challenger": "history/d5f907cb_81228.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.10633668103022986,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    2.335593052293916e-09,
+    4.5990555808117506e-10
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9890130758285522,
+     "challenger": 0.10087861120700836
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63341_578",
+   "incumbent": "history/fd4f6e91_80961.txt",
+   "challenger": "history/59f9d1af_81266.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.10633668103022986,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    1.1032560420787263e-09,
+    6.224144116773189e-11
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9890130758285522,
+     "challenger": 0.004905405919998884
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63380_574",
+   "incumbent": "history/4d5a702e_80782.txt",
+   "challenger": "history/3e60b9ac_58172.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1815417925373527,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    1.0,
+    0.059791743755340576
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.531209409236908,
+     "challenger": 0.8807970285415649
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63380_574",
+   "incumbent": "history/4d5a702e_80782.txt",
+   "challenger": "history/deeafb8a_312796.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1815417925373527,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.3157774806022644,
+    0.0019166962010785937
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.531209409236908,
+     "challenger": 0.5926666259765625
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63380_574",
+   "incumbent": "history/4d5a702e_80782.txt",
+   "challenger": "history/bc955eec_277935.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1815417925373527,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    2.5109834211889392e-08,
+    4.966183769283816e-05
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.531209409236908,
+     "challenger": 0.002981032943353057
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63638_563",
+   "incumbent": "history/548a204b_79292.txt",
+   "challenger": "history/af125c22_79072.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.08514311764162097,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    7.99195987166712e-11,
+    8.315280410897685e-07
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9688562154769897,
+     "challenger": 0.8670357465744019
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "64404_522",
+   "incumbent": "history/5fbd8e1e_71765.txt",
+   "challenger": "history/555f6044_8782.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.18154179253735267,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.32077696919441223,
+    3.741579917004856e-07
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9284088015556335,
+     "challenger": 0.0026316740550100803
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "64404_522",
+   "incumbent": "history/5fbd8e1e_71765.txt",
+   "challenger": "history/f7520705_73727.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.18154179253735267,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.815452516078949,
+    6.825602838489431e-08
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9284088015556335,
+     "challenger": 0.0018675659084692597
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "64404_522",
+   "incumbent": "history/5fbd8e1e_71765.txt",
+   "challenger": "history/8a4c67a0_297477.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.18154179253735267,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.8081498146057129,
+    1.0180499288026112e-07
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9284088015556335,
+     "challenger": 0.0018102108733728528
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "65653_514",
+   "incumbent": "history/fc7761d9_292713.txt",
+   "challenger": "history/6c7bd261_70871.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.08514311764162091,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.7306792140007019,
+    0.00017426651902496815
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.2689414322376251,
+     "challenger": 0.10087861120700836
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "65757_509",
+   "incumbent": "history/889b4c07_70084.txt",
+   "challenger": "history/135d811a_10557.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.085143117641621,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.18181802332401276,
+    6.825602838489431e-08
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9840936064720154,
+     "challenger": 0.11920291930437088
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "65757_509",
+   "incumbent": "history/889b4c07_70084.txt",
+   "challenger": "history/7e127276_82444.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.085143117641621,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.2221505343914032,
+    0.0015011703362688422
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9840936064720154,
+     "challenger": 0.4687906503677368
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "65757_509",
+   "incumbent": "history/889b4c07_70084.txt",
+   "challenger": "history/c8954639_290144.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.085143117641621,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.9820137619972229,
+    0.4378231167793274
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9840936064720154,
+     "challenger": 0.9820137619972229
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66169_496",
+   "incumbent": "history/5cfae1da_283982.txt",
+   "challenger": "history/88dc80a8_68385.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.23719771276929624,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.9999998807907104,
+    0.07050945609807968
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9840936064720154,
+     "challenger": 0.9890130758285522
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66504_460",
+   "incumbent": "history/a3baf9ae_58225.txt",
+   "challenger": "history/f9ef12b4_62870.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.18154179253735267,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.9999932050704956,
+    0.0011694737477228045
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.020332353189587593,
+     "challenger": 0.6791787147521973
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68684_393",
+   "incumbent": "history/e9b02a7e_248252.txt",
+   "challenger": "history/21a84fe0_53393.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.15101961822780519,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.9626715183258057,
+    0.3205324709415436
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9908744096755981,
+     "challenger": 0.5926666259765625
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68711_390",
+   "incumbent": "history/a8ab5f98_52994.txt",
+   "challenger": "history/006552c6_52957.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.11706259313796363,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    2.510999053129126e-08,
+    1.9947297005273867e-06
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9991440773010254,
+     "challenger": 0.4687906503677368
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69386_355",
+   "incumbent": "history/93f8a037_48921.txt",
+   "challenger": "history/abf30663_238835.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.13120507751234178,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    1.5229980832032197e-08,
+    4.2777878461741636e-11
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9964063763618469,
+     "challenger": 0.8080672025680542
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69386_355",
+   "incumbent": "history/93f8a037_48921.txt",
+   "challenger": "history/bd5afca1_260880.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.13120507751234178,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    2.335593052293916e-09,
+    1.6586784029604118e-12
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9964063763618469,
+     "challenger": 0.2689414322376251
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69484_350",
+   "incumbent": "history/4a17e690_47730.txt",
+   "challenger": "history/5edb2b3b_22046.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.15101961822780524,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.9928823709487915,
+    0.013405588455498219
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.0534033328294754,
+     "challenger": 0.042087726294994354
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69484_350",
+   "incumbent": "history/4a17e690_47730.txt",
+   "challenger": "history/3514639f_47861.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.15101961822780524,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.9503302574157715,
+    0.005067887715995312
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.0534033328294754,
+     "challenger": 0.0031726830638945103
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69484_350",
+   "incumbent": "history/4a17e690_47730.txt",
+   "challenger": "history/e4aa8550_238336.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.15101961822780524,
+   "historical_accepted": true,
+   "historical_probabilities": [
+    0.9850317239761353,
+    0.9770220518112183
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.0534033328294754,
+     "challenger": 0.9099069833755493
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69491_349",
+   "incumbent": "history/6d70b187_238127.txt",
+   "challenger": "history/cae9ca70_47549.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.18154179253735267,
+   "historical_accepted": true,
+   "historical_probabilities": [
+    0.9999992847442627,
+    0.9615892171859741
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.1561049073934555,
+     "challenger": 0.4073334336280823
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69718_334",
+   "incumbent": "history/0b7982c3_233998.txt",
+   "challenger": "history/250c9513_45152.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.18154179253735264,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    3.224186784223093e-08,
+    4.7850949158601e-06
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9796676635742188,
+     "challenger": 0.4687906503677368
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70556_274",
+   "incumbent": "history/b202e253_38181.txt",
+   "challenger": "history/c872edac_211649.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1815417925373527,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    4.5990555808117506e-10,
+    0.008577484637498856
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9956685304641724,
+     "challenger": 0.9980732202529907
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70556_274",
+   "incumbent": "history/b202e253_38181.txt",
+   "challenger": "history/842d18a5_211648.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1815417925373527,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    7.052879807956103e-11,
+    1.4166087192180044e-09
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9956685304641724,
+     "challenger": 0.3073580265045166
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70556_274",
+   "incumbent": "history/b202e253_38181.txt",
+   "challenger": "history/e5850610_211664.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1815417925373527,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    1.9555681518568235e-08,
+    4.450850212833757e-07
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9956685304641724,
+     "challenger": 0.07585817575454712
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71248_228",
+   "incumbent": "history/ed63cfb0_206149.txt",
+   "challenger": "history/c76137ae_31538.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.18154179253735264,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.047425657510757446,
+    0.9867032766342163
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9362850189208984,
+     "challenger": 0.9603611826896667
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71248_228",
+   "incumbent": "history/ed63cfb0_206149.txt",
+   "challenger": "history/fcd790ad_31537.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.18154179253735264,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.022977078333497047,
+    0.999998927116394
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9362850189208984,
+     "challenger": 0.949669361114502
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72126_178",
+   "incumbent": "history/27eec829_24434.txt",
+   "challenger": "history/6b5432d2_108991.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.15101961822780507,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    2.335593052293916e-09,
+    7.889262633398175e-06
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.7310585379600525,
+     "challenger": 0.43782350420951843
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72126_178",
+   "incumbent": "history/27eec829_24434.txt",
+   "challenger": "history/062a1dfb_198334.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.15101961822780507,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    1.0815941892117209e-11,
+    2.646573848963385e-09
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.7310585379600525,
+     "challenger": 0.09534946084022522
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72126_178",
+   "incumbent": "history/27eec829_24434.txt",
+   "challenger": "history/059cc2e4_198332.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.15101961822780507,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    8.423464183116014e-12,
+    1.3440409674103648e-08
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.7310585379600525,
+     "challenger": 0.13296423852443695
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72380_162",
+   "incumbent": "history/8df5468b_21615.txt",
+   "challenger": "history/337384ad_196160.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1815417925373527,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.777290940284729,
+    2.1442303477670066e-05
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.7549149990081787,
+     "challenger": 0.9883127808570862
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72380_162",
+   "incumbent": "history/8df5468b_21615.txt",
+   "challenger": "history/772524be_196185.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1815417925373527,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    2.1444946469273418e-05,
+    5.1441966206766665e-05
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.7549149990081787,
+     "challenger": 0.957912266254425
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72380_162",
+   "incumbent": "history/8df5468b_21615.txt",
+   "challenger": "history/a0938452_196157.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1815417925373527,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.022977344691753387,
+    0.2689313292503357
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.7549149990081787,
+     "challenger": 0.9783847332000732
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "74386_132",
+   "incumbent": "history/976b7968_173572.txt",
+   "challenger": "history/11c805a8_18000.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.085143117641621,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.6752110719680786,
+    0.008572784252464771
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.24508501589298248,
+     "challenger": 0.531209409236908
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "74414_130",
+   "incumbent": "history/8f7bebd3_17622.txt",
+   "challenger": "history/08d04599_17503.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.085143117641621,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    3.16088155649652e-10,
+    2.789468100949932e-10
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.8670357465744019,
+     "challenger": 0.09009299427270889
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76445_103",
+   "incumbent": "history/7ed2898a_14083.txt",
+   "challenger": "history/c5bc54d8_110161.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1815417925373527,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    8.707676784069918e-07,
+    2.3355894995802373e-09
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9919379353523254,
+     "challenger": 0.004070138093084097
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76445_103",
+   "incumbent": "history/7ed2898a_14083.txt",
+   "challenger": "history/f224e58b_14156.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1815417925373527,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.030726736411452293,
+    5.71094858514698e-07
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9919379353523254,
+     "challenger": 0.006289901677519083
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76445_103",
+   "incumbent": "history/7ed2898a_14083.txt",
+   "challenger": "history/fed680a4_154493.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.1815417925373527,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    3.4175772611888533e-07,
+    6.5974781193745e-10
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9919379353523254,
+     "challenger": 0.2568320035934448
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76455_102",
+   "incumbent": "history/b4b5cf1c_14032.txt",
+   "challenger": "history/7dfe939d_154460.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.15101961822780524,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    3.7266393064783188e-06,
+    0.9946578145027161
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.7549149990081787,
+     "challenger": 0.9991958737373352
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76455_102",
+   "incumbent": "history/b4b5cf1c_14032.txt",
+   "challenger": "history/9ab07f0c_154461.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.15101961822780524,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    3.7266393064783188e-06,
+    0.994705855846405
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.7549149990081787,
+     "challenger": 0.9992903470993042
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "79371_10",
+   "incumbent": "history/a91a5bbd_35959.txt",
+   "challenger": "history/7b4cd419_1198.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.11706259313796355,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.9999485015869141,
+    0.11849965155124664
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.0007321813027374446,
+     "challenger": 0.9820137619972229
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "79452_8",
+   "incumbent": "history/a862dee8_0882.txt",
+   "challenger": "history/a4dad329_92877.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.09785159463516047,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    8.198337582143722e-07,
+    5.315785500670245e-08
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.1561049073934555,
+     "challenger": 0.001597845577634871
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "79452_8",
+   "incumbent": "history/a862dee8_0882.txt",
+   "challenger": "history/423e77ab_107740.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.09785159463516047,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    7.922438089735806e-05,
+    4.7850949158601e-06
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.1561049073934555,
+     "challenger": 0.00912563782185316
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "79452_8",
+   "incumbent": "history/a862dee8_0882.txt",
+   "challenger": "history/1a873851_87865.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.09785159463516047,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    2.2531530703417957e-06,
+    7.734374207757355e-08
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.1561049073934555,
+     "challenger": 0.0031726830638945103
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "79516_4",
+   "incumbent": "history/bb450b0d_0481.txt",
+   "challenger": "history/8b326150_169822.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.23719771276929622,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    6.57073687762022e-05,
+    3.2882280720514245e-06
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9046505093574524,
+     "challenger": 0.0007321813027374446
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "79516_4",
+   "incumbent": "history/bb450b0d_0481.txt",
+   "challenger": "history/b5624916_252123.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.23719771276929622,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.0005524731823243201,
+    6.143956852611154e-06
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9046505093574524,
+     "challenger": 0.0012448433553799987
+    }
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "79516_4",
+   "incumbent": "history/bb450b0d_0481.txt",
+   "challenger": "history/92c49ff9_332676.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.23719771276929622,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    1.6373708433548018e-07,
+    4.784736574947601e-06
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9046505093574524,
+     "challenger": 2.2827998691354878e-05
+    }
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "13056_733",
+   "incumbent": "hsm/13056_4b1f090d7bdaa548_18.txt",
+   "challenger": "hsm/13764e8b_11534.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.18154179253735267,
+   "historical_accepted": true,
+   "historical_probabilities": [
+    0.9046505093574524,
+    0.9999985694885254
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.8670357465744019,
+     "challenger": 0.985042929649353
+    }
+   }
+  },
+  {
+   "domain": "iota",
+   "qid": "470_804",
+   "incumbent": "iota/66c05639_0860.txt",
+   "challenger": "iota/f6523e65_0382.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.13120507751234178,
+   "historical_accepted": true,
+   "historical_probabilities": [
+    0.9999963045120239,
+    0.6224572658538818
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9875683188438416,
+     "challenger": 0.9796676635742188
+    }
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "103723_833",
+   "incumbent": "law/974bbcdc_42251.txt",
+   "challenger": "law/ff377cb8_5460.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.15101961822780519,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.9859344363212585,
+    2.2603242086915998e-06
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9859364032745361,
+     "challenger": 0.8807970285415649
+    }
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "4235_894",
+   "incumbent": "monero/05efd27b_11657.txt",
+   "challenger": "monero/d267353c_82992.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.15101961822780524,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    5.602796449011294e-09,
+    2.5946095966178362e-11
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.977022647857666,
+     "challenger": 0.0015011822106316686
+    }
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "4235_894",
+   "incumbent": "monero/05efd27b_11657.txt",
+   "challenger": "monero/e1225d8c_84798.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.15101961822780524,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    5.211412412720051e-10,
+    3.775134718719819e-11
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.977022647857666,
+     "challenger": 0.014957087114453316
+    }
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "4235_894",
+   "incumbent": "monero/05efd27b_11657.txt",
+   "challenger": "monero/00f93afc_83527.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.15101961822780524,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.5621764659881592,
+    1.012999018712435e-05
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.977022647857666,
+     "challenger": 0.7310585379600525
+    }
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "78127_1021",
+   "incumbent": "politics/88951533_23182.txt",
+   "challenger": "politics/82010_a56e31dd4af4e897_18.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.38685280723454163,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    6.473777034443629e-07,
+    2.2897348947448215e-11
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.7549149990081787,
+     "challenger": 0.010328153148293495
+    }
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "78127_1021",
+   "incumbent": "politics/88951533_23182.txt",
+   "challenger": "politics/76296d99_14999.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.38685280723454163,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    1.3653772157340427e-06,
+    1.4640336303273216e-05
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.7549149990081787,
+     "challenger": 0.14804719388484955
+    }
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "78127_1021",
+   "incumbent": "politics/88951533_23182.txt",
+   "challenger": "politics/74803_116b2ef97cb7d2e3_87.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.38685280723454163,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.00020312165725044906,
+    4.058584301969148e-10
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.7549149990081787,
+     "challenger": 0.0446808747947216
+    }
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "91594_922",
+   "incumbent": "politics/85b05f68_3819.txt",
+   "challenger": "politics/b830a695_5639.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.18154179253735264,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.18978415429592133,
+    3.5356202715775e-05
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9830850958824158,
+     "challenger": 0.0024726232513785362
+    }
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "91594_922",
+   "incumbent": "politics/85b05f68_3819.txt",
+   "challenger": "politics/87961_5d08480fff03842f_231.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.18154179253735264,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.020293984562158585,
+    2.1442303477670066e-05
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9830850958824158,
+     "challenger": 0.08509904146194458
+    }
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "91594_922",
+   "incumbent": "politics/85b05f68_3819.txt",
+   "challenger": "politics/0523e104_179462.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.18154179253735264,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.006377460900694132,
+    0.006692752707749605
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9830850958824158,
+     "challenger": 0.9688562154769897
+    }
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "93430_914",
+   "incumbent": "politics/f6ca6856_1703.txt",
+   "challenger": "politics/93430_339a46a24efedef9_98.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.23719771276929616,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    1.1253516163378663e-07,
+    0.0007096704212017357
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.970687747001648,
+     "challenger": 0.0005357805639505386
+    }
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "93430_914",
+   "incumbent": "politics/f6ca6856_1703.txt",
+   "challenger": "politics/90784_f3e3c748900243d4_50.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.23719771276929616,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    5.602796449011294e-09,
+    4.691164434689199e-08
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.970687747001648,
+     "challenger": 0.1127953976392746
+    }
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "93430_914",
+   "incumbent": "politics/f6ca6856_1703.txt",
+   "challenger": "politics/77201_faf3165843cf6217_52.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.23719771276929616,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    2.998960857425459e-09,
+    1.6701422282494605e-05
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.970687747001648,
+     "challenger": 0.004609572701156139
+    }
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "186496_1156",
+   "incumbent": "travel/fdd2da47_4918.txt",
+   "challenger": "travel/187391f2_15984.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.23719771276929622,
+   "historical_accepted": true,
+   "historical_probabilities": [
+    1.0,
+    0.9999971389770508
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.0534033328294754,
+     "challenger": 0.6791787147521973
+    }
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "188309_1151",
+   "incumbent": "travel/aa07aae0_14651.txt",
+   "challenger": "travel/0dc478a9_10001.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.38685280723454163,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.7772600054740906,
+    0.006692838855087757
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9989012479782104,
+     "challenger": 0.9875683188438416
+    }
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "188309_1151",
+   "incumbent": "travel/aa07aae0_14651.txt",
+   "challenger": "travel/bd261421_13198.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.38685280723454163,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.060086559504270554,
+    2.1444948288262822e-05
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9989012479782104,
+     "challenger": 0.9465966820716858
+    }
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "188309_1151",
+   "incumbent": "travel/aa07aae0_14651.txt",
+   "challenger": "travel/f8586d4a_9801.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.38685280723454163,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    1.9555681518568235e-08,
+    2.646573848963385e-09
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9989012479782104,
+     "challenger": 0.9626730680465698
+    }
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "191336_1131",
+   "incumbent": "travel/6fb8a7cb_2997.txt",
+   "challenger": "travel/07c5aa37_11043.txt",
+   "gold_outcome": "challenger",
+   "delta": 0.18154179253735267,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    1.1032560420787263e-09,
+    3.581747953784742e-10
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9149009585380554,
+     "challenger": 0.4687906503677368
+    }
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "200312_1099",
+   "incumbent": "travel/585e35ee_1625.txt",
+   "challenger": "travel/eaac1ddb_170357.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.18154179253735267,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.00012339456588961184,
+    1.012999018712435e-05
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9783847332000732,
+     "challenger": 0.9724147915840149
+    }
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "200312_1099",
+   "incumbent": "travel/585e35ee_1625.txt",
+   "challenger": "travel/2141a6db_170340.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.18154179253735267,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.008577479980885983,
+    2.335593052293916e-09
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9783847332000732,
+     "challenger": 0.8175744414329529
+    }
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "200312_1099",
+   "incumbent": "travel/585e35ee_1625.txt",
+   "challenger": "travel/484320c3_170339.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.18154179253735267,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    0.0001233939838130027,
+    2.998960857425459e-09
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9783847332000732,
+     "challenger": 0.8872045874595642
+    }
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "189371_1204",
+   "incumbent": "workplace/4b552d4d_4383.txt",
+   "challenger": "workplace/6a7b0db5_4611.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.13120507751234178,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    3.0590220490012143e-07,
+    9.056077415747765e-11
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9669140577316284,
+     "challenger": 0.0023967307060956955
+    }
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "189371_1204",
+   "incumbent": "workplace/4b552d4d_4383.txt",
+   "challenger": "workplace/191906_9d1829cd7f8daa83_23.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.13120507751234178,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    1.855391076333035e-07,
+    2.4616969573898473e-10
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9669140577316284,
+     "challenger": 0.00010554686741670594
+    }
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "189371_1204",
+   "incumbent": "workplace/4b552d4d_4383.txt",
+   "challenger": "workplace/8e25c56a_9585.txt",
+   "gold_outcome": "incumbent",
+   "delta": -0.13120507751234178,
+   "historical_accepted": false,
+   "historical_probabilities": [
+    4.539784276857972e-05,
+    8.592164757459386e-10
+   ],
+   "predictions": {
+    "document_support": {
+     "incumbent": 0.9669140577316284,
+     "challenger": 0.01912403665482998
+    }
+   }
+  }
+ ]
+}
