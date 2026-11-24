@@ -149,7 +149,10 @@ def prompt(row, pair, contextual, reverse):
 
 
 @torch.inference_mode()
-def score_arm(model, tokenizer, rows, policy, batch_size, device, option_ids):
+def score_arm(model, tokenizer, rows, policy, batch_size, device, option_ids, *,
+              prompt_builder=prompt, option_names=("incumbent", "challenger", "abstain")):
+    if len(option_ids) != len(option_names):
+        raise ValueError("Each answer token needs an identity-aligned label")
     tokenizer.padding_side = "left"
     stats = {"prompts": 0, "prompt_tokens": 0, "batches": 0, "seconds": 0.0}
     if device.startswith("cuda"):
@@ -160,7 +163,7 @@ def score_arm(model, tokenizer, rows, policy, batch_size, device, option_ids):
         for pi, pair in enumerate(row["pairs"]):
             for reverse in (False, True):
                 chats.append(tokenizer.apply_chat_template(
-                    [{"role": "user", "content": prompt(row, pair, policy == "contextual", reverse)}],
+                    [{"role": "user", "content": prompt_builder(row, pair, policy == "contextual", reverse)}],
                     tokenize=False, add_generation_prompt=True))
                 meta.append((pi, reverse))
         probs = []
@@ -174,8 +177,7 @@ def score_arm(model, tokenizer, rows, policy, batch_size, device, option_ids):
             stats["prompt_tokens"] += int(enc["attention_mask"].sum().item())
             stats["seconds"] += time.perf_counter() - t0
         for (pi, reverse), pr in zip(meta, probs):
-            names = ("incumbent", "challenger", "abstain") if not reverse else (
-                "challenger", "incumbent", "abstain")
+            names = option_names if not reverse else (option_names[1], option_names[0], *option_names[2:])
             row["pairs"][pi].setdefault("pred", {})[("fwd" if not reverse else "rev")] = {
                 n: float(v) for n, v in zip(names, pr)}
             stats["prompts"] += 1
@@ -193,8 +195,9 @@ def perdoc_prompt(query, text):
 
 
 @torch.inference_mode()
-def score_perdoc(model, tokenizer, rows, batch_size, device, yes_ids, no_ids):
-    """Score all 13 pool documents per query with a yes/no relevance prompt."""
+def score_perdoc(model, tokenizer, rows, batch_size, device, yes_ids, no_ids, *,
+                 prompt_builder=perdoc_prompt):
+    """Score the supplied document pool per query with a yes/no relevance prompt."""
     tokenizer.padding_side = "left"
     stats = {"prompts": 0, "prompt_tokens": 0, "seconds": 0.0}
     if device.startswith("cuda"):
@@ -210,7 +213,7 @@ def score_perdoc(model, tokenizer, rows, batch_size, device, yes_ids, no_ids):
                 pool.append(d)
         text = row["doc_text"]
         chats = [tokenizer.apply_chat_template(
-            [{"role": "user", "content": perdoc_prompt(row["query"], text[d])}],
+            [{"role": "user", "content": prompt_builder(row["query"], text[d])}],
             tokenize=False, add_generation_prompt=True) for d in pool]
         vals = []
         for s in range(0, len(chats), batch_size):

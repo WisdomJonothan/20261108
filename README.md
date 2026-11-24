@@ -102,6 +102,13 @@ comparison it recovers four competition zeroes and creates four new zeroes.
 The score gain on competition zeroes (+0.00318) is offset by a larger loss on
 other queries (−0.00515). [Shortlist and routing analysis](docs/ABSTENTION_SHORTLIST_20261124.md)
 
+**Evidence gained and lost (2026-11-24).** On the same 328 training-fold
+queries, Direct scores **0.26573**, four-outcome support **0.25869** and
+isolated relative support **0.26194**. A qrels-based veto on the previous
+official-dev run would raise **0.37154** to **0.37356** while preserving all
+36 helpful swaps. The 12-prompt **0.37350** competition reference remains in use.
+[Matched prompts and evidence-step audit](docs/JOINT_SWAP_SUPPORT_20261124.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate
