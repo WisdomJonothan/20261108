@@ -1,0 +1,3680 @@
+{
+ "scope": "Exploratory fold-only replay. Combined policies use both evidence judgments and extra calls when excerpts change. Fixed one-action limit.",
+ "fold": "f0",
+ "summary": {
+  "lexical": {
+   "ndcg": 0.2597582483947733,
+   "versus_lexical": {
+    "point": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "counts": {
+    "neutral": 118,
+    "kept": 183,
+    "helpful": 20,
+    "harmful": 7
+   }
+  },
+  "semantic": {
+   "ndcg": 0.2564002295022719,
+   "versus_lexical": {
+    "point": -0.003358018892501358,
+    "ci95": [
+     -0.006835306783061886,
+     0.0001592952784854
+    ]
+   },
+   "counts": {
+    "neutral": 139,
+    "kept": 164,
+    "harmful": 10,
+    "helpful": 15
+   }
+  },
+  "lexical_then_semantic": {
+   "ndcg": 0.2577223529433569,
+   "versus_lexical": {
+    "point": -0.002035895451416417,
+    "ci95": [
+     -0.004566966906109415,
+     -9.564853644560598e-05
+    ]
+   },
+   "counts": {
+    "neutral": 152,
+    "kept": 141,
+    "helpful": 23,
+    "harmful": 12
+   }
+  },
+  "require_both": {
+   "ndcg": 0.2584813305976795,
+   "versus_lexical": {
+    "point": -0.0012769177970937801,
+    "ci95": [
+     -0.00401469652597053,
+     0.001552406614741166
+    ]
+   },
+   "counts": {
+    "neutral": 92,
+    "kept": 219,
+    "helpful": 12,
+    "harmful": 5
+   }
+  }
+ },
+ "per_query": [
+  {
+   "domain": "bitcoin",
+   "qid": "110829_79",
+   "baseline": 1.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "111734_77",
+   "baseline": 0.3391602052736161,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "112761_72",
+   "baseline": 0.2521686779156779,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "114177_62",
+   "baseline": 0.16812753627111746,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "118297_59",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "118997_56",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "119019_54",
+   "baseline": 0.18154179253735267,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "119566_49",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "119677_48",
+   "baseline": 0.23463936301137822,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "120256_42",
+   "baseline": 0.34326108113913595,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "120259_41",
+   "baseline": 0.6131471927654584,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "120666_36",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "121678_27",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "122291_22",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "122793_19",
+   "baseline": 0.499800561367962,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "124874_6",
+   "baseline": 0.44149241373678083,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "126019_1",
+   "baseline": 0.23463936301137822,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "96647_91",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "97009_90",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "11465_101",
+   "baseline": 0.46927872602275644,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "147_148",
+   "baseline": 0.15642624200758548,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "2118_134",
+   "baseline": 0.15642624200758548,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "241_144",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "4248_127",
+   "baseline": 0.43067655807339306,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "4659_122",
+   "baseline": 0.5642221110316635,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "8443_109",
+   "baseline": 1.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "8478_108",
+   "baseline": 0.6309297535714575,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "8943_106",
+   "baseline": 0.18457569677956817,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "cardano",
+   "qid": "92_149",
+   "baseline": 0.27976433801846934,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "43729_230",
+   "baseline": 0.24630238874073,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "51451_197",
+   "baseline": 0.6713860725233041,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "51615_195",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "52639_190",
+   "baseline": 0.38685280723454163,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "53713_187",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "54052_185",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "55778_177",
+   "baseline": 0.511558309303655,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "56380_175",
+   "baseline": 0.370291336443826,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "56750_174",
+   "baseline": 0.3973220069685352,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "58265_169",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "58958_165",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "59375_163",
+   "baseline": 0.09803928583135704,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "59399_162",
+   "baseline": 0.44615333764087994,
+   "outcomes": {
+    "lexical": 0.1020973951229116,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.1020973951229116,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "59746_160",
+   "baseline": 0.6257049680303419,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "60289_158",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "economics",
+   "qid": "60517_157",
+   "baseline": 0.19342640361727081,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "10719_304",
+   "baseline": 0.26687965254220064,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12209_292",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12242_291",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12525_288",
+   "baseline": 0.6713860725233041,
+   "outcomes": {
+    "lexical": 0.15642624200758537,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.15642624200758537,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12684_285",
+   "baseline": 0.5585075862632192,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12865_280",
+   "baseline": 0.5012658353418871,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "13314_272",
+   "baseline": 0.23463936301137822,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": -0.23463936301137822,
+    "lexical_then_semantic": -0.23463936301137822,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "13836_264",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "13899_263",
+   "baseline": 0.21840743681816419,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "16178_250",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "1635_347",
+   "baseline": 0.16958010263680806,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": -0.16958010263680806,
+    "lexical_then_semantic": -0.16958010263680806,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "1720_345",
+   "baseline": 0.2640681225725909,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "18137_245",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "18759_237",
+   "baseline": 0.7190932595736889,
+   "outcomes": {
+    "lexical": 0.10699313236726371,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.10699313236726371,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "1877_343",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "3010_327",
+   "baseline": 1.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "3152_326",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "3269_322",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "3332_321",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "3376_318",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "3444_316",
+   "baseline": 0.24630238874073,
+   "outcomes": {
+    "lexical": 0.19519002499605084,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.19519002499605084,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "genealogy",
+   "qid": "9808_315",
+   "baseline": 0.6730234638881232,
+   "outcomes": {
+    "lexical": 0.08274602130532005,
+    "semantic": 0.08274602130532005,
+    "lexical_then_semantic": 0.08274602130532005,
+    "require_both": 0.08274602130532005
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "52252_800",
+   "baseline": 0.06362078819895171,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "55753_796",
+   "baseline": 0.6509209298071326,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "55765_794",
+   "baseline": 0.3065735963827292,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "55779_793",
+   "baseline": 0.5032251913410369,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "55835_786",
+   "baseline": 0.36926780146674987,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "55970_778",
+   "baseline": 0.2638647595767405,
+   "outcomes": {
+    "lexical": 0.19519002499605087,
+    "semantic": 0.19519002499605087,
+    "lexical_then_semantic": 0.19519002499605087,
+    "require_both": 0.19519002499605087
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56031_774",
+   "baseline": 0.16812753627111746,
+   "outcomes": {
+    "lexical": 0.13905617951077562,
+    "semantic": 0.13905617951077562,
+    "lexical_then_semantic": 0.13905617951077562,
+    "require_both": 0.13905617951077562
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56063_772",
+   "baseline": 0.11751610475642714,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56139_764",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56165_761",
+   "baseline": 0.8318724637288826,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56168_760",
+   "baseline": 0.20438239758848611,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56235_757",
+   "baseline": 0.5205067333228022,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56426_741",
+   "baseline": 0.40179981797758046,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56436_737",
+   "baseline": 0.3903800499921017,
+   "outcomes": {
+    "lexical": 0.1301266833307005,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.1301266833307005,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56515_735",
+   "baseline": 0.5109559939712153,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56535_733",
+   "baseline": 0.16716045496620227,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56711_727",
+   "baseline": 0.3973220069685352,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56914_713",
+   "baseline": 0.592512031964586,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "56942_709",
+   "baseline": 0.6366824387328317,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "57164_697",
+   "baseline": 0.2640681225725909,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "57316_687",
+   "baseline": 0.20210734650054757,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "57364_685",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "57398_684",
+   "baseline": 0.6131471927654584,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58440_681",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58446_680",
+   "baseline": 0.22924436334369883,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58489_677",
+   "baseline": 0.23719771276929622,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58595_670",
+   "baseline": 0.6131471927654584,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58785_661",
+   "baseline": 0.3235866969737877,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58795_660",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.24630238874073,
+    "lexical_then_semantic": 0.24630238874073,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58846_655",
+   "baseline": 0.2960819109658652,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58889_653",
+   "baseline": 0.6049306994552042,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": -0.4692787260227564,
+    "lexical_then_semantic": -0.4692787260227564,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58954_649",
+   "baseline": 0.2640681225725909,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "58998_646",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "59155_636",
+   "baseline": 0.16716045496620227,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "59166_635",
+   "baseline": 0.15642624200758548,
+   "outcomes": {
+    "lexical": -0.15642624200758548,
+    "semantic": -0.15642624200758548,
+    "lexical_then_semantic": -0.15642624200758548,
+    "require_both": -0.15642624200758548
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "59365_617",
+   "baseline": 0.16716045496620227,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "59371_616",
+   "baseline": 0.5855700749881525,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "59458_611",
+   "baseline": 0.5706417189553201,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "62487_610",
+   "baseline": 0.6266432627014137,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "62514_608",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "62720_602",
+   "baseline": 0.27848058942730364,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "62740_600",
+   "baseline": 0.3080351663449861,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "62918_595",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "62937_593",
+   "baseline": 0.706046305905179,
+   "outcomes": {
+    "lexical": 0.10778915452451099,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.10778915452451099,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63257_582",
+   "baseline": 0.46927872602275644,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63341_578",
+   "baseline": 0.38121301394452073,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63366_577",
+   "baseline": 0.5842273861585909,
+   "outcomes": {
+    "lexical": 0.10778915452451088,
+    "semantic": 0.10086747116627115,
+    "lexical_then_semantic": 0.10778915452451088,
+    "require_both": 0.10778915452451088
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63369_576",
+   "baseline": 0.2960819109658652,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63380_574",
+   "baseline": 0.8854598815714874,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63392_572",
+   "baseline": 0.12647135138382856,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63474_569",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63638_563",
+   "baseline": 0.07839826897867533,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "63955_546",
+   "baseline": 0.7653606369886217,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "64103_536",
+   "baseline": 0.14829723057014912,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "64404_522",
+   "baseline": 0.18154179253735267,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "64561_519",
+   "baseline": 0.48882922182497546,
+   "outcomes": {
+    "lexical": -0.13886244387355456,
+    "semantic": 0.0,
+    "lexical_then_semantic": -0.13886244387355456,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "65653_514",
+   "baseline": 0.424926013816671,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "65757_509",
+   "baseline": 0.30523488393970116,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "65804_505",
+   "baseline": 0.30523488393970116,
+   "outcomes": {
+    "lexical": 0.07336392209936005,
+    "semantic": 0.07336392209936005,
+    "lexical_then_semantic": 0.07336392209936005,
+    "require_both": 0.07336392209936005
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66169_496",
+   "baseline": 0.3065735963827292,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66184_493",
+   "baseline": 1.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66233_487",
+   "baseline": 0.7461976723150332,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66243_485",
+   "baseline": 0.2960819109658652,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66324_474",
+   "baseline": 0.14126697285982898,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66392_471",
+   "baseline": 0.43067655807339306,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66457_465",
+   "baseline": 0.44229834886928765,
+   "outcomes": {
+    "lexical": 0.11751610475642715,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.11751610475642715,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66504_460",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66546_456",
+   "baseline": 0.3638184934971571,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66707_450",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "66845_438",
+   "baseline": 1.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "67960_435",
+   "baseline": 0.25469837558210445,
+   "outcomes": {
+    "lexical": 0.06362078819895173,
+    "semantic": 0.06362078819895173,
+    "lexical_then_semantic": 0.06362078819895173,
+    "require_both": 0.06362078819895173
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68060_427",
+   "baseline": 0.13886244387355454,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68338_415",
+   "baseline": 0.3065735963827292,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68436_408",
+   "baseline": 0.2987100207034456,
+   "outcomes": {
+    "lexical": -0.1077891545245109,
+    "semantic": -0.1077891545245109,
+    "lexical_then_semantic": -0.1077891545245109,
+    "require_both": -0.1077891545245109
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68489_406",
+   "baseline": 0.13886244387355454,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68520_403",
+   "baseline": 0.4378043742107727,
+   "outcomes": {
+    "lexical": -0.10122860821230023,
+    "semantic": -0.10122860821230023,
+    "lexical_then_semantic": -0.10122860821230023,
+    "require_both": -0.10122860821230023
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68551_401",
+   "baseline": 0.5709662133861838,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68684_393",
+   "baseline": 0.5078961547485289,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68708_391",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68711_390",
+   "baseline": 0.4034698846650846,
+   "outcomes": {
+    "lexical": -0.1008674711662711,
+    "semantic": -0.1008674711662711,
+    "lexical_then_semantic": -0.1008674711662711,
+    "require_both": -0.1008674711662711
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68727_388",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68785_386",
+   "baseline": 0.15176219107803537,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.1388624438735546,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68800_385",
+   "baseline": 0.26761938846816513,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68837_381",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68913_377",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "68947_373",
+   "baseline": 0.6760236910196462,
+   "outcomes": {
+    "lexical": 0.13012668333070065,
+    "semantic": 0.13012668333070065,
+    "lexical_then_semantic": 0.13012668333070065,
+    "require_both": 0.13012668333070065
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69211_362",
+   "baseline": 0.38685280723454163,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69386_355",
+   "baseline": 0.44728873736978103,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.12081130269949414,
+    "lexical_then_semantic": 0.12081130269949414,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69395_353",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69484_350",
+   "baseline": 0.4582033340096983,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69491_349",
+   "baseline": 0.16716045496620227,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69718_334",
+   "baseline": 0.23463936301137822,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69731_333",
+   "baseline": 0.252016380211836,
+   "outcomes": {
+    "lexical": 0.14606834984270645,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.14606834984270645,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69896_317",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69965_311",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "69981_309",
+   "baseline": 0.6476238513339844,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70025_307",
+   "baseline": 0.16812753627111746,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70097_304",
+   "baseline": 0.583717693439764,
+   "outcomes": {
+    "lexical": -0.08274602130532005,
+    "semantic": -0.08274602130532005,
+    "lexical_then_semantic": -0.08274602130532005,
+    "require_both": -0.08274602130532005
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70376_289",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70497_281",
+   "baseline": 0.3903800499921017,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70535_280",
+   "baseline": 1.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70539_279",
+   "baseline": 0.6131471927654584,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70545_277",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70549_276",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70556_274",
+   "baseline": 0.6340499455108034,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70626_267",
+   "baseline": 0.431733884398313,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70749_259",
+   "baseline": 0.18154179253735267,
+   "outcomes": {
+    "lexical": 0.15642624200758545,
+    "semantic": 0.15642624200758545,
+    "lexical_then_semantic": 0.15642624200758545,
+    "require_both": 0.15642624200758545
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70895_252",
+   "baseline": 0.5531464700081437,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70904_250",
+   "baseline": 1.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "70912_249",
+   "baseline": 0.45221360703148816,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71125_237",
+   "baseline": 0.3903800499921017,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.1390561795107756,
+    "lexical_then_semantic": 0.1390561795107756,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71248_228",
+   "baseline": 0.23463936301137822,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71264_226",
+   "baseline": 0.2890648263178879,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71525_209",
+   "baseline": 0.715696758318853,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71727_197",
+   "baseline": 0.2765732350040718,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71739_196",
+   "baseline": 0.787702056960637,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71891_191",
+   "baseline": 0.31546487678572877,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "71896_190",
+   "baseline": 1.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72098_182",
+   "baseline": 0.6105456988825855,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72126_178",
+   "baseline": 0.9047172294870751,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72290_170",
+   "baseline": 0.40179981797758046,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72295_169",
+   "baseline": 0.29007579773858083,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72320_166",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72380_162",
+   "baseline": 0.6797310500037655,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72661_148",
+   "baseline": 0.2032389337527008,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72811_138",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "72834_136",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "74386_132",
+   "baseline": 0.23365080824310533,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "74414_130",
+   "baseline": 0.22009176629808017,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "75662_126",
+   "baseline": 0.38162168437253385,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "75677_124",
+   "baseline": 0.31954962756492084,
+   "outcomes": {
+    "lexical": 0.2200917662980802,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.2200917662980802,
+    "require_both": 0.2200917662980802
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "75847_122",
+   "baseline": 0.2082936658103318,
+   "outcomes": {
+    "lexical": 0.11004588314904004,
+    "semantic": 0.11004588314904004,
+    "lexical_then_semantic": 0.11004588314904004,
+    "require_both": 0.11004588314904004
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "75992_117",
+   "baseline": 0.11838279295536293,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76445_103",
+   "baseline": 0.7122630665145961,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76455_102",
+   "baseline": 0.15101961822780524,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "76841_76",
+   "baseline": 0.20210734650054757,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "77030_66",
+   "baseline": 0.48522855511632257,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "77043_65",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "77132_60",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "77412_42",
+   "baseline": 0.5109559939712153,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "77420_41",
+   "baseline": 0.4985723557253838,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "77574_32",
+   "baseline": 0.38685280723454163,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "77592_31",
+   "baseline": 0.3080351663449861,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "77701_26",
+   "baseline": 0.8318724637288826,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "77708_25",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "77792_23",
+   "baseline": 0.7977228895450266,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "78809_22",
+   "baseline": 0.8048099750039491,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": -0.16812753627111743,
+    "lexical_then_semantic": -0.16812753627111743,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "79371_10",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "79452_8",
+   "baseline": 0.949671989333555,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "history",
+   "qid": "79516_4",
+   "baseline": 0.23719771276929622,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "13056_733",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "13068_732",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "13073_731",
+   "baseline": 0.20438239758848611,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "13333_723",
+   "baseline": 0.6240505200038379,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "13540_717",
+   "baseline": 0.23463936301137822,
+   "outcomes": {
+    "lexical": 0.16716045496620224,
+    "semantic": 0.16716045496620224,
+    "lexical_then_semantic": 0.16716045496620224,
+    "require_both": 0.16716045496620224
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "13693_711",
+   "baseline": 0.46927872602275644,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "13735_710",
+   "baseline": 0.5078961547485289,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "14388_701",
+   "baseline": 0.6309297535714575,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "14438_699",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "17762_687",
+   "baseline": 0.6131471927654584,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "18129_674",
+   "baseline": 0.46927872602275644,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "18176_673",
+   "baseline": 0.6713860725233041,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": -0.20210734650054762,
+    "lexical_then_semantic": -0.20210734650054762,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "18263_670",
+   "baseline": 0.19519002499605084,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "18473_663",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "18894_655",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "18933_651",
+   "baseline": 0.7653606369886217,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "2418_788",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "2435_787",
+   "baseline": 0.6131471927654584,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "2465_786",
+   "baseline": 0.40179981797758046,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "287_796",
+   "baseline": 0.23463936301137822,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "294_794",
+   "baseline": 1.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "295_793",
+   "baseline": 0.13565197343244778,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "2963_780",
+   "baseline": 0.8315546295836225,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "3040_774",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "3188_769",
+   "baseline": 0.2640681225725909,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "3334_758",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "5723_748",
+   "baseline": 0.38685280723454163,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "hsm",
+   "qid": "7343_744",
+   "baseline": 0.38685280723454163,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "iota",
+   "qid": "311_807",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "iota",
+   "qid": "470_804",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "103723_833",
+   "baseline": 0.4470913458557617,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "106732_821",
+   "baseline": 0.5,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "106974_820",
+   "baseline": 0.3010299956639812,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "107582_818",
+   "baseline": 0.46927872602275644,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "107656_817",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "108189_815",
+   "baseline": 0.123151194370365,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "law",
+   "qid": "109946_813",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "11061_865",
+   "baseline": 0.6509209298071326,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "11088_864",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "11284_861",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "11379_860",
+   "baseline": 0.46927872602275644,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "11933_855",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "12180_854",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "13070_850",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "3287_906",
+   "baseline": 0.6131471927654584,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "4235_894",
+   "baseline": 0.5413996682199069,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "4634_893",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "5928_890",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "6528_886",
+   "baseline": 0.16958010263680806,
+   "outcomes": {
+    "lexical": -0.16958010263680806,
+    "semantic": 0.0,
+    "lexical_then_semantic": -0.16958010263680806,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "monero",
+   "qid": "6899_883",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "74177_1055",
+   "baseline": 1.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "74387_1053",
+   "baseline": 1.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "74901_1046",
+   "baseline": 0.5,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "75283_1039",
+   "baseline": 0.7653606369886217,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "77497_1032",
+   "baseline": 0.370291336443826,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "77948_1026",
+   "baseline": 0.7271360547643255,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "77959_1025",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "78079_1022",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "78127_1021",
+   "baseline": 0.38685280723454163,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "78374_1017",
+   "baseline": 0.6131471927654584,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "81918_1014",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "81993_1012",
+   "baseline": 0.14126697285982898,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "82726_1004",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "82885_1001",
+   "baseline": 0.7328286204777911,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "83311_998",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "83755_989",
+   "baseline": 0.6934264036172708,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "86565_984",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "87367_978",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "88363_962",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "88566_958",
+   "baseline": 0.8318724637288826,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "89185_952",
+   "baseline": 0.49818925746641285,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "90116_940",
+   "baseline": 0.3391602052736161,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "90202_938",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "90720_932",
+   "baseline": 0.5,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "90784_930",
+   "baseline": 0.3152014104491349,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "91594_922",
+   "baseline": 0.5316900945208328,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "93430_914",
+   "baseline": 0.45560514958746035,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "politics",
+   "qid": "93839_909",
+   "baseline": 0.4632423659320675,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "70286_1087",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "73742_1083",
+   "baseline": 0.6309297535714575,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "75843_1076",
+   "baseline": 0.7903864795495061,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "77685_1073",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "79879_1065",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "80694_1063",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "quant",
+   "qid": "81021_1060",
+   "baseline": 0.24630238874073,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "184051_1188",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "184080_1187",
+   "baseline": 0.3065735963827292,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "184528_1182",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "185286_1175",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "185604_1171",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "186102_1164",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "186496_1156",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.3065735963827292,
+    "semantic": 0.3065735963827292,
+    "lexical_then_semantic": 0.3065735963827292,
+    "require_both": 0.3065735963827292
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "188309_1151",
+   "baseline": 0.38685280723454163,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "189951_1141",
+   "baseline": 0.38685280723454163,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "190046_1139",
+   "baseline": 0.3065735963827292,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "190437_1137",
+   "baseline": 0.8772153153380493,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "191336_1131",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "192250_1119",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "192684_1115",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "193691_1109",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "200312_1099",
+   "baseline": 0.18154179253735267,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "200459_1098",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "200476_1097",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "travel",
+   "qid": "201618_1092",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "178519_1217",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "184964_1207",
+   "baseline": 0.4441228664487979,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "189371_1204",
+   "baseline": 0.6355827475831716,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "191225_1202",
+   "baseline": 0.0,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "191273_1201",
+   "baseline": 0.20438239758848611,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "192075_1199",
+   "baseline": 0.3029889503327762,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  },
+  {
+   "domain": "workplace",
+   "qid": "197006_1195",
+   "baseline": 0.6309297535714575,
+   "outcomes": {
+    "lexical": 0.0,
+    "semantic": 0.0,
+    "lexical_then_semantic": 0.0,
+    "require_both": 0.0
+   }
+  }
+ ]
+}

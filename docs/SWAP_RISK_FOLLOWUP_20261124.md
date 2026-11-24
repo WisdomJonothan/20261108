@@ -32,6 +32,8 @@ The OOF top-20 coverage gain is +2.49 percentage points after weighting domains 
 
 Keep the original competition configuration. The paired results bound what can be gained by recalibrating the saved scores alone. The next controlled experiment should add a text-based relevance signal to the candidates that the current comparison stage misses. Hold the candidate pool, six judged pairs, and maximum one replacement fixed in the system comparison. Use out-of-fold outcomes to check positive acceptance and harmful swaps before transferring its rule to official dev.
 
+The [semantic window follow-up](SEMANTIC_JUDGE_WINDOWS_20261124.md) runs that fixed-pair comparison on f0.
+
 ## Reproduction
 
 Run from the repository root with official qrels, the saved action caches, and the original dense runs. The shortlist experiment also needs the generated fold CE runs.
