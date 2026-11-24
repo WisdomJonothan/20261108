@@ -1,0 +1,37 @@
+{
+ "policy": "Apply the trained rank-only one-exchange policy only where the fixed external-six judge abstains. The candidate and score model are unchanged.",
+ "splits": {
+  "oof": {
+   "queries": 969,
+   "fallback_eligible": 553,
+   "external6": 0.28335185454401096,
+   "fallback_score": 0.2859153272131189,
+   "fallback_extra_delta": 0.002563472669107924,
+   "bootstrap": {
+    "delta": 0.002563472669107924,
+    "ci95": [
+     -0.00021799287705661236,
+     0.005663102118597126
+    ],
+    "p_le_0": 0.0351,
+    "draws": 10000
+   }
+  },
+  "dev": {
+   "queries": 519,
+   "fallback_eligible": 263,
+   "external6": 0.3735032332323295,
+   "fallback_score": 0.3705349600946735,
+   "fallback_extra_delta": -0.0029682731376559257,
+   "bootstrap": {
+    "delta": -0.0029682731376559257,
+    "ci95": [
+     -0.007923124693827568,
+     0.0011739951580917003
+    ],
+    "p_le_0": 0.9045,
+    "draws": 10000
+   }
+  }
+ }
+}

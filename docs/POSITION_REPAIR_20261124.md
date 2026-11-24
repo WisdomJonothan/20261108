@@ -24,6 +24,8 @@ A pairwise logistic rank model uses only reciprocal log ranks from the frozen ra
 
 On dev, the full reorder interval is [−0.00519, +0.00720] and the one-exchange interval is [−0.00778, +0.00377]. The rank features provide a useful cost-matched action-pool control. They show no confirmed dev gain. The CE in the training fold is the fold reranker, while dev uses the existing full-question CE comparator. Feature transfer across those settings is part of the measured test.
 
+We also applied the CPU exchange only when the six-pair external judge declined all actions. This adds 0.00256 on the training folds (95% interval [−0.00022, +0.00566]) and loses 0.00297 on dev ([−0.00792, +0.00117]), moving 0.37350 to 0.37053. The fallback is an exploratory control, so the current competition configuration is retained. [Replay result](../results/analysis/position_fallback_20261124.json)
+
 ## Qwen evaluation
 
 The scores for the position-exchange and mixed policies are pending. The frozen competition configuration remains the reference. We will compare the two new arms to the same six-pair external arm, report the actual changes and costs, and keep the fold and dev results separate.
@@ -34,6 +36,7 @@ Run from the project root with the official data, fold CE TREC runs, and the fro
 python scripts/eval_position_repair.py --folds f0 f1 f2 --output results/analysis/position_oracle_oof_20261124.json
 python scripts/eval_position_repair.py --folds dev --output results/analysis/position_oracle_dev_20261124.json
 python scripts/eval_position_rank_features.py --output results/analysis/position_rank_features_20261124.json
+python scripts/replay_position_fallback.py
 python scripts/eval_position_repair.py --model models/Qwen3-4B-Instruct-2507 --folds f0 f1 f2 --output results/analysis/position_repair_oof_20261124.json
 python scripts/eval_position_repair.py --model models/Qwen3-4B-Instruct-2507 --folds dev --output results/analysis/position_repair_dev_20261124.json
 ```
