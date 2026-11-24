@@ -1,0 +1,281 @@
+{
+ "scope": "Matched training-fold samples; anchor fusion uses 198 prompts per query versus 12 for the reference action policy.",
+ "samples": {
+  "anchor_reranker_oof_sample26_20261124.json": {
+   "queries": 26,
+   "scores": {
+    "frozen_base": 0.2588023177731239,
+    "external6": 0.2594078786935984,
+    "anchor_only": 0.2848904560444088,
+    "anchor_fusion": 0.28511733343553686
+   },
+   "anchor_fusion_vs_external6": {
+    "point": 0.025709454741938496,
+    "ci95": [
+     0.00421748971895042,
+     0.04758620914158423
+    ]
+   },
+   "improved_domains": 8,
+   "worse_domains": 4,
+   "per_domain_delta": {
+    "bitcoin": 0.0,
+    "cardano": -0.004192643262326434,
+    "economics": 0.008767429383036346,
+    "genealogy": 0.00834837565052643,
+    "history": 0.02013740983876186,
+    "hsm": -0.11314719276545837,
+    "iota": 0.08553340965372429,
+    "law": 0.05146536480693632,
+    "monero": 0.20519726391309373,
+    "politics": 0.0044647480900375375,
+    "quant": -0.05848033372663815,
+    "travel": 0.1480409554829326,
+    "workplace": -0.021911875419425714
+   }
+  }
+ },
+ "combined": {
+  "queries": 26,
+  "scores": {
+   "frozen_base": 0.2588023177731239,
+   "external6": 0.2594078786935984,
+   "anchor_only": 0.2848904560444088,
+   "anchor_fusion": 0.28511733343553686
+  },
+  "anchor_fusion_vs_external6": {
+   "point": 0.025709454741938496,
+   "ci95": [
+    0.00421748971895042,
+    0.04758620914158423
+   ]
+  },
+  "improved_domains": 8,
+  "worse_domains": 4,
+  "per_domain_delta": {
+   "bitcoin": 0.0,
+   "cardano": -0.004192643262326434,
+   "economics": 0.008767429383036346,
+   "genealogy": 0.00834837565052643,
+   "history": 0.02013740983876186,
+   "hsm": -0.11314719276545837,
+   "iota": 0.08553340965372429,
+   "law": 0.05146536480693632,
+   "monero": 0.20519726391309373,
+   "politics": 0.0044647480900375375,
+   "quant": -0.05848033372663815,
+   "travel": 0.1480409554829326,
+   "workplace": -0.021911875419425714
+  }
+ },
+ "per_query": [
+  {
+   "domain": "bitcoin",
+   "qid": "125174_3",
+   "frozen_base": 0.13012668333070054,
+   "external6": 0.13012668333070054,
+   "anchor_only": 0.15101961822780524,
+   "anchor_fusion": 0.13012668333070054
+  },
+  {
+   "domain": "bitcoin",
+   "qid": "98618_84",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0
+  },
+  {
+   "domain": "cardano",
+   "qid": "8478_108",
+   "frozen_base": 0.6309297535714575,
+   "external6": 0.6309297535714575,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.6309297535714575
+  },
+  {
+   "domain": "cardano",
+   "qid": "857_138",
+   "frozen_base": 0.15642624200758548,
+   "external6": 0.15642624200758548,
+   "anchor_only": 0.13565197343244778,
+   "anchor_fusion": 0.1480409554829326
+  },
+  {
+   "domain": "economics",
+   "qid": "53713_187",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.17723928678404774,
+   "anchor_fusion": 0.0
+  },
+  {
+   "domain": "economics",
+   "qid": "52186_192",
+   "frozen_base": 0.44293981265090565,
+   "external6": 0.44293981265090565,
+   "anchor_only": 0.08431423425588572,
+   "anchor_fusion": 0.46047467141697834
+  },
+  {
+   "domain": "genealogy",
+   "qid": "12904_279",
+   "frozen_base": 0.5240185826326421,
+   "external6": 0.3936948167222716,
+   "anchor_only": 0.21779548001177887,
+   "anchor_fusion": 0.41039156802332444
+  },
+  {
+   "domain": "genealogy",
+   "qid": "16178_250",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0
+  },
+  {
+   "domain": "history",
+   "qid": "62606_606",
+   "frozen_base": 0.34337431936037655,
+   "external6": 0.34337431936037655,
+   "anchor_only": 0.4525081529734507,
+   "anchor_fusion": 0.38364913903790027
+  },
+  {
+   "domain": "history",
+   "qid": "70696_261",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0
+  },
+  {
+   "domain": "hsm",
+   "qid": "18004_679",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0
+  },
+  {
+   "domain": "hsm",
+   "qid": "17821_684",
+   "frozen_base": 0.9197207891481876,
+   "external6": 0.9197207891481876,
+   "anchor_only": 0.5012658353418871,
+   "anchor_fusion": 0.6934264036172708
+  },
+  {
+   "domain": "iota",
+   "qid": "1954_803",
+   "frozen_base": 0.6508205185601091,
+   "external6": 0.6508205185601091,
+   "anchor_only": 0.7039180890341347,
+   "anchor_fusion": 0.7653606369886217
+  },
+  {
+   "domain": "iota",
+   "qid": "2497_799",
+   "frozen_base": 0.2442584792702138,
+   "external6": 0.2442584792702138,
+   "anchor_only": 0.34519134224686937,
+   "anchor_fusion": 0.30078518014914984
+  },
+  {
+   "domain": "law",
+   "qid": "106290_825",
+   "frozen_base": 0.15101961822780524,
+   "external6": 0.15101961822780524,
+   "anchor_only": 0.24630238874073,
+   "anchor_fusion": 0.16812753627111746
+  },
+  {
+   "domain": "law",
+   "qid": "106974_820",
+   "frozen_base": 0.3010299956639812,
+   "external6": 0.3010299956639812,
+   "anchor_only": 0.5,
+   "anchor_fusion": 0.38685280723454163
+  },
+  {
+   "domain": "monero",
+   "qid": "7581_880",
+   "frozen_base": 0.2960819109658652,
+   "external6": 0.2960819109658652,
+   "anchor_only": 0.2960819109658652,
+   "anchor_fusion": 0.46927872602275644
+  },
+  {
+   "domain": "monero",
+   "qid": "6113_888",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.38685280723454163,
+   "anchor_fusion": 0.23719771276929622
+  },
+  {
+   "domain": "politics",
+   "qid": "74135_1056",
+   "frozen_base": 0.13012668333070054,
+   "external6": 0.13012668333070054,
+   "anchor_only": 0.39399144290744104,
+   "anchor_fusion": 0.13905617951077562
+  },
+  {
+   "domain": "politics",
+   "qid": "77123_1037",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.0
+  },
+  {
+   "domain": "quant",
+   "qid": "81021_1060",
+   "frozen_base": 0.24630238874073,
+   "external6": 0.24630238874073,
+   "anchor_only": 0.312706129752478,
+   "anchor_fusion": 0.24630238874073
+  },
+  {
+   "domain": "quant",
+   "qid": "36059_1091",
+   "frozen_base": 0.10209739512291163,
+   "external6": 0.24816574496561808,
+   "anchor_only": 0.2716774977597197,
+   "anchor_fusion": 0.13120507751234178
+  },
+  {
+   "domain": "travel",
+   "qid": "184986_1178",
+   "frozen_base": 0.7328286204777911,
+   "external6": 0.7328286204777911,
+   "anchor_only": 1.0,
+   "anchor_fusion": 0.7328286204777911
+  },
+  {
+   "domain": "travel",
+   "qid": "186288_1160",
+   "frozen_base": 0.0,
+   "external6": 0.0,
+   "anchor_only": 0.6049306994552042,
+   "anchor_fusion": 0.2960819109658652
+  },
+  {
+   "domain": "workplace",
+   "qid": "171559_1221",
+   "frozen_base": 0.43067655807339306,
+   "external6": 0.43067655807339306,
+   "anchor_only": 0.0,
+   "anchor_fusion": 0.38685280723454163
+  },
+  {
+   "domain": "workplace",
+   "qid": "193475_1198",
+   "frozen_base": 0.2960819109658652,
+   "external6": 0.2960819109658652,
+   "anchor_only": 0.6257049680303419,
+   "anchor_fusion": 0.2960819109658652
+  }
+ ]
+}
