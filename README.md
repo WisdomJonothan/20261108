@@ -95,6 +95,13 @@ when a fresh two-order comparison can approve one exchange. Confirmation keeps
 retains the 12-prompt **0.3735** competition configuration.
 [Matched head-confirmation experiment](docs/HEAD_AGREEMENT_20261124.md)
 
+**Reaching zero-score queries (2026-11-24).** With the same six comparisons,
+the supervised shortlist raises the 969-query training-fold score by +0.00262
+and official dev scores **0.37154** versus **0.37350**. In the direct dev
+comparison it recovers four competition zeroes and creates four new zeroes.
+The score gain on competition zeroes (+0.00318) is offset by a larger loss on
+other queries (−0.00515). [Shortlist and routing analysis](docs/ABSTENTION_SHORTLIST_20261124.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate

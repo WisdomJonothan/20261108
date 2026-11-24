@@ -1,0 +1,363 @@
+{
+ "protocol": "Keep the first three original comparisons. If they all fail the acceptance gate, judge three unseen candidates against the original document at rank five. Select them from the existing held-out rank-union or supervised shortlist on the same dense top 100. Keep the original suffix if any prefix comparison passes. All arms use six comparisons, both orders, and at most one replacement. The shared inference run reuses unchanged, identical pairs across arms. Qrels are used only for scoring and diagnostics.",
+ "inputs": [
+  "abstention_shortlist_judge_f0_20261124.json",
+  "abstention_shortlist_judge_f12_20261124.json"
+ ],
+ "inference": {
+  "prompts": 6272,
+  "prompt_tokens": 3546135,
+  "judge_seconds": 609.1886966889724,
+  "gpu_peak_mib": 9426.7001953125
+ },
+ "summary": {
+  "queries": 969,
+  "routed": 676,
+  "fresh_pairs": 3136,
+  "dense_reachable_zeroes": 187,
+  "routed_dense_reachable_zeroes": 123,
+  "arms": {
+   "external6": {
+    "oracle": 0.3110877585671692,
+    "zeroes_with_beneficial_comparison": 38,
+    "mean_unique_challengers": 4.110423116615067,
+    "ndcg": 0.28335185454401096,
+    "versus_external6": {
+     "point": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "decisions": {
+     "neutral": 346,
+     "abstained": 553,
+     "helpful": 45,
+     "harmful": 25
+    },
+    "zeroes_with_beneficial_accepted_comparison": 11,
+    "zeroes_recovered": 7,
+    "new_zeroes": 6
+   },
+   "rank_union": {
+    "oracle": 0.3156102313171562,
+    "zeroes_with_beneficial_comparison": 42,
+    "mean_unique_challengers": 5.035087719298246,
+    "ndcg": 0.2831306463972279,
+    "versus_external6": {
+     "point": -0.0002212081467830882,
+     "ci95": [
+      -0.0032499859495826048,
+      0.0026631531753571708
+     ]
+    },
+    "decisions": {
+     "neutral": 421,
+     "abstained": 462,
+     "harmful": 34,
+     "helpful": 52
+    },
+    "zeroes_with_beneficial_accepted_comparison": 15,
+    "zeroes_recovered": 9,
+    "new_zeroes": 8
+   },
+   "supervised": {
+    "oracle": 0.31742890355536857,
+    "zeroes_with_beneficial_comparison": 46,
+    "mean_unique_challengers": 5.035087719298246,
+    "ndcg": 0.2859751979138061,
+    "versus_external6": {
+     "point": 0.0026233433697951344,
+     "ci95": [
+      -0.0013522454717744086,
+      0.007066468545865154
+     ]
+    },
+    "decisions": {
+     "neutral": 407,
+     "abstained": 475,
+     "harmful": 29,
+     "helpful": 58
+    },
+    "zeroes_with_beneficial_accepted_comparison": 18,
+    "zeroes_recovered": 13,
+    "new_zeroes": 7
+   }
+  },
+  "supervised_vs_rank_union": {
+   "point": 0.0028445515165782228,
+   "ci95": [
+    -0.0005835044036204269,
+    0.007047334494976056
+   ]
+  },
+  "supervised_per_domain_delta_vs_external6": {
+   "bitcoin": 0.0020633245630921255,
+   "cardano": 0.0,
+   "economics": 0.004152902238338374,
+   "genealogy": 0.00036860405820171626,
+   "history": 0.0017986358733337964,
+   "hsm": -0.002001518288941874,
+   "iota": 0.02186751291872363,
+   "law": 0.0,
+   "monero": 0.010993995010975791,
+   "politics": -0.0033333999561325884,
+   "quant": 0.0,
+   "travel": 0.004699741556280802,
+   "workplace": -0.006506334166535027
+  },
+  "supervised_query_weighted_delta_vs_external6": 0.0014041965423134408,
+  "supervised_domain_cluster_ci95": [
+   -0.0006776276515274753,
+   0.006725419971153482
+  ]
+ },
+ "per_fold": {
+  "f0": {
+   "queries": 328,
+   "routed": 223,
+   "fresh_pairs": 1000,
+   "dense_reachable_zeroes": 66,
+   "routed_dense_reachable_zeroes": 46,
+   "arms": {
+    "external6": {
+     "oracle": 0.2924553803080417,
+     "zeroes_with_beneficial_comparison": 13,
+     "mean_unique_challengers": 4.198170731707317,
+     "ndcg": 0.2597582483947733,
+     "versus_external6": {
+      "point": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ]
+     },
+     "decisions": {
+      "neutral": 118,
+      "abstained": 183,
+      "helpful": 20,
+      "harmful": 7
+     },
+     "zeroes_with_beneficial_accepted_comparison": 2,
+     "zeroes_recovered": 1,
+     "new_zeroes": 2
+    },
+    "rank_union": {
+     "oracle": 0.300718672663623,
+     "zeroes_with_beneficial_comparison": 18,
+     "mean_unique_challengers": 4.972560975609756,
+     "ndcg": 0.2601123317184967,
+     "versus_external6": {
+      "point": 0.00035408332372339986,
+      "ci95": [
+       -0.003375115438377533,
+       0.004358312934545434
+      ]
+     },
+     "decisions": {
+      "neutral": 147,
+      "abstained": 148,
+      "harmful": 11,
+      "helpful": 22
+     },
+     "zeroes_with_beneficial_accepted_comparison": 6,
+     "zeroes_recovered": 4,
+     "new_zeroes": 2
+    },
+    "supervised": {
+     "oracle": 0.30478757032385695,
+     "zeroes_with_beneficial_comparison": 19,
+     "mean_unique_challengers": 4.972560975609756,
+     "ndcg": 0.26573180514397315,
+     "versus_external6": {
+      "point": 0.00597355674919984,
+      "ci95": [
+       -0.0018593279071631894,
+       0.013879763256268671
+      ]
+     },
+     "decisions": {
+      "neutral": 147,
+      "abstained": 152,
+      "harmful": 8,
+      "helpful": 21
+     },
+     "zeroes_with_beneficial_accepted_comparison": 6,
+     "zeroes_recovered": 4,
+     "new_zeroes": 2
+    }
+   },
+   "supervised_vs_rank_union": {
+    "point": 0.00561947342547644,
+    "ci95": [
+     -0.0015184914591932167,
+     0.01286221932994354
+    ]
+   }
+  },
+  "f1": {
+   "queries": 323,
+   "routed": 225,
+   "fresh_pairs": 1047,
+   "dense_reachable_zeroes": 68,
+   "routed_dense_reachable_zeroes": 39,
+   "arms": {
+    "external6": {
+     "oracle": 0.31986237738152656,
+     "zeroes_with_beneficial_comparison": 17,
+     "mean_unique_challengers": 4.027863777089784,
+     "ndcg": 0.28610317230965304,
+     "versus_external6": {
+      "point": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ]
+     },
+     "decisions": {
+      "abstained": 186,
+      "neutral": 115,
+      "harmful": 10,
+      "helpful": 12
+     },
+     "zeroes_with_beneficial_accepted_comparison": 5,
+     "zeroes_recovered": 4,
+     "new_zeroes": 3
+    },
+    "rank_union": {
+     "oracle": 0.31614753495592735,
+     "zeroes_with_beneficial_comparison": 14,
+     "mean_unique_challengers": 5.077399380804954,
+     "ndcg": 0.2855574365952789,
+     "versus_external6": {
+      "point": -0.0005457357143741665,
+      "ci95": [
+       -0.005062209188274989,
+       0.003590402912557524
+      ]
+     },
+     "decisions": {
+      "abstained": 150,
+      "neutral": 147,
+      "helpful": 17,
+      "harmful": 9
+     },
+     "zeroes_with_beneficial_accepted_comparison": 4,
+     "zeroes_recovered": 3,
+     "new_zeroes": 4
+    },
+    "supervised": {
+     "oracle": 0.31902006541521744,
+     "zeroes_with_beneficial_comparison": 18,
+     "mean_unique_challengers": 5.077399380804954,
+     "ndcg": 0.28654734341321597,
+     "versus_external6": {
+      "point": 0.00044417110356290065,
+      "ci95": [
+       -0.003728667188244158,
+       0.0041973057047106025
+      ]
+     },
+     "decisions": {
+      "abstained": 155,
+      "neutral": 136,
+      "helpful": 22,
+      "harmful": 10
+     },
+     "zeroes_with_beneficial_accepted_comparison": 7,
+     "zeroes_recovered": 6,
+     "new_zeroes": 3
+    }
+   },
+   "supervised_vs_rank_union": {
+    "point": 0.0009899068179370666,
+    "ci95": [
+     -0.0017130825709559072,
+     0.003816593088514812
+    ]
+   }
+  },
+  "f2": {
+   "queries": 318,
+   "routed": 228,
+   "fresh_pairs": 1089,
+   "dense_reachable_zeroes": 53,
+   "routed_dense_reachable_zeroes": 38,
+   "arms": {
+    "external6": {
+     "oracle": 0.32315866981036895,
+     "zeroes_with_beneficial_comparison": 8,
+     "mean_unique_challengers": 4.10377358490566,
+     "ndcg": 0.30635482048116275,
+     "versus_external6": {
+      "point": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ]
+     },
+     "decisions": {
+      "abstained": 184,
+      "harmful": 8,
+      "neutral": 113,
+      "helpful": 13
+     },
+     "zeroes_with_beneficial_accepted_comparison": 4,
+     "zeroes_recovered": 2,
+     "new_zeroes": 1
+    },
+    "rank_union": {
+     "oracle": 0.3324472393305923,
+     "zeroes_with_beneficial_comparison": 10,
+     "mean_unique_challengers": 5.056603773584905,
+     "ndcg": 0.30595767816133096,
+     "versus_external6": {
+      "point": -0.000397142319831771,
+      "ci95": [
+       -0.0067690917850882415,
+       0.006319061726729514
+      ]
+     },
+     "decisions": {
+      "abstained": 164,
+      "neutral": 127,
+      "harmful": 14,
+      "helpful": 13
+     },
+     "zeroes_with_beneficial_accepted_comparison": 5,
+     "zeroes_recovered": 2,
+     "new_zeroes": 2
+    },
+    "supervised": {
+     "oracle": 0.3307337536730935,
+     "zeroes_with_beneficial_comparison": 9,
+     "mean_unique_challengers": 5.056603773584905,
+     "ndcg": 0.3079042851499723,
+     "versus_external6": {
+      "point": 0.0015494646688095567,
+      "ci95": [
+       -0.0050396688793396816,
+       0.008516930203856415
+      ]
+     },
+     "decisions": {
+      "abstained": 168,
+      "neutral": 124,
+      "harmful": 11,
+      "helpful": 15
+     },
+     "zeroes_with_beneficial_accepted_comparison": 5,
+     "zeroes_recovered": 3,
+     "new_zeroes": 2
+    }
+   },
+   "supervised_vs_rank_union": {
+    "point": 0.0019466069886413283,
+    "ci95": [
+     -0.0037135200427087962,
+     0.007825178883061853
+    ]
+   }
+  }
+ }
+}
