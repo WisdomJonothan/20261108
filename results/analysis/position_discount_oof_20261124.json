@@ -1,0 +1,115 @@
+{
+ "folds": [
+  "f0",
+  "f1",
+  "f2"
+ ],
+ "protocol": "Keep the same accepted pairs. Choose the positive action with maximum discount at the edited slot (or discount difference for an exchange) times 2p-1. The factor is a fixed priority using the mean two-order challenger probability and has no fitted coefficients.",
+ "results": {
+  "external6": {
+   "ndcg": 0.28184111739260276,
+   "change_vs_original_ranking": {
+    "point": 0.002972196205747444,
+    "ci95": [
+     -0.0008506186760068601,
+     0.006701431722929232
+    ]
+   },
+   "change_vs_external6_confidence": {
+    "point": -0.0015107371514082371,
+    "ci95": [
+     -0.004187780794372354,
+     0.000598790911511607
+    ]
+   },
+   "change_vs_own_confidence": {
+    "point": -0.0015107371514082371,
+    "ci95": [
+     -0.004187780794372354,
+     0.000598790911511607
+    ]
+   },
+   "counts": {
+    "neutral": 346,
+    "abstained": 553,
+    "helpful": 47,
+    "harmful": 23
+   },
+   "failures": {
+    "oracle_positive": 147,
+    "no_beneficial_action_accepted": 82,
+    "beneficial_action_accepted_but_not_chosen": 18
+   }
+  },
+  "internal6": {
+   "ndcg": 0.2869307861962644,
+   "change_vs_original_ranking": {
+    "point": 0.008061865009409065,
+    "ci95": [
+     0.0007178187118519226,
+     0.016244052336841758
+    ]
+   },
+   "change_vs_external6_confidence": {
+    "point": 0.0035789316522533837,
+    "ci95": [
+     -0.004270565028746542,
+     0.012352023275673859
+    ]
+   },
+   "change_vs_own_confidence": {
+    "point": 0.00033948323647484217,
+    "ci95": [
+     -0.004528315588334063,
+     0.004922373208114457
+    ]
+   },
+   "counts": {
+    "abstained": 412,
+    "neutral": 415,
+    "helpful": 92,
+    "harmful": 50
+   },
+   "failures": {
+    "oracle_positive": 288,
+    "no_beneficial_action_accepted": 163,
+    "beneficial_action_accepted_but_not_chosen": 33
+   }
+  },
+  "mixed3x3": {
+   "ndcg": 0.28502711383689533,
+   "change_vs_original_ranking": {
+    "point": 0.006158192650040027,
+    "ci95": [
+     -0.0011522530326512656,
+     0.014363781996694034
+    ]
+   },
+   "change_vs_external6_confidence": {
+    "point": 0.0016752592928843439,
+    "ci95": [
+     -0.005476080309857359,
+     0.009712851754068828
+    ]
+   },
+   "change_vs_own_confidence": {
+    "point": -0.0005507072699812314,
+    "ci95": [
+     -0.004729831577439623,
+     0.003083101728079561
+    ]
+   },
+   "counts": {
+    "neutral": 405,
+    "abstained": 431,
+    "helpful": 79,
+    "harmful": 54
+   },
+   "failures": {
+    "oracle_positive": 270,
+    "no_beneficial_action_accepted": 152,
+    "beneficial_action_accepted_but_not_chosen": 39
+   }
+  }
+ }
+}

@@ -34,7 +34,17 @@ The original six-pair judge selected 256 replacement actions. Only 26 still appl
 
 ## Qwen evaluation
 
-The scores for the position-exchange and mixed policies are pending. The frozen competition configuration remains the reference. We will compare the two new arms to the same six-pair external arm, report the actual changes and costs, and keep the fold and dev results separate.
+Training-fold inference is complete.
+
+| Six-pair policy | Fold nDCG@10 | Helpful / harmful | Delta vs external-six | 95% paired interval |
+|---|---:|---:|---:|---|
+| External only | 0.283352 | 45 / 25 | — | — |
+| Internal only | 0.286591 | 90 / 43 | +0.003239 | [−0.00406, +0.01164] |
+| Three external + three internal | 0.285578 | 73 / 52 | +0.002226 | [−0.00522, +0.01061] |
+
+The Qwen internal judgments averaged about 11 prompts/s over the three folds. Dev inference is pending. The paired intervals resample queries within each domain for these fixed runs.
+
+An exploratory cache replay replaced maximum confidence with a discount-weighted priority on the same accepted pairs. On the folds, mixed falls by 0.00055 and internal-only rises by 0.00034 relative to its confidence control. Of the 270 queries with a beneficial mixed action in the judged set, 152 have no beneficial action accepted, while 39 have one accepted but the discount rule picks a nonbeneficial action. This directs attention to acceptance errors and false positives at retrieved positions. [Rank-discount replay](../results/analysis/position_discount_oof_20261124.json)
 
 Run from the project root with the official data, fold CE TREC runs, and the frozen cache described in [the replacement report](../results/replacement_v2/REPORT.md). The training CE runs are generated artifacts.
 
