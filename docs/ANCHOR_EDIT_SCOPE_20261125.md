@@ -84,6 +84,26 @@ python scripts/replay_anchor_edit_scope.py --data-root data/track1_tempo --pool-
 ```
 
 
+## Choosing the 20-document pool with the same scoring budget
+
+On the same 65 held-out queries, keep the original top ten and compare three fixed ways to select the ten remaining candidates. Use the ten highest dense outsiders, the ten highest frozen-fusion outsiders, or the five highest dense outsiders followed by five distinct frozen-fusion outsiders. All arms replay the same 8B scores and normalize the two score sources within each chosen pool. A direct 20-document run would use 19 two-order comparisons, or 38 prompts per query.
+
+| Candidate selection | nDCG@10 | Ideal nDCG@10 within selected pool | Queries with an additional judged relevant document |
+|---|---:|---:|---:|
+| Dense outsiders | 0.30689 | 0.52213 | 19 |
+| Frozen-fusion outsiders | 0.30542 | 0.55661 | 23 |
+| Five dense and five distinct frozen-fusion outsiders | 0.30491 | 0.53679 | 21 |
+| Entire dense top 100 | 0.31986 | 0.71640 | 38 |
+
+Frozen fusion replaces 4.63 outsiders on average and adds +0.03448 to the selection oracle. Its scored difference from dense selection is −0.00147, with paired within-domain 95% interval [−0.00813, +0.00434]. The mixed arm changes 3.34 outsiders on average and scores −0.00198 [−0.01042, +0.00548]. Full depth outperforms the dense-protected pool by +0.01297 [+0.00117, +0.02572]. At depth 20, the frozen-fusion rule broadens labeled coverage, with near-flat scored performance. The comparisons favor evaluating the full 100-document method.
+
+[Query-level shortlist and oracle replay](../results/analysis/anchor_shortlist_sources_oof_20261125.json)
+
+```bash
+python scripts/replay_anchor_shortlist_sources.py --data-root data/track1_tempo --pool-scores results/analysis/anchor_edit_scores_oof100_20261125.json --inputs results/analysis/anchor_reranker_qwen8b_sample26_20261125.json results/analysis/anchor_reranker_qwen8b_replication39_20261125.json --output results/analysis/anchor_shortlist_sources_oof_replay.json
+```
+
+
 ## Official-dev protocol prepared for the next run
 
 Use the frozen 8B checkpoint and the existing 70:30 blend on the entire dense top 100 of the 519 official dev queries. The protected depth-20 comparison can be replayed from the same scores. The primary comparison is domain-macro nDCG@10 against the six-pair competition run on the same queries. The 100-document run requires 102,762 prompts, approximately 4.1 hours at the measured 3090 throughput.
