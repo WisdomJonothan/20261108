@@ -26,6 +26,12 @@ On dev, the full reorder interval is [−0.00519, +0.00720] and the one-exchange
 
 We also applied the CPU exchange only when the six-pair external judge declined all actions. This adds 0.00256 on the training folds (95% interval [−0.00022, +0.00566]) and loses 0.00297 on dev ([−0.00792, +0.00117]), moving 0.37350 to 0.37053. The fallback is an exploratory control, so the current competition configuration is retained. [Replay result](../results/analysis/position_fallback_20261124.json)
 
+## Starting-ranker control
+
+We averaged the three full-query CE seeds after query-level standardization on the same top 100 and standardized the mean before fusion. Transferring the seed-17 internally selected CE weight of 0.7 yields 0.36242 on dev. Equal fusion of the same scores yields 0.34598. The corresponding three-seed title fusion gives 0.34953, and equal title/full view fusion gives 0.35720. These outcomes are exploratory and use cached scores. The ensembles would require extra CE passes at inference.
+
+The original six-pair judge selected 256 replacement actions. Only 26 still apply directly to the 0.7 ensemble, because the old incumbent must still be present and the challenger must still be absent. The original incumbent was absent in 147 cases, and the challenger was already present in 173, with overlap. Replaying the 26 eligible actions yields 0.36448, versus 0.37350 for the original configuration. This experiment measures portability of a fixed set of decisions. A fresh comparison on the new base would rebuild the actions. [Ensemble and transfer results](../results/analysis/ce_seed_ensemble_transfer_20261124.json)
+
 ## Qwen evaluation
 
 The scores for the position-exchange and mixed policies are pending. The frozen competition configuration remains the reference. We will compare the two new arms to the same six-pair external arm, report the actual changes and costs, and keep the fold and dev results separate.
@@ -37,6 +43,7 @@ python scripts/eval_position_repair.py --folds f0 f1 f2 --output results/analysi
 python scripts/eval_position_repair.py --folds dev --output results/analysis/position_oracle_dev_20261124.json
 python scripts/eval_position_rank_features.py --output results/analysis/position_rank_features_20261124.json
 python scripts/replay_position_fallback.py
+python scripts/eval_ce_seed_ensemble.py --external-replay results/analysis/position_oracle_dev_20261124.json --output results/analysis/ce_seed_ensemble_transfer_20261124.json
 python scripts/eval_position_repair.py --model models/Qwen3-4B-Instruct-2507 --folds f0 f1 f2 --output results/analysis/position_repair_oof_20261124.json
 python scripts/eval_position_repair.py --model models/Qwen3-4B-Instruct-2507 --folds dev --output results/analysis/position_repair_dev_20261124.json
 ```
