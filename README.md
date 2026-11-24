@@ -369,6 +369,8 @@ limit), references pages 5-6, Appendix A (the whole six-step ladder) pages 6-8,
 0 overfull boxes. Title follows the required "Team Name at SemEval-2027 Task 1:"
 form with placeholder author fields. Headline numbers are checked against their
 artefacts by `scripts/check_claims.py` (`results/CLAIMS.md`).
+The [November 22 expanded draft](paper/archive/expanded_20261122.pdf) and
+its [LaTeX source](paper/archive/expanded_20261122.tex) are archived separately.
 
 ## Data
 

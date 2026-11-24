@@ -276,10 +276,9 @@ poor ranker of the system they feed.
 parameters, close to our 0.57B cross-encoder - was scored on the same dense
 top-100 under its official input recipe (budgeted document body, think suffix,
 P(yes)): 0.2313 on its own, below our fine-tuned 0.2765, and 0.2996 when fused
-at the same 1:1 weights, 0.058 under the frozen system. Candidates and fusion
-are identical in both runs, so the difference is the task fine-tune rather than
-the first stage or the fusion rule, and the two models are of comparable size,
-so it is not a capacity story either.
+at the same 1:1 weights, 0.058 below the frozen system. The common candidate
+pool and fusion rule align this model comparison. The matched BGE comparison in
+Section 4 measures the gain from task fine-tuning.
 
 ## 6 Reproducibility
 
@@ -350,7 +349,7 @@ more relevant documents in the top ten (S5.2).
 
 A zero-shot dense stage plus a cross-encoder fine-tuned on the 1,071 questions
 with an in-pool positive gives +0.0332 domain-macro nDCG@10 over the same pipeline with the
-cross-encoder left at zero-shot (0.3249), on all 13 dev domains, stable across seeds (0.347-0.358). Two failures remain:
+cross-encoder left at zero-shot (0.3249), on all 13 dev domains, with a retraining band of 0.3527-0.3581. Two failures remain:
 an incomplete pool (1.9% of questions have no gold in the dense top-1,000) and
 multi-evidence coverage (59.5% of steps in the fused top ten). Every explicit temporal intervention - ten probes, one pre-registered
 test, step supervision, query reformulation, loss variants, backfilling, rank
@@ -363,8 +362,9 @@ and re-normalises the second's scores.
 Citations as they will appear in the camera-ready (`\cite{key}` keys in parentheses).
 
 [abdallah2026tempo] Abdelrahman Abdallah, Mohammed Ali, Muhammad Abdul-Mageed, and Adam
-Jatowt. 2026. TEMPO: A Realistic Multi-Domain Benchmark for Temporal
-Reasoning-Intensive Retrieval. arXiv:2601.09523.
+Jatowt. 2026. TEMPO: Realistic Multi-Domain Benchmark for Temporal
+Reasoning-Intensive Retrieval. In *Proceedings of EMNLP 2026*, pages 6657-6709.
+Association for Computational Linguistics.
 
 [abdallah2026reteco] Abdelrahman Abdallah, Mohammed Ali, Muhammad Abdul-Mageed, Kevin Duh, and
 Adam Jatowt. 2026. RETECO: A SemEval-2027 Shared Task on Reasoning-Oriented
