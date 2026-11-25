@@ -11,7 +11,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from audit_anchor_prompt_outliers import trim_words
-from benchmark_pairwise_replacement_v2 import passages, terms
+from benchmark_pairwise_replacement_v2 import passages, strip_html, terms
 from compare_anchor_reference import load
 from eval_anchor_reranker import write_checkpoint
 from replay_evidence_shortlist import inputs, query_text
@@ -26,6 +26,11 @@ TEMPORAL_INSTRUCT = (
 
 
 def evidence(body, vocabulary, mode):
+    if mode == 'expanded':
+        words = strip_html(body).split()
+        if len(words) <= 768:
+            return ' '.join(words)
+        return passages(body, vocabulary, win=768, stride=384)[0]
     options = passages(body, vocabulary)
     first = options[0]
     if mode == 'dispersed':
@@ -80,6 +85,7 @@ def score(manifest, data_root, model_path, batch_size, checkpoint, mode='referen
     if len(yes) != 1 or len(no) != 1 or yes == no:
         raise ValueError('Expected distinct one-token decisions')
     prefix, suffix = (tokenizer.encode(text, add_special_tokens=False) for text in (PREFIX, SUFFIX))
+    body_budget = 4096 - len(prefix) - len(suffix)
     rows = defaultdict(list)
     for row in manifest:
         rows[row['domain']].append(row)
@@ -133,12 +139,21 @@ def score(manifest, data_root, model_path, batch_size, checkpoint, mode='referen
                 if focus:
                     part = tokenizer.encode(focus_part(query, passage, focus), add_special_tokens=False)[:96]
                     guide = f'\n<Highlighted part>: {tokenizer.decode(part)}'
-                prompts.append(f'<Instruct>: {instruction}\n<Query>: {query}{guide}\n<Document>: {passage}')
+                if mode == 'expanded':
+                    prompt_start = f'<Instruct>: {instruction}\n<Query>: {query}{guide}\n<Document>: '
+                    header = tokenizer.encode(prompt_start, add_special_tokens=False)
+                    if len(header) >= body_budget:
+                        raise ValueError(f'Query leaves no expanded evidence budget in {domain}')
+                    document = tokenizer.encode(passage, add_special_tokens=False)[:body_budget - len(header)]
+                    prompts.append(header + document)
+                else:
+                    prompts.append(f'<Instruct>: {instruction}\n<Query>: {query}{guide}\n<Document>: {passage}')
         values, tokens = [], 0
         with torch.inference_mode():
             for start in range(0, len(prompts), batch_size):
-                body = tokenizer(prompts[start:start + batch_size], add_special_tokens=False)['input_ids']
-                if any(len(prefix) + len(b) + len(suffix) > 4096 for b in body):
+                items = prompts[start:start + batch_size]
+                body = items if mode == 'expanded' else tokenizer(items, add_special_tokens=False)['input_ids']
+                if any(len(b) > body_budget for b in body):
                     raise ValueError(f'An input in {domain} exceeds the 4096-token budget')
                 batch = tokenizer.pad({'input_ids': [prefix + b + suffix for b in body]},
                                       padding=True, return_tensors='pt').to(model.device)
@@ -197,7 +212,8 @@ def main():
     parser.add_argument('--focus', choices=('aligned', 'fixed'))
     parser.add_argument('--checkpoint', type=Path)
     parser.add_argument('--batch-size', type=int, default=16)
-    parser.add_argument('--evidence-mode', choices=('reference', 'temporal', 'dispersed'), default='reference')
+    parser.add_argument('--evidence-mode', choices=('reference', 'temporal', 'dispersed', 'expanded'),
+                        default='reference')
     parser.add_argument('--shards', type=int, default=1)
     parser.add_argument('--shard-index', type=int, default=0)
     parser.add_argument('--oof', type=Path, nargs=2)

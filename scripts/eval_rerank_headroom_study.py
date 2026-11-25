@@ -117,16 +117,16 @@ def select(training, modes):
     }
 
 
-def diagnose(rows, selected, data):
+def diagnose(rows, selected, data, reference='baseline'):
     domains = {row['domain'] for row in rows}
     gold = {d: read_qrels(data / d / 'qrels_dev.txt') for d in domains}
     steps = {d: read_steps(data / d / 'qrels_steps_dev.txt') for d in domains}
     counts = Counter()
     parts = {k: [] for k in ('added_documents', 'removed_documents', 'retained_documents')}
-    step_scores = {k: [] for k in ('baseline', 'selected')}
+    step_scores = {k: [] for k in (reference, 'selected')}
     for row in rows:
         d, q = row['domain'], row['qid']
-        previous, new = (row['rankings'][k] for k in ('baseline', selected))
+        previous, new = (row['rankings'][k] for k in (reference, selected))
         relevant = gold[d][q]
         before, after = set(previous) & relevant, set(new) & relevant
         counts['new_positives'] += len(after - before)
@@ -139,7 +139,7 @@ def diagnose(rows, selected, data):
             values.append((d, effects[name]))
         annotated = steps[d].get(q)
         if annotated:
-            step_scores['baseline'].append((d, coverage(previous, annotated)))
+            step_scores[reference].append((d, coverage(previous, annotated)))
             step_scores['selected'].append((d, coverage(new, annotated)))
     return {'counts': dict(counts), 'ndcg_contributions': {k: macro(v) for k, v in parts.items()},
             'step_coverage': {k: macro(v) for k, v in step_scores.items()}}

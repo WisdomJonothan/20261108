@@ -1,4 +1,4 @@
-"""Select a trained Qwen adapter and ranking policy on held-out training queries."""
+"""Select a Qwen evidence scorer and ranking policy on held-out training queries."""
 import argparse
 from collections import defaultdict
 import json
@@ -28,6 +28,11 @@ POLICIES = {
     'adaptive60_protected': (60, 1., .65, True),
     'adaptive60_unrestricted': (60, 1., .85, False),
 }
+CURRENT_LIST_POLICIES = {
+    'start_from_repair_m25': (30, 1., .25, True),
+    'start_from_repair_m40': (30, 1., .40, True),
+    'start_from_repair_m55': (30, 1., .55, False),
+}
 
 
 def candidate_judges(paths):
@@ -36,14 +41,19 @@ def candidate_judges(paths):
     inference = defaultdict(list)
     for path in paths:
         result = load(path)
-        if result['evidence_mode'] != 'dispersed':
-            raise ValueError('The model comparison needs the fixed two-excerpt inputs')
+        evidence_mode = result['evidence_mode']
+        if evidence_mode not in ('dispersed', 'expanded'):
+            raise ValueError('Unexpected evidence inputs for the model comparison')
         if 'adapter' in result:
+            if evidence_mode != 'dispersed':
+                raise ValueError('The adapter comparison needs the fixed two-excerpt inputs')
             identity = result['adapter']
             tag = f"epoch{identity['training']['epoch']}"
         else:
             identity = {'model': result['model'], 'revision': result['model_revision']}
-            tag = 'pretrained'
+            if evidence_mode == 'expanded':
+                identity['evidence_mode'] = evidence_mode
+            tag = 'pretrained' if evidence_mode == 'dispersed' else 'context_expanded'
             if 'focus' in result:
                 identity['focus'] = result['focus']
                 tag = 'focus_' + result['focus']
@@ -108,6 +118,10 @@ def prepare(manifest, references, controls, fitted, split):
             old = orders['current']
             values = .7*z(1/np.log2(2+np.arange(10))) + .3*z([new[d] for d in old])
             orders[f'{epoch}/same_ten_reorder'] = [old[i] for i in np.argsort(-values, kind='stable')]
+            if epoch in ('pretrained', 'context_expanded'):
+                anchored = old + [d for d in docs if d not in old]
+                for name, policy in CURRENT_LIST_POLICIES.items():
+                    orders[f'{epoch}/{name}'] = blend(anchored, scores, new, policy)
         results.append({k: row[k] for k in ('domain', 'qid', 'cohort', 'split', 'actual_reference')} |
                        {'rankings': orders})
     return results
@@ -163,7 +177,7 @@ def main():
         rows = grade(prepare(args.manifest, reference, base['dispersed']['scores'], fitted, 'dev'),
                      'dev', args.data_root)
         result = {'selected': selected, 'dev': summarize(rows, selected),
-                  'diagnostics': diagnose(rows, selected, args.data_root)}
+                  'diagnostics': diagnose(rows, selected, args.data_root, reference='current')}
         if len(rows) != 519 or abs(result['dev']['current']['score'] - .3958942538410169) > 1e-12:
             raise ValueError('Full official research baseline changed')
         print('Dev', {arm: v['score'] for arm, v in result['dev'].items()}, flush=True)
@@ -183,6 +197,8 @@ def main():
         print('Training', {arm: v['score'] for arm, v in result['training'].items()}, flush=True)
         print('Original 65', {arm: v['score'] for arm, v in result['original_65'].items()}, flush=True)
     result.update({'adapters': metadata, 'inference': inference, 'policies': POLICIES, 'per_query': rows})
+    if {'pretrained', 'context_expanded'} & metadata.keys():
+        result['current_list_policies'] = CURRENT_LIST_POLICIES
     with args.output.open('x', encoding='utf-8') as file:
         json.dump(result, file, separators=(',', ':'))
         file.write('\n')
