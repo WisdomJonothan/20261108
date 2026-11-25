@@ -40,6 +40,21 @@ Select two queries per domain using the seed shortlist-preflight-{domain} on IDs
 
 Two previously nonzero queries improve under the top-100 intervention and zero decline. The three other fixed-slot arms produce equal nDCG on all 26 queries. The full-dev comparison scores only the position-ten incumbent and four challenger lists. [Preflight output and scores](../results/analysis/routed_shortlists_preflight_20261125.json)
 
+## Full fixed-slot inference on official dev
+
+Use the same four candidate sources. Score only the rank-ten incumbent and shortlisted challengers, with one model logit difference per distinct query-document pair. Apply each arm's strict greater-than rule at rank ten. The run processes 12,663 prompts and 5,207,561 input tokens in 15 minutes 41 seconds, with 10,121 MiB peak PyTorch allocation on an RTX 3090. Rescore all 2,076 output lists with the official metric.
+
+| Candidate source | nDCG@10 | Change from 0.38206, paired 95% interval | Queries improved / declined | Zeroes recovered / created |
+|---|---:|---:|---:|---:|
+| mxbai top 100 outside starting ten | 0.37924 | −0.00282 [−0.00685, +0.00100] | 15 / 23 | 4 / 5 |
+| mxbai ranks 101–300 by RRF | 0.38064 | −0.00141 [−0.00376, +0.00024] | 6 / 9 | 1 / 2 |
+| E5 or BGE outside mxbai top 300 | 0.38146 | −0.00060 [−0.00199, +0.00087] | 1 / 6 | 1 / 1 |
+| mxbai ranks 101–106 | 0.38097 | −0.00108 [−0.00480, +0.00278] | 4 / 11 | 0 / 2 |
+
+Rank disagreement and six-pair abstention both route 263 queries to the same depth-300 shortlist. At this fixed budget their scores are 0.38129 and 0.38098. The paired routing difference is +0.00031 [−0.00015, +0.00108]. The screening advantage measured with the larger depth oracle translates to a smaller point estimate with six challengers and a fixed tenth position.
+
+The top-100 source includes a beneficial replacement on 58 queries. The 4B judge ranks one first on 18 of those and accepts it on 15. Perfect label-based accept/reject decisions over those exact 4B proposals would score 0.38642. Optimal choice from all six challengers would score 0.39401. In this control, incorrect challenger selection accounts for 40 potentially useful edits, and the strict acceptance rule declines three of the useful proposals. This supports testing a stronger candidate scorer and position-sensitive training within a broader shortlist. [Full rankings and raw logit differences](../results/analysis/routed_shortlists_official_dev_20261125.json) · [Selection and acceptance audit](../results/analysis/routed_shortlist_edit_scope_20261125.json)
+
 ## How much does the edit position matter?
 
 Hold the same six challengers fixed and change which positions the oracle may edit. The starting list scores 0.38206, and ideal ordering of its same ten members scores 0.53074. All values in the table use official qrels.
@@ -76,7 +91,7 @@ python scripts/replay_accepted_membership.py --oof results/analysis/anchor_edit_
 
 python scripts/eval_routed_shortlists.py --reference results/analysis/anchor_edit_scope_qwen8b_dev100_20261125.json --routes results/analysis/adaptive_candidate_depth_dev_20261125.json --write-manifest /tmp/reteco-shortlists.json --output results/analysis/routed_shortlists_oracle_replay.json
 
-python scripts/audit_shortlist_edit_scope.py --manifest /tmp/reteco-shortlists.json --output results/analysis/routed_shortlist_edit_scope_replay.json
-
 python scripts/eval_routed_shortlists.py --manifest /tmp/reteco-shortlists.json --model models/Qwen3-4B-Instruct-2507 --boundary-only --checkpoint /tmp/reteco-shortlists-boundary --output results/analysis/routed_shortlists_official_dev_replay.json
+
+python scripts/audit_shortlist_edit_scope.py --manifest /tmp/reteco-shortlists.json --scored results/analysis/routed_shortlists_official_dev_replay.json --output results/analysis/routed_shortlist_edit_scope_replay.json
 ```

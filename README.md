@@ -161,7 +161,9 @@ component to relevant documents kept in both rankings.
 replay reorders the accepted top tens and applies full 8B on abstentions,
 scoring **0.38314** on official dev. Candidate availability at a fixed budget
 of six challengers favors searching within the dense top 100 under a single
-rank-ten replacement. [Matched controls and query-level results](docs/ROUTED_SHORTLISTS_20261125.md)
+rank-ten replacement. Across 519 queries, a fixed position-ten 4B replacement
+has a lower point estimate for each of the four tested shortlists.
+[Matched controls and query-level results](docs/ROUTED_SHORTLISTS_20261125.md)
 
 ## Replacement study (dev, 2026-11-20)
 

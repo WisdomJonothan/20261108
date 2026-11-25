@@ -91,11 +91,42 @@ def width_sweep(rows, data, runs_root):
             for width in widths}
 
 
+def audit_gate(rows, data, scored):
+    """Separate shortlist potential from selection and the acceptance decision."""
+    saved = {(r['domain'], r['qid']): r for r in scored['per_query']}
+    gold = {d: read_qrels(data / d / 'qrels_dev.txt') for d in {r['domain'] for r in rows}}
+    gains = defaultdict(lambda: defaultdict(list))
+    counts = defaultdict(lambda: defaultdict(int))
+    for row in rows:
+        domain, qid = row['domain'], row['qid']
+        result = saved[domain, qid]
+        start = row['start']
+        relevant = gold[domain][qid]
+        baseline = ndcg10(start, relevant)
+        for arm, docs in row['shortlists'].items():
+            best = max(docs, key=result['scores'].get)
+            proposed = ndcg10(start[:9] + [best], relevant)
+            useful = proposed > baseline
+            changed_for_better = result['ndcg'][arm] > baseline
+            gains[arm][domain].append(max(0, proposed - baseline))
+            counts[arm]['beneficial_candidate_in_shortlist'] += result['oracle_slot10'][arm] > baseline
+            counts[arm]['beneficial_candidate_selected'] += useful
+            counts[arm]['beneficial_candidate_accepted'] += changed_for_better
+            counts[arm]['beneficial_candidate_rejected'] += useful and not changed_for_better
+    return {
+        arm: dict(counts[arm]) | {
+            'oracle_ndcg_among_proposed_edits': scored['actual']['baseline'] +
+            mean(map(mean, gains[arm].values())),
+        } for arm in counts
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--manifest', type=Path, required=True)
     parser.add_argument('--data-root', type=Path, default=Path('data/track1_tempo'))
     parser.add_argument('--runs-root', type=Path, default=Path('runs'))
+    parser.add_argument('--scored', type=Path, help='Full fixed-slot inference report.')
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     rows = load(args.manifest)['queries']
@@ -108,6 +139,8 @@ def main():
         'queries': len(rows), 'domain_macro': evaluate(rows, args.data_root),
         'width_sweep_oracle': width_sweep(rows, args.data_root, args.runs_root),
     }
+    if args.scored:
+        report['acceptance_audit'] = audit_gate(rows, args.data_root, load(args.scored))
     with args.output.open('x', encoding='utf-8') as stream:
         json.dump(report, stream, indent=2)
         stream.write('\n')
