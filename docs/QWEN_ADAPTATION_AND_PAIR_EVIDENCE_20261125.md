@@ -55,6 +55,33 @@ Jina v3.5 scores all 30 fixed candidates in one context. Run the same set twice 
 
 Freeze the pooled training choice before evaluating official dev. Start from the current repaired list, blend 25% of the Jina scores with the reference rank discount, and protect rank one. On all 519 queries this reaches **0.39640**, an increase of **+0.00051** [−0.00517, +0.00602] over 0.39589. The policy adds 26 judged positive documents and removes 26, recovers four zero-score queries and creates four. Domain-macro evidence-step coverage moves from 65.65% to 66.13%. The smallest leave-one-domain-out change is −0.00043. The current reference remains the competition configuration. [Official dev rankings and matched controls](../results/analysis/jina_35_listwise_official_dev_20261125.json) · [Official dev raw scores](../results/analysis/jina_35_listwise_dev_scores_20261125.tar.gz)
 
+### Full official comparison of the two candidate scorers
+
+The candidate generation for the evidence-first experiment scores all 60 documents with both frozen pointwise models. Replay the previously selected policies and compare both models under identical fusion on the first 30 documents. The excerpts and yes/no score form match across the checkpoints.
+
+| Official-dev comparison on the first 30 candidates | Qwen3-Reranker-8B | Yuanbao-Reranker-0.6B |
+| --- | ---: | ---: |
+| Standalone ranking | 0.32623 | **0.35170** |
+| Equal-weight rank and reranker fusion, rank one open | **0.39893** | 0.39488 |
+| Training-selected policy | **0.39893** | 0.39467 |
+
+The 8B policy scores +0.00304 [−0.00496, +0.01107] against 0.39589. The smallest leave-one-domain-out change is −0.00053. The matched protected 60-document control reaches 0.40123 for 8B and 0.38579 for Yuanbao. Those width controls were evaluated alongside the training-selected policies. This gives a second instance of the standalone model order reversing after score fusion. [8B official rankings](../results/analysis/qwen_8b_wide_official_dev_20261126.json) · [Yuanbao official rankings](../results/analysis/yuanbao_06b_wide_official_dev_20261126.json) · [Shared candidate scores](../results/analysis/reasoner_candidate_official_scores_20261126.tar.gz)
+
+### Swap score distributions while holding each model's order fixed
+
+Within each query's first 30 candidates, assign a donor model's sorted score values to the document order of the recipient model. Break score ties deterministically. Standardize the resulting vector and apply the same equal-weight rank fusion as above. The two original cells exactly reproduce the fixed-weight controls.
+
+| Model ordering | Score distribution | Training holdouts | Official dev |
+| --- | --- | ---: | ---: |
+| 8B | 8B | 0.32802 | 0.39893 |
+| 8B | Yuanbao | 0.32429 | 0.39615 |
+| Yuanbao | 8B | 0.32260 | 0.39049 |
+| Yuanbao | Yuanbao | 0.32524 | 0.39488 |
+
+Each model's score distribution transfers best to its own ordering in both splits. On official dev, Yuanbao gains 0.00440 when its own score spacings are restored to its ordering. The 8B score distribution would therefore amplify the measured shortfall of Yuanbao. The crossed cells show that the interaction between order and score spacing is relevant to the reversal.
+
+As a direct combination control, average the standardized 8B and Yuanbao scores, then combine the mean with the same rank prior. Select one width and weight on the 186 training holdouts. The 60-document policy with weight 0.65 reaches 0.39812 on official dev (+0.00222, smallest leave-one-domain-out change −0.00011). The three split-specific choices score 0.32494 out of fold, compared with the fixed baseline at 0.32764. Both splits and all ranking arms can be reproduced with `scripts/replay_matched_reranker_fusion.py` and the archived manifests and pointwise scores. [Score-distribution swaps and ensemble results](../results/analysis/matched_reranker_fusion_study_20261126.tar.gz)
+
 ## Replay
 
 Rebuild the 186-query training manifest, 519-query dev manifest and prior score archives as documented in [the reranking study](RERANKING_HEADROOM_20261125.md#reproduction). The original CE groups are built by `scripts/build_ce_train_groups.py` using the retained train qrels and mxbai runs.

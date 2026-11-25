@@ -6,9 +6,10 @@ given a natural-language query and a domain corpus, return a ranked list of
 documents that are relevant **and** consistent with the temporal conditions
 implied by the query.
 
-**Latest verified results (2026-11-25).** The current dev reference is **0.39589**
-on all 519 queries across 13 domains. The fixed Jina v3.5 blend reaches **0.39640**
-(+0.00051, paired 95% interval [−0.00517, +0.00602]). Evidence-first document
+**Latest verified results (2026-11-26).** The dev reference is **0.39589**
+on all 519 queries across 13 domains. The training-selected Qwen3-Reranker-8B
+blend reaches **0.39893** (+0.00304, paired 95% interval [−0.00496, +0.01107]).
+The fixed Jina v3.5 blend reaches **0.39640**. Evidence-first document
 grading improves the 186-query training holdout from **0.32764 to 0.33266**
 under cross-fold policy selection. Its official evaluation uses the rule chosen
 on the holdout. [Current reference and repair](docs/EVIDENCE_SELECTION_AND_REPAIR_20261125.md) ·
