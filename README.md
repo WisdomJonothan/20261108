@@ -9,10 +9,11 @@ implied by the query.
 **Latest verified results (2026-11-26).** The dev reference is **0.39589**
 on all 519 queries across 13 domains. The training-selected Qwen3-Reranker-8B
 blend reaches **0.39893** (+0.00304, paired 95% interval [−0.00496, +0.01107]).
-The fixed Jina v3.5 blend reaches **0.39640**. Evidence-first document
-grading improves the 186-query training holdout from **0.32764 to 0.33266**
-under cross-fold policy selection. Its official evaluation uses the rule chosen
-on the holdout. [Current reference and repair](docs/EVIDENCE_SELECTION_AND_REPAIR_20261125.md) ·
+The fixed Jina v3.5 blend reaches **0.39640**. With the same judge and
+candidates, explaining the evidence before rating reaches **0.40059** on
+official dev, compared with direct rating at **0.38815**. The verified-quote
+fallback rule chosen on training reaches **0.39536**, with annotated step
+coverage increasing from **65.65% to 67.86%**. [Current reference and repair](docs/EVIDENCE_SELECTION_AND_REPAIR_20261125.md) ·
 [Matched checkpoint and official Jina results](docs/QWEN_ADAPTATION_AND_PAIR_EVIDENCE_20261125.md) ·
 [Evidence-first evaluation](docs/EVIDENCE_REASONER_20261125.md) ·
 [Fusion-aware training](docs/FUSION_AWARE_RANKING_20261125.md) ·

@@ -31,6 +31,23 @@ Keep the original fourteen candidates and cached ratings. Score four more outsid
 
 With the same fixed verified 50% policy, expanding the pool raises nDCG@10 from 0.33638 to **0.33797**, a paired increase of +0.00159 [−0.00705, +0.01020]. The increment on the 65 exact-reference queries is +0.00352. Fixing normalization to the common original fourteen yields 0.33758 with the larger pool. Choosing among all controls across held-out folds yields 0.33069. The fixed-rule comparison supports a wider-pool follow-up when the original official evaluation shows improvement below the target. [22-document holdout controls](../results/analysis/evidence_reasoner_width22_holdout_20261125.json) · [Ratings for the eight additional candidates](../results/analysis/evidence_reasoner_width22_holdout_scores_20261125.tar.gz)
 
+## Official dev with the rule fixed on training
+
+Score 7,266 document candidates for all 519 official dev queries. The 14-document pool has a judged ceiling of 0.59576. The matched judge controls use the same 50% rank blend.
+
+| Method | Domain-macro nDCG@10 |
+| --- | ---: |
+| Current reference | 0.39589 |
+| Direct rating | 0.38815 |
+| Quote and explanation before rating | **0.40059** |
+| Verified quotation with direct fallback, training-selected | 0.39536 |
+
+The training-selected policy changes nDCG@10 by −0.00053 [−0.00980, +0.00782]. The smallest leave-one-domain-out change is −0.00318. Step coverage rises from **65.65% to 67.86%**. The policy adds 48 judged positives and removes 45, recovers ten zero-score queries and creates six, and changes the first document on 41 queries. The per-domain result is positive in five domains, with the largest gain in Economics (+0.03122) and the largest decline in Law (−0.04112).
+
+The explanation raises nDCG@10 by **+0.01244** over the same model grading directly. This matched difference isolates the intermediate generation step. Exact quotation matching accepts 3,856 of the 7,266 generations. Applying the training-selected fallback to direct grading for the other 3,410 costs 0.00523 compared with grading from all explanations. The 22-document evaluation queue uses the earlier requirement of a positive gain from the locked 14-document policy. [Official rankings](../results/analysis/evidence_reasoner_official_dev_20261126.json) · [Rating and verification cache](../results/analysis/evidence_reasoner_official_scores_20261126.tar.gz)
+
+Fit domain-weighted relevance calibration on the exact same 14 candidates. Match candidate-position features across the pointwise-only, ordinal-evidence-only, and combined feature arms. Out of fold the three fitted arms score 0.32543, 0.33152 and 0.33263, and all folds favor the fixed verified blend at 0.33638. [Calibrated holdout replay](../results/analysis/calibrated_evidence_reasoner_holdout_20261126.json)
+
 ## Replay
 
 Build a 60-document manifest and keep the matching Qwen3-Reranker-8B and Yuanbao scores from the [same-width study](QWEN_ADAPTATION_AND_PAIR_EVIDENCE_20261125.md#replay). Use the original reference repair report when building the 14-document candidate pools.
