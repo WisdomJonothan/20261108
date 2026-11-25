@@ -41,6 +41,12 @@ def md_number(p, needle):
 
 
 CLAIMS = [
+    ("Training-selected single passage temporal reranking on official dev", 0.39462,
+     lambda: jload("analysis/rerank_headroom_temporal_dev_20261125.json")["dev"]["selected"]["score"],
+     "analysis/rerank_headroom_temporal_dev_20261125.json", False),
+    ("Training-selected two excerpt temporal reranking on official dev", 0.39488,
+     lambda: jload("analysis/rerank_headroom_dispersed_dev_20261125.json")["dev"]["selected"]["score"],
+     "analysis/rerank_headroom_dispersed_dev_20261125.json", False),
     ("Training-selected directional passage penalty on official dev", 0.39269,
      lambda: jload("analysis/directional_passage_containment_20261125.json")["dev"]["double90"]["ndcg"],
      "analysis/directional_passage_containment_20261125.json", False),

@@ -197,6 +197,12 @@ prompt budget. An exploratory two-judge control reaches **0.39338** with
 14.87 additional specialist prompts per dev query.
 [Candidate admission controls and replay](docs/CANDIDATE_ADMISSION_AND_CONTAINMENT_20261125.md)
 
+**Temporal evidence reranking (2026-11-25).** Training-fold selection and
+fresh Qwen3-Reranker-4B inference give **0.39462** with one excerpt and
+**0.39488** with two excerpts on all 519 official dev queries. The second
+policy adds 30 pointwise scores per query and reaches 65.25% annotated-step
+coverage. [Headroom, score attribution, and matched controls](docs/RERANKING_HEADROOM_20261125.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate

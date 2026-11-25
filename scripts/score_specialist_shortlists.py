@@ -17,6 +17,25 @@ from replay_evidence_shortlist import inputs, query_text
 from run_qwen3_rerank import INSTRUCT, PREFIX, SUFFIX
 
 
+TEMPORAL_INSTRUCT = (
+    'Retrieve documents that give usable evidence for the query. A document can support one part of '
+    'the query. For the part it supports, respect explicit time periods and ordering. '
+    'Matching a topic or mentioning an unrelated date is insufficient.'
+)
+
+
+def evidence(body, vocabulary, mode):
+    options = passages(body, vocabulary)
+    first = options[0]
+    if mode == 'dispersed':
+        missing = vocabulary - terms(first)
+        if missing:
+            second = max(options, key=lambda text: len(terms(text) & missing))
+            if terms(second) & missing:
+                first = first + '\n[Additional excerpt]\n' + second
+    return trim_words(first, 2048, 256)
+
+
 def prepare(root, args):
     result = []
     for split, paths, frozen, scope in (
@@ -36,7 +55,7 @@ def prepare(root, args):
     return sorted(result, key=lambda r: (r['domain'], r['split'], r['qid']))
 
 
-def score(manifest, data_root, model_path, batch_size, checkpoint):
+def score(manifest, data_root, model_path, batch_size, checkpoint, mode='reference'):
     tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True, padding_side='left')
     model = AutoModelForCausalLM.from_pretrained(model_path, local_files_only=True,
                                                 dtype=torch.bfloat16).to('cuda').eval()
@@ -50,20 +69,23 @@ def score(manifest, data_root, model_path, batch_size, checkpoint):
     checkpoint.mkdir(parents=True, exist_ok=True)
     signature = [(p.name, p.stat().st_size) for p in sorted(model_path.iterdir()) if p.is_file()]
     stats = {'tokens': 0, 'prompts': 0, 'resumed_domains': 0}
+    instruction = INSTRUCT if mode == 'reference' else TEMPORAL_INSTRUCT
     torch.cuda.reset_peak_memory_stats()
     started = time.perf_counter()
     completed = []
     for domain, group in sorted(rows.items()):
         path = checkpoint / f'{domain}.json'
-        fingerprint = hashlib.sha256(json.dumps([group, signature, INSTRUCT, PREFIX, SUFFIX, batch_size],
-                                               sort_keys=True).encode()).hexdigest()
+        fingerprint_inputs = [group, signature, instruction, PREFIX, SUFFIX, batch_size]
+        if mode != 'reference':
+            fingerprint_inputs.append(mode)
+        fingerprint = hashlib.sha256(json.dumps(fingerprint_inputs, sort_keys=True).encode()).hexdigest()
         if path.exists():
             saved = load(path)
             if saved['fingerprint'] != fingerprint:
                 raise ValueError(f'Resume inputs differ for {domain}')
             completed.extend(saved['scores'])
             stats['tokens'] += saved['tokens']
-            stats['prompts'] += 34 * len(group)
+            stats['prompts'] += sum(len(r['docs']) for r in group)
             stats['resumed_domains'] += 1
             continue
         needed = {doc for r in group for doc in r['docs']}
@@ -82,8 +104,8 @@ def score(manifest, data_root, model_path, batch_size, checkpoint):
             query = r['query']
             vocabulary = terms(query)
             for doc in r['docs']:
-                passage = trim_words(passages(corpus[doc], vocabulary)[0], 2048, 256)
-                prompts.append(f'<Instruct>: {INSTRUCT}\n<Query>: {query}\n<Document>: {passage}')
+                passage = evidence(corpus[doc], vocabulary, mode)
+                prompts.append(f'<Instruct>: {instruction}\n<Query>: {query}\n<Document>: {passage}')
         values, tokens = [], 0
         with torch.inference_mode():
             for start in range(0, len(prompts), batch_size):
@@ -96,17 +118,38 @@ def score(manifest, data_root, model_path, batch_size, checkpoint):
                 values.extend((logits[:, yes[0]] - logits[:, no[0]]).cpu().tolist())
                 tokens += int(batch['attention_mask'].sum().item())
         scores = []
-        for i, r in enumerate(group):
+        offset = 0
+        for r in group:
+            end = offset + len(r['docs'])
             scores.append({key: r[key] for key in ('domain', 'qid', 'split', 'cohort')} |
-                          {'scores': dict(zip(r['docs'], values[34*i:34*(i+1)]))})
+                          {'scores': dict(zip(r['docs'], values[offset:end], strict=True))})
+            offset = end
+        if offset != len(values):
+            raise ValueError(f'Score count differs for {domain}')
         write_checkpoint(path, {'fingerprint': fingerprint, 'scores': scores, 'tokens': tokens})
         completed.extend(scores)
         stats['tokens'] += tokens
         stats['prompts'] += len(prompts)
         print(domain, len(completed), '/', len(manifest), 'queries', round(time.perf_counter()-started), flush=True)
-    return {'model': model_path.name, 'inference': stats | {
+    return {'model': model_path.name, 'evidence_mode': mode, 'instruction': instruction, 'inference': stats | {
         'seconds': time.perf_counter() - started, 'peak_mib': torch.cuda.max_memory_allocated() / 2**20,
     }, 'per_query': completed}
+
+
+def select_shard(queries, count, slot):
+    groups = defaultdict(list)
+    for row in queries:
+        groups[row['domain']].append(row)
+    if count > len(groups):
+        raise ValueError('The number of shards exceeds the number of domains')
+    shards = [[] for _ in range(count)]
+    load_by_shard = [0] * count
+    ordered = sorted(groups.items(), key=lambda item: (-sum(len(r['docs']) for r in item[1]), item[0]))
+    for _, group in ordered:
+        target = min(range(count), key=load_by_shard.__getitem__)
+        shards[target].extend(group)
+        load_by_shard[target] += sum(len(r['docs']) for r in group)
+    return shards[slot]
 
 
 def main():
@@ -118,20 +161,29 @@ def main():
     parser.add_argument('--model', type=Path)
     parser.add_argument('--checkpoint', type=Path)
     parser.add_argument('--batch-size', type=int, default=16)
+    parser.add_argument('--evidence-mode', choices=('reference', 'temporal', 'dispersed'), default='reference')
+    parser.add_argument('--shards', type=int, default=1)
+    parser.add_argument('--shard-index', type=int, default=0)
     parser.add_argument('--oof', type=Path, nargs=2)
     parser.add_argument('--dev', type=Path)
     for name in ('oof-frozen', 'dev-frozen', 'oof-scope', 'dev-scope'):
         parser.add_argument(f'--{name}', type=Path)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
+    if not 0 <= args.shard_index < args.shards:
+        parser.error('Shard index must be within the range of shards')
     if args.output.exists():
         parser.error('Use a fresh output path')
     if args.prepare:
         report = {'queries': prepare(args.root, args)}
         print(len(report['queries']), 'query pools prepared', flush=True)
     else:
-        report = score(load(args.manifest)['queries'], args.data_root or args.root / 'data/track1_tempo',
-                       args.model, args.batch_size, args.checkpoint)
+        queries = load(args.manifest)['queries']
+        if args.shards > 1:
+            queries = select_shard(queries, args.shards, args.shard_index)
+        report = score(queries, args.data_root or args.root / 'data/track1_tempo',
+                       args.model, args.batch_size, args.checkpoint, args.evidence_mode)
+        report['shard'] = {'index': args.shard_index, 'count': args.shards}
     with args.output.open('x', encoding='utf-8') as file:
         json.dump(report, file, separators=(',', ':'))
         file.write('\n')

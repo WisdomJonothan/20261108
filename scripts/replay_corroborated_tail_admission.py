@@ -61,7 +61,7 @@ def replace(order, blended, judge, specialist, sim, mode, margin, floor):
     return result, len(prompt_docs)
 
 
-def predict(rows, protected, reference, duplicate, specialist):
+def predict(rows, protected, reference, duplicate, specialist, directional=None):
     results = []
     fallback = set()
     for row in rows:
@@ -90,6 +90,10 @@ def predict(rows, protected, reference, duplicate, specialist):
             baseline = rerank(docs, blend, similarity, 'exact', 2.)
             if baseline != expected:
                 raise ValueError(f'Baseline differs for {key}')
+            if directional is not None:
+                baseline = directional[key]['rankings']['double90']
+                if len(set(baseline)) != 10 or baseline[0] != expected[0] or not set(baseline) <= locations.keys():
+                    raise ValueError(f'Directional ranking differs in head or membership for {key}')
             base = [locations[doc] for doc in baseline]
             orders = {BASELINE: baseline}
             for arm, params in ARMS.items():
@@ -143,6 +147,8 @@ def main():
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--data-root', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--directional', type=Path,
+                        help='Replay the same confirmation rules after the directional penalty')
     args = parser.parse_args()
     if args.output.exists():
         parser.error('Use a fresh output path')
@@ -155,13 +161,16 @@ def main():
     protected = load(path('accepted_weight_full_dev_audit'))
     duplicate = index(load(path('shortlist_near_duplicates')))
     reference = load(path('redundancy_stronger_replay'))
+    directional = load(args.directional) if args.directional else None
     specialists = load(path('specialist_shortlist_scores'))['per_query']
     cohorts = [path('anchor_reranker_qwen8b_sample26'), path('anchor_reranker_qwen8b_replication39')]
     train = build(budgeted, cohorts, path('anchor_edit_scores_oof100'), args.data_root, 'oof')
 
     def replay(rows, split, label):
         specialist = index({'per_query': [r for r in specialists if r['split'] == label]})
-        return predict(rows, index(protected[split]), index(reference[split]), duplicate, specialist)
+        start = (index({'per_query': [r for r in directional['per_query'] if r['sample'] == split]})
+                 if directional else None)
+        return predict(rows, index(protected[split]), index(reference[split]), duplicate, specialist, start)
 
     training = replay(train, 'oof', 'train')
     selected = choose(training)
@@ -176,7 +185,9 @@ def main():
            'matched_tail_controls': {'oof': matched_controls(training), 'dev': matched_controls(dev)},
            'oof_per_query': training, 'dev_per_query': dev}
     for split in ('oof', 'dev'):
-        if abs(out[split][BASELINE]['ndcg'] - reference[split]['arms']['exact_boost_2']['ndcg']) > 1e-12:
+        expected = (directional[split]['double90']['ndcg'] if directional else
+                    reference[split]['arms']['exact_boost_2']['ndcg'])
+        if abs(out[split][BASELINE]['ndcg'] - expected) > 1e-12:
             raise ValueError(f'Full-system reference score differs on {split}')
         for arm, result in out[split].items():
             print(split, arm, result['ndcg'], result['change']['ci95'], result['edited_queries'],
