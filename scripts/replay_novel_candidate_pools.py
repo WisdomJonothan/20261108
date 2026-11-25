@@ -74,11 +74,10 @@ def select_queries(root, proxy, old8b, dev8b, dev_reference):
     return training + heldout + official
 
 
-def produce(root, data, selected):
+def prepare(root, data, selected, depth=100):
     domains = defaultdict(list)
     for (d, _), row in selected:
         domains[d].append(row)
-    results = []
     for domain, rows in sorted(domains.items()):
         dense = {s: read_trec_run(root / 'runs' / f'dense_mxbai_{domain}_{s}.trec') for s in ('train', 'dev')}
         folds = {}
@@ -94,6 +93,14 @@ def produce(root, data, selected):
             base = {d: s for _, s, d in folds[fold][q][:100]}
             if set(docs) != base.keys() or list(base)[:10] != r['frozen_top10']:
                 raise ValueError(f'Different archived rankings for {domain}/{q}')
+            if 'anchor_scores' in r and r['anchor_scores'].keys() != set(docs):
+                raise ValueError(f'Score archive differs for {domain}/{q}')
+            if depth < 100:
+                start = set(r['frozen_top10'])
+                keep = start | set([doc for doc in docs if doc not in start][:depth-10])
+                docs = [doc for doc in docs if doc in keep]
+            if len(docs) != depth:
+                raise ValueError(f'Unexpected pool depth for {domain}/{q}')
             prepared.append((r, docs, base, label))
         needed = {doc for _, docs, _, _ in prepared for doc in docs}
         corpus = {}
@@ -111,28 +118,32 @@ def produce(root, data, selected):
             q = r['qid']
             gold = labels[label][q]
             query = terms(strip_html(r['query']))
-            sim = similarities([shingles(passages(corpus[d], query)[0]) for d in docs])
-            masks = pools(docs, set(r['frozen_top10']), sim)
-            rankings, scores, oracle = {}, {}, {}
-            for arm, locations in masks.items():
-                chosen = [docs[i] for i in locations]
-                if len(chosen) != SIZES[arm]:
-                    raise ValueError(f'Wrong pool width for {domain}/{q}/{arm}')
-                values = .7 * z([base[d] for d in chosen])
-                if 'anchor_scores' in r:
-                    judge = r['anchor_scores']
-                    if judge.keys() != set(docs):
-                        raise ValueError(f'Score archive differs for {domain}/{q}')
-                    values += .3 * z([judge[d] for d in chosen])
-                ranking = greedy(chosen, values, sim[np.ix_(locations, locations)], 1.)
-                rankings[arm] = ranking
-                scores[arm] = ndcg10(ranking, gold)
-                oracle[arm] = ndcg10(sorted(gold & set(chosen)), gold)
-            results.append({'domain': domain, 'qid': q, 'fold': r['fold'], 'sample': r['sample'],
-                            'rankings': rankings, 'scores': scores, 'oracle': oracle,
-                            'novel_members_changed': {arm: len(set(loc) - set(masks['dense34']))
-                                                      for arm, loc in masks.items() if SIZES[arm] == 34}})
-        print(domain, len(results), 'queries prepared', flush=True)
+            windows = [shingles(passages(corpus[d], query)[0]) for d in docs]
+            yield r, docs, base, gold, windows
+        print(domain, len(prepared), 'queries prepared', flush=True)
+
+
+def produce(root, data, selected):
+    results = []
+    for r, docs, base, gold, windows in prepare(root, data, selected):
+        sim = similarities(windows)
+        masks = pools(docs, set(r['frozen_top10']), sim)
+        rankings, scores, oracle = {}, {}, {}
+        for arm, locations in masks.items():
+            chosen = [docs[i] for i in locations]
+            if len(chosen) != SIZES[arm]:
+                raise ValueError(f'Wrong pool width for {r["domain"]}/{r["qid"]}/{arm}')
+            values = .7 * z([base[d] for d in chosen])
+            if 'anchor_scores' in r:
+                values += .3 * z([r['anchor_scores'][d] for d in chosen])
+            ranking = greedy(chosen, values, sim[np.ix_(locations, locations)], 1.)
+            rankings[arm] = ranking
+            scores[arm] = ndcg10(ranking, gold)
+            oracle[arm] = ndcg10(sorted(gold & set(chosen)), gold)
+        results.append({key: r[key] for key in ('domain', 'qid', 'fold', 'sample')} |
+                       {'rankings': rankings, 'scores': scores, 'oracle': oracle,
+                        'novel_members_changed': {arm: len(set(loc) - set(masks['dense34']))
+                                                  for arm, loc in masks.items() if SIZES[arm] == 34}})
     return results
 
 

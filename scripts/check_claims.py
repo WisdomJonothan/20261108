@@ -41,6 +41,12 @@ def md_number(p, needle):
 
 
 CLAIMS = [
+    ("Training-selected directional passage penalty on official dev", 0.39269,
+     lambda: jload("analysis/directional_passage_containment_20261125.json")["dev"]["double90"]["ndcg"],
+     "analysis/directional_passage_containment_20261125.json", False),
+    ("Joint judge approval for one replacement at rank nine or ten on dev", 0.39338,
+     lambda: jload("analysis/corroborated_tail_admission_20261125.json")["dev"]["agreement_last_two"]["ndcg"],
+     "analysis/corroborated_tail_admission_20261125.json", False),
     # --- full official-dev 8B and fixed abstention replay (2026-11-25) ------
     ("Qwen3-8B depth-100 fusion on all official dev queries", 0.37959,
      lambda: jload("analysis/anchor_official_dev_qwen8b_20261125.json")

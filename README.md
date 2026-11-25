@@ -190,6 +190,13 @@ scores **0.39227** on official dev. A 100-document shortlist increases the
 candidate oracle by 0.05880, with a realized score of 0.39039.
 [Matched controls and per-query results](docs/CANDIDATE_WIDTH_AND_DUPLICATE_SEVERITY_20261125.md)
 
+**Directional passage overlap (2026-11-25).** A rule selected in the
+523-query training proxy penalizes shorter passages whose text is largely
+contained in a selected passage. It scores **0.39269** at the same width and
+prompt budget. An exploratory two-judge control reaches **0.39338** with
+14.87 additional specialist prompts per dev query.
+[Candidate admission controls and replay](docs/CANDIDATE_ADMISSION_AND_CONTAINMENT_20261125.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate
