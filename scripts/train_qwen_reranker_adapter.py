@@ -1,6 +1,6 @@
 """Train a small low-rank adapter on held-out-safe RETECO ranking groups."""
 import argparse
-from collections import Counter
+from collections import Counter, defaultdict
 from contextlib import nullcontext
 import json
 from math import ceil
@@ -23,6 +23,7 @@ from lib_reteco import read_trec_run
 from qwen_reranker_adapter import install, save_trainable
 from score_specialist_shortlists import TEMPORAL_INSTRUCT, evidence
 from run_qwen3_rerank import PREFIX, SUFFIX
+from train_ce import lambdarank_ndcg_loss
 
 
 def collect_groups(group_root, runs, data, holdout, seed):
@@ -65,6 +66,30 @@ def collect_groups(group_root, runs, data, holdout, seed):
         yield directory, batch
 
 
+def collect_fusion_groups(data, manifest, holdout):
+    excluded = {(r['domain'], r['qid']) for r in holdout}
+    grouped = defaultdict(list)
+    seen = set()
+    for row in load(manifest)['queries']:
+        if row['split'] != 'train':
+            raise ValueError('Fusion training manifest must contain training queries only')
+        key = (row['domain'], row['qid'])
+        if key in seen or len(row['docs']) != 30 or len(set(row['docs'])) != 30:
+            raise ValueError(f'Expected distinct 30-document fusion groups for {key}')
+        seen.add(key)
+        if key not in excluded:
+            grouped[row['domain']].append(row)
+    for domain, rows in sorted(grouped.items()):
+        directory = data / domain
+        qrels = read_qrels(directory / 'qrels_train.txt')
+        groups = []
+        for row in rows:
+            labels = [int(doc in qrels[row['qid']]) for doc in row['docs']]
+            if 0 < sum(labels) < len(labels):
+                groups.append(row | {'labels': labels})
+        yield directory, groups
+
+
 def prepare(args):
     tokenizer = AutoTokenizer.from_pretrained(args.model, local_files_only=True)
     prefix, suffix = (tokenizer.encode(text, add_special_tokens=False) for text in (PREFIX, SUFFIX))
@@ -73,7 +98,9 @@ def prepare(args):
     holdout = load(args.holdout)['queries']
     if len(holdout) != 186 or {r['split'] for r in holdout} != {'train'}:
         raise ValueError('Expected the fixed 186 training-side holdout queries')
-    for directory, groups in collect_groups(args.groups_root, args.runs_root, args.data_root, holdout, args.seed):
+    source = (collect_fusion_groups(args.data_root, args.fusion_candidates, holdout) if args.fusion_candidates else
+              collect_groups(args.groups_root, args.runs_root, args.data_root, holdout, args.seed))
+    for directory, groups in source:
         needed = {d for r in groups for d in r['docs']}
         corpus = {}
         with (directory / 'documents.jsonl').open(encoding='utf-8') as file:
@@ -112,6 +139,8 @@ def prepare(args):
     report = {'groups': results, 'counts': dict(Counter(r['domain'] for r in results)),
               'clipped_documents': clipped, 'clipped_queries': reduced_queries, 'seed': args.seed,
               'model_type': model_config['model_type'], 'pad': tokenizer.pad_token_id}
+    if args.fusion_candidates:
+        report['candidate_protocol'] = 'complete_30'
     with args.output.open('x', encoding='utf-8') as file:
         json.dump(report, file, separators=(',', ':'))
         file.write('\n')
@@ -138,7 +167,7 @@ class JudgedScore(nn.Module):
         return value[:, 0] - value[:, 1]
 
 
-def loss_for_batch(score_model, tokenizer, batch, weights, device):
+def loss_for_batch(score_model, tokenizer, batch, weights, device, objective):
     inp = tokenizer.pad({'input_ids': [t for r in batch for t in r['tokens']]},
                         padding=True, return_tensors='pt').to(device)
     values = score_model(**inp)
@@ -146,9 +175,16 @@ def loss_for_batch(score_model, tokenizer, batch, weights, device):
     losses = []
     for row, value in zip(batch, values.split(sizes), strict=True):
         target = torch.tensor(row['labels'], dtype=torch.float, device=device)
-        ranking = -(F.log_softmax(value / 3., dim=0) * target).sum() / target.sum()
         binary = F.binary_cross_entropy_with_logits(value, target)
-        losses.append(weights[row['domain']] * (ranking + .25 * binary))
+        if objective == 'fusion_ndcg':
+            prior = 1 / torch.log2(2 + torch.arange(value.numel(), device=device, dtype=value.dtype))
+            score = .5 * (prior - prior.mean()) / prior.std(unbiased=False)
+            score = score + .5 * (value - value.mean()) / value.var(unbiased=False).clamp_min(1e-6).sqrt()
+            ranking = lambdarank_ndcg_loss(3 * score, target, k=10)
+            losses.append(weights[row['domain']] * (ranking + .05 * binary))
+        else:
+            ranking = -(F.log_softmax(value / 3., dim=0) * target).sum() / target.sum()
+            losses.append(weights[row['domain']] * (ranking + .25 * binary))
     return torch.stack(losses).mean()
 
 
@@ -166,6 +202,9 @@ def train(args):
     records = data['groups']
     if len(records) != sum(counts.values()) or args.model is None:
         raise ValueError('Incorrect prepared data')
+    if args.objective == 'fusion_ndcg' and (data.get('candidate_protocol') != 'complete_30'
+                                           or any(len(r['docs']) != 30 for r in records)):
+        raise ValueError('Fusion loss requires all 30 candidates for each query')
     if leader:
         args.output.mkdir(parents=True, exist_ok=False)
     if world > 1:
@@ -205,7 +244,7 @@ def train(args):
             last = slot + 1 == window
             sync = runner.no_sync() if world > 1 and not last else nullcontext()
             with sync:
-                loss = loss_for_batch(runner, tokenizer, r, weights, device)
+                loss = loss_for_batch(runner, tokenizer, r, weights, device, args.objective)
                 if not torch.isfinite(loss):
                     raise ValueError('Nonfinite training loss')
                 (loss / window).backward()
@@ -232,6 +271,8 @@ def train(args):
                         'seed': args.seed, 'lr': args.lr, 'batch_groups': args.batch_groups,
                         'accumulate': args.accumulate,
                         'max_mib': float(peak), 'seconds': perf_counter()-started}
+            if args.objective != 'listwise':
+                progress['objective'] = args.objective
             path = args.output / f'epoch-{epoch}.pt'
             temporary = path.with_suffix('.tmp')
             save_trainable(model, temporary, config, progress)
@@ -252,8 +293,8 @@ def main():
         subparser.add_argument('--model', type=Path, required=True)
         subparser.add_argument('--output', type=Path, required=True)
         subparser.add_argument('--seed', type=int, default=2954)
-    for flag in ('data-root', 'runs-root', 'groups-root', 'holdout'):
-        prep.add_argument(f'--{flag}', type=Path, required=True)
+    for flag in ('data-root', 'runs-root', 'groups-root', 'holdout', 'fusion-candidates'):
+        prep.add_argument(f'--{flag}', type=Path, required=flag in ('data-root', 'holdout'))
     prep.add_argument('--max-length', type=int, default=1024)
     training.add_argument('--input', type=Path, required=True)
     training.add_argument('--epochs', type=int, default=2)
@@ -262,10 +303,13 @@ def main():
     training.add_argument('--layers', type=int, default=8)
     training.add_argument('--rank', type=int, default=8)
     training.add_argument('--lr', type=float, default=6e-5)
+    training.add_argument('--objective', choices=('listwise', 'fusion_ndcg'), default='listwise')
     args = parser.parse_args()
     if args.action == 'prepare':
         if args.output.exists():
             parser.error('Use a fresh preparation output')
+        if not args.fusion_candidates and (args.runs_root is None or args.groups_root is None):
+            parser.error('Provide both original group sources or a fusion candidate manifest')
         prepare(args)
     else:
         if min(args.batch_groups, args.accumulate, args.epochs) < 1:

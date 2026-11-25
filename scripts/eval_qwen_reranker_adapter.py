@@ -57,6 +57,9 @@ def candidate_judges(paths):
             if 'focus' in result:
                 identity['focus'] = result['focus']
                 tag = 'focus_' + result['focus']
+            if 'score_policy' in result:
+                identity['score_policy'] = result['score_policy']
+                tag = result['score_policy']
         if tag in metadata and metadata[tag] != identity:
             raise ValueError(f'Model identity differs among shards for {tag}')
         metadata[tag] = identity
@@ -118,7 +121,7 @@ def prepare(manifest, references, controls, fitted, split):
             old = orders['current']
             values = .7*z(1/np.log2(2+np.arange(10))) + .3*z([new[d] for d in old])
             orders[f'{epoch}/same_ten_reorder'] = [old[i] for i in np.argsort(-values, kind='stable')]
-            if epoch in ('pretrained', 'context_expanded'):
+            if epoch in ('pretrained', 'context_expanded', 'full_plus_extractive_max'):
                 anchored = old + [d for d in docs if d not in old]
                 for name, policy in CURRENT_LIST_POLICIES.items():
                     orders[f'{epoch}/{name}'] = blend(anchored, scores, new, policy)
@@ -197,7 +200,7 @@ def main():
         print('Training', {arm: v['score'] for arm, v in result['training'].items()}, flush=True)
         print('Original 65', {arm: v['score'] for arm, v in result['original_65'].items()}, flush=True)
     result.update({'adapters': metadata, 'inference': inference, 'policies': POLICIES, 'per_query': rows})
-    if {'pretrained', 'context_expanded'} & metadata.keys():
+    if {'pretrained', 'context_expanded', 'full_plus_extractive_max'} & metadata.keys():
         result['current_list_policies'] = CURRENT_LIST_POLICIES
     with args.output.open('x', encoding='utf-8') as file:
         json.dump(result, file, separators=(',', ':'))

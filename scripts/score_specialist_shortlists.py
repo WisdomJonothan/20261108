@@ -131,8 +131,8 @@ def score(manifest, data_root, model_path, batch_size, checkpoint, mode='referen
             raise ValueError(f'Incomplete candidate texts in {domain}')
         prompts = []
         for r in group:
-            query = r['query']
-            vocabulary = terms(query)
+            query = r.get('scoring_query', r['query'])
+            vocabulary = terms(r['query'])
             for doc in r['docs']:
                 passage = evidence(corpus[doc], vocabulary, mode)
                 guide = ''
@@ -181,6 +181,8 @@ def score(manifest, data_root, model_path, batch_size, checkpoint, mode='referen
         report['adapter'] = identity
     if focus:
         report['focus'] = focus
+    if any('scoring_query' in r for r in manifest):
+        report['query_input'] = 'manifest_scoring_query'
     return report
 
 
