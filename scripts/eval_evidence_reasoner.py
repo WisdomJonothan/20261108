@@ -11,7 +11,7 @@ import numpy as np
 
 from audit_anchor_dev import macro
 from audit_rejected_swap_evidence import read_documents
-from benchmark_pairwise_replacement_v2 import terms
+from benchmark_pairwise_replacement_v2 import passages, terms
 from compare_anchor_reference import load
 from coverage_cf_bound import ndcg10, read_qrels
 from eval_anchor_reranker import write_checkpoint
@@ -70,6 +70,24 @@ def verified(response, excerpt):
     return len(wanted) >= 5 and f' {" ".join(wanted)} ' in f' {" ".join(words)} '
 
 
+def clause_excerpts(body, query, vocabulary):
+    by_clause = [terms(part) for part in re.split(r'(?<=[.?!;])\s+', query)]
+    by_clause = [part for part in by_clause if len(part) >= 3]
+    if len(by_clause) < 2:
+        return evidence(body, vocabulary, 'dispersed')
+    options = passages(body, vocabulary)
+    first = options[0]
+    covered = terms(first)
+
+    def complement(window):
+        observed = terms(window)
+        return max(len((observed - covered) & part) * len(observed & part) / len(part)
+                   for part in by_clause)
+
+    second = max(options, key=complement)
+    return first + '\n[Additional excerpt]\n' + second if complement(second) else first
+
+
 def score(args):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -92,6 +110,8 @@ def score(args):
     for domain, rows in sorted(groups.items()):
         path = args.checkpoint / f'{domain}.json'
         config = [rows, INSTRUCTION, args.batch_size, args.max_new_tokens, model_files]
+        if args.evidence_mode != 'dispersed':
+            config.append(args.evidence_mode)
         fingerprint = hashlib.sha256(json.dumps(config, sort_keys=True).encode()).hexdigest()
         if path.exists():
             saved = load(path)
@@ -105,7 +125,8 @@ def score(args):
             query = row['query']
             vocabulary = terms(query)
             for d in row['docs']:
-                passage = evidence(texts[d], vocabulary, 'dispersed')
+                passage = (clause_excerpts(texts[d], query, vocabulary) if args.evidence_mode == 'clause'
+                           else evidence(texts[d], vocabulary, 'dispersed'))
                 content = f'{INSTRUCTION}\n\nQuestion\n{query}\n\nDocument\n{passage}'
                 prompts.append(tokenizer.apply_chat_template([{'role': 'user', 'content': content}],
                                                             tokenize=False, add_generation_prompt=True,
@@ -147,6 +168,7 @@ def score(args):
         output.extend(scored)
         print(domain, len(output), '/', len(source), 'queries', round(time.perf_counter()-started), flush=True)
     return {'per_query': output, 'model': args.model.name, 'instruction': INSTRUCTION,
+            'evidence_mode': args.evidence_mode,
             'inference': {'seconds': time.perf_counter()-started,
                           'pairs': sum(len(r['observations']) for r in output),
                           'peak_mib': torch.cuda.max_memory_allocated()/2**20}}
@@ -182,7 +204,8 @@ def shared_prefix_scale(values):
 def evaluate(args):
     source = load(args.manifest)['queries']
     archives = [load(p) for p in args.scores]
-    identities = {(archive['model'], archive['instruction']) for archive in archives}
+    identities = {(archive['model'], archive['instruction'], archive.get('evidence_mode', 'dispersed'))
+                  for archive in archives}
     if len(identities) != 1:
         raise ValueError('Reasoner model and scoring prompt must match across archives')
     measured = {}
@@ -265,6 +288,7 @@ def main():
         scoring.add_argument(f'--{name}', type=Path, required=True)
     scoring.add_argument('--batch-size', type=int, default=8)
     scoring.add_argument('--max-new-tokens', type=int, default=80)
+    scoring.add_argument('--evidence-mode', choices=('dispersed', 'clause'), default='dispersed')
     evaluation.add_argument('--scores', type=Path, nargs='+', required=True)
     evaluation.add_argument('--selection', type=Path)
     evaluation.add_argument('--data-root', type=Path, required=True)

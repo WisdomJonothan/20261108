@@ -50,7 +50,7 @@ Fit domain-weighted relevance calibration on the exact same 14 candidates. Match
 
 ## Combine rankings across evidence views
 
-Combine four lists with equal votes using reciprocal rank. The inputs are the current reference, the training-selected 8B pointwise blend, and the original and verified 50% evidence blends. Each list contributes (1/(c+r)) at one-based rank (r), with a zero contribution outside the first ten. The hypotheses use the eight incumbent and fixed agreement arms in `scripts/replay_evidence_ranking_consensus.py`. Select only on the 186 training holdouts. The four-list rule at (c=5) scores 0.33759 when applied to the pooled holdouts. Selection across folds scores 0.33435, up 0.00670 from the holdout reference.
+Combine four lists with equal votes using reciprocal rank. The inputs are the current reference, the training-selected 8B pointwise blend, and the original and verified 50% evidence blends. Each list contributes `1/(c+r)` at one-based rank `r`, with a zero contribution outside the first ten. Select among the eight fixed arms on the 186 training holdouts. The four-list rule at `c=5` scores 0.33759 when applied to the pooled holdouts. Selection across folds scores 0.33435, up 0.00670 from the holdout reference. [Reciprocal rank fusion](https://doi.org/10.1145/1571941.1572114)
 
 | Fixed ranking on all 519 official queries | Domain-macro nDCG@10 | Change from reference |
 | --- | ---: | ---: |
@@ -63,6 +63,26 @@ Combine four lists with equal votes using reciprocal rank. The inputs are the cu
 The original four-list rule gains +0.00802 with a paired 95% interval [+0.00428, +0.01208] and a domain-resampling interval [+0.00487, +0.01111]. Every leave-one-domain-out gain is at least +0.00730. The extension compares three more rank offsets, the additional 60-candidate 8B list, and a listwise Jina vote. The pooled holdout choice keeps the same four sources at (c=60). It gains +0.00811 [+0.00426, +0.01224] on official dev, with at least +0.00739 after omitting any domain. Both policies improve 11 of 13 domain means. The (c=60) policy adds 29 judged positives and removes 19. It rescues seven zero-score queries, creates two and changes the first document only 12 times. New and removed documents together contribute +0.00448. The remaining +0.00363 comes from reordering retained documents. Step coverage moves from 65.65% to 66.99%.
 
 The two evidence variants share a checkpoint and cast separate votes. Their common improvement over direct grading motivates testing both signals alongside the externally reranked list. The 22-document control with the same four sources scores 0.33724 on the training holdouts compared with 0.33759 for 14. Mean position and two pairwise-majority aggregation rules retain the same pooled policy choice and reduce cross-fold performance. [Ranking consensus and matched controls](../results/analysis/evidence_ranking_consensus_20261126.tar.gz)
+
+## Let two scorers justify a change at rank one
+
+Start from the training-selected four-list consensus at offset 60. A candidate in positions two through five can swap into the first position if it also appears in the 8B pointwise top five. The candidate's evidence grade must reach 2 on the 0–3 scale. Choose the strongest eligible candidate by its grade and require a minimum gap over the incumbent. The pooled training holdout selects a 0.5 gap and requires a quotation found in the displayed evidence. This preserves the ten document IDs and makes at most one swap per query.
+
+| Official dev, 519 queries in 13 domains | Domain-macro nDCG@10 |
+| --- | ---: |
+| Current reference | 0.39589 |
+| Four-list rank consensus | 0.40400 |
+| Rank consensus with the selected first-position rule | **0.40674** |
+
+The full policy gains **+0.01085** [ +0.00266, +0.01920 ] over the reference. The domain-resampling interval is [+0.00430, +0.01775]. Eleven domain means improve and the smallest leave-one-domain-out gain is +0.00878. The first-position rule changes 95 queries relative to the consensus stage. Of these, 16 score higher, 22 score lower and 57 tie under the qrels. The extra gain over consensus is **+0.00274** [−0.00408, +0.00976]. On the training holdouts the same fixed rule gains +0.00014 over consensus, while selecting the first-position rule across folds scores 0.33261 against 0.33455 for cross-fold consensus selection. Those comparisons support using the consensus effect as the primary result and reporting the first-position rule as a subsequent dev improvement.
+
+The ranking retains the consensus coverage of 66.99% and admits the same 29 judged positives while dropping 19 relative to the original reference. New and removed documents contribute +0.00448 overall. Ordering the retained documents contributes +0.00637. This distinguishes agreement on which evidence belongs in the ten from agreement on which evidence deserves first position. [Training selection](../results/analysis/evidence_consensus_head_holdout_20261126.json) · [Official rankings and statistics](../results/analysis/evidence_consensus_head_official_dev_20261126.json)
+
+## Matched controls for reading and grading
+
+Replay the same 186-query, 14-document population. Mask explicit numerical grades in the generated notes before continuing the original rating prompt. The fixed verified blend moves from 0.33638 to 0.33636. Cross-fold selection reaches 0.33358. A fresh grader that receives the document and optionally the same extracted notes reaches 0.33131 with its best fixed blend and 0.32409 with fold-wise selection.
+
+Keep the first lexical excerpt and select the second for the highest coverage of new terms within one question clause. The direct 50% blend rises from 0.33083 to 0.33685 on the fixed holdout pool. Explaining those clause-targeted excerpts before rating scores 0.33133 under the same blend. Selecting among the controls by fold scores 0.33366. Input selection and intermediate reasoning interact even when the candidate IDs, rating prompt and model stay fixed. [Rankings and cached grades for all three controls](../results/analysis/evidence_reasoner_ablation_holdouts_20261126.tar.gz)
 
 ## Replay
 
@@ -89,3 +109,7 @@ For official dev, use the 519-query candidate manifest and pass the training rep
 For the 8B candidate scorer, `score_specialist_shortlists.py --gpu-memory-gib 8 9` allows two visible devices to share the BF16 weights with Accelerate. A 60-document replay across the two placements reproduces every logit difference exactly.
 
 Use `prepare --per-tier 6` to build the 22-document pools. The first fourteen IDs retain their original order. Run `score` on the final eight IDs, then pass both the original and additional score archives to `evaluate` for the complete 22-document manifest.
+
+Run `replay_evidence_ranking_consensus.py` on the evidence-reasoner and 8B reports for each split. Supply the Jina report as `--listwise` to reproduce the offset and added-voter controls. For the first-position experiment, pass the resulting consensus report to `replay_consensus_head.py --reference` and the evidence-score JSON shards as `--evidence`. Both scripts take the original qrels directory as `--data-root`. Use the corresponding training output as `--selection` on official dev.
+
+Use `rescore_evidence_ratings.py` and `grade_evidence_independently.py` with fresh unredacted local reasoner output for the two grading controls. Use `eval_evidence_reasoner.py score --evidence-mode clause` for the clause-targeted evidence control. The published grades can be evaluated directly with the same held-out manifest.

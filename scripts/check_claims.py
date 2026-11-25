@@ -41,6 +41,15 @@ def md_number(p, needle):
 
 
 CLAIMS = [
+    ("Four-list evidence consensus on official dev", 0.40400305,
+     lambda: jload("analysis/evidence_consensus_head_official_dev_20261126.json")["dev"]["candidate"]["score"],
+     "analysis/evidence_consensus_head_official_dev_20261126.json", False),
+    ("Evidence consensus and first-position swap on official dev", 0.40674178,
+     lambda: jload("analysis/evidence_consensus_head_official_dev_20261126.json")["dev"]["selected"]["score"],
+     "analysis/evidence_consensus_head_official_dev_20261126.json", False),
+    ("Official dev gain from consensus and first-position swap", 0.01084753,
+     lambda: jload("analysis/evidence_consensus_head_official_dev_20261126.json")["dev"]["selected"]["change"]["point"],
+     "analysis/evidence_consensus_head_official_dev_20261126.json", False),
     ("4B adapter and ranking policy selected on held-out folds", 0.32755,
      lambda: jload("analysis/qwen_adapter_holdout_20261125.json")["training"]["selected"]["score"],
      "analysis/qwen_adapter_holdout_20261125.json", False),
