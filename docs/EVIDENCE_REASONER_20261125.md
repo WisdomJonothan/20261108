@@ -25,6 +25,12 @@ The cross-fold increase is **+0.00502** [−0.00469, +0.01509]. On the same 65 e
 
 On the 165 holdout queries with step judgments, the cross-fold policies raise domain-macro coverage from **60.04% to 62.33%**. They cover eight previously missing steps and lose six. In history query `62622_605`, the system adds a document about archival personnel cards that can contain salary records. In bitcoin query `126019_1`, it admits a documented observation about one-block reorganizations when the request concerns reorganizations of two to four blocks. The latter illustrates how a traceable quotation can still refer to the wrong scope.
 
+## Widen the evidence judgment pool
+
+Keep the original fourteen candidates and cached ratings. Score four more outsiders from each retrieval tier using the same grader. Expanding to 22 documents raises the holdout candidate ceiling from 0.55238 to 0.62708 and increases the number of queries with a reachable positive despite a zero-score reference from 10 to 21.
+
+With the same fixed verified 50% policy, expanding the pool raises nDCG@10 from 0.33638 to **0.33797**, a paired increase of +0.00159 [−0.00705, +0.01020]. The increment on the 65 exact-reference queries is +0.00352. Fixing normalization to the common original fourteen yields 0.33758 with the larger pool. Choosing among all controls across held-out folds yields 0.33069. The fixed-rule comparison supports a wider-pool follow-up when the original official evaluation shows improvement below the target. [22-document holdout controls](../results/analysis/evidence_reasoner_width22_holdout_20261125.json) · [Ratings for the eight additional candidates](../results/analysis/evidence_reasoner_width22_holdout_scores_20261125.tar.gz)
+
 ## Replay
 
 Build a 60-document manifest and keep the matching Qwen3-Reranker-8B and Yuanbao scores from the [same-width study](QWEN_ADAPTATION_AND_PAIR_EVIDENCE_20261125.md#replay). Use the original reference repair report when building the 14-document candidate pools.
@@ -48,3 +54,5 @@ python scripts/eval_evidence_reasoner.py evaluate --manifest "$work/reasoner-tra
 For official dev, use the 519-query candidate manifest and pass the training report as `--selection` to the evaluator. The published cache retains ordinal scores and verification indicators. The raw generated evidence text remains in the experiment workspace.
 
 For the 8B candidate scorer, `score_specialist_shortlists.py --gpu-memory-gib 8 9` allows two visible devices to share the BF16 weights with Accelerate. A 60-document replay across the two placements reproduces every logit difference exactly.
+
+Use `prepare --per-tier 6` to build the 22-document pools. The first fourteen IDs retain their original order. Run `score` on the final eight IDs, then pass both the original and additional score archives to `evaluate` for the complete 22-document manifest.

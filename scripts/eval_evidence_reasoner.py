@@ -1,4 +1,4 @@
-"""Extract evidence before grading documents from a fixed fourteen-document pool."""
+"""Extract evidence before grading documents from a fixed candidate pool."""
 import argparse
 from collections import defaultdict
 import hashlib
@@ -48,14 +48,15 @@ def prepare(args):
             raise ValueError(f'Expected the two matched score sources for {key}')
         policy = report['choices'][row['cohort']] if split == 'train' else report['selected']
         current = refs[key]['rankings'][policy]
-        picked = []
+        proposed = []
         for tier in (all_docs[:30], all_docs[30:]):
             allowed = [d for d in tier if d not in current]
             score = np.mean([z([judge[key]['scores'][d] for d in allowed]) for judge in judges], axis=0)
-            picked.extend(allowed[i] for i in np.argsort(-score, kind='stable')[:2])
-        docs = current + picked
-        if len(set(docs)) != 14:
-            raise ValueError(f'Unexpected fourteen-document candidate pool for {key}')
+            proposed.append([allowed[i] for i in np.argsort(-score, kind='stable')[:args.per_tier]])
+        near, deep = proposed
+        docs = current + near[:2] + deep[:2] + near[2:] + deep[2:]
+        if len(docs) != len(set(docs)) or len(docs) != 10+2*args.per_tier:
+            raise ValueError(f'Unexpected candidate pool for {key}')
         groups.append(row | {'docs': docs})
     return {'queries': groups}
 
@@ -133,22 +134,29 @@ def score(args):
                     observations.append({'direct': initial_grade, 'reasoned': grade,
                                          'verified': verified(text, passage), 'response': text})
         scored = []
-        for i, row in enumerate(rows):
-            items = observations[14*i:14*(i+1)]
+        offset = 0
+        for row in rows:
+            end = offset + len(row['docs'])
+            items = observations[offset:end]
             kv = ('qid', 'domain', 'split', 'cohort')
             scored.append({k: row[k] for k in kv} | {'observations': dict(zip(row['docs'], items, strict=True))})
+            offset = end
+        if offset != len(observations):
+            raise ValueError(f'Unexpected number of observations for {domain}')
         write_checkpoint(path, {'fingerprint': fingerprint, 'rows': scored})
         output.extend(scored)
         print(domain, len(output), '/', len(source), 'queries', round(time.perf_counter()-started), flush=True)
     return {'per_query': output, 'model': args.model.name, 'instruction': INSTRUCTION,
-            'inference': {'seconds': time.perf_counter()-started, 'pairs': len(output)*14,
+            'inference': {'seconds': time.perf_counter()-started,
+                          'pairs': sum(len(r['observations']) for r in output),
                           'peak_mib': torch.cuda.max_memory_allocated()/2**20}}
 
 
 def one_edit(docs, observations, use_reasoning, require_quote):
     feature = 'reasoned' if use_reasoning else 'direct'
     discount = 1 / np.log2(2 + np.arange(10))
-    candidates = [(0, rank) for rank in range(1, 5)] + [(i, j) for i in range(7, 10) for j in range(10, 14)]
+    candidates = [(0, rank) for rank in range(1, 5)]
+    candidates.extend((i, j) for i in range(7, 10) for j in range(10, len(docs)))
     proposed, best = docs[:10], 0.
     for i, j in candidates:
         incumbent, contender = observations[docs[i]], observations[docs[j]]
@@ -165,10 +173,30 @@ def one_edit(docs, observations, use_reasoning, require_quote):
     return proposed
 
 
+def shared_prefix_scale(values):
+    values = np.asarray(values)
+    prefix = values[:14]
+    return (values - prefix.mean()) / max(float(prefix.std()), 1e-8)
+
+
 def evaluate(args):
     source = load(args.manifest)['queries']
     archives = [load(p) for p in args.scores]
-    measured = index({'per_query': [r for archive in archives for r in archive['per_query']]})
+    identities = {(archive['model'], archive['instruction']) for archive in archives}
+    if len(identities) != 1:
+        raise ValueError('Reasoner model and scoring prompt must match across archives')
+    measured = {}
+    for archive in archives:
+        for r in archive['per_query']:
+            key = r['domain'], r['qid']
+            if key in measured:
+                previous = measured[key]
+                if ((r['split'], r['cohort']) != (previous['split'], previous['cohort'])
+                        or not r['observations'].keys().isdisjoint(previous['observations'])):
+                    raise ValueError(f'Overlapping document scores or split mismatch for {key}')
+                previous['observations'].update(r['observations'])
+            else:
+                measured[key] = r
     keys = {(r['domain'], r['qid']) for r in source}
     split, = {r['split'] for r in source}
     if keys != measured.keys() or len(source) != (186 if split == 'train' else 519):
@@ -180,7 +208,8 @@ def evaluate(args):
         obs = measured[d, q]['observations']
         if set(docs) != obs.keys():
             raise ValueError('Observed evidence documents differ from the manifest')
-        prior = z(1 / np.log2(2 + np.arange(14)))
+        discount = 1 / np.log2(2 + np.arange(len(docs)))
+        prior = z(discount)
         rankings = {'current': docs[:10]}
         for name in ('direct', 'reasoned', 'verified'):
             if name == 'verified':
@@ -192,6 +221,9 @@ def evaluate(args):
                 order = [docs[i] for i in np.argsort(-((1-alpha)*prior+alpha*values), kind='stable')]
                 rankings[f'{name}/{alpha:g}'] = order[:10]
                 rankings[f'{name}/{alpha:g}_keep_first'] = [docs[0], *[x for x in order if x != docs[0]][:9]]
+            if len(docs) > 14:
+                combined = .5*shared_prefix_scale(discount) + .5*shared_prefix_scale(raw)
+                rankings[f'{name}/0.5_common14'] = [docs[i] for i in np.argsort(-combined, kind='stable')[:10]]
         for name, reasoned, quote in (('direct', False, False), ('reasoned', True, False), ('verified', True, True)):
             rankings[f'{name}/single_edit'] = one_edit(docs, obs, reasoned, quote)
         rows.append({k: row[k] for k in ('domain', 'qid', 'cohort', 'split', 'actual_reference')} |
@@ -228,6 +260,7 @@ def main():
     for name in ('first', 'second'):
         setup.add_argument(f'--{name}', type=Path, nargs='+', required=True)
     setup.add_argument('--repair', type=Path, required=True)
+    setup.add_argument('--per-tier', type=int, choices=(2, 6), default=2)
     for name in ('model', 'checkpoint', 'data-root'):
         scoring.add_argument(f'--{name}', type=Path, required=True)
     scoring.add_argument('--batch-size', type=int, default=8)
