@@ -51,7 +51,8 @@ def fit(rows):
     counts = Counter(r['domain'] for r in rows)
     features = np.concatenate([r['features'] for r in rows])
     labels = [doc in r['gold'] for r in rows for doc in r['docs']]
-    weights = np.repeat([len(rows) / (len(counts)*counts[r['domain']]) for r in rows], 30)
+    weights = np.repeat([len(rows) / (len(counts)*counts[r['domain']]) for r in rows],
+                        [len(r['docs']) for r in rows])
     model = LogisticRegression(C=.2, solver='lbfgs', max_iter=600)
     model.fit(features, labels, sample_weight=weights)
     return model
