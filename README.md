@@ -157,6 +157,12 @@ the same ten scores 0.37994. The top-ten audit attributes the largest positive
 component to relevant documents kept in both rankings.
 [Official paired results and reproduction](docs/ANCHOR_OFFICIAL_DEV_20261125.md)
 
+**Edit scope and fixed-budget shortlist follow-up (2026-11-25).** A secondary
+replay reorders the accepted top tens and applies full 8B on abstentions,
+scoring **0.38314** on official dev. Candidate availability at a fixed budget
+of six challengers favors searching within the dense top 100 under a single
+rank-ten replacement. [Matched controls and query-level results](docs/ROUTED_SHORTLISTS_20261125.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate
