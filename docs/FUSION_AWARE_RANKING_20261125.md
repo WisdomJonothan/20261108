@@ -16,6 +16,18 @@ Apply rank-8 LoRA to the query projection, value projection and MLP down project
 
 The current reference on this sample scores 0.32764. Selecting checkpoints and ranking rules on the other folds results in **0.32647**, a change of −0.00117 [−0.00327, +0.00092]. The 65 exact-reference queries score 0.32255 against 0.32633. The matched fused ranking stays near the frozen result when the fusion objective is optimized directly. This run targets the ranking objective while the small training distribution and original evidence input remain fixed. [Held-out rankings](../results/analysis/yuanbao_fusion_ndcg_holdout_20261125.json) · [Adapter logits](../results/analysis/yuanbao_fusion_ndcg_holdout_scores_20261125.tar.gz)
 
+## Learn the final combination using frozen scores
+
+Score all 783 training queries outside the held-out sample with the frozen Yuanbao model. Keep 30 candidates for each. The inputs to the linear relevance model are the original dense similarity and rank, the frozen BGE-fusion score and candidate membership, the evidence log odds, and the starting list rank. Train separate binary, same-query pairwise and cutoff-weighted pairwise models. Cutoff weights emphasize swaps that change the discount at the initial first-ten boundary. For each fitted model, compare a free ranking, preserving the incumbent at rank one, and making at most one replacement below rank two.
+
+| Learned objective | Free ranking | Preserve rank one | At most one replacement |
+| --- | ---: | ---: | ---: |
+| Binary relevance | 0.31183 | 0.31537 | 0.32455 |
+| Uniform pairwise | 0.30328 | 0.31030 | 0.32409 |
+| Cutoff-weighted pairwise | 0.26964 | 0.29631 | 0.32345 |
+
+All three validation folds retain the existing **0.32764** ranking. Restricting the learned models to a one-document change narrows their performance gap. In the matched comparison, emphasizing the initial cutoff makes free ranking less effective than weighting all judged pairs equally. [Held-out rankings and learned coefficients](../results/analysis/learned_fusion_ranker_holdout_20261125.json) · [Frozen training logits](../results/analysis/learned_fusion_ranker_train_scores_20261125.tar.gz)
+
 ## Replay
 
 Run `build_rerank_headroom_study.py --extra-per-domain 10000` and keep the rows with `split == 'train'` in a `queries` object. For preparation, use the original 186-query held-out manifest in `--holdout` and the full training candidate manifest in `--fusion-candidates`. The preparation command excludes held-out IDs and selects the 611 groups before encoding candidates.
@@ -32,3 +44,5 @@ torchrun --standalone --nproc-per-node 4 scripts/train_qwen_reranker_adapter.py 
 ```
 
 Score the original 30 candidates using `score_specialist_shortlists.py --evidence-mode dispersed --adapter` for each checkpoint. Evaluate with `eval_qwen_reranker_adapter.py` and the frozen Yuanbao scores. For exact candidate-scope checks, restrict the archived frozen 60-document score rows to the original 30 IDs.
+
+For the learned combination, run `replay_learned_fusion_ranker.py` with the 969-query candidate manifest as `--training-manifest`, the 186-query manifest as `--held-manifest`, the cached 783 training score rows and the frozen first-30 held-out scores. Its training keys exclude all held-out IDs before fitting. Use the original mxbai and fold-specific frozen fusion TREC runs for the dense and fusion input features.
