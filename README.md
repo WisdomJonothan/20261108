@@ -165,6 +165,13 @@ rank-ten replacement. Across 519 queries, a fixed position-ten 4B replacement
 has a lower point estimate for each of the four tested shortlists.
 [Matched controls and query-level results](docs/ROUTED_SHORTLISTS_20261125.md)
 
+**Budgeted 8B replay (2026-11-25).** On official dev, adding the highest 24
+unlisted dense candidates on six-pair abstentions gives **0.38263** at **45.45**
+estimated prompts per query, versus **0.38206** at **112.34** for the full
+100-document fallback. Reordering accepted lists with full-pool frozen-score
+normalization and only ten 8B scores gives **0.38374** at **54.43** prompts.
+[Training-holdout selection and matched normalization controls](docs/BUDGETED_ANCHOR_FALLBACK_20261125.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate
