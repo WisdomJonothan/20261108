@@ -172,6 +172,11 @@ estimated prompts per query, versus **0.38206** at **112.34** for the full
 normalization and only ten 8B scores gives **0.38374** at **54.43** prompts.
 [Training-holdout selection and matched normalization controls](docs/BUDGETED_ANCHOR_FALLBACK_20261125.md)
 
+**Near-duplicate penalty (2026-11-25).** The equal-budget 8B replay rises
+from **0.38770** to **0.38824** on official dev after applying a small penalty
+to near-identical passages in the 34-document abstention pool. The pooled
+training holdouts select this penalty. [Matched experiment and per-query results](docs/SHORTLIST_REDUNDANCY_20261125.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate
