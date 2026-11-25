@@ -183,6 +183,13 @@ fold checks. Applying it to the same 8B shortlists gives **0.39190** on the
 previously inspected official dev set. The original smaller 8B holdout
 favors 0.25. [Training selection and transfer](docs/REDUNDANCY_ACCUMULATION_20261125.md)
 
+**Candidate width and duplicate severity (2026-11-25).** The same 523-query
+training proxy selects an extra penalty for passage pairs with at least 0.95
+overlap. At the same 34-document shortlist width and prompt budget, the rule
+scores **0.39227** on official dev. A 100-document shortlist increases the
+candidate oracle by 0.05880, with a realized score of 0.39039.
+[Matched controls and per-query results](docs/CANDIDATE_WIDTH_AND_DUPLICATE_SEVERITY_20261125.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate

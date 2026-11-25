@@ -1,0 +1,832 @@
+{
+  "selected_equal_budget": "novel34",
+  "selected_any_budget": "dense58",
+  "crossfit": {
+    "equal": {
+      "choice_by_target_fold": {
+        "f0": "dense34",
+        "f1": "novel34_keep12",
+        "f2": "novel34"
+      },
+      "change": {
+        "point": -5.010415600995755e-05,
+        "ci95": [
+          -0.0001294040212343594,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          -0.00015031246802987264,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": 0.0,
+          "genealogy": 0.0,
+          "history": -0.0006513540281294481,
+          "hsm": 0.0,
+          "iota": 0.0,
+          "law": 0.0,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0
+        },
+        "improved_queries": 0,
+        "declined_queries": 2
+      }
+    },
+    "any": {
+      "choice_by_target_fold": {
+        "f0": "dense58",
+        "f1": "novel34_keep12",
+        "f2": "dense58"
+      },
+      "change": {
+        "point": -5.010415600995755e-05,
+        "ci95": [
+          -0.0001294040212343594,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          -0.00015031246802987264,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": 0.0,
+          "genealogy": 0.0,
+          "history": -0.0006513540281294481,
+          "hsm": 0.0,
+          "iota": 0.0,
+          "law": 0.0,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0
+        },
+        "improved_queries": 0,
+        "declined_queries": 2
+      }
+    }
+  },
+  "proxy_conditional": {
+    "dense34": 0.26977765996774045,
+    "novel34_keep12": 0.26978646717584026,
+    "novel34": 0.26978691238319963,
+    "dense58": 0.270290616414626,
+    "novel58_keep24": 0.2702829325685284,
+    "dense100": 0.27025520856647123
+  },
+  "oof": {
+    "dense34": {
+      "ndcg": 0.30969299841155445,
+      "change": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": 0.0,
+          "genealogy": 0.0,
+          "history": 0.0,
+          "hsm": 0.0,
+          "iota": 0.0,
+          "law": 0.0,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0
+        },
+        "improved_queries": 0,
+        "declined_queries": 0
+      },
+      "candidate_oracle_change": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": 0.0,
+          "genealogy": 0.0,
+          "history": 0.0,
+          "hsm": 0.0,
+          "iota": 0.0,
+          "law": 0.0,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0
+        },
+        "improved_queries": 0,
+        "declined_queries": 0
+      },
+      "coverage": null,
+      "extra_prompts_per_query": 0.0,
+      "changed_candidates_on_abstentions": 0.0
+    },
+    "novel34_keep12": {
+      "ndcg": 0.31192957007093547,
+      "change": {
+        "point": 0.002236571659381013,
+        "ci95": [
+          0.0,
+          0.005708729854732867
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.00670971497814304
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": 0.0,
+          "genealogy": 0.0,
+          "history": 0.0,
+          "hsm": 0.0,
+          "iota": 0.0,
+          "law": 0.02907543157195317,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0
+        },
+        "improved_queries": 2,
+        "declined_queries": 0
+      },
+      "candidate_oracle_change": {
+        "point": 0.005458140032629958,
+        "ci95": [
+          0.0,
+          0.013371496636412168
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.013371496636412166
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": 0.0,
+          "genealogy": 0.031917815424979276,
+          "history": 0.0,
+          "hsm": 0.0,
+          "iota": 0.0,
+          "law": 0.039038004999210174,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0
+        },
+        "improved_queries": 2,
+        "declined_queries": 0
+      },
+      "coverage": null,
+      "extra_prompts_per_query": 0.0,
+      "changed_candidates_on_abstentions": 1.0666666666666667
+    },
+    "novel34": {
+      "ndcg": 0.3120385395342209,
+      "change": {
+        "point": 0.002345541122666431,
+        "ci95": [
+          0.0,
+          0.005708729854732867
+        ],
+        "domain_bootstrap_ci95": [
+          -0.0001123445490789128,
+          0.006983826179253331
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": 0.0,
+          "genealogy": -0.0007302395690129332,
+          "history": 0.0,
+          "hsm": 0.0,
+          "iota": 0.0,
+          "law": 0.02907543157195317,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0021468425917233634
+        },
+        "improved_queries": 3,
+        "declined_queries": 1
+      },
+      "candidate_oracle_change": {
+        "point": 0.005458140032629958,
+        "ci95": [
+          0.0,
+          0.013371496636412168
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.013371496636412166
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": 0.0,
+          "genealogy": 0.031917815424979276,
+          "history": 0.0,
+          "hsm": 0.0,
+          "iota": 0.0,
+          "law": 0.039038004999210174,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0
+        },
+        "improved_queries": 2,
+        "declined_queries": 0
+      },
+      "coverage": null,
+      "extra_prompts_per_query": 0.0,
+      "changed_candidates_on_abstentions": 2.3
+    },
+    "dense58": {
+      "ndcg": 0.3115483518306812,
+      "change": {
+        "point": 0.00185535341912672,
+        "ci95": [
+          -0.0004833002377287546,
+          0.005322274104543663
+        ],
+        "domain_bootstrap_ci95": [
+          -0.000762436480508586,
+          0.006597370429064126
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": -0.0020787549625695123,
+          "genealogy": -0.0007302395690129332,
+          "history": 0.0,
+          "hsm": 0.0,
+          "iota": 0.0,
+          "law": 0.02907543157195317,
+          "monero": 0.0,
+          "politics": -0.0021468425917233634,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0
+        },
+        "improved_queries": 2,
+        "declined_queries": 3
+      },
+      "candidate_oracle_change": {
+        "point": 0.024369874642185763,
+        "ci95": [
+          0.005250128843673188,
+          0.04767697796395068
+        ],
+        "domain_bootstrap_ci95": [
+          0.006076875709638167,
+          0.04627363953953701
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": 0.029213669968541266,
+          "genealogy": 0.07899938422529616,
+          "history": 0.0,
+          "hsm": 0.0,
+          "iota": 0.04692787260227567,
+          "law": 0.039038004999210174,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.12262943855309168,
+          "workplace": 0.0
+        },
+        "improved_queries": 5,
+        "declined_queries": 0
+      },
+      "coverage": null,
+      "extra_prompts_per_query": 22.153846153846153,
+      "changed_candidates_on_abstentions": 0.0
+    },
+    "novel58_keep24": {
+      "ndcg": 0.31249362179921175,
+      "change": {
+        "point": 0.0028006233876572894,
+        "ci95": [
+          -0.00044262802472866105,
+          0.00635254476040161
+        ],
+        "domain_bootstrap_ci95": [
+          -0.000762436480508586,
+          0.009433180334655834
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": -0.0020787549625695123,
+          "genealogy": -0.0007302395690129332,
+          "history": 0.0,
+          "hsm": 0.0,
+          "iota": 0.0,
+          "law": 0.04136394116285057,
+          "monero": 0.0,
+          "politics": -0.0021468425917233634,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0
+        },
+        "improved_queries": 2,
+        "declined_queries": 3
+      },
+      "candidate_oracle_change": {
+        "point": 0.03158954735022817,
+        "ci95": [
+          0.009466878090237888,
+          0.05767528752797699
+        ],
+        "domain_bootstrap_ci95": [
+          0.008324081091833647,
+          0.06015278762968405
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": 0.029213669968541266,
+          "genealogy": 0.07899938422529616,
+          "history": 0.0,
+          "hsm": 0.0,
+          "iota": 0.14078361780682697,
+          "law": 0.039038004999210174,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.12262943855309168,
+          "workplace": 0.0
+        },
+        "improved_queries": 6,
+        "declined_queries": 0
+      },
+      "coverage": null,
+      "extra_prompts_per_query": 22.153846153846153,
+      "changed_candidates_on_abstentions": 0.0
+    },
+    "dense100": {
+      "ndcg": 0.31521167082273316,
+      "change": {
+        "point": 0.005518672411178685,
+        "ci95": [
+          0.0011259540744557304,
+          0.011095450549598858
+        ],
+        "domain_bootstrap_ci95": [
+          -0.00015990422788996248,
+          0.013338308979923894
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": -0.0020787549625695123,
+          "genealogy": 0.0,
+          "history": 0.0,
+          "hsm": 0.0,
+          "iota": 0.0,
+          "law": 0.04136394116285057,
+          "monero": 0.004996206640178674,
+          "politics": 0.02746134850486317,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0
+        },
+        "improved_queries": 4,
+        "declined_queries": 1
+      },
+      "candidate_oracle_change": {
+        "point": 0.06682799689025877,
+        "ci95": [
+          0.03120893064747802,
+          0.10583625769465699
+        ],
+        "domain_bootstrap_ci95": [
+          0.028996395862438077,
+          0.11265935333829659
+        ],
+        "per_domain": {
+          "bitcoin": 0.059216382193173045,
+          "cardano": 0.0,
+          "economics": 0.055454685471009624,
+          "genealogy": 0.09856970315232826,
+          "history": 0.0,
+          "hsm": 0.07737056144690832,
+          "iota": 0.14078361780682697,
+          "law": 0.039038004999210174,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.275701565950816,
+          "travel": 0.12262943855309168,
+          "workplace": 0.0
+        },
+        "improved_queries": 10,
+        "declined_queries": 0
+      },
+      "coverage": null,
+      "extra_prompts_per_query": 60.92307692307692,
+      "changed_candidates_on_abstentions": 0.0
+    }
+  },
+  "dev": {
+    "dense34": {
+      "ndcg": 0.3918982649994312,
+      "change": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": 0.0,
+          "genealogy": 0.0,
+          "history": 0.0,
+          "hsm": 0.0,
+          "iota": 0.0,
+          "law": 0.0,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0
+        },
+        "improved_queries": 0,
+        "declined_queries": 0
+      },
+      "candidate_oracle_change": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": 0.0,
+          "genealogy": 0.0,
+          "history": 0.0,
+          "hsm": 0.0,
+          "iota": 0.0,
+          "law": 0.0,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0
+        },
+        "improved_queries": 0,
+        "declined_queries": 0
+      },
+      "coverage": 0.6299072900545601,
+      "extra_prompts_per_query": 0.0,
+      "changed_candidates_on_abstentions": 0.0
+    },
+    "novel34_keep12": {
+      "ndcg": 0.3910507154794014,
+      "change": {
+        "point": -0.0008475495200297485,
+        "ci95": [
+          -0.002753105320275339,
+          0.00021692867576134466
+        ],
+        "domain_bootstrap_ci95": [
+          -0.0027717875668242463,
+          0.00024322284774371507
+        ],
+        "per_domain": {
+          "bitcoin": 0.00013527030971848634,
+          "cardano": 0.0,
+          "economics": 0.0,
+          "genealogy": 0.0,
+          "history": 0.0012063031103205055,
+          "hsm": -0.0004570123102932206,
+          "iota": 0.0,
+          "law": -0.011902704870132503,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0
+        },
+        "improved_queries": 4,
+        "declined_queries": 5
+      },
+      "candidate_oracle_change": {
+        "point": 0.0012323426297747074,
+        "ci95": [
+          0.00025818390979647166,
+          0.0025896125601573648
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.0024946885781738557
+        ],
+        "per_domain": {
+          "bitcoin": 0.0,
+          "cardano": 0.0,
+          "economics": 0.0,
+          "genealogy": 0.0,
+          "history": 0.00520199491111443,
+          "hsm": 0.005214208066919518,
+          "iota": 0.0,
+          "law": 0.0,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.005604251209037248,
+          "workplace": 0.0
+        },
+        "improved_queries": 8,
+        "declined_queries": 0
+      },
+      "coverage": 0.6299072900545601,
+      "extra_prompts_per_query": 0.0,
+      "changed_candidates_on_abstentions": 1.7566539923954372
+    },
+    "novel34": {
+      "ndcg": 0.39116114851798256,
+      "change": {
+        "point": -0.0007371164814486326,
+        "ci95": [
+          -0.0026560255853171153,
+          0.00035940643453082397
+        ],
+        "domain_bootstrap_ci95": [
+          -0.002683133481914691,
+          0.0004957263034079599
+        ],
+        "per_domain": {
+          "bitcoin": 0.00013527030971848634,
+          "cardano": 0.0,
+          "economics": 0.0,
+          "genealogy": 0.0,
+          "history": 0.002342077339883206,
+          "hsm": -0.0005817900753461373,
+          "iota": 0.0,
+          "law": -0.011478071833087779,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.0,
+          "workplace": 0.0
+        },
+        "improved_queries": 11,
+        "declined_queries": 8
+      },
+      "candidate_oracle_change": {
+        "point": 0.0026450495745690434,
+        "ci95": [
+          0.0008296709907294627,
+          0.00506480739633084
+        ],
+        "domain_bootstrap_ci95": [
+          0.0008621924936980381,
+          0.004591852829053325
+        ],
+        "per_domain": {
+          "bitcoin": 0.006506334166535029,
+          "cardano": 0.0,
+          "economics": 0.009852095549629201,
+          "genealogy": 0.0,
+          "history": 0.007208755477276567,
+          "hsm": 0.005214208066919518,
+          "iota": 0.0,
+          "law": 0.0,
+          "monero": 0.0,
+          "politics": 0.0,
+          "quant": 0.0,
+          "travel": 0.005604251209037248,
+          "workplace": 0.0
+        },
+        "improved_queries": 13,
+        "declined_queries": 1
+      },
+      "coverage": 0.6300730725479289,
+      "extra_prompts_per_query": 0.0,
+      "changed_candidates_on_abstentions": 3.7072243346007605
+    },
+    "dense58": {
+      "ndcg": 0.3903095754762394,
+      "change": {
+        "point": -0.0015886895231917596,
+        "ci95": [
+          -0.004102827890799152,
+          0.0004112214470379717
+        ],
+        "domain_bootstrap_ci95": [
+          -0.005497641279476571,
+          0.000870269403196489
+        ],
+        "per_domain": {
+          "bitcoin": 0.0023610004858653343,
+          "cardano": 0.0009587558380766933,
+          "economics": 0.003261644902095429,
+          "genealogy": 0.0,
+          "history": 0.0018008184348475953,
+          "hsm": -0.0028605140921916313,
+          "iota": 0.0,
+          "law": -0.02216135408367207,
+          "monero": 0.0,
+          "politics": 0.0003368726477279186,
+          "quant": -0.0032532016510830653,
+          "travel": -0.0010969862831590757,
+          "workplace": 0.0
+        },
+        "improved_queries": 22,
+        "declined_queries": 20
+      },
+      "candidate_oracle_change": {
+        "point": 0.030754917129859713,
+        "ci95": [
+          0.017077009251367764,
+          0.048628926586591646
+        ],
+        "domain_bootstrap_ci95": [
+          0.015544846001261005,
+          0.04841036802271105
+        ],
+        "per_domain": {
+          "bitcoin": 0.015420724075600653,
+          "cardano": 0.015642624200758556,
+          "economics": 0.03536275191124664,
+          "genealogy": 0.05714285714285714,
+          "history": 0.023706572413607723,
+          "hsm": 0.013810937116576,
+          "iota": 0.0,
+          "law": 0.10418803180388239,
+          "monero": 0.020360674064975874,
+          "politics": 0.07524116541630074,
+          "quant": 0.0,
+          "travel": 0.03893758454237058,
+          "workplace": 0.0
+        },
+        "improved_queries": 50,
+        "declined_queries": 0
+      },
+      "coverage": 0.6306911751775257,
+      "extra_prompts_per_query": 24.32369942196532,
+      "changed_candidates_on_abstentions": 0.0
+    },
+    "novel58_keep24": {
+      "ndcg": 0.3909059045105234,
+      "change": {
+        "point": -0.0009923604889077423,
+        "ci95": [
+          -0.003486801079823989,
+          0.0010216688796693073
+        ],
+        "domain_bootstrap_ci95": [
+          -0.004857985261359774,
+          0.0013322241198038141
+        ],
+        "per_domain": {
+          "bitcoin": 0.0023610004858653343,
+          "cardano": 0.0009587558380766933,
+          "economics": 0.0035970563630815418,
+          "genealogy": 0.0,
+          "history": 0.002794295689722065,
+          "hsm": 0.00015397420630720952,
+          "iota": 0.0,
+          "law": -0.02216135408367207,
+          "monero": 0.0,
+          "politics": 0.0003368726477279186,
+          "quant": 0.0,
+          "travel": -0.0009412875029093437,
+          "workplace": 0.0
+        },
+        "improved_queries": 23,
+        "declined_queries": 17
+      },
+      "candidate_oracle_change": {
+        "point": 0.030542578245550196,
+        "ci95": [
+          0.01692912140719808,
+          0.04842869082270243
+        ],
+        "domain_bootstrap_ci95": [
+          0.016101488687067005,
+          0.0464863044924441
+        ],
+        "per_domain": {
+          "bitcoin": 0.015420724075600653,
+          "cardano": 0.015642624200758556,
+          "economics": 0.04042160596659978,
+          "genealogy": 0.05714285714285714,
+          "history": 0.029166253757022347,
+          "hsm": 0.013810937116576,
+          "iota": 0.0,
+          "law": 0.09090909090909091,
+          "monero": 0.020360674064975874,
+          "politics": 0.07524116541630074,
+          "quant": 0.0,
+          "travel": 0.03893758454237058,
+          "workplace": 0.0
+        },
+        "improved_queries": 53,
+        "declined_queries": 0
+      },
+      "coverage": 0.6318295482986576,
+      "extra_prompts_per_query": 24.32369942196532,
+      "changed_candidates_on_abstentions": 0.0
+    },
+    "dense100": {
+      "ndcg": 0.3903892687460716,
+      "change": {
+        "point": -0.0015089962533595754,
+        "ci95": [
+          -0.004080525119159042,
+          0.0005952383442430565
+        ],
+        "domain_bootstrap_ci95": [
+          -0.005749801556375057,
+          0.0012824230943823407
+        ],
+        "per_domain": {
+          "bitcoin": 0.00016180545654478443,
+          "cardano": 0.0023297927689563533,
+          "economics": 0.0030392802822437636,
+          "genealogy": -0.00020961171415772662,
+          "history": 0.0052560723060624676,
+          "hsm": -0.003307101362862543,
+          "iota": 0.0,
+          "law": -0.023468748408322113,
+          "monero": 0.0,
+          "politics": 0.0003368726477279186,
+          "quant": -0.0032532016510830653,
+          "travel": -0.0005021116187843196,
+          "workplace": 0.0
+        },
+        "improved_queries": 32,
+        "declined_queries": 23
+      },
+      "candidate_oracle_change": {
+        "point": 0.05880340665035954,
+        "ci95": [
+          0.037641645618522734,
+          0.08460784095364993
+        ],
+        "domain_bootstrap_ci95": [
+          0.03763569960418871,
+          0.08306747772924641
+        ],
+        "per_domain": {
+          "bitcoin": 0.06795064867060517,
+          "cardano": 0.03128524840151711,
+          "economics": 0.05454249220526943,
+          "genealogy": 0.05714285714285714,
+          "history": 0.05286839898431827,
+          "hsm": 0.03621860328280848,
+          "iota": 0.0,
+          "law": 0.1372169010099886,
+          "monero": 0.020360674064975874,
+          "politics": 0.08182076343776441,
+          "quant": 0.15307212739772436,
+          "travel": 0.04675889664274986,
+          "workplace": 0.025206675214095284
+        },
+        "improved_queries": 82,
+        "declined_queries": 0
+      },
+      "coverage": 0.6302341476371649,
+      "extra_prompts_per_query": 66.89017341040463,
+      "changed_candidates_on_abstentions": 0.0
+    }
+  }
+}
