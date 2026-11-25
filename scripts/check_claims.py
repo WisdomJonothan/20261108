@@ -41,6 +41,12 @@ def md_number(p, needle):
 
 
 CLAIMS = [
+    ("Query-level evidence list selection on official dev", 0.39536,
+     lambda: jload("analysis/evidence_query_router_20261125.json")["dev"]["selected"]["score"],
+     "analysis/evidence_query_router_20261125.json", False),
+    ("One-document evidence repair on official dev", 0.39589,
+     lambda: jload("analysis/evidence_document_repair_20261125.json")["dev"]["selected"]["score"],
+     "analysis/evidence_document_repair_20261125.json", False),
     ("Training-selected single passage temporal reranking on official dev", 0.39462,
      lambda: jload("analysis/rerank_headroom_temporal_dev_20261125.json")["dev"]["selected"]["score"],
      "analysis/rerank_headroom_temporal_dev_20261125.json", False),

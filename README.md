@@ -203,6 +203,12 @@ fresh Qwen3-Reranker-4B inference give **0.39462** with one excerpt and
 policy adds 30 pointwise scores per query and reaches 65.25% annotated-step
 coverage. [Headroom, score attribution, and matched controls](docs/RERANKING_HEADROOM_20261125.md)
 
+**Evidence selection and repair (2026-11-25).** A training-fold query router
+scores **0.39536**, and a one-document repair of the two-excerpt list scores
+**0.39589** on official dev. The repair reduces the number of labeled relevant
+documents displaced by reranking from 63 to 56.
+[Fold selection, domain sensitivity, and matched controls](docs/EVIDENCE_SELECTION_AND_REPAIR_20261125.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate
