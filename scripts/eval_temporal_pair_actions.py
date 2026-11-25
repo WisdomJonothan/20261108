@@ -5,6 +5,7 @@ import hashlib
 import json
 from math import log2
 from pathlib import Path
+import re
 import time
 
 import torch
@@ -27,6 +28,13 @@ INSTRUCTION = (
     'A passage can support one part of a complex query. Consider evidence quality, not length. '
     'Return A for the first passage, B for the second passage, or C when the evidence is tied '
     'or neither provides a clear answer. Output one letter.'
+)
+QUOTE_INSTRUCTION = (
+    'Compare the evidence for answering the query and its time constraints. '
+    'Each passage can support one part of the question. Quote the best directly usable words from '
+    'each passage before deciding, using NONE when it lacks an answer. Then choose the passage with '
+    'stronger support, or C for a tie or two weak passages. Output exactly three lines in this format: '
+    'A evidence: <short exact quote or NONE>\nB evidence: <short exact quote or NONE>\nChoice: <A, B or C>'
 )
 POLICIES = {'current': ('none', 0., False)}
 for kind in ('head', 'admission', 'both'):
@@ -58,6 +66,22 @@ def bounded(tokenizer, text, limit):
     return tokenizer.decode(ids[:front]) + ' … ' + tokenizer.decode(ids[-(limit-front-8):])
 
 
+def grounded_choice(output, documents):
+    choice = re.search(r'^\s*choice\s*:\s*([ABC])\b', output, re.IGNORECASE | re.MULTILINE)
+    if not choice or choice[1].upper() == 'C':
+        return [0., 0., 1.]
+    letter = choice[1].upper()
+    quote = re.search(r'^\s*' + letter + r'\s+evidence\s*:\s*([^\n]+)',
+                      output, re.IGNORECASE | re.MULTILINE)
+    if not quote:
+        return [0., 0., 1.]
+    words = re.findall(r'\b\w+\b', quote[1].casefold())
+    source = re.findall(r'\b\w+\b', documents['AB'.index(letter)].casefold())
+    if len(words) < 5 or f' {" ".join(words)} ' not in f' {" ".join(source)} ':
+        return [0., 0., 1.]
+    return [1., 0., 0.] if letter == 'A' else [0., 1., 0.]
+
+
 def score(args):
     queries = load(args.manifest)['queries']
     tokenizer = AutoTokenizer.from_pretrained(args.model, local_files_only=True, padding_side='left')
@@ -72,12 +96,17 @@ def score(args):
         domains[r['domain']].append(r)
     result = []
     prompts_scored = 0
+    non_ties = 0
     started = time.perf_counter()
     args.checkpoint.mkdir(parents=True, exist_ok=True)
     for domain, rows in sorted(domains.items()):
         checkpoint = args.checkpoint / f'{domain}.json'
         model_files = [(p.name, p.stat().st_size) for p in sorted(args.model.iterdir()) if p.is_file()]
-        digest = hashlib.sha256(json.dumps([rows, INSTRUCTION, args.batch_size, model_files], sort_keys=True)
+        instruction = QUOTE_INSTRUCTION if args.quote else INSTRUCTION
+        inputs = [rows, instruction, args.batch_size, model_files]
+        if args.quote:
+            inputs.append(args.quote_tokens)
+        digest = hashlib.sha256(json.dumps(inputs, sort_keys=True)
                                 .encode()).hexdigest()
         if checkpoint.exists():
             saved = load(checkpoint)
@@ -85,9 +114,11 @@ def score(args):
                 raise ValueError(f'Checkpoint differs for {domain}')
             result.extend(saved['rows'])
             prompts_scored += saved['prompts']
+            non_ties += saved.get('non_ties', 0)
             continue
         corpus = texts_for_domain(rows, args.data_root / domain / 'documents.jsonl')
         prompts = []
+        shown = []
         for row in rows:
             query = bounded(tokenizer, row['query'], 1200)
             vocabulary = terms(row['query'])
@@ -96,10 +127,12 @@ def score(args):
             for p in row['proposals']:
                 old, new = excerpts[p['incumbent']], excerpts[p['challenger']]
                 for a, b in ((old, new), (new, old)):
-                    prompt = f'{INSTRUCTION}\n\nQuery\n{query}\n\nPassage A\n{a}\n\nPassage B\n{b}'
+                    prompt = f'{instruction}\n\nQuery\n{query}\n\nPassage A\n{a}\n\nPassage B\n{b}'
                     prompts.append(tokenizer.apply_chat_template([{'role': 'user', 'content': prompt}],
                                                                 tokenize=False, add_generation_prompt=True,
                                                                 enable_thinking=False))
+                    if args.quote:
+                        shown.append((a, b))
         probs = []
         with torch.inference_mode():
             for i in range(0, len(prompts), args.batch_size):
@@ -107,8 +140,16 @@ def score(args):
                                    padding=True, return_tensors='pt').to(model.device)
                 if tokens.input_ids.shape[-1] > 4096:
                     raise ValueError(f'Oversized comparison for {domain}')
-                scores = model(**tokens, use_cache=False, logits_to_keep=1).logits[:, -1, ids].float()
-                probs.extend(scores.softmax(dim=-1).cpu().tolist())
+                if args.quote:
+                    generated = model.generate(**tokens, max_new_tokens=args.quote_tokens, do_sample=False,
+                                               temperature=None, top_p=None, top_k=None,
+                                               pad_token_id=tokenizer.pad_token_id)
+                    new_text = tokenizer.batch_decode(generated[:, tokens.input_ids.shape[-1]:],
+                                                      skip_special_tokens=True)
+                    probs.extend(grounded_choice(out, shown[i+j]) for j, out in enumerate(new_text))
+                else:
+                    scores = model(**tokens, use_cache=False, logits_to_keep=1).logits[:, -1, ids].float()
+                    probs.extend(scores.softmax(dim=-1).cpu().tolist())
         current = []
         offset = 0
         for r in rows:
@@ -120,12 +161,16 @@ def score(args):
             current.append({k: r[k] for k in ('qid', 'domain')} | {'votes': votes})
         if offset != len(probs):
             raise ValueError(f'Votes differ from prepared comparisons for {domain}')
-        write_checkpoint(checkpoint, {'sha256': digest, 'rows': current, 'prompts': len(prompts)})
+        active = sum(v[2] < .5 for v in probs) if args.quote else 0
+        write_checkpoint(checkpoint, {'sha256': digest, 'rows': current, 'prompts': len(prompts),
+                                      'non_ties': active})
         result.extend(current)
         prompts_scored += len(prompts)
+        non_ties += active
         print(domain, len(result), '/', len(queries), 'queries;', prompts_scored, 'prompts;',
               round(time.perf_counter()-started), 'seconds', flush=True)
     return {'per_query': result, 'inference': {'model': args.model.name, 'prompts': prompts_scored,
+                                             'mode': 'quote' if args.quote else 'logits', 'verified_choices': non_ties,
                                              'seconds': time.perf_counter()-started,
                                              'peak_mib': torch.cuda.max_memory_allocated()/2**20}}
 
@@ -211,6 +256,8 @@ def main():
     scoring.add_argument('--model', type=Path, required=True)
     scoring.add_argument('--checkpoint', type=Path, required=True)
     scoring.add_argument('--batch-size', type=int, default=8)
+    scoring.add_argument('--quote', action='store_true')
+    scoring.add_argument('--quote-tokens', type=int, default=112)
     scoring_eval.add_argument('--scores', nargs='+', type=Path, required=True)
     scoring_eval.add_argument('--selection', type=Path)
     args = ap.parse_args()
