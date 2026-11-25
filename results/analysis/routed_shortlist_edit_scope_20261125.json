@@ -1,0 +1,48 @@
+{
+  "protocol": "Use qrels to optimize the same six challengers under rank-ten, any single slot, and single-admission plus reorder constraints. Also measure the label-based best ordering of the starting ten and of the full shortlist union.",
+  "queries": 519,
+  "domain_macro": {
+    "baseline": 0.38205557607512663,
+    "same_ten_reordered": 0.5307384680996551,
+    "within100_slot10": 0.3940059143261008,
+    "within100_any_slot": 0.42377523231804975,
+    "within100_one_then_reorder": 0.5625289833944993,
+    "depth300_slot10": 0.38416912725065105,
+    "depth300_any_slot": 0.3891458264573694,
+    "depth300_one_then_reorder": 0.5363174129937849,
+    "other_retrievers_slot10": 0.38265547037278674,
+    "other_retrievers_any_slot": 0.3847836104078517,
+    "other_retrievers_one_then_reorder": 0.5331358353895255,
+    "dense_first_six_slot10": 0.38672374284893085,
+    "dense_first_six_any_slot": 0.39619976890916564,
+    "dense_first_six_one_then_reorder": 0.5444167555739683,
+    "unrestricted_shortlist_union": 0.5861624123055326
+  },
+  "width_sweep_oracle": {
+    "6": {
+      "inside_only": 0.5661108928404546,
+      "dense_expand": 0.5512669934849455,
+      "mixed_expand": 0.5533643379116748
+    },
+    "12": {
+      "inside_only": 0.5962087767199845,
+      "dense_expand": 0.5797451296203904,
+      "mixed_expand": 0.5738260219209224
+    },
+    "24": {
+      "inside_only": 0.6324223669855259,
+      "dense_expand": 0.6164283559703672,
+      "mixed_expand": 0.6155131589098567
+    },
+    "48": {
+      "inside_only": 0.6922297579692226,
+      "dense_expand": 0.6586418245695334,
+      "mixed_expand": 0.6622231997302358
+    },
+    "72": {
+      "inside_only": 0.7212583588486704,
+      "dense_expand": 0.7112417717875584,
+      "mixed_expand": 0.7040328866506824
+    }
+  }
+}
