@@ -27,6 +27,19 @@ Score the interleaved generated candidates using identical question and evidence
 
 The protected 60-document ranking from extractive retrieval scores 0.32448 with the frozen Yuanbao model and the full question. Score each document again with each extractive view and keep the same two excerpts selected from the full question. Standardize the per-query scores of each view, take the greater support for each candidate, then standardize the resulting vector. Blend 60% of the full-question score with 40% of this support score. The matched protected 60-document policy improves to **0.32752**, compared with the 0.32764 current reference. Fold-wise selection scores 0.31976 [−0.01800, +0.00204 in paired change]. The measured full-question and evidence-view inputs therefore leave the existing competition ranking in place. [Full-query ranking](../results/analysis/extractive_temporal_view_yuanbao_holdout_20261125.json) · [Three-view ranking](../results/analysis/extractive_temporal_view_combined_holdout_20261125.json) · [Per-view score cache](../results/analysis/extractive_temporal_view_combined_scores_20261125.tar.gz)
 
+## Learn a query correction with the existing document index
+
+Train on the remaining 1,025 official training queries. For each query, subtract the centroid of the first 24 benchmark-zero dense candidates from the centroid of judged relevant documents. Remove the component parallel to the original query embedding. Fit a ridge regression from original query embeddings to those residual directions, with square-root domain weighting and regularization 0.8. Add a fraction of the predicted direction to each held-out query and search the unchanged mxbai index. Keep the first 30 baseline candidates and fill 30 slots from the corrected retrieval results.
+
+| Added residual strength | Ideal nDCG@10 | Queries without a positive |
+| --- | ---: | ---: |
+| Original embedding | 0.68243 | 30 |
+| 0.25 | 0.68157 | 30 |
+| 0.50 | 0.68402 | 29 |
+| 1.00 | 0.68507 | 29 |
+
+The strongest projection adds 0.00264 to the original-query ceiling at the same width. The extractive interleaving reaches 0.69182. The projection provides a separate label-trained retrieval control at the candidate audit stage. [Residual retrieval audit](../results/analysis/dense_query_residual_holdout_20261125.json)
+
 ## Replay
 
 Generate query embeddings from the [original 30-document training manifest](RERANKING_HEADROOM_20261125.md#reproduction). Use the 60-document training manifest from [the candidate-width study](QWEN_ADAPTATION_AND_PAIR_EVIDENCE_20261125.md#replay) for retrieval. Keep the corpus embeddings produced by the original dense stage.
@@ -44,3 +57,5 @@ python scripts/retrieve_temporal_query_views.py --manifest "$work/wide-train.jso
 Remove `--extractive` to reproduce the generation control. Read `interleaved60` from the candidate list object and save it under `queries` for `score_specialist_shortlists.py`. Use the full original question for reranking. Run `eval_qwen_reranker_adapter.py` with the original 4B two-excerpt scores as the common matched control and the new pool's scores for each tested model.
 
 For each of the two extractive scoring runs, add that query view as `scoring_query` in the candidate manifest while retaining the original `query` field. Score the original and the two view manifests with the same checkpoint, then pass the matched three score archives as `--full`, `--first`, and `--second` to `merge_temporal_view_scores.py`. Evaluate the merged scores and the original scores together.
+
+For the query correction, run `fit_dense_query_residual.py encode --split train` with the original mxbai checkpoint. Pass the resulting vectors, fixed wide training manifest, dense TREC runs and mxbai document embeddings to `fit_dense_query_residual.py evaluate`.
