@@ -24,7 +24,7 @@ CAP = 20
 WEIGHTS = (0.3, 0.6)
 
 
-def select(reference, exclusions):
+def select(reference, exclusions, split):
     excluded = set().union(*(index(load(path)).keys() for path in exclusions))
     groups = defaultdict(list)
     for key, row in index(load(reference)).items():
@@ -33,28 +33,35 @@ def select(reference, exclusions):
             groups[key[0]].append((key[1], action))
     chosen = []
     for domain, rows in sorted(groups.items()):
-        sample = random.Random(f'accepted-transfer-20261125-{domain}').sample(
+        sample = (rows if split == 'dev' else random.Random(f'accepted-transfer-20261125-{domain}').sample(
             sorted(rows), min(CAP, len(rows))
-        )
+        ))
         chosen.extend((domain, qid, action) for qid, action in sorted(sample))
     return chosen
 
 
-def build(root, selected):
+def build(root, selected, split):
     candidates = {}
-    for fold in ('f0', 'f1', 'f2'):
-        for row in load(root / 'results/replacement_v2' / f'candidates_train_{fold}.json')['queries']:
+    sources = {'dev': 'candidates_dev.json'} if split == 'dev' else {
+        fold: f'candidates_train_{fold}.json' for fold in ('f0', 'f1', 'f2')
+    }
+    for fold, filename in sources.items():
+        for row in load(root / 'results/replacement_v2' / filename)['queries']:
             key = row['domain'], row['qid']
             if key in candidates:
                 raise ValueError(f'Duplicate training fold record for {key}')
             candidates[key] = fold, row
-    pools = {}
+    pools, dense = {}, {}
     result = []
     for domain, qid, action in selected:
         fold, row = candidates[domain, qid]
         key = domain, fold
         if key not in pools:
-            pools[key] = read_trec_run(root / 'runs' / f'trainfuse_{fold}_{domain}_train.trec')
+            filename = (f'sub_sft_e2bc_{domain}_dev.trec' if split == 'dev'
+                        else f'trainfuse_{fold}_{domain}_train.trec')
+            pools[key] = read_trec_run(root / 'runs' / filename)
+        if split == 'dev' and domain not in dense:
+            dense[domain] = read_trec_run(root / 'runs' / f'dense_mxbai_{domain}_dev.trec')
         values = pools[key][qid][:100]
         stamps = {d: score for _, score, d in values}
         initial = row['frozen_top10']
@@ -66,7 +73,10 @@ def build(root, selected):
         accepted = initial[:i] + [action['challenger']] + initial[i + 1:]
         anchor = initial[4]
         full_z = dict(zip(stamps, z(np.array(list(stamps.values())))))
-        docs = [d for d in stamps if d in accepted]
+        order = [d for _, _, d in dense[domain][qid][:100]] if split == 'dev' else stamps
+        if set(order) != set(stamps):
+            raise ValueError(f'Dense and frozen top-100 pools differ for {domain}/{qid}')
+        docs = [d for d in order if d in accepted]
         if len(docs) != 10:
             raise ValueError(f'Accepted list has a candidate outside the frozen pool for {domain}/{qid}')
         result.append({
@@ -135,8 +145,8 @@ def score(rows, root, model_path, checkpoint, disable_thinking):
     return totals | {'wall_seconds': time.perf_counter() - begin}
 
 
-def evaluate(rows, data):
-    qrels = {d: read_qrels(data / d / 'qrels_train.txt') for d in {r['domain'] for r in rows}}
+def evaluate(rows, data, split):
+    qrels = {d: read_qrels(data / d / f'qrels_{split}.txt') for d in {r['domain'] for r in rows}}
     records = []
     for r in rows:
         docs = r['documents']
@@ -161,7 +171,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--reference', type=Path, required=True)
-    parser.add_argument('--exclude', type=Path, nargs='+', required=True)
+    parser.add_argument('--exclude', type=Path, nargs='+', default=[])
+    parser.add_argument('--split', choices=('train', 'dev'), default='train')
     parser.add_argument('--model', type=Path, required=True)
     parser.add_argument('--disable-thinking', action='store_true')
     parser.add_argument('--checkpoint', type=Path, required=True)
@@ -169,12 +180,16 @@ def main():
     args = parser.parse_args()
     if args.output.exists():
         parser.error('Use a fresh result filename')
-    selected = select(args.reference, args.exclude)
-    rows = build(args.root, selected)
+    if args.split == 'train' and not args.exclude:
+        parser.error('Supply the earlier holdout reports to exclude.')
+    if args.split == 'dev' and args.exclude:
+        parser.error('Dev confirms every accepted list.')
+    selected = select(args.reference, args.exclude, args.split)
+    rows = build(args.root, selected, args.split)
     print('Selected', len(rows), 'queries in', len({r['domain'] for r in rows}), 'domains', flush=True)
     inference = score(rows, args.root, args.model, args.checkpoint, args.disable_thinking)
-    records, summary = evaluate(rows, args.root / 'data/track1_tempo')
-    report = {'model': args.model.name, 'disable_thinking': args.disable_thinking,
+    records, summary = evaluate(rows, args.root / 'data/track1_tempo', args.split)
+    report = {'model': args.model.name, 'split': args.split, 'disable_thinking': args.disable_thinking,
               'queries': len(records), 'domains': len({r['domain'] for r in records}),
               'summary': summary, 'inference': inference, 'per_query': records}
     with args.output.open('x', encoding='utf-8') as file:
