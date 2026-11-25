@@ -177,6 +177,12 @@ from **0.38770** to **0.38824** on official dev after applying a small penalty
 to near-identical passages in the 34-document abstention pool. The pooled
 training holdouts select this penalty. [Matched experiment and per-query results](docs/SHORTLIST_REDUNDANCY_20261125.md)
 
+**Disjoint-fold duplicate-penalty selection (2026-11-25).** A separate
+523-query training-fold proxy selects the 1.0 penalty in all three held-out
+fold checks. Applying it to the same 8B shortlists gives **0.39190** on the
+previously inspected official dev set. The original smaller 8B holdout
+favors 0.25. [Training selection and transfer](docs/REDUNDANCY_ACCUMULATION_20261125.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate
