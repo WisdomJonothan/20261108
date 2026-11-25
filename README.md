@@ -6,14 +6,15 @@ given a natural-language query and a domain corpus, return a ranked list of
 documents that are relevant **and** consistent with the temporal conditions
 implied by the query.
 
-**Latest verified results (2026-11-26).** The dev reference is **0.39589**
-on all 519 queries across 13 domains. The training-selected Qwen3-Reranker-8B
-blend reaches **0.39893** (+0.00304, paired 95% interval [−0.00496, +0.01107]).
-The fixed Jina v3.5 blend reaches **0.39640**. With the same judge and
-candidates, explaining the evidence before rating reaches **0.40059** on
-official dev, compared with direct rating at **0.38815**. The verified-quote
-fallback rule chosen on training reaches **0.39536**, with annotated step
-coverage increasing from **65.65% to 67.86%**. [Current reference and repair](docs/EVIDENCE_SELECTION_AND_REPAIR_20261125.md) ·
+**Latest verified results (2026-11-26).** On all 519 official dev queries
+across 13 domains, rank agreement between the existing reference, a frozen
+8B pointwise reranker and two evidence grades reaches **0.40400**, compared
+with **0.39589** for the reference. The change is **+0.00811** (paired 95%
+interval [+0.00426, +0.01224]). Removing any single domain leaves at least
+**+0.00739**. The four-list rule was selected on training holdouts. With
+the same judge and candidates, explaining the evidence before rating
+reaches **0.40059**, compared with direct rating at **0.38815**.
+[Current reference and repair](docs/EVIDENCE_SELECTION_AND_REPAIR_20261125.md) ·
 [Matched checkpoint and official Jina results](docs/QWEN_ADAPTATION_AND_PAIR_EVIDENCE_20261125.md) ·
 [Evidence-first evaluation](docs/EVIDENCE_REASONER_20261125.md) ·
 [Fusion-aware training](docs/FUSION_AWARE_RANKING_20261125.md) ·

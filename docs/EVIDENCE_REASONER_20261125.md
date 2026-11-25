@@ -48,6 +48,22 @@ The explanation raises nDCG@10 by **+0.01244** over the same model grading direc
 
 Fit domain-weighted relevance calibration on the exact same 14 candidates. Match candidate-position features across the pointwise-only, ordinal-evidence-only, and combined feature arms. Out of fold the three fitted arms score 0.32543, 0.33152 and 0.33263, and all folds favor the fixed verified blend at 0.33638. [Calibrated holdout replay](../results/analysis/calibrated_evidence_reasoner_holdout_20261126.json)
 
+## Combine rankings across evidence views
+
+Combine four lists with equal votes using reciprocal rank. The inputs are the current reference, the training-selected 8B pointwise blend, and the original and verified 50% evidence blends. Each list contributes (1/(c+r)) at one-based rank (r), with a zero contribution outside the first ten. The hypotheses use the eight incumbent and fixed agreement arms in `scripts/replay_evidence_ranking_consensus.py`. Select only on the 186 training holdouts. The four-list rule at (c=5) scores 0.33759 when applied to the pooled holdouts. Selection across folds scores 0.33435, up 0.00670 from the holdout reference.
+
+| Fixed ranking on all 519 official queries | Domain-macro nDCG@10 | Change from reference |
+| --- | ---: | ---: |
+| Current reference | 0.39589 | — |
+| Matched 8B pointwise ranking | 0.39893 | +0.00304 |
+| Same-checkpoint explanation before rating | 0.40059 | +0.00469 |
+| Equal four-list votes, (c=5) | 0.40392 | **+0.00802** |
+| Equal four-list votes, (c=60) | **0.40400** | **+0.00811** |
+
+The original four-list rule gains +0.00802 with a paired 95% interval [+0.00428, +0.01208] and a domain-resampling interval [+0.00487, +0.01111]. Every leave-one-domain-out gain is at least +0.00730. The extension compares three more rank offsets, the additional 60-candidate 8B list, and a listwise Jina vote. The pooled holdout choice keeps the same four sources at (c=60). It gains +0.00811 [+0.00426, +0.01224] on official dev, with at least +0.00739 after omitting any domain. Both policies improve 11 of 13 domain means. The (c=60) policy adds 29 judged positives and removes 19. It rescues seven zero-score queries, creates two and changes the first document only 12 times. New and removed documents together contribute +0.00448. The remaining +0.00363 comes from reordering retained documents. Step coverage moves from 65.65% to 66.99%.
+
+The two evidence variants share a checkpoint and cast separate votes. Their common improvement over direct grading motivates testing both signals alongside the externally reranked list. The 22-document control with the same four sources scores 0.33724 on the training holdouts compared with 0.33759 for 14. Mean position and two pairwise-majority aggregation rules retain the same pooled policy choice and reduce cross-fold performance. [Ranking consensus and matched controls](../results/analysis/evidence_ranking_consensus_20261126.tar.gz)
+
 ## Replay
 
 Build a 60-document manifest and keep the matching Qwen3-Reranker-8B and Yuanbao scores from the [same-width study](QWEN_ADAPTATION_AND_PAIR_EVIDENCE_20261125.md#replay). Use the original reference repair report when building the 14-document candidate pools.
