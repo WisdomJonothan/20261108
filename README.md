@@ -209,6 +209,12 @@ scores **0.39536**, and a one-document repair of the two-excerpt list scores
 documents displaced by reranking from 63 to 56.
 [Fold selection, domain sensitivity, and matched controls](docs/EVIDENCE_SELECTION_AND_REPAIR_20261125.md)
 
+**4B adaptation and alternative evidence prompts (2026-11-25).** Train a
+low-rank adapter on 908 official training queries and evaluate it on 186
+disjoint queries with the same candidate sets. Wider pools, tie-aware pair
+decisions and highlighted query sentences have small or negative held-out effects.
+[Training checkpoints, candidate ceilings and fold controls](docs/QWEN_ADAPTATION_AND_PAIR_EVIDENCE_20261125.md)
+
 ## Replacement study (dev, 2026-11-20)
 
 Everything below uses the frozen system (`0.3581`), the frozen candidate

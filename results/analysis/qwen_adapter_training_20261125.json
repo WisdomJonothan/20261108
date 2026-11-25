@@ -1,0 +1,73 @@
+{
+  "counts": {
+    "bitcoin": 40,
+    "cardano": 18,
+    "economics": 34,
+    "genealogy": 48,
+    "history": 512,
+    "hsm": 79,
+    "iota": 1,
+    "law": 9,
+    "monero": 25,
+    "politics": 78,
+    "quant": 8,
+    "travel": 47,
+    "workplace": 9
+  },
+  "clipped_documents": 97,
+  "clipped_queries": 24,
+  "seed": 2954,
+  "model": "Qwen3-Reranker-4B",
+  "training_domains": 13,
+  "prepared_sha256": "6b46b706f2de8e4d42c9ee55560d46a7f92eb4a85d3af1416b25fd94c4961451",
+  "heldout_queries": 186,
+  "heldout_manifest_sha256": "92296790ac5370bca9b6224e34f93708b4702d6d8dd30bbf736e2fa7e52c1874",
+  "pairs": 5206,
+  "positive_pairs": 1574,
+  "checkpoints": {
+    "1": {
+      "config": {
+        "layers": 8,
+        "rank": 8,
+        "scale": 16
+      },
+      "training": {
+        "epoch": 1,
+        "steps": 114,
+        "groups": 908,
+        "world_size": 4,
+        "parameters": 1441792,
+        "loss": 1.540685174748761,
+        "seed": 2954,
+        "lr": 6e-05,
+        "batch_groups": 1,
+        "accumulate": 2,
+        "max_mib": 15449.802734375,
+        "seconds": 210.03936335910112
+      },
+      "sha256": "cde852778db87a7676057f4bf848e4bc8bcefe28828d637415dcd9cfaa67ecab"
+    },
+    "2": {
+      "config": {
+        "layers": 8,
+        "rank": 8,
+        "scale": 16
+      },
+      "training": {
+        "epoch": 2,
+        "steps": 228,
+        "groups": 908,
+        "world_size": 4,
+        "parameters": 1441792,
+        "loss": 1.4164346703348707,
+        "seed": 2954,
+        "lr": 6e-05,
+        "batch_groups": 1,
+        "accumulate": 2,
+        "max_mib": 15449.802734375,
+        "seconds": 423.81094169802964
+      },
+      "sha256": "f2931bf6446bc8a169f792a6859d42900c77c81833bb2642bb1874960c817ff8"
+    }
+  }
+}

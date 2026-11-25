@@ -4,6 +4,7 @@ from collections import defaultdict
 import hashlib
 import json
 from pathlib import Path
+import re
 import time
 
 import torch
@@ -36,6 +37,16 @@ def evidence(body, vocabulary, mode):
     return trim_words(first, 2048, 256)
 
 
+def focus_part(query, passage, policy):
+    clauses = [part.strip() for part in re.split(r'(?<=[.?!;])\s+', query) if len(terms(part)) >= 3]
+    if not clauses:
+        return query
+    if policy == 'fixed':
+        return clauses[0]
+    observed = terms(passage)
+    return max(clauses, key=lambda clause: len(terms(clause) & observed) / len(terms(clause)) ** .5)
+
+
 def prepare(root, args):
     result = []
     for split, paths, frozen, scope in (
@@ -55,10 +66,16 @@ def prepare(root, args):
     return sorted(result, key=lambda r: (r['domain'], r['split'], r['qid']))
 
 
-def score(manifest, data_root, model_path, batch_size, checkpoint, mode='reference'):
+def score(manifest, data_root, model_path, batch_size, checkpoint, mode='reference', adapter=None, focus=None):
     tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True, padding_side='left')
     model = AutoModelForCausalLM.from_pretrained(model_path, local_files_only=True,
                                                 dtype=torch.bfloat16).to('cuda').eval()
+    identity = None
+    if adapter:
+        from qwen_reranker_adapter import load_adapter
+
+        identity = {'sha256': hashlib.sha256(adapter.read_bytes()).hexdigest(),
+                    'training': load_adapter(model, adapter)}
     yes, no = [tokenizer.encode(label, add_special_tokens=False) for label in ('yes', 'no')]
     if len(yes) != 1 or len(no) != 1 or yes == no:
         raise ValueError('Expected distinct one-token decisions')
@@ -70,6 +87,9 @@ def score(manifest, data_root, model_path, batch_size, checkpoint, mode='referen
     signature = [(p.name, p.stat().st_size) for p in sorted(model_path.iterdir()) if p.is_file()]
     stats = {'tokens': 0, 'prompts': 0, 'resumed_domains': 0}
     instruction = INSTRUCT if mode == 'reference' else TEMPORAL_INSTRUCT
+    if focus:
+        instruction += (' Judge whether the evidence directly answers the highlighted part while '
+                        'preserving the entities and time constraints in the full query.')
     torch.cuda.reset_peak_memory_stats()
     started = time.perf_counter()
     completed = []
@@ -78,6 +98,10 @@ def score(manifest, data_root, model_path, batch_size, checkpoint, mode='referen
         fingerprint_inputs = [group, signature, instruction, PREFIX, SUFFIX, batch_size]
         if mode != 'reference':
             fingerprint_inputs.append(mode)
+        if identity:
+            fingerprint_inputs.append(identity['sha256'])
+        if focus:
+            fingerprint_inputs.append(focus)
         fingerprint = hashlib.sha256(json.dumps(fingerprint_inputs, sort_keys=True).encode()).hexdigest()
         if path.exists():
             saved = load(path)
@@ -105,7 +129,11 @@ def score(manifest, data_root, model_path, batch_size, checkpoint, mode='referen
             vocabulary = terms(query)
             for doc in r['docs']:
                 passage = evidence(corpus[doc], vocabulary, mode)
-                prompts.append(f'<Instruct>: {instruction}\n<Query>: {query}\n<Document>: {passage}')
+                guide = ''
+                if focus:
+                    part = tokenizer.encode(focus_part(query, passage, focus), add_special_tokens=False)[:96]
+                    guide = f'\n<Highlighted part>: {tokenizer.decode(part)}'
+                prompts.append(f'<Instruct>: {instruction}\n<Query>: {query}{guide}\n<Document>: {passage}')
         values, tokens = [], 0
         with torch.inference_mode():
             for start in range(0, len(prompts), batch_size):
@@ -131,9 +159,14 @@ def score(manifest, data_root, model_path, batch_size, checkpoint, mode='referen
         stats['tokens'] += tokens
         stats['prompts'] += len(prompts)
         print(domain, len(completed), '/', len(manifest), 'queries', round(time.perf_counter()-started), flush=True)
-    return {'model': model_path.name, 'evidence_mode': mode, 'instruction': instruction, 'inference': stats | {
+    report = {'model': model_path.name, 'evidence_mode': mode, 'instruction': instruction, 'inference': stats | {
         'seconds': time.perf_counter() - started, 'peak_mib': torch.cuda.max_memory_allocated() / 2**20,
     }, 'per_query': completed}
+    if identity:
+        report['adapter'] = identity
+    if focus:
+        report['focus'] = focus
+    return report
 
 
 def select_shard(queries, count, slot):
@@ -159,6 +192,9 @@ def main():
     parser.add_argument('--prepare', action='store_true')
     parser.add_argument('--manifest', type=Path)
     parser.add_argument('--model', type=Path)
+    parser.add_argument('--adapter', type=Path)
+    parser.add_argument('--model-revision')
+    parser.add_argument('--focus', choices=('aligned', 'fixed'))
     parser.add_argument('--checkpoint', type=Path)
     parser.add_argument('--batch-size', type=int, default=16)
     parser.add_argument('--evidence-mode', choices=('reference', 'temporal', 'dispersed'), default='reference')
@@ -182,8 +218,10 @@ def main():
         if args.shards > 1:
             queries = select_shard(queries, args.shards, args.shard_index)
         report = score(queries, args.data_root or args.root / 'data/track1_tempo',
-                       args.model, args.batch_size, args.checkpoint, args.evidence_mode)
+                       args.model, args.batch_size, args.checkpoint, args.evidence_mode, args.adapter, args.focus)
         report['shard'] = {'index': args.shard_index, 'count': args.shards}
+        if args.model_revision:
+            report['model_revision'] = args.model_revision
     with args.output.open('x', encoding='utf-8') as file:
         json.dump(report, file, separators=(',', ':'))
         file.write('\n')

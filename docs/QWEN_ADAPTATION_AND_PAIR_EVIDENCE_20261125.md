@@ -1,0 +1,49 @@
+# Task adaptation and tie-aware evidence comparisons
+
+This checkpoint of the study keeps 0.39589 as the official dev reference. It tests two interventions against the same 186 training-fold queries, including 65 with the exact 8B-backed starting system. Use the 519-query official dev release only for the candidate ceilings in this report. All ceilings use qrels and ideal choices. [Starting system and exact reference lists](EVIDENCE_SELECTION_AND_REPAIR_20261125.md)
+
+## Adapt the 4B reranker using official train qrels
+
+Prepare 908 groups from the official training corpus and the original cross-encoder group archive, after excluding all 186 held-out query IDs. Each group contains up to two judged positives, up to three high-ranked dense negatives and a remaining sampled negative. This yields 5,206 query–document pairs, including 1,574 positives. Use the existing two-excerpt temporal prompt, preserving evidence-token capacity in the rare very long questions. The 1,024-token training budget reduces 24 queries and truncates 97 document prompts.
+
+Apply rank-8 low-rank updates to the query projection, value projection and MLP down projection of the last eight Qwen3-Reranker-4B blocks. Train 1,441,792 parameters for two epochs on four RTX 3090s, using listwise softmax on the yes-minus-no logit at temperature 3 and a 0.25-weighted binary loss. One query per microbatch with two accumulated microbatches per GPU preserves an effective batch of eight groups on complete steps. Two groups in one microbatch caused a memory error in the initial attempt. The successful training run takes 424 seconds and reaches a 15,450 MiB peak PyTorch allocation. [Training metadata and checkpoint hashes](../results/analysis/qwen_adapter_training_20261125.json) · [Base checkpoint and scoring protocol](https://huggingface.co/Qwen/Qwen3-Reranker-4B)
+
+| Matched 186-query held-out comparison | Domain-macro nDCG@10 |
+|---|---:|
+| Current repair, fold-specific policy | 0.32764 |
+| Original 4B scores alone, 30 candidates | 0.28381 |
+| Epoch 1 adapter scores alone, same 30 candidates | 0.25958 |
+| Epoch 2 adapter scores alone, same 30 candidates | 0.25401 |
+| Best pooled adapter policy, epoch 2 reorder of the current ten | 0.33182 |
+| Checkpoint and policy chosen on the other two folds | 0.32755 |
+
+The best pooled checkpoint and policy nearly tie across epochs. The cross-fit change is **−0.00010** [−0.00500, +0.00494]. The exact-reference 65-query change is −0.00191. The most consistent use of the adapter scores in this experiment is a small reordering of documents already selected by the previous system. [Held-out controls](../results/analysis/qwen_adapter_holdout_20261125.json)
+
+Keep those same 30 candidates, then add 15 from the fused ranks within mxbai depth 100, seven more from dense ranks 101–300 and eight BGE candidates outside the dense top 100. The official-dev candidate ceiling increases from **0.63230 to 0.71559**, and the number of candidate pools without a labeled positive falls from 83 to 63. Score the 30 extra candidates on the 186 held-out queries with the selected epoch-2 adapter. The cross-fit choice reaches **0.32801** against 0.32764, and the pooled choice stays with reordering the existing top ten. The unrestricted 60-candidate variant scores 0.30961. The exact-reference 65-query cross-fit change is −0.00166. [Candidate ceilings](../results/analysis/qwen_adapter_pool_oracle_20261125.json) · [Held-out wide controls](../results/analysis/qwen_adapter_wide_holdout_20261125.json) · [Raw logits](../results/analysis/qwen_adapter_holdout_scores_20261125.tar.gz)
+
+## Compare at most one pair with a tie option
+
+Offer each query up to two challengers at rank one and one candidate for ranks 8–10. A head challenger is the best-scoring document at ranks 2–6 under either existing 4B evidence view. The admission challenger is the leading document outside the current ten by mean standardized evidence score. Each proposal changes the top-ten list once. The qrels-based official-dev ceiling is 0.41924 for head swaps, 0.40063 for admissions and **0.42357** when one edit of either type is allowed. [Training candidate ceilings](../results/analysis/temporal_pair_train_oracle_20261125.json) · [Dev candidate ceilings](../results/analysis/temporal_pair_dev_oracle_20261125.json)
+
+Use the available Qwen3-4B-Instruct checkpoint on 414 held-out pairs, with two excerpts per document and both document orders. A and B select the better supported passage. C marks a tie or two weak passages. The direct policies consider order agreement, the mean vote margin and the discount of the affected positions. The best pooled policy gives 0.33094 against 0.32764. Selection across held-out folds lowers the score to **0.32253** (−0.00511) and lowers the exact-reference 65-query score by −0.00710. Fit a second model to the actual nDCG change with paired vote probabilities, evidence-score margins and position features. Nested training-fold calibration selects the direct policy again. The best fixed calibrated control reaches 0.32945. The measured transfer keeps these pair policies at the held-out stage. [Direct controls](../results/analysis/temporal_pair_tie_holdout_20261125.json) · [Calibrated controls](../results/analysis/temporal_pair_calibration_20261125.json) · [Raw votes](../results/analysis/temporal_pair_tie_scores_20261125.tar.gz)
+
+## Highlight a part of the question
+
+Keep the full query, the 4B weights and the same two excerpts in all prompts. Compare the existing prompt with an additional highlighted sentence. In the document-conditioned variant, choose the query sentence with the greatest length-adjusted lexical overlap with the two excerpts. In the fixed variant, highlight the first qualifying sentence for every candidate. Both use the same extra instruction to respect entities and time conditions in the full query.
+
+On the same 186 held-out queries, the strongest fixed highlighting policy scores 0.32486 and the strongest document-conditioned policy scores 0.32405. All three held-out folds retain the current list, which scores 0.32764. The no-highlight, matched two-excerpt comparison scores 0.32805. [Held-out score and ranking controls](../results/analysis/qwen_focus_holdout_20261125.json) · [Raw focal-prompt logits](../results/analysis/qwen_focus_scores_20261125.tar.gz)
+
+## Replay
+
+Rebuild the 186-query training manifest, 519-query dev manifest and prior score archives as documented in [the reranking study](RERANKING_HEADROOM_20261125.md#reproduction). The original CE groups are built by `scripts/build_ce_train_groups.py` using the retained train qrels and mxbai runs.
+
+```bash
+python scripts/train_qwen_reranker_adapter.py prepare --model models/Qwen3-Reranker-4B \
+  --data-root data/track1_tempo --runs-root runs --groups-root results \
+  --holdout "$work/train.json" --output "$work/prepared-groups.json"
+
+torchrun --standalone --nproc-per-node 4 scripts/train_qwen_reranker_adapter.py train \
+  --model models/Qwen3-Reranker-4B --input "$work/prepared-groups.json" --output "$work/adapters"
+```
+
+Score the held-out manifest with `score_specialist_shortlists.py --evidence-mode dispersed --adapter "$work/adapters/epoch-2.pt"`. Use `extend_evidence_adapter_pools.py` with the archived BGE train/dev runs to reproduce the wider candidate set. Evaluate with `eval_qwen_reranker_adapter.py`. For pairs, use `build_temporal_pair_actions.py`, `eval_temporal_pair_actions.py score`, `eval_temporal_pair_actions.py evaluate` and `replay_calibrated_temporal_pairs.py`. Use `score_specialist_shortlists.py --evidence-mode dispersed --focus aligned` and `--focus fixed` with the frozen checkpoint for the highlight control. The raw-logit and raw-vote archives support CPU replay.

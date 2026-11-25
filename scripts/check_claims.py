@@ -41,6 +41,12 @@ def md_number(p, needle):
 
 
 CLAIMS = [
+    ("4B adapter and ranking policy selected on held-out folds", 0.32755,
+     lambda: jload("analysis/qwen_adapter_holdout_20261125.json")["training"]["selected"]["score"],
+     "analysis/qwen_adapter_holdout_20261125.json", False),
+    ("Tie-aware pair rule selected on held-out folds", 0.32253,
+     lambda: jload("analysis/temporal_pair_tie_holdout_20261125.json")["train"]["selected"]["score"],
+     "analysis/temporal_pair_tie_holdout_20261125.json", False),
     ("Query-level evidence list selection on official dev", 0.39536,
      lambda: jload("analysis/evidence_query_router_20261125.json")["dev"]["selected"]["score"],
      "analysis/evidence_query_router_20261125.json", False),
