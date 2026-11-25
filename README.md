@@ -6,7 +6,18 @@ given a natural-language query and a domain corpus, return a ranked list of
 documents that are relevant **and** consistent with the temporal conditions
 implied by the query.
 
-**Current research status (2026-11-20).** The reference submission system
+**Latest verified results (2026-11-25).** The current dev reference is **0.39589**
+on all 519 queries across 13 domains. The fixed Jina v3.5 blend reaches **0.39640**
+(+0.00051, paired 95% interval [−0.00517, +0.00602]). Evidence-first document
+grading improves the 186-query training holdout from **0.32764 to 0.33266**
+under cross-fold policy selection. Its official evaluation uses the rule chosen
+on the holdout. [Current reference and repair](docs/EVIDENCE_SELECTION_AND_REPAIR_20261125.md) ·
+[Matched checkpoint and official Jina results](docs/QWEN_ADAPTATION_AND_PAIR_EVIDENCE_20261125.md) ·
+[Evidence-first evaluation](docs/EVIDENCE_REASONER_20261125.md) ·
+[Fusion-aware training](docs/FUSION_AWARE_RANKING_20261125.md) ·
+[Query views and retrieval ceilings](docs/TEMPORAL_QUERY_VIEWS_20261125.md)
+
+**Frozen reference (2026-11-20).** The reference submission system
 scores **0.3581** on official dev (re-verified: 519 queries, 13 domains, hashes
 in `results/FROZEN_BASELINE_20261120.json`). The research question is why a
 stronger standalone reranker yields a weaker fused ranking, and whether a

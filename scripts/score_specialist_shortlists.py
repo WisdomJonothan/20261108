@@ -71,10 +71,22 @@ def prepare(root, args):
     return sorted(result, key=lambda r: (r['domain'], r['split'], r['qid']))
 
 
-def score(manifest, data_root, model_path, batch_size, checkpoint, mode='reference', adapter=None, focus=None):
+def score(manifest, data_root, model_path, batch_size, checkpoint, mode='reference', adapter=None, focus=None,
+          gpu_memory_gib=None):
     tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True, padding_side='left')
+    placement = {}
+    if gpu_memory_gib:
+        if len(gpu_memory_gib) != torch.cuda.device_count() or min(gpu_memory_gib) < 1 or adapter:
+            raise ValueError('Supply a positive memory budget for each visible GPU when sharding a frozen model')
+        placement = {'device_map': 'auto',
+                     'max_memory': {i: f'{limit}GiB' for i, limit in enumerate(gpu_memory_gib)} | {'cpu': '0GiB'}}
     model = AutoModelForCausalLM.from_pretrained(model_path, local_files_only=True,
-                                                dtype=torch.bfloat16).to('cuda').eval()
+                                                dtype=torch.bfloat16, **placement).eval()
+    if gpu_memory_gib:
+        if any(p.device.type != 'cuda' for p in model.parameters()):
+            raise ValueError('The requested device map does not fit the full model in GPU memory')
+    else:
+        model.to('cuda')
     identity = None
     if adapter:
         from qwen_reranker_adapter import load_adapter
@@ -183,6 +195,10 @@ def score(manifest, data_root, model_path, batch_size, checkpoint, mode='referen
         report['focus'] = focus
     if any('scoring_query' in r for r in manifest):
         report['query_input'] = 'manifest_scoring_query'
+    if gpu_memory_gib:
+        report['inference']['gpu_memory_budget_gib'] = gpu_memory_gib
+        report['inference']['gpu_peak_mib'] = [torch.cuda.max_memory_allocated(i)/2**20
+                                              for i in range(len(gpu_memory_gib))]
     return report
 
 
@@ -214,6 +230,7 @@ def main():
     parser.add_argument('--focus', choices=('aligned', 'fixed'))
     parser.add_argument('--checkpoint', type=Path)
     parser.add_argument('--batch-size', type=int, default=16)
+    parser.add_argument('--gpu-memory-gib', type=int, nargs='+')
     parser.add_argument('--evidence-mode', choices=('reference', 'temporal', 'dispersed', 'expanded'),
                         default='reference')
     parser.add_argument('--shards', type=int, default=1)
@@ -236,7 +253,8 @@ def main():
         if args.shards > 1:
             queries = select_shard(queries, args.shards, args.shard_index)
         report = score(queries, args.data_root or args.root / 'data/track1_tempo',
-                       args.model, args.batch_size, args.checkpoint, args.evidence_mode, args.adapter, args.focus)
+                       args.model, args.batch_size, args.checkpoint, args.evidence_mode, args.adapter, args.focus,
+                       args.gpu_memory_gib)
         report['shard'] = {'index': args.shard_index, 'count': args.shards}
         if args.model_revision:
             report['model_revision'] = args.model_revision
