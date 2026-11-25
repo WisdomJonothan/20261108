@@ -23,6 +23,8 @@ Ranking policies use the expected ordinal rating and combine its standardized va
 
 The cross-fold increase is **+0.00502** [−0.00469, +0.01509]. On the same 65 exact-reference queries, the cross-fold increase is +0.00676. The smallest leave-one-domain-out gain is +0.00205. The selected fold-wise policies add 16 judged relevant documents and lose nine. Ten of the additions come from the second 30 candidates. Four zero-score queries gain a positive and two become new zeroes. The official evaluation applies the pooled choice to all 519 queries with the same candidate selection, excerpt selection, checkpoint and thresholds. [Held-out rankings and matched controls](../results/analysis/evidence_reasoner_holdout_20261125.json) · [Archived ratings and verification indicators](../results/analysis/evidence_reasoner_holdout_scores_20261125.tar.gz)
 
+On the 165 holdout queries with step judgments, the cross-fold policies raise domain-macro coverage from **60.04% to 62.33%**. They cover eight previously missing steps and lose six. In history query `62622_605`, the system adds a document about archival personnel cards that can contain salary records. In bitcoin query `126019_1`, it admits a documented observation about one-block reorganizations when the request concerns reorganizations of two to four blocks. The latter illustrates how a traceable quotation can still refer to the wrong scope.
+
 ## Replay
 
 Build a 60-document manifest and keep the matching Qwen3-Reranker-8B and Yuanbao scores from the [same-width study](QWEN_ADAPTATION_AND_PAIR_EVIDENCE_20261125.md#replay). Use the original reference repair report when building the 14-document candidate pools.
