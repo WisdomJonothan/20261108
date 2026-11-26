@@ -21,6 +21,7 @@ ANCHORED = ('current', 'local_candidate_scale', 'original_candidate_scale')
 AGREEMENT = ('current', 'same_position_both_scales')
 PROTECTED = ('current', 'reorder_current_membership')
 TAPERED = ('current', 'wide_pointwise_taper')
+GUARDED = ('current', 'verified_tail_admission')
 
 
 def agreed_positions(original, first, second):
@@ -39,6 +40,22 @@ def tapered_rank(other_votes, pointwise):
         taper = min(1., (30 - r) / 20.)
         scores[doc] = scores.get(doc, 0.) + taper / (60 + r)
     return sorted(scores, key=lambda doc: -scores[doc])[:10]
+
+
+def guard_admission(current, proposal, evidence):
+    def grade(doc):
+        proof = evidence.get(doc)
+        return proof['reasoned'] if proof and proof['verified'] else 0.
+
+    displaced = [doc for doc in reversed(current) if doc not in proposal]
+    displaced.sort(key=grade)
+    accepted = set(current)
+    for doc in proposal:
+        if doc not in accepted and grade(doc) >= 2 and grade(doc) - grade(displaced[0]) >= .5:
+            accepted.add(doc)
+            displaced.pop(0)
+    retained = iter(doc for doc in current if doc in displaced)
+    return [doc if doc in accepted else next(retained) for doc in proposal]
 
 
 def prepare(args):
@@ -118,6 +135,8 @@ def replay(args):
             choices = {'replace_pointwise_with_original_scope': original, ARMS[1]: expanded}
         for arm,vote in choices.items():
             rankings[arm] = head(reciprocal(basis+[vote],60),original_pointwise,judgments,True,.5)
+        if args.guard_admission:
+            rankings[GUARDED[1]] = guard_admission(frozen, rankings['local_candidate_scale'], judgments)
         if args.stable_across_scales:
             local, fixed = (rankings[name] for name in ANCHORED[1:])
             rankings[AGREEMENT[1]] = agreed_positions(frozen, local, fixed)
@@ -154,12 +173,13 @@ def main():
     alternative.add_argument('--stable-across-scales', action='store_true')
     alternative.add_argument('--protect-membership', action='store_true')
     alternative.add_argument('--taper-vote', action='store_true')
+    alternative.add_argument('--guard-admission', action='store_true')
     args=p.parse_args()
     if args.output.exists() or (args.stage=='prepare' and args.missing_manifest.exists()):
         p.error('Use fresh output paths')
     if args.stage=='evaluate' and args.confirmation and not args.selection:
         p.error('Confirmation requires a frozen choice')
-    if args.stage == 'evaluate' and (args.stable_across_scales or args.protect_membership or args.taper_vote) and not args.retain_position_prior:
+    if args.stage == 'evaluate' and (args.stable_across_scales or args.protect_membership or args.taper_vote or args.guard_admission) and not args.retain_position_prior:
         p.error('The constrained comparisons require the position-preserving pointwise vote')
     if args.stage == 'prepare':
         result = prepare(args)
@@ -169,6 +189,8 @@ def main():
             arms = PROTECTED
         if args.taper_vote:
             arms = TAPERED
+        if args.guard_admission:
+            arms = GUARDED
         result = evaluate(args, replay, arms)
     with args.output.open('x',encoding='utf8') as f:
         json.dump(result,f,separators=(',',':'))
