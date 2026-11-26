@@ -480,3 +480,22 @@ A within-domain audit of the 242 against the 969 finds zero exact matches after 
 The frozen baseline scores **0.27935** and the preselected local-scale vote scores **0.28062**. The paired change is **+0.00128** [−0.00067, +0.00369], with 25 improved queries and 22 declines. Removing Travel gives the smallest domain-deletion change, **+0.00059**. The fixed rule passes both selection gates. The run scores 1,487 uncached 8B pairs. An independent organizer-scoring pass reproduces the 242 scores, all query IDs, and the reference and candidate rank deltas.
 
 The score accounting assigns +0.00165 to new top-ten positives from ranks 31 to 60 of the original candidate list, −0.00026 to positive departures, and −0.00011 to the movement of retained positives. All newly promoted judged positives come from original ranks 31 to 60. This replicates the candidate-exposure finding on the current 13-domain holdout. At most one official-dev rule advances, using the frozen 8B, local standardization within the same 30 positions, and the existing consensus and first-position logic. [Audited 242 rankings and scores](../results/analysis/locked-local-vote-reserve-242-20261126.tar.gz)
+
+## A structural limit on giving new candidates only one vote
+
+For equal-weight RRF with offset 60 and input top tens, a document with two votes contributes at least 2/70 = 0.02857. The maximum score of a one-vote document is 1/61 = 0.01639. Once ten documents have at least two votes, a single-list outsider has no path into the fused ten. The head rule only exchanges positions inside that result. This bound applies regardless of the outsider's raw relevance score. [RRF](https://doi.org/10.1145/1571941.1572114)
+
+The established three other lists all come from the original 60. They already supply at least ten repeated documents on **234 of 242** transfer questions and **496 of 519** official-dev questions. The latter count uses only the existing vote positions and candidate IDs, without official-dev judgments. On the 242, the updated fourth vote gives 221 votes to outside documents across 131 questions. On 129 of those questions the four lists have at least ten repeated candidates. The final fused lists contain no outsiders. The two evidence-grade votes have the same membership on 114 of 242 questions.
+
+| Where external judged positives are present | Queries among 242 |
+| --- | ---: |
+| Revised pool of 60 | 67 |
+| Updated pointwise pool of 30 | 20 |
+| 8B pointwise vote in the first ten | 10 |
+| Final fused top ten | 0 |
+
+The position and candidate analysis follows the same identified documents across each stage. The wider candidate route and the 8B vote both recover some judged candidates. The vote rule yields a second bottleneck after those stages. [Recomputed vote counts and label-based funnel](../results/analysis/rrf-admission-242-20261126.json)
+
+### Supply a second vote from the inexpensive scorer when the two models agree
+
+Keep the same 30 documents and all four lists. Reuse the small cross-encoder's scores to form a top-ten list within that same 30. Only an outsider beyond the original 60 can get its additional rank contribution, and only if it is present in both the updated 8B and the small model's top ten. Preserve each contribution's actual rank, without compressing the positions of eligible documents. Compare the resulting ranking with the fixed local-scale vote that receives identical scores and no additional vote, and with the frozen competition reference. First screen on the original 186. This is a training-side diagnostic of eligibility from two separate scoring checkpoints. It plays no role in the current locked official-dev comparison.

@@ -1,0 +1,30 @@
+{
+  "counts": {
+    "queries": 242,
+    "repeated_ten_under_other_votes": 234,
+    "repeated_ten_under_all_votes": 240,
+    "outside_original60_got_new_vote": 131,
+    "outside_original60_received_new_votes": 221,
+    "outside_original60_got_full_top10": 0,
+    "outside_original60_voted_and_repeat_barrier": 129,
+    "reasoned_equals_verified_set": 114,
+    "outside_positive_in_wide60": 67,
+    "outside_positive_in_revised30": 20,
+    "outside_positive_in_pointwise_top10": 10,
+    "outside_positive_in_final_top10": 0
+  },
+  "two_vote_histogram_other_three": {
+    "9": 8,
+    "10": 199,
+    "11": 35
+  },
+  "two_vote_histogram_revised_four": {
+    "11": 100,
+    "10": 89,
+    "12": 46,
+    "9": 2,
+    "13": 5
+  },
+  "pointwise_vote_depth": 10,
+  "offset": 60
+}
