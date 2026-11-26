@@ -90,11 +90,16 @@ def clause_excerpts(body, query, vocabulary):
 
 def score(args):
     import torch
-    from transformers import AutoModelForCausalLM, AutoTokenizer
+    from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
 
     source = load(args.manifest)['queries']
-    model = AutoModelForCausalLM.from_pretrained(args.model, dtype=torch.bfloat16,
-                                                local_files_only=True).to('cuda').eval()
+    config = AutoConfig.from_pretrained(args.model, local_files_only=True)
+    loader = AutoModelForCausalLM
+    if config.model_type == 'qwen3_5':
+        from transformers import AutoModelForImageTextToText
+        loader = AutoModelForImageTextToText
+    model = loader.from_pretrained(args.model, dtype=torch.bfloat16,
+                                   local_files_only=True).to('cuda').eval()
     tokenizer = AutoTokenizer.from_pretrained(args.model, local_files_only=True, padding_side='left')
     choices = [tokenizer.encode(d, add_special_tokens=False) for d in ('0', '1', '2', '3')]
     if any(len(ids) != 1 for ids in choices) or len({i[0] for i in choices}) != 4:

@@ -211,3 +211,9 @@ The frozen ranking scores 0.33821. The three actual policies each improve one qu
 ## Use a separate reasoning encoder on two broader candidate sources
 
 Form the union of the first 200 documents from each of the archived mxbai and BGE lists and the original 60. DiVeR produces normalized document and query embeddings using its instruction protocol and last-token pooling. Each document representation is shared across every question in its domain and shard. Each of the three sources supplies its best four candidates outside the original pool. Compare the two constituent retrievers with DiVeR ranking the union. The shortlist diagnostic uses matched budgets and the same allowed ranks for candidate admission. Follow-up grading reuses the evidence and pointwise checks from the feedback experiment. [DiVeR encoder and training objective](https://huggingface.co/AQ-MedAI/Diver-Retriever-4B/tree/ff7f8bc8d1827734dcf2bbfab99f065be618069a)
+
+## Compare a stronger evidence judge under the same retrieval inputs
+
+Use the pinned Qwen3.5-9B model in text-only, non-thinking mode. Keep the 14 document identities, dispersed excerpts, ordinal rating rubric, quote verification and 80-token explanation limit. Measure standalone direct and explanation-based judgments for both model checkpoints. These measurements expose changes in score quality at the same evidence scope.
+
+For the deployed ordering comparison, either replace both original evidence votes with the new judge's explanation and verified votes or add only its verified vote. Keep the current non-evidence votes and original first-position guard fixed. A replay substituting identical stored grades reproduces all 186 frozen rankings exactly. Use the earlier fold and disjoint-population gates for any new submission policy. [Pinned Qwen3.5 model](https://huggingface.co/Qwen/Qwen3.5-9B/tree/c202236235762e1c871ad0ccb60c8ee5ba337b9a)
