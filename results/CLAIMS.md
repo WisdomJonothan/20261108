@@ -55,3 +55,13 @@ artefact, and that artefact (paths relative to `results/`).
 Gate: `/d/anaconda/python.exe scripts/check_claims.py` exits 0 with
 `RESULT: all claims traceable`. The BM25 row is the organisers' published
 baseline, not our computation; everything else recomputes from a local file.
+
+## Locked wider-pool vote (2026-11-26)
+
+| claim | value | source |
+|---|---:|---|
+| Official dev comparator | 0.40674178 | `analysis/locked-local-vote-official-summary-20261126.json` |
+| Locked official dev vote | 0.40606868 | `analysis/locked-local-vote-official-summary-20261126.json` |
+| Paired official dev change | −0.00067310 | `analysis/locked-local-vote-official-summary-20261126.json` |
+| Queries with an outside judged positive in the 8B vote | 22 | `analysis/rrf-admission-official-20261126.json` |
+| Queries with an outside judged positive in the final ten | 0 | `analysis/rrf-admission-official-20261126.json` |

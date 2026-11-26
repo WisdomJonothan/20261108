@@ -41,6 +41,15 @@ def md_number(p, needle):
 
 
 CLAIMS = [
+    ("Locked local-scale vote on official dev", 0.40606868,
+     lambda: jload("analysis/locked-local-vote-official-summary-20261126.json")["dev"]["selected"]["score"],
+     "analysis/locked-local-vote-official-summary-20261126.json", False),
+    ("Locked local-scale dev change", -0.00067310,
+     lambda: jload("analysis/locked-local-vote-official-summary-20261126.json")["dev"]["selected"]["change"]["point"],
+     "analysis/locked-local-vote-official-summary-20261126.json", False),
+    ("Official dev queries with an outside positive in the 8B top-ten vote", 22,
+     lambda: jload("analysis/rrf-admission-official-20261126.json")["counts"]["outside_positive_in_pointwise_top10"],
+     "analysis/rrf-admission-official-20261126.json", False),
     ("Four-list evidence consensus on official dev", 0.40400305,
      lambda: jload("analysis/evidence_consensus_head_official_dev_20261126.json")["dev"]["candidate"]["score"],
      "analysis/evidence_consensus_head_official_dev_20261126.json", False),
