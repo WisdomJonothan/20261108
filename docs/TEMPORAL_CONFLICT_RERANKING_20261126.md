@@ -372,3 +372,9 @@ The comparison nominates a challenger on 163 of 186 questions. Choosing when to 
 ### Remove the common presentation offset
 
 Keep the same paired prompts and model outputs. Define the preference as half the B-minus-A margin in the original presentation minus half that margin in the reversed presentation. A positive value favors the challenger once a common label or position offset cancels. Apply the same rule to direct and explanation-based margins, with zero as the fixed decision boundary. Use the same two positions and the same transfer protocol. This tests whether two-order averaging makes better use of the scored comparisons than requiring both absolute choices to agree.
+
+The direct difference gives 0.34413 on the 186 as a fixed rule, with 11 helped and eight harmed queries. Its paired gain is +0.00592 [−0.00347, +0.01564]. The explanation difference gives 0.33758. Cross-fold selection scores 0.33596, and its smallest leave-one-domain-out effect is −0.00420. Both pair studies end before the 155. [Candidate oracle, both orientations and all rankings](../results/analysis/head-pair-held-20261126.tar.gz)
+
+## Screen the near-positive control checkpoint as a separate fixed candidate
+
+The wider-positive supervision comparison provides a supervised control checkpoint. Screen that existing one-epoch near-positive adapter separately for potential ranking improvement. This follow-up was chosen after inspecting the training-side comparison. Keep the exact same 30 candidates, scores, fusion procedure and checkpoint. Compare only the frozen ranking and the near-positive adapter for policy selection on the 186. If eligible, freeze the checkpoint and policy for the 155 and newly sampled 109 IDs. Use only the eventual locked rule in any official-dev evaluation.

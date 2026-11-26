@@ -15,6 +15,7 @@ from replay_passage_admission import observations
 
 
 ARMS = ('current', 'wide_positive_adapter')
+NEAR_ONLY = ('current', 'near_positive_adapter')
 ALL_JUDGES = ('frozen_8b', 'near_positive_adapter', 'wide_positive_adapter')
 
 
@@ -49,19 +50,22 @@ def replay(args):
     votes, reference = (index(load(p)) for p in (args.consensus,args.reference))
     base = candidate_judges(args.base)[0]['pretrained']
     near,near_id = checkpoint(args.near)
-    wide,wide_id = checkpoint(args.wide)
-    if near_id['sha256']==wide_id['sha256']:
-        raise ValueError('Expected distinct positive-sampling checkpoints')
-    comparable = ('epoch','groups','parameters','seed','lr','batch_groups','accumulate','world_size')
-    if any(near_id['training'][k]!=wide_id['training'][k] for k in comparable):
-        raise ValueError('Checkpoints have different training settings')
+    comparison = [base,near]
+    if args.wide:
+        wide,wide_id = checkpoint(args.wide)
+        if near_id['sha256']==wide_id['sha256']:
+            raise ValueError('Expected distinct positive-sampling checkpoints')
+        comparable = ('epoch','groups','parameters','seed','lr','batch_groups','accumulate','world_size')
+        if any(near_id['training'][k]!=wide_id['training'][k] for k in comparable):
+            raise ValueError('Checkpoints have different training settings')
+        comparison.append(wide)
     evidence = observations(args.evidence)
-    if any(source.keys()!=manifest.keys() for source in (votes,reference,base,near,wide,evidence)):
+    if any(source.keys()!=manifest.keys() for source in (votes,reference,evidence,*comparison)):
         raise ValueError('Every comparison requires the same query IDs')
     result = []
     for k,row in manifest.items():
         docs = row['docs']
-        measured = [p[k]['scores'] for p in (base,near,wide)]
+        measured = [p[k]['scores'] for p in comparison]
         if any(x.keys()!=set(docs) for x in measured[1:]) or not set(docs+row['original30'])<=measured[0].keys():
             raise ValueError(f'Model scores must cover the same candidate identities for {k}')
         rankings = votes[k]['rankings']
@@ -73,7 +77,7 @@ def replay(args):
         if expected!=old_point or head(reciprocal(prior_votes+[expected],60),old_point,evidence[k],True,.5)!=frozen:
             raise ValueError(f'The original unadapted vote is different for {k}')
         order = {'current':frozen}
-        for arm,scores in zip(ALL_JUDGES,measured,strict=True):
+        for arm,scores in zip(ALL_JUDGES[:len(measured)],measured,strict=True):
             pointwise = blend(docs,{},scores,settings)
             order[arm] = head(reciprocal(prior_votes+[pointwise],60),old_point,evidence[k],True,.5)
             order[arm+'/standalone'] = sorted(docs,key=scores.__getitem__,reverse=True)[:10]
@@ -84,7 +88,7 @@ def replay(args):
 
 def matched_diagnostics(report):
     rows = report['per_query']
-    if 'near_positive_adapter' not in rows[0]['scores']:
+    if not {'near_positive_adapter','wide_positive_adapter'} <= rows[0]['scores'].keys():
         return
     paired = [(r['domain'],r['scores']['wide_positive_adapter']-r['scores']['near_positive_adapter'])
               for r in rows]
@@ -106,15 +110,18 @@ def main():
     for name in ('reference','consensus','data-root','selection','reserve-ids'):
         scoring.add_argument(f'--{name}',type=Path,required=name not in ('selection','reserve-ids'))
     for name in ('base','near','wide','evidence'):
-        scoring.add_argument(f'--{name}',type=Path,nargs='+',required=True)
+        scoring.add_argument(f'--{name}',type=Path,nargs='+',required=name!='wide')
     scoring.add_argument('--confirmation',action='store_true')
+    scoring.add_argument('--screen-near-control',action='store_true')
     args=p.parse_args()
     if args.output.exists() or (args.stage=='evaluate' and args.confirmation and not args.selection):
         p.error('Use a fresh output and a frozen rule on confirmation')
+    if args.stage=='evaluate' and not (args.wide or args.screen_near_control):
+        p.error('The matched training comparison requires the wide-positive checkpoint')
     if args.stage=='prepare':
         result=prepare(args)
     else:
-        result=evaluate(args,replay,ARMS)
+        result=evaluate(args,replay,NEAR_ONLY if args.screen_near_control else ARMS)
         matched_diagnostics(result)
     with args.output.open('x',encoding='utf8') as out:
         json.dump(result,out,separators=(',',':'))
