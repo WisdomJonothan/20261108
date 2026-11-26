@@ -212,6 +212,28 @@ The frozen ranking scores 0.33821. The three actual policies each improve one qu
 
 Form the union of the first 200 documents from each of the archived mxbai and BGE lists and the original 60. DiVeR produces normalized document and query embeddings using its instruction protocol and last-token pooling. Each document representation is shared across every question in its domain and shard. Each of the three sources supplies its best four candidates outside the original pool. Compare the two constituent retrievers with DiVeR ranking the union. The shortlist diagnostic uses matched budgets and the same allowed ranks for candidate admission. Follow-up grading reuses the evidence and pointwise checks from the feedback experiment. [DiVeR encoder and training objective](https://huggingface.co/AQ-MedAI/Diver-Retriever-4B/tree/ff7f8bc8d1827734dcf2bbfab99f065be618069a)
 
+| Nested candidate constraints on the initial 186 | nDCG@10 |
+| --- | ---: |
+| Frozen system | 0.33821 |
+| Ideal order of the current ten documents | 0.49799 |
+| Ideal order with the 14 evidence documents available | 0.55238 |
+| Ideal order with the original 60 documents available | 0.67516 |
+| Ideal order in the union of the two 200-document lists and the original 60 | 0.81636 |
+
+Of 57 zero-score queries, 9 already have a labeled positive among the 14 evidence documents, 26 have one in the 60, and 40 in the broader union. These nested diagnostics separate early candidate availability, allocation of evidence grades, and final position.
+
+| Source for four new candidates | Queries with a labeled positive among four | Queries with one in the 8B proposal | Ideal one-admission score | Actual nDCG@10 |
+| --- | ---: | ---: | ---: | ---: |
+| mxbai | 5 | 3 | 0.34360 | 0.33891 |
+| BGE | 7 | 5 | 0.34661 | 0.33821 |
+| DiVeR on the union | 17 | 7 | 0.35730 | 0.33884 |
+
+Choosing a source on other folds yields 0.33821, equal to the frozen system. Each of the two positive fixed-source outcomes improves one query. DiVeR supplies labeled positives on ten additional queries before the 8B shortlist, motivating a direct test of the grading allocation.
+
+#### Grade four proposals before allowing one admission
+
+Keep the same four proposals per source, 8B scores, corpus excerpts, and admission rule. Compare grading all four against grading only the 8B favorite. The frozen top ten gives the same incumbents and existing evidence grades. Reuse the 500 already available new grades for both controls. Generate evidence grades for the additional proposals alone. Each source can replace at most one document in ranks three through ten. Apply the same fold and domain gates before any disjoint confirmation. This study tests the cost of screening before evidence grading while holding the candidate sources and final decision fixed.
+
 ## Compare a stronger evidence judge under the same retrieval inputs
 
 Use the pinned Qwen3.5-9B model in text-only, non-thinking mode. Keep the 14 document identities, dispersed excerpts, ordinal rating rubric, quote verification and 80-token explanation limit. Measure standalone direct and explanation-based judgments for both model checkpoints. These measurements expose changes in score quality at the same evidence scope.
