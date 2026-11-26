@@ -45,14 +45,16 @@ def replay(args):
     old, proposals = observations(args.old_evidence), merge_proposal_grades(args.new_evidence)
     pointwise, new = (candidate_judges(paths)[0]['pretrained']
                       for paths in (args.old_pointwise,args.new_pointwise))
-    if not shortlist.keys() == pools.keys() == consensus.keys() == frozen.keys() == old.keys() == +            proposals.keys() == pointwise.keys() == new.keys():
+    if any(source.keys() != shortlist.keys()
+           for source in (pools, consensus, frozen, old, proposals, pointwise, new)):
         raise ValueError('The comparison requires the same query IDs in every score source')
     output = []
     for key, row in shortlist.items():
         docs = row['docs']
         pool = pools[key]
         offers = pool['offers'][args.source]
-        if len(docs)!=14 or len(set(docs))!=14 or not set(docs) <= set(pool['original']) or +                len(set(offers))!=4 or not set(offers).isdisjoint(pool['original']):
+        if (len(docs) != 14 or len(set(docs)) != 14 or not set(docs) <= set(pool['original'])
+                or len(set(offers)) != 4 or not set(offers).isdisjoint(pool['original'])):
             raise ValueError(f'Unexpected candidate identities for {key}')
         if old[key].keys() != set(docs) or not set(offers) <= proposals[key].keys():
             raise ValueError(f'Missing fixed-document evidence grades for {key}')
