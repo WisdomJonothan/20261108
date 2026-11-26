@@ -1,0 +1,815 @@
+{
+  "all": {
+    "queries": 641,
+    "changed_lists": 485,
+    "effects": {
+      "entrants_outside_original_60": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": 0,
+          "cardano": 0,
+          "economics": 0,
+          "genealogy": 0,
+          "history": 0,
+          "hsm": 0,
+          "iota": 0,
+          "law": 0,
+          "monero": 0,
+          "politics": 0,
+          "quant": 0,
+          "travel": 0,
+          "workplace": 0
+        },
+        "improved_queries": 0,
+        "declined_queries": 0
+      },
+      "entrants_from_original_31_to_60": {
+        "point": 0.002088628992075121,
+        "ci95": [
+          0.0008738100987887895,
+          0.0035561240330570874
+        ],
+        "domain_bootstrap_ci95": [
+          0.0007263103989612268,
+          0.0036659143558192067
+        ],
+        "per_domain": {
+          "bitcoin": 0,
+          "cardano": 0.009164781267694771,
+          "economics": 0,
+          "genealogy": 0.0035993944703962867,
+          "history": 0.004768842122102263,
+          "hsm": 0.0016149044456243784,
+          "iota": 0,
+          "law": 0,
+          "monero": 0.004227736270475283,
+          "politics": 0.0037765183206835877,
+          "quant": 0,
+          "travel": 0,
+          "workplace": 0
+        },
+        "improved_queries": 12,
+        "declined_queries": 0
+      },
+      "entrants_from_original_first_30": {
+        "point": 6.232631012800829e-05,
+        "ci95": [
+          0.0,
+          0.0001869789303840249
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.00018697893038402487
+        ],
+        "per_domain": {
+          "bitcoin": 0,
+          "cardano": 0,
+          "economics": 0,
+          "genealogy": 0,
+          "history": 0.0008102420316641078,
+          "hsm": 0,
+          "iota": 0,
+          "law": 0,
+          "monero": 0,
+          "politics": 0,
+          "quant": 0,
+          "travel": 0,
+          "workplace": 0
+        },
+        "improved_queries": 1,
+        "declined_queries": 0
+      },
+      "departures": {
+        "point": -0.0008661980027992908,
+        "ci95": [
+          -0.0015779595177719233,
+          -0.00027234698395782605
+        ],
+        "domain_bootstrap_ci95": [
+          -0.0014082861403139127,
+          -0.0003672358454716808
+        ],
+        "per_domain": {
+          "bitcoin": -0.0016266500575617513,
+          "cardano": 0,
+          "economics": -0.001901559002204526,
+          "genealogy": 0,
+          "history": -0.0027589741813294354,
+          "hsm": -0.0013433945398682767,
+          "iota": 0,
+          "law": 0,
+          "monero": 0,
+          "politics": -0.0016149044456243784,
+          "quant": 0,
+          "travel": -0.002015091809802415,
+          "workplace": 0
+        },
+        "improved_queries": 0,
+        "declined_queries": 7
+      },
+      "retained_rank_movement": {
+        "point": 0.00017715517365965845,
+        "ci95": [
+          -0.0007551835028379653,
+          0.0011287406934323615
+        ],
+        "domain_bootstrap_ci95": [
+          -0.0008626153490944554,
+          0.0012190007325805926
+        ],
+        "per_domain": {
+          "bitcoin": -0.00017309115673304888,
+          "cardano": -0.003965662092453608,
+          "economics": -0.0006776998627568139,
+          "genealogy": -0.0015087717825733084,
+          "history": -0.0016599897385166863,
+          "hsm": 4.798486685794613e-05,
+          "iota": 0.0,
+          "law": 0.0006196778145696878,
+          "monero": 0.0005326306619251845,
+          "politics": 0.0031404376987007464,
+          "quant": 0.004055595811223475,
+          "travel": 0.00029765344811912903,
+          "workplace": 0.001594251589212857
+        },
+        "improved_queries": 48,
+        "declined_queries": 39
+      },
+      "total": {
+        "point": 0.0014619124730634976,
+        "ci95": [
+          -0.0002654406809075181,
+          0.0033377545275833577
+        ],
+        "domain_bootstrap_ci95": [
+          6.268352488230346e-05,
+          0.0028678997007729754
+        ],
+        "per_domain": {
+          "bitcoin": -0.0017997412142947975,
+          "cardano": 0.005199119175241155,
+          "economics": -0.002579258864961336,
+          "genealogy": 0.0020906226878229833,
+          "history": 0.0011601202339202473,
+          "hsm": 0.00031949477261404785,
+          "iota": 0.0,
+          "law": 0.000619677814569701,
+          "monero": 0.004760366932400468,
+          "politics": 0.005302051573759955,
+          "quant": 0.0040555958112234785,
+          "travel": -0.0017174383616832877,
+          "workplace": 0.0015942515892128583
+        },
+        "improved_queries": 61,
+        "declined_queries": 46
+      }
+    }
+  },
+  "confirm-155": {
+    "queries": 155,
+    "changed_lists": 118,
+    "effects": {
+      "entrants_outside_original_60": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": 0,
+          "cardano": 0,
+          "economics": 0,
+          "genealogy": 0,
+          "history": 0,
+          "hsm": 0,
+          "law": 0,
+          "monero": 0,
+          "politics": 0,
+          "quant": 0,
+          "travel": 0,
+          "workplace": 0
+        },
+        "improved_queries": 0,
+        "declined_queries": 0
+      },
+      "entrants_from_original_31_to_60": {
+        "point": 0.0032978623428902456,
+        "ci95": [
+          0.0007357654836449425,
+          0.006408896205718693
+        ],
+        "domain_bootstrap_ci95": [
+          0.0007357654836449425,
+          0.0062851937676801405
+        ],
+        "per_domain": {
+          "bitcoin": 0,
+          "cardano": 0.00929476309505004,
+          "economics": 0,
+          "genealogy": 0.014397577881585147,
+          "history": 0.008829185803739311,
+          "hsm": 0,
+          "law": 0,
+          "monero": 0,
+          "politics": 0.007052821334308452,
+          "quant": 0,
+          "travel": 0,
+          "workplace": 0
+        },
+        "improved_queries": 5,
+        "declined_queries": 0
+      },
+      "entrants_from_original_first_30": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": 0,
+          "cardano": 0,
+          "economics": 0,
+          "genealogy": 0,
+          "history": 0,
+          "hsm": 0,
+          "law": 0,
+          "monero": 0,
+          "politics": 0,
+          "quant": 0,
+          "travel": 0,
+          "workplace": 0
+        },
+        "improved_queries": 0,
+        "declined_queries": 0
+      },
+      "departures": {
+        "point": -0.00045558184427816766,
+        "ci95": [
+          -0.001366745532834503,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          -0.001366745532834503,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": 0,
+          "cardano": 0,
+          "economics": -0.005466982131338012,
+          "genealogy": 0,
+          "history": 0,
+          "hsm": 0,
+          "law": 0,
+          "monero": 0,
+          "politics": 0,
+          "quant": 0,
+          "travel": 0,
+          "workplace": 0
+        },
+        "improved_queries": 0,
+        "declined_queries": 1
+      },
+      "retained_rank_movement": {
+        "point": 0.0019088788848801383,
+        "ci95": [
+          9.245274010405048e-05,
+          0.004338920926639496
+        ],
+        "domain_bootstrap_ci95": [
+          0.00018172893210908765,
+          0.004820696184817912
+        ],
+        "per_domain": {
+          "bitcoin": 0.001214035094219081,
+          "cardano": -0.00117369804040906,
+          "economics": 0.0005240804077908043,
+          "genealogy": -4.394726366826248e-05,
+          "history": 0.000291935212968243,
+          "hsm": 0.0012279126689770537,
+          "law": 0.0,
+          "monero": 0.0005984315880159484,
+          "politics": 0.002656592113133644,
+          "quant": 0.01673463988567933,
+          "travel": 0.0008765649518548777,
+          "workplace": 0.0
+        },
+        "improved_queries": 14,
+        "declined_queries": 6
+      },
+      "total": {
+        "point": 0.004751159383492219,
+        "ci95": [
+          0.001430182078057652,
+          0.008561969936471321
+        ],
+        "domain_bootstrap_ci95": [
+          0.0012475255692062407,
+          0.008503354248589143
+        ],
+        "per_domain": {
+          "bitcoin": 0.0012140350942190861,
+          "cardano": 0.008121065054640983,
+          "economics": -0.004942901723547213,
+          "genealogy": 0.014353630617916897,
+          "history": 0.009121121016707544,
+          "hsm": 0.0012279126689770554,
+          "law": 0.0,
+          "monero": 0.0005984315880159484,
+          "politics": 0.00970941344744209,
+          "quant": 0.01673463988567936,
+          "travel": 0.000876564951854876,
+          "workplace": 0.0
+        },
+        "improved_queries": 19,
+        "declined_queries": 7
+      }
+    }
+  },
+  "initial-186": {
+    "queries": 186,
+    "changed_lists": 137,
+    "effects": {
+      "entrants_outside_original_60": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": 0,
+          "cardano": 0,
+          "economics": 0,
+          "genealogy": 0,
+          "history": 0,
+          "hsm": 0,
+          "iota": 0,
+          "law": 0,
+          "monero": 0,
+          "politics": 0,
+          "quant": 0,
+          "travel": 0,
+          "workplace": 0
+        },
+        "improved_queries": 0,
+        "declined_queries": 0
+      },
+      "entrants_from_original_31_to_60": {
+        "point": 0.0021934881480640054,
+        "ci95": [
+          0.0,
+          0.004976092731293703
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.004493511006769742
+        ],
+        "per_domain": {
+          "bitcoin": 0,
+          "cardano": 0.009043464895496518,
+          "economics": 0,
+          "genealogy": 0,
+          "history": 0,
+          "hsm": 0.009043464895496518,
+          "iota": 0,
+          "law": 0,
+          "monero": 0.010428416133839031,
+          "politics": 0,
+          "quant": 0,
+          "travel": 0,
+          "workplace": 0
+        },
+        "improved_queries": 3,
+        "declined_queries": 0
+      },
+      "entrants_from_original_first_30": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": 0,
+          "cardano": 0,
+          "economics": 0,
+          "genealogy": 0,
+          "history": 0,
+          "hsm": 0,
+          "iota": 0,
+          "law": 0,
+          "monero": 0,
+          "politics": 0,
+          "quant": 0,
+          "travel": 0,
+          "workplace": 0
+        },
+        "improved_queries": 0,
+        "declined_queries": 0
+      },
+      "departures": {
+        "point": -0.0005786930325586422,
+        "ci95": [
+          -0.0017360790976759268,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          -0.0017360790976759268,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": 0,
+          "cardano": 0,
+          "economics": 0,
+          "genealogy": 0,
+          "history": 0,
+          "hsm": -0.007523009423262349,
+          "iota": 0,
+          "law": 0,
+          "monero": 0,
+          "politics": 0,
+          "quant": 0,
+          "travel": 0,
+          "workplace": 0
+        },
+        "improved_queries": 0,
+        "declined_queries": 1
+      },
+      "retained_rank_movement": {
+        "point": -0.0010408852590737107,
+        "ci95": [
+          -0.0025918911255966284,
+          0.0003643706721055656
+        ],
+        "domain_bootstrap_ci95": [
+          -0.0032234131010018974,
+          0.0006301157657365349
+        ],
+        "per_domain": {
+          "bitcoin": -0.0003039869035714821,
+          "cardano": -0.006571495207695187,
+          "economics": -0.0009822259934638496,
+          "genealogy": 0.0011405278695541495,
+          "history": -0.01110033825502873,
+          "hsm": -0.00137103693087966,
+          "iota": 0.0,
+          "law": 0.0007849252317882712,
+          "monero": 0.0006754952721984435,
+          "politics": -0.000933352396802271,
+          "quant": 0.0006745173913685806,
+          "travel": 0.0023297927689563533,
+          "workplace": 0.0021256687856171428
+        },
+        "improved_queries": 16,
+        "declined_queries": 15
+      },
+      "total": {
+        "point": 0.0005739098564316538,
+        "ci95": [
+          -0.0024221571448983666,
+          0.003854426514188073
+        ],
+        "domain_bootstrap_ci95": [
+          -0.001969467071119816,
+          0.002986907606173004
+        ],
+        "per_domain": {
+          "bitcoin": -0.00030398690357148116,
+          "cardano": 0.0024719696878013155,
+          "economics": -0.0009822259934638478,
+          "genealogy": 0.0011405278695541569,
+          "history": -0.011100338255028725,
+          "hsm": 0.00014941854135451423,
+          "iota": 0.0,
+          "law": 0.0007849252317882878,
+          "monero": 0.011103911406037477,
+          "politics": -0.000933352396802271,
+          "quant": 0.0006745173913685769,
+          "travel": 0.0023297927689563533,
+          "workplace": 0.0021256687856171445
+        },
+        "improved_queries": 19,
+        "declined_queries": 16
+      }
+    }
+  },
+  "reserve-109": {
+    "queries": 109,
+    "changed_lists": 83,
+    "effects": {
+      "entrants_outside_original_60": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "per_domain": {
+          "genealogy": 0,
+          "history": 0,
+          "hsm": 0,
+          "politics": 0
+        },
+        "improved_queries": 0,
+        "declined_queries": 0
+      },
+      "entrants_from_original_31_to_60": {
+        "point": 0.0013902730366318053,
+        "ci95": [
+          0.0,
+          0.003519043101530476
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.004170819109895415
+        ],
+        "per_domain": {
+          "genealogy": 0,
+          "history": 0.00556109214652722,
+          "hsm": 0,
+          "politics": 0
+        },
+        "improved_queries": 2,
+        "declined_queries": 0
+      },
+      "entrants_from_original_first_30": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "per_domain": {
+          "genealogy": 0,
+          "history": 0,
+          "hsm": 0,
+          "politics": 0
+        },
+        "improved_queries": 0,
+        "declined_queries": 0
+      },
+      "departures": {
+        "point": -0.0028654607885120805,
+        "ci95": [
+          -0.006730630126020074,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          -0.005730921577024161,
+          0.0
+        ],
+        "per_domain": {
+          "genealogy": 0,
+          "history": -0.005563931265681028,
+          "hsm": 0,
+          "politics": -0.005897911888367295
+        },
+        "improved_queries": 0,
+        "declined_queries": 3
+      },
+      "retained_rank_movement": {
+        "point": 0.0024775482841689982,
+        "ci95": [
+          -0.0010755382981488338,
+          0.008386851476582111
+        ],
+        "domain_bootstrap_ci95": [
+          -3.9658751032046116e-05,
+          0.007336484537325936
+        ],
+        "per_domain": {
+          "genealogy": 0.0,
+          "history": 0.00020753125563883711,
+          "hsm": -7.931750206409223e-05,
+          "politics": 0.009781979383101248
+        },
+        "improved_queries": 11,
+        "declined_queries": 8
+      },
+      "total": {
+        "point": 0.0010023605322887236,
+        "ci95": [
+          -0.005013441258286341,
+          0.008197451764596513
+        ],
+        "domain_bootstrap_ci95": [
+          -3.9658751032047024e-05,
+          0.002913050621050471
+        ],
+        "per_domain": {
+          "genealogy": 0.0,
+          "history": 0.00020469213648502727,
+          "hsm": -7.931750206409405e-05,
+          "politics": 0.003884067494733961
+        },
+        "improved_queries": 13,
+        "declined_queries": 11
+      }
+    }
+  },
+  "reserve-191": {
+    "queries": 191,
+    "changed_lists": 147,
+    "effects": {
+      "entrants_outside_original_60": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": 0,
+          "economics": 0,
+          "genealogy": 0,
+          "history": 0,
+          "hsm": 0,
+          "monero": 0,
+          "politics": 0,
+          "travel": 0
+        },
+        "improved_queries": 0,
+        "declined_queries": 0
+      },
+      "entrants_from_original_31_to_60": {
+        "point": 0.0012769991362974907,
+        "ci95": [
+          0.0,
+          0.00340559159588034
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.0029801857828682084
+        ],
+        "per_domain": {
+          "bitcoin": 0,
+          "economics": 0,
+          "genealogy": 0,
+          "history": 0.0034032465040970544,
+          "hsm": 0,
+          "monero": 0,
+          "politics": 0.006812746586282872,
+          "travel": 0
+        },
+        "improved_queries": 2,
+        "declined_queries": 0
+      },
+      "entrants_from_original_first_30": {
+        "point": 0.000408497024297321,
+        "ci95": [
+          0.0,
+          0.001225491072891963
+        ],
+        "domain_bootstrap_ci95": [
+          0.0,
+          0.001225491072891963
+        ],
+        "per_domain": {
+          "bitcoin": 0,
+          "economics": 0,
+          "genealogy": 0,
+          "history": 0.003267976194378568,
+          "hsm": 0,
+          "monero": 0,
+          "politics": 0,
+          "travel": 0
+        },
+        "improved_queries": 1,
+        "declined_queries": 0
+      },
+      "departures": {
+        "point": -0.0010196877228619665,
+        "ci95": [
+          -0.0026036011524686094,
+          0.0
+        ],
+        "domain_bootstrap_ci95": [
+          -0.0023860737712138374,
+          0.0
+        ],
+        "per_domain": {
+          "bitcoin": -0.0036436961289383228,
+          "economics": 0,
+          "genealogy": 0,
+          "history": 0,
+          "hsm": 0,
+          "monero": 0,
+          "politics": 0,
+          "travel": -0.004513805653957409
+        },
+        "improved_queries": 0,
+        "declined_queries": 2
+      },
+      "retained_rank_movement": {
+        "point": -0.0011052011026879533,
+        "ci95": [
+          -0.002620826262186572,
+          0.00014710034663477817
+        ],
+        "domain_bootstrap_ci95": [
+          -0.002075304799454991,
+          -0.0002929866128817523
+        ],
+        "per_domain": {
+          "bitcoin": -0.000982314509239352,
+          "economics": -0.0016550726873005711,
+          "genealogy": -0.0037655385303103925,
+          "history": -0.0017158841093636737,
+          "hsm": 0.0002257994207701212,
+          "monero": 0.0,
+          "politics": 0.00034353510071432475,
+          "travel": -0.0012921335067740847
+        },
+        "improved_queries": 7,
+        "declined_queries": 10
+      },
+      "total": {
+        "point": -0.00043939266495510756,
+        "ci95": [
+          -0.003192608061081041,
+          0.002409407532331353
+        ],
+        "domain_bootstrap_ci95": [
+          -0.0032331959426483542,
+          0.0026536714816578367
+        ],
+        "per_domain": {
+          "bitcoin": -0.004626010638177673,
+          "economics": -0.0016550726873005564,
+          "genealogy": -0.0037655385303103925,
+          "history": 0.004955338589111948,
+          "hsm": 0.00022579942077011935,
+          "monero": 0.0,
+          "politics": 0.007156281686997191,
+          "travel": -0.005805939160731497
+        },
+        "improved_queries": 10,
+        "declined_queries": 12
+      }
+    }
+  },
+  "annotated_coverage": {
+    "queries": 581,
+    "baseline": 0.5716032879946341,
+    "score": 0.5760004642328839,
+    "change": {
+      "point": 0.004397176238249785,
+      "ci95": [
+        -0.0012722609119018983,
+        0.01177527700075088
+      ],
+      "domain_bootstrap_ci95": [
+        -0.0017867059146246152,
+        0.011738014748500142
+      ],
+      "per_domain": {
+        "bitcoin": 0.0,
+        "cardano": 0.0,
+        "economics": -0.015503875968992248,
+        "genealogy": 0.0058479532163742695,
+        "history": 0.021551724137931036,
+        "hsm": -0.00411522633744856,
+        "iota": 0.0,
+        "law": 0.0,
+        "monero": 0.037037037037037035,
+        "politics": 0.012345679012345678,
+        "quant": 0.0,
+        "travel": 0.0,
+        "workplace": 0.0
+      },
+      "improved_queries": 7,
+      "declined_queries": 3
+    }
+  }
+}
