@@ -17,7 +17,7 @@ def repair(args):
     confirmation = prepare(args.manifest, args.pointwise)
     fit_keys = {(r['domain'], r['qid']) for r in training}
     confirm_keys = {(r['domain'], r['qid']) for r in confirmation}
-    if len(fit_keys) != 186 or len(confirm_keys) != 155 or fit_keys & confirm_keys:
+    if len(fit_keys) != 186 or len(confirm_keys) != args.query_count or fit_keys & confirm_keys:
         raise ValueError('Fit and confirmation require fixed disjoint query samples')
     estimates = predict(confirmation, fit(label(training, 'train', args.data_root)))
     return {'choices': dict.fromkeys({r['cohort'] for r in estimates}, 'restore_0'),
@@ -29,7 +29,7 @@ def consensus(args):
     grades = index({'per_query': [r for f in args.reasoner for r in load(f)['per_query']]})
     earlier = index({'per_query': load(args.repair)['oof_per_query']})
     pointwise = candidate_judges(args.pointwise)[0]['pretrained']
-    if not wide.keys() == grades.keys() == earlier.keys() == pointwise.keys() or len(wide) != 155:
+    if not wide.keys() == grades.keys() == earlier.keys() == pointwise.keys() or len(wide) != args.query_count:
         raise ValueError('The same confirmation questions are required at each pipeline stage')
     rows, edits = [], []
     for key, query in wide.items():
@@ -65,12 +65,15 @@ def main():
         command = stages.add_parser(name)
         command.add_argument('--pointwise', type=Path, nargs='+', required=True)
         command.add_argument('--output', type=Path, required=True)
+        command.add_argument('--query-count', type=int, default=155)
         options = ('manifest', 'training-manifest', 'data-root') if name == 'repair' else ('wide', 'repair', 'head-output')
         for option in options:
             command.add_argument(f'--{option}', type=Path, required=True)
         command.add_argument('--training-scores' if name == 'repair' else '--reasoner',
                              type=Path, nargs='+', required=True)
     args = parser.parse_args()
+    if args.query_count < 1:
+        parser.error('Expected a positive confirmation sample size')
     if args.stage == 'repair':
         save(args.output, repair(args))
     else:

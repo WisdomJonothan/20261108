@@ -135,12 +135,25 @@ def replay(args):
 
 
 def evaluate(args, replay=replay, arms=ARMS):
+    reserve = getattr(args, 'reserve_ids', None)
     split = 'dev' if args.selection and not args.confirmation else 'train'
-    rows = grade(replay(args), split, args.data_root)
-    if len(rows) != (155 if args.confirmation else (519 if split=='dev' else 186)):
+    candidate_rows = replay(args)
+    if reserve:
+        expected = {tuple(key) for key in load(reserve)['queries']}
+        observed = {(r['domain'], r['qid']) for r in candidate_rows}
+        if not(args.selection and args.confirmation) or observed != expected or len(candidate_rows) != len(expected):
+            raise ValueError('The reserve must receive a frozen policy and exactly its recorded query IDs')
+    elif len(candidate_rows) != (155 if args.confirmation else (519 if split == 'dev' else 186)):
         raise ValueError('The evaluation population differs from the planned split')
-    if args.selection:
-        selected = load(args.selection)['selected']
+    selected = load(args.selection)['selected'] if args.selection else None
+    if selected and selected not in arms:
+        raise ValueError('The locked policy does not exist in the planned comparison')
+    if reserve or split == 'dev':
+        candidate_rows = [row | {'rankings': {arm: row['rankings'][arm]
+                                              for arm in dict.fromkeys(('current', selected))}}
+                          for row in candidate_rows]
+    rows = grade(candidate_rows, split, args.data_root)
+    if selected:
         changes = summarize(rows, selected)
         if split == 'dev' and abs(changes['current']['score']-.40674178096988606)>1e-12:
             raise ValueError('The official-dev reference differs from the frozen ranking')
@@ -153,6 +166,7 @@ def evaluate(args, replay=replay, arms=ARMS):
         result = {'training': changes, 'by_fold': selections}
     domain = changes['selected']['change']['per_domain']
     result.update({'selected': selected, 'per_query': rows,
+                   'reserved_ids': bool(reserve),
                    'selected_minimum_leave_one_domain_out': min(
                        mean(value for d,value in domain.items() if d!=omit) for omit in domain)})
     print(selected, {a:round(v['score'],8) for a,v in changes.items()}, flush=True)

@@ -25,7 +25,7 @@ def picks(documents, excluded, count):
     return chosen
 
 
-def build(root, manifests, run_root, bge_train, bge_dev, data):
+def build(root, manifests, run_root, bge_train, bge_dev, data=None):
     all_rows = index({'per_query': [r for path in manifests for r in load(path)['queries']]})
     analysis = root / 'results/analysis'
     cached = {}
@@ -47,7 +47,7 @@ def build(root, manifests, run_root, bge_train, bge_dev, data):
         for fold in sorted({r['cohort'] for r in rows}):
             tag = 'sub_sft_e2bc' if fold == 'dev' else f'trainfuse_{fold}'
             frozen[fold] = read_trec_run(run_root / f'{tag}_{domain}_{split}.trec')
-        qrels = read_qrels(data / domain / f'qrels_{split}.txt')
+        qrels = read_qrels(data / domain / f'qrels_{split}.txt') if data is not None else None
         for r in rows:
             qid = r['qid']
             seen = set(r['docs'])
@@ -68,10 +68,11 @@ def build(root, manifests, run_root, bge_train, bge_dev, data):
             if len(set(expanded)) != 60:
                 raise ValueError(f'Expanded pool has duplicates for {domain}/{qid}')
             manifest.append(r | {'docs': expanded})
-            gold = qrels[qid]
-            effects.append({'domain': domain, 'qid': qid, 'split': split,
-                            'oracle': {str(w): ndcg10(sorted(set(expanded[:w]) & gold), gold)
-                                       for w in (30, 45, 60)}})
+            if qrels is not None:
+                gold = qrels[qid]
+                effects.append({'domain': domain, 'qid': qid, 'split': split,
+                                'oracle': {str(w): ndcg10(sorted(set(expanded[:w]) & gold), gold)
+                                           for w in (30, 45, 60)}})
     return {'queries': manifest}, {'per_query': effects, 'summary': {
         s: {str(w): {'score': macro((r['domain'], r['oracle'][str(w)]) for r in effects if r['split'] == s),
                      'zero_queries': sum(r['oracle'][str(w)] == 0 for r in effects if r['split'] == s)}
