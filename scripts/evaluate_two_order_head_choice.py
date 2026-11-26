@@ -15,6 +15,7 @@ from score_specialist_shortlists import evidence
 
 
 ARMS = ('current','balanced_direct','balanced_explained')
+DEBIASED = ('current','difference_direct','difference_explained')
 RUBRIC = (
     'Compare these two documents as evidence for the question. A document may answer one '
     'specific request. Check that the relevant event, time or version matches that request, '
@@ -114,11 +115,15 @@ def replay(args):
         if observed['docs']!=pair or len(observed['scores'])!=len(pair):
             raise ValueError(f'Missing ordered pair scores for {key}')
         rankings = {'current':prior}
-        for i,method in enumerate(ARMS[1:]):
+        methods = DEBIASED if args.remove_position_bias else ARMS
+        for i,method in enumerate(methods[1:]):
             edited = prior.copy()
-            if pair and observed['scores'][0][i]>0 and observed['scores'][1][i]<0:
-                other = prior.index(pair[1])
-                edited[0],edited[other]=edited[other],edited[0]
+            if pair:
+                forward, reverse = (r[i] for r in observed['scores'])
+                replace = forward > reverse if args.remove_position_bias else forward > 0 > reverse
+                if replace:
+                    other = prior.index(pair[1])
+                    edited[0],edited[other]=edited[other],edited[0]
             rankings[method]=edited
         output.append({k:row[k] for k in ('domain','qid','actual_reference','split','cohort')} |
                       {'rankings':rankings})
@@ -143,12 +148,17 @@ def main():
         comparison.add_argument(f'--{key}',type=Path,required=key=='data-root')
     comparison.add_argument('--scores',type=Path,nargs='+',required=True)
     comparison.add_argument('--confirmation',action='store_true')
+    comparison.add_argument('--remove-position-bias',action='store_true',
+                            help='Use the signed difference between the two presentation logits')
     args=p.parse_args()
     if args.output.exists() or (args.stage=='evaluate' and args.confirmation and not args.selection):
         p.error('Use a fresh output and lock the policy before confirmation')
     if args.stage=='score' and not (0<=args.shard_index<args.shards and min(args.batch_size,args.max_new_tokens)>0):
         p.error('Check the shard and inference budget')
-    report={'prepare':prepare,'score':score,'evaluate':lambda values:evaluate(values,replay,ARMS)}[args.stage](args)
+    if args.stage=='evaluate':
+        report=evaluate(args,replay,DEBIASED if args.remove_position_bias else ARMS)
+    else:
+        report={'prepare':prepare,'score':score}[args.stage](args)
     with args.output.open('x',encoding='utf8') as out:
         json.dump(report,out,separators=(',',':'))
 
