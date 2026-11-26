@@ -59,6 +59,14 @@ def guard_admission(current, proposal, evidence):
     return [doc if doc in accepted else next(retained) for doc in proposal]
 
 
+def retained_candidate_list(original, wide):
+    outside = [doc for doc in wide if doc not in original[:30]]
+    candidate = original[:20] + outside[:10]
+    if len(candidate) != 30:
+        raise ValueError('The updated pointwise vote requires ten distinct new candidates')
+    return candidate
+
+
 def prepare(args):
     rows = load(args.manifest)['queries']
     reference = index(load(args.reference))
@@ -80,7 +88,8 @@ def prepare(args):
             raise ValueError(f'Missing matching stored scores for {key}')
         outside = [doc for doc in row['docs'] if doc not in prior]
         wide = prior + sorted(outside, key=early.__getitem__, reverse=True)[:50]
-        missing_docs = [doc for doc in wide if doc not in seen]
+        requested = retained_candidate_list(original, wide) if args.only_vote_documents else wide
+        missing_docs = [doc for doc in requested if doc not in seen]
         output.append({k:row[k] for k in ('domain','qid','split','cohort','actual_reference')} |
                       {'original':original, 'wide':wide})
         if missing_docs:
@@ -108,8 +117,14 @@ def replay(args):
         frozen = reference[key]['rankings']['verified_0.5']
         judgments = evidence[key]
         scores = point[key]['scores']
-        if len(wide) != len(set(wide)) or len(wide) != len(old) or not set(old+wide) <= scores.keys():
+        if len(wide) != len(set(wide)) or len(wide) != len(old):
             raise ValueError(f'Unexpected equal-budget candidate identities for {key}')
+        if getattr(args, 'local_only', False):
+            required = old[:30] + retained_candidate_list(old, wide)
+        else:
+            required = old + wide
+        if not set(required) <= scores.keys():
+            raise ValueError(f'Missing expected pointwise scores for {key}')
         if head(reciprocal(basis+[original_pointwise],60), original_pointwise, judgments, True,.5) != frozen:
             raise ValueError(f'Unexpected frozen baseline for {key}')
         rankings = {'current': frozen}
@@ -118,10 +133,7 @@ def replay(args):
             settings = POLICIES['adaptive30_free']
             if blend(original, {}, scores, settings) != original_pointwise:
                 raise ValueError(f'The original 30-document score calibration differs for {key}')
-            additional = [doc for doc in wide if doc not in original][:10]
-            candidate = original[:20] + additional
-            if len(candidate) != 30:
-                raise ValueError(f'Ten new documents are required for {key}')
+            candidate = retained_candidate_list(old, wide)
             local = blend(candidate, {}, scores, settings)
             old_values = np.array([scores[d] for d in original])
             new_values = np.array([scores[d] for d in candidate])
@@ -165,6 +177,7 @@ def main():
         entry.add_argument('--pointwise',type=Path,nargs='+',required=True)
     setup.add_argument('--initial-scan',type=Path,nargs='+',required=True)
     setup.add_argument('--missing-manifest',type=Path,required=True)
+    setup.add_argument('--only-vote-documents', action='store_true')
     for k in ('data-root','consensus','selection','reserve-ids'):
         scoring.add_argument(f'--{k}',type=Path,required=k in ('data-root','consensus'))
     scoring.add_argument('--evidence',type=Path,nargs='+',required=True)
