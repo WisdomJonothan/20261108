@@ -76,7 +76,7 @@ def build(root, manifests, run_root, bge_train, bge_dev, data):
         s: {str(w): {'score': macro((r['domain'], r['oracle'][str(w)]) for r in effects if r['split'] == s),
                      'zero_queries': sum(r['oracle'][str(w)] == 0 for r in effects if r['split'] == s)}
             for w in (30, 45, 60)}
-        for s in ('train', 'dev')
+        for s in sorted({r['split'] for r in effects})
     }}
 
 
