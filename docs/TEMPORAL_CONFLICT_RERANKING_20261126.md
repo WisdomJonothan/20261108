@@ -246,6 +246,14 @@ Use the pinned Qwen3.5-9B model in text-only, non-thinking mode. Keep the 14 doc
 
 For the deployed ordering comparison, either replace both original evidence votes with the new judge's explanation and verified votes or add only its verified vote. Keep the current non-evidence votes and original first-position guard fixed. A replay substituting identical stored grades reproduces all 186 frozen rankings exactly. Use the earlier fold and disjoint-population gates for any new submission policy. [Pinned Qwen3.5 model](https://huggingface.co/Qwen/Qwen3.5-9B/tree/c202236235762e1c871ad0ccb60c8ee5ba337b9a)
 
+| Fixed 186-query comparison | 4B | 9B |
+| --- | ---: | ---: |
+| Standalone direct ratings | 0.30342 | 0.30485 |
+| Standalone ratings after the explanation | 0.32601 | 0.29222 |
+| Exact quotation checks passed out of 2,604 | 1,516 | 1,024 |
+
+The four-shard 9B inference completes the full 2,604 matched pairs. It places a quote and an explanation on the requested lines in every response. Exact quotation verification still passes less frequently. Replacing both evidence votes scores 0.33365, and adding the verified vote scores 0.33706. The frozen ordering scores 0.33821. Fold-wise choice scores 0.33683 and its smallest leave-one-domain-out change is −0.00181. The same-grade replay also exactly reproduces the frozen rankings on the 155, the 191 and official dev without accessing their relevance judgments. The stronger-judge comparison stops after the initial 186. [Same-document score and ranking archive](../results/analysis/teacher-held-20261126.tar.gz)
+
 ## Test whether a copied citation supplies the relevance judgment
 
 Use the frozen 14-document pools and the same 4B rating rubric. For a verified quotation that appears once, compare three matched document views. Present the quote alone, remove the quote from the original excerpts, or remove a disjoint span of the same word length chosen by a deterministic hash. The paired removal controls for generic effects of deleting text. Quotes without a disjoint control keep their original grades. This adapts rationale sufficiency and comprehensiveness to a temporal retrieval decision. [ERASER](https://aclanthology.org/2020.acl-main.408/) · [Explanation metric controls](https://aclanthology.org/2024.findings-eacl.88/)
