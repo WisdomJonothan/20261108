@@ -47,3 +47,17 @@ Apply the same facet logits one stage earlier. Begin with the ten original docum
 The fold-wise gain is **+0.00286** [−0.00192, +0.00808]. The minimum estimated gain after dropping one domain is +0.00051. The matched gain from adding coverage to the selector is +0.00014 [−0.00167, +0.00266]. Most of the improvement comes from selecting candidates with a direct evidence criterion before spending detailed assessment slots. The distinction is relevant to stage placement in a cascade, and the closest prior work includes joint evidence selection and explicit aspect diversification. [SetR](https://aclanthology.org/2025.acl-long.861/) · [Joint Passage Ranking](https://aclanthology.org/2021.emnlp-main.560/) · [Holdout rankings and paired effect](../results/analysis/temporal_facet_reranking_holdout_20261126.tar.gz)
 
 Freeze both training choices for the 155-query confirmation. Its starting candidate lists use query-disjoint first-stage folds. Refit the prior repair on the original 186 and rerun the remaining stages on the confirmation questions. The official-dev comparison is locked to one choice. Eligibility requires a positive confirmation estimate that stays positive after omitting any domain. If both choices qualify, use the one with the larger original cross-fold gain.
+
+## Disjoint confirmation and the official-dev choice
+
+| Fixed ranking rule | Initial 186 training holdouts | Disjoint 155 training queries |
+| --- | ---: | ---: |
+| Frozen reference | 0.33821 | 0.32381 |
+| Single replacement for strongest conflict | 0.34019 | 0.32320 |
+| Select candidates by relevance and estimated coverage | 0.34147 | 0.32306 |
+| Fifth vote using usable-evidence log odds at width 14 | 0.33836 | 0.32912 |
+| Fifth vote with conflict margin at width 14 | 0.33984 | 0.32926 |
+
+The original replacement and shortlist rules change the disjoint-set score by −0.00061 and −0.00075. Neither clears the confirmation rule. The shortlist replay obtains the grades for 303 additional documents out of a possible 1,240 by checking only the documents selected by one of its matched candidate screens.
+
+Before any official dev scoring in this round, select the previously specified 14-document vote with a conflict margin as the fallback. Its fixed-rule changes are +0.00163 and +0.00546 on the two training cohorts. The minimum leave-one-domain-out changes are +0.00016 and +0.00339. This additional selection uses both cohorts as development evidence and reserves official dev for evaluating one fixed policy. The contrast against the matching plain evidence vote is +0.00148 and +0.00014 on those cohorts. [Independent confirmation rankings and selection records](../results/analysis/temporal_conflict_disjoint_confirmation_20261126.tar.gz)
