@@ -3,9 +3,12 @@ import argparse
 import json
 from pathlib import Path
 
+import numpy as np
+
 from compare_anchor_reference import load
-from eval_qwen_reranker_adapter import candidate_judges
+from eval_qwen_reranker_adapter import POLICIES, blend, candidate_judges
 from eval_temporal_condition_intervention import evaluate
+from replay_anchor_cap import z
 from replay_anchor_fallback import index
 from replay_consensus_head import head
 from replay_evidence_ranking_consensus import reciprocal
@@ -14,6 +17,7 @@ from retrieve_union_with_pointwise_scan import REVISION
 
 
 ARMS = ('current', 'replace_pointwise_with_wider_scope')
+ANCHORED = ('current', 'local_candidate_scale', 'original_candidate_scale')
 
 
 def prepare(args):
@@ -69,10 +73,29 @@ def replay(args):
             raise ValueError(f'Unexpected equal-budget candidate identities for {key}')
         if head(reciprocal(basis+[original_pointwise],60), original_pointwise, judgments, True,.5) != frozen:
             raise ValueError(f'Unexpected frozen baseline for {key}')
-        original = sorted(old, key=scores.__getitem__, reverse=True)[:10]
-        expanded = sorted(wide, key=scores.__getitem__, reverse=True)[:10]
-        rankings = {'current': frozen, 'standalone_original60':original, 'standalone_wider60':expanded}
-        for arm,vote in (('replace_pointwise_with_original_scope',original),(ARMS[1],expanded)):
+        rankings = {'current': frozen}
+        if args.retain_position_prior:
+            original = old[:30]
+            settings = POLICIES['adaptive30_free']
+            if blend(original, {}, scores, settings) != original_pointwise:
+                raise ValueError(f'The original 30-document score calibration differs for {key}')
+            additional = [doc for doc in wide if doc not in original][:10]
+            candidate = original[:20] + additional
+            if len(candidate) != 30:
+                raise ValueError(f'Ten new documents are required for {key}')
+            local = blend(candidate, {}, scores, settings)
+            old_values = np.array([scores[d] for d in original])
+            new_values = np.array([scores[d] for d in candidate])
+            fixed = (new_values - old_values.mean()) / max(float(old_values.std()), 1e-8)
+            score = z(1 / np.log2(2 + np.arange(30))) + fixed
+            anchored = [candidate[i] for i in np.argsort(-score, kind='stable')[:10]]
+            choices = dict(zip(ANCHORED[1:], (local, anchored), strict=True))
+        else:
+            original = sorted(old, key=scores.__getitem__, reverse=True)[:10]
+            expanded = sorted(wide, key=scores.__getitem__, reverse=True)[:10]
+            rankings.update({'standalone_original60': original, 'standalone_wider60': expanded})
+            choices = {'replace_pointwise_with_original_scope': original, ARMS[1]: expanded}
+        for arm,vote in choices.items():
             rankings[arm] = head(reciprocal(basis+[vote],60),original_pointwise,judgments,True,.5)
         result.append({k:row[k] for k in ('domain','qid','split','cohort','actual_reference')} |
                       {'rankings':rankings,'changed_candidates':len(set(wide)-set(old))})
@@ -93,12 +116,16 @@ def main():
         scoring.add_argument(f'--{k}',type=Path,required=k in ('data-root','consensus'))
     scoring.add_argument('--evidence',type=Path,nargs='+',required=True)
     scoring.add_argument('--confirmation',action='store_true')
+    scoring.add_argument('--retain-position-prior', action='store_true')
     args=p.parse_args()
     if args.output.exists() or (args.stage=='prepare' and args.missing_manifest.exists()):
         p.error('Use fresh output paths')
     if args.stage=='evaluate' and args.confirmation and not args.selection:
         p.error('Confirmation requires a frozen choice')
-    result=prepare(args) if args.stage=='prepare' else evaluate(args,replay,ARMS)
+    if args.stage == 'prepare':
+        result = prepare(args)
+    else:
+        result = evaluate(args, replay, ANCHORED if args.retain_position_prior else ARMS)
     with args.output.open('x',encoding='utf8') as f:
         json.dump(result,f,separators=(',',':'))
 
