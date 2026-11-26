@@ -72,7 +72,7 @@ def prepare(root, args):
 
 
 def score(manifest, data_root, model_path, batch_size, checkpoint, mode='reference', adapter=None, focus=None,
-          gpu_memory_gib=None):
+          gpu_memory_gib=None, clip_dispersed_outliers=False):
     tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True, padding_side='left')
     placement = {}
     if gpu_memory_gib:
@@ -104,6 +104,8 @@ def score(manifest, data_root, model_path, batch_size, checkpoint, mode='referen
     checkpoint.mkdir(parents=True, exist_ok=True)
     signature = [(p.name, p.stat().st_size) for p in sorted(model_path.iterdir()) if p.is_file()]
     stats = {'tokens': 0, 'prompts': 0, 'resumed_domains': 0}
+    if clip_dispersed_outliers:
+        stats['clipped_prompts'] = 0
     instruction = INSTRUCT if mode == 'reference' else TEMPORAL_INSTRUCT
     if focus:
         instruction += (' Judge whether the evidence directly answers the highlighted part while '
@@ -123,12 +125,15 @@ def score(manifest, data_root, model_path, batch_size, checkpoint, mode='referen
         fingerprint = hashlib.sha256(json.dumps(fingerprint_inputs, sort_keys=True).encode()).hexdigest()
         if path.exists():
             saved = load(path)
-            if saved['fingerprint'] != fingerprint:
+            clipped = saved.get('clipped_prompts', 0)
+            if saved['fingerprint'] != fingerprint or (clipped and not clip_dispersed_outliers):
                 raise ValueError(f'Resume inputs differ for {domain}')
             completed.extend(saved['scores'])
             stats['tokens'] += saved['tokens']
             stats['prompts'] += sum(len(r['docs']) for r in group)
             stats['resumed_domains'] += 1
+            if clip_dispersed_outliers:
+                stats['clipped_prompts'] += clipped
             continue
         needed = {doc for r in group for doc in r['docs']}
         corpus = {}
@@ -160,13 +165,17 @@ def score(manifest, data_root, model_path, batch_size, checkpoint, mode='referen
                     prompts.append(header + document)
                 else:
                     prompts.append(f'<Instruct>: {instruction}\n<Query>: {query}{guide}\n<Document>: {passage}')
-        values, tokens = [], 0
+        values, tokens, clipped = [], 0, 0
         with torch.inference_mode():
             for start in range(0, len(prompts), batch_size):
                 items = prompts[start:start + batch_size]
                 body = items if mode == 'expanded' else tokenizer(items, add_special_tokens=False)['input_ids']
-                if any(len(b) > body_budget for b in body):
-                    raise ValueError(f'An input in {domain} exceeds the 4096-token budget')
+                overflow = sum(len(b) > body_budget for b in body)
+                if overflow:
+                    if not clip_dispersed_outliers:
+                        raise ValueError(f'An input in {domain} exceeds the 4096-token budget')
+                    body = [b[:body_budget] for b in body]
+                    clipped += overflow
                 batch = tokenizer.pad({'input_ids': [prefix + b + suffix for b in body]},
                                       padding=True, return_tensors='pt').to(model.device)
                 logits = model(**batch, use_cache=False, logits_to_keep=1).logits[:, -1, :].float()
@@ -181,7 +190,11 @@ def score(manifest, data_root, model_path, batch_size, checkpoint, mode='referen
             offset = end
         if offset != len(values):
             raise ValueError(f'Score count differs for {domain}')
-        write_checkpoint(path, {'fingerprint': fingerprint, 'scores': scores, 'tokens': tokens})
+        cache = {'fingerprint': fingerprint, 'scores': scores, 'tokens': tokens}
+        if clip_dispersed_outliers:
+            cache['clipped_prompts'] = clipped
+            stats['clipped_prompts'] += clipped
+        write_checkpoint(path, cache)
         completed.extend(scores)
         stats['tokens'] += tokens
         stats['prompts'] += len(prompts)
@@ -233,6 +246,8 @@ def main():
     parser.add_argument('--gpu-memory-gib', type=int, nargs='+')
     parser.add_argument('--evidence-mode', choices=('reference', 'temporal', 'dispersed', 'expanded'),
                         default='reference')
+    parser.add_argument('--clip-dispersed-outliers', action='store_true',
+                        help='Clip exceptional dispersed inputs at the token limit and count the affected pairs')
     parser.add_argument('--shards', type=int, default=1)
     parser.add_argument('--shard-index', type=int, default=0)
     parser.add_argument('--oof', type=Path, nargs=2)
@@ -243,6 +258,8 @@ def main():
     args = parser.parse_args()
     if not 0 <= args.shard_index < args.shards:
         parser.error('Shard index must be within the range of shards')
+    if args.clip_dispersed_outliers and (args.prepare or args.evidence_mode != 'dispersed'):
+        parser.error('Clipping requires dispersed scoring')
     if args.output.exists():
         parser.error('Use a fresh output path')
     if args.prepare:
@@ -254,7 +271,7 @@ def main():
             queries = select_shard(queries, args.shards, args.shard_index)
         report = score(queries, args.data_root or args.root / 'data/track1_tempo',
                        args.model, args.batch_size, args.checkpoint, args.evidence_mode, args.adapter, args.focus,
-                       args.gpu_memory_gib)
+                       args.gpu_memory_gib, args.clip_dispersed_outliers)
         report['shard'] = {'index': args.shard_index, 'count': args.shards}
         if args.model_revision:
             report['model_revision'] = args.model_revision
