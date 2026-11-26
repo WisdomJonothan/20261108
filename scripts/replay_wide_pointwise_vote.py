@@ -19,6 +19,7 @@ from retrieve_union_with_pointwise_scan import REVISION
 ARMS = ('current', 'replace_pointwise_with_wider_scope')
 ANCHORED = ('current', 'local_candidate_scale', 'original_candidate_scale')
 AGREEMENT = ('current', 'same_position_both_scales')
+PROTECTED = ('current', 'reorder_current_membership')
 
 
 def agreed_positions(original, first, second):
@@ -108,6 +109,11 @@ def replay(args):
         if args.stable_across_scales:
             local, fixed = (rankings[name] for name in ANCHORED[1:])
             rankings[AGREEMENT[1]] = agreed_positions(frozen, local, fixed)
+        if args.protect_membership:
+            updated = reciprocal(basis + [choices['local_candidate_scale']], 60, top_k=60)
+            priority = [doc for doc in updated if doc in frozen]
+            priority.extend(doc for doc in frozen if doc not in priority)
+            rankings[PROTECTED[1]] = head(priority, original_pointwise, judgments, True, .5)
         result.append({k:row[k] for k in ('domain','qid','split','cohort','actual_reference')} |
                       {'rankings':rankings,'changed_candidates':len(set(wide)-set(old))})
     return result
@@ -128,18 +134,22 @@ def main():
     scoring.add_argument('--evidence',type=Path,nargs='+',required=True)
     scoring.add_argument('--confirmation',action='store_true')
     scoring.add_argument('--retain-position-prior', action='store_true')
-    scoring.add_argument('--stable-across-scales', action='store_true')
+    alternative = scoring.add_mutually_exclusive_group()
+    alternative.add_argument('--stable-across-scales', action='store_true')
+    alternative.add_argument('--protect-membership', action='store_true')
     args=p.parse_args()
     if args.output.exists() or (args.stage=='prepare' and args.missing_manifest.exists()):
         p.error('Use fresh output paths')
     if args.stage=='evaluate' and args.confirmation and not args.selection:
         p.error('Confirmation requires a frozen choice')
-    if args.stage=='evaluate' and args.stable_across_scales and not args.retain_position_prior:
-        p.error('The agreement rule requires both position-preserving scale variants')
+    if args.stage == 'evaluate' and (args.stable_across_scales or args.protect_membership) and not args.retain_position_prior:
+        p.error('The constrained comparisons require the position-preserving pointwise vote')
     if args.stage == 'prepare':
         result = prepare(args)
     else:
         arms = AGREEMENT if args.stable_across_scales else (ANCHORED if args.retain_position_prior else ARMS)
+        if args.protect_membership:
+            arms = PROTECTED
         result = evaluate(args, replay, arms)
     with args.output.open('x',encoding='utf8') as f:
         json.dump(result,f,separators=(',',':'))

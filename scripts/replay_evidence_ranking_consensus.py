@@ -16,12 +16,12 @@ EXTENSIONS = ('agreement_offset2', 'agreement_offset15', 'agreement_offset60',
 PAIR_POLICIES = ('mean_position', 'pair_majority', 'pair_vote_margin')
 
 
-def reciprocal(lists, offset=5):
+def reciprocal(lists, offset=5, *, top_k=10):
     scores = {}
     for ranking in lists:
         for rank, doc in enumerate(ranking, start=1):
             scores[doc] = scores.get(doc, 0) + 1 / (rank + offset)
-    return sorted(scores, key=lambda doc: -scores[doc])[:10]
+    return sorted(scores, key=lambda doc: -scores[doc])[:top_k]
 
 
 def pair_orders(lists):
