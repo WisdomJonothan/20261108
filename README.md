@@ -19,6 +19,7 @@ direct rating at **0.38815**.
 [Matched checkpoint and official Jina results](docs/QWEN_ADAPTATION_AND_PAIR_EVIDENCE_20261125.md) ·
 [Evidence-first evaluation](docs/EVIDENCE_REASONER_20261125.md) ·
 [Fusion-aware training](docs/FUSION_AWARE_RANKING_20261125.md) ·
+[Candidate scope, evidence and transfer audits](docs/TEMPORAL_CONFLICT_RERANKING_20261126.md) ·
 [Query views and retrieval ceilings](docs/TEMPORAL_QUERY_VIEWS_20261125.md)
 
 **Frozen reference (2026-11-20).** The reference submission system

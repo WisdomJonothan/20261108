@@ -1,0 +1,86 @@
+{
+  "compared_topics": 242,
+  "normalization": "Unicode casefold, decoded HTML entities, word tokens",
+  "exact_normalized_matches": 0,
+  "near_matches": 0,
+  "per_domain": {
+    "bitcoin": {
+      "fit_topics": 56,
+      "held_topics": 14,
+      "maximum_jaccard": 0.059322033898305086,
+      "jaccard_at_least_0_8": 0
+    },
+    "cardano": {
+      "fit_topics": 29,
+      "held_topics": 7,
+      "maximum_jaccard": 0.029411764705882353,
+      "jaccard_at_least_0_8": 0
+    },
+    "economics": {
+      "fit_topics": 46,
+      "held_topics": 12,
+      "maximum_jaccard": 0.08653846153846154,
+      "jaccard_at_least_0_8": 0
+    },
+    "genealogy": {
+      "fit_topics": 64,
+      "held_topics": 16,
+      "maximum_jaccard": 0.031746031746031744,
+      "jaccard_at_least_0_8": 0
+    },
+    "history": {
+      "fit_topics": 449,
+      "held_topics": 112,
+      "maximum_jaccard": 0.10810810810810811,
+      "jaccard_at_least_0_8": 0
+    },
+    "hsm": {
+      "fit_topics": 84,
+      "held_topics": 21,
+      "maximum_jaccard": 0.05737704918032787,
+      "jaccard_at_least_0_8": 0
+    },
+    "iota": {
+      "fit_topics": 6,
+      "held_topics": 1,
+      "maximum_jaccard": 0.009174311926605505,
+      "jaccard_at_least_0_8": 0
+    },
+    "law": {
+      "fit_topics": 19,
+      "held_topics": 5,
+      "maximum_jaccard": 0.019230769230769232,
+      "jaccard_at_least_0_8": 0
+    },
+    "monero": {
+      "fit_topics": 37,
+      "held_topics": 9,
+      "maximum_jaccard": 0.046153846153846156,
+      "jaccard_at_least_0_8": 0
+    },
+    "politics": {
+      "fit_topics": 84,
+      "held_topics": 21,
+      "maximum_jaccard": 0.03558718861209965,
+      "jaccard_at_least_0_8": 0
+    },
+    "quant": {
+      "fit_topics": 19,
+      "held_topics": 5,
+      "maximum_jaccard": 0.019083969465648856,
+      "jaccard_at_least_0_8": 0
+    },
+    "travel": {
+      "fit_topics": 56,
+      "held_topics": 14,
+      "maximum_jaccard": 0.03937007874015748,
+      "jaccard_at_least_0_8": 0
+    },
+    "workplace": {
+      "fit_topics": 20,
+      "held_topics": 5,
+      "maximum_jaccard": 0.011335012594458438,
+      "jaccard_at_least_0_8": 0
+    }
+  }
+}
