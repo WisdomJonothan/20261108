@@ -334,3 +334,11 @@ Bruch et al. compare normalization functions and learned convex-fusion weights. 
 The locked original-scale rule scores **0.32688** against 0.32381 on 155 disjoint questions. It adds +0.00307 [0.00039, 0.00631] with thirteen higher and five lower query scores. Its minimum leave-one-domain-out difference is +0.00209. The score standard deviation shrinks on 136 of 155 questions, with a median ratio of 0.804, and the two scales change 61 final lists.
 
 The local-scale control scores 0.32856 on the 155. Its lead over the fixed scale is +0.00168 [0.00012, 0.00401], reversing the ordering observed in the initial 186. Both rules improve on the frozen comparator in this confirmation. Retain the preselected original scale and evaluate only that rule and the comparator on the reserved 191. Organizer scoring independently reproduces the confirmation results. [Disjoint rankings and scale diagnostics](../results/analysis/wide-vote-confirm-20261126.tar.gz)
+
+#### Reserved 191
+
+The original-scale rule reaches 0.28281 versus 0.28212 on the reserved eight-domain sample. The difference is +0.00069 [−0.00188, +0.00352], with eight improved and seven declined queries. Removing History yields −0.00024, the smallest leave-one-domain-out change. The locked rule therefore stops before official dev. The reserved archive contains only the two rankings used for relevance scoring. [Reserved IDs](../results/analysis/passage-and-conditional-replay-20261126.tar.gz) · [Reserved predictions and replay](../results/analysis/wide-vote-reserve-20261126.tar.gz)
+
+### Keep final positions that agree under both score scales
+
+Use the same expanded 30-document pool and fixed ranking code from the scale comparison. Keep a document in a proposed final position whenever both scale variants put that document at the same position. Fill the other positions in the original final order, skipping documents that already have an assigned position. This gives a fixed agreement policy with one eligible treatment and the frozen comparison. The first gate uses the original 186. If it advances, apply the fixed rule on the 155. The earlier reserve has supplied a result for the original-scale rule. Any further independent gate uses query IDs outside all three previous populations.
