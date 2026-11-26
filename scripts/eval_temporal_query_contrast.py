@@ -77,14 +77,14 @@ def evaluate(name, model_values, examples):
     }
 
 
-def cross_encoder(path, pairs, threads):
+def cross_encoder(path, pairs, threads, *, device='cpu', precision='float32'):
     import torch
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
     torch.set_num_threads(threads)
     token = AutoTokenizer.from_pretrained(path, local_files_only=True)
     model = AutoModelForSequenceClassification.from_pretrained(
-        path, local_files_only=True, dtype=torch.float32).eval()
+        path, local_files_only=True, dtype=getattr(torch, precision)).to(device).eval()
     values = []
     started = time.perf_counter()
     with torch.inference_mode():
@@ -93,7 +93,7 @@ def cross_encoder(path, pairs, threads):
             batch = token([q for q, _ in chunk], [d for _, d in chunk], padding=True, return_tensors='pt')
             if batch['input_ids'].shape[1] > 512:
                 raise ValueError('A diagnostic input exceeds the cross-encoder token budget')
-            logits = model(**batch).logits
+            logits = model(**batch.to(device)).logits.float()
             if logits.shape != (len(chunk), 1):
                 raise ValueError('Expected one raw score per example')
             values.extend(logits[:, 0].tolist())
@@ -101,10 +101,7 @@ def cross_encoder(path, pairs, threads):
 
 
 def qwen_reranker(path, pairs, threads, dated_pairs=None):
-    import torch
-    from transformers import AutoModelForCausalLM, AutoTokenizer
-
-    from run_qwen3_rerank import INSTRUCT, PREFIX, SUFFIX
+    from run_qwen3_rerank import INSTRUCT
 
     instruction = ('Identify whether the passage directly supports the event, record, or state '
                    'under the query time condition. Apply the condition to the date of the event, '
@@ -115,9 +112,19 @@ def qwen_reranker(path, pairs, threads, dated_pairs=None):
     if dated_pairs is not None:
         instructions = dict.fromkeys(dated_pairs, instruction)
         variants = dated_pairs
+    return score_qwen_variants(path, variants, instructions, threads), instructions
+
+
+def score_qwen_variants(path, variants, instructions, threads, *, device='cpu', precision='float32'):
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+
+    from run_qwen3_rerank import PREFIX, SUFFIX
+
     torch.set_num_threads(threads)
     token = AutoTokenizer.from_pretrained(path, local_files_only=True, padding_side='left')
-    model = AutoModelForCausalLM.from_pretrained(path, local_files_only=True, dtype=torch.float32).eval()
+    model = AutoModelForCausalLM.from_pretrained(
+        path, local_files_only=True, dtype=getattr(torch, precision)).to(device).eval()
     prefix = token.encode(PREFIX, add_special_tokens=False)
     suffix = token.encode(SUFFIX, add_special_tokens=False)
     answers = [token.encode(answer, add_special_tokens=False) for answer in ('no', 'yes')]
@@ -136,10 +143,10 @@ def qwen_reranker(path, pairs, threads, dated_pairs=None):
                 ids = token(bodies, add_special_tokens=False)['input_ids']
                 batch = token.pad({'input_ids': [prefix + x + suffix for x in ids]},
                                   padding=True, return_tensors='pt')
-                logits = model(**batch, logits_to_keep=1, use_cache=False).logits[:, -1, :]
+                logits = model(**batch.to(device), logits_to_keep=1, use_cache=False).logits[:, -1, :].float()
                 values.extend((logits[:, yes] - logits[:, no]).tolist())
             results[name] = (values, time.perf_counter() - started)
-    return results, instructions
+    return results
 
 
 

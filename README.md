@@ -162,6 +162,13 @@ both sides of the changed time condition in 2 and 1 cases. The default Qwen3
 0.6B reranker flips correctly in 2 cases, and its event-time instruction in 1.
 [Evidence offsets and paired scores](docs/TEMPORAL_QUERY_CONTRAST_20261125.md)
 
+**Event-date assignment (2026-11-27).** In 36 controlled families with the same
+date words in both documents, masking the unrelated event's year increases
+full success across both sentence orders from **16 to 24** for Qwen3 0.6B and
+from **0 to 18** for base BGE. Exchanging unrelated date notes also reduces
+correct flips in the 11 training-corpus evidence pairs.
+[Matched masking controls and raw scores](docs/TEMPORAL_DATE_BINDING_20261127.md)
+
 **Full official-dev Qwen3-8B evaluation (2026-11-25).** With the frozen
 70:30 blend and 100 dense candidates for each of the 519 official dev queries,
 Qwen3-8B scores **0.37959**, compared with **0.37350** for the six-pair
