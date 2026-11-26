@@ -266,6 +266,16 @@ The matched removal is available for 1,304 document-query pairs across 181 queri
 
 Use the released BGE-M3 checkpoint to score the same candidate union and document prefix as the wider DiVeR experiment. Compare its dense cosine score, its standard mean MaxSim token score, and a MaxSim score with double weight on query tokens overlapping a literal year or an explicit temporal ordering cue. The two token-level arms share exactly the same contextual token similarities. The last arm tests where the model spends its matching weight. Compare equal four-document proposals outside the frozen 60 and use the same one-admission oracle and paired final-ranking gate. DiVeR, mxbai and BGE proposals in the earlier experiment provide archived controls for the same union. [M3-Embedding](https://aclanthology.org/2024.findings-acl.137/) · [Pinned BGE-M3 checkpoint](https://huggingface.co/BAAI/bge-m3/tree/f11a3f18ef0f9740f5268d633d025d11b33e1e82)
 
+The implementation reproduces the publisher's two dense and MaxSim example scores within 0.001. The score emphasizes temporal tokens on 123 of the initial 186 queries, and it changes the order or membership of the four offers for 30 queries. With the same final one-admission checks, the standard and temporal token variants produce identical final scores and improve the same two queries.
+
+| Proposal score from the same BGE-M3 weights | Queries with a labeled positive | Ideal one admission | Actual nDCG@10 |
+| --- | ---: | ---: | ---: |
+| Dense cosine | 10 | 0.34914 | 0.33894 |
+| Mean MaxSim | 9 | 0.34835 | 0.33957 |
+| Temporally weighted MaxSim | 9 | 0.34835 | 0.33957 |
+
+The frozen reference and fold-wise choice both score 0.33821. Each token-matching arm has a fixed gain of +0.00136 and skips disjoint confirmation after the cross-fold result. The organizer scorer reproduces the candidate rankings. [Matched token proposals, 1,215 graded pairs and ranking outcomes](../results/analysis/m3-held-20261126.tar.gz)
+
 ## Compare evidence allocation before fusion with admission after fusion
 
 The one-admission experiment exposes a loss between finding a labeled positive and clearing the fixed margin against an incumbent. Compare an earlier intervention that gives a new candidate an evidence vote before the rankings are fused. Preserve the ten incumbent documents and the first proposal from each original retrieval tier. For the two remaining positions in the 14-document shortlist, let the original candidates compete with the one or two largest 8B scores among the same four DiVeR offers. Fill a position only when an outside candidate wins by the matched 8B score. Keep the original position of any retained candidate.
