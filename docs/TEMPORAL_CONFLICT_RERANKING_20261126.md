@@ -147,3 +147,15 @@ Only 206 of 2,604 generated continuations emitted the model's closing thought to
 As an extra vote on the same 14 passages, DiVeR-Retriever-4B scores 0.33712 from the full question and 0.33740 when incorporating the best-matching question fragment. The 186-query frozen reference is 0.33821. The matched fragment change is +0.00028 [−0.00218, +0.00284]. Foregoing the additional vote remains the pooled choice. Selection across folds gives 0.33599 and a minimum leave-one-domain-out change of −0.00259. On the 65 queries with the exact earlier starting system, the fragment score is 0.33895 versus 0.33558. The full sample and fold-wise comparison govern promotion. These are fixed-shortlist results for a component of the released DiVeR system. [Matched rankings and cached DiVeR similarities](../results/analysis/diver-matched14-20261126.tar.gz)
 
 A separate candidate-selection comparison asks whether DiVeR is useful before the 14 passages have been chosen. Keep the prior ten and the strongest existing candidate from each of the two retrieval tiers. In each tier, compare the remaining original candidate against the eligible alternatives under the encoder. The two treatments differ only in the input query representations. One uses the full question, and one also considers its literal fragments. Both keep 14 total grades and use the original graders and final rank fusion. Freeze rules on the 186 and use the same transfer gates before scoring any new official-dev comparison.
+
+#### Keep the reading budget fixed and reward evidence the protected set misses
+
+For the same two open slots, compare full-query similarity, sensitivity to any question fragment, and the additional support a candidate gives beyond the twelve protected documents. Normalize the encoder similarities for each fragment over the 60 candidates. The protected set's best similarity supplies the reference for that fragment. For each candidate, compare its largest positive increase across fragments, combined equally with its normalized full-question similarity within the tier. Refresh the protected scores after filling the first open slot. Use the same 14 evidence grades and the same final reranking policy in each arm.
+
+| Ideal order within the 14 grading slots | Initial 186 | Disjoint 155 |
+| --- | ---: | ---: |
+| Current evidence shortlist | 0.55238 | 0.52618 |
+| Best possible choices in the two open slots | 0.66115 | 0.64741 |
+| Queries with an available improvement | 57 | 56 |
+
+The two-slot difference is +0.10877 [0.08246, 0.13751] on the first sample and +0.12123 [0.08874, 0.15665] on confirmation. This oracle uses the training judgments to choose the two documents and ideal ordering. The actual selection compares the encoder criteria using only input text. [Two-slot bounds and per-query audits](../results/analysis/admission-two-slot-oracle-20261126.tar.gz)
