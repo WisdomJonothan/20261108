@@ -20,6 +20,7 @@ ARMS = ('current', 'replace_pointwise_with_wider_scope')
 ANCHORED = ('current', 'local_candidate_scale', 'original_candidate_scale')
 AGREEMENT = ('current', 'same_position_both_scales')
 PROTECTED = ('current', 'reorder_current_membership')
+TAPERED = ('current', 'wide_pointwise_taper')
 
 
 def agreed_positions(original, first, second):
@@ -27,6 +28,17 @@ def agreed_positions(original, first, second):
     anchored = set(shared.values())
     candidates = iter(doc for doc in original if doc not in anchored)
     return [shared[i] if i in shared else next(candidates) for i in range(len(original))]
+
+
+def tapered_rank(other_votes, pointwise):
+    scores = {}
+    for ranking in other_votes:
+        for r, doc in enumerate(ranking, start=1):
+            scores[doc] = scores.get(doc, 0.) + 1. / (60 + r)
+    for r, doc in enumerate(pointwise[:29], start=1):
+        taper = min(1., (30 - r) / 20.)
+        scores[doc] = scores.get(doc, 0.) + taper / (60 + r)
+    return sorted(scores, key=lambda doc: -scores[doc])[:10]
 
 
 def prepare(args):
@@ -109,6 +121,10 @@ def replay(args):
         if args.stable_across_scales:
             local, fixed = (rankings[name] for name in ANCHORED[1:])
             rankings[AGREEMENT[1]] = agreed_positions(frozen, local, fixed)
+        if args.taper_vote:
+            for arm, docs in (('old_pointwise_taper', original), (TAPERED[1], candidate)):
+                full = blend(docs, {}, scores, settings, top_k=30)
+                rankings[arm] = head(tapered_rank(basis, full), original_pointwise, judgments, True, .5)
         if args.protect_membership:
             updated = reciprocal(basis + [choices['local_candidate_scale']], 60, top_k=60)
             priority = [doc for doc in updated if doc in frozen]
@@ -137,12 +153,13 @@ def main():
     alternative = scoring.add_mutually_exclusive_group()
     alternative.add_argument('--stable-across-scales', action='store_true')
     alternative.add_argument('--protect-membership', action='store_true')
+    alternative.add_argument('--taper-vote', action='store_true')
     args=p.parse_args()
     if args.output.exists() or (args.stage=='prepare' and args.missing_manifest.exists()):
         p.error('Use fresh output paths')
     if args.stage=='evaluate' and args.confirmation and not args.selection:
         p.error('Confirmation requires a frozen choice')
-    if args.stage == 'evaluate' and (args.stable_across_scales or args.protect_membership) and not args.retain_position_prior:
+    if args.stage == 'evaluate' and (args.stable_across_scales or args.protect_membership or args.taper_vote) and not args.retain_position_prior:
         p.error('The constrained comparisons require the position-preserving pointwise vote')
     if args.stage == 'prepare':
         result = prepare(args)
@@ -150,6 +167,8 @@ def main():
         arms = AGREEMENT if args.stable_across_scales else (ANCHORED if args.retain_position_prior else ARMS)
         if args.protect_membership:
             arms = PROTECTED
+        if args.taper_vote:
+            arms = TAPERED
         result = evaluate(args, replay, arms)
     with args.output.open('x',encoding='utf8') as f:
         json.dump(result,f,separators=(',',':'))

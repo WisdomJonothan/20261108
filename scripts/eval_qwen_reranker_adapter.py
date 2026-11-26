@@ -77,7 +77,7 @@ def candidate_judges(paths):
     return cohorts, metadata, inference
 
 
-def blend(docs, base, adapted, policy):
+def blend(docs, base, adapted, policy, *, top_k=10):
     width, trained, alpha, protect = policy
     shortlist = docs[:width]
     prior = z(1 / np.log2(2 + np.arange(width)))
@@ -87,7 +87,7 @@ def blend(docs, base, adapted, policy):
     indices = np.argsort(-combined, kind='stable')
     if protect:
         indices = [0, *[int(i) for i in indices if i != 0]]
-    return [shortlist[i] for i in indices[:10]]
+    return [shortlist[i] for i in indices[:top_k]]
 
 
 def prepare(manifest, references, controls, fitted, split):
