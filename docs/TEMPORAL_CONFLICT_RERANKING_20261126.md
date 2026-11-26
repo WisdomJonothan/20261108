@@ -326,3 +326,11 @@ The 8B score standard deviation falls on 174 of 186 queries, with a median new-t
 | Updated candidate pool, original score scale | 0.33943 |
 
 The original scale gains +0.00122 [−0.00153, +0.00431] over the frozen reference and +0.00064 [−0.00049, +0.00200] over recomputing the scale locally. It improves 11 queries and lowers eight. All three folds choose the original scale. Its smallest leave-one-domain-out improvement is +0.00035. Lock that rule and evaluate it on the 155 independent of the three selection folds. The organizer scorer reproduces both the standalone-vote and position-prior comparisons. [Matched wide scopes, 8B scores, score-scale diagnostics and rankings](../results/analysis/wide-vote-held-20261126.tar.gz)
+
+Bruch et al. compare normalization functions and learned convex-fusion weights. Chauhan and Agarwal measure query-level losses from lexical and dense fusion on seven BEIR datasets and follow the losses through an equal-budget reranking stage. The RETECO comparison fixes the expanded document list and its score values, then intervenes on the candidate set that supplies the score standard deviation to a later fusion stage. That isolates a query-dependent change in effective weight caused by candidate selection even when the nominal combination is fixed. [Analysis of Fusion Functions](https://arxiv.org/abs/2210.11934) · [The Fusion Tax](https://arxiv.org/abs/2610.30612)
+
+#### Disjoint confirmation
+
+The locked original-scale rule scores **0.32688** against 0.32381 on 155 disjoint questions. It adds +0.00307 [0.00039, 0.00631] with thirteen higher and five lower query scores. Its minimum leave-one-domain-out difference is +0.00209. The score standard deviation shrinks on 136 of 155 questions, with a median ratio of 0.804, and the two scales change 61 final lists.
+
+The local-scale control scores 0.32856 on the 155. Its lead over the fixed scale is +0.00168 [0.00012, 0.00401], reversing the ordering observed in the initial 186. Both rules improve on the frozen comparator in this confirmation. Retain the preselected original scale and evaluate only that rule and the comparator on the reserved 191. Organizer scoring independently reproduces the confirmation results. [Disjoint rankings and scale diagnostics](../results/analysis/wide-vote-confirm-20261126.tar.gz)
