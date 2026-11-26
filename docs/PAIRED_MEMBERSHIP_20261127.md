@@ -37,3 +37,5 @@ python scripts/replay_paired_membership.py --archive-dir results/analysis --data
 ```
 
 [Saved per-query rankings and paired comparisons](../results/analysis/paired-membership-20261127.tar.gz)
+
+The next study fixes the same replacement pair, tests the incumbent-evidence criterion, and checks method-family weighting on two external benchmark collections. [Transfer checks](INDEPENDENT_ADMISSION_CHECK_20261127.md)
