@@ -195,3 +195,19 @@ Both adapters train 589,824 parameters in 129 updates. On the 19 held-out step p
 Ask the 4B selector to choose one numbered, literal request from the complete question. Compare its choice when it can see the four leading retrieved excerpts with its choice from the question alone. Both comparisons use the same four-way instruction and selector weights, and each initiating view searches the same corpus index. The initial full-query mxbai ranking serves as a third control. A selected request keeps up to 32 words from the query's first line and the original wording of the selected fragment. Single-request inputs use the full question for each view.
 
 Retain the old 60 candidates. Each retrieval input supplies four new documents from the unchanged corpus index. Compare access to judged positives and the ideal score with one eligible admission at positions three through ten. Only the training-side samples supply judgments for the candidate diagnostic. The outcome isolates what evidence feedback contributes to finding a genuinely new candidate before spending the expensive grading budget. Interleaved retrieval and generation motivate this study of a bounded retrieval action. [IRCoT](https://aclanthology.org/2023.acl-long.557/) · [Active Retrieval Augmented Generation](https://aclanthology.org/2023.emnlp-main.495/)
+
+The original-query control uses the same question loader as the archived dense run. The preliminary replay used the reranker query text and recovered 66.13% of the four documents proposed by the archived dense order. The corrected control recovers **99.60%**, with an exact four-document ordering on 178 of 186 questions. The preliminary artifacts remain separate from the final comparison.
+
+Seeing the four excerpts changes the selected fragment on 31 of the 148 questions with multiple eligible requests. Under the same four-candidate budget, each method searches the full domain corpus. The 8B scorer chooses one candidate per source for detailed evidence grading. Admit at most one new document at ranks three through ten with a matching quotation, a minimum expected grade of 2, a 0.5 advantage and a higher pointwise score than the displaced document.
+
+| Retrieval view | Queries with a new labeled positive among four | Queries with one in the leading proposal | Ideal one-admission score | Actual nDCG@10 |
+| --- | ---: | ---: | ---: | ---: |
+| Complete question | 5 | 3 | 0.34360 | 0.33815 |
+| Request selected from the question | 10 | 5 | 0.35078 | 0.33808 |
+| Request selected after reading existing excerpts | 7 | 2 | 0.34680 | 0.33808 |
+
+The frozen ranking scores 0.33821. The three actual policies each improve one question and lower one. Fold-wise selection scores 0.33745. The separate candidate and grade stages expose where the additional labeled evidence falls away. [Aligned retrieval candidates, initial and final proposals, matched scores and rankings](../results/analysis/evidence_feedback_20261126.tar.gz)
+
+## Use a separate reasoning encoder on two broader candidate sources
+
+Form the union of the first 200 documents from each of the archived mxbai and BGE lists and the original 60. DiVeR produces normalized document and query embeddings using its instruction protocol and last-token pooling. Each document representation is shared across every question in its domain and shard. Each of the three sources supplies its best four candidates outside the original pool. Compare the two constituent retrievers with DiVeR ranking the union. The shortlist diagnostic uses matched budgets and the same allowed ranks for candidate admission. Follow-up grading reuses the evidence and pointwise checks from the feedback experiment. [DiVeR encoder and training objective](https://huggingface.co/AQ-MedAI/Diver-Retriever-4B/tree/ff7f8bc8d1827734dcf2bbfab99f065be618069a)

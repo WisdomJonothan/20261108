@@ -37,11 +37,15 @@ def select_and_encode(args):
     from audit_rejected_swap_evidence import read_documents
     from benchmark_pairwise_replacement_v2 import terms
     from prepare_step_contrast_adapter import literal_requests
+    from lib_reteco import load_examples
     from retrieve_passage_evidence import PREFIX
     from score_specialist_shortlists import evidence
 
     rows = load(args.manifest)['queries'][args.shard_index::args.shards]
     references = index(load(args.reference))
+    split, = {r['split'] for r in rows}
+    originals = {d:dict(zip(*load_examples(args.data_root/d,split),strict=True))
+                 for d in {r['domain'] for r in rows}}
     tokenizer = AutoTokenizer.from_pretrained(args.selector,padding_side='left',local_files_only=True)
     model = AutoModelForCausalLM.from_pretrained(args.selector,dtype=torch.bfloat16,
                                                local_files_only=True).to('cuda').eval()
@@ -91,7 +95,9 @@ def select_and_encode(args):
                     pair = np.array(values[cursor:cursor+2])[:, :len(requests)]
                     selected = pair.argmax(axis=1).tolist()
                     cursor += 2
-                views = [query, *[query_view(query,requests[i] if i is not None else None) for i in selected]]
+                original = originals[domain][qid]
+                views = [original, *[query_view(query, requests[i]) if i is not None else original
+                                     for i in selected]]
                 queries.extend(PREFIX+view for view in views)
                 metadata.append({'domain':domain,'qid':qid,'request_count':len(requests),'selected':selected})
             if cursor!=len(values):
@@ -101,8 +107,7 @@ def select_and_encode(args):
     torch.cuda.empty_cache()
     tokenizer = AutoTokenizer.from_pretrained(args.encoder,local_files_only=True)
     model = AutoModel.from_pretrained(args.encoder,local_files_only=True).to('cuda',dtype=torch.float16).eval()
-    vectors = encode(queries,model,tokenizer,'cuda',64,512,'mean','local retrieval queries')
-    split, = {r['split'] for r in rows}
+    vectors = encode(queries,model,tokenizer,'cuda',16,512,'mean','local retrieval queries')
     info = {'split':split,'encoder':args.encoder.name,'rewriter':args.selector.name,
             'instruction':INSTRUCTION,'views':metadata}
     with args.output.open('xb') as file:
@@ -139,7 +144,7 @@ def make_pools(args):
             output.append({k:row[k] for k in ('domain','qid','split','cohort','actual_reference')} |
                           {'original':row['docs'],'prior_ten':start,'offers':offers,'choices':views[key][0]})
         print(domain,len(output),flush=True)
-    return {'models':models,'per_query':output}
+    return {'models':models,'sources':list(SOURCES),'per_query':output}
 
 
 def audit(args):
@@ -159,7 +164,10 @@ def audit(args):
                              if baseline[i] not in gold for doc in new]
             row['diagnostics'][arm] = {'new_positives':len(new),'one_swap':max([row['current'],*allowed_edits])}
     summary = {}
-    for arm in SOURCES:
+    sources = tuple(pools.get('sources',SOURCES))
+    if any(tuple(r['offers'])!=sources for r in rows):
+        raise ValueError('Unexpected candidate sources in the diagnostic')
+    for arm in sources:
         summary[arm] = {
             'queries_with_positives': sum(r['diagnostics'][arm]['new_positives']>0 for r in rows),
             'one_swap': macro((r['domain'],r['diagnostics'][arm]['one_swap']) for r in rows),
