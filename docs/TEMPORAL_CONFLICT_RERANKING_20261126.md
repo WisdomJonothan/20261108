@@ -290,6 +290,17 @@ Use a pinned 0.6B Yuanbao relevance model with the same dispersed evidence windo
 
 The larger scan averages 290.9 distinct candidates and the nested shallow comparison averages 91.4. Permit the scorer's existing 4,096-token limit to clip exceptional overlength prompt bodies while preserving the full verdict suffix. Record the count of these inputs and keep the shared candidates' scores identical across depths. As a diagnostic, calculate the small cross-encoder's standalone order within the original 60, shallow union, and deep union. Eligibility for transfer remains based on the final ranking with the same admission policy.
 
+The complete scan scores 54,103 pairs and clips one overlength input. Across the two arms, the 4B and 8B models each score the same 1,172 distinct proposed pairs.
+
+| Depth per parent list | Queries with a labeled positive among four | Ideal one admission | Actual nDCG@10 |
+| --- | ---: | ---: | ---: |
+| 50 | 13 | 0.35525 | 0.33650 |
+| 200 | 20 | 0.36334 | 0.33994 |
+
+The frozen score is 0.33821. All three folds choose the deeper scan, which improves two queries and harms zero. The macro change is +0.00173 with a paired interval of [0.00000, +0.00440] and a minimum leave-one-domain-out change of +0.00087. This fixed policy advances to the 155-query confirmation. On the 165 queries with step labels, the baseline, shallow, and deep step coverage are 61.72%, 61.45%, and 61.91%. The small cross-encoder's standalone scores in the original 60, shallow, and deep pools are 0.27713, 0.27224, and 0.28140. Deep versus shallow changes this standalone diagnostic by +0.00916 [−0.00050, +0.02086]. [Nested depths, raw score cache, and ranked controls](../results/analysis/deep-held-20261126.tar.gz)
+
 ### Replace the absolute margin with cross-encoder agreement
 
-To test the grade-margin bottleneck observed with DiVeR, keep the four depth-200 proposals and exact quotation requirement. Require the candidate to have a grade of at least two and a positive evidence-grade advantage over the incumbent. Accept a smaller advantage than half a point only when both the 0.6B scan and 8B reranker prefer the candidate to that incumbent. Evaluate one fixed agreement policy against the frozen ranking and record the earlier half-point rule on these same candidates as a control. Choose the eligible change only on training-side folds and keep the independent reserve and final official-dev gate.
+To test the grade-margin bottleneck observed with DiVeR, keep the four depth-200 proposals and exact quotation requirement. Require the candidate to have a grade of at least two and a positive evidence-grade advantage over the incumbent. Both the 0.6B scan and the 8B reranker must also prefer the candidate. This permits a positive evidence difference below half a point. Evaluate one fixed agreement policy against the frozen ranking and record the earlier half-point rule on these same candidates as a control. Choose the eligible change only on training-side folds and keep the independent reserve and final official-dev gate.
+
+The agreement rule scores 0.33760, with one improvement and two declines. Fold-wise selection scores 0.33691. The half-point control exactly replays 0.33994 with the same candidates. Confirmation uses the original half-point decision. The organizer scorer independently reproduces both sets of rankings and macro changes.
