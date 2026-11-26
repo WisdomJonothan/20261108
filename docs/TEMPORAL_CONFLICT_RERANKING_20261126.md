@@ -110,3 +110,16 @@ The question-likelihood protocol instead scores how readily the same model would
 ## Reserve training queries for future confirmation
 
 A third sample contains 191 official training questions in eight domains. Select up to 30 from each remaining domain by a fixed SHA-256 ordering of its domain and query ID after excluding the preceding 341 questions. Five domains have already supplied every eligible question to the preceding studies. This reserve is disjoint from the two samples used to compare these changes. Previous project components may have encountered these questions in other training or analyses. Freeze a new ranking policy before using these 191 relevance judgments. Keep the 519 public-dev queries out of policy selection. [Reserve IDs and sample definition](../results/analysis/passage-and-conditional-replay-20261126.tar.gz)
+
+## Change presentation order before selecting the first result
+
+Compare the same three leading documents of the frozen system using Qwen3-4B-Instruct-2507. Keep the full query and two fixed excerpts per document. The model can select a document or indicate that none offers usable evidence. Give each document each presentation position twice, using all six permutations. The single-order control uses the reference order. The balanced rule averages the aligned logits. The guarded rule requires a strict majority for the proposed replacement and a mean logit gap of at least log(2) over the incumbent. Every rule can exchange only rank one with rank two or three.
+
+| Selection policy | Initial 186 nDCG@10 | Disjoint 155 nDCG@10 |
+| --- | ---: | ---: |
+| Frozen ranking | 0.33821 | 0.32381 |
+| Single presentation in reference order | 0.32559 | 0.31813 |
+| Average over six presentations | 0.33876 | 0.32193 |
+| Majority and margin guard | 0.33930 | 0.31631 |
+
+Balancing presentations gains 0.01317 over the single-order arm on the initial 186 and 0.00379 on the disjoint 155. Choosing the rule on other folds gives 0.33475 on the initial sample. The guarded choice changes four queries for the better and eight for the worse in confirmation. Its change from the frozen ranking is −0.00750 [−0.02188, +0.00429]. This evidence supports measuring order sensitivity separately from final-systems improvement. The test retains the frozen system and stops before official dev. [Setwise prompting](https://doi.org/10.1145/3626772.3657813) · [Matched prompt logits, orderings and scores](../results/analysis/setwise-matched-20261126.tar.gz)
