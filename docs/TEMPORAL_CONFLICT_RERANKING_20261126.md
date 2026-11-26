@@ -316,3 +316,13 @@ The ideal score of the revised 60-document pool rises from 0.67516 to 0.75363. T
 ### Preserve the original positional vote and test its normalization scope
 
 The 30-candidate pointwise vote combines ranked-position discount with the 8B scores at equal standardized weight. Replaying this rule reconstructs the original vote in all 186 cases. Retain the original first 20 candidates and replace positions 21–30 with the first ten new candidates from the matched wider pool. Use the same 30-document rule and existing 8B scores. Compare normalizing within the updated 30 with using the original thirty's mean and standard deviation. Hold the candidate IDs, other three votes, and first-position rule fixed. This tests whether changing the candidate distribution disrupts the original score calibration. The original three-fold and disjoint confirmation criteria apply.
+
+The 8B score standard deviation falls on 174 of 186 queries, with a median new-to-original ratio of 0.777. The denominator changes the weight of the 8B signal relative to the position prior. The centering term cancels when comparing documents from the same query. The two scales produce different final rankings on 88 queries.
+
+| Pointwise vote within the fixed consensus | nDCG@10 |
+| --- | ---: |
+| Frozen reference | 0.33821 |
+| Updated candidate pool, local score scale | 0.33878 |
+| Updated candidate pool, original score scale | 0.33943 |
+
+The original scale gains +0.00122 [−0.00153, +0.00431] over the frozen reference and +0.00064 [−0.00049, +0.00200] over recomputing the scale locally. It improves 11 queries and lowers eight. All three folds choose the original scale. Its smallest leave-one-domain-out improvement is +0.00035. Lock that rule and evaluate it on the 155 independent of the three selection folds. The organizer scorer reproduces both the standalone-vote and position-prior comparisons. [Matched wide scopes, 8B scores, score-scale diagnostics and rankings](../results/analysis/wide-vote-held-20261126.tar.gz)
