@@ -238,6 +238,8 @@ The larger budget adds 1,440 distinct grades across the three sources and reuses
 
 An independent replay uses the organizer scorer on all 186 rankings and verifies the frozen comparator, fold selection, and macro changes. The positive initial gate triggers confirmation on 155 disjoint questions with DiVeR and four grades fixed. The question-level results and intermediate candidate losses are included in the archive. [Nested candidate headroom, all proposals, grades and rankings](../results/analysis/native-wide-held-20261126.tar.gz)
 
+The fixed policy reaches **0.32227** on the disjoint 155 compared with **0.32381** for their frozen ranking. It improves one question and reduces two. The change is −0.00154 with a paired 95% interval of [−0.00557, +0.00174]. The smallest leave-one-domain-out change is −0.00262. The organizer scorer independently reproduces the rankings and results. This route stops before the reserve and official dev. [Disjoint candidate and score archive](../results/analysis/native-wide-confirm-20261126.tar.gz)
+
 ## Compare a stronger evidence judge under the same retrieval inputs
 
 Use the pinned Qwen3.5-9B model in text-only, non-thinking mode. Keep the 14 document identities, dispersed excerpts, ordinal rating rubric, quote verification and 80-token explanation limit. Measure standalone direct and explanation-based judgments for both model checkpoints. These measurements expose changes in score quality at the same evidence scope.
