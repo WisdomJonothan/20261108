@@ -165,3 +165,25 @@ After the 768-token rerun, 2,574 of 2,604 outputs reach the closing marker. The 
 The wide-pool study applies the long-standing idea of explicitly diversifying by subquery to the allocation of expensive evidence grades. It tests the placement of this decision before final ranking, with the same number of graded documents and direct relevance controls. The question fragments come from the observed query text. [xQuAD](https://terrierteam.dcs.gla.ac.uk/publications/ecir2010_rodrygo_div.pdf) · [SetR](https://aclanthology.org/2025.acl-long.861/)
 
 The fixed 191-query baseline is established before using its relevance judgments. The SHA-256 of its final-rank predictions is `c9d50fe91974918543f59a97c5f998d0dd1ddf30ca901e432894124d92945c10`. The consensus and 14-document manifest digests are `6df364b963f33be6cf3772523e60256dbf43798a967452188d05bfd1a86611a4` and `bf2cc009790303a4900e0a7c6ebae28ab6a6184b7d2cead75947b599c627a406`. Replaying the 155-query repair, consensus and final ranks with the same reconstruction code gives byte-identical outputs to their previous versions.
+
+#### Measured two-slot selections
+
+The full-question, clause, and marginal-support selectors achieve 14-document ideal scores of 0.55055, 0.53948 and 0.54653 on the initial 186. The existing shortlist has ideal score 0.55238. Reuse 213 candidate grades and obtain 264 new grades for the union of selected documents. Each configuration still uses 14 grades per query.
+
+| Selection with the same final ranking procedure | Initial 186 nDCG@10 |
+| --- | ---: |
+| Frozen ranking | 0.33821 |
+| Full-question selection | 0.33854 |
+| Best-fragment selection | 0.33664 |
+| Selection by marginal fragment support | 0.33935 |
+| Selection rule chosen on other folds | 0.33664 |
+
+Marginal selection adds 0.00114 [−0.00394, +0.00685] as a fixed policy. Across folds, the chosen policies decline by 0.00157 [−0.00450, +0.00045]. Their smallest leave-one-domain-out change is −0.00178. The 155 have cached text-only embeddings, with their final comparisons held back by the initial criterion. [Wide candidate logits, shortlisted IDs, judgments and paired rankings](../results/analysis/diver-wide-held-20261126.tar.gz)
+
+## Teach the same scorer which part of a question a document supports
+
+Use the official training steps to supervise opposing document preferences for two literal subquestions. A step maps to an interrogative from the original question when the best normalized term overlap is at least 0.17, at least 0.055 above the second-best, and includes two shared non-stopword tokens. Keep pairs of steps mapped to different requests with distinct labeled evidence. Both selected documents must also be labeled relevant for the complete question. Pick one document from each step's exclusive evidence with a deterministic hash. This yields 72 comparisons over six domains, including 60 in History. A document receives credit for the evidence annotated for the requested step under this training convention.
+
+Exclude all 532 query IDs from the three earlier evaluation samples before assembling either training arm. Use 371 common full-query groups, sampled from previously encoded 30-document lists. For each of the 72 matched comparisons, create two extra groups with identical documents across arms. The whole-question control gives each of the two documents full-query relevance credit in both groups. The contrast arm highlights one literal question fragment at a time and asks the model to score the fragment's evidence using the complete question for time and entity context. The positive label switches with the highlighted fragment. Each arm has 515 groups.
+
+Use the identical pinned Yuanbao-Reranker-0.6B checkpoint, optimizer, LoRA size, one epoch, seed, rank loss, 1,024-token limit and corpus excerpts. Evaluate frozen weights, the whole-question control and the contrast-trained weights on the same 14-document pools. Each model scores the full question and each literal fragment with the same excerpt selection. Compare the full-score vote with a vote averaging the normalized full score and strongest normalized fragment score. Only the contrast-trained fragment vote is eligible for transfer. Use the same fold and domain gates before the disjoint 155, the reserved 191 and any later official-dev test.
