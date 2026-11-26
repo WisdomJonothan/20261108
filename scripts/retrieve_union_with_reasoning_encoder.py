@@ -26,6 +26,16 @@ def four_new(order, original):
     return found
 
 
+def union_for(row, first, second, depth):
+    qid = row['qid']
+    old = row['docs']
+    if len(old) != 60 or len(set(old)) != 60:
+        raise ValueError(f'Expected an unchanged 60-document pool for {row["domain"]}/{qid}')
+    parent_orders = tuple([d for _, _, d in run[qid][:depth]] for run in (first, second))
+    union = list(dict.fromkeys(parent_orders[0] + parent_orders[1] + old))
+    return parent_orders, union
+
+
 def score(args):
     import torch
     from transformers import AutoModel, AutoTokenizer
@@ -48,12 +58,7 @@ def score(args):
         parents, candidates = {}, {}
         for r in group:
             qid = r['qid']
-            parents[qid] = ([d for _,_,d in dense[qid][:args.depth]],
-                            [d for _,_,d in alternative[qid][:args.depth]])
-            old = r['docs']
-            if len(old)!=60 or len(set(old))!=60:
-                raise ValueError(f'Expected an unchanged 60-document pool for {domain}/{qid}')
-            candidates[qid] = list(dict.fromkeys(parents[qid][0]+parents[qid][1]+old))
+            parents[qid], candidates[qid] = union_for(r, dense, alternative, args.depth)
         docs = list(dict.fromkeys(d for pool in candidates.values() for d in pool))
         source = read_documents(args.data_root/domain/'documents.jsonl',set(docs))
         snippets = [(strip_html(source[d][:51200]) or ' ') for d in docs]
@@ -78,9 +83,10 @@ def score(args):
 
 def combine(args):
     pieces = [load(p) for p in args.shards]
-    if not pieces or any(x['models']!=pieces[0]['models'] or x['sources']!=list(SOURCES) for x in pieces):
+    if not pieces or any(x['models'] != pieces[0]['models'] or x['sources'] != pieces[0]['sources']
+                         for x in pieces):
         raise ValueError('The retrieval shards have mismatched configurations')
-    result = {'models':pieces[0]['models'],'sources':list(SOURCES),
+    result = {'models':pieces[0]['models'],'sources':pieces[0]['sources'],
               'per_query':[r for p in pieces for r in p['per_query']]}
     if len(index(result))!=len(result['per_query']):
         raise ValueError('Duplicate query IDs in the search shards')
