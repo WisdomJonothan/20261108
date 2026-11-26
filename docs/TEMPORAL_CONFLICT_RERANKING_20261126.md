@@ -382,3 +382,24 @@ The wider-positive supervision comparison provides a supervised control checkpoi
 All three selection folds choose the near-positive policy. It scores 0.33985 against 0.33821 across the 186, an increase of +0.00164 [−0.00156, +0.00526]. Its smallest leave-one-domain-out gain is +0.00085. Freeze the trained checkpoint and candidate scope. On the 155, it scores **0.32850** against **0.32381**, an increase of +0.00469 [0.00157, 0.00833] with 19 improved and seven declined queries. The minimum leave-one-domain-out gain is +0.00376. The frozen 8B with the same updated candidate list scores 0.32856. The adapter-minus-frozen difference within that list is −0.00006 [−0.00044, +0.00037]. The added candidate scope and fusion are the measured contributors to the improvement in this confirmation.
 
 Keep the already locked policy and proceed to the 109 training questions held out from all recent policy evaluations and the matched adapter training. Reconstruct the frozen comparator on the 109 with the established pretrained models and the repair fit from the original 186. Add the broader candidate scores before opening the 109 relevance judgments. Organizer scoring independently reproduces the first two populations. [Ranking and checkpoint transfer records](../results/analysis/near-adapter-transfer-20261126.tar.gz)
+
+### Account for the origin and rank of the scored documents
+
+For each saved top-ten comparison, partition the nDCG change into terms for newly admitted positives, positives that leave, and rank movement of retained positives. Use each query's original 60-document scope to tag admissions. The terms sum exactly to the organizer's binary nDCG change and are averaged equally across domains.
+
+| Near-positive policy versus frozen ranking | Initial 186 | Confirmation 155 |
+| --- | ---: | ---: |
+| Entrants from beyond the original 60 | 0.00000 | 0.00000 |
+| Entrants from original positions 31 to 60 | +0.00222 | +0.00327 |
+| Entrants from the original first 30 | +0.00070 | 0.00000 |
+| Departures of judged positives | −0.00058 | −0.00046 |
+| Rank movement of retained positives | −0.00070 | +0.00188 |
+| Total | +0.00164 | +0.00469 |
+
+The broader scan recovers original tail candidates that were invisible to the original 30-document pointwise vote. With the frozen scorer on the same revised thirty, these tail admissions contribute +0.00330 on the 155, with +0.00191 from retained rank movement and −0.00046 from departures. The accounting distinguishes candidate exposure inside an existing pool from finding a relevant document outside it. It describes the fixed earlier comparisons. [Decomposition code](../scripts/audit_wide_vote_contributions.py)
+
+## Allocate ten pointwise slots by small-scorer preference inside the original sixty
+
+Keep the frozen 8B, corpus and original candidate identities. In the pointwise vote, reserve the first twenty slots as before. Among original positions 21 to 60, select the ten highest-scoring candidates according to the pinned 0.6B model. Present the selected ten in their original order for the positional prior. Keep the existing scale, the other three votes and first-position rule. This allows a deep candidate to replace one of the existing unprotected ten when the same cheap scorer gives it priority, without drawing from outside the original sixty. The number of candidates beyond the original first thirty is an exposure diagnostic.
+
+Screen only this allocation against the frozen competition rank on the 186. Use the existing three-fold, 155 confirmation, and worst-domain deletion criteria. Any further validation uses a disjoint reserve chosen without reference to the rule's ranking outcomes. The broader-list checkpoint experiment retains its existing 109-query decision. At most that experiment's already locked comparison can open this round of official-dev labels. The extra 60-only allocation asks whether the discovery within the original candidate pool is sufficient under the same 30-document strong-reranker budget.
