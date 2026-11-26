@@ -77,3 +77,36 @@ Start from the 22-document manifests in the [evidence-reasoner protocol](EVIDENC
 Use `score --facets` for the question-fragment logits. The tail exchange uses `replay_evidence_facet_exchange.py`. Candidate selection uses `replay_facet_shortlist.py`, the same facet logits and detailed scores for the candidates used by each selector. The original 14 scores reproduce the fixed reference exactly. The extra scoring pool can be obtained from `extra_grading_pool` before reading judgments.
 
 Rebuild the disjoint populations by filtering the complete training candidate manifest to the archived query IDs. Use the same 30-to-60 expansion and checkpoint instructions as the [width study](QWEN_ADAPTATION_AND_PAIR_EVIDENCE_20261125.md#replay). The shipped `build_temporal_confirmation.py` rebuilds the prior repair from the 186 training questions and assembles the independent-set consensus after pointwise and evidence scoring.
+
+## Retrieve local evidence without discarding the existing candidates
+
+Keep the first 30 candidates, use the mxbai top 300 plus the current pool as the shared source, and reselect the other 30. For each document, encode up to three windows with the original mxbai checkpoint. The full-question score takes the best matching window. The clause score also uses literal interrogative fragments of the original question, with per-query normalization of the fragment scores. The source list and candidate budget are shared across all four controls.
+
+| Candidate source | Initial 186 ideal nDCG@10 | Disjoint 155 ideal nDCG@10 | Initial / disjoint queries without a positive |
+| --- | ---: | ---: | ---: |
+| Existing 60 | 0.67516 | 0.66427 | 31 / 31 |
+| Dense ranks | 0.68243 | 0.65382 | 30 / 32 |
+| Full question matched to windows | 0.68363 | 0.66426 | 30 / 31 |
+| Question fragments matched to windows | 0.69077 | 0.66219 | 28 / 32 |
+
+Replacing half the pool with fragment-selected documents raises the oracle by 0.01562 [−0.00605, +0.03652] on the initial sample. The same rule loses 0.00208 in disjoint confirmation. Each result diagnoses the candidate lists using official training judgments.
+
+In a second setup, retain all 60 existing candidates and score only four new documents from each alternative source. The fragment source finds a new judged positive on eight queries in each population. Plain dense finds one on five and six, respectively. Check the same literal quotation, expected grade and minimum 0.5 grade advantage for both sources. Also require the new candidate to score higher under the 8B pointwise model. Compare allowing one edit at positions 6–10 or 3–10.
+
+| Admission policy | Initial 186 nDCG@10 | Disjoint 155 nDCG@10 |
+| --- | ---: | ---: |
+| Frozen ranking | 0.33821 | 0.32381 |
+| Four new dense candidates, positions 3–10 | 0.33891 | 0.32556 |
+| Four new fragment candidates, positions 3–10 | 0.33984 | 0.32547 |
+
+The fixed fragment rule gains 0.00163 on the initial sample, with two helpful changes and no harmful changes among 34 altered lists. The fold-wise selection ties the frozen ranking. Disjoint confirmation gains 0.00166 [−0.00481, +0.01106], with one helpful and two harmful changes among 29 altered lists. The smallest leave-one-domain-out change is −0.00262. The matched fragment-minus-dense contrast in confirmation is −0.00009. Leave this variant at the training stage. [Candidate pools, logits, quotations' verification indicators and paired rankings](../results/analysis/passage-and-conditional-replay-20261126.tar.gz)
+
+## Compare two ways to score the temporal condition itself
+
+The paired prompt protocol applies temporal requirements in one score and asks the same 4B judge to set them aside in the other. Keep the explicit query, excerpts, 14 candidate IDs and checkpoint identical. Add an equal fifth rank vote, using the full score, the relaxed score, the strict-minus-relaxed difference, or an average of the normalized strict score and the difference. The 186-query reference is 0.33821. The four fixed controls score 0.33760, 0.33790, 0.33595 and 0.33631. Fold-wise selection scores 0.33529.
+
+The question-likelihood protocol instead scores how readily the same model would produce the original question after reading the fixed excerpts. A single causal language model pass yields the average target-token log likelihood over the whole question, literal interrogatives and explicitly temporal terms. Compare averaging all tokens with combining the strongest normalized fragment score with the whole-question score. Then give one-quarter weight to the temporal tokens, using the full question score when they are absent. The three matched controls score 0.33556, 0.33428 and 0.33530 as an additional equal rank vote. Each fold selects the reference. These controls test the contribution of the score construction at equal evidence budgets. [Zero-shot question-generation reranking](https://arxiv.org/abs/2204.07496) · [Cached likelihoods and full replay](../results/analysis/passage-and-conditional-replay-20261126.tar.gz)
+
+## Reserve training queries for future confirmation
+
+A third sample contains 191 official training questions in eight domains. Select up to 30 from each remaining domain by a fixed SHA-256 ordering of its domain and query ID after excluding the preceding 341 questions. Five domains have already supplied every eligible question to the preceding studies. This reserve is disjoint from the two samples used to compare these changes. Previous project components may have encountered these questions in other training or analyses. Freeze a new ranking policy before using these 191 relevance judgments. Keep the 519 public-dev queries out of policy selection. [Reserve IDs and sample definition](../results/analysis/passage-and-conditional-replay-20261126.tar.gz)
