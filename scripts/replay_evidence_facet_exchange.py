@@ -15,15 +15,18 @@ from replay_anchor_fallback import index
 ARMS = ('current', 'pointwise', 'coverage', 'coverage_required')
 
 
+def distribution(names, category, n_facets):
+    active = [*range(n_facets + 1), 5]
+    logits = np.array([category[doc] for doc in names])[:, active]
+    probability = np.exp(logits - np.logaddexp.reduce(logits, axis=1)[:, None])
+    return 1. - probability[:, 0], probability[:, 1:-1]
+
+
 def exchanges(start, outsiders, category, n_facets):
     if n_facets < 2:
         return dict.fromkeys(ARMS, start)
     names = [*start, *outsiders]
-    active = [*range(n_facets + 1), 5]
-    logits = np.array([category[doc] for doc in names])[:, active]
-    probability = np.exp(logits - np.logaddexp.reduce(logits, axis=1)[:, None])
-    support = 1. - probability[:, 0]
-    by_facet = probability[:, 1:-1]
+    support, by_facet = distribution(names, category, n_facets)
     coverage = by_facet[:10].max(axis=0)
     choices = dict.fromkeys(ARMS, start)
     best = dict.fromkeys(ARMS, 0.)
