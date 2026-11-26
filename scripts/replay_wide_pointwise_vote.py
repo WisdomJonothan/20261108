@@ -18,6 +18,7 @@ from retrieve_union_with_pointwise_scan import REVISION
 
 ARMS = ('current', 'replace_pointwise_with_wider_scope')
 ANCHORED = ('current', 'local_candidate_scale', 'original_candidate_scale')
+LOCAL = ('current', 'local_candidate_scale')
 AGREEMENT = ('current', 'same_position_both_scales')
 PROTECTED = ('current', 'reorder_current_membership')
 TAPERED = ('current', 'wide_pointwise_taper')
@@ -174,12 +175,13 @@ def main():
     alternative.add_argument('--protect-membership', action='store_true')
     alternative.add_argument('--taper-vote', action='store_true')
     alternative.add_argument('--guard-admission', action='store_true')
+    alternative.add_argument('--local-only', action='store_true')
     args=p.parse_args()
     if args.output.exists() or (args.stage=='prepare' and args.missing_manifest.exists()):
         p.error('Use fresh output paths')
     if args.stage=='evaluate' and args.confirmation and not args.selection:
         p.error('Confirmation requires a frozen choice')
-    if args.stage == 'evaluate' and (args.stable_across_scales or args.protect_membership or args.taper_vote or args.guard_admission) and not args.retain_position_prior:
+    if args.stage == 'evaluate' and (args.stable_across_scales or args.protect_membership or args.taper_vote or args.guard_admission or args.local_only) and not args.retain_position_prior:
         p.error('The constrained comparisons require the position-preserving pointwise vote')
     if args.stage == 'prepare':
         result = prepare(args)
@@ -191,6 +193,8 @@ def main():
             arms = TAPERED
         if args.guard_admission:
             arms = GUARDED
+        if args.local_only:
+            arms = LOCAL
         result = evaluate(args, replay, arms)
     with args.output.open('x',encoding='utf8') as f:
         json.dump(result,f,separators=(',',':'))
