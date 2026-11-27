@@ -181,6 +181,13 @@ and adds **+0.00012** on 141 other-domain queries, entirely from one Travel
 query whose masked year marks the start of the relevant restriction.
 [Matched year masks and per-query results](docs/DATE_ONLY_MASKING_20261127.md)
 
+**Locked single-swap replay (2026-11-27).** The policy selected from two
+training panels scores **0.40547** on official dev versus **0.40674** for the
+maintained system. Four learned rank-only corrections also score slightly
+lower than their fixed reference on 450 cross-panel training predictions.
+[Official replay](docs/LOCKED_ONE_SWAP_20261127.md) ·
+[Conditional rank fusion](docs/CONDITIONAL_RANK_FUSION_20261127.md)
+
 **Full official-dev Qwen3-8B evaluation (2026-11-25).** With the frozen
 70:30 blend and 100 dense candidates for each of the 519 official dev queries,
 Qwen3-8B scores **0.37959**, compared with **0.37350** for the six-pair
