@@ -175,6 +175,12 @@ Qwen3 0.6B and 96-word evidence budget, an event-linked date excerpt gains
 loses **0.00273** on 141 other training questions across ten domains.
 [Matched controls, transfer and saved scores](docs/EVENT_DATE_WINDOW_20261127.md)
 
+**Masking dates within fixed excerpts (2026-11-27).** A conservative lexical
+rule edits 45 of 3,178 excerpts. It ties the original on 86 History queries
+and adds **+0.00012** on 141 other-domain queries, entirely from one Travel
+query whose masked year marks the start of the relevant restriction.
+[Matched year masks and per-query results](docs/DATE_ONLY_MASKING_20261127.md)
+
 **Full official-dev Qwen3-8B evaluation (2026-11-25).** With the frozen
 70:30 blend and 100 dense candidates for each of the 519 official dev queries,
 Qwen3-8B scores **0.37959**, compared with **0.37350** for the six-pair
