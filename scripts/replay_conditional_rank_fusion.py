@@ -76,8 +76,8 @@ def make_features(docs, current, sources):
                             features.max(axis=1), np.tile(overlap, (len(docs), 1))))
 
 
-def labels(rows, root):
-    cache = {d: load_qrels(root / d / 'qrels_train.txt') for d in {r['domain'] for r in rows}}
+def labels(rows, root, split='train'):
+    cache = {d: load_qrels(root / d / f'qrels_{split}.txt') for d in {r['domain'] for r in rows}}
     return {key(r): cache[r['domain']][r['qid']] for r in rows}
 
 

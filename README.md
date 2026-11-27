@@ -188,6 +188,14 @@ lower than their fixed reference on 450 cross-panel training predictions.
 [Official replay](docs/LOCKED_ONE_SWAP_20261127.md) ·
 [Conditional rank fusion](docs/CONDITIONAL_RANK_FUSION_20261127.md)
 
+**Bounded correction using an independent scorer (2026-11-27).** With
+the current top-ten membership and first result preserved, mxbai-rerank-large
+adds **+0.00267** on 450 training questions and is flat on the separate 242.
+Keeping the end of long questions adds +0.00029 against matched prefix-only
+scoring, with a negative effect under one domain omission.
+[Scorer and query-input tests](docs/FIFTH_RANKER_20261127.md) ·
+[Score calibration controls](docs/CALIBRATED_SAME_TEN_20261127.md)
+
 **Full official-dev Qwen3-8B evaluation (2026-11-25).** With the frozen
 70:30 blend and 100 dense candidates for each of the 519 official dev queries,
 Qwen3-8B scores **0.37959**, compared with **0.37350** for the six-pair
