@@ -1,0 +1,9 @@
+# Compare two independent textual scores under the same rank constraint
+
+The [fixed-weight replay](CALIBRATED_SAME_TEN_20261127.md#additional-replication-of-the-original-fixed-rule) shows substantial variation across panels in the utility of the large cross-encoder. Test whether a different local checkpoint can supply an independent signal. Use the local MS MARCO MiniLM-L6-v2 on the same extracted evidence and existing ten. Each model receives its own tokenizer's first 192 query tokens, with a 512-token maximum input pair. Compare their cached or newly scored logits, keeping the original first result and all ten document identities.
+
+## Frozen comparisons
+
+Use the 692 development queries and hold the separate 191 panel out of selection. Four configurations share the fixed rank prior and 25% correction. They use the large score, the small score, the mean of standardized model scores, or the original order with an adjacent swap only if both single-model corrected scores prefer it. The agreement algorithm begins at rank two, inserts each next document into the prefix, and stops at the first predecessor where the two models fail to agree. It preserves rank one. Choose at most one arm with positive macro and minimum domain and panel omissions relative to the maintained ranking. An ensemble must also beat both single-encoder controls. A MiniLM-only arm must beat the large encoder to advance. The separate 191 comparison receives only the fixed selected policy and the relevant matched controls. This protocol uses no official dev labels.
+
+The maintained score is **0.31004**. The large score reaches 0.31215, MiniLM reaches 0.30998, the mean reaches 0.31171, and agreement reaches 0.31074. The mean and agreement exceed the maintained rank and fall short of the strongest matched single score. They stop at discovery. [Rankings and MiniLM outputs](../results/analysis/dual_cross_encoder_692_20261127.json.gz)

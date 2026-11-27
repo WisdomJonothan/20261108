@@ -1,0 +1,52 @@
+{
+  "independent": {
+    "objective": "independent",
+    "model": "ms-marco-MiniLM-L-6-v2",
+    "seed": 431,
+    "fit_population": 450,
+    "training_groups": 276,
+    "updates": 69,
+    "domains": {
+      "bitcoin": 14,
+      "cardano": 16,
+      "economics": 20,
+      "genealogy": 23,
+      "history": 66,
+      "hsm": 33,
+      "iota": 4,
+      "law": 11,
+      "monero": 13,
+      "politics": 40,
+      "quant": 8,
+      "travel": 16,
+      "workplace": 12
+    },
+    "average_listwise_loss": 2.3042600605150927,
+    "weights_sha256": "34bbe76db4025edcac8b9a4e5ecf1190de00350160c5fa9e6d454e8e8a6989e6"
+  },
+  "fusion": {
+    "objective": "fusion",
+    "model": "ms-marco-MiniLM-L-6-v2",
+    "seed": 431,
+    "fit_population": 450,
+    "training_groups": 276,
+    "updates": 69,
+    "domains": {
+      "bitcoin": 14,
+      "cardano": 16,
+      "economics": 20,
+      "genealogy": 23,
+      "history": 66,
+      "hsm": 33,
+      "iota": 4,
+      "law": 11,
+      "monero": 13,
+      "politics": 40,
+      "quant": 8,
+      "travel": 16,
+      "workplace": 12
+    },
+    "average_listwise_loss": 3.337758101037015,
+    "weights_sha256": "975ae4ceffc333fb9b8df231f33a87e7e0b35f698b791e107611f216d5c9738a"
+  }
+}
