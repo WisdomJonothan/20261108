@@ -205,6 +205,13 @@ only **+0.00025** over the maintained ranking on the 242-query panel.
 [Two-scorer checks](docs/DUAL_CROSS_ENCODER_20261127.md) ·
 [Matched objectives](docs/FUSION_OBJECTIVE_SAME_TEN_20261127.md)
 
+**Candidate coverage and protected suffix ranking (2026-11-27).** Of 883
+training questions, 293 have no judged positive in the maintained ten. A
+coverage gate on one admission loses **0.00054** on the 242-topic panel.
+A learned suffix rank on the dense union gains +0.00151 cross-panel, with
+a negative effect after omitting one panel.
+[Candidate and score audit](docs/COVERAGE_ROUTED_ADMISSION_20261127.md)
+
 **Full official-dev Qwen3-8B evaluation (2026-11-25).** With the frozen
 70:30 blend and 100 dense candidates for each of the 519 official dev queries,
 Qwen3-8B scores **0.37959**, compared with **0.37350** for the six-pair
