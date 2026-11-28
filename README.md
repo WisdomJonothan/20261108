@@ -218,6 +218,13 @@ training topics, versus nine and six for original-query search. The fixed
 two-reranker admission step leaves nDCG@10 at **0.28212** in all arms.
 [New method, matched probes and admission diagnosis](docs/CONTRASTIVE_EVIDENCE_RETRIEVAL_20261128.md)
 
+**List-conditioned evidence admission (2026-11-28).** Accounting for the
+first nine documents reduces fixed-slot replacements from 51 to 3 on 191
+training topics, with the original **0.28212** nDCG@10. A separate eight-step
+diagnostic supplies the annotated requirement and traces which supporting
+offers the scorer recognizes.
+[Matched ranking and focus diagnostics](docs/LIST_CONDITIONED_EVIDENCE_ADMISSION_20261128.md)
+
 **Full official-dev Qwen3-8B evaluation (2026-11-25).** With the frozen
 70:30 blend and 100 dense candidates for each of the 519 official dev queries,
 Qwen3-8B scores **0.37959**, compared with **0.37350** for the six-pair
