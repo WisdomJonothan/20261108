@@ -225,6 +225,12 @@ diagnostic supplies the annotated requirement and traces which supporting
 offers the scorer recognizes.
 [Matched ranking and focus diagnostics](docs/LIST_CONDITIONED_EVIDENCE_ADMISSION_20261128.md)
 
+**Event–year checks for rank-ten admission (2026-11-28).** The explicit
+year parser triggers on 16 of 532 training topics. No offer passes the
+sentence-level event and year check. The baseline is **0.31878** and even
+ideal rank-ten admission among the fixed offers reaches only **0.32385**.
+[Matched evidence checks and action ceilings](docs/EVENT_YEAR_ADMISSION_20261128.md)
+
 **Full official-dev Qwen3-8B evaluation (2026-11-25).** With the frozen
 70:30 blend and 100 dense candidates for each of the 519 official dev queries,
 Qwen3-8B scores **0.37959**, compared with **0.37350** for the six-pair
